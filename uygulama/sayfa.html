@@ -1,9 +1,9 @@
-<title>Bir Harfle Üç Bab</title>
+<title>Sülâsî Mezîd Atölyesi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Amiri:wght@400;700&display=swap">
 <style>
-/* Düzen: üstte sekmeler; her bab kendi rengiyle (mercan hemze, kobalt şedde, firuze elif) aynı iskeletle anlatılır. */
+/* Düzen: üstte grup seçici ve sekmeler; her bab kendi rengiyle (mercan hemze, kobalt şedde, firuze elif, erguvan nûn, kehribar tâ) aynı iskeletle anlatılır. */
 :root {
   --paper: #F3F6FA;
   --card: #FFFFFF;
@@ -14,6 +14,8 @@
   --ifal: #B5402B;
   --tefil: #2848A6;
   --mufaale: #0D7A73;
+  --infial: #8A3B8F;
+  --iftial: #9A5B00;
   --ek: #7C879D;
   --good: #1F7A3E;
   --bad: #B3261E;
@@ -27,13 +29,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper: #0F141E; --card: #171E2C; --ink: #E7EBF3; --muted: #9DA8BC; --line: #2B3448; --soft: #1E2738;
-    --ifal: #F2866F; --tefil: #93A9FF; --mufaale: #52D0C3; --ek: #8C98AF;
+    --ifal: #F2866F; --tefil: #93A9FF; --mufaale: #52D0C3; --infial: #E59AE8; --iftial: #F2B45C; --ek: #8C98AF;
     --good: #6FD08E; --bad: #FF8A80; --good-bg: #16301F; --bad-bg: #3A1C1A; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #0F141E; --card: #171E2C; --ink: #E7EBF3; --muted: #9DA8BC; --line: #2B3448; --soft: #1E2738;
-  --ifal: #F2866F; --tefil: #93A9FF; --mufaale: #52D0C3; --ek: #8C98AF;
+  --ifal: #F2866F; --tefil: #93A9FF; --mufaale: #52D0C3; --infial: #E59AE8; --iftial: #F2B45C; --ek: #8C98AF;
   --good: #6FD08E; --bad: #FF8A80; --good-bg: #16301F; --bad-bg: #3A1C1A; color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -51,6 +53,8 @@ p { margin: 0; }
 .b-ifal { --bab: var(--ifal); }
 .b-tefil { --bab: var(--tefil); }
 .b-mufaale { --bab: var(--mufaale); }
+.b-infial { --bab: var(--infial); }
+.b-iftial { --bab: var(--iftial); }
 
 /* başlık */
 header.top { padding-block: 28px 18px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: end; }
@@ -61,6 +65,16 @@ header.top p { color: var(--muted); max-width: 60ch; margin-top: 6px; }
 .seal span.i { color: var(--ifal); border-color: var(--ifal); }
 .seal span.t { color: var(--tefil); border-color: var(--tefil); }
 .seal span.m { color: var(--mufaale); border-color: var(--mufaale); }
+.seal span.n { color: var(--infial); border-color: var(--infial); width: auto; min-width: 58px; padding-inline: 10px; border-radius: 30px; }
+.seal span.f { color: var(--iftial); border-color: var(--iftial); width: auto; min-width: 58px; padding-inline: 10px; border-radius: 30px; }
+.groups { display: flex; gap: 4px; padding: 4px; background: var(--soft); border-radius: 999px; width: max-content; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.groups button { flex: none; font: inherit; font-weight: 700; font-size: .92rem; border: 0; background: transparent; color: var(--muted); padding: 7px 16px; border-radius: 999px; cursor: pointer; }
+.groups button[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 3px rgba(23,33,58,.15); }
+.ibdal { width: 100%; border-collapse: collapse; min-width: 560px; }
+.ibdal th, .ibdal td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: start; vertical-align: middle; }
+.ibdal th { font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.ibdal td.ar { font-size: 1.5rem; }
+
 
 /* sekmeler */
 nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line); display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-block: 8px; }
@@ -71,6 +85,8 @@ nav.tabs button[aria-selected="true"] { background: var(--ink); color: var(--pap
 nav.tabs button[aria-selected="true"].b-ifal { background: var(--ifal); }
 nav.tabs button[aria-selected="true"].b-tefil { background: var(--tefil); }
 nav.tabs button[aria-selected="true"].b-mufaale { background: var(--mufaale); }
+nav.tabs button[aria-selected="true"].b-infial { background: var(--infial); }
+nav.tabs button[aria-selected="true"].b-iftial { background: var(--iftial); }
 nav.tabs button[aria-selected="true"] .ar, nav.tabs button[aria-selected="true"] { color: var(--paper); }
 button:focus-visible, select:focus-visible, input:focus-visible, .opt:focus-visible { outline: 3px solid var(--bab); outline-offset: 2px; }
 
@@ -241,7 +257,7 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
 .target.flash-no { background: var(--bad-bg); animation: shake .35s; }
 .gfb { min-height: 3.2em; text-align: center; }
 .gfb .ar { font-size: 1.4rem; }
-.pick3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pick3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
 .pick3 button { font: inherit; font-weight: 800; font-family: var(--f-display); font-size: 1.15rem; padding: 16px 6px; border-radius: 14px; border: 0; color: var(--card); background: var(--bab); cursor: pointer; display: grid; gap: 2px; justify-items: center; }
 .pick3 button .ar { font-size: 1.5rem; font-weight: 400; line-height: 1.3; }
 .pick3 button small { font-family: var(--f-body); font-weight: 500; font-size: .75rem; opacity: .85; }
@@ -277,7 +293,7 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
 .kova-pool { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; min-height: 48px; }
 .kova-pool .chip { font-size: 1.05rem; padding: 8px 15px; }
 .kova-pool .chip[aria-pressed="true"] { --bab: var(--ink); animation: pop .25s; }
-.kovalar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.kovalar { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
 .kova { font: inherit; text-align: start; border: 2px solid var(--bab); border-radius: 0 0 18px 18px; border-top-width: 6px; background: var(--card); color: var(--ink); padding: 10px; min-height: 170px; display: grid; align-content: start; gap: 6px; cursor: pointer; }
 .kova h3 { color: var(--bab); font-size: 1.05rem; }
 .kova .ar.v { font-size: 1.3rem; color: var(--bab); line-height: 1.4; }
@@ -290,7 +306,6 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
 @media (max-width: 720px) {
   .top-side { justify-items: start; }
   .mem { grid-template-columns: repeat(3, 1fr); }
-  .kovalar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pick3 button { font-size: 1rem; padding: 12px 4px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
@@ -299,21 +314,18 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
 <div class="wrap">
   <header class="top">
     <div>
-      <div class="lbl">Sülâsî Mezîd · Bir harf ilâvesiyle</div>
-      <h1>Bir Harfle Üç Bab</h1>
-      <p>Üç harfli köke tek bir harf ekleyince üç ayrı bab doğar: başa hemze <b class="ar" style="color:var(--ifal)">أ</b>, ortaya bir ayn daha <b class="ar" style="color:var(--tefil)">ّ</b>, fâ'dan sonra elif <b class="ar" style="color:var(--mufaale)">ا</b>. Türkçede zaten bildiğin kelimeler bu üç kalıbın çapası olacak.</p>
+      <div class="lbl" id="hdr-lbl">Sülâsî Mezîd · Bir harf ilâvesiyle</div>
+      <h1 id="hdr-h1">Bir Harfle Üç Bab</h1>
+      <p id="hdr-p"></p>
     </div>
-    <div class="top-side"><div class="seal" aria-hidden="true"><span class="i">أ</span><span class="t">ـّـ</span><span class="m">ا</span></div><div class="xpbox" id="xpbox" aria-live="polite"></div></div>
+    <div class="top-side"><div class="seal" id="seal" aria-hidden="true"></div><div class="xpbox" id="xpbox" aria-live="polite"></div></div>
   </header>
 
+  <div class="groups" id="groups" role="group" aria-label="Bab grubu">
+    <button data-group="bir" aria-pressed="true">Bir harf ilâveli · 3 bab</button>
+    <button data-group="iki" aria-pressed="false">İki harf ilâveli · İnfi'âl, İfti'âl</button>
+  </div>
   <nav class="tabs" role="tablist" aria-label="Bölümler">
-    <button role="tab" id="tab-giris" data-tab="giris" aria-selected="true">Giriş</button>
-    <button role="tab" id="tab-ifal" data-tab="ifal" class="b-ifal" aria-selected="false">İf'âl <span class="ar">إفعال</span></button>
-    <button role="tab" id="tab-tefil" data-tab="tefil" class="b-tefil" aria-selected="false">Tef'îl <span class="ar">تفعيل</span></button>
-    <button role="tab" id="tab-mufaale" data-tab="mufaale" class="b-mufaale" aria-selected="false">Mufâale <span class="ar">مفاعلة</span></button>
-    <button role="tab" id="tab-karsilastir" data-tab="karsilastir" aria-selected="false">Karşılaştır</button>
-    <button role="tab" id="tab-oyunlar" data-tab="oyunlar" aria-selected="false">Oyunlar</button>
-    <button role="tab" id="tab-sinav" data-tab="sinav" aria-selected="false">Sınav</button>
   </nav>
 
   <main id="main"></main>
@@ -378,6 +390,39 @@ var GEN = {
     muzStem: function (f, a, l) { return f + F + z("ا") + a + K; }
   }
 };
+// İfti'âl: fâü'l-fiil + ت (ibdâl ve idgâmla). v: ت'nin harekesi
+function ift(f, v) {
+  if ("صضظ".indexOf(f) >= 0) return f + S + z("ط" + v);
+  if (f === "ط") return z("ط" + SH + v);
+  if (f === "ز") return f + S + z("د" + v);
+  if (f === "د") return z("د" + SH + v);
+  if (f === "و" || f === "ي") return z("ت" + SH + v);
+  return f + S + z("ت" + v);
+}
+GEN.infial = {
+  mv: F,
+  mazi: function (f, a, l) { return z("اِنْ") + f + F + a + F + l + F; },
+  muzari: function (f, a, l) { return e("يَ") + z("نْ") + f + F + a + K + l + D; },
+  masdar: function (f, a, l) { return z("اِنْ") + f + K + a + F + e("ا") + l + TF + e("ا"); },
+  fail: function (f, a, l) { return e("مُ") + z("نْ") + f + F + a + K + l + TD; },
+  meful: function (f, a, l) { return e("مُ") + z("نْ") + f + F + a + F + l + TD; },
+  emir: function (f, a, l) { return z("اِنْ") + f + F + a + K + l + S; },
+  nehy: function (f, a, l) { return e("لَا تَ") + z("نْ") + f + F + a + K + l + S; },
+  maziStem: function (f, a, l) { return z("اِنْ") + f + F + a + F; },
+  muzStem: function (f, a, l) { return z("نْ") + f + F + a + K; }
+};
+GEN.iftial = {
+  mv: F,
+  mazi: function (f, a, l) { return z("اِ") + ift(f, F) + a + F + l + F; },
+  muzari: function (f, a, l) { return e("يَ") + ift(f, F) + a + K + l + D; },
+  masdar: function (f, a, l) { return z("اِ") + ift(f, K) + a + F + e("ا") + l + TF + e("ا"); },
+  fail: function (f, a, l) { return e("مُ") + ift(f, F) + a + K + l + TD; },
+  meful: function (f, a, l) { return e("مُ") + ift(f, F) + a + F + l + TD; },
+  emir: function (f, a, l) { return z("اِ") + ift(f, F) + a + K + l + S; },
+  nehy: function (f, a, l) { return e("لَا تَ") + ift(f, F) + a + K + l + S; },
+  maziStem: function (f, a, l) { return z("اِ") + ift(f, F) + a + F; },
+  muzStem: function (f, a, l) { return ift(f, F) + a + K; }
+};
 function letters(root) { return Array.from(root); }
 function gen(bab, root, form) {
   var r = letters(root);
@@ -406,7 +451,7 @@ function conjugate(bab, root) {
   var r = letters(root), g = GEN[bab];
   var mStem = g.maziStem(r[0], r[1], r[2]), uStem = g.muzStem(r[0], r[1], r[2]);
   return PRONOUNS.map(function (p, i) {
-    return { pr: p, mazi: mStem + attach(r[2], MAZI_SUF[i]), muzari: e(MUZ[i][0]) + uStem + attach(r[2], MUZ[i][1]) };
+    return { pr: p, mazi: mStem + attach(r[2], MAZI_SUF[i]), muzari: e(MUZ[i][0].charAt(0) + (g.mv || D)) + uStem + attach(r[2], MUZ[i][1]) };
   });
 }
 
@@ -551,20 +596,170 @@ var BABS = {
       { r: "بلغ", mc: "بَلَغَ", mcT: "ulaştı", t: "ileri gitti, abarttı", w: [["mübâlağa", "masdar"]] },
       { r: "كرم", mc: "كَرُمَ", mcT: "cömert oldu", t: "cömertlikte yarıştı", w: [["mükârame", "masdar"]] }
     ]
+  },
+  infial: {
+    key: "infial", name: "İnfi'âl", ar: "اِنْفِعَالٌ", vezin: "اِنْفَعَلَ",
+    added: "Hemze-i vasl ve nûn (اِنْ)", place: "İkisi de kökün başına", model: "صرف",
+    mvText: "harf-i mudâraa <b>fethalı</b> (mâzî beş harfli)", noMeful: true, mefulCer: " عَنْهُ",
+    motto: "<b>Başa اِنْ koy:</b> fiil <b>edilgen ve geçişsiz</b> olur: kırdı → kırıldı. Masdarda İn…i…â… sesini duyarsın: <b>inkisâr, inkılâb, inşirâh, infilâk</b>.",
+    trKalip: "İn_i_â_", trFail: "Mün_e_i_ (münkesir, münferit, münhasır)", trMeful: "yok, yalnız harf-i cerle",
+    fevaid: [
+      { n: "Mutâvaat (etkiyi kabul etme)", d: "Asıl mânâ: bir fiilin etkisini üzerine almak. Türkçede çoğu zaman -ıl / -ın ekiyle karşılanır.", ex: [["كَسَرْتُهُ", "onu kırdım"], ["اِنْكَسَرَ", "kırıldı"]] },
+      { n: "Lüzûm (daima geçişsiz)", d: "İnfi'âl mef'ûl almaz. Bu yüzden ism-i mef'ûlü ancak harf-i cerle kurulur: مُنْصَرَفٌ عَنْهُ.", ex: [["قَطَعَ الْحَبْلَ", "ipi kesti"], ["اِنْقَطَعَ الْحَبْلُ", "ip kesildi"]] },
+      { n: "Göze görünen tesir", d: "Dışarıdan görülen, duyularla fark edilen işlerde kullanılır. Zihnî fiillerden gelmez: عَلِمَ'den اِنْعَلَمَ denmez.", ex: [["فَتَحَ", "açtı"], ["اِنْفَتَحَ", "açıldı"]] },
+      { n: "Dönüşme, hâl değiştirme", d: "Bir şeyin kendi kendine başka bir hâle geçmesini anlatır.", ex: [["قَلَبَ", "ters çevirdi"], ["اِنْقَلَبَ", "dönüştü, değişti"]] },
+      { n: "Harekete geçme", d: "Bazen mutâvaat yerine yola koyulmayı, hareketi bildirir.", ex: [["طَلَقَ", "serbest kaldı"], ["اِنْطَلَقَ", "yola koyuldu"]] }
+    ],
+    notes: [
+      "Baştaki <span class=\"ar\">اِ</span> <b>hemze-i vasl</b>dır: yalnız kelimeyle başlarken okunur. Önüne bir harf gelince düşer: <span class=\"ar\">وَانْكَسَرَ</span> \"ve-nkesera\" diye okunur.",
+      "Mâzî beş harfli olduğu için muzâri harfi <b>fethalıdır</b>: <span class=\"ar\">يَنْكَسِرُ</span>. İf'âl, Tef'îl ve Mufâale'de dört harfli mâzî vardı, orada ötreliydi: <span class=\"ar\">يُكْرِمُ</span>.",
+      "İnfi'âl daima <b>lâzım</b>dır. Emsile bu yüzden ism-i mef'ûlü harf-i cerle verir: <span class=\"ar\">وَذَاكَ مُنْصَرَفٌ عَنْهُ</span>.",
+      "İlk kök harfi <span class=\"ar\">ل ر م ن و ي</span> olan fiiller İnfi'âl'e pek girmez; aynı anlam için İfti'âl kullanılır: <span class=\"ar\">اِرْتَفَعَ</span> yükseldi, <span class=\"ar\">اِمْتَلَأَ</span> doldu.",
+      "Tuzak: <b>intizâr, intikâm, intişâr</b> da İn ile başlar, ama orada ن kök harfidir ve hemen arkasından <b>ti</b> gelir: İfti'âl. İnfi'âl'de İn'den sonra doğrudan kök gelir: in-<b>kisâr</b>, in-<b>hirâf</b>."
+    ],
+    quran: [
+      { ar: "إِذَا السَّمَاءُ انْفَطَرَتْ", src: "İnfitâr 82:1", note: "<span class=\"ar\">انْفَطَرَتْ</span>: İnfi'âl mâzî (dişil), \"yarıldığı zaman\". Surenin adı da bu babın masdarıdır: <b>İnfitâr</b>." },
+      { ar: "اقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ", src: "Kamer 54:1", note: "<span class=\"ar\">انْشَقَّ</span>: İnfi'âl mâzî, \"yarıldı\". Hemze-i vasl وَ'dan sonra okunmaz: ve-nşakka. Aynı ayetteki <span class=\"ar\">اقْتَرَبَتْ</span> ise İfti'âl'dir." }
+    ],
+    roots: [
+      { r: "صرف", mc: "صَرَفَ", mcT: "çevirdi, geri döndürdü", t: "döndü, ayrılıp gitti", w: [["munsarif", "fail"]] },
+      { r: "قلب", mc: "قَلَبَ", mcT: "ters çevirdi", t: "döndü, dönüştü", w: [["inkılâb", "masdar"], ["münkalib", "fail"]] },
+      { r: "كسر", mc: "كَسَرَ", mcT: "kırdı", t: "kırıldı", w: [["inkisâr", "masdar"], ["münkesir", "fail"]] },
+      { r: "فلق", mc: "فَلَقَ", mcT: "yardı", t: "yarıldı, patladı", w: [["infilâk", "masdar"]] },
+      { r: "شرح", mc: "شَرَحَ", mcT: "açtı, açıkladı", t: "açıldı, ferahladı", w: [["inşirâh", "masdar"]] },
+      { r: "حرف", mc: "حَرَفَ", mcT: "bir yana çevirdi", t: "yoldan saptı", w: [["inhirâf", "masdar"], ["münharif", "fail"]] },
+      { r: "قطع", mc: "قَطَعَ", mcT: "kesti", t: "kesildi", w: [["inkıtâ", "masdar"], ["munkatı", "fail"]] },
+      { r: "فسخ", mc: "فَسَخَ", mcT: "bozdu", t: "bozuldu", w: [["infisâh", "masdar"]] },
+      { r: "حصر", mc: "حَصَرَ", mcT: "kuşattı, sınırladı", t: "bir şeyle sınırlı kaldı", w: [["inhisâr", "masdar"], ["münhasır", "fail"]] },
+      { r: "كشف", mc: "كَشَفَ", mcT: "açtı", t: "açığa çıktı", w: [["inkişâf", "masdar"]] },
+      { r: "فعل", mc: "فَعَلَ", mcT: "yaptı", t: "etkilendi, alındı", w: [["infiâl", "masdar"], ["münfail", "fail"]] },
+      { r: "قرض", mc: "قَرَضَ", mcT: "kesti, kemirdi", t: "soyu tükendi", w: [["inkırâz", "masdar"], ["münkariz", "fail"]] },
+      { r: "بسط", mc: "بَسَطَ", mcT: "yaydı", t: "yayıldı, ferahladı", w: [["inbisât", "masdar"], ["münbasit", "fail"]] },
+      { r: "فصل", mc: "فَصَلَ", mcT: "ayırdı", t: "ayrıldı", w: [["infisâl", "masdar"], ["münfasıl", "fail"]] },
+      { r: "قسم", mc: "قَسَمَ", mcT: "böldü", t: "bölündü", w: [["inkısâm", "masdar"], ["münkasım", "fail"]] },
+      { r: "هزم", mc: "هَزَمَ", mcT: "bozguna uğrattı", t: "bozguna uğradı", w: [["inhizâm", "masdar"], ["münhezim", "fail"]] },
+      { r: "ضبط", mc: "ضَبَطَ", mcT: "sıkıca tuttu", t: "düzene, disipline girdi", w: [["inzibât", "masdar"], ["munzabıt", "fail"]] },
+      { r: "قبض", mc: "قَبَضَ", mcT: "kavradı, sıktı", t: "büzüldü, daraldı", w: [["inkıbâz", "masdar"], ["münkabız", "fail"]] },
+      { r: "فرد", mc: "فَرَدَ", mcT: "tek kaldı", t: "yalnız kaldı, ayrı düştü", w: [["infirâd", "masdar"], ["münferid", "fail"]] },
+      { r: "فطر", mc: "فَطَرَ", mcT: "yardı", t: "yarıldı", w: [["infitâr", "masdar"]] },
+      { r: "عكس", mc: "عَكَسَ", mcT: "tersine çevirdi", t: "yansıdı", w: [["in'ikâs", "masdar"], ["mün'akis", "fail"]] },
+      { r: "عقد", mc: "عَقَدَ", mcT: "bağladı", t: "bağlandı; toplandı", w: [["in'ikâd", "masdar"], ["mün'akid", "fail"]] }
+    ]
+  },
+  iftial: {
+    key: "iftial", name: "İfti'âl", ar: "اِفْتِعَالٌ", vezin: "اِفْتَعَلَ",
+    added: "Hemze-i vasl (اِ) ve tâ (ت)", place: "Hemze başa, ت fâü'l-fiilden sonra", model: "جمع",
+    mvText: "harf-i mudâraa <b>fethalı</b> (mâzî beş harfli)", mefulCer: " عَلَيْهِ",
+    motto: "<b>Başa اِ, ilk harften sonra تَ koy:</b> fiil <b>dönüşlü, karşılıklı ya da emekli</b> olur. Masdarda İ…ti…â… sesini duyarsın: <b>ihtirâm, iştirâk, ictimâ, intizâr</b>.",
+    trKalip: "İ_ti_â_", trFail: "Mu_te_i_ (muhtelif, muktedir, müctehid)", trMeful: "Mu_te_e_ (muhterem, mu'teber, müşterek)",
+    fevaid: [
+      { n: "Mutâvaat (etkiyi kabul etme)", d: "Bir fiilin etkisini üzerine almak. İnfi'âl gibidir ama kökün ilk harfi ne olursa olsun kullanılabilir.", ex: [["جَمَعْتُهُ", "onu topladım"], ["اِجْتَمَعَ", "toplandı"]] },
+      { n: "Müşâreket (karşılıklılık)", d: "İşi birden çok kişinin birbirine yapması. Fâil çoğul ya da ikil olur.", ex: [["قَتَلَ", "öldürdü"], ["اِقْتَتَلُوا", "birbirleriyle savaştılar"]] },
+      { n: "İttihâz (kendine edinme)", d: "Kökteki şeyi kendisi için edinmek, kendine yapmak.", ex: [["خَبَزَ", "ekmek pişirdi"], ["اِخْتَبَزَ", "kendine ekmek pişirdi"]] },
+      { n: "Mübâlağa ve çaba", d: "İşin zahmetle, gayretle yapıldığını bildirir.", ex: [["كَسَبَ", "kazandı"], ["اِكْتَسَبَ", "çabalayarak kazandı"]] },
+      { n: "İzhâr (açığa vurma)", d: "Kökteki şeyi ortaya koymak, belli etmek.", ex: [["عَذَرَ", "mazur gördü"], ["اِعْتَذَرَ", "özür diledi"]] }
+    ],
+    notes: [
+      "<span class=\"ar\">ت</span> ilk kök harften sonra gelir: <span class=\"ar\">ج + ت + م ع</span> → <span class=\"ar\">اِجْتَمَعَ</span>. Türkçede ilk heceden sonra <b>ti / te</b> duyarsın: ih-<b>ti</b>-râm, iş-<b>ti</b>-râk, ic-<b>ti</b>-mâ.",
+      "<b>Bukalemun ت:</b> ilk kök harf <span class=\"ar\">ص ض ط ظ</span> ise ت <span class=\"ar\">ط</span> olur (ıs<b>tı</b>lâh, ız<b>tı</b>râb); <span class=\"ar\">د ذ ز</span> ise <span class=\"ar\">د</span> olur (iz<b>di</b>hâm, iz<b>di</b>vâc); <span class=\"ar\">و</span> ise ت'ye dönüşüp şeddelenir (i<b>tti</b>fâk, i<b>tti</b>hâd).",
+      "Hemze-i vasl ve fethalı muzâri harfi İnfi'âl ile ortaktır: <span class=\"ar\">يَجْتَمِعُ</span>. Emir de hemze-i vasl ile başlar: <span class=\"ar\">اِجْتَمِعْ</span>.",
+      "İfti'âl hem lâzım hem müteaddî olabilir. <span class=\"ar\">اِحْتَرَمَ</span> (saygı gösterdi) geçişlidir; bu yüzden ism-i mef'ûlü vardır: <b>muhterem</b>. Lâzım olan <span class=\"ar\">اِجْتَمَعَ</span> için Emsile <span class=\"ar\">مُجْتَمَعٌ عَلَيْهِ</span> der.",
+      "Tuzak: <b>istimâ</b> İfti'âl'dir (س م ع kökü, araya ت girmiş: is-ti-mâ). <b>İstiğfâr, istikbâl</b> ise başta <span class=\"ar\">اِسْتَ</span> taşır: İstif'âl babı, üç harf ilâvesi."
+    ],
+    quran: [
+      { ar: "لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ", src: "Bakara 2:286", note: "<span class=\"ar\">كَسَبَتْ</span> mücerred, <span class=\"ar\">اكْتَسَبَتْ</span> İfti'âl'dir. Kötülük için zorlanarak, gayretle yapmayı bildiren kalıp seçilmiştir (mübâlağa)." },
+      { ar: "وَاعْتَصِمُوا بِحَبْلِ اللّٰهِ جَمِيعًا", src: "Âl-i İmrân 3:103", note: "<span class=\"ar\">اعْتَصِمُوا</span>: İfti'âl emir (siz), \"sımsıkı tutunun\". Kök ع ص م; masdarı <b>i'tisâm</b>." }
+    ],
+    roots: [
+      { r: "جمع", mc: "جَمَعَ", mcT: "topladı", t: "toplandı, bir araya geldi", w: [["ictimâ", "masdar"]] },
+      { r: "حرم", mc: "حَرُمَ", mcT: "dokunulmaz oldu", t: "saygı gösterdi", w: [["ihtirâm", "masdar"], ["muhterem", "meful"]] },
+      { r: "شرك", mc: "شَرِكَ", mcT: "ortak oldu", t: "ortaklaştı, katıldı", w: [["iştirâk", "masdar"], ["müşterek", "meful"]] },
+      { r: "نظر", mc: "نَظَرَ", mcT: "baktı", t: "bekledi", w: [["intizâr", "masdar"], ["muntazar", "meful"]] },
+      { r: "خلف", mc: "خَلَفَ", mcT: "arkasından geldi", t: "ayrılığa düştü", w: [["ihtilâf", "masdar"], ["muhtelif", "fail"]] },
+      { r: "نقل", mc: "نَقَلَ", mcT: "taşıdı", t: "taşındı, geçti", w: [["intikâl", "masdar"]] },
+      { r: "نقم", mc: "نَقَمَ", mcT: "kızdı", t: "öç aldı", w: [["intikâm", "masdar"], ["müntakim", "fail"]] },
+      { r: "قبس", mc: "قَبَسَ", mcT: "ateş aldı", t: "alıntı yaptı", w: [["iktibâs", "masdar"], ["muktebes", "meful"]] },
+      { r: "سمع", mc: "سَمِعَ", mcT: "işitti", t: "kulak verdi, dinledi", w: [["istimâ", "masdar"], ["müstemi", "fail"]] },
+      { r: "نخب", mc: "نَخَبَ", mcT: "seçti", t: "seçim yaptı", w: [["intihâb", "masdar"], ["müntehab", "meful"]] },
+      { r: "فخر", mc: "فَخَرَ", mcT: "övündü", t: "iftihar etti", w: [["iftihâr", "masdar"], ["müftehir", "fail"]] },
+      { r: "قصد", mc: "قَصَدَ", mcT: "yöneldi", t: "ölçülü davrandı", w: [["iktisâd", "masdar"], ["muktesid", "fail"]] },
+      { r: "حمل", mc: "حَمَلَ", mcT: "taşıdı", t: "katlandı; mümkün gördü", w: [["ihtimâl", "masdar"], ["muhtemel", "meful"]] },
+      { r: "لزم", mc: "لَزِمَ", mcT: "gerekti, ayrılmadı", t: "üstlendi", w: [["iltizâm", "masdar"], ["mültezim", "fail"]] },
+      { r: "لفت", mc: "لَفَتَ", mcT: "çevirdi", t: "yüzünü çevirip ilgilendi", w: [["iltifât", "masdar"]] },
+      { r: "قدر", mc: "قَدَرَ", mcT: "gücü yetti", t: "çok güçlü oldu", w: [["iktidâr", "masdar"], ["muktedir", "fail"]] },
+      { r: "جهد", mc: "جَهَدَ", mcT: "çabaladı", t: "içtihat etti", w: [["ictihâd", "masdar"], ["müctehid", "fail"]] },
+      { r: "نشر", mc: "نَشَرَ", mcT: "yaydı", t: "yayıldı", w: [["intişâr", "masdar"]] },
+      { r: "عرف", mc: "عَرَفَ", mcT: "bildi, tanıdı", t: "itiraf etti", w: [["i'tirâf", "masdar"]] },
+      { r: "عبر", mc: "عَبَرَ", mcT: "karşıya geçti", t: "ibret aldı, değer verdi", w: [["i'tibâr", "masdar"], ["mu'teber", "meful"]] },
+      { r: "عقد", mc: "عَقَدَ", mcT: "bağladı", t: "inandı", w: [["i'tikâd", "masdar"], ["mu'tekid", "fail"]] },
+      { r: "عدل", mc: "عَدَلَ", mcT: "adil davrandı", t: "dengede durdu", w: [["i'tidâl", "masdar"], ["mu'tedil", "fail"]] },
+      { r: "حكر", mc: "حَكَرَ", mcT: "biriktirdi", t: "karaborsacılık yaptı", w: [["ihtikâr", "masdar"], ["muhtekir", "fail"]] },
+      { r: "فتح", mc: "فَتَحَ", mcT: "açtı", t: "açılışını yaptı", w: [["iftitâh", "masdar"]] },
+      { r: "خصر", mc: "خَصْرٌ", mcT: "bel (isim)", t: "kısalttı, özetledi", w: [["ihtisâr", "masdar"], ["muhtasar", "meful"]] },
+      { r: "حرف", mc: "حَرَفَ", mcT: "bir yana çevirdi", t: "meslek edindi", w: [["ihtirâf", "masdar"], ["muhterif", "fail"]] },
+      { r: "صلح", mc: "صَلَحَ", mcT: "iyi, düzgün oldu", t: "bir terim üzerinde anlaştı", w: [["ıstılâh", "masdar"], ["mustalah", "meful"]] },
+      { r: "ضرب", mc: "ضَرَبَ", mcT: "vurdu", t: "çalkalandı, sarsıldı", w: [["ıztırâb", "masdar"], ["muztarib", "fail"]] },
+      { r: "طلع", mc: "طَلَعَ", mcT: "doğdu, çıktı", t: "bilgi edindi", w: [["ıttılâ", "masdar"], ["muttali", "fail"]] },
+      { r: "زحم", mc: "زَحَمَ", mcT: "sıkıştırdı", t: "kalabalıkta sıkıştılar", w: [["izdihâm", "masdar"]] },
+      { r: "دخر", mc: "دَخَرَ", mcT: "küçüldü (az kullanılır)", t: "biriktirdi, sakladı", w: [["iddihâr", "masdar"]] },
+      { r: "وصل", mc: "وَصَلَ", mcT: "ulaştı", t: "bitişti, bağlandı", w: [["ittisâl", "masdar"], ["muttasıl", "fail"]] },
+      { r: "وفق", mc: "وَفِقَ", mcT: "uygun düştü", t: "anlaştı", w: [["ittifâk", "masdar"], ["müttefik", "fail"]] },
+      { r: "وحد", mc: "وَحَدَ", mcT: "tek kaldı", t: "birleşti", w: [["ittihâd", "masdar"], ["müttehid", "fail"]] },
+      { r: "وهم", mc: "وَهَمَ", mcT: "zannetti", t: "suçladı", w: [["ittihâm", "masdar"], ["müttehem", "meful"]] }
+    ]
+  }
+
+};
+var ALL_KEYS = ["ifal", "tefil", "mufaale", "infial", "iftial"];
+var ASIL = { ifal: "geçişli yapma", tefil: "geçişli yapma, çokluk", mufaale: "karşılıklılık", infial: "etkiyi kabul (edilgen), daima geçişsiz", iftial: "etkiyi kabul, karşılıklılık, çaba" };
+var GROUPS = {
+  bir: {
+    keys: ["ifal", "tefil", "mufaale"], lbl: "Sülâsî Mezîd · Bir harf ilâvesiyle", h1: "Bir Harfle Üç Bab", count: "Üç",
+    intro: 'Üç harfli köke tek bir harf ekleyince üç ayrı bab doğar: başa hemze <b class="ar" style="color:var(--ifal)">أ</b>, ortaya bir ayn daha <b class="ar" style="color:var(--tefil)">ّ</b>, fâ\'dan sonra elif <b class="ar" style="color:var(--mufaale)">ا</b>. Türkçede zaten bildiğin kelimeler bu üç kalıbın çapası olacak.',
+    seal: '<span class="i">أ</span><span class="t">ـّـ</span><span class="m">ا</span>',
+    cmpNote: "Aynı satırda üç babın neyi paylaştığına bak: muzâri harfi hep ötreli, muzâri, emir ve fâilde sondan önceki harf hep kesreli, mef\'ûlde hep fethalı.",
+    trio: [
+      { r: "حكم", mc: "حَكَمَ", t: "hükmetti", m: { ifal: ["sağlamlaştırdı", "ihkâm, muhkem"], tefil: ["hakem yaptı", "tahkîm"], mufaale: ["yargıladı", "muhâkeme"] } },
+      { r: "عرض", mc: "عَرَضَ", t: "sundu", m: { ifal: ["yüz çevirdi", "i'râz"], tefil: ["maruz bıraktı", "ta'rîz"], mufaale: ["karşı çıktı", "muâraza, muârız"] } },
+      { r: "كرم", mc: "كَرُمَ", t: "değerli oldu", m: { ifal: ["ikram etti", "ikrâm, mükrem"], tefil: ["onurlandırdı", "tekrîm, mükerrem"], mufaale: ["cömertlikte yarıştı", "mükârame"] } }
+    ],
+    tips: [
+      'Mâzîde <b>başta hemze</b> var ve ikinci harf sakin mi? <b style="color:var(--ifal)">İf\'âl</b>.',
+      'Ortada <b>şedde</b> var ve başında ek yok mu? <b style="color:var(--tefil)">Tef\'îl</b>.',
+      'İlk harften sonra <b>uzun â</b> var mı? <b style="color:var(--mufaale)">Mufâale</b>.',
+      'Başta <span class="ar">مُ</span> varsa, ondan sonraki yapıya bak: sakin harf İf\'âl, şedde Tef\'îl, uzun â Mufâale. Sonra son harften önceki harekeye bak: kesre fâil, fetha mef\'ûl.'
+    ]
+  },
+  iki: {
+    keys: ["infial", "iftial"], lbl: "Sülâsî Mezîd · İki harf ilâvesiyle", h1: "İki Harfle İki Bab", count: "İki",
+    intro: 'Köke iki harf eklenince fiil beş harfe çıkar ve başına bir <b>hemze-i vasl</b> gelir. İnfi\'âl\'de başa <b class="ar" style="color:var(--infial)">اِنْ</b>, İfti\'âl\'de başa <b class="ar" style="color:var(--iftial)">اِ</b> ve ilk harften sonra <b class="ar" style="color:var(--iftial)">ت</b> gelir. İnkılâb, ihtirâm, intizâr gibi kelimeler burada çapan olacak.',
+    seal: '<span class="n">اِنْ</span><span class="f">اِ…تَ</span>',
+    cmpNote: "İki bab da hemze-i vaslla başlar, muzâri harfi ikisinde de fethalıdır. Fark ikinci harftedir: İnfi\'âl\'de ن kökten önce, İfti\'âl\'de ت ilk kök harften sonra.",
+    trio: [
+      { r: "حرف", mc: "حَرَفَ", t: "bir yana çevirdi", m: { infial: ["yoldan saptı", "inhirâf, münharif"], iftial: ["meslek edindi", "ihtirâf, muhterif"] } },
+      { r: "فتح", mc: "فَتَحَ", t: "açtı", m: { infial: ["açıldı", "infitâh"], iftial: ["açılışını yaptı", "iftitâh"] } },
+      { r: "قسم", mc: "قَسَمَ", t: "böldü", m: { infial: ["bölündü", "inkısâm, münkasım"], iftial: ["aralarında paylaştılar", "iktisâm"] } },
+      { r: "عقد", mc: "عَقَدَ", t: "bağladı", m: { infial: ["bağlandı, toplandı", "in'ikâd"], iftial: ["inandı", "i'tikâd, mu'tekid"] } }
+    ],
+    tips: [
+      'Mâzî <span class="ar">اِنْ</span> ile mi başlıyor ve ardından doğrudan kök mü geliyor? <b style="color:var(--infial)">İnfi\'âl</b>: in-kisâr, in-hirâf.',
+      'İlk kök harften sonra <span class="ar">ت</span> (ya da onun yerine geçen <span class="ar">ط</span>, <span class="ar">د</span>, <span class="ar">تّ</span>) var mı? <b style="color:var(--iftial)">İfti\'âl</b>: ih-ti-râm, ıs-tı-lâh, iz-di-hâm, it-ti-fâk.',
+      'Türkçede İn\'den sonra <b>ti</b> geliyorsa İfti\'âl\'dir: in-<b>ti</b>-zâr, in-<b>ti</b>-kâm, in-<b>ti</b>-şâr. Orada ن kök harfidir.',
+      'Başta <span class="ar">مُ</span> varsa: <span class="ar">مُنْ</span> + kök İnfi\'âl fâili (münkesir), <span class="ar">مُ</span> + harf + <span class="ar">تَ</span> İfti\'âl (muhtelif, muhterem). Son harften önce kesre fâil, fetha mef\'ûl.'
+    ]
   }
 };
-var BAB_KEYS = ["ifal", "tefil", "mufaale"];
+var BAB_KEYS = GROUPS.bir.keys;
+function inKeys(b) { return BAB_KEYS.indexOf(b) >= 0; }
+function formsFor(b, list) { return list.filter(function (f) { return !(f === "meful" && BABS[b].noMeful); }); }
 
 // Başka babdan tuzak kelimeler
 var TRAPS = [
-  { w: "ihtirâm", ar: "اِحْتِرَامٌ", why: "İfti'âl babı: başa elif, fâ'dan sonra ت girer (اِفْتِعَال)." },
-  { w: "iştirâk", ar: "اِشْتِرَاكٌ", why: "İfti'âl babı (اِفْتِعَال). Mufâale'deki karşılığı müşâreket'tir." },
-  { w: "intizâr", ar: "اِنْتِظَارٌ", why: "İfti'âl babı: ن-ظ-ر kökü, araya ت girmiş." },
-  { w: "inkılâb", ar: "اِنْقِلَابٌ", why: "İnfi'âl babı (اِنْفِعَال): başa elif ve ن eklenir, iki harf ilâvesi." },
   { w: "tekâmül", ar: "تَكَامُلٌ", why: "Tefâ'ul babı (تَفَاعُل): Te…â…ü… ritmi, iki harf ilâvesi." },
   { w: "teşekkür", ar: "تَشَكُّرٌ", why: "Tefa''ul babı (تَفَعُّل): Te…e…ü… ritmi ve şedde; masdarında ي yoktur." },
   { w: "tekellüm", ar: "تَكَلُّمٌ", why: "Tefa''ul babı (تَفَعُّل). Tef'îl olsaydı teklîm olurdu." },
   { w: "istiğfâr", ar: "اِسْتِغْفَارٌ", why: "İstif'âl babı (اِسْتِفْعَال): üç harf ilâvesi." },
+  { w: "istikbâl", ar: "اِسْتِقْبَالٌ", why: "İstif'âl babı (اِسْتِفْعَال): başta اِسْتَ, üç harf ilâvesi. İfti'âl olsaydı iktibâl olurdu." },
   { w: "kâtip", ar: "كَاتِبٌ", why: "Mücerredin ism-i fâili (فَاعِل). Başta مُ yok; Mufâale fâili mükâtib olurdu." },
   { w: "mektup", ar: "مَكْتُوبٌ", why: "Mücerredin ism-i mef'ûlü (مَفْعُول): ortada uzun û var." },
   { w: "ilim", ar: "عِلْمٌ", why: "Mücerred masdar. Baştaki i sesi hemze değil, ayn harfidir." },
@@ -573,21 +768,37 @@ var TRAPS = [
 
 // ---------- kelime havuzu ----------
 var WORDS = [];
-BAB_KEYS.forEach(function (b) {
+ALL_KEYS.forEach(function (b) {
   BABS[b].roots.forEach(function (rt) {
     rt.w.forEach(function (pair) { WORDS.push({ w: pair[0], form: pair[1], bab: b, root: rt }); });
   });
 });
+
+// Etkin babların dışındaki her kelime tuzaktır
+function trapPool(keys) {
+  var out = TRAPS.slice();
+  WORDS.forEach(function (w) {
+    if (keys.indexOf(w.bab) >= 0) return;
+    out.push({ w: w.w, ar: plain(gen(w.bab, w.root.r, w.form)), why: BABS[w.bab].name + " babı (" + (GROUPS.bir.keys.indexOf(w.bab) >= 0 ? "bir" : "iki") + " harf ilâvesi). " + formHint(w.bab, w.form) });
+  });
+  return out;
+}
 
 // ---------- durum ----------
 var store = {
   get: function (k, d) { try { var v = localStorage.getItem("bhub:" + k); return v === null ? d : JSON.parse(v); } catch (x) { return d; } },
   set: function (k, v) { try { localStorage.setItem("bhub:" + k, JSON.stringify(v)); } catch (x) {} }
 };
-var state = { gbab: store.get("gbab", ""), tab: "giris", sel: { ifal: "كرم", tefil: "صرف", mufaale: "قتل" }, showConj: {}, quiz: null };
+var state = { group: store.get("group", "bir"), gbab: store.get("gbab", ""), gscope: store.get("gscope", "grup"), tab: "giris", sel: { ifal: "كرم", tefil: "صرف", mufaale: "قتل", infial: "صرف", iftial: "جمع" }, showConj: {}, quiz: null };
+if (!GROUPS[state.group]) state.group = "bir";
 var h = location.hash.replace("#", "");
-if (["giris", "ifal", "tefil", "mufaale", "karsilastir", "oyunlar", "sinav"].indexOf(h) >= 0) state.tab = h;
-else state.tab = store.get("tab", "giris");
+if (GROUPS.iki.keys.indexOf(h) >= 0) state.group = "iki";
+else if (GROUPS.bir.keys.indexOf(h) >= 0) state.group = "bir";
+else if (h === "iki" || h === "bir") { state.group = h; h = "giris"; }
+BAB_KEYS = GROUPS[state.group].keys;
+function validTab(t) { return ["giris", "karsilastir", "oyunlar", "sinav"].indexOf(t) >= 0 || inKeys(t); }
+state.tab = validTab(h) ? h : (validTab(store.get("tab", "giris")) ? store.get("tab", "giris") : "giris");
+if (state.gbab && !inKeys(state.gbab)) state.gbab = "";
 
 var main = document.getElementById("main");
 
@@ -606,6 +817,7 @@ var CAN_SPEAK = "speechSynthesis" in window;
 
 // ---------- giriş ----------
 function renderGiris() {
+  if (state.group === "iki") return renderGirisIki();
   return '' +
   '<section class="panel">' +
     '<div class="grid2">' +
@@ -613,7 +825,7 @@ function renderGiris() {
         '<div class="lbl">Önce temel</div>' +
         '<h2>Mücerred ve mezîd</h2>' +
         '<p><b>Sülâsî mücerred</b>, yalnızca üç kök harften oluşan fiildir: <span class="ar" style="font-size:1.3rem">كَرُمَ ، عَلِمَ ، قَتَلَ</span>. Bu üç harfe yeni harfler eklenince fiil <b>mezîd</b> olur ve anlamı belli bir yöne kayar.</p>' +
-        '<p>Eklenen harf sayısına göre sülâsî mezîd üç gruba ayrılır: <b>bir harfli</b> 3 bab, iki harfli 5 bab, üç harfli 4 bab. Bu uygulama ilk gruptaki üç babı öğretir. Üçü de mâzîde dört harfe çıkar.</p>' +
+        '<p>Eklenen harf sayısına göre sülâsî mezîd üç gruba ayrılır: <b>bir harfli</b> 3 bab, iki harfli 5 bab, üç harfli 4 bab. Bu bölüm ilk gruptaki üç babı öğretir; üçü de mâzîde dört harfe çıkar. İnfi\'âl ve İfti\'âl için yukarıdaki <b>İki harf ilâveli</b> düğmesine geç.</p>' +
         '<p class="muted">Ölçü için kökü daima <span class="ar">ف ع ل</span> ile gösteririz: ilk harf <b>fâü\'l-fiil</b>, ikinci <b>aynü\'l-fiil</b>, üçüncü <b>lâmü\'l-fiil</b>.</p>' +
       '</div>' +
       '<div class="card stack">' +
@@ -646,6 +858,62 @@ function renderGiris() {
   '</section>';
 }
 
+function renderGirisIki() {
+  var ib = [
+    ["Çoğu harf", "değişmez", "اِجْتَمَعَ", "ictimâ, ihtirâm, iştirâk"],
+    ["ص ض ظ", "<span class=\"ar\">ط</span> olur", "اِصْطَلَحَ ، اِضْطَرَبَ", "ıstılâh, ıztırâb"],
+    ["ط", "<span class=\"ar\">ط</span> olur, kaynaşır: <span class=\"ar\">طّ</span>", "اِطَّلَعَ", "ıttılâ, muttali"],
+    ["ز", "<span class=\"ar\">د</span> olur", "اِزْدَحَمَ ، اِزْدَوَجَ", "izdihâm, izdivâc"],
+    ["د", "<span class=\"ar\">د</span> olur, kaynaşır: <span class=\"ar\">دّ</span>", "اِدَّخَرَ", "iddihâr"],
+    ["و", "<span class=\"ar\">و</span> düşer, kaynaşır: <span class=\"ar\">تّ</span>", "اِتَّصَلَ ، اِتَّفَقَ ، اِتَّحَدَ", "ittisâl, ittifâk, ittihâd"]
+  ];
+  return '' +
+  '<section class="panel">' +
+    '<div class="grid2">' +
+      '<div class="card stack">' +
+        '<div class="lbl">Önce temel</div>' +
+        '<h2>İki harf, beş harfli mâzî</h2>' +
+        '<p>Sülâsî mezîdin iki harf ilâveli <b>beş babı</b> vardır: İnfi\'âl, İfti\'âl, Tefa\'\'ul, Tefâ\'ul ve İf\'ilâl. Bu bölüm ilk ikisini öğretir. İkisinde de mâzî beş harfe çıkar ve başa bir <b>hemze-i vasl</b> gelir.</p>' +
+        '<p><b>Hemze-i vasl</b> yalnız kelimeyle söze başlarken okunur ve kesreyle okunur: <span class="ar" style="font-size:1.3rem">اِنْكَسَرَ</span> inkesera. Önüne bir harf gelince düşer: <span class="ar" style="font-size:1.3rem">وَانْكَسَرَ</span> ve-nkesera. Muzâride hiç görünmez: <span class="ar" style="font-size:1.3rem">يَنْكَسِرُ</span>.</p>' +
+        '<p class="muted">Bir harf ilâveli babları önce görmediysen yukarıdan <b>Bir harf ilâveli</b> bölümüne geçebilirsin. Oradaki kurallar burada da işe yarar.</p>' +
+      '</div>' +
+      '<div class="card stack">' +
+        '<div class="lbl">İki bab, iki yer</div>' +
+        '<h2>Harfler nereye eklenir?</h2>' +
+        '<div class="places">' +
+          '<div class="place b-infial"><div class="ar big"><span class="z">اِنْ</span>فَعَلَ</div><div><h3>Başa اِنْ: İnfi\'âl</h3><p>Hemze-i vasl ve nûn kökün önüne gelir. <span class="ar">كَسَرَ</span> → <span class="ar"><span class="z">اِنْ</span>كَسَرَ</span> kırıldı</p></div></div>' +
+          '<div class="place b-iftial"><div class="ar big"><span class="z">اِ</span>فْ<span class="z">تَ</span>عَلَ</div><div><h3>Başa اِ, araya ت: İfti\'âl</h3><p>Hemze başa, <span class="ar">ت</span> ilk kök harften sonra. <span class="ar">جَمَعَ</span> → <span class="ar"><span class="z">اِ</span>جْ<span class="z">تَ</span>مَعَ</span> toplandı</p></div></div>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="card stack">' +
+      '<div class="lbl">Ezber anahtarı</div>' +
+      '<h2>İki babı birlikte taşıyan beş kural</h2>' +
+      '<ol class="rule-list">' +
+        '<li><div><b>Yer kuralı:</b> İnfi\'âl\'de <span class="ar">اِنْ</span> kökten önce gelir; İfti\'âl\'de <span class="ar">اِ</span> başa, <span class="ar">ت</span> ilk kök harften sonra gelir.</div></li>' +
+        '<li><div><b>Üstün kuralı:</b> mâzî beş harfli olduğu için muzâri harfi <b>fethalıdır</b>: <span class="ar" style="font-size:1.3rem">يَنْكَسِرُ ، يَجْتَمِعُ</span>. Dört harfli mâzîde (İf\'âl, Tef\'îl, Mufâale) ötreliydi: <span class="ar" style="font-size:1.3rem">يُكْرِمُ</span>.</div></li>' +
+        '<li><div><b>Vasl kuralı:</b> mâzî, emir ve masdar hemze-i vaslla başlar: <span class="ar" style="font-size:1.3rem">اِجْتَمَعَ ، اِجْتَمِعْ ، اِجْتِمَاعًا</span>. Muzâri, fâil ve mef\'ûlde hemze yoktur.</div></li>' +
+        '<li><div><b>Fâil–mef\'ûl kuralı:</b> muzâri harfi yerine <span class="ar">مُـ</span> gelir: <span class="ar">مُنْكَسِرٌ</span> münkesir, <span class="ar">مُخْتَلِفٌ</span> muhtelif. Fetha mef\'ûl yapar: <span class="ar">مُحْتَرَمٌ</span> muhterem. İnfi\'âl geçişsiz olduğu için mef\'ûlü ancak harf-i cerle kurulur.</div></li>' +
+        '<li><div><b>Kulak kuralı:</b> <b style="color:var(--infial)">İn + kök</b> inkisâr, inhirâf, inşirâh. <b style="color:var(--iftial)">İ + harf + ti</b> ihtirâm, iştirâk, ictimâ. Dikkat: in<b>ti</b>zâr İfti\'âl\'dir.</div></li>' +
+      '</ol>' +
+    '</div>' +
+    '<div class="card stack b-iftial">' +
+      '<div class="lbl">İfti\'âl\'in sırrı</div>' +
+      '<h2>Bukalemun ت</h2>' +
+      '<p class="muted">İfti\'âl\'in ت\'si, önündeki kök harfe uyum sağlamak için kılık değiştirir. Türkçedeki ıstılâh, ıztırâb, izdihâm, ittifâk kelimeleri bu yüzden ilk bakışta tanınmaz.</p>' +
+      '<div class="tbl-scroll"><table class="ibdal"><thead><tr><th>İlk kök harf</th><th>ت ne olur?</th><th>Örnek</th><th>Türkçede</th></tr></thead><tbody>' +
+        ib.map(function (r) { return '<tr><td class="ar">' + r[0] + '</td><td><b style="color:var(--bab)">' + r[1] + '</b></td><td class="ar">' + r[2] + '</td><td>' + r[3] + '</td></tr>'; }).join("") +
+      '</tbody></table></div>' +
+    '</div>' +
+    '<div class="tri">' +
+      BAB_KEYS.map(function (b) {
+        var B = BABS[b];
+        return '<div class="card b-' + b + '"><div class="lbl">' + B.name + ' · Türkçe kalıp</div><div class="ar">' + B.vezin + '</div><p><b>' + B.trKalip.replace(/_/g, "·") + '</b></p><p class="muted">' + B.roots.slice(1, 7).map(function (r) { return r.w[0][0]; }).join(", ") + '</p><button class="btn small" data-go="' + b + '">' + B.name + ' babını aç</button></div>';
+      }).join("") +
+    '</div>' +
+  '</section>';
+}
+
 // ---------- bab sayfası ----------
 function emsileLine(b, root) {
   var R = BABS[b];
@@ -657,7 +925,7 @@ function emsileLine(b, root) {
   var rt = R.roots.filter(function (x) { return x.r === root; })[0];
   if (b === "mufaale" && rt && rt.m2) parts.push('<span class="glue">وَ</span>' + w("masdar2"));
   parts.push('<span class="glue">فَهُوَ</span>' + w("fail"));
-  parts.push('<span class="glue">وَذَاكَ</span>' + w("meful"));
+  parts.push('<span class="glue">وَذَاكَ</span><span class="w"><span>' + gen(b, root, "meful") + (R.mefulCer ? e(R.mefulCer) : "") + '</span><small>' + FORM_NAMES.meful + '</small></span>');
   parts.push(w("emir"), w("nehy"));
   return '<div class="emsile">' + parts.join("") + '</div>';
 }
@@ -678,7 +946,7 @@ function renderBab(b) {
         '<dl class="fact">' +
           '<dt>İlâve harf</dt><dd>' + B.added + '</dd>' +
           '<dt>Yeri</dt><dd>' + B.place + '</dd>' +
-          '<dt>Muzâri</dt><dd><span class="ar" style="font-size:1.3rem">' + GEN[b].muzari("ف", "ع", "ل") + '</span> · harf-i mudâraa ötreli</dd>' +
+          '<dt>Muzâri</dt><dd><span class="ar" style="font-size:1.3rem">' + GEN[b].muzari("ف", "ع", "ل") + '</span> · ' + (B.mvText || "harf-i mudâraa ötreli") + '</dd>' +
           '<dt>Masdar</dt><dd><span class="ar" style="font-size:1.3rem">' + GEN[b].masdar("ف", "ع", "ل") + (b === "mufaale" ? ' ، ' + GEN[b].masdar2("ف", "ع", "ل") : "") + '</span></dd>' +
           '<dt>Türkçede</dt><dd>masdar <b>' + B.trKalip.replace(/_/g, "·") + '</b> · fâil <b>' + B.trFail.replace(/_/g, "·") + '</b> · mef\'ûl <b>' + B.trMeful.replace(/_/g, "·") + '</b></dd>' +
         '</dl>' +
@@ -765,7 +1033,8 @@ function renderMachine(b) {
     (warn ? '<p class="warn">' + warn + '</p>' : '') +
     '<div class="forms">' +
       forms.map(function (f) {
-        return '<div class="form"><span class="lbl">' + FORM_NAMES[f] + '</span><span class="ar">' + gen(b, root, f) + '</span><span class="tr">' + FORM_TR[f] + '</span></div>';
+        var tr = (f === "meful" && B.noMeful) ? "yalnız harf-i cerle: …" + B.mefulCer : FORM_TR[f];
+        return '<div class="form"><span class="lbl">' + FORM_NAMES[f] + '</span><span class="ar">' + gen(b, root, f) + '</span><span class="tr">' + tr + '</span></div>';
       }).join("") +
     '</div>' +
     '<div class="legend"><span><i style="color:var(--bab)">Renkli</i>: babın ilâvesi</span><span><i style="color:var(--ek)">Gri</i>: çekim ekleri</span><span><i>Siyah</i>: kök harfleri</span></div>' +
@@ -778,6 +1047,14 @@ function renderMachine(b) {
 function customWarning(b, root) {
   var r = letters(root);
   var weak = /[اويءأإؤئى]/;
+  if (b === "iftial") {
+    if (/[ءأإؤئ]/.test(root)) return "Bu kökte hemze var. Mehmûz köklerde kalıp ses değişimine uğrar; burada gösterilen düz kalıp yanlış olabilir.";
+    if (weak.test(r[1]) || weak.test(r[2])) return "Bu kökün ikinci ya da üçüncü harfi illetli. Mu'tel köklerde kalıp ses değişimine uğrar; burada gösterilen düz kalıp yanlış olabilir.";
+    if (r[0] === "ذ" || r[0] === "ث") return "İlk harf ذ ya da ث olunca ت birkaç farklı biçimde değişir (اِدَّكَرَ / اِذَّكَرَ); gösterilen kalıp kesin değildir.";
+    if (r[1] === r[2]) return "Bu kök mudâaf (2. ve 3. harf aynı). Bu babda idgâm olur; gösterilen düz kalıp yanlış olabilir.";
+    return "";
+  }
+  if (b === "infial" && "لرمنوي".indexOf(r[0]) >= 0) return "İlk harfi ل ر م ن و ي olan kökler İnfi'âl'e pek girmez; bu anlam için İfti'âl kullanılır (اِرْتَفَعَ ، اِمْتَلَأَ).";
   if (r.some(function (c) { return weak.test(c); })) return "Bu kökte illetli harf ya da hemze var. Mu'tel ve mehmûz köklerde kalıp ses değişimine uğrar; burada gösterilen düz kalıp yanlış olabilir.";
   if (b !== "tefil" && r[1] === r[2]) return "Bu kök mudâaf (2. ve 3. harf aynı). Bu babda idgâm olur; gösterilen düz kalıp yanlış olabilir.";
   return "";
@@ -805,7 +1082,9 @@ function formHint(b, f) {
   var H = {
     ifal: { masdar: "İ…â… kalıbı: başta kesreli hemze, son harften önce uzun â.", fail: "Mu + sakin harf + i: muzâriden türer, sondan önceki harf kesreli.", meful: "Mu + sakin harf + e: fâilin kesresi fethaya döner." },
     tefil: { masdar: "Te…î… kalıbı: başta تَ, sondan önce uzun î; şedde masdarda görünmez.", fail: "Mu + şeddeli orta harf + i: muallim, müderris gibi.", meful: "Mu + şeddeli orta harf + e: mukaddes, mükemmel gibi." },
-    mufaale: { masdar: "Mu…â…e(t) kalıbı: başta مُ, fâ'dan sonra uzun â, sonda ة.", masdar2: "Fi…â… kalıbı: ikinci masdar; cihâd, cidâl, hilâf gibi.", fail: "Mu…â…i…: misâfir, muhâcir, muhâfız gibi.", meful: "Mu…â…e…: mübârek, muhâtab gibi." }
+    mufaale: { masdar: "Mu…â…e(t) kalıbı: başta مُ, fâ'dan sonra uzun â, sonda ة.", masdar2: "Fi…â… kalıbı: ikinci masdar; cihâd, cidâl, hilâf gibi.", fail: "Mu…â…i…: misâfir, muhâcir, muhâfız gibi.", meful: "Mu…â…e…: mübârek, muhâtab gibi." },
+    infial: { masdar: "İn…i…â… kalıbı: başta hemze-i vaslla اِنْ, ardından doğrudan kök, sondan önce uzun â.", fail: "Mün + kök + i: münkesir, münferit, münhasır gibi; son harften önceki harf kesreli." },
+    iftial: { masdar: "İ…ti…â… kalıbı: hemze-i vasl, ilk kök harf, sonra ت (ya da ط, د, تّ), sondan önce uzun â.", fail: "Mu + harf + te + …i…: muhtelif, muktedir, müctehid gibi.", meful: "Mu + harf + te + …e…: muhterem, mu'teber, müşterek gibi." }
   };
   return (H[b] && H[b][f]) || "";
 }
@@ -813,16 +1092,13 @@ function formHint(b, f) {
 // ---------- karşılaştırma ----------
 function renderKarsilastir() {
   var rows = [["mazi", "فعل"], ["muzari", "فعل"], ["masdar", "فعل"], ["fail", "فعل"], ["meful", "فعل"], ["emir", "فعل"], ["nehy", "فعل"]];
-  var trio = [
-    { r: "حكم", mc: "حَكَمَ", t: "hükmetti", m: { ifal: ["sağlamlaştırdı", "ihkâm, muhkem"], tefil: ["hakem yaptı", "tahkîm"], mufaale: ["yargıladı", "muhâkeme"] } },
-    { r: "عرض", mc: "عَرَضَ", t: "sundu", m: { ifal: ["yüz çevirdi", "i'râz"], tefil: ["maruz bıraktı", "ta'rîz"], mufaale: ["karşı çıktı", "muâraza, muârız"] } },
-    { r: "كرم", mc: "كَرُمَ", t: "değerli oldu", m: { ifal: ["ikram etti", "ikrâm, mükrem"], tefil: ["onurlandırdı", "tekrîm, mükerrem"], mufaale: ["cömertlikte yarıştı", "mükârame"] } }
-  ];
+  var GR = GROUPS[state.group];
+  var trio = GR.trio;
   return '' +
   '<section class="panel">' +
     '<div class="card stack">' +
-      '<div class="lbl">Yan yana</div><h2>Üç babın bütün kalıpları</h2>' +
-      '<p class="muted">Aynı satırda üç babın neyi paylaştığına bak: muzâri harfi hep ötreli, muzâri, emir ve fâilde sondan önceki harf hep kesreli, mef\'ûlde hep fethalı.</p>' +
+      '<div class="lbl">Yan yana</div><h2>' + GR.count + ' babın bütün kalıpları</h2>' +
+      '<p class="muted">' + GR.cmpNote + '</p>' +
       '<div class="tbl-scroll"><table class="cmp"><thead><tr><th></th>' +
         BAB_KEYS.map(function (b) { return '<th class="b-' + b + '">' + BABS[b].name + '</th>'; }).join("") +
       '</tr></thead><tbody>' +
@@ -831,15 +1107,16 @@ function renderKarsilastir() {
             BAB_KEYS.map(function (b) {
               var x = gen(b, "فعل", row[0]);
               if (b === "mufaale" && row[0] === "masdar") x += ' ، ' + gen(b, "فعل", "masdar2");
+              if (row[0] === "meful" && BABS[b].noMeful) x += e(BABS[b].mefulCer) + '<span class="tr">yalnız harf-i cerle</span>';
               return '<td class="ar b-' + b + '">' + x + '</td>';
             }).join("") + '</tr>';
         }).join("") +
         '<tr><th scope="row">Türkçe masdar</th>' + BAB_KEYS.map(function (b) { return '<td class="b-' + b + '"><b>' + BABS[b].trKalip.replace(/_/g, "·") + '</b></td>'; }).join("") + '</tr>' +
-        '<tr><th scope="row">Asıl mânâ</th><td class="b-ifal">geçişli yapma</td><td class="b-tefil">geçişli yapma, çokluk</td><td class="b-mufaale">karşılıklılık</td></tr>' +
+        '<tr><th scope="row">Asıl mânâ</th>' + BAB_KEYS.map(function (b) { return '<td class="b-' + b + '">' + ASIL[b] + '</td>'; }).join("") + '</tr>' +
       '</tbody></table></div>' +
     '</div>' +
     '<div class="stack">' +
-      '<div><div class="lbl">Tek kök, üç bab</div><h2>Aynı kök, üç ayrı yön</h2><p class="muted">Bir kök üç babın hepsine girebilir. Anlamın nasıl kaydığına dikkat et.</p></div>' +
+      '<div><div class="lbl">Tek kök, ' + GR.count.toLowerCase() + ' bab</div><h2>Aynı kök, ' + GR.count.toLowerCase() + ' ayrı yön</h2><p class="muted">Bir kök birden çok baba girebilir. Anlamın nasıl kaydığına dikkat et.</p></div>' +
       trio.map(function (t) {
         return '<div class="card stack"><p><span class="ar" style="font-size:1.6rem">' + t.mc + '</span> <b>' + t.t + '</b> <span class="muted">(mücerred)</span></p><div class="tri">' +
           BAB_KEYS.map(function (b) {
@@ -850,10 +1127,7 @@ function renderKarsilastir() {
     '<div class="card stack">' +
       '<div class="lbl">Ayırt etme ipuçları</div><h2>Bir kelimeyi gördüğünde sor</h2>' +
       '<ol class="rule-list">' +
-        '<li><div>Mâzîde <b>başta hemze</b> var ve ikinci harf sakin mi? <b style="color:var(--ifal)">İf\'âl</b>.</div></li>' +
-        '<li><div>Ortada <b>şedde</b> var ve başında ek yok mu? <b style="color:var(--tefil)">Tef\'îl</b>.</div></li>' +
-        '<li><div>İlk harften sonra <b>uzun â</b> var mı? <b style="color:var(--mufaale)">Mufâale</b>.</div></li>' +
-        '<li><div>Başta <span class="ar">مُ</span> varsa, ondan sonraki yapıya bak: sakin harf İf\'âl, şedde Tef\'îl, uzun â Mufâale. Sonra son harften önceki harekeye bak: kesre fâil, fetha mef\'ûl.</div></li>' +
+        GR.tips.map(function (t) { return '<li><div>' + t + '</div></li>'; }).join("") +
       '</ol>' +
     '</div>' +
   '</section>';
@@ -867,11 +1141,11 @@ function qWordBab(only) {
   var useTrap = Math.random() < 0.25;
   var babOpts = BAB_KEYS.map(function (b) { return { label: BABS[b].name, key: b }; }).concat([{ label: "Başka bir bab / mücerred", key: "other" }]);
   if (useTrap) {
-    var t = pick(TRAPS);
+    var t = pick(trapPool(BAB_KEYS));
     return { kind: "Kelimenin babı", prompt: "Bu Türkçe kelime hangi babdan geliyor?", show: esc(t.w), showCls: "trw", opts: babOpts, ans: "other",
       explain: '<span class="ar" style="font-size:1.4rem">' + t.ar + '</span> · ' + t.why, babColor: only };
   }
-  var pool = WORDS.filter(function (w) { return !only || w.bab === only; });
+  var pool = WORDS.filter(function (w) { return only ? w.bab === only : inKeys(w.bab); });
   var w = pick(pool);
   return { kind: "Kelimenin babı", prompt: "Bu Türkçe kelime hangi babdan geliyor?", show: esc(w.w), showCls: "trw", opts: babOpts, ans: w.bab,
     explain: '<span class="ar" style="font-size:1.4rem">' + gen(w.bab, w.root.r, w.form) + '</span> · kök <span class="ar">' + letters(w.root.r).join(" ") + '</span>, ' + BABS[w.bab].name + ' babının ' + FORM_NAMES[w.form].toLowerCase() + 'i. ' + formHint(w.bab, w.form), babColor: w.bab };
@@ -879,8 +1153,9 @@ function qWordBab(only) {
 function qSiga(only) {
   var b = only || pick(BAB_KEYS);
   var rt = pick(BABS[b].roots);
-  var f = pick(ORDER);
-  var others = shuffle(ORDER.filter(function (x) { return x !== f; })).slice(0, 3);
+  var fl = formsFor(b, ORDER);
+  var f = pick(fl);
+  var others = shuffle(fl.filter(function (x) { return x !== f; })).slice(0, 3);
   var opts = shuffle([f].concat(others)).map(function (k) { return { label: FORM_NAMES[k], key: k }; });
   return { kind: "Sîga bulma", prompt: "Bu kelime hangi sîga? <span class=\"muted\">(" + BABS[b].name + " babı, kök " + letters(rt.r).join(" ") + ")</span>", show: plain(gen(b, rt.r, f)), showCls: "ar", opts: opts, ans: f,
     explain: '<span class="ar" style="font-size:1.4rem">' + gen(b, rt.r, f) + '</span> · ' + sigaClue(b, f), babColor: b };
@@ -888,11 +1163,11 @@ function qSiga(only) {
 function sigaClue(b, f) {
   var C = {
     mazi: "Mâzî: harf-i mudâraa yok, son harf fethalı.",
-    muzari: "Muzâri: başta ötreli harf-i mudâraa (يُ), sonda ötre.",
-    masdar: { ifal: "Masdar: başta kesreli hemze (إِ), sondan önce uzun â.", tefil: "Masdar: başta تَ, sondan önce ي.", mufaale: "Masdar: başta مُ, sonda ة." }[b],
+    muzari: (GEN[b].mv ? "Muzâri: başta fethalı harf-i mudâraa (يَ), sonda ötre." : "Muzâri: başta ötreli harf-i mudâraa (يُ), sonda ötre."),
+    masdar: { ifal: "Masdar: başta kesreli hemze (إِ), sondan önce uzun â.", tefil: "Masdar: başta تَ, sondan önce ي.", mufaale: "Masdar: başta مُ, sonda ة.", infial: "Masdar: başta اِنْ, ardından kök, sondan önce uzun â.", iftial: "Masdar: başta اِ, ilk kök harften sonra تِ (ya da طِ ، دِ ، تِّ), sondan önce uzun â." }[b],
     fail: "İsm-i fâil: başta مُ, son harften önceki harf kesreli.",
     meful: "İsm-i mef'ûl: başta مُ, son harften önceki harf fethalı.",
-    emir: "Emir: harf-i mudâraa yok, son harf sakin." + (b === "ifal" ? " İf'âl emri fethalı hemzeyle başlar." : ""),
+    emir: "Emir: harf-i mudâraa yok, son harf sakin." + (b === "ifal" ? " İf'âl emri fethalı hemzeyle başlar." : GEN[b].mv ? " Hemze-i vaslla (اِ) başlar." : ""),
     nehy: "Nehy: başta لَا, ardından muzâri, son harf sakin."
   };
   return C[f];
@@ -900,11 +1175,12 @@ function sigaClue(b, f) {
 function qKalip(only) {
   var b = only || pick(BAB_KEYS);
   var rt = pick(BABS[b].roots);
-  var f = pick(["mazi", "muzari", "masdar", "fail", "meful", "emir"]);
+  var f = pick(formsFor(b, ["mazi", "muzari", "masdar", "fail", "meful", "emir"]));
   var correct = gen(b, rt.r, f);
   var cand = [{ h: correct, key: "ok" }];
-  BAB_KEYS.forEach(function (o) { if (o !== b) cand.push({ h: gen(o, rt.r, f), key: o + ":" + f }); });
-  var f2 = pick(ORDER.filter(function (x) { return x !== f; }));
+  var others = BAB_KEYS.filter(function (o) { return o !== b; }).concat(shuffle(ALL_KEYS.filter(function (o) { return !inKeys(o); })));
+  others.filter(function (o) { return !customWarning(o, rt.r); }).slice(0, 2).forEach(function (o) { cand.push({ h: gen(o, rt.r, f), key: o + ":" + f }); });
+  var f2 = pick(formsFor(b, ORDER).filter(function (x) { return x !== f; }));
   cand.push({ h: gen(b, rt.r, f2), key: b + ":" + f2 });
   var seen = {};
   cand = cand.filter(function (c) { var p = plain(c.h); if (seen[p]) return false; seen[p] = 1; return true; });
@@ -926,6 +1202,7 @@ function buildQuiz(only) {
   var makers = [qWordBab, qWordBab, qWordBab, qSiga, qSiga, qKalip, qKalip, qKalip, qMana, qMana];
   return shuffle(makers).map(function (m) { return m(only); });
 }
+function karmaKey() { return state.group === "bir" ? "karma" : "karma-" + state.group; }
 function startQuiz(only) {
   state.quiz = { only: only || null, qs: buildQuiz(only), i: 0, score: 0, answered: null, wrong: [] };
   setTab("sinav");
@@ -939,12 +1216,12 @@ function renderSinav() {
       '<p class="muted">Her sınav 10 soru: Türkçe kelimenin babını bulma, sîgayı tanıma, doğru kalıbı seçme ve mânâ türü. Karma sınavda başka babdan tuzak kelimeler de çıkar.</p>' +
       '<div class="quiz-start">' +
         BAB_KEYS.map(function (b) { return '<button class="btn b-' + b + '" data-quiz="' + b + '">' + BABS[b].name + (best[b] != null ? ' · en iyi ' + best[b] + '/10' : '') + '</button>'; }).join("") +
-        '<button class="btn solid" data-quiz="karma" style="--bab:var(--ink)">Karma sınav' + (best.karma != null ? ' · en iyi ' + best.karma + '/10' : '') + '</button>' +
+        '<button class="btn solid" data-quiz="karma" style="--bab:var(--ink)">Karma sınav' + (best[karmaKey()] != null ? ' · en iyi ' + best[karmaKey()] + '/10' : '') + '</button>' +
       '</div>' +
     '</div>';
   if (!Q) return '<section class="panel">' + intro + '</section>';
   if (Q.i >= Q.qs.length) {
-    var key = Q.only || "karma";
+    var key = Q.only || karmaKey();
     var prev = best[key];
     if (prev == null || Q.score > prev) { best[key] = Q.score; store.set("best", best); }
     if (!Q.xpGiven) { Q.xpGiven = true; setTimeout(function () { addXP(Q.score * 5); if (Q.score >= 9) confetti(); }, 50); }
@@ -1044,10 +1321,11 @@ function clusters(s) {
   });
   return out;
 }
+function gameKeys() { return state.gscope === "hepsi" ? ALL_KEYS : BAB_KEYS; }
 function randItem(only, forms) {
-  var b = only || pick(BAB_KEYS);
+  var b = only || pick(G && G.keys ? G.keys : gameKeys());
   var rt = pick(BABS[b].roots);
-  var fs = forms.slice();
+  var fs = formsFor(b, forms);
   if (b === "mufaale" && rt.m2) fs.push("masdar2");
   var f = pick(fs);
   var html = gen(b, rt.r, f);
@@ -1058,10 +1336,10 @@ function trWordFor(b, r, f) {
   return w ? w.w : "";
 }
 var GAMES = {
-  avci: { name: "Kalıp Avcısı", ico: "أَ ـّـ ا", d: "60 saniye. Ekrana gelen Arapça kelimenin babını hızla seç. Üst üste doğrular çarpanı büyütür, yanlış 3 saniye yer.", babFilter: false },
+  avci: { name: "Kalıp Avcısı", ico: "أَ ـّـ ا اِنْ", d: "60 saniye. Ekrana gelen Arapça kelimenin babını hızla seç. Üst üste doğrular çarpanı büyütür, yanlış 3 saniye yer.", babFilter: false },
   hafiza: { name: "Hafıza Kartları", ico: "مُعَلِّم", d: "Kartları çevir, Türkçe kelimeyi Arapça aslıyla eşleştir. Ne kadar az hamle, o kadar çok yıldız.", babFilter: true },
   usta: { name: "Kalıp Ustası", ico: "مُـ + عَـ + لِّـ", d: "Harf parçalarını doğru sırayla dizip istenen kalıbı kendin kur. Araya başka babların parçaları karışmış.", babFilter: true },
-  kova: { name: "Bab Kovaları", ico: "إِ · تَ · مُ", d: "Türkçe kelimeleri doğru bab kovasına at. Aralarında başka babdan gelen tuzak kelimeler de var.", babFilter: false }
+  kova: { name: "Bab Kovaları", ico: "إِ · تَ · مُ · اِ", d: "Türkçe kelimeleri doğru bab kovasına at. Aralarında başka babdan gelen tuzak kelimeler de var.", babFilter: false }
 };
 var G = null, GT = null;
 function stopGame() { if (GT) { clearInterval(GT); GT = null; } G = null; }
@@ -1074,15 +1352,16 @@ function renderOyunlar() {
     '<div class="card gbar">' +
       '<div><div class="lbl">Oyunlar</div><h2>Oynayarak ezberle</h2><p class="muted">Her oyun puan kazandırır. Puanla rütben yükselir: Mübtedî, Talebe, Sûhte, Dânişmend, Müderris, Allâme.</p></div>' +
       '<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:end">' +
-        '<div class="field"><label for="g-bab">Hangi bab?</label><select id="g-bab"><option value="">Üç bab birlikte</option>' + BAB_KEYS.map(function (b) { return '<option value="' + b + '"' + (gb === b ? " selected" : "") + '>' + BABS[b].name + '</option>'; }).join("") + '</select></div>' +
+        '<div class="field"><label for="g-scope">Avcı ve Kovalar için kapsam</label><select id="g-scope"><option value="grup"' + (state.gscope !== "hepsi" ? " selected" : "") + '>Bu grubun babları</option><option value="hepsi"' + (state.gscope === "hepsi" ? " selected" : "") + '>Beş bab birlikte (zor)</option></select></div>' +
+        '<div class="field"><label for="g-bab">Hafıza ve Usta için bab</label><select id="g-bab"><option value="">Grubun bütün babları</option>' + BAB_KEYS.map(function (b) { return '<option value="' + b + '"' + (gb === b ? " selected" : "") + '>' + BABS[b].name + '</option>'; }).join("") + '</select></div>' +
         '<button class="btn small" data-gsnd="1" style="--bab:var(--ink)" aria-pressed="' + (SND.on ? "true" : "false") + '">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button>' +
       '</div>' +
     '</div>' +
     '<div class="game-menu">' +
       Object.keys(GAMES).map(function (k, i) {
-        var g = GAMES[k], col = ["ifal", "tefil", "mufaale", "ifal"][i];
+        var g = GAMES[k], col = ["ifal", "tefil", "mufaale", "iftial"][i];
         return '<div class="card game-card b-' + col + '"><div class="ico">' + g.ico + '</div><h3>' + g.name + '</h3><p class="muted">' + g.d + '</p>' +
-          (g.babFilter ? '' : '<p class="lbl" style="font-size:.66rem">Her zaman üç bab birlikte</p>') +
+          (g.babFilter ? '' : '<p class="lbl" style="font-size:.66rem">' + (state.gscope === "hepsi" ? "Beş bab birlikte" : "Bu grubun bütün babları") + '</p>') +
           '<p class="best">' + (best[k] != null ? 'En iyi: <b class="tabular">' + best[k] + '</b>' : 'Henüz oynanmadı') + '</p>' +
           '<button class="btn solid" data-gstart="' + k + '">Oyna</button></div>';
       }).join("") +
@@ -1091,8 +1370,8 @@ function renderOyunlar() {
 }
 function startGame(k) {
   stopGame();
-  var only = GAMES[k].babFilter ? (state.gbab || null) : null;
-  G = { id: k, only: only, over: false };
+  var only = GAMES[k].babFilter && inKeys(state.gbab) ? state.gbab : null;
+  G = { id: k, only: only, over: false, keys: GAMES[k].babFilter ? BAB_KEYS : gameKeys(), start: Date.now() };
   if (k === "avci") { G.t = 60; G.score = 0; G.combo = 0; G.maxCombo = 0; G.n = 0; G.ok = 0; G.lock = false; G.cur = null; nextAvci(); }
   if (k === "hafiza") setupHafiza();
   if (k === "usta") { G.round = 0; G.rounds = 8; G.score = 0; G.okCount = 0; nextUsta(); }
@@ -1155,15 +1434,15 @@ function nextAvci() {
 function bodyAvci() {
   if (G.over) return gameOver("Kalıp Avcısı", [
     'Doğru: <b class="tabular">' + G.ok + ' / ' + G.n + '</b> · en uzun seri: <b class="tabular">' + G.maxCombo + '</b>',
-    G.ok >= 25 ? "Gözün kalıpları anında tanıyor." : G.ok >= 12 ? "Hızlanıyorsun. İpucu: önce başa bak (أَ / إِ / مُ / يُ), sonra ortaya (şedde mi, elif mi)." : "Önce Karşılaştır sekmesindeki ayırt etme ipuçlarına göz at, sonra tekrar avlan."
+    G.ok >= 25 ? "Gözün kalıpları anında tanıyor." : G.ok >= 12 ? "Hızlanıyorsun. İpucu: önce başa bak (أَ / إِ / مُ / يُ), sonra ortaya (şedde mi, elif mi, ت mi)." : "Önce Karşılaştır sekmesindeki ayırt etme ipuçlarına göz at, sonra tekrar avlan."
   ]);
   var mult = Math.min(5, 1 + Math.floor(G.combo / 3));
   return '<div class="card stack">' + gameHead("Kalıp Avcısı") +
     '<div class="hud"><span>Süre <b id="g-time">' + G.t + '</b></span><span>Puan <b id="g-score">' + G.score + '</b></span><span>Çarpan <b id="g-combo">x' + mult + '</b></span></div>' +
     '<div class="time-bar' + (G.t <= 10 ? " low" : "") + '" id="g-tbar"><div style="width:' + (G.t / 60 * 100) + '%"></div></div>' +
     '<div class="target ar" id="g-word">' + G.cur.txt + '</div>' +
-    '<div class="gfb" id="g-fb"><span class="muted">Bu kelime hangi babdan? Klavyede 1, 2, 3 tuşlarını da kullanabilirsin.</span></div>' +
-    '<div class="pick3">' + BAB_KEYS.map(function (b, i) {
+    '<div class="gfb" id="g-fb"><span class="muted">Bu kelime hangi babdan? Klavyede 1–' + G.keys.length + ' tuşlarını da kullanabilirsin.</span></div>' +
+    '<div class="pick3">' + G.keys.map(function (b, i) {
       return '<button class="b-' + b + '" data-gpick="' + b + '"><span class="ar">' + BABS[b].vezin + '</span>' + BABS[b].name + '<small>' + (i + 1) + '</small></button>';
     }).join("") + '</div>' +
   '</div>';
@@ -1205,7 +1484,7 @@ function avciPick(b) {
 
 // ---------- 2. Hafıza Kartları ----------
 function setupHafiza() {
-  var pool = shuffle(WORDS.filter(function (w) { return !G.only || w.bab === G.only; }));
+  var pool = shuffle(WORDS.filter(function (w) { return G.only ? w.bab === G.only : G.keys.indexOf(w.bab) >= 0; }));
   var chosen = [], seenAr = {}, seenTr = {};
   pool.forEach(function (w) {
     if (chosen.length >= 6) return;
@@ -1270,13 +1549,13 @@ function nextUsta() {
   var ans = clusters(it.txt);
   var inAns = {}; ans.forEach(function (c) { inAns[c] = 1; });
   var distract = [];
-  BAB_KEYS.forEach(function (o) {
-    if (o === it.b) return;
+  shuffle(ALL_KEYS).forEach(function (o) {
+    if (o === it.b || customWarning(o, it.rt.r)) return;
     var f = GEN[o][it.f] ? it.f : "masdar";
     clusters(plain(gen(o, it.rt.r, f))).forEach(function (c) { if (!inAns[c] && distract.indexOf(c) < 0) distract.push(c); });
   });
   distract = shuffle(distract).slice(0, 3);
-  ["أَ", "تَ", "مُ", "يُ", "ا"].forEach(function (c) { if (distract.length < 3 && !inAns[c] && distract.indexOf(c) < 0) distract.push(c); });
+  ["أَ", "تَ", "مُ", "يُ", "ا", "نْ", "اِ"].forEach(function (c) { if (distract.length < 3 && !inAns[c] && distract.indexOf(c) < 0) distract.push(c); });
   G.it = it; G.ans = ans;
   G.tiles = shuffle(ans.concat(distract).map(function (t, i) { return { t: t, id: i } }));
   G.placed = []; G.hints = 0; G.state = "play";
@@ -1329,22 +1608,22 @@ function ustaHint() {
 
 // ---------- 4. Bab Kovaları ----------
 function setupKova() {
-  var items = [];
-  BAB_KEYS.forEach(function (b) {
+  var items = [], per = G.keys.length <= 2 ? 4 : G.keys.length >= 5 ? 2 : 3;
+  G.keys.forEach(function (b) {
     var seen = {};
     shuffle(WORDS.filter(function (w) { return w.bab === b; })).forEach(function (w) {
-      if (items.filter(function (x) { return x.bab === b; }).length >= 3 || seen[w.w]) return;
+      if (items.filter(function (x) { return x.bab === b; }).length >= per || seen[w.w]) return;
       seen[w.w] = 1; items.push({ w: w.w, bab: b, ar: plain(gen(b, w.root.r, w.form)), form: w.form });
     });
   });
-  shuffle(TRAPS).slice(0, 2).forEach(function (t) { items.push({ w: t.w, bab: "other", ar: plain(t.ar), why: t.why }); });
+  shuffle(trapPool(G.keys)).slice(0, 2).forEach(function (t) { items.push({ w: t.w, bab: "other", ar: plain(t.ar), why: t.why }); });
   G.items = shuffle(items).map(function (x, i) { x.id = i; return x; });
   G.sel = null; G.placed = {}; G.miss = 0; G.msg = "";
 }
 function bodyKova() {
   if (G.over) return gameOver("Bab Kovaları", ['<b class="tabular">' + G.secs + '</b> saniye, <b class="tabular">' + G.miss + '</b> hata.']);
   var left = G.items.filter(function (x) { return !G.placed[x.id]; });
-  var kovs = BAB_KEYS.map(function (b) { return { k: b, name: BABS[b].name, v: BABS[b].vezin }; }).concat([{ k: "other", name: "Başka bab", v: "" }]);
+  var kovs = G.keys.map(function (b) { return { k: b, name: BABS[b].name, v: BABS[b].vezin }; }).concat([{ k: "other", name: "Başka bab", v: "" }]);
   return '<div class="card stack">' + gameHead("Bab Kovaları") +
     '<div class="hud"><span>Kalan <b>' + left.length + '</b></span><span>Hata <b>' + G.miss + '</b></span><span>Süre <b id="g-clock">' + Math.floor((Date.now() - G.start) / 1000) + ' sn</b></span></div>' +
     '<p class="muted">Önce bir kelimeye, sonra doğru kovaya dokun.</p>' +
@@ -1352,7 +1631,7 @@ function bodyKova() {
     '<div class="gfb" id="g-fb">' + (G.msg || "") + '</div>' +
     '<div class="kovalar">' + kovs.map(function (k) {
       var inK = G.items.filter(function (x) { return G.placed[x.id] && x.bab === k.k; });
-      return '<button class="kova ' + (k.k === "other" ? "k-other" : "b-" + k.k) + '" data-gkova="' + k.k + '"><h3>' + k.name + '</h3>' + (k.v ? '<span class="ar v">' + k.v + '</span>' : '<span class="muted" style="font-size:.85rem">İfti\'âl, Tefa\'\'ul, mücerred…</span>') +
+      return '<button class="kova ' + (k.k === "other" ? "k-other" : "b-" + k.k) + '" data-gkova="' + k.k + '"><h3>' + k.name + '</h3>' + (k.v ? '<span class="ar v">' + k.v + '</span>' : '<span class="muted" style="font-size:.85rem">diğer bablar, mücerred…</span>') +
         inK.map(function (x) { return '<span class="tag">' + esc(x.w) + ' <span class="ar">' + x.ar + '</span></span>'; }).join("") + '</button>';
     }).join("") + '</div>' +
   '</div>';
@@ -1371,7 +1650,7 @@ function kovaDrop(k) {
     render();
   } else {
     G.miss++; beep("no");
-    G.msg = '<b style="color:var(--bad)">' + esc(x.w) + ' bu kovaya ait değil.</b> <span class="muted">Masdarın sesini dinle: İ…â… / Te…î… / Mu…â…e, fâilde Mu…i…</span>';
+    G.msg = '<b style="color:var(--bad)">' + esc(x.w) + ' bu kovaya ait değil.</b> <span class="muted">Masdarın sesini dinle: ' + G.keys.map(function (b) { return BABS[b].name + " " + BABS[b].trKalip.replace(/_/g, "·"); }).join(" / ") + '</span>';
     render();
     var kv = document.querySelector('[data-gkova="' + k + '"]'); if (kv) { kv.classList.add("shake"); }
   }
@@ -1396,14 +1675,40 @@ main.addEventListener("click", function (ev) {
 });
 main.addEventListener("change", function (ev) {
   if (ev.target.id === "g-bab") { state.gbab = ev.target.value; store.set("gbab", state.gbab); }
+  if (ev.target.id === "g-scope") { state.gscope = ev.target.value; store.set("gscope", state.gscope); render(); }
 });
 document.addEventListener("keydown", function (ev) {
   if (state.tab !== "oyunlar" || !G || G.id !== "avci" || G.over) return;
-  var i = ["1", "2", "3"].indexOf(ev.key);
-  if (i >= 0) { ev.preventDefault(); avciPick(BAB_KEYS[i]); }
+  var i = ["1", "2", "3", "4", "5"].indexOf(ev.key);
+  if (i >= 0 && i < G.keys.length) { ev.preventDefault(); avciPick(G.keys[i]); }
 });
 
 // ---------- yönlendirme ----------
+function renderHeader() {
+  var GR = GROUPS[state.group];
+  document.getElementById("hdr-lbl").textContent = GR.lbl;
+  document.getElementById("hdr-h1").textContent = GR.h1;
+  document.getElementById("hdr-p").innerHTML = GR.intro;
+  document.getElementById("seal").innerHTML = GR.seal;
+  document.querySelectorAll("#groups button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.group === state.group ? "true" : "false"); });
+  var nav = document.querySelector("nav.tabs");
+  nav.innerHTML = '<button role="tab" data-tab="giris">Giriş</button>' +
+    BAB_KEYS.map(function (b) { return '<button role="tab" data-tab="' + b + '" class="b-' + b + '">' + BABS[b].name + ' <span class="ar">' + plain(BABS[b].ar).replace(/[\u064B-\u0652]/g, "") + '</span></button>'; }).join("") +
+    '<button role="tab" data-tab="karsilastir">Karşılaştır</button><button role="tab" data-tab="oyunlar">Oyunlar</button><button role="tab" data-tab="sinav">Sınav</button>';
+}
+function setGroup(g) {
+  if (!GROUPS[g] || g === state.group) return;
+  stopGame();
+  state.group = g; store.set("group", g);
+  BAB_KEYS = GROUPS[g].keys;
+  state.quiz = null;
+  if (!inKeys(state.gbab)) state.gbab = "";
+  renderHeader();
+  setTab(validTab(state.tab) ? state.tab : "giris");
+}
+document.getElementById("groups").addEventListener("click", function (ev) {
+  var b = ev.target.closest("button[data-group]"); if (b) setGroup(b.dataset.group);
+});
 function setTab(t) {
   if (t !== "oyunlar" || state.tab !== "oyunlar") stopGame();
   state.tab = t; store.set("tab", t);
@@ -1468,6 +1773,7 @@ main.addEventListener("keydown", function (ev) {
 });
 
 renderXP();
+renderHeader();
 setTab(state.tab);
 })();
 </script>
