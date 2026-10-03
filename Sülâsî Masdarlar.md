@@ -40,3 +40,11 @@ quiz provasıyla çalıştırır. Düzenleme: `kelime/veri.js`, `kelime/kaynak.h
 (Ek Avcısı, Hal Yarışı, İ'rab Dedektifi, Tür Makinesi, Hafıza Kartları) ve 20 soruluk
 quiz provasıyla öğretir. Düzenleme: `irab/veri.js`, `irab/kaynak.html`, `irab/oyunlar.js`,
 `irab/ortak.css`, `irab/ozel.css`; sonra `python3 irab/yap.py`.
+
+## Uygulama: İzafet ve İ'rabı
+
+`izafet/index.html` dosyasını tarayıcıda aç. Kitaptaki dersi dört konu olarak
+(izafet terkibi, muzâfın i'rabı, müsennâ ve cem muzâf olunca nunun düşmesi, okuma parçası)
+kaide, örnek, görsel, dokuz alıştırma, beş oyun (Doğru Şekil, Hal Yarışı, Doğru mu Yanlış mı?,
+İzafet Kur, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Düzenleme: `izafet/veri.js`,
+`izafet/kaynak.html`, `izafet/oyunlar.js`, `izafet/ortak.css`, `izafet/ozel.css`; sonra `python3 izafet/yap.py`.
