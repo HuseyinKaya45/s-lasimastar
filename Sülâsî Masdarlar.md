@@ -23,3 +23,11 @@ Kalıp Ustası, Bab Kovaları) öğretir. Oyunlar ve sınav rütbe puanı kazand
 المبتدأ والخبر، الفاعل وتأنيث الفعل، المفعول به) kaide, örnek, görsel, etkileşimli
 alıştırma ve oyunlarla öğretir. Düzenleme için `cumle/kaynak.html`, `cumle/veri.js`
 ve `cumle/oyunlar.js` değiştirilir, sonra `python3 cumle/yap.py` çalıştırılır.
+
+## Uygulama: Kelime ve İsim Bilgisi (quiz hazırlığı)
+
+`kelime/index.html` dosyasını tarayıcıda aç. Kitaptaki dört dersi (أقسام الكلمة،
+المذكر والمؤنث، المفرد والمثنى والجمع، النكرة والمعرفة) tek sayfalık özet,
+hatırlatma kartları, kontrol listesi, bütün alıştırmalar, beş oyun ve 20 soruluk
+quiz provasıyla çalıştırır. Düzenleme: `kelime/veri.js`, `kelime/kaynak.html`,
+`kelime/oyunlar.js`, `kelime/ortak.css`; sonra `python3 kelime/yap.py`.
