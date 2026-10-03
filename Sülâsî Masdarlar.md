@@ -16,3 +16,10 @@ Kalıp Ustası, Bab Kovaları) öğretir. Oyunlar ve sınav rütbe puanı kazand
 
 İki program tek kaynaktan üretilir: `uygulama/sayfa.html` düzenlenir, sonra
 `python3 uygulama/yap.py` çalıştırılır.
+
+## Uygulama: Arapçada Cümle Yapıları
+
+`cumle/index.html` dosyasını tarayıcıda aç. Kitaptaki dört dersi (الجملة المفيدة،
+المبتدأ والخبر، الفاعل وتأنيث الفعل، المفعول به) kaide, örnek, görsel, etkileşimli
+alıştırma ve oyunlarla öğretir. Düzenleme için `cumle/kaynak.html`, `cumle/veri.js`
+ve `cumle/oyunlar.js` değiştirilir, sonra `python3 cumle/yap.py` çalıştırılır.
