@@ -1,0 +1,1582 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Harf-i Cerler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Amiri:wght@400;700&display=swap">
+<style>
+
+/* Düzen: her ders aynı sırayla akar: hedefler, örnekler, görsel, kaide, alıştırmalar. Hal renkleri (merfû, mansûb, mecrûr) ve tür renkleri her yerde aynıdır. */
+:root {
+  --paper: #F4F6F2;
+  --card: #FFFFFF;
+  --ink: #1B2420;
+  --muted: #5E6A63;
+  --line: #D9E0DA;
+  --soft: #EAEFEA;
+  --accent: #1E5B4F;
+  --ref: #B3402F;
+  --nasb: #A86A0E;
+  --cerr: #2D5FA8;
+  --muf: #6B6152;
+  --mus: #0F8A7A;
+  --mzs: #5A4FB0;
+  --mns: #B23A75;
+  --tks: #1E7A46;
+  --mz: #1E7A46;
+  --mi: #8A3F9E;
+  --mv: #1D6E8C;
+  --sf: #B0532A;
+  --muz: #2F67B0;
+  --mun: #B23A75;
+  --y: #1E5B4F;
+  --x: #7E8A84;
+  --good: #1F7A3E;
+  --bad: #B3261E;
+  --good-bg: #E2F2E6;
+  --bad-bg: #FBE7E4;
+  --role: var(--accent);
+  --f-display: "Alegreya", Georgia, "Times New Roman", serif;
+  --f-body: "Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  --f-ar: "Amiri", "Scheherazade New", "Traditional Arabic", "Noto Naskh Arabic", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111614; --card: #19201D; --ink: #E6ECE8; --muted: #9FACA5; --line: #2C3632; --soft: #202925;
+    --accent: #6CC3AE; --ref: #F28B78; --nasb: #EDB45C; --cerr: #8DB4F5; --muf: #CDBB95; --mus: #5ED1C2; --mzs: #ABA3F5; --mns: #F28DC0; --tks: #6FD69A; --mz: #6FD69A; --mi: #D49BEA; --mv: #6CC7E6; --sf: #F2A07A; --muz: #93B8F2; --mun: #F28DC0; --y: #6CC3AE; --x: #98A39D;
+    --good: #6FD08E; --bad: #FF8A80; --good-bg: #17301F; --bad-bg: #3A1D1A; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111614; --card: #19201D; --ink: #E6ECE8; --muted: #9FACA5; --line: #2C3632; --soft: #202925;
+  --accent: #6CC3AE; --ref: #F28B78; --nasb: #EDB45C; --cerr: #8DB4F5; --muf: #CDBB95; --mus: #5ED1C2; --mzs: #ABA3F5; --mns: #F28DC0; --tks: #6FD69A; --mz: #6FD69A; --mi: #D49BEA; --mv: #6CC7E6; --sf: #F2A07A; --muz: #93B8F2; --mun: #F28DC0; --y: #6CC3AE; --x: #98A39D;
+  --good: #6FD08E; --bad: #FF8A80; --good-bg: #17301F; --bad-bg: #3A1D1A; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 1060px; margin: 0 auto; padding-inline: 16px; padding-block: 0 72px; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.65rem; }
+h3 { font-size: 1.2rem; }
+p { margin: 0; }
+.ar { font-family: var(--f-ar); direction: rtl; unicode-bidi: isolate; line-height: 1.9; }
+.muted { color: var(--muted); }
+.lbl { font-size: .74rem; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.tabular { font-variant-numeric: tabular-nums; }
+.r-ref { --role: var(--ref); color: var(--ref); } .r-nasb { --role: var(--nasb); color: var(--nasb); } .r-cerr { --role: var(--cerr); color: var(--cerr); } .r-muf { --role: var(--muf); color: var(--muf); } .r-mus { --role: var(--mus); color: var(--mus); } .r-mzs { --role: var(--mzs); color: var(--mzs); } .r-mns { --role: var(--mns); color: var(--mns); } .r-tks { --role: var(--tks); color: var(--tks); } .r-mz { --role: var(--mz); color: var(--mz); } .r-mi { --role: var(--mi); color: var(--mi); } .r-good { --role: var(--good); color: var(--good); } .r-bad { --role: var(--bad); color: var(--bad); } .r-mv { --role: var(--mv); color: var(--mv); } .r-sf { --role: var(--sf); color: var(--sf); } .r-muz { --role: var(--muz); color: var(--muz); } .r-mun { --role: var(--mun); color: var(--mun); } .r-y { --role: var(--y); color: var(--y); }
+.r-x { --role: var(--x); color: var(--x); }
+button { font: inherit; color: inherit; }
+button:focus-visible, select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* üst */
+header.top { padding-block: 26px 14px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: end; }
+header.top h1 { font-size: clamp(2rem, 5.4vw, 3.2rem); font-weight: 800; letter-spacing: -.01em; }
+header.top .h1ar { font-family: var(--f-ar); font-size: clamp(1.5rem, 4vw, 2.1rem); color: var(--accent); direction: rtl; line-height: 1.5; }
+header.top p { color: var(--muted); max-width: 62ch; margin-top: 6px; }
+.xpbox { display: grid; gap: 4px; min-width: 210px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
+.xpbox .row { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; font-size: .9rem; }
+.xpbox b.rank { font-family: var(--f-display); font-size: 1.1rem; }
+.xpbar { height: 6px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.xpbar div { height: 100%; width: 0; background: linear-gradient(90deg, var(--ref), var(--nasb), var(--cerr), var(--mus), var(--mzs), var(--mns), var(--tks)); transition: width .5s ease; }
+
+nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line); display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-block: 8px; }
+nav.tabs::-webkit-scrollbar { display: none; }
+nav.tabs button { flex: none; font-weight: 700; font-size: .96rem; color: var(--muted); background: transparent; border: 0; border-radius: 999px; padding: 8px 14px; cursor: pointer; display: flex; gap: 6px; align-items: center; }
+nav.tabs button .num { font-family: var(--f-display); width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--soft); color: var(--ink); font-size: .85rem; }
+nav.tabs button .pc { font-size: .72rem; color: var(--muted); font-weight: 500; }
+nav.tabs button[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+nav.tabs button[aria-selected="true"] .num { background: var(--paper); color: var(--ink); }
+nav.tabs button[aria-selected="true"] .pc { color: var(--paper); opacity: .8; }
+
+section.panel { display: grid; gap: 22px; padding-top: 24px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; min-width: 0; }
+.stack { display: grid; gap: 12px; min-width: 0; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.btn { font-weight: 700; border: 1.5px solid var(--accent); color: var(--accent); background: transparent; padding: 7px 15px; border-radius: 10px; cursor: pointer; }
+.btn.solid { background: var(--accent); color: var(--card); }
+.btn.small { padding: 4px 10px; font-size: .88rem; }
+.btn:hover { filter: brightness(1.08); }
+.row-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* cümle parçaları */
+.sent { display: flex; flex-wrap: wrap; gap: 6px; direction: rtl; align-items: flex-end; }
+.chunk { display: inline-grid; justify-items: center; gap: 0; }
+.chunk .w { font-family: var(--f-ar); font-size: 1.7rem; line-height: 1.6; padding: 0 10px; border-radius: 10px; background: color-mix(in srgb, var(--role) 13%, transparent); color: var(--ink); border-bottom: 3px solid var(--role); }
+.chunk .t { font-size: .68rem; font-weight: 700; color: var(--role); letter-spacing: .04em; text-transform: uppercase; direction: ltr; }
+.chunk.r-x .w { background: transparent; border-bottom-color: transparent; color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; }
+.legend span { display: inline-flex; gap: 6px; align-items: center; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; background: var(--role); display: inline-block; }
+.trline { font-size: .92rem; color: var(--muted); }
+.ex-list { display: grid; gap: 14px; }
+.ex-item { display: grid; gap: 2px; padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
+.ex-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.pairgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px 18px; }
+
+/* ders başlığı */
+.unit-hero { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; border-top: 5px solid var(--role); }
+.unit-no { font-family: var(--f-display); font-weight: 800; font-size: 3.4rem; color: var(--role); line-height: 1; }
+.unit-hero .ar.big { font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.5; }
+.goals { margin: 0; padding-inline-start: 20px; display: grid; gap: 2px; }
+.prog { height: 8px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.prog div { height: 100%; background: var(--role); width: 0; transition: width .4s; }
+
+/* kaide */
+.rules { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: k; }
+.rules li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
+.rules li::before { counter-increment: k; content: counter(k); font-family: var(--f-display); font-weight: 800; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--paper); }
+.rules .exs { display: flex; flex-wrap: wrap; gap: 4px 16px; direction: rtl; font-family: var(--f-ar); font-size: 1.35rem; color: var(--accent); }
+details.kaide { border: 1px dashed var(--line); border-radius: 12px; padding: 10px 14px; }
+details.kaide summary { cursor: pointer; font-weight: 700; }
+details.kaide .ar { font-size: 1.3rem; }
+
+/* görseller */
+.viz { display: grid; gap: 10px; justify-items: center; }
+.viz svg { width: 100%; max-width: 640px; height: auto; display: block; }
+.viz .cap { font-size: .9rem; color: var(--muted); text-align: center; max-width: 60ch; }
+svg .s-ref { fill: var(--ref); } svg .s-nasb { fill: var(--nasb); } svg .s-cerr { fill: var(--cerr); } svg .s-muf { fill: var(--muf); } svg .s-mus { fill: var(--mus); } svg .s-mzs { fill: var(--mzs); } svg .s-mns { fill: var(--mns); } svg .s-tks { fill: var(--tks); }
+svg .s-ink { fill: var(--ink); } svg .s-muted { fill: var(--muted); } svg .s-card { fill: var(--card); } svg .s-soft { fill: var(--soft); } svg .s-good { fill: var(--good); } svg .s-bad { fill: var(--bad); }
+svg .k-ink { stroke: var(--ink); } svg .k-muted { stroke: var(--muted); } svg .k-fiil { stroke: var(--fiil); } svg .k-line { stroke: var(--line); } svg .k-good { stroke: var(--good); } svg .k-bad { stroke: var(--bad); }
+svg text { font-family: var(--f-body); }
+svg text.a { font-family: var(--f-ar); }
+.svg-scroll { overflow-x: auto; width: 100%; }
+
+/* harita (giriş) */
+.tree { display: grid; gap: 18px; justify-items: center; }
+.node { border-radius: 14px; padding: 10px 16px; text-align: center; background: var(--card); border: 2px solid var(--role); display: grid; gap: 0; }
+.node .ar { font-size: 1.5rem; line-height: 1.6; color: var(--role); }
+.node small { color: var(--muted); font-size: .8rem; }
+.node.root { --role: var(--accent); }
+.tree-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; width: 100%; max-width: 760px; }
+.branch { display: grid; gap: 12px; justify-items: center; padding: 14px; border-radius: 16px; background: var(--soft); position: relative; }
+.branch .kids { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; direction: rtl; }
+.branch .kids .node { padding: 6px 12px; }
+.branch .kids .node .ar { font-size: 1.2rem; }
+.branch .sample { font-family: var(--f-ar); font-size: 1.3rem; direction: rtl; }
+.branch button { margin-top: 2px; }
+.map-units { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.map-units .card { display: grid; gap: 6px; align-content: start; border-top: 5px solid var(--role); }
+.map-units .card .ar { font-size: 1.5rem; color: var(--role); }
+
+/* alıştırmalar */
+.exer { display: grid; gap: 14px; }
+.exer-head { display: grid; gap: 4px; }
+.exer-head .ar { font-size: 1.35rem; color: var(--accent); }
+.exer-head .cnt { font-size: .85rem; color: var(--muted); }
+.exbox { background: var(--soft); border-radius: 10px; padding: 8px 12px; font-size: .95rem; }
+.exbox .ar { font-size: 1.25rem; }
+.items { display: grid; gap: 12px; }
+.item { display: grid; gap: 8px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+.item.ok { border-color: var(--good); }
+.item.no { border-color: var(--bad); }
+.item .qn { font-family: var(--f-display); font-weight: 800; color: var(--muted); font-size: .95rem; }
+.item .q { font-family: var(--f-ar); font-size: 1.55rem; direction: rtl; line-height: 1.8; }
+.item .q u { text-decoration: none; border-bottom: 2px dashed var(--accent); padding-inline: 18px; }
+.item .q u.filled { padding-inline: 2px; border-bottom-style: solid; color: var(--accent); }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; }
+.opt { font-family: var(--f-ar); font-size: 1.35rem; line-height: 1.6; padding: 4px 14px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; text-align: right; }
+.opt.lat { font-family: var(--f-body); font-size: 1rem; font-weight: 700; padding: 8px 16px; }
+.opt.block { flex: 1 1 100%; }
+.opt:hover:not([disabled]) { border-color: var(--accent); }
+.opt.sel-ok { border-color: var(--good); background: var(--good-bg); color: var(--good); }
+.opt.sel-no { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); }
+.opt[disabled] { cursor: default; }
+.fb { font-size: .95rem; }
+.fb .ok { color: var(--good); font-weight: 700; } .fb .no { color: var(--bad); font-weight: 700; }
+.fb .ar { font-size: 1.2rem; }
+.tile-line { min-height: 58px; border: 2px dashed var(--line); border-radius: 12px; padding: 6px; display: flex; flex-wrap: wrap; gap: 6px; direction: rtl; align-items: center; }
+.tile-line.okk { border-style: solid; border-color: var(--good); background: var(--good-bg); }
+.tile-line.nok { border-style: solid; border-color: var(--bad); background: var(--bad-bg); }
+.tiles { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; }
+.tile { font-family: var(--f-ar); font-size: 1.4rem; line-height: 1.5; padding: 2px 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; box-shadow: 0 2px 0 var(--line); }
+.tile:hover:not([disabled]) { border-color: var(--accent); }
+.tile[disabled] { opacity: .25; cursor: default; box-shadow: none; }
+.tile.inl { background: var(--soft); }
+.tagbtn { display: inline-grid; justify-items: center; cursor: pointer; border: 0; background: transparent; padding: 0; }
+.tagbtn .w { font-family: var(--f-ar); font-size: 1.55rem; line-height: 1.6; padding: 0 10px; border-radius: 10px; border: 1.5px dashed var(--line); }
+.tagbtn .t { font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); min-height: 1.1em; }
+.tagbtn.has .w { border-style: solid; border-color: var(--role); background: color-mix(in srgb, var(--role) 13%, transparent); }
+.tagbtn.has .t { color: var(--role); }
+.tagbtn.wrong .w { outline: 2px solid var(--bad); outline-offset: 2px; }
+.slot { font-family: var(--f-ar); font-size: 1.5rem; line-height: 1.6; padding: 0 12px; border-radius: 10px; border: 1.5px solid var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); cursor: pointer; min-width: 64px; }
+.slot.empty { color: var(--muted); border-style: dashed; }
+.slot.wrong { border-color: var(--bad); background: var(--bad-bg); }
+.slot.right { border-color: var(--good); background: var(--good-bg); }
+.combo-line { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; align-items: center; font-family: var(--f-ar); font-size: 1.5rem; }
+.bank { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; padding: 10px; border-radius: 12px; background: var(--soft); }
+.bank .tile[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: var(--card); }
+.cls-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.passage { font-family: var(--f-ar); font-size: 1.45rem; line-height: 2.1; direction: rtl; text-align: justify; }
+.passage-tr { font-size: .98rem; color: var(--muted); }
+.qa { display: grid; gap: 6px; padding: 10px 12px; border-radius: 10px; background: var(--soft); }
+.qa .ar { font-size: 1.35rem; }
+
+/* oyunlar */
+.game-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.game-card { display: grid; gap: 8px; align-content: start; border-top: 5px solid var(--role); }
+.game-card .ico { font-family: var(--f-ar); font-size: 1.9rem; color: var(--role); direction: rtl; line-height: 1.4; }
+.hud { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: baseline; font-variant-numeric: tabular-nums; }
+.hud b { font-family: var(--f-display); font-size: 1.45rem; color: var(--accent); }
+.time-bar { height: 10px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.time-bar div { height: 100%; background: var(--accent); transition: width 1s linear; }
+.time-bar.low div { background: var(--bad); }
+.target { font-family: var(--f-ar); font-size: clamp(1.7rem, 6vw, 2.5rem); text-align: center; line-height: 1.8; padding: 12px; border-radius: 16px; background: var(--soft); direction: rtl; }
+.target.flash-ok { background: var(--good-bg); }
+.target.flash-no { background: var(--bad-bg); animation: shake .35s; }
+.q-end { display: inline-block; min-width: 34px; border: 2px dashed var(--accent); border-radius: 8px; color: var(--accent); font-family: var(--f-body); font-size: 1rem; vertical-align: middle; line-height: 1.6; text-align: center; }
+.big2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.big2 button, .big3 button { border: 0; border-radius: 14px; padding: 14px 6px; font-weight: 800; font-family: var(--f-display); font-size: 1.15rem; color: var(--card); background: var(--role); cursor: pointer; display: grid; gap: 2px; justify-items: center; }
+.big2 button .ar, .big3 button .ar { font-weight: 400; font-size: 1.4rem; line-height: 1.3; }
+.big2 button small { font-family: var(--f-body); font-weight: 500; font-size: .75rem; opacity: .85; }
+.big3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
+.big3 button { --role: var(--accent); font-family: var(--f-ar); font-size: 1.8rem; font-weight: 400; }
+.gfb { min-height: 3em; text-align: center; }
+.gfb .ar { font-size: 1.3rem; }
+.score-big { font-family: var(--f-display); font-size: 3rem; font-weight: 800; color: var(--accent); }
+.stars { font-size: 2.1rem; letter-spacing: .15em; color: var(--muf); }
+.stars .off { color: var(--line); }
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+@keyframes pop { 0% { transform: scale(.92); } 60% { transform: scale(1.05); } 100% { transform: scale(1); } }
+.pop { animation: pop .3s; }
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(20px); background: var(--ink); color: var(--paper); padding: 10px 18px; border-radius: 12px; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 20; max-width: calc(100% - 32px); text-align: center; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; }
+@media (max-width: 720px) {
+  header.top { grid-template-columns: 1fr; }
+  .unit-hero { grid-template-columns: 1fr; }
+  .tree-row { grid-template-columns: 1fr; }
+  .chunk .w { font-size: 1.45rem; }
+  .item .q { font-size: 1.35rem; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* --- bu programa özel --- */
+.viz { grid-template-columns: minmax(0, 1fr); }
+.viz > * { max-width: 100%; min-width: 0; }
+.chunk.r-dash .w { background: transparent; border-bottom-color: transparent; color: var(--muted); }
+.sent .plain { font-family: var(--f-ar); font-size: 1.55rem; line-height: 1.6; color: var(--muted); align-self: center; padding: 0 2px; }
+.tagbtn.findbtn.on .w { border-style: solid; border-color: var(--y); background: color-mix(in srgb, var(--y) 14%, transparent); }
+.tagbtn.findbtn.miss .w { outline: 2px dashed var(--good); outline-offset: 2px; }
+.srcline { font-size: .85rem; color: var(--muted); }
+.sumgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; }
+.sumcard { display: grid; gap: 10px; align-content: start; border-top: 5px solid var(--role); }
+.sumcard h3 { color: var(--role); }
+.sumcard .ar.t { font-size: 1.45rem; color: var(--role); }
+.sumcard ul { margin: 0; padding-inline-start: 18px; display: grid; gap: 4px; }
+.sumcard .ar { font-size: 1.2rem; }
+.flash-wrap { display: grid; gap: 12px; justify-items: center; }
+.flash { width: 100%; max-width: 560px; min-height: 170px; perspective: 900px; border: 0; background: transparent; padding: 0; cursor: pointer; }
+.flash .in { position: relative; width: 100%; min-height: 170px; transition: transform .45s; transform-style: preserve-3d; }
+.flash.up .in { transform: rotateY(180deg); }
+.flash .face { position: absolute; inset: 0; border-radius: 16px; display: grid; place-items: center; padding: 18px; backface-visibility: hidden; -webkit-backface-visibility: hidden; text-align: center; font-size: 1.15rem; }
+.flash .front { background: var(--ink); color: var(--paper); font-family: var(--f-display); font-weight: 700; font-size: 1.35rem; }
+.flash .back { background: var(--card); border: 2px solid var(--accent); transform: rotateY(180deg); }
+.flash .back .ar { font-size: 1.25rem; }
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.checklist label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.checklist input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--accent); }
+.icons { display: inline-flex; gap: 2px; flex-wrap: wrap; }
+.icons .ico { width: 22px; height: 22px; }
+.sfx { color: var(--role); font-weight: 700; }
+.qz-bars { display: grid; gap: 10px; width: 100%; max-width: 560px; }
+.qz-bar { display: grid; grid-template-columns: 150px minmax(0, 1fr) 54px; gap: 10px; align-items: center; font-size: .92rem; }
+.qz-bar .tr2 { height: 12px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.qz-bar .tr2 div { height: 100%; background: var(--role); }
+.qz-type { font-size: .85rem; color: var(--muted); }
+.big5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.big5 button { border: 0; border-radius: 14px; padding: 12px 6px; font-weight: 800; font-family: var(--f-display); font-size: 1rem; color: var(--card); background: var(--role); cursor: pointer; display: grid; gap: 2px; justify-items: center; }
+.big5 button .ar { font-weight: 400; font-size: 1.15rem; line-height: 1.4; }
+.big5 button small { font-family: var(--f-body); font-weight: 500; font-size: .72rem; opacity: .85; }
+.mem { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.mcard { aspect-ratio: 4 / 3; max-width: 100%; perspective: 700px; border: 0; padding: 0; background: transparent; cursor: pointer; }
+.mcard .in { position: relative; width: 100%; height: 100%; transition: transform .35s; transform-style: preserve-3d; }
+.mcard.up .in, .mcard.done .in { transform: rotateY(180deg); }
+.mcard .face { position: absolute; inset: 0; border-radius: 12px; display: grid; place-items: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 4px; text-align: center; }
+.mcard .back { background: var(--ink); color: var(--paper); font-family: var(--f-ar); font-size: 1.3rem; opacity: .92; }
+.mcard .front { transform: rotateY(180deg); background: var(--card); border: 2px solid var(--line); font-family: var(--f-ar); font-size: 1.55rem; }
+.mcard.done .front { border-color: var(--good); background: var(--good-bg); }
+.mcard .front.lat { font-family: var(--f-body); font-size: .9rem; font-weight: 700; line-height: 1.25; }
+/* i'rab tablosu: mansûb ile mecrûr aynıysa tek hücre */
+.itab { display: grid; grid-template-columns: minmax(0, 1.05fr) repeat(3, minmax(0, 1fr)); direction: rtl; width: 100%; max-width: 820px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
+.itab > div { direction: ltr; padding: 8px 6px; text-align: center; display: grid; gap: 1px; align-content: center; justify-items: center; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); min-width: 0; }
+.itab > div.end { border-left: 0; }
+.itab .hd { background: var(--role); color: var(--card); font-weight: 800; font-family: var(--f-display); }
+.itab .hd .ar { font-size: 1.05rem; line-height: 1.4; font-family: var(--f-ar); font-weight: 400; }
+.itab .corner { background: var(--soft); color: var(--muted); font-size: .8rem; }
+.itab .rh { background: color-mix(in srgb, var(--role) 11%, var(--card)); border-right: 5px solid var(--role); }
+.itab .rh b { color: var(--role); font-size: .95rem; line-height: 1.2; }
+.itab .c .ar { font-size: 1.3rem; line-height: 1.6; }
+.itab .c .ar b { color: var(--role); }
+.itab .c small { color: var(--muted); font-size: .78rem; }
+.itab .c.same { grid-column: span 2; background: repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--role) 6%, transparent) 10px 20px); }
+.itab .c.same small b { color: var(--ink); }
+.itab > div.last { border-bottom: 0; }
+.fork { display: flex; gap: 12px; align-items: center; justify-content: center; direction: rtl; flex-wrap: wrap; width: 100%; }
+.fork .outs { display: grid; gap: 8px; direction: ltr; }
+.fcard { border-radius: 14px; padding: 8px 14px; text-align: center; display: grid; gap: 0; justify-items: center; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); min-width: 0; }
+.fcard .ar { font-size: 1.6rem; line-height: 1.6; }
+.fcard .ar b { color: var(--role); }
+.fcard small { color: var(--muted); font-size: .8rem; }
+.fcard b.t { color: var(--role); font-size: .9rem; }
+.fork .arr { font-size: 1.8rem; color: var(--muted); }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.badge { border-radius: 999px; padding: 4px 12px; background: var(--soft); font-size: .9rem; display: inline-flex; gap: 6px; align-items: center; }
+.badge .ar { font-size: 1.15rem; line-height: 1.4; color: var(--role); }
+.vs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; width: 100%; max-width: 640px; }
+.vs .fcard .ar { font-size: 1.5rem; }
+.nope { text-decoration: line-through; text-decoration-color: var(--bad); text-decoration-thickness: 2px; opacity: .8; }
+.pairs6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 640px; direction: rtl; }
+.pairs6 > div { border-radius: 10px; background: var(--soft); padding: 6px; text-align: center; font-family: var(--f-ar); font-size: 1.2rem; line-height: 1.6; direction: rtl; border-top: 3px solid var(--tks); }
+.pairs6 > div b { color: var(--tks); font-weight: 700; }
+.steps3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.steps3 > div { border-radius: 14px; padding: 12px; background: var(--soft); display: grid; gap: 4px; align-content: start; }
+.steps3 .n { font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; color: var(--accent); line-height: 1; }
+.steps3 .ar { font-size: 1.15rem; }
+.gorev { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; direction: rtl; }
+.gorev > div { direction: ltr; border-radius: 12px; padding: 10px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 8%, var(--card)); display: grid; gap: 2px; align-content: start; }
+.gorev b { color: var(--role); }
+.gorev .ar { font-size: 1.1rem; }
+.hl { color: var(--accent); border-bottom: 3px solid var(--accent); padding-inline: 2px; }
+.ul { border-bottom: 2.5px solid var(--accent); padding-inline: 1px; }
+.irow { display: grid; gap: 6px; }
+.irow .lbl { margin: 0; }
+.opt.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--card)); }
+.extra-tag { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 0 8px; margin-inline-start: 6px; vertical-align: middle; }
+.blank { display: inline-block; min-width: 70px; border-bottom: 3px dashed var(--accent); }
+@media (max-width: 720px) {
+  .mem { grid-template-columns: repeat(3, 1fr); }
+  .qz-bar { grid-template-columns: 110px minmax(0, 1fr) 46px; }
+  .steps3, .gorev { grid-template-columns: 1fr; }
+  .itab .c .ar { font-size: 1.05rem; }
+  .itab .rh b { font-size: .8rem; }
+  .itab .hd { font-size: .85rem; }
+  .itab > div { padding: 6px 3px; }
+  .itab .c small { font-size: .7rem; }
+  .pairs6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vs { grid-template-columns: 1fr; }
+}
+.hlb b { color: var(--role); }
+.gorev .ar.hlb { font-size: 1.2rem; }
+.steps3.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.steps3.four .ar { font-size: 1.1rem; }
+@media (max-width: 860px) { .steps3.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .steps3.four { grid-template-columns: 1fr; } }
+.makine { display: grid; gap: 8px; width: 100%; max-width: 760px; justify-items: center; }
+.mk-row { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; direction: rtl; }
+.mk { border: 1.5px solid var(--line); background: var(--card); border-radius: 10px; padding: 2px 12px; cursor: pointer; font-weight: 700; font-size: .9rem; min-height: 40px; }
+.mk .ar { font-size: 1.3rem; font-weight: 400; }
+.mk.on { border-color: var(--accent); background: var(--accent); color: var(--card); }
+.mk-out { margin-top: 6px; width: 100%; border-radius: 16px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 9%, var(--card)); padding: 12px; display: grid; justify-items: center; gap: 2px; text-align: center; }
+.mk-out .ar { font-size: clamp(2rem, 7vw, 2.8rem); line-height: 1.6; }
+.mk-out > b { color: var(--role); }
+.gorev.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gorev.six { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gorev > div { justify-items: center; text-align: center; }
+.sumgrid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (max-width: 720px) { .gorev.four, .gorev.six { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.mk.g-n { border-color: color-mix(in srgb, var(--mi) 55%, var(--line)); }
+.mk.g-c { border-color: color-mix(in srgb, var(--mz) 55%, var(--line)); }
+.mk.g-n.on { background: var(--mi); border-color: var(--mi); }
+.mk.g-c.on { background: var(--mz); border-color: var(--mz); }
+.mk-legend { display: flex; gap: 14px; font-size: .82rem; justify-content: center; }
+.mk-legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-inline-end: 5px; vertical-align: middle; }
+.mk-legend .g-n::before { background: var(--mi); } .mk-legend .g-c::before { background: var(--mz); }
+.timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 760px; direction: rtl; align-items: center; position: relative; }
+.timeline::before { content: ""; position: absolute; inset-inline: 4%; top: 50%; border-top: 2px dashed var(--line); z-index: 0; }
+.tl-card, .tl-now { position: relative; z-index: 1; direction: ltr; border-radius: 14px; padding: 10px; text-align: center; display: grid; gap: 2px; justify-items: center; }
+.tl-card { border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); }
+.tl-card .ar { font-size: 1.6rem; } .tl-card b { color: var(--role); }
+.tl-now { background: var(--soft); } .tl-now .ar { font-size: 1.4rem; }
+.tl-card small, .tl-now small { color: var(--muted); }
+/* zamir makinesi */
+.ico .fillrole { fill: var(--role); }
+.zt-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr)); gap: 6px; width: 100%; max-width: 640px; }
+.zt-c { display: grid; place-items: center; text-align: center; font-size: .82rem; min-width: 0; }
+.zt-c.hd { color: var(--muted); font-weight: 700; }
+.zt-c.rh { border-radius: 10px; background: color-mix(in srgb, var(--role) 12%, var(--card)); border-inline-start: 4px solid var(--role); padding: 2px 4px; line-height: 1.2; }
+.zt-c.rh b { color: var(--role); }
+.zt-c.rh .ar { font-size: .95rem; }
+.zt-b { border: 1.5px solid color-mix(in srgb, var(--role) 45%, var(--line)); background: var(--card); border-radius: 10px; cursor: pointer; min-height: 46px; padding: 0 4px; min-width: 0; color: var(--ink); }
+.zt-b .ar { font-size: 1.35rem; }
+.zt-b.span2 { grid-column: span 2; }
+.zt-b.on { background: var(--role); border-color: var(--role); color: var(--card); }
+.zt-out > .ar { font-size: clamp(2rem, 7vw, 2.6rem); }
+.zt-lines { display: grid; gap: 6px; width: 100%; max-width: 520px; margin-top: 6px; }
+.zt-l { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); align-items: center; gap: 2px 10px; text-align: start; border-top: 1px solid var(--line); padding-top: 6px; }
+.zt-l .lbl { grid-row: span 2; }
+.zt-l .ar { font-size: 1.45rem; line-height: 1.5; text-align: right; }
+.zt-l .ar b { color: var(--role); }
+.zt-l small { color: var(--muted); font-size: .8rem; text-align: right; }
+@media (max-width: 480px) { .zt-l { grid-template-columns: 1fr; } .zt-l .lbl { grid-row: auto; } .zt-b .ar { font-size: 1.15rem; } }
+.zt-out > .muted .ar { font-size: 1.2rem; line-height: 1.4; }
+/* çekim makinesi */
+.ct { font-style: normal; color: var(--muted); }
+.cm { font-style: normal; color: var(--muted); }
+.zt-b.cz { display: grid; place-items: center; gap: 0; padding: 2px 4px; min-height: 58px; }
+.zt-b.cz small.ar { font-size: .85rem; color: var(--muted); line-height: 1.2; }
+.zt-b.cz .ar { font-size: 1.3rem; line-height: 1.5; }
+.zt-b.cz.on { background: color-mix(in srgb, var(--role) 14%, var(--card)); color: var(--ink); outline: 3px solid var(--role); outline-offset: -1px; }
+.rz-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; font-size: .8rem; }
+.rz-legend span i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: var(--role); margin-inline-end: 5px; vertical-align: middle; }
+.mk-out .muted .ar { font-size: 1.1rem; line-height: 1.4; }
+.mk-out > b .ar { font-size: 1.1rem; line-height: 1.4; }
+@media (max-width: 480px) { .zt-b.cz .ar { font-size: 1.05rem; } .zt-b.cz small.ar { font-size: .72rem; } }
+.timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 760px; direction: rtl; align-items: center; position: relative; }
+.timeline::before { content: ""; position: absolute; inset-inline: 4%; top: 50%; border-top: 2px dashed var(--line); z-index: 0; }
+.tl-card, .tl-now { position: relative; z-index: 1; direction: ltr; border-radius: 14px; padding: 10px; text-align: center; display: grid; gap: 2px; justify-items: center; }
+.tl-card { border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); }
+.tl-card .ar { font-size: 1.6rem; } .tl-card b { color: var(--role); }
+.tl-now { background: var(--soft); } .tl-now .ar { font-size: 1.4rem; }
+.tl-card small, .tl-now small { color: var(--muted); }
+/* fiil çeşitleri */
+.fal { display: flex; gap: 10px; justify-content: center; direction: rtl; }
+.fal > div { border-radius: 14px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 9%, var(--card)); padding: 6px 18px; display: grid; justify-items: center; }
+.fal .ar { font-size: 2.2rem; line-height: 1.4; color: var(--role); }
+.fal b { color: var(--role); }
+.fal small { color: var(--muted); font-size: .78rem; }
+.alm { margin-top: 4px; border-radius: 10px; padding: 2px 8px; font-size: .85rem; font-weight: 700; }
+.alm.ok { background: var(--good-bg); color: var(--good); }
+.alm.ok .ar { font-size: 1.3rem; font-weight: 400; }
+.alm.no { background: color-mix(in srgb, var(--bad) 10%, var(--card)); color: var(--bad); }
+.mk small { font-weight: 500; font-size: .75rem; }
+/* sahih ve mu’tel */
+.pairgrid { direction: rtl; } .pairgrid > * { direction: ltr; }
+.agac { width: 100%; max-width: 920px; display: grid; gap: 10px; justify-items: center; }
+.agac .kok { font-size: 1.6rem; line-height: 1.6; padding: 0 22px; border-radius: 12px; background: var(--ink); color: var(--paper); }
+.dallar { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 4fr); gap: 12px; width: 100%; direction: rtl; }
+.dal { direction: ltr; border: 2px solid var(--role); border-radius: 16px; padding: 10px; background: color-mix(in srgb, var(--role) 7%, var(--card)); display: grid; gap: 6px; justify-items: center; align-content: start; text-align: center; }
+.dal > b { color: var(--role); font-size: 1.1rem; font-family: var(--f-display); }
+.dal > b .ar { font-weight: 400; font-size: 1.25rem; }
+.yaprak { display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 8px; width: 100%; direction: rtl; }
+.yap { direction: ltr; border-radius: 12px; border-top: 5px solid var(--role); background: var(--card); padding: 6px 4px; display: grid; justify-items: center; gap: 0; min-width: 0; }
+.yap .ar { font-size: 1.15rem; line-height: 1.5; color: var(--role); }
+.yap .ar.ex { color: var(--ink); font-size: 1.5rem; }
+.yap b { font-size: .85rem; color: var(--role); }
+.yap small { font-size: .72rem; color: var(--muted); line-height: 1.2; }
+.kokrow { display: flex; gap: 10px; direction: rtl; justify-content: center; flex-wrap: wrap; }
+.kh { direction: ltr; border-radius: 14px; border: 2px solid var(--line); background: var(--card); padding: 4px 14px; display: grid; justify-items: center; min-width: 78px; }
+.kh .ar { font-size: 2.3rem; line-height: 1.4; }
+.kh small { color: var(--muted); font-size: .74rem; }
+.kh .tag { font-size: .74rem; font-weight: 800; color: var(--role); }
+.kh.il { border-color: var(--role); background: color-mix(in srgb, var(--role) 14%, var(--card)); }
+.kh.il .ar { color: var(--role); }
+.adimlar { display: grid; gap: 4px; width: 100%; max-width: 520px; }
+.adim { display: flex; gap: 8px; align-items: baseline; padding: 4px 10px; border-radius: 10px; background: var(--soft); }
+.adim .m { font-weight: 800; }
+.adim.yes .m { color: var(--good); } .adim.no .m { color: var(--muted); }
+.hukum { border-radius: 999px; padding: 4px 18px; background: var(--role); color: var(--card); font-weight: 800; text-align: center; }
+.hukum .ar { font-weight: 400; font-size: 1.25rem; }
+@media (max-width: 720px) { .dallar { grid-template-columns: 1fr; } .kh { min-width: 64px; padding: 2px 10px; } .kh .ar { font-size: 1.9rem; } }
+/* harf-i cer */
+.harfler { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 820px; direction: rtl; }
+.hf { direction: ltr; border-radius: 12px; border: 2px solid var(--mi); background: color-mix(in srgb, var(--mi) 8%, var(--card)); display: grid; justify-items: center; padding: 4px; text-align: center; min-width: 0; }
+.hf .ar { font-size: 1.7rem; line-height: 1.5; color: var(--mi); }
+.hf small { color: var(--muted); font-size: .78rem; line-height: 1.2; }
+.soru { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; width: 100%; max-width: 820px; direction: rtl; }
+.soru > div { direction: rtl; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; justify-content: center; border-radius: 12px; background: var(--soft); padding: 6px 10px; }
+.soru .q1 { font-size: 1.3rem; } .soru .q2 { font-size: 1.4rem; color: var(--mi); font-weight: 700; } .soru .arr { color: var(--muted); }
+.soru small { width: 100%; text-align: center; color: var(--muted); font-size: .8rem; direction: ltr; }
+.mk:disabled { opacity: .35; cursor: not-allowed; }
+@media (max-width: 720px) { .harfler { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="lbl">Kitaptaki ders · beş konu</div>
+      <h1>Harf-i Cerler</h1>
+      <div class="h1ar">حُرُوفُ الجَرِّ</div>
+      <p>Harf-i cer isme gelir ve onu mecrûr yapar: <span class="ar"><span style="color:var(--mi)">فِي</span> <span style="color:var(--cerr)">الحَقِيبَةِ</span></span> (çantada). On harf-i ceri ve anlamlarını öğren, harf-i cer makinesiyle dene, alıştırmaları çöz, oyunlarla pekiştir.</p>
+    </div>
+    <div class="xpbox" id="xpbox" aria-live="polite"></div>
+  </header>
+  <nav class="tabs" role="tablist" aria-label="Bölümler" id="tabs"></nav>
+  <main id="main"></main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// ================= VERİ: Harf-i Cerler (حُرُوفُ الجَرِّ) =================
+// Parça yazımı: "kelime:rol / kelime:rol". Rol "-" düz metin.
+var ROLES = {
+  mi: { ar: "حَرْفُ جَرٍّ", tr: "Harf-i cer" }, cerr: { ar: "اسْمٌ مَجْرُورٌ", tr: "Mecrûr" },
+  ref: { ar: "مَرْفُوعٌ", tr: "Merfû" }, nasb: { ar: "مَنْصُوبٌ", tr: "Mansûb" },
+  x: { ar: "", tr: "" }, y: { ar: "✓", tr: "Seçtin" }
+};
+var HAL_OPTS = [["ref", "Merfû", "مَرْفُوعٌ", "ref"], ["nasb", "Mansûb", "مَنْصُوبٌ", "nasb"], ["cer", "Mecrûr", "مَجْرُورٌ", "cerr"]];
+var HAL_TR = { ref: "Merfû", nasb: "Mansûb", cer: "Mecrûr" };
+var TUR_OPTS = HAL_OPTS;
+// Hal sebebi (4. alıştırma)
+var SEBEP = [["fa", "Fâil", "فَاعِلٌ"], ["mf", "Mef’ûl bih", "مَفْعُولٌ بِهِ"], ["hc", "Harf-i cerden sonra", "مَجْرُورٌ بِالحَرْفِ"], ["mi", "Muzâfun ileyh", "مُضَافٌ إِلَيْهِ"], ["zf", "Zarf", "ظَرْفٌ"], ["sf", "Sıfat", "نَعْتٌ"]];
+var SEBEP_TR = {}; SEBEP.forEach(function (s) { SEBEP_TR[s[0]] = s[1]; });
+
+// On harf-i cer: h yazılış, al: ال'den önce, b: bitişik yazılan, tr anlam, time: yalnız zamanla
+var HARF = [
+  { h: "مِنْ", al: "مِنَ", tr: "-den, -dan", note: "مِنْ, ال'den önce مِنَ olur: iki sakin yan yana gelmesin diye nûn fetha alır." },
+  { h: "إِلَى", al: "إِلَى", tr: "-e, -a (doğru)" },
+  { h: "عَلَى", al: "عَلَى", tr: "üzerinde, -e" },
+  { h: "فِي", al: "فِي", tr: "içinde, -de" },
+  { h: "بِـ", b: "بِ", tr: "ile, -le", note: "بِـ bitişik yazılır: بِالقَلَمِ." },
+  { h: "لِـ", b: "لِ", tr: "için, -e (ait)", note: "لِـ ile ال birleşince elif yazılmaz: لِلْبَيْتِ." },
+  { h: "عَنْ", al: "عَنِ", tr: "hakkında, -den (uzak)", note: "عَنْ, ال'den önce عَنِ olur: nûn kesre alır." },
+  { h: "كَـ", b: "كَ", tr: "gibi", note: "كَـ bitişik yazılır: كَالأَسَدِ." },
+  { h: "حَتَّى", al: "حَتَّى", tr: "-e kadar" },
+  { h: "مُنْذُ", al: "مُنْذُ", tr: "-den beri", time: true, note: "مُنْذُ zaman bildiren isimle kullanılır." }
+];
+var NOUNS = [
+  { d: "البَيْت", n: "بَيْت", tr: "ev" }, { d: "المَدْرَسَة", n: "مَدْرَسَة", tr: "okul" }, { d: "السُّوق", n: "سُوق", tr: "çarşı" },
+  { d: "القَلَم", n: "قَلَم", tr: "kalem" }, { d: "الصَّدِيق", n: "صَدِيق", tr: "arkadaş" }, { d: "الصَّبَاح", n: "صَبَاح", tr: "sabah", time: true }, { d: "المَسَاء", n: "مَسَاء", tr: "akşam", time: true }
+];
+function isSun(d) { return /ّ/.test(d.slice(3, 5)); }
+// harf + isim → mecrûr şekil
+function cerForm(h, nn, def) {
+  var w = def ? nn.d : nn.n, end = def ? "ِ" : "ٍ";
+  if (h.b) {
+    if (def && h.b === "لِ") { var rest = nn.d.slice(2); return "لِل" + (isSun(nn.d) ? "" : "ْ") + rest + end; }
+    return h.b + w + end;
+  }
+  return (def ? h.al : h.h) + " " + w + end;
+}
+function tenvinNasb(w) { return /(ة|اء)$/.test(w) ? w + "ً" : w + "ًا"; }
+function merfu(nn, def) { return def ? nn.d + "ُ" : nn.n + "ٌ"; }
+
+function W(s, tr, why) {
+  return { c: s.split(" ").map(function (w) {
+    var m = /^([^\[\{]*)\[(.*)\](.*)$/.exec(w), p = /^([^\[\{]*)\{(.*)\}(.*)$/.exec(w);
+    if (m) return (m[1] + m[2] + m[3]).replace(/_/g, " ") + ":y";
+    if (p) return (p[1] + p[2] + p[3]).replace(/_/g, " ") + ":-";
+    return w.replace(/_/g, " ") + ":x";
+  }).join(" / "), tr: tr, why: why };
+}
+function CB(q, parts, ok, tr, why) {
+  return { q: q, p: parts.map(function (x) { return Array.isArray(x) ? { o: x } : x; }), ok: Array.isArray(ok[0]) ? ok : [ok], tr: tr, why: why };
+}
+function HL(s, w) { return s.replace(w, '<b class="hl">' + w + '</b>'); }
+function IR(s, w, t, c, why, tr) { return { s: s.replace(w, "[" + w + "]"), t: t, c: c, why: why, tr: tr }; }
+
+var UNITS = [
+// ---------------------------------------------------------------- 1 · HARF-İ CER VE MECRÛR
+{
+  id: "u1", no: 1, ar: "حُرُوفُ الجَرِّ", tr: "Harf-i Cer ve Mecrûr İsim", short: "Harf-i cer", col: "mi", legend: ["mi", "cerr"],
+  goals: ["On harf-i ceri tanımak: مِنْ، إِلَى، عَلَى، فِي، بِـ، لِـ، عَنْ، كَـ، حَتَّى، مُنْذُ", "Harf-i cerin yalnız isme geldiğini, sonraki ismin mecrûr olduğunu bilmek", "Mecrûr ismin son harekesini doğru koymak: البَيْتِ، بَيْتٍ"],
+  examples: [
+    { s: "وَضَعَ الطَّالِبُ الكِتَابَ:- / فِي:mi / الحَقِيبَةِ:cerr", tr: "Öğrenci kitabı çantaya koydu." },
+    { s: "شَرَحَ المُعَلِّمُ الدَّرْسَ:- / عَلَى:mi / السَّبُّورَةِ:cerr", tr: "Öğretmen dersi tahtada anlattı." },
+    { s: "أَكَلَ الوَلَدُ الطَّعَامَ:- / بِـ:mi / المِلْعَقَةِ:cerr", tr: "Çocuk yemeği kaşıkla yedi.", why: "بِـ bitişik yazılır: بِالمِلْعَقَةِ." }
+  ],
+  rules: [
+    { tr: "<b class=\"r-mi\">Harf-i cer</b> (<span class=\"ar\">حَرْفُ الجَرِّ</span>) yalnız isimlerin başına gelir.", ex: ["فِي الحَقِيبَةِ"] },
+    { tr: "Harf-i cerden sonraki isim <b class=\"r-cerr\">mecrûr</b> olur: ال'li isim kesre, tenvinli isim iki kesre alır.", ex: ["عَلَى السَّبُّورَةِ", "بِأَدَبٍ"] },
+    { tr: "Başlıca harf-i cerler on tanedir.", ex: ["مِنْ", "إِلَى", "عَلَى", "فِي", "بِـ", "لِـ", "عَنْ", "كَـ", "حَتَّى", "مُنْذُ"] },
+    { tr: "<span class=\"ar\">بِـ، لِـ، كَـ</span> tek harftir, isme bitişik yazılır.", ex: ["بِالمِلْعَقَةِ", "لِصَدِيقِهِ", "كَالشَّايِ"] },
+    { tr: "ال'den önce üç harf değişir: مِنْ nûnu fetha, عَنْ nûnu kesre alır; لِـ ile ال birleşince elif yazılmaz.", ex: ["مِنَ النَّافِذَةِ", "عَنِ الدَّرْسِ", "لِلْبَيْتِ"] },
+    { tr: "Dikkat: <span class=\"ar\">مَعَ</span> harf-i cer değil, zarftır; ama sonraki isim yine mecrûrdur (muzâfun ileyh): <span class=\"ar\">مَعَ الأَصْدِقَاءِ</span>." }
+  ],
+  kaide: [
+    "١ ـ حُرُوفُ الجَرِّ تَدْخُلُ عَلَى الأَسْمَاءِ. مِثَالٌ: وَضَعَ الطَّالِبُ الكِتَابَ فِي الحَقِيبَةِ.",
+    "٢ ـ يَكُونُ الاسْمُ بَعْدَ حَرْفِ الجَرِّ مَجْرُورًا. مِثَالٌ: شَرَحَ المُعَلِّمُ الدَّرْسَ عَلَى السَّبُّورَةِ، أَكَلَ الوَلَدُ الطَّعَامَ بِالمِلْعَقَةِ.",
+    "٣ ـ مِنْ حُرُوفِ الجَرِّ: مِنْ، عَلَى، فِي، بِـ، إِلَى، لِـ، عَنْ، كَـ، حَتَّى، مُنْذُ."
+  ],
+  ex: [
+    { type: "find", target: "y", num: "١", ar: "عَيِّنْ حُرُوفَ الجَرِّ فِي الجُمَلِ التَّالِيَةِ", tr: "Harf-i cere dokun. Bitişik olanlarda (بِـ، لِـ، كَـ) bütün kelimeye dokun. Bazı cümlelerde iki harf-i cer var.", items: [
+      W("قَدَّمَ الطَّالِبُ القَهْوَةَ [لِصَدِيقِهِ].", "Öğrenci kahveyi arkadaşına ikram etti.", "لِـ bitişik: لِصَدِيقِهِ (arkadaşına)."),
+      W("نَظَرَتْ زَيْنَبُ [مِنَ] النَّافِذَةِ.", "Zeynep pencereden baktı.", "مِنْ, ال'den önce مِنَ olur."),
+      W("رَدَّ الجَدُّ الطَّلَبَ [بِأَدَبٍ].", "Dede isteği nezaketle geri çevirdi.", "بِـ bitişik: بِأَدَبٍ (edeple)."),
+      W("لَعِبَ الوَلَدُ [فِي] الحَدِيقَةِ مَعَ الأَصْدِقَاءِ [حَتَّى] الظُّهْرِ.", "Çocuk bahçede arkadaşlarıyla öğlene kadar oynadı.", "فِي ve حَتَّى. مَعَ harf-i cer değil, zarftır."),
+      W("يَشْرَبُ الطِّفْلُ الحَلِيبَ وَهُوَ [عَلَى] الكُرْسِيِّ.", "Çocuk sandalyedeyken süt içiyor.", "عَلَى (üzerinde)."),
+      W("تَسْأَلُ البِنْتُ [عَنْ] أُمِّهَا.", "Kız annesini soruyor.", "عَنْ (hakkında)."),
+      W("يَدْرُسُ الأَخُ [فِي] الجَامِعَةِ [مُنْذُ] السَّنَةِ المَاضِيَةِ.", "Kardeş geçen yıldan beri üniversitede okuyor.", "فِي ve مُنْذُ."),
+      W("لَا يَشْرَبُ أَحْمَدُ المَاءَ [كَالشَّايِ].", "Ahmed suyu çay gibi içmez.", "كَـ bitişik: كَالشَّايِ (çay gibi).")
+    ]},
+    { type: "combo", num: "١", ar: "وَاضْبِطْ آخِرَ الكَلِمَةِ", tr: "Aynı cümlelerde harf-i cerden sonraki kelimenin son harekesini seç. Kutuya dokundukça hareke değişir.", items: [
+      CB("", ["قَدَّمَ الطَّالِبُ القَهْوَةَ", ["لِصَدِيقُهُ", "لِصَدِيقَهُ", "لِصَدِيقِهِ"], "."], [2], "Öğrenci kahveyi arkadaşına ikram etti.", "لِـ'den sonra mecrûr: صَدِيقِ."),
+      CB("", ["نَظَرَتْ زَيْنَبُ مِنَ", ["النَّافِذَةُ", "النَّافِذَةِ", "النَّافِذَةَ"], "."], [1], "Zeynep pencereden baktı.", "ال'li isim: tek kesre."),
+      CB("", ["رَدَّ الجَدُّ الطَّلَبَ", ["بِأَدَبٍ", "بِأَدَبٌ", "بِأَدَبًا"], "."], [0], "Dede isteği nezaketle geri çevirdi.", "Tenvinli isim: iki kesre (أَدَبٍ)."),
+      CB("", ["لَعِبَ الوَلَدُ فِي", ["الحَدِيقَةَ", "الحَدِيقَةُ", "الحَدِيقَةِ"], "مَعَ الأَصْدِقَاءِ حَتَّى", ["الظُّهْرِ", "الظُّهْرَ", "الظُّهْرُ"], "."], [2, 0], "Çocuk bahçede arkadaşlarıyla öğlene kadar oynadı.", "İkisi de harf-i cerden sonra: kesre."),
+      CB("", ["يَشْرَبُ الطِّفْلُ الحَلِيبَ وَهُوَ عَلَى", ["الكُرْسِيُّ", "الكُرْسِيِّ", "الكُرْسِيَّ"], "."], [1], "Çocuk sandalyedeyken süt içiyor.", "الكُرْسِيِّ: şeddeli yâ kesre alır."),
+      CB("", ["تَسْأَلُ البِنْتُ عَنْ", ["أُمَّهَا", "أُمُّهَا", "أُمِّهَا"], "."], [2], "Kız annesini soruyor.", "أُمِّ + هَا: kesre zamirden önceki harfte."),
+      CB("", ["يَدْرُسُ الأَخُ فِي", ["الجَامِعَةِ", "الجَامِعَةُ", "الجَامِعَةَ"], "مُنْذُ", ["السَّنَةَ", "السَّنَةِ", "السَّنَةُ"], "المَاضِيَةِ."], [0, 1], "Kardeş geçen yıldan beri üniversitede okuyor.", "الجَامِعَةِ ve السَّنَةِ mecrûr; المَاضِيَةِ sıfat olarak ona uyar."),
+      CB("", ["لَا يَشْرَبُ أَحْمَدُ المَاءَ", ["كَالشَّايُ", "كَالشَّايَ", "كَالشَّايِ"], "."], [2], "Ahmed suyu çay gibi içmez.", "كَـ'den sonra mecrûr: الشَّايِ.")
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 2 · ANLAMLAR
+{
+  id: "u2", no: 2, ar: "مَعَانِي حُرُوفِ الجَرِّ", tr: "Harf-i Cerlerin Anlamları", short: "Anlamlar", col: "nasb", legend: ["mi", "cerr"],
+  goals: ["Her harf-i cerin Türkçe karşılığını bilmek", "Cümlenin anlamına uyan harf-i ceri seçmek", "Fiille birlikte gelen harf-i ceri tanımak: قَرِيبٌ مِنْ، بَعِيدٌ عَنْ"],
+  examples: [
+    { s: "جَاءَ:- / مِنَ:mi / السُّوقِ:cerr", tr: "Çarşıdan geldi.", pair: "ذَهَبَ:- / إِلَى:mi / السُّوقِ:cerr", pairTr: "Çarşıya gitti." },
+    { s: "الكِتَابُ:- / عَلَى:mi / المَكْتَبِ:cerr", tr: "Kitap masanın üstünde.", pair: "الكِتَابُ:- / فِي:mi / الحَقِيبَةِ:cerr", pairTr: "Kitap çantanın içinde." },
+    { s: "كَتَبَ:- / بِـ:mi / القَلَمِ:cerr", tr: "Kalemle yazdı.", pair: "الهَدِيَّةُ:- / لِـ:mi / أُمِّي:cerr", pairTr: "Hediye annem için." },
+    { s: "نَامَ:- / حَتَّى:mi / الظُّهْرِ:cerr", tr: "Öğlene kadar uyudu.", pair: "يَبْكِي:- / مُنْذُ:mi / الصَّبَاحِ:cerr", pairTr: "Sabahtan beri ağlıyor." }
+  ],
+  rules: [
+    { tr: "<span class=\"ar\">مِنْ</span>: -den (başlangıç) · <span class=\"ar\">إِلَى</span>: -e (yön, varış)." },
+    { tr: "<span class=\"ar\">فِي</span>: içinde, -de · <span class=\"ar\">عَلَى</span>: üzerinde." },
+    { tr: "<span class=\"ar\">بِـ</span>: ile (alet, araç) · <span class=\"ar\">لِـ</span>: için, -e, -in (ait olma)." },
+    { tr: "<span class=\"ar\">عَنْ</span>: hakkında, -den (uzaklaşma) · <span class=\"ar\">كَـ</span>: gibi." },
+    { tr: "<span class=\"ar\">حَتَّى</span>: -e kadar (bitiş) · <span class=\"ar\">مُنْذُ</span>: -den beri (zaman başlangıcı)." },
+    { tr: "Bazı kelimeler belli bir harf-i cerle kullanılır: <span class=\"ar\">قَرِيبٌ مِنْ</span> (-e yakın), <span class=\"ar\">بَعِيدٌ عَنْ</span> (-den uzak), <span class=\"ar\">سَأَلَ عَنْ</span> (-i sordu), <span class=\"ar\">نَظَرَ إِلَى</span> (-e baktı)." }
+  ],
+  kaide: ["مِنْ حُرُوفِ الجَرِّ: مِنْ، عَلَى، فِي، بِـ، إِلَى، لِـ، عَنْ، كَـ، حَتَّى، مُنْذُ."],
+  ex: [
+    { type: "pick", fill: true, num: "٢", ar: "اخْتَرْ لِلْفَرَاغِ حَرْفَ جَرٍّ مُنَاسِبًا ثُمَّ اضْبِطْ آخِرَ الكَلِمَةِ", tr: "Boşluğa uyan harf-i ceri seç. Sonraki kelime zaten mecrûr yazıldı; harekesine bak.", items: [
+      { q: "رَكِبَ السَّائِقُ ___ السَّيَّارَةِ.", o: ["فِي", "عَنْ", "مِنْ"], a: 0, tr: "Şoför arabaya bindi (arabanın içinde).", why: "فِي: içinde. (رَكِبَ السَّيَّارَةَ diye harfsiz de kullanılır.)" },
+      { q: "شَرِبَ الطِّفْلُ العَصِيرَ ___الكَأْسِ.", o: ["عَلَى", "بِـ", "لِـ"], a: 1, tr: "Çocuk meyve suyunu bardakla içti.", why: "بِـ: ile (araç) → بِالكَأْسِ." },
+      { q: "زَارَتِ المَجْمُوعَةُ الأَمَاكِنَ التَّارِيخِيَّةَ ___ المَدِينَةِ المُجَاوِرَةِ.", o: ["عَلَى", "عَنْ", "فِي"], a: 2, tr: "Grup komşu şehirdeki tarihî yerleri gezdi.", why: "فِي: -deki." },
+      { q: "تَعَلَّمَتِ الطَّالِبَةُ الكِتَابَةَ ___القَلَمِ.", o: ["بِـ", "لِـ", "عَلَى"], a: 0, tr: "Kız öğrenci yazmayı kalemle öğrendi.", why: "بِـ: ile → بِالقَلَمِ." },
+      { q: "تَرَكَتْ خَدِيجَةُ حَقِيبَتَهَا فِي المَدْرَسَةِ ___ يَوْمِ الجُمُعَةِ.", o: ["حَتَّى", "عَنْ", "عَلَى"], a: 0, tr: "Hadîce çantasını cuma gününe kadar okulda bıraktı.", why: "حَتَّى: -e kadar." },
+      { q: "يُنَظِّفُ سَلِيمٌ الغُرْفَةَ ___ الصَّبَاحِ.", o: ["بِـ", "عَنْ", "مُنْذُ"], a: 2, tr: "Selîm sabahtan beri odayı temizliyor.", why: "مُنْذُ: -den beri (zaman)." },
+      { q: "يَسْكُنُ حَسَنٌ قَرِيبًا ___ السُّوقِ.", o: ["مِنَ", "عَلَى", "عَنِ"], a: 0, tr: "Hasan çarşıya yakın oturuyor.", why: "قَرِيبٌ مِنْ: -e yakın. ال'den önce مِنَ." },
+      { q: "يَجْلِسُ مُحَمَّدٌ بَعِيدًا ___ الأُسْتَاذِ.", o: ["عَلَى", "مِنَ", "عَنِ"], a: 2, tr: "Muhammed hocadan uzak oturuyor.", why: "بَعِيدٌ عَنْ: -den uzak. ال'den önce عَنِ. (بَعِيدٌ مِنْ da duyulur ama yaygın olan عَنْ.)" }
+    ]},
+    { type: "pick", extra: true, ar: "مَا مَعْنَى الجُمْلَةِ؟", tr: "Harf-i cerin anlamına bak: Türkçesi hangisi?", items: [
+      { q: "جَاءَ مِنَ السُّوقِ.", o: ["Çarşıya geldi.", "Çarşıdan geldi.", "Çarşıda kaldı."], a: 1, why: "مِنْ: -den.", tr: "" },
+      { q: "ذَهَبَ إِلَى المَسْجِدِ.", o: ["Mescide gitti.", "Mescitten çıktı.", "Mescitte oturdu."], a: 0, why: "إِلَى: -e.", tr: "" },
+      { q: "الكِتَابُ عَلَى المَكْتَبِ.", o: ["Kitap masanın içinde.", "Kitap masadan düştü.", "Kitap masanın üstünde."], a: 2, why: "عَلَى: üzerinde.", tr: "" },
+      { q: "سَأَلَ عَنِ الدَّرْسِ.", o: ["Dersten çıktı.", "Dersi sordu.", "Derse gitti."], a: 1, why: "سَأَلَ عَنْ: -i sordu (hakkında).", tr: "" },
+      { q: "كَتَبَ بِالقَلَمِ.", o: ["Kalemle yazdı.", "Kalem için yazdı.", "Kalem gibi yazdı."], a: 0, why: "بِـ: ile.", tr: "" },
+      { q: "نَامَ حَتَّى الظُّهْرِ.", o: ["Öğleden beri uyuyor.", "Öğlende uyudu.", "Öğlene kadar uyudu."], a: 2, why: "حَتَّى: -e kadar.", tr: "" },
+      { q: "يَبْكِي مُنْذُ الصَّبَاحِ.", o: ["Sabaha kadar ağladı.", "Sabahtan beri ağlıyor.", "Sabah ağladı."], a: 1, why: "مُنْذُ: -den beri.", tr: "" },
+      { q: "هُوَ كَالأَسَدِ.", o: ["O aslan gibi.", "O aslanla.", "O aslan için."], a: 0, why: "كَـ: gibi.", tr: "" },
+      { q: "الهَدِيَّةُ لِأُمِّي.", o: ["Hediye annemden.", "Hediye annemle.", "Hediye annem için."], a: 2, why: "لِـ: için.", tr: "" },
+      { q: "الوَلَدُ فِي البَيْتِ.", o: ["Çocuk evde.", "Çocuk eve gitti.", "Çocuk evden çıktı."], a: 0, why: "فِي: -de.", tr: "" }
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 3 · SORU-CEVAP
+{
+  id: "u3", no: 3, ar: "الإِجَابَةُ بِحَرْفِ جَرٍّ", tr: "Soruya Harf-i Cerle Cevap", short: "Soru-cevap", col: "mz", legend: ["mi", "cerr"],
+  goals: ["Soru kelimesinden doğru harf-i ceri bulmak: أَيْنَ ← فِي، مِنْ أَيْنَ ← مِنْ", "Parantezdeki ismi mecrûr yapıp cevaba koymak", "Cevapta zamiri değiştirmek: لِمَنْ كَتَبَتْ؟ ← لِوَالِدَتِهَا"],
+  examples: [
+    { s: "جَلَسَ مُرَادٌ:- / عَلَى:mi / الكُرْسِيِّ:cerr", tr: "Murâd sandalyeye oturdu.", why: "Soru: أَيْنَ جَلَسَ مُرَادٌ؟ (الكُرْسِيّ)" },
+    { s: "جَاءَتْ بَتُولُ:- / مِنَ:mi / العَمَلِ:cerr", tr: "Betûl işten geldi.", why: "Soru: مِنْ أَيْنَ جَاءَتْ بَتُولُ؟" },
+    { s: "يَبْكِي الطِّفْلُ:- / مُنْذُ:mi / الصَّبَاحِ:cerr", tr: "Çocuk sabahtan beri ağlıyor.", why: "Soru: مُنْذُ مَتَى يَبْكِي الطِّفْلُ؟" }
+  ],
+  rules: [
+    { tr: "Soru kelimesi çoğu zaman harf-i ceri söyler: <span class=\"ar\">إِلَى أَيْنَ؟ ← إِلَى</span>, <span class=\"ar\">مِنْ أَيْنَ؟ ← مِنْ</span>, <span class=\"ar\">لِمَنْ؟ ← لِـ</span>, <span class=\"ar\">عَنْ أَيِّ شَيْءٍ؟ ← عَنْ</span>, <span class=\"ar\">مُنْذُ مَتَى؟ ← مُنْذُ</span>." },
+    { tr: "<span class=\"ar\">أَيْنَ؟</span> (nerede) yer sorar: <span class=\"ar\">فِي</span> ya da <span class=\"ar\">عَلَى</span> ile cevap verilir." },
+    { tr: "<span class=\"ar\">كَيْفَ؟</span> (nasıl) alet ya da araç soruyorsa <span class=\"ar\">بِـ</span> ile cevap verilir: <span class=\"ar\">بِالشَّوْكَةِ، بِالسَّيَّارَةِ</span>." },
+    { tr: "Parantezdeki isim cevapta mecrûr olur: <span class=\"ar\">(القَرْيَة) ← فِي القَرْيَةِ</span>." }
+  ],
+  kaide: ["أَجِبْ عَنِ الأَسْئِلَةِ بِحَرْفِ جَرٍّ مُنَاسِبٍ مَعَ ضَبْطِ آخِرِ كُلِّ كَلِمَةٍ. مِثَالٌ: أَيْنَ جَلَسَ مُرَادٌ؟ (الكُرْسِيّ) ← جَلَسَ مُرَادٌ عَلَى الكُرْسِيِّ."],
+  ex: [
+    { type: "combo", num: "٣", ar: "أَجِبْ عَنِ الأَسْئِلَةِ بِحَرْفِ جَرٍّ مُنَاسِبٍ مَعَ ضَبْطِ آخِرِ كُلِّ كَلِمَةٍ", tr: "Cevabı kur: kutulara dokunarak harf-i ceri ve ismin doğru harekesini seç.", exHtml: "<span class=\"ar\">أَيْنَ جَلَسَ مُرَادٌ؟ (الكُرْسِيّ) ← جَلَسَ مُرَادٌ عَلَى الكُرْسِيِّ.</span>", items: [
+      CB("أَيْنَ عَاشَ خَلِيلٌ؟ <span class=\"muted\">(القَرْيَة)</span>", ["عَاشَ خَلِيلٌ", ["إِلَى", "فِي", "عَنْ"], ["القَرْيَةَ", "القَرْيَةُ", "القَرْيَةِ"], "."], [1, 2], "Halîl köyde yaşadı.", "أَيْنَ → فِي; isim mecrûr."),
+      CB("إِلَى أَيْنَ نَظَرَ عَلِيٌّ؟ <span class=\"muted\">(الصُّورَة)</span>", ["نَظَرَ عَلِيٌّ", ["إِلَى", "مِنَ", "عَنِ"], ["الصُّورَةُ", "الصُّورَةِ", "الصُّورَةَ"], "."], [0, 1], "Ali resme baktı.", "Soru إِلَى ile soruyor; cevap da إِلَى."),
+      CB("لِمَنْ كَتَبَتْ بُشْرَى الرِّسَالَةَ؟ <span class=\"muted\">(وَالِدَة)</span>", ["كَتَبَتْ بُشْرَى الرِّسَالَةَ", ["لِوَالِدَتُهَا", "عَلَى وَالِدَتِهَا", "لِوَالِدَتِهَا"], "."], [2], "Büşra mektubu annesine yazdı.", "لِمَنْ → لِـ; \"onun annesi\" için هَا zamiri eklendi: لِوَالِدَتِهَا."),
+      CB("مِنْ أَيْنَ جَاءَتْ بَتُولُ؟ <span class=\"muted\">(العَمَل)</span>", ["جَاءَتْ بَتُولُ", ["عَلَى", "إِلَى", "مِنَ"], ["العَمَلِ", "العَمَلُ", "العَمَلَ"], "."], [2, 0], "Betûl işten geldi.", "مِنْ + ال → مِنَ العَمَلِ."),
+      CB("عَنْ أَيِّ شَيْءٍ تَسْأَلُ البِنْتُ؟ <span class=\"muted\">(النُّقُود)</span>", ["تَسْأَلُ البِنْتُ", ["فِي", "عَنِ", "مُنْذُ"], ["النُّقُودِ", "النُّقُودَ", "النُّقُودُ"], "."], [1, 0], "Kız parayı soruyor.", "عَنْ + ال → عَنِ النُّقُودِ."),
+      CB("مُنْذُ مَتَى يَبْكِي الطِّفْلُ؟ <span class=\"muted\">(الصَّبَاح)</span>", ["يَبْكِي الطِّفْلُ", ["حَتَّى", "مُنْذُ", "عَلَى"], ["الصَّبَاحَ", "الصَّبَاحُ", "الصَّبَاحِ"], "."], [1, 2], "Çocuk sabahtan beri ağlıyor.", "مُنْذُ مَتَى → مُنْذُ."),
+      CB("كَيْفَ أَكَلَ الوَلَدُ الكَبَابَ؟ <span class=\"muted\">(الشَّوْكَة)</span>", ["أَكَلَ الوَلَدُ الكَبَابَ", ["كَالشَّوْكَةِ", "بِالشَّوْكَةِ", "بِالشَّوْكَةُ"], "."], [1], "Çocuk kebabı çatalla yedi.", "Alet → بِـ: بِالشَّوْكَةِ."),
+      CB("كَيْفَ حَضَرَ الأُسْتَاذُ إِلَى الكُلِّيَّةِ؟ <span class=\"muted\">(السَّيَّارَة)</span>", ["حَضَرَ الأُسْتَاذُ إِلَى الكُلِّيَّةِ", ["لِلسَّيَّارَةِ", "بِالسَّيَّارَةَ", "بِالسَّيَّارَةِ"], "."], [2], "Hoca fakülteye arabayla geldi.", "Araç → بِـ: بِالسَّيَّارَةِ.")
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 4 · HAL VE SEBEBİ
+{
+  id: "u4", no: 4, ar: "ضَبْطُ آخِرِ الكَلِمَةِ وَسَبَبُهُ", tr: "Son Hareke ve Sebebi", short: "Hal ve sebep", col: "cerr", legend: ["ref", "nasb", "mi", "cerr"],
+  goals: ["Cümledeki her ismin halini (merfû, mansûb, mecrûr) söylemek", "Halin sebebini söylemek: fâil, mef’ûl, harf-i cer, muzâfun ileyh", "Harf-i cerden sonraki ismi diğer mecrûrlardan ayırmak"],
+  examples: [
+    { s: "يَنْتَظِرُ:- / الحَارِسُ:ref / المَصْنَعَ:nasb / حَتَّى:mi / الصَّبَاحِ:cerr", tr: "Bekçi fabrikayı sabaha kadar bekliyor." },
+    { s: "وَضَعَتِ:- / الأُمُّ:ref / سَاعَتَهَا:nasb / عَلَى:mi / المَكْتَبِ:cerr", tr: "Anne saatini masanın üstüne koydu." },
+    { s: "زَادَتْ:- / أَسْعَارُ:ref / النِّفْطِ:cerr / عَنِ:mi / العَامِ:cerr / المَاضِي:-", tr: "Petrol fiyatları geçen yıla göre arttı.", why: "النِّفْطِ muzâfun ileyh olduğu için, العَامِ harf-i cerden sonra geldiği için mecrûr." }
+  ],
+  rules: [
+    { tr: "<b class=\"r-ref\">Merfû</b>: fâil (<span class=\"ar\">الحَارِسُ</span>), mübtedâ, haber. Ötre ya da iki ötre." },
+    { tr: "<b class=\"r-nasb\">Mansûb</b>: mef’ûl bih (<span class=\"ar\">المَصْنَعَ</span>), zarf (<span class=\"ar\">كُلَّ شَهْرٍ</span>). Üstün ya da iki üstün." },
+    { tr: "<b class=\"r-cerr\">Mecrûr</b>: harf-i cerden sonra (<span class=\"ar\">حَتَّى الصَّبَاحِ</span>) ya da muzâfun ileyh (<span class=\"ar\">أَسْعَارُ النِّفْطِ</span>). Esre ya da iki esre." },
+    { tr: "Sıfat, nitelediği isme halde uyar: <span class=\"ar\">فِي السَّنَةِ المَاضِيَةِ</span>." },
+    { tr: "Zamir alan isimde hareke zamirden önceki harftedir: <span class=\"ar\">سَاعَتَهَا، صَدِيقَتِهَا</span>." }
+  ],
+  kaide: ["اضْبِطْ آخِرَ كُلِّ كَلِمَةٍ وَبَيِّنِ السَّبَبَ: الفَاعِلُ مَرْفُوعٌ، وَالمَفْعُولُ بِهِ مَنْصُوبٌ، وَالاسْمُ بَعْدَ حَرْفِ الجَرِّ مَجْرُورٌ، وَالمُضَافُ إِلَيْهِ مَجْرُورٌ."],
+  ex: [
+    { type: "irab", num: "٤", tlist: SEBEP, tlbl: "Sebebi", ar: "اضْبِطْ آخِرَ كُلِّ كَلِمَةٍ وَبَيِّنِ السَّبَبَ", tr: "Koyu kelimenin halini ve sebebini seç, sonra kontrol et. Kitaptaki sekiz cümlenin önemli kelimeleri sırayla soruluyor.", items: [
+      IR("يَنْتَظِرُ الحَارِسُ المَصْنَعَ حَتَّى الصَّبَاحِ.", "الحَارِسُ", "fa", "ref", "Bekleyen o: fâil.", "Bekçi fabrikayı sabaha kadar bekliyor."),
+      IR("يَنْتَظِرُ الحَارِسُ المَصْنَعَ حَتَّى الصَّبَاحِ.", "المَصْنَعَ", "mf", "nasb", "Beklenen: mef’ûl bih.", "Bekçi fabrikayı sabaha kadar bekliyor."),
+      IR("يَنْتَظِرُ الحَارِسُ المَصْنَعَ حَتَّى الصَّبَاحِ.", "الصَّبَاحِ", "hc", "cer", "حَتَّى'dan sonra.", "Bekçi fabrikayı sabaha kadar bekliyor."),
+      IR("يُسَافِرُ المُعَلِّمُ إِلَى بَلَدِهِ مِنَ الصَّبَاحِ حَتَّى المَسَاءِ.", "المُعَلِّمُ", "fa", "ref", "Yolculuk eden: fâil.", "Öğretmen sabahtan akşama kadar memleketine yolculuk ediyor."),
+      IR("يُسَافِرُ المُعَلِّمُ إِلَى بَلَدِهِ مِنَ الصَّبَاحِ حَتَّى المَسَاءِ.", "بَلَدِهِ", "hc", "cer", "إِلَى'dan sonra; hareke zamirden önce: بَلَدِ + هِ.", "Öğretmen sabahtan akşama kadar memleketine yolculuk ediyor."),
+      IR("يُسَافِرُ المُعَلِّمُ إِلَى بَلَدِهِ مِنَ الصَّبَاحِ حَتَّى المَسَاءِ.", "المَسَاءِ", "hc", "cer", "حَتَّى'dan sonra.", "Öğretmen sabahtan akşama kadar memleketine yolculuk ediyor."),
+      IR("يُقَابِلُ الفَقِيرُ المُدِيرَ وَيَطْلُبُ مِنْهُ المُسَاعَدَةَ.", "الفَقِيرُ", "fa", "ref", "Görüşen: fâil.", "Fakir müdürle görüşüyor ve ondan yardım istiyor."),
+      IR("يُقَابِلُ الفَقِيرُ المُدِيرَ وَيَطْلُبُ مِنْهُ المُسَاعَدَةَ.", "المُدِيرَ", "mf", "nasb", "Görüşülen: mef’ûl bih.", "Fakir müdürle görüşüyor ve ondan yardım istiyor."),
+      IR("يُقَابِلُ الفَقِيرُ المُدِيرَ وَيَطْلُبُ مِنْهُ المُسَاعَدَةَ.", "المُسَاعَدَةَ", "mf", "nasb", "İstenen: mef’ûl bih. مِنْهُ'daki هُ zamiri mebnîdir.", "Fakir müdürle görüşüyor ve ondan yardım istiyor."),
+      IR("زَادَتْ أَسْعَارُ النِّفْطِ عَنِ العَامِ المَاضِي.", "أَسْعَارُ", "fa", "ref", "Artan: fâil.", "Petrol fiyatları geçen yıla göre arttı."),
+      IR("زَادَتْ أَسْعَارُ النِّفْطِ عَنِ العَامِ المَاضِي.", "النِّفْطِ", "mi", "cer", "أَسْعَارُ النِّفْطِ: izafet; ikinci isim mecrûr.", "Petrol fiyatları geçen yıla göre arttı."),
+      IR("زَادَتْ أَسْعَارُ النِّفْطِ عَنِ العَامِ المَاضِي.", "العَامِ", "hc", "cer", "عَنْ'dan sonra (ال'den önce عَنِ).", "Petrol fiyatları geçen yıla göre arttı."),
+      IR("تَأْخُذُ زَيْنَبُ مِنْ صَدِيقَتِهَا كِتَابًا كُلَّ شَهْرٍ.", "زَيْنَبُ", "fa", "ref", "Alan: fâil (gayr-i munsarif: tenvin almaz).", "Zeynep her ay arkadaşından bir kitap alıyor."),
+      IR("تَأْخُذُ زَيْنَبُ مِنْ صَدِيقَتِهَا كِتَابًا كُلَّ شَهْرٍ.", "صَدِيقَتِهَا", "hc", "cer", "مِنْ'den sonra.", "Zeynep her ay arkadaşından bir kitap alıyor."),
+      IR("تَأْخُذُ زَيْنَبُ مِنْ صَدِيقَتِهَا كِتَابًا كُلَّ شَهْرٍ.", "كِتَابًا", "mf", "nasb", "Alınan: mef’ûl bih.", "Zeynep her ay arkadaşından bir kitap alıyor."),
+      IR("تَأْخُذُ زَيْنَبُ مِنْ صَدِيقَتِهَا كِتَابًا كُلَّ شَهْرٍ.", "كُلَّ", "zf", "nasb", "Zaman bildiriyor (her ay): zarf.", "Zeynep her ay arkadaşından bir kitap alıyor."),
+      IR("تَأْخُذُ زَيْنَبُ مِنْ صَدِيقَتِهَا كِتَابًا كُلَّ شَهْرٍ.", "شَهْرٍ", "mi", "cer", "كُلَّ شَهْرٍ: izafet.", "Zeynep her ay arkadaşından bir kitap alıyor."),
+      IR("وَضَعَتِ الأُمُّ سَاعَتَهَا عَلَى المَكْتَبِ.", "الأُمُّ", "fa", "ref", "Koyan: fâil.", "Anne saatini masanın üstüne koydu."),
+      IR("وَضَعَتِ الأُمُّ سَاعَتَهَا عَلَى المَكْتَبِ.", "سَاعَتَهَا", "mf", "nasb", "Konan: mef’ûl bih.", "Anne saatini masanın üstüne koydu."),
+      IR("وَضَعَتِ الأُمُّ سَاعَتَهَا عَلَى المَكْتَبِ.", "المَكْتَبِ", "hc", "cer", "عَلَى'dan sonra.", "Anne saatini masanın üstüne koydu."),
+      IR("يَحْرِصُ المُسْلِمُ عَلَى الإِخْلَاصِ فِي العِبَادَةِ.", "المُسْلِمُ", "fa", "ref", "Özen gösteren: fâil.", "Müslüman ibadette ihlâsa özen gösterir."),
+      IR("يَحْرِصُ المُسْلِمُ عَلَى الإِخْلَاصِ فِي العِبَادَةِ.", "الإِخْلَاصِ", "hc", "cer", "عَلَى'dan sonra (حَرَصَ عَلَى: -e özen gösterdi).", "Müslüman ibadette ihlâsa özen gösterir."),
+      IR("يَحْرِصُ المُسْلِمُ عَلَى الإِخْلَاصِ فِي العِبَادَةِ.", "العِبَادَةِ", "hc", "cer", "فِي'den sonra.", "Müslüman ibadette ihlâsa özen gösterir."),
+      IR("زَارَتْ عَائِشَةُ عَاصِمَةَ تُرْكِيَا فِي السَّنَةِ المَاضِيَةِ.", "عَائِشَةُ", "fa", "ref", "Ziyaret eden: fâil.", "Âişe geçen yıl Türkiye’nin başkentini ziyaret etti."),
+      IR("زَارَتْ عَائِشَةُ عَاصِمَةَ تُرْكِيَا فِي السَّنَةِ المَاضِيَةِ.", "عَاصِمَةَ", "mf", "nasb", "Ziyaret edilen: mef’ûl bih (تُرْكِيَا muzâfun ileyh).", "Âişe geçen yıl Türkiye’nin başkentini ziyaret etti."),
+      IR("زَارَتْ عَائِشَةُ عَاصِمَةَ تُرْكِيَا فِي السَّنَةِ المَاضِيَةِ.", "السَّنَةِ", "hc", "cer", "فِي'den sonra.", "Âişe geçen yıl Türkiye’nin başkentini ziyaret etti."),
+      IR("زَارَتْ عَائِشَةُ عَاصِمَةَ تُرْكِيَا فِي السَّنَةِ المَاضِيَةِ.", "المَاضِيَةِ", "sf", "cer", "السَّنَةِ'nin sıfatı: ona uyar.", "Âişe geçen yıl Türkiye’nin başkentini ziyaret etti.")
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 5 · METİN
+{
+  id: "u5", no: 5, ar: "حُرُوفُ الجَرِّ فِي النَّصِّ", tr: "Metinde Harf-i Cer", short: "Metin", col: "muz", legend: ["mi", "cerr"],
+  goals: ["Bir metindeki boşluklara anlama uyan harf-i ceri koymak", "Aynı harf-i cerin bir metinde defalarca kullanıldığını görmek", "Harf-i cerden sonraki kelimenin son harekesini koymak"],
+  examples: [
+    { s: "جَاءَ صَادِقٌ:- / مِنْ:mi / مَدِينَةِ:cerr / إِزْمِيرَ:-", tr: "Sâdık İzmir şehrinden geldi." },
+    { s: "يَذْهَبُ:- / إِلَى:mi / المَسْجِدِ:cerr", tr: "Mescide gidiyor.", pair: "يَخْرُجُ:- / مِنَ:mi / الشَّقَّةِ:cerr", pairTr: "Daireden çıkıyor." },
+    { s: "يَسْتَمِعُ صَادِقٌ:- / إِلَى:mi / أُسْتَاذِهِ:cerr", tr: "Sâdık hocasını dinliyor.", pair: "بِـ:mi / دِقَّةٍ:cerr", pairTr: "dikkatle" }
+  ],
+  rules: [
+    { tr: "Yer: <span class=\"ar\">فِي شَقَّةٍ، فِي السَّنَةِ التَّمْهِيدِيَّةِ</span>. Yön: <span class=\"ar\">مِنَ البَيْتِ إِلَى الجَامِعَةِ</span>." },
+    { tr: "Zaman: <span class=\"ar\">مُنْذُ سَنَتَيْنِ</span> (iki yıldan beri / iki yıl önce)." },
+    { tr: "Kalıp ifadeler: <span class=\"ar\">قَرِيبَةٌ مِنَ الجَامِعَةِ، يَسْتَمِعُ إِلَى، نَظَرَ إِلَى، طَلَبَ مِنْ</span>." },
+    { tr: "<span class=\"ar\">لِيُصَلِّيَ</span>: buradaki <span class=\"ar\">لِـ</span> fiile gelmiş gibi görünür; \"kılmak için\" anlamı verir (lâm-ı ta’lîl)." },
+    { tr: "<span class=\"ar\">لِـ + البَائِعِ ← لِلْبَائِعِ</span>; <span class=\"ar\">دَفَعَ إِلَى البَائِعِ</span> de olur." }
+  ],
+  kaide: ["امْلَأِ الفَرَاغَ بِوَضْعِ حَرْفِ جَرٍّ مُنَاسِبٍ مِنَ القَائِمَةِ: (مِنْ، مُنْذُ، عَنْ، بِـ، فِي، لِـ، عَلَى، إِلَى)."],
+  ex: [
+    { type: "bank", reuse: true, num: "٥", ar: "امْلَأِ الفَرَاغَ بِوَضْعِ حَرْفِ جَرٍّ مُنَاسِبٍ مِنَ القَائِمَةِ", tr: "Önce bir harf-i cer seç, sonra boşluğa dokun. Bir harf birden çok kez kullanılabilir.",
+      bank: ["مِنْ", "مُنْذُ", "عَنْ", "بِـ", "فِي", "لِـ", "عَلَى", "إِلَى"],
+      tr2: "Sâdık liseyi iki yıl önce bitirdi. Şimdi Marmara Üniversitesi Arap Dili bölümünde hazırlık sınıfında öğrenci. Sâdık İzmir şehrinden geldi. Arkadaşlarıyla üniversiteye yakın bir dairede oturuyor. Erkenden kalkıp abdest alıyor, sonra daireden çıkıp sabah namazını kılmak için mescide gidiyor. Kahvaltıyı arkadaşlarıyla yapıyor; kahvaltıda ekmek, zeytin, peynir ve yumurta yiyip çay içiyor. Sâdık evden üniversiteye yaklaşık beş dakika yürüyor. Ders saat dokuzda başlıyor; Sâdık hocasını dikkatle dinliyor.",
+      parts: ["صَادِقٌ أَكْمَلَ الدِّرَاسَةَ الثَّانَوِيَّةَ", { a: [1] }, "سَنَتَيْنِ. هُوَ الآنَ طَالِبٌ", { a: [4] }, "السَّنَةِ التَّمْهِيدِيَّةِ", { a: [4, 3] }, "قِسْمِ اللُّغَةِ العَرَبِيَّةِ", { a: [3, 4] }, "جَامِعَةِ مَرْمَرَة. جَاءَ صَادِقٌ", { a: [0] }, "مَدِينَةِ إِزْمِيرَ. هُوَ يَسْكُنُ مَعَ أَصْدِقَائِهِ", { a: [4] }, "شَقَّةٍ قَرِيبَةٍ", { a: [0] }, "الجَامِعَةِ. يَسْتَيْقِظُ صَادِقٌ مُبَكِّرًا وَيَتَوَضَّأُ ثُمَّ يَخْرُجُ", { a: [0] }, "الشَّقَّةِ وَيَذْهَبُ", { a: [7] }, "المَسْجِدِ", { a: [5] }, "يُصَلِّيَ صَلَاةَ الفَجْرِ. صَادِقٌ يَتَنَاوَلُ الفَطُورَ مَعَ أَصْدِقَائِهِ، يَأْكُلُ", { a: [4] }, "الفَطُورِ الخُبْزَ وَالزَّيْتُونَ وَالجُبْنَ وَالبَيْضَ وَيَشْرَبُ الشَّايَ. يَمْشِي صَادِقٌ", { a: [0] }, "البَيْتِ", { a: [7] }, "الجَامِعَةِ خَمْسَ دَقَائِقَ تَقْرِيبًا. يَبْدَأُ الدَّرْسُ السَّاعَةَ التَّاسِعَةَ، يَسْتَمِعُ صَادِقٌ", { a: [7] }, "أُسْتَاذِهِ", { a: [3] }, "دِقَّةٍ."] },
+    { type: "bank", reuse: true, num: "٦", ar: "أَكْمِلِ القِصَّةَ التَّالِيَةَ بِوَضْعِ حَرْفِ جَرٍّ مُنَاسِبٍ لِلْمَعْنَى", tr: "Hikâyeyi anlama uyan harf-i cerle tamamla. Kelimelerin son harekeleri yazıldı: hepsi harf-i cerden sonra esreli.",
+      bank: ["مِنْ", "إِلَى", "فِي", "لِـ", "عَلَى", "عَنْ"],
+      tr2: "Murâd evden çıktı, sonra arabasına binip çarşıya gitti. Arabayı kaldırıma yakın park etti. Çarşıda dolaştı ve sergilenen mallara baktı. Çarşıda güzel bir saat hoşuna gitti. Saatin fiyatı yüz lira. Dükkâna girdi ve satıcıdan saati istedi. Saat çok iyi. Saatin parasını satıcıya ödedi ve onu aldı, sonra arabasına binip evine döndü.",
+      parts: ["خَرَجَ مُرَادٌ", { a: [0] }, "البَيْتِ ثُمَّ رَكِبَ سَيَّارَتَهُ وَذَهَبَ", { a: [1] }, "السُّوقِ. أَوْقَفَ السَّيَّارَةَ قَرِيبًا", { a: [0] }, "الرَّصِيفِ. تَجَوَّلَ", { a: [2] }, "السُّوقِ، وَنَظَرَ", { a: [1] }, "المَعْرُوضَاتِ.", { a: [2] }, "السُّوقِ أَعْجَبَتْهُ سَاعَةٌ جَمِيلَةٌ. ثَمَنُ السَّاعَةِ مِئَةُ لِيرَةٍ. دَخَلَ الدُّكَّانَ وَطَلَبَ السَّاعَةَ", { a: [0] }, "البَائِعِ. السَّاعَةُ جَيِّدَةٌ جِدًّا. دَفَعَ ثَمَنَ السَّاعَةِ", { a: [1, 3] }, "البَائِعِ وَأَخَذَهَا، ثُمَّ رَكِبَ سَيَّارَتَهُ وَرَجَعَ", { a: [1] }, "بَيْتِهِ."] },
+    { type: "pick", extra: true, ar: "اضْبِطْ آخِرَ الكَلِمَةِ", tr: "Hikâyeden: harf-i cerden sonraki kelimenin doğru yazılışı hangisi?", items: [
+      { q: "خَرَجَ مُرَادٌ مِنَ ……", o: ["البَيْتُ", "البَيْتِ", "البَيْتَ"], a: 1, why: "مِنَ'den sonra mecrûr.", tr: "Murâd evden çıktı." },
+      { q: "وَذَهَبَ إِلَى ……", o: ["السُّوقِ", "السُّوقَ", "السُّوقُ"], a: 0, why: "إِلَى'dan sonra mecrûr.", tr: "Çarşıya gitti." },
+      { q: "يَسْكُنُ فِي ……", o: ["شَقَّةٌ", "شَقَّةً", "شَقَّةٍ"], a: 2, why: "Tenvinli isim: iki esre.", tr: "Bir dairede oturuyor." },
+      { q: "دَفَعَ ثَمَنَ السَّاعَةِ ……", o: ["لِلْبَائِعِ", "لِالبَائِعِ", "لِلْبَائِعُ"], a: 0, why: "لِـ + ال → لِلْـ, elif yazılmaz; isim mecrûr.", tr: "Saatin parasını satıcıya ödedi." },
+      { q: "يَسْتَمِعُ إِلَى ……", o: ["أُسْتَاذُهُ", "أُسْتَاذِهِ", "أُسْتَاذَهُ"], a: 1, why: "Hareke zamirden önceki harfte: أُسْتَاذِ + هِ.", tr: "Hocasını dinliyor." },
+      { q: "أَكْمَلَ الدِّرَاسَةَ مُنْذُ ……", o: ["سَنَتَيْنِ", "سَنَتَانِ", "سَنَتَيْنَ"], a: 0, why: "Müsennâ mecrûrda ـَيْنِ olur.", tr: "Okulu iki yıl önce bitirdi." }
+    ]}
+  ]
+}
+];
+
+// Doğru Harf oyunu: [cümle {harf}, seçenekler (ilki doğru), açıklama, Türkçe, konu]
+var HC_POOL = [
+  ["وَضَعَ الطَّالِبُ الكِتَابَ {فِي} الحَقِيبَةِ.", ["فِي", "عَنْ", "مُنْذُ"], "içine: فِي", "Öğrenci kitabı çantaya koydu.", "u1"],
+  ["شَرَحَ المُعَلِّمُ الدَّرْسَ {عَلَى} السَّبُّورَةِ.", ["عَلَى", "مُنْذُ", "عَنْ"], "tahtanın üstünde: عَلَى", "Öğretmen dersi tahtada anlattı.", "u1"],
+  ["نَظَرَتْ زَيْنَبُ {مِنَ} النَّافِذَةِ.", ["مِنَ", "مُنْذُ", "حَتَّى"], "pencereden: مِنْ (ال'den önce مِنَ)", "Zeynep pencereden baktı.", "u1"],
+  ["تَسْأَلُ البِنْتُ {عَنْ} أُمِّهَا.", ["عَنْ", "فِي", "مُنْذُ"], "سَأَلَ عَنْ: -i sordu", "Kız annesini soruyor.", "u1"],
+  ["لَعِبَ الوَلَدُ فِي الحَدِيقَةِ {حَتَّى} الظُّهْرِ.", ["حَتَّى", "عَنِ", "عَلَى"], "öğlene kadar: حَتَّى", "Çocuk bahçede öğlene kadar oynadı.", "u1"],
+  ["رَكِبَ السَّائِقُ {فِي} السَّيَّارَةِ.", ["فِي", "عَنِ", "مِنَ"], "arabanın içinde: فِي", "Şoför arabaya bindi.", "u2"],
+  ["زَارَتِ المَجْمُوعَةُ الأَمَاكِنَ التَّارِيخِيَّةَ {فِي} المَدِينَةِ.", ["فِي", "عَلَى", "عَنِ"], "şehirdeki: فِي", "Grup şehirdeki tarihî yerleri gezdi.", "u2"],
+  ["تَرَكَتْ خَدِيجَةُ حَقِيبَتَهَا {حَتَّى} يَوْمِ الجُمُعَةِ.", ["حَتَّى", "عَنْ", "عَلَى"], "cumaya kadar: حَتَّى", "Hadîce çantasını cumaya kadar bıraktı.", "u2"],
+  ["يُنَظِّفُ سَلِيمٌ الغُرْفَةَ {مُنْذُ} الصَّبَاحِ.", ["مُنْذُ", "عَنِ", "عَلَى"], "sabahtan beri: مُنْذُ", "Selîm sabahtan beri odayı temizliyor.", "u2"],
+  ["يَسْكُنُ حَسَنٌ قَرِيبًا {مِنَ} السُّوقِ.", ["مِنَ", "عَلَى", "حَتَّى"], "قَرِيبٌ مِنْ", "Hasan çarşıya yakın oturuyor.", "u2"],
+  ["يَجْلِسُ مُحَمَّدٌ بَعِيدًا {عَنِ} الأُسْتَاذِ.", ["عَنِ", "عَلَى", "فِي"], "بَعِيدٌ عَنْ", "Muhammed hocadan uzak oturuyor.", "u2"],
+  ["عَاشَ خَلِيلٌ {فِي} القَرْيَةِ.", ["فِي", "إِلَى", "عَنِ"], "أَيْنَ → فِي", "Halîl köyde yaşadı.", "u3"],
+  ["نَظَرَ عَلِيٌّ {إِلَى} الصُّورَةِ.", ["إِلَى", "مُنْذُ", "عَنِ"], "نَظَرَ إِلَى", "Ali resme baktı.", "u3"],
+  ["جَاءَتْ بَتُولُ {مِنَ} العَمَلِ.", ["مِنَ", "إِلَى", "عَلَى"], "مِنْ أَيْنَ → مِنْ", "Betûl işten geldi.", "u3"],
+  ["تَسْأَلُ البِنْتُ {عَنِ} النُّقُودِ.", ["عَنِ", "فِي", "مُنْذُ"], "عَنْ أَيِّ شَيْءٍ → عَنْ", "Kız parayı soruyor.", "u3"],
+  ["يَبْكِي الطِّفْلُ {مُنْذُ} الصَّبَاحِ.", ["مُنْذُ", "حَتَّى", "عَلَى"], "مُنْذُ مَتَى → مُنْذُ", "Çocuk sabahtan beri ağlıyor.", "u3"],
+  ["جَلَسَ مُرَادٌ {عَلَى} الكُرْسِيِّ.", ["عَلَى", "مُنْذُ", "عَنِ"], "sandalyenin üstüne: عَلَى", "Murâd sandalyeye oturdu.", "u3"],
+  ["يَنْتَظِرُ الحَارِسُ المَصْنَعَ {حَتَّى} الصَّبَاحِ.", ["حَتَّى", "عَنِ", "فِي"], "sabaha kadar: حَتَّى", "Bekçi fabrikayı sabaha kadar bekliyor.", "u4"],
+  ["يُسَافِرُ المُعَلِّمُ {مِنَ} الصَّبَاحِ حَتَّى المَسَاءِ.", ["مِنَ", "عَلَى", "عَنِ"], "مِنْ … حَتَّى: -den -e kadar", "Öğretmen sabahtan akşama kadar yolculuk ediyor.", "u4"],
+  ["زَادَتْ أَسْعَارُ النِّفْطِ {عَنِ} العَامِ المَاضِي.", ["عَنِ", "فِي", "حَتَّى"], "-e göre (aşma): عَنْ", "Petrol fiyatları geçen yıla göre arttı.", "u4"],
+  ["وَضَعَتِ الأُمُّ سَاعَتَهَا {عَلَى} المَكْتَبِ.", ["عَلَى", "مُنْذُ", "عَنِ"], "masanın üstüne: عَلَى", "Anne saatini masanın üstüne koydu.", "u4"],
+  ["يَحْرِصُ المُسْلِمُ {عَلَى} الإِخْلَاصِ.", ["عَلَى", "مُنْذُ", "حَتَّى"], "حَرَصَ عَلَى: -e özen gösterdi", "Müslüman ihlâsa özen gösterir.", "u4"],
+  ["أَكْمَلَ صَادِقٌ الدِّرَاسَةَ {مُنْذُ} سَنَتَيْنِ.", ["مُنْذُ", "عَلَى", "عَنْ"], "zaman: مُنْذُ", "Sâdık okulu iki yıl önce bitirdi.", "u5"],
+  ["جَاءَ صَادِقٌ {مِنْ} مَدِينَةِ إِزْمِيرَ.", ["مِنْ", "عَلَى", "مُنْذُ"], "nereden: مِنْ", "Sâdık İzmir şehrinden geldi.", "u5"],
+  ["يَذْهَبُ صَادِقٌ {إِلَى} المَسْجِدِ.", ["إِلَى", "عَنِ", "مُنْذُ"], "nereye: إِلَى", "Sâdık mescide gidiyor.", "u5"],
+  ["يَسْتَمِعُ صَادِقٌ {إِلَى} أُسْتَاذِهِ.", ["إِلَى", "عَلَى", "مُنْذُ"], "اسْتَمَعَ إِلَى: dinledi", "Sâdık hocasını dinliyor.", "u5"],
+  ["خَرَجَ مُرَادٌ {مِنَ} البَيْتِ.", ["مِنَ", "عَلَى", "حَتَّى"], "evden: مِنْ", "Murâd evden çıktı.", "u5"],
+  ["نَظَرَ مُرَادٌ {إِلَى} المَعْرُوضَاتِ.", ["إِلَى", "مُنْذُ", "عَنِ"], "نَظَرَ إِلَى", "Murâd sergilenen mallara baktı.", "u5"],
+  ["رَجَعَ مُرَادٌ {إِلَى} بَيْتِهِ.", ["إِلَى", "عَنْ", "مُنْذُ"], "nereye: إِلَى", "Murâd evine döndü.", "u5"]
+];
+// Harf mi? oyunu: [kelime, tür, Türkçe]
+var HM_LIST = [
+  ["مِنْ", "h", "-den"], ["إِلَى", "h", "-e"], ["عَلَى", "h", "üzerinde"], ["فِي", "h", "içinde"], ["عَنْ", "h", "hakkında"], ["حَتَّى", "h", "-e kadar"], ["مُنْذُ", "h", "-den beri"], ["بِـ", "h", "ile"], ["لِـ", "h", "için"], ["كَـ", "h", "gibi"],
+  ["مَعَ", "i", "ile (zarf, isim)"], ["عِنْدَ", "i", "yanında (zarf)"], ["قَبْلَ", "i", "önce (zarf)"], ["بَعْدَ", "i", "sonra (zarf)"], ["فَوْقَ", "i", "üstünde (zarf)"], ["تَحْتَ", "i", "altında (zarf)"], ["أَمَامَ", "i", "önünde (zarf)"],
+  ["بَيْتٌ", "i", "ev"], ["مَدْرَسَةٌ", "i", "okul"], ["الصَّبَاحُ", "i", "sabah"], ["قَلَمٌ", "i", "kalem"],
+  ["ذَهَبَ", "f", "gitti"], ["جَلَسَ", "f", "oturdu"], ["يَكْتُبُ", "f", "yazıyor"], ["اُدْخُلْ", "f", "gir!"], ["رَجَعَ", "f", "döndü"], ["نَظَرَ", "f", "baktı"], ["سَأَلَ", "f", "sordu"]
+];
+var HAFIZA = {
+  an: { name: "Harf ↔ anlam", pairs: HARF.map(function (h) { return [h.h, h.tr]; }) },
+  soru: { name: "Soru ↔ harf", pairs: [["أَيْنَ؟", "فِي"], ["إِلَى أَيْنَ؟", "إِلَى"], ["مِنْ أَيْنَ؟", "مِنْ"], ["لِمَنْ؟", "لِـ"], ["عَنْ أَيِّ شَيْءٍ؟", "عَنْ"], ["مُنْذُ مَتَى؟", "مُنْذُ"], ["كَيْفَ؟ (alet)", "بِـ"], ["إِلَى مَتَى؟", "حَتَّى"]] },
+  hal: { name: "Merfû ↔ mecrûr", pairs: [["البَيْتُ", "فِي البَيْتِ"], ["بَيْتٌ", "فِي بَيْتٍ"], ["القَلَمُ", "بِالقَلَمِ"], ["الصَّبَاحُ", "مُنْذُ الصَّبَاحِ"], ["السُّوقُ", "إِلَى السُّوقِ"], ["الأَسَدُ", "كَالأَسَدِ"], ["البَائِعُ", "لِلْبَائِعِ"], ["الدَّرْسُ", "عَنِ الدَّرْسِ"]] }
+};
+var KARTLAR = [
+  ["Harf-i cer hangi kelimeye gelir?", "Yalnız isme: فِي الحَقِيبَةِ"],
+  ["Harf-i cerden sonraki isim hangi halde?", "Mecrûr: البَيْتِ (esre), بَيْتٍ (iki esre)"],
+  ["On harf-i cer?", "مِنْ، إِلَى، عَلَى، فِي، بِـ، لِـ، عَنْ، كَـ، حَتَّى، مُنْذُ"],
+  ["Bitişik yazılan harf-i cerler?", "بِـ، لِـ، كَـ: بِالقَلَمِ، لِصَدِيقِهِ، كَالشَّايِ"],
+  ["مِنْ + ال nasıl okunur?", "مِنَ: مِنَ النَّافِذَةِ"],
+  ["عَنْ + ال nasıl okunur?", "عَنِ: عَنِ الدَّرْسِ"],
+  ["لِـ + ال nasıl yazılır?", "لِلْـ: لِلْبَائِعِ (elif düşer)"],
+  ["مُنْذُ ve حَتَّى farkı?", "مُنْذُ: -den beri (başlangıç) · حَتَّى: -e kadar (bitiş)"],
+  ["مَعَ harf-i cer mi?", "Hayır, zarftır; ama sonraki isim yine mecrûr: مَعَ الأَصْدِقَاءِ"],
+  ["كَيْفَ (alet) sorusunun cevabı?", "بِـ ile: بِالشَّوْكَةِ، بِالسَّيَّارَةِ"],
+  ["قَرِيبٌ ve بَعِيدٌ hangi harfle?", "قَرِيبٌ مِنْ · بَعِيدٌ عَنْ"],
+  ["İki mecrûr sebebi?", "Harf-i cerden sonra gelmek (فِي البَيْتِ) ve muzâfun ileyh olmak (بَابُ البَيْتِ)"]
+];
+
+</script>
+<script>
+(function () {
+"use strict";
+// ---------- yardımcılar ----------
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function plain(h) { return String(h).replace(/<[^>]+>/g, ""); }
+function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+function chunks(str) { return str.split(" / ").map(function (p) { var i = p.lastIndexOf(":"); return { t: p.slice(0, i), r: p.slice(i + 1) }; }); }
+function sentHtml(str) {
+  return '<div class="sent">' + chunks(str).map(function (c) {
+    if (c.r === "-") return '<span class="plain">' + c.t + '</span>';
+    var rr = c.r.split("."), lb = ROLES[rr[0]] ? ROLES[rr[0]].tr + (rr[1] ? " · " + rr[1] : "") : "&nbsp;";
+    return '<span class="chunk r-' + rr[0] + '"><span class="w">' + c.t + '</span><span class="t">' + lb + '</span></span>';
+  }).join("") + '</div>';
+}
+function legendHtml(roles) { return '<div class="legend">' + roles.map(function (r) { return '<span class="r-' + r + '"><i></i>' + ROLES[r].tr + ' <span class="ar" style="color:var(--muted)">' + ROLES[r].ar + '</span></span>'; }).join("") + '</div>'; }
+var store = {
+  get: function (k, d) { try { var v = localStorage.getItem("harfcer:" + k); return v === null ? d : JSON.parse(v); } catch (x) { return d; } },
+  set: function (k, v) { try { localStorage.setItem("harfcer:" + k, JSON.stringify(v)); } catch (x) {} }
+};
+function icon(kind, cls, n) {
+  var one = {
+    person: '<circle cx="12" cy="7" r="5" class="' + cls + '"/><path d="M3 24 Q3 13 12 13 Q21 13 21 24 Z" class="' + cls + '"/>',
+    camel: '<path d="M2 20 L2 14 Q2 11 5 11 L8 11 Q9 6 12 9 Q14 5 17 9 L19 9 Q20 5 22 6 L22 9 L20 11 L20 20 L18 20 L18 14 L6 14 L6 20 Z" class="' + cls + '"/>',
+    leaf: '<path d="M4 20 Q4 4 21 3 Q20 20 4 20 Z" class="' + cls + '"/><path d="M4 20 L15 9" stroke="var(--card)" stroke-width="1.5" fill="none"/>',
+    pin: '<path d="M12 2 Q20 2 20 10 Q20 15 12 23 Q4 15 4 10 Q4 2 12 2 Z" class="' + cls + '"/><circle cx="12" cy="10" r="3" fill="var(--card)"/>',
+    clock: '<circle cx="12" cy="12" r="10" class="' + cls + '"/><path d="M12 6 L12 12 L16 14" stroke="var(--card)" stroke-width="2" fill="none" stroke-linecap="round"/>',
+    pen: '<path d="M4 20 L5 15 L16 4 L20 8 L9 19 Z" class="' + cls + '"/><path d="M14 6 L18 10" stroke="var(--card)" stroke-width="1.5"/>'
+  }[kind];
+  var s = ""; for (var i = 0; i < (n || 1); i++) s += '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + one + '</svg>';
+  return '<span class="icons">' + s + '</span>';
+}
+
+// ---------- rütbe, ses, konfeti ----------
+var LEVELS = [[0, "Mübtedî", "yeni başlayan"], [100, "Talebe", "öğrenci"], [300, "Kâtip", "yazan"], [600, "Edîb", "dil ustası"], [1000, "Nahvî", "dil bilgini"], [1600, "Allâme", "çok bilen"]];
+function getXP() { return store.get("xp", 0); }
+function levelOf(x) { var i = 0; for (var k = 0; k < LEVELS.length; k++) if (x >= LEVELS[k][0]) i = k; return i; }
+function renderXP() {
+  var box = document.getElementById("xpbox"), x = getXP(), i = levelOf(x), cur = LEVELS[i], nx = LEVELS[i + 1];
+  var pct = nx ? (x - cur[0]) / (nx[0] - cur[0]) * 100 : 100;
+  box.innerHTML = '<div class="row"><span class="lbl">Rütben</span><span class="tabular muted">' + x + ' puan</span></div><div class="row"><b class="rank">' + cur[1] + '</b><span class="muted">' + (nx ? "sonra: " + nx[1] : "en yüksek rütbe") + '</span></div><div class="xpbar"><div style="width:' + pct + '%"></div></div>';
+}
+var toastT;
+function toast(m) { var t = document.getElementById("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("show"); }, 2000); }
+function addXP(n, quiet) {
+  n = Math.max(0, Math.round(n)); if (!n) return;
+  var b = levelOf(getXP()), v = getXP() + n; store.set("xp", v); renderXP();
+  var a = levelOf(v);
+  if (a > b) { toast("Yeni rütbe: " + LEVELS[a][1] + " (" + LEVELS[a][2] + ")"); confetti(); beep("win"); }
+  else if (!quiet) toast("+" + n + " puan");
+}
+var SND = { on: store.get("snd", true), ctx: null };
+function beep(type) {
+  if (!SND.on) return;
+  try {
+    SND.ctx = SND.ctx || new (window.AudioContext || window.webkitAudioContext)();
+    var c = SND.ctx, notes = type === "ok" ? [660, 880] : type === "win" ? [523, 659, 784, 1046] : type === "tick" ? [1200] : [220, 160];
+    notes.forEach(function (f, i) {
+      var o = c.createOscillator(), g = c.createGain(); o.type = type === "no" ? "sawtooth" : "triangle"; o.frequency.value = f;
+      var t = c.currentTime + i * 0.09, vol = type === "tick" ? 0.04 : 0.12;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.17);
+      o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + 0.2);
+    });
+  } catch (x) {}
+}
+function confetti() {
+  try { if (matchMedia("(prefers-reduced-motion: reduce)").matches) return; } catch (x) {}
+  var cv = document.createElement("canvas"); cv.className = "confetti"; document.body.appendChild(cv);
+  var W = cv.width = innerWidth, H = cv.height = innerHeight, ctx = cv.getContext("2d"), cs = getComputedStyle(document.documentElement);
+  var cols = ["--mz", "--cerr", "--ref", "--nasb", "--mi", "--mus"].map(function (v) { return cs.getPropertyValue(v).trim() || "#888"; }), ps = [];
+  for (var i = 0; i < 150; i++) ps.push({ x: W / 2 + (Math.random() - .5) * W * .5, y: H * .4, vx: (Math.random() - .5) * 12, vy: -Math.random() * 11 - 4, r: Math.random() * 7 + 4, c: cols[i % 6], a: Math.random() * 6 });
+  var t0 = performance.now();
+  (function step(t) { ctx.clearRect(0, 0, W, H); ps.forEach(function (p) { p.vy += .33; p.x += p.vx; p.y += p.vy; p.a += .2; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.fillStyle = p.c; ctx.fillRect(-p.r / 2, -p.r / 4, p.r, p.r / 2); ctx.restore(); }); if (t - t0 < 2000) requestAnimationFrame(step); else cv.remove(); })(t0);
+}
+function starsHtml(n) { var s = ""; for (var i = 1; i <= 3; i++) s += i <= n ? "★" : '<span class="off">★</span>'; return '<div class="stars" aria-label="' + n + ' yıldız">' + s + '</div>'; }
+
+// ---------- görseller ----------
+function badges(list) { return '<div class="badges">' + list.map(function (b) { return '<span class="badge" style="--role:var(--' + (b[2] || "accent") + ')">' + (b[0] ? '<span class="ar">' + b[0] + '</span>' : '') + b[1] + '</span>'; }).join("") + '</div>'; }
+// On harf-i cer
+function harfGrid() { return '<div class="harfler">' + HARF.map(function (h) { return '<div class="hf"><span class="ar">' + h.h + '</span><small>' + h.tr + '</small></div>'; }).join("") + '</div>'; }
+// Harf-i cer makinesi: harf + isim → mecrûr şekil
+function harfMakine() {
+  var hi = LIVE.hh || 0, h = HARF[hi], def = LIVE.hd == null ? true : LIVE.hd, ni = LIVE.hn || 0;
+  if (h.time && !NOUNS[ni].time) ni = NOUNS.map(function (x) { return !!x.time; }).indexOf(true);
+  var nn = NOUNS[ni], out = cerForm(h, nn, def);
+  return '<div id="makine" class="makine">' +
+    '<div class="lbl">1. Harf-i ceri seç</div><div class="mk-row">' + HARF.map(function (x, i) { return '<button class="mk' + (i === hi ? " on" : "") + '" data-hh="' + i + '"><span class="ar">' + x.h + '</span></button>'; }).join("") + '</div>' +
+    '<div class="lbl">2. İsmi seç</div><div class="mk-row">' + NOUNS.map(function (x, i) { var off = h.time && !x.time; return '<button class="mk' + (i === ni ? " on" : "") + '" data-hn="' + i + '"' + (off ? " disabled" : "") + '><span class="ar">' + x.d + '</span></button>'; }).join("") + '</div>' +
+    '<div class="mk-row" style="direction:ltr"><button class="mk' + (def ? " on" : "") + '" data-hd="1">ال ile (belirli)</button><button class="mk' + (def ? "" : " on") + '" data-hd="0">tenvinli (belirsiz)</button></div>' +
+    '<div class="mk-out" style="--role:var(--cerr)"><span class="muted">önce: <span class="ar">' + merfu(nn, def) + '</span> (merfû)</span>' +
+      '<span class="ar">' + out + '</span><b>' + nn.tr + ' + ' + h.tr + '</b>' +
+      '<small class="muted">' + arWrap("İsim mecrûr: " + (def ? "ال'li isim tek esre alır." : "tenvinli isim iki esre alır.")) + '</small>' +
+      (h.note ? '<small class="muted">' + arWrap(h.note) + '</small>' : '') + '</div></div>';
+}
+function vizU1() {
+  return harfGrid() + '<div class="vs"><div class="fcard" style="--role:var(--cerr)"><span class="ar">فِي البَيْتِ</span><b class="t">ال ile: tek esre</b></div><div class="fcard" style="--role:var(--cerr)"><span class="ar">فِي بَيْتٍ</span><b class="t">tenvinli: iki esre</b></div></div>' +
+    '<div class="lbl">Harf-i tariften önce</div>' + badges([["مِنَ النَّافِذَةِ", "nûn fetha alır", "mi"], ["عَنِ الدَّرْسِ", "nûn kesre alır", "mi"], ["لِلْبَيْتِ", "elif yazılmaz", "mi"]]);
+}
+function vizU2() { return harfMakine(); }
+function vizU3() {
+  return '<div class="soru">' + [["أَيْنَ؟", "فِي / عَلَى", "nerede?"], ["إِلَى أَيْنَ؟", "إِلَى", "nereye?"], ["مِنْ أَيْنَ؟", "مِنْ", "nereden?"], ["لِمَنْ؟", "لِـ", "kime, kimin için?"], ["عَنْ أَيِّ شَيْءٍ؟", "عَنْ", "ne hakkında?"], ["مُنْذُ مَتَى؟", "مُنْذُ", "ne zamandan beri?"], ["كَيْفَ؟", "بِـ", "nasıl? (aletle)"]].map(function (q) {
+    return '<div><span class="ar q1">' + q[0] + '</span><span class="arr">←</span><span class="ar q2">' + q[1] + '</span><small>' + q[2] + '</small></div>'; }).join("") + '</div>';
+}
+function vizU4() {
+  return sentHtml("يَنْتَظِرُ:- / الحَارِسُ:ref / المَصْنَعَ:nasb / حَتَّى:mi / الصَّبَاحِ:cerr") +
+    '<div class="gorev" style="width:100%;max-width:860px">' +
+    '<div style="--role:var(--ref)"><b>Merfû <span class="ar">مَرْفُوعٌ</span></b><span class="ar hlb" style="font-size:1.4rem">الحَارِسُ</span><small class="muted">fâil, mübtedâ, haber</small></div>' +
+    '<div style="--role:var(--nasb)"><b>Mansûb <span class="ar">مَنْصُوبٌ</span></b><span class="ar hlb" style="font-size:1.4rem">المَصْنَعَ · كُلَّ</span><small class="muted">mef’ûl bih, zarf</small></div>' +
+    '<div style="--role:var(--cerr)"><b>Mecrûr <span class="ar">مَجْرُورٌ</span></b><span class="ar hlb" style="font-size:1.4rem">حَتَّى الصَّبَاحِ · أَسْعَارُ النِّفْطِ</span><small class="muted">harf-i cerden sonra, muzâfun ileyh</small></div></div>';
+}
+function vizU5() {
+  return badges([["قَرِيبٌ مِنْ", "-e yakın", "mi"], ["بَعِيدٌ عَنْ", "-den uzak", "mi"], ["نَظَرَ إِلَى", "-e baktı", "mi"], ["اسْتَمَعَ إِلَى", "-i dinledi", "mi"], ["طَلَبَ مِنْ", "-den istedi", "mi"], ["مِنْ … إِلَى", "-den -e", "mi"], ["مُنْذُ سَنَتَيْنِ", "iki yıldır", "mi"]]) +
+    '<p class="cap">Metinde aynı harf-i cer defalarca gelir; anlamı cümle belirler.</p>';
+}
+var VIZ = { u1: vizU1, u2: vizU2, u3: vizU3, u4: vizU4, u5: vizU5 };
+
+// ---------- durum ----------
+var ST = { tab: "ozet", tr: store.get("tr", true), items: store.get("items", {}) };
+var TABS = ["ozet", "u1", "u2", "u3", "u4", "u5", "oyun", "quiz"];
+var hashT = location.hash.replace("#", "");
+ST.tab = TABS.indexOf(hashT) >= 0 ? hashT : store.get("tab", "ozet");
+if (TABS.indexOf(ST.tab) < 0) ST.tab = "ozet";
+var main = document.getElementById("main");
+var LIVE = {};
+function saveItems() { store.set("items", ST.items); }
+function unitById(id) { return UNITS.filter(function (u) { return u.id === id; })[0]; }
+
+// Alıştırmaları maddelere aç
+function expand(ex) {
+  if (ex._items) return ex._items;
+  var out = [];
+  if (ex.type === "dp") {
+    ex.rows.forEach(function (r) {
+      out.push({ kind: "pick", q: r.s + " ← (müsennâ)", o: shuffle(r.d), a: r.d[0], tr: r.tr[1], why: r.why });
+      out.push({ kind: "pick", q: r.s + " ← (cem)", o: shuffle(r.p), a: r.p[0], tr: r.tr[2], why: r.why });
+    });
+  } else if (ex.type === "bank") {
+    var n = ex.parts ? ex.parts.filter(function (p) { return typeof p !== "string"; }).length : ex.items.length;
+    for (var i = 0; i < n; i++) out.push({ kind: "bank" });
+  } else if (ex.items) {
+    ex.items.forEach(function (it) { var c = {}; for (var k in it) c[k] = it[k]; c.kind = ex.type; out.push(c); });
+  }
+  ex._items = out;
+  return out;
+}
+function subCls(ex) { var a = []; if (ex.cls) a.push(["c", ex.cls]); if (ex.cls2) a.push(["d", ex.cls2]); return a; }
+function allScorable(u) {
+  var n = 0, ok = 0;
+  u.ex.forEach(function (ex, ei) {
+    expand(ex).forEach(function (it, ii) { n++; if (ST.items[u.id + "-" + ei + "-" + ii] === 1) ok++; });
+    subCls(ex).forEach(function (sc) { sc[1].items.forEach(function (it, ii) { n++; if (ST.items[u.id + "-" + ei + "-" + sc[0] + ii] === 1) ok++; }); });
+  });
+  return { n: n, ok: ok };
+}
+function mark(key, good) {
+  var prev = ST.items[key];
+  if (good) { if (prev !== 1) { ST.items[key] = 1; saveItems(); addXP(prev === 2 ? 2 : 5, true); beep("ok"); } }
+  else { if (prev !== 1) { ST.items[key] = 2; saveItems(); } beep("no"); }
+  updateProgress();
+}
+function updateProgress() {
+  UNITS.forEach(function (u) {
+    var p = allScorable(u), el = document.querySelector('nav.tabs [data-tab="' + u.id + '"] .pc');
+    if (el) el.textContent = Math.round(p.ok / p.n * 100) + "%";
+    var bar = document.getElementById("prog-" + u.id);
+    if (bar) { bar.style.width = (p.ok / p.n * 100) + "%"; var t = document.getElementById("progt-" + u.id); if (t) t.textContent = p.ok + " / " + p.n; }
+  });
+}
+
+// ---------- sekmeler ----------
+function renderTabs() {
+  document.getElementById("tabs").innerHTML = '<button role="tab" data-tab="ozet">Özet</button>' +
+    UNITS.map(function (u) { return '<button role="tab" data-tab="' + u.id + '"><span class="num">' + u.no + '</span>' + u.short + ' <span class="pc">0%</span></button>'; }).join("") +
+    '<button role="tab" data-tab="oyun">Oyunlar</button><button role="tab" data-tab="quiz">Quiz Provası</button>';
+}
+function setTab(t) {
+  if (t !== "oyun") stopGame();
+  if (t !== "quiz") stopQuiz();
+  ST.tab = t; store.set("tab", t);
+  document.querySelectorAll("nav.tabs button").forEach(function (b) { b.setAttribute("aria-selected", b.dataset.tab === t ? "true" : "false"); });
+  render();
+  var sel = document.querySelector('nav.tabs button[data-tab="' + t + '"]');
+  if (sel) { try { sel.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (x) {} }
+}
+function render() {
+  LIVE = {};
+  if (ST.tab === "ozet") main.innerHTML = renderOzet();
+  else if (ST.tab === "oyun") main.innerHTML = renderGames();
+  else if (ST.tab === "quiz") main.innerHTML = renderQuiz();
+  else main.innerHTML = renderUnit(unitById(ST.tab));
+  updateProgress();
+}
+
+// ---------- özet ----------
+var CHECK = [
+  "On harf-i ceri sayabiliyorum: مِنْ، إِلَى، عَلَى، فِي، بِـ، لِـ، عَنْ، كَـ، حَتَّى، مُنْذُ.",
+  "Harf-i cerin yalnız isme geldiğini biliyorum.",
+  "Harf-i cerden sonraki ismi mecrûr okuyorum: فِي البَيْتِ، فِي بَيْتٍ.",
+  "بِـ، لِـ، كَـ'nin bitişik yazıldığını biliyorum: بِالقَلَمِ.",
+  "ال'den önce مِنَ، عَنِ، لِلْـ şekillerini kullanıyorum.",
+  "Her harf-i cerin Türkçe anlamını söyleyebiliyorum.",
+  "Soru kelimesinden harf-i ceri buluyorum: مِنْ أَيْنَ ← مِنْ.",
+  "Bir ismin merfû, mansûb ya da mecrûr olma sebebini söyleyebiliyorum.",
+  "مَعَ'nın harf-i cer olmadığını ama sonrasının mecrûr olduğunu biliyorum.",
+  "Bir metindeki boşluklara uygun harf-i ceri koyabiliyorum."
+];
+function arWrap(t) { return t.replace(/([؀-ۿ][؀-ۿً-ْ\s،/←…]*[؀-ۿً-ْ])/g, '<span class="ar">$1</span>'); }
+function renderOzet() {
+  var fi = LIVE.fi || 0, fu = LIVE.fu || false, ch = store.get("check", {});
+  function card(u, items) {
+    return '<div class="card sumcard" style="--role:var(--' + u.col + ')"><div class="lbl">Konu ' + u.no + '</div><div class="ar t">' + u.ar + '</div><h3>' + u.tr + '</h3><ul>' + items.map(function (i) { return '<li>' + i + '</li>'; }).join("") + '</ul><button class="btn small" data-go="' + u.id + '" style="--accent:var(--' + u.col + ')">Konu ' + u.no + '</button></div>';
+  }
+  return '<section class="panel">' +
+    '<div class="card stack"><div class="lbl">Bütün konu tek bakışta</div><h2>On harf-i cer</h2><div class="viz">' + harfGrid() + sentHtml("وَضَعَ الطَّالِبُ الكِتَابَ:- / فِي:mi / الحَقِيبَةِ:cerr") + '<p class="cap">Harf-i cer isme gelir; sonraki isim mecrûr olur.</p></div></div>' +
+    '<div class="card stack"><div class="lbl">Etkinlik</div><h2>Harf-i cer makinesi</h2><p class="muted">Bir harf-i cer ve bir isim seç; mecrûr şeklini ve anlamını gör. ال\'den önce harfin nasıl değiştiğine dikkat et.</p><div class="viz">' + harfMakine() + '</div></div>' +
+    '<div class="sumgrid">' +
+      card(UNITS[0], ['Yalnız isme gelir: <span class="ar">فِي الحَقِيبَةِ</span>', 'Sonraki isim mecrûr: <span class="ar">البَيْتِ، بَيْتٍ</span>', 'Bitişik: <span class="ar">بِـ، لِـ، كَـ</span>']) +
+      card(UNITS[1], ['<span class="ar">مِنْ</span> -den · <span class="ar">إِلَى</span> -e', '<span class="ar">فِي</span> içinde · <span class="ar">عَلَى</span> üstünde', '<span class="ar">حَتَّى</span> -e kadar · <span class="ar">مُنْذُ</span> -den beri']) +
+      card(UNITS[2], ['<span class="ar">أَيْنَ؟ ← فِي</span>', '<span class="ar">مِنْ أَيْنَ؟ ← مِنْ</span>', '<span class="ar">كَيْفَ؟ ← بِالسَّيَّارَةِ</span>']) +
+      card(UNITS[3], ['Fâil merfû, mef’ûl mansûb', 'Harf-i cerden sonra mecrûr', 'Muzâfun ileyh de mecrûr']) +
+      card(UNITS[4], ['Sâdık’ın günü: 15 boşluk', 'Murâd çarşıda: 9 boşluk', '<span class="ar">قَرِيبٌ مِنْ، يَسْتَمِعُ إِلَى</span>']) +
+    '</div>' +
+    '<div class="card stack"><div class="lbl">Hatırlatma kartları</div><h2>Kartı çevir, cevabı hatırla</h2>' +
+      '<div class="flash-wrap"><button class="flash' + (fu ? " up" : "") + '" data-flip="1" aria-label="Kartı çevir"><div class="in"><div class="face front">' + arWrap(KARTLAR[fi][0]) + '</div><div class="face back">' + arWrap(KARTLAR[fi][1]) + '</div></div></button>' +
+      '<div class="row-btns"><button class="btn small" data-fprev="1">Önceki</button><span class="muted tabular" style="align-self:center">' + (fi + 1) + ' / ' + KARTLAR.length + '</span><button class="btn small solid" data-fnext="1">Sonraki</button><button class="btn small" data-fshuf="1">Karıştır</button></div></div></div>' +
+    '<div class="card stack"><div class="lbl">Kontrol listesi</div><h2>Konuyu kavradın mı?</h2><p class="muted">Bildiğin maddeleri işaretle. İşaretleyemediğin maddenin konusuna dön.</p>' +
+      '<ul class="checklist">' + CHECK.map(function (c, i) { return '<li><label><input type="checkbox" id="chk-' + i + '" data-chk="' + i + '"' + (ch[i] ? " checked" : "") + '><span>' + arWrap(c) + '</span></label></li>'; }).join("") + '</ul>' +
+      '<div class="row-btns"><button class="btn solid" data-go="u1">1. konudan başla</button><button class="btn" data-go="oyun">Oyunlar</button><button class="btn" data-go="quiz">Quiz provası</button><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+  '</section>';
+}
+
+// ---------- ders sayfası ----------
+var AR_NUM = ["١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩", "١٠"];
+function renderUnit(u) {
+  var p = allScorable(u);
+  var viz = VIZ[u.id]();
+  var rolesUsed = u.legend;
+  var exHtml = u.examples.map(function (e) {
+    if (e.pair) return '<div class="pairgrid"><div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + '</div><div class="ex-item">' + sentHtml(e.pair) + (ST.tr ? '<div class="trline">' + e.pairTr + '</div>' : '') + '</div></div>';
+    return '<div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + (e.why ? '<div class="trline">' + e.why + '</div>' : '') + '</div>';
+  }).join("");
+  return '<section class="panel" style="--role:var(--' + u.col + ')">' +
+    '<div class="card unit-hero"><div class="unit-no">' + u.no + '</div><div class="stack">' +
+      '<div class="lbl">Harf-i cerler · konu ' + u.no + ' / 5</div><div class="ar big" style="color:var(--role)">' + u.ar + '</div><h2>' + u.tr + '</h2>' +
+      '<ul class="goals">' + u.goals.map(function (g) { return '<li>' + arWrap(g) + '</li>'; }).join("") + '</ul>' +
+      '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> alıştırma maddesi doğru</div>' +
+    '</div></div>' +
+    '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Kitaptaki örnekler</div><h2>Önce gör</h2></div><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button></div>' +
+      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Mor: harf-i cer, mavi: mecrûr isim.", u2: "Aynı isim, farklı harf-i cer: anlam değişir.", u3: "Soruya harf-i cerle verilen cevaplar.", u4: "Kırmızı merfû, sarı mansûb, mavi mecrûr.", u5: "Okuma metinlerinden örnekler." })[u.id] + '</p>' + '</div>' +
+    '<div class="card viz"><div class="lbl">Görsel</div>' + viz + '</div>' +
+    '<div class="card stack"><div class="lbl">القَاعِدَةُ · Kaide</div><h2>Kural</h2>' +
+      '<ol class="rules">' + u.rules.map(function (r) { return '<li><div class="stack" style="gap:4px"><div>' + arWrap(r.tr) + '</div>' + (r.ex ? '<div class="exs">' + r.ex.map(function (x) { return '<span>' + x + '</span>'; }).join("") + '</div>' : '') + '</div></li>'; }).join("") + '</ol>' +
+      '<details class="kaide"><summary>Kitaptaki kaide metni (Arapça)</summary><div class="stack" style="margin-top:8px">' + u.kaide.map(function (k) { return '<p class="ar">' + k + '</p>'; }).join("") + '</div></details>' +
+    '</div>' +
+    '<div class="stack"><div><div class="lbl">التَّدْرِيبَاتُ · Alıştırmalar</div><h2>Şimdi sen yap</h2></div>' + u.ex.map(function (ex, ei) { return renderExercise(u, ex, ei); }).join("") + '</div>' +
+    '<div class="card stack" style="text-align:center;justify-items:center"><h2>Pekiştirmek için oyna ya da kendini dene</h2><div class="row-btns" style="justify-content:center"><button class="btn solid" data-go="oyun">Oyunlar</button><button class="btn" data-go="quiz">Quiz provası</button></div></div>' +
+  '</section>';
+}
+function renderExercise(u, ex, ei) {
+  var its = expand(ex), body = "";
+  if (ex.type === "reading") body = renderReading(u, ex, ei);
+  else if (ex.type === "bank") body = renderBank(u, ex, ei);
+  else {
+    if (ex.reading) body += readingText(ex);
+    if (ex.type === "tag") body += legendHtml(ex.roles);
+    body += '<div class="items">' + its.map(function (it, ii) { var k = u.id + "-" + ei + "-" + ii; return '<div class="item ' + statusCls(k) + '" id="it-' + k + '">' + itemInner(u, ei, ii, it, ex) + '</div>'; }).join("") + '</div>';
+  }
+  return '<div class="card exer" id="ex-' + u.id + '-' + ei + '"><div class="exer-head"><div class="ar">' + (ex.num || AR_NUM[ei]) + ' ـ ' + ex.ar + '</div><div><b>' + ex.tr + '</b>' + (ex.extra ? '<span class="extra-tag">Ek alıştırma</span>' : '') + '</div></div>' +
+    (ex.exHtml ? '<div class="exbox"><span class="lbl">مِثَالٌ · Örnek</span><div>' + ex.exHtml + '</div></div>' : '') + body + '</div>';
+}
+function statusCls(k) { return ""; }
+function readingText(ex) {
+  var body = ex.dialog ? '<div class="stack" style="gap:4px">' + ex.dialog.map(function (d) { return '<p class="passage" style="text-align:right"><b class="' + (d[0] === "مَرْيَمُ" ? "r-mun" : "r-muz") + '">' + d[0] + ':</b> ' + d[1] + '</p>'; }).join("") + '</div>' : '<p class="passage">' + ex.text + '</p>';
+  return '<div class="card stack" style="background:var(--soft);border:0"><h3 class="ar" style="font-size:1.6rem;color:var(--accent)">' + ex.title + '</h3>' + body +
+    '<details><summary class="muted" style="cursor:pointer">Türkçesini göster</summary><p class="passage-tr" style="margin-top:6px">' + ex.textTr + '</p></details></div>';
+}
+function trAfter(it) { return it.tr && typeof it.tr === "string" ? '<div class="trline">' + it.tr + '</div>' : ''; }
+function retryBtn(key) { return '<div><button class="btn small" data-act="retry" data-key="' + key + '">Tekrar dene</button></div>'; }
+function optsFor(it, ex) { return it.opts || ex.opts || [["i", "İsim cümlesi", "اسْمِيَّةٌ", "x"], ["f", "Fiil cümlesi", "فِعْلِيَّةٌ", "x"]]; }
+
+function itemInner(u, ei, ii, it, ex) {
+  var key = u.id + "-" + ei + "-" + ii;
+  var L = LIVE[key] || (LIVE[key] = {});
+  var num = '<span class="qn tabular">' + (ii + 1) + '</span>';
+  if (it.kind === "pick") {
+    var ansIdx = typeof it.a === "number" ? it.a : it.o.indexOf(it.a), chosen = L.ch;
+    var q = it.q || "";
+    if (it.q && ex.fill) q = it.q.replace("___", '<u class="' + (chosen != null ? "filled" : "") + '">' + (chosen != null ? it.o[chosen] : "&nbsp;") + '</u>');
+    return num + (q ? '<div class="q">' + q + '</div>' : '') +
+      '<div class="opts">' + it.o.map(function (o, oi) {
+        var cls = chosen != null ? (oi === ansIdx ? " sel-ok" : (oi === chosen ? " sel-no" : "")) : "";
+        var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(o);
+        return '<button class="opt' + (ex.fill ? "" : " block") + (lat ? " lat" : "") + cls + '" data-act="pick" data-key="' + key + '" data-i="' + oi + '"' + (chosen != null ? " disabled" : "") + '>' + o + '</button>';
+      }).join("") + '</div>' +
+      (chosen != null ? '<div class="fb">' + (chosen === ansIdx ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <span class="ar">' + it.o[ansIdx] + '</span> ') + (it.why || '') + '</div>' + trAfter(it) + retryBtn(key) : '');
+  }
+  if (it.kind === "classify") {
+    var c = L.ch, opts = optsFor(it, ex), right = opts.filter(function (o) { return o[0] === it.a; })[0];
+    return num + '<div class="q">' + it.s + '</div><div class="cls-btns">' + opts.map(function (b) {
+      var cls = c ? (b[0] === it.a ? " sel-ok" : (b[0] === c ? " sel-no" : "")) : "";
+      return '<button class="opt lat' + cls + '" data-act="cls" data-key="' + key + '" data-v="' + b[0] + '"' + (c ? " disabled" : "") + '>' + b[1] + ' <span class="ar" style="font-weight:400">' + b[2] + '</span></button>';
+    }).join("") + '</div>' +
+      (c ? '<div class="fb">' + (c === it.a ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <b>' + right[1] + '</b>. ') + (it.why || '') + '</div>' + trAfter(it) + retryBtn(key) : '');
+  }
+  if (it.kind === "tag" || it.kind === "find") {
+    var cs = chunks(it.c), find = it.kind === "find";
+    if (!L.tags) L.tags = cs.map(function () { return null; });
+    var res = L.res;
+    var line = cs.map(function (ch, ci) {
+      if (ch.r === "-") return '<span class="plain">' + ch.t + '</span>';
+      if (find) {
+        var on = !!L.tags[ci], target = ch.r === "y";
+        var cl = "tagbtn findbtn" + (on ? " on" : "") + (res && on !== target ? (on ? " wrong" : " miss") : "");
+        return '<button class="' + cl + '" data-act="find" data-key="' + key + '" data-ci="' + ci + '"' + (res === "ok" ? " disabled" : "") + '><span class="w">' + ch.t + '</span><span class="t">' + (on ? ROLES[ex.target].tr : "&nbsp;") + '</span></button>';
+      }
+      var r = res === "ok" ? ch.r : L.tags[ci], wrong = res === "no" && L.tags[ci] !== ch.r;
+      return '<button class="tagbtn' + (r ? " has r-" + r : "") + (wrong ? " wrong" : "") + '" data-act="tag" data-key="' + key + '" data-ci="' + ci + '"' + (res === "ok" ? " disabled" : "") + '><span class="w">' + ch.t + '</span><span class="t">' + (r ? ROLES[r].tr : "dokun") + '</span></button>';
+    }).join("");
+    return num + '<div class="sent" style="gap:8px">' + (it.pre ? '<span class="plain">' + it.pre + '</span>' : '') + line + (it.post ? '<span class="plain">' + it.post + '</span>' : '') + '</div>' + (it.src ? '<div class="srcline ar">(' + it.src + ')</div>' : '') +
+      (res === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + trAfter(it) :
+        '<div class="row-btns"><button class="btn small solid" data-act="tcheck" data-key="' + key + '">Kontrol et</button>' + (res === "no" ? '<button class="btn small" data-act="tshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (res === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> ' + (find ? 'Kırmızı çerçeveliler yanlış seçildi; yeşil kesik çizgililer atlandı.' : 'Kırmızı çerçeveli kelimeleri yeniden düşün.') + '</div>' : ''));
+  }
+  if (it.kind === "combo") {
+    var slots = it.p.filter(function (x) { return typeof x !== "string"; });
+    if (!L.sel) L.sel = slots.map(function () { return -1; });
+    var r3 = L.res, si = -1;
+    var ln = it.p.map(function (part) {
+      if (typeof part === "string") return '<span>' + part + '</span>';
+      si++; var v = L.sel[si];
+      return '<button class="slot' + (v < 0 ? " empty" : "") + (r3 === "ok" ? " right" : "") + (r3 === "no" ? " wrong" : "") + '" data-act="cycle" data-key="' + key + '" data-si="' + si + '"' + (r3 === "ok" ? " disabled" : "") + '>' + (v < 0 ? "؟" : part.o[v]) + '</button>';
+    }).join("");
+    var trc = Array.isArray(it.tr) ? it.tr[Math.max(0, it.ok.findIndex(function (cmb) { return cmb.every(function (v, i) { return L.sel[i] === v; }); }))] : it.tr;
+    return num + (it.q ? '<div class="q" style="font-size:1.3rem">' + it.q + '</div>' : '') + '<div class="combo-line">' + ln + '</div>' +
+      (r3 === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + (trc ? '<div class="trline">' + trc + '</div>' : '') :
+        '<div class="row-btns"><button class="btn small solid" data-act="ccheck" data-key="' + key + '">Kontrol et</button>' + (r3 === "no" ? '<button class="btn small" data-act="cshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (r3 === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> Kutulara dokunarak seçenekleri değiştir.</div>' : ''));
+  }
+  if (it.kind === "irab") {
+    var topts = ex.tlist || (ex.topts ? TUR_OPTS.filter(function (o) { return ex.topts.indexOf(o[0]) >= 0; }) : TUR_OPTS), onlyC = ex.only === "c", ri = L.res;
+    var qs = it.s.replace(/\[(.+?)\]/, '<b class="hl">$1</b>');
+    function row(lbl, opts, act, cur, ans) {
+      return '<div class="irow"><span class="lbl">' + lbl + '</span><div class="cls-btns">' + opts.map(function (o) {
+        var cl = ri === "ok" ? (o[0] === ans ? " sel-ok" : "") : ri === "no" && cur === o[0] ? (o[0] === ans ? " sel-ok" : " sel-no") : cur === o[0] ? " on" : "";
+        return '<button class="opt lat' + cl + '" data-act="' + act + '" data-key="' + key + '" data-v="' + o[0] + '"' + (ri === "ok" ? " disabled" : "") + '>' + o[1] + ' <span class="ar" style="font-weight:400">' + o[2] + '</span></button>';
+      }).join("") + '</div></div>';
+    }
+    return num + '<div class="q">' + qs + '</div>' + (onlyC ? '' : row(ex.tlbl || "Türü", topts, "it", L.t, it.t)) + row("Hali", HAL_OPTS, "ic", L.c, it.c) +
+      (ri === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + trAfter(it) :
+        '<div class="row-btns"><button class="btn small solid" data-act="icheck" data-key="' + key + '">Kontrol et</button>' + (ri === "no" ? '<button class="btn small" data-act="ishow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (ri === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> Kırmızı seçimi değiştir. İpucu: önce kelimenin görevini bul.</div>' : ri === "eksik" ? '<div class="fb"><span class="no">Önce ' + (onlyC ? "hali" : "iki satırdan da birer seçenek") + ' seç.</span></div>' : ''));
+  }
+  return "";
+}
+function rerenderItem(key) {
+  var p = key.split("-"), u = unitById(p[0]), ei = +p[1], ii = +p[2], ex = u.ex[ei];
+  var el = document.getElementById("it-" + key); if (!el) return;
+  el.innerHTML = itemInner(u, ei, ii, expand(ex)[ii], ex);
+  el.className = "item " + (LIVE[key] && LIVE[key].res === "ok" ? "ok" : LIVE[key] && LIVE[key].res === "no" ? "no" : "");
+}
+function itemFromKey(key) { var p = key.split("-"), u = unitById(p[0]), ex = u.ex[+p[1]]; return { u: u, ex: ex, it: expand(ex)[+p[2]] }; }
+
+// sözcük bankası (eşleştirme ya da metin içi boşluk)
+function renderBank(u, ex, ei) {
+  var key = u.id + "-" + ei + "-bank";
+  var slots = ex.parts ? ex.parts.filter(function (p) { return typeof p !== "string"; }) : ex.items;
+  var L = LIVE[key] || (LIVE[key] = { fill: slots.map(function () { return -1; }), sel: -1 });
+  var used = {}; L.fill.forEach(function (b) { if (b >= 0) used[b] = 1; });
+  function slotBtn(ii) {
+    var f = L.fill[ii], res = L.res ? L.res[ii] : null;
+    return '<button class="slot' + (f < 0 ? " empty" : "") + (res === true ? " right" : res === false ? " wrong" : "") + '" data-act="bput" data-key="' + key + '" data-ii="' + ii + '"' + (res === true ? " disabled" : "") + '>' + (f < 0 ? "؟" : ex.bank[f]) + '</button>';
+  }
+  var body;
+  if (ex.parts) {
+    var si = -1;
+    body = '<p class="story" style="line-height:2.4">' + ex.parts.map(function (p) { if (typeof p === "string") return ' ' + p + ' '; si++; return slotBtn(si); }).join("") + '</p>' +
+      (L.res && L.res.every(Boolean) && ST.tr ? '<p class="trline">' + (ex.tr2 || ex.tr) + '</p>' : '');
+  } else {
+    body = '<div class="items">' + ex.items.map(function (it, ii) {
+      var res = L.res ? L.res[ii] : null;
+      return '<div class="item' + (res === true ? " ok" : res === false ? " no" : "") + '"><span class="qn tabular">' + (ii + 1) + '</span><div class="combo-line">' + (it.pre ? '<span>' + it.pre + '</span>' : '') + slotBtn(ii) + (it.h ? '<span>' + it.h + '</span>' : '') + '</div>' + (res === true ? trAfter(it) + (it.why ? '<div class="trline">' + it.why + '</div>' : '') : '') + '</div>';
+    }).join("") + '</div>';
+  }
+  return '<div class="bank">' + ex.bank.map(function (b, bi) { return '<button class="tile" data-act="bsel" data-key="' + key + '" data-bi="' + bi + '" aria-pressed="' + (L.sel === bi ? "true" : "false") + '"' + (used[bi] && !ex.reuse ? " disabled" : "") + '>' + b + '</button>'; }).join("") + '</div>' + body +
+    '<div class="row-btns"><button class="btn small solid" data-act="bcheck" data-key="' + key + '">Kontrol et</button><button class="btn small" data-act="breset" data-key="' + key + '">Sıfırla</button></div>' + (L.msg ? '<div class="fb">' + L.msg + '</div>' : '');
+}
+// okuma (diyalog) alıştırması
+function renderReading(u, ex, ei) {
+  return readingText(ex) +
+    '<div class="stack">' + ex.qa.map(function (q, qi) {
+      var k = u.id + "-" + ei + "-q" + qi, open = LIVE[k] && LIVE[k].open;
+      return '<div class="qa"><div class="ar">' + ["أ", "ب", "ج", "د"][qi] + ' ـ ' + q.q + '</div>' + (open ? '<div class="ar" style="color:var(--accent)">' + q.a + '</div><div class="trline">' + q.tr + '</div>' : '<div><button class="btn small" data-act="qa" data-key="' + k + '">Örnek cevabı göster</button></div>') + '</div>';
+    }).join("") + '</div>' +
+    subCls(ex).map(function (sc) {
+      return '<div class="exer-head"><div class="ar">' + sc[1].ar + '</div><div><b>' + sc[1].tr + '</b></div></div><div class="items">' +
+        sc[1].items.map(function (it, ii) { var key = u.id + "-" + ei + "-" + sc[0] + ii; return '<div class="item" id="it-' + key + '">' + clsInner(key, it, ii, sc[1].opts) + '</div>'; }).join("") + '</div>';
+    }).join("");
+}
+function clsInner(key, it, ii, opts) {
+  var L = LIVE[key] || (LIVE[key] = {}), c = L.ch, right = opts.filter(function (o) { return o[0] === it.a; })[0];
+  return '<span class="qn tabular">' + (ii + 1) + '</span><div class="q">' + it.s + '</div><div class="cls-btns">' + opts.map(function (b) {
+    var cl = c ? (b[0] === it.a ? " sel-ok" : (b[0] === c ? " sel-no" : "")) : "";
+    return '<button class="opt lat' + cl + '" data-act="rcls" data-key="' + key + '" data-ii="' + ii + '" data-v="' + b[0] + '"' + (c ? " disabled" : "") + '>' + b[1] + ' <span class="ar" style="font-weight:400">' + b[2] + '</span></button>';
+  }).join("") + '</div>' + (c ? '<div class="fb">' + (c === it.a ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <b>' + right[1] + '</b>. ') + (it.why || '') + '</div>' : '');
+}
+
+// ---------- olaylar ----------
+main.addEventListener("click", function (ev) {
+  var b = ev.target.closest("button"); if (!b) return;
+  var d = b.dataset, key = d.key;
+  if (d.go) { setTab(d.go); window.scrollTo({ top: 0 }); return; }
+  if (d.trtoggle) { ST.tr = !ST.tr; store.set("tr", ST.tr); var y = window.scrollY; render(); window.scrollTo({ top: y }); return; }
+  if (d.snd) { SND.on = !SND.on; store.set("snd", SND.on); render(); if (SND.on) beep("ok"); return; }
+  if (d.hh != null || d.hn != null || d.hd != null) { if (d.hh != null) LIVE.hh = +d.hh; if (d.hn != null) LIVE.hn = +d.hn; if (d.hd != null) LIVE.hd = d.hd === "1"; var mk = document.getElementById("makine"); if (mk) mk.outerHTML = harfMakine(); beep("tick"); return; }
+  if (d.flip) { LIVE.fu = !LIVE.fu; b.classList.toggle("up", LIVE.fu); return; }
+  if (d.fnext || d.fprev || d.fshuf) {
+    var fi = LIVE.fi || 0;
+    if (d.fshuf) { KARTLAR.sort(function () { return Math.random() - .5; }); fi = 0; }
+    else fi = (fi + (d.fnext ? 1 : -1) + KARTLAR.length) % KARTLAR.length;
+    var y2 = window.scrollY; LIVE = { fi: fi, fu: false }; main.innerHTML = renderOzet(); window.scrollTo({ top: y2 }); return;
+  }
+  if (!d.act) return;
+  var L = LIVE[key] || (LIVE[key] = {}), o;
+  switch (d.act) {
+    case "pick":
+      o = itemFromKey(key); L.ch = +d.i;
+      var ai = typeof o.it.a === "number" ? o.it.a : o.it.o.indexOf(o.it.a);
+      L.res = L.ch === ai ? "ok" : "no"; mark(key, L.ch === ai); rerenderItem(key); break;
+    case "cls": o = itemFromKey(key); L.ch = d.v; L.res = d.v === o.it.a ? "ok" : "no"; mark(key, d.v === o.it.a); rerenderItem(key); break;
+    case "retry": LIVE[key] = {}; rerenderItem(key); break;
+    case "tag":
+      o = itemFromKey(key);
+      var roles = o.ex.roles, cur = L.tags[+d.ci], idx = cur ? roles.indexOf(cur) : -1;
+      L.tags[+d.ci] = roles[(idx + 1) % roles.length]; L.res = null; rerenderItem(key); break;
+    case "find": L.tags[+d.ci] = !L.tags[+d.ci]; L.res = null; rerenderItem(key); break;
+    case "tcheck":
+      o = itemFromKey(key);
+      var cs = chunks(o.it.c), good = cs.every(function (c, i) { if (c.r === "-") return true; if (o.it.kind === "find") return !!L.tags[i] === (c.r === "y"); return L.tags[i] === c.r; });
+      L.res = good ? "ok" : "no"; mark(key, good); rerenderItem(key); break;
+    case "tshow":
+      o = itemFromKey(key); L.tags = chunks(o.it.c).map(function (c) { return o.it.kind === "find" ? c.r === "y" : c.r; }); L.res = "ok"; rerenderItem(key); break;
+    case "cycle":
+      o = itemFromKey(key);
+      var sl = o.it.p.filter(function (x) { return typeof x !== "string"; }), si = +d.si;
+      L.sel[si] = (L.sel[si] + 1) % sl[si].o.length; L.res = null; rerenderItem(key); break;
+    case "ccheck":
+      o = itemFromKey(key);
+      var gc = o.it.ok.some(function (cmb) { return cmb.every(function (v, i) { return L.sel[i] === v; }); });
+      L.res = gc ? "ok" : "no"; mark(key, gc); rerenderItem(key); break;
+    case "cshow": o = itemFromKey(key); L.sel = o.it.ok[0].slice(); L.res = "ok"; rerenderItem(key); break;
+    case "bsel": L.sel = L.sel === +d.bi ? -1 : +d.bi; rerenderExercise(key); break;
+    case "bput":
+      var ii = +d.ii;
+      var exr0 = itemFromKey(key.replace(/-bank$/, "-0")).ex;
+      if (L.sel >= 0) { if (!exr0.reuse) { L.fill = L.fill.map(function (f) { return f === L.sel ? -1 : f; }); L.fill[ii] = L.sel; L.sel = -1; } else { L.fill[ii] = L.sel; L.sel = -1; } }
+      else if (L.fill[ii] >= 0) L.fill[ii] = -1;
+      if (L.res) L.res[ii] = null; L.msg = ""; rerenderExercise(key); break;
+    case "breset": LIVE[key] = { fill: L.fill.map(function () { return -1; }), sel: -1 }; rerenderExercise(key); break;
+    case "bcheck":
+      var pb = key.split("-"), ub = unitById(pb[0]), exb = ub.ex[+pb[1]];
+      var acc = exb.parts ? exb.parts.filter(function (p) { return typeof p !== "string"; }) : exb.items;
+      L.res = acc.map(function (it, i) { return L.fill[i] >= 0 && it.a.indexOf(L.fill[i]) >= 0; });
+      L.res.forEach(function (r, i) { if (L.fill[i] >= 0) mark(ub.id + "-" + pb[1] + "-" + i, r); });
+      var nOk = L.res.filter(Boolean).length;
+      L.msg = nOk === acc.length ? '<span class="ok">Hepsi doğru!</span>' : '<span class="no">' + nOk + ' / ' + acc.length + ' doğru.</span> Kırmızı kutuları değiştir.';
+      if (nOk === acc.length) confetti();
+      rerenderExercise(key); break;
+    case "qa": L.open = true; rerenderExercise(key); break;
+    case "it": L.t = d.v; if (L.res !== "ok") L.res = null; rerenderItem(key); break;
+    case "ic": L.c = d.v; if (L.res !== "ok") L.res = null; rerenderItem(key); break;
+    case "icheck":
+      o = itemFromKey(key);
+      var oc = o.ex.only === "c";
+      if (!L.c || (!oc && !L.t)) { L.res = "eksik"; rerenderItem(key); break; }
+      var gi = L.c === o.it.c && (oc || L.t === o.it.t);
+      L.res = gi ? "ok" : "no"; mark(key, gi); rerenderItem(key); break;
+    case "ishow": o = itemFromKey(key); L.t = o.it.t; L.c = o.it.c; L.res = "ok"; rerenderItem(key); break;
+    case "rcls":
+      var pr = key.split("-"), exr = unitById(pr[0]).ex[+pr[1]], sub = pr[2].charAt(0) === "c" ? exr.cls : exr.cls2, itr = sub.items[+d.ii];
+      L.ch = d.v; mark(key, d.v === itr.a);
+      document.getElementById("it-" + key).innerHTML = clsInner(key, itr, +d.ii, sub.opts); break;
+  }
+});
+main.addEventListener("change", function (ev) {
+  var t = ev.target; if (!t.dataset || t.dataset.chk == null) return;
+  var ch = store.get("check", {}); ch[t.dataset.chk] = t.checked; store.set("check", ch);
+  var all = CHECK.every(function (_, i) { return ch[i]; }); if (all && t.checked) { confetti(); toast("Hepsi işaretli: quize hazırsın!"); }
+});
+function rerenderExercise(key) {
+  var p = key.split("-"), u = unitById(p[0]), ei = +p[1], el = document.getElementById("ex-" + u.id + "-" + ei);
+  if (!el) return;
+  var tmp = document.createElement("div"); tmp.innerHTML = renderExercise(u, u.ex[ei], ei); el.replaceWith(tmp.firstChild);
+}
+
+// ---------- oyunlar ----------
+// Doğru Harf: HC_POOL → boşluklu cümle
+var POOL = HC_POOL.map(function (p) {
+  var m = /\{([^}]+)\}/.exec(p[0]);
+  return { pre: p[0].slice(0, m.index), post: p[0].slice(m.index + m[0].length), w: m[1], forms: p[1], role: p[2], tr: p[3], topic: p[4] };
+});
+function poolHtml(it, mode) { return it.pre + (mode === "blank" ? '<span class="blank">&nbsp;</span>' : '<b class="hl">' + it.w + '</b>') + it.post; }
+function why(it) { return '<span class="ar">' + it.w + '</span>: ' + arWrap(it.role); }
+// Son Hareke: harf + isim → doğru mecrûr şekil
+function donItem() {
+  var h = pick(HARF), nn = pick(h.time ? NOUNS.filter(function (x) { return x.time; }) : NOUNS), def = Math.random() < .6;
+  var ok = cerForm(h, nn, def), base = ok.slice(0, -1), f = def ? [ok, base + "ُ", base + "َ"] : [ok, base + "ٌ", tenvinNasb(base)];
+  return { pre: '<span class="ar">' + h.h + '</span> + <span class="ar">' + merfu(nn, def) + '</span> → ', post: "", w: ok, forms: f,
+    role: (def ? "ال'li isim tek esre alır" : "tenvinli isim iki esre alır") + (h.note ? "; " + h.note : ""), tr: nn.tr + " + " + h.tr };
+}
+// Hal Yarışı: 4. alıştırmanın kelimeleri
+var HAL_LIST = UNITS[3].ex[0].items.map(function (it) { return { s: it.s.replace(/\[(.+?)\]/, '<b class="hl">$1</b>'), w: /\[(.+?)\]/.exec(it.s)[1], a: it.c, why: SEBEP_TR[it.t] }; });
+var HM_G = [["h", "Harf-i cer", "حَرْفُ جَرٍّ", "mi"], ["i", "İsim / zarf", "اسْمٌ", "cerr"], ["f", "Fiil", "فِعْلٌ", "ref"]];
+var HM_TR = { h: "Harf-i cer", i: "İsim / zarf", f: "Fiil" };
+var GAMES = {
+  avci: { name: "Doğru Harf", ico: "مِنْ · إِلَى · فِي", col: "mi", d: "12 cümle. Boşluğa anlama uyan harf-i ceri seç." },
+  don: { name: "Son Hareke", ico: "فِي البَيْتِ", col: "cerr", d: "12 soru. Harf-i cerden sonra isim nasıl okunur? Tek esre mi, iki esre mi, harf değişiyor mu?" },
+  hm: { name: "Harf mi?", ico: "فِي · مَعَ · ذَهَبَ", col: "nasb", d: "60 saniye. Kelime harf-i cer mi, isim (zarf) mı, fiil mi? Tuzak: مَعَ، عِنْدَ، قَبْلَ." },
+  hal: { name: "Hal Yarışı", ico: "مَرْفُوعٌ · مَنْصُوبٌ · مَجْرُورٌ", col: "ref", d: "60 saniye. Koyu kelime merfû mu, mansûb mu, mecrûr mu?" },
+  hafiza: { name: "Hafıza Kartları", ico: "مُنْذُ ↔ -den beri", col: "muz", d: "Kartları çevir, eşleri bul: harf ile anlamı, soru ile harfi ya da merfû ile mecrûr şekli." }
+};
+var G = null, GT = null;
+function stopGame() { if (GT) { clearInterval(GT); GT = null; } G = null; }
+function renderGames() {
+  if (G) return '<section class="panel">' + gameBody() + '</section>';
+  var best = store.get("gbest", {});
+  return '<section class="panel"><div class="card stack"><div class="lbl">Oyunlar</div><h2>Oynayarak pekiştir</h2><p class="muted">Her oyun harf-i cerlerin bir kuralını çalıştırır ve rütbe puanı kazandırır.</p><div class="row-btns"><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+    '<div class="game-menu">' + Object.keys(GAMES).map(function (k) {
+      var g = GAMES[k];
+      return '<div class="card game-card" style="--role:var(--' + g.col + ')"><div class="ico">' + g.ico + '</div><h3>' + g.name + '</h3><p class="muted">' + g.d + '</p><p class="muted" style="margin-top:auto">' + (best[k] != null ? 'En iyi: <b class="tabular">' + best[k] + '</b>' : 'Henüz oynanmadı') + '</p>' +
+        (k === "hafiza" ? '<div class="row-btns">' + Object.keys(HAFIZA).map(function (dk) { return '<button class="btn solid small" data-gstart="hafiza" data-deck="' + dk + '" style="--accent:var(--' + g.col + ')">' + HAFIZA[dk].name + '</button>'; }).join("") + '</div>' :
+          '<button class="btn solid" data-gstart="' + k + '" style="--accent:var(--' + g.col + ')">Oyna</button>') + '</div>';
+    }).join("") + '</div></section>';
+}
+function gameHead(t) { return '<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Oyun</div><h2>' + t + '</h2></div><button class="btn small" data-gmenu="1">Oyunlara dön</button></div>'; }
+function redraw() { main.innerHTML = renderGames(); }
+var SPEED = { hm: { opts: HM_G, keys: "1 Harf-i cer · 2 İsim · 3 Fiil" }, hal: { opts: HAL_OPTS, keys: "1 Merfû · 2 Mansûb · 3 Mecrûr" } };
+function startGame(k, deck) {
+  stopGame();
+  G = { id: k, score: 0, n: 0, ok: 0, over: false, start: Date.now(), combo: 0, maxCombo: 0 };
+  if (k === "avci" || k === "don") { if (k === "avci") G.list = shuffle(POOL).slice(0, 12); else { G.list = []; var sg = {}; while (G.list.length < 12) { var di = donItem(); if (!sg[di.w]) { sg[di.w] = 1; G.list.push(di); } } } G.i = 0; G.list.forEach(function (it) { it.opts = shuffle(it.forms); }); }
+  if (SPEED[k]) { G.t = 60; G.opts = SPEED[k].opts; nextSpeed(); }
+  if (k === "hafiza") { var ps = shuffle(HAFIZA[deck].pairs).slice(0, 6), cards = []; ps.forEach(function (p, i) { cards.push({ p: i, t: p[0] }); cards.push({ p: i, t: p[1] }); }); G.deck = deck; G.cards = shuffle(cards); G.open = []; G.done = {}; G.moves = 0; G.pairs = 6; }
+  ST.tab = "oyun"; document.querySelectorAll("nav.tabs button").forEach(function (b) { b.setAttribute("aria-selected", b.dataset.tab === "oyun" ? "true" : "false"); });
+  redraw();
+  if (SPEED[k]) GT = setInterval(function () {
+    if (!G || G.over) return; G.t--; if (G.t <= 5 && G.t > 0) beep("tick");
+    if (G.t <= 0) { G.t = 0; endGame(G.score); return; } hud();
+  }, 1000);
+  if (k === "hafiza") GT = setInterval(function () { var el = document.getElementById("g-clock"); if (el && G && !G.over) el.textContent = Math.floor((Date.now() - G.start) / 1000) + " sn"; }, 1000);
+}
+function hud() {
+  var a = document.getElementById("g-time"); if (a) a.textContent = G.t;
+  var tb = document.getElementById("g-tbar"); if (tb) { tb.firstChild.style.width = (G.t / 60 * 100) + "%"; tb.classList.toggle("low", G.t <= 10); }
+  var s = document.getElementById("g-score"); if (s) s.textContent = G.score;
+  var c = document.getElementById("g-combo"); if (c) c.textContent = "x" + Math.min(5, 1 + Math.floor(G.combo / 3));
+}
+function endGame(score) {
+  if (GT) { clearInterval(GT); GT = null; }
+  G.over = true; G.final = score;
+  var best = store.get("gbest", {}); G.record = best[G.id] == null || score > best[G.id];
+  if (G.record) { best[G.id] = score; store.set("gbest", best); }
+  G.xp = Math.round(score / (SPEED[G.id] ? 5 : 2));
+  redraw(); addXP(G.xp); beep("win"); if (G.record || G.stars === 3) confetti();
+}
+function gameOver(t, lines) {
+  return '<div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">' + t + ' bitti</div>' + (G.stars != null ? starsHtml(G.stars) : '') + '<div class="score-big tabular">' + G.final + '</div>' + (G.record ? '<p><b>Yeni rekor!</b></p>' : '') + lines.map(function (l) { return '<p>' + l + '</p>'; }).join("") +
+    '<p class="muted">Kazandığın: +' + G.xp + ' rütbe puanı</p><div class="row-btns" style="justify-content:center"><button class="btn solid" data-gstart="' + G.id + '"' + (G.deck ? ' data-deck="' + G.deck + '"' : '') + '>Tekrar oyna</button><button class="btn" data-gmenu="1">Başka oyun</button></div></div>';
+}
+function gameBody() { return { avci: bodyAvci, don: bodyAvci, hm: bodySpeed, hal: bodySpeed, hafiza: bodyHaf }[G.id](); }
+function starsBy(ok, n) { return ok >= n - 1 ? 3 : ok >= Math.ceil(n * 0.66) ? 2 : 1; }
+
+// doğru şekil
+function bodyAvci() {
+  var title = GAMES[G.id].name;
+  if (G.over) return gameOver(title, ['<b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> doğru.']);
+  var it = G.list[G.i], done = G.ans != null;
+  return '<div class="card stack">' + gameHead(title) + '<div class="hud"><span>Cümle <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Puan <b>' + G.score + '</b></span></div>' +
+    '<div class="target">' + (done ? poolHtml(it) : poolHtml(it, "blank")) + '</div>' +
+    (done ? '<div class="fb" style="text-align:center">' + (G.ans === it.w ? '<span class="ok">Doğru! +10</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <span class="ar">' + it.w + '</span>. ') + '<br>' + why(it) + '</div>' + (ST.tr ? '<p class="trline" style="text-align:center">' + it.tr + '</p>' : '') +
+      '<div style="text-align:center"><button class="btn solid" data-gnext="1" id="g-next">' + (G.i + 1 < G.list.length ? "Sonraki" : "Sonucu gör") + '</button></div>' :
+      '<p class="muted" style="text-align:center">' + (G.id === "don" ? "Doğru okunuş hangisi?" : "Boşluğa hangi harf-i cer gelir?") + '</p><div class="big3">' + it.opts.map(function (f) { return '<button data-ga="' + f + '">' + f + '</button>'; }).join("") + '</div>') + '</div>';
+}
+// hız oyunları: hal yarışı ve doğru/yanlış
+function nextSpeed() {
+  var g = 0, it, w, html, a, fb;
+  do {
+    g++;
+    if (G.id === "hm") { var x = pick(HM_LIST); w = x[0]; html = x[0]; a = x[1]; fb = '<span class="ar">' + x[0] + '</span> → ' + HM_TR[a] + ' (' + x[2] + ')'; }
+    else { var y = pick(HAL_LIST); w = y.s; html = y.s; a = y.a; fb = '<span class="ar">' + y.w + '</span> → ' + HAL_TR[a] + ' (' + y.why + ')'; }
+  } while (G.cur && w === G.cur.w && g < 10);
+  G.cur = { w: w, html: html, a: a, fb: fb };
+}
+function bodySpeed() {
+  var title = GAMES[G.id].name;
+  if (G.over) return gameOver(title, ['Doğru: <b class="tabular">' + G.ok + ' / ' + G.n + '</b> · en uzun seri: <b class="tabular">' + G.maxCombo + '</b>']);
+  return '<div class="card stack">' + gameHead(title) +
+    '<div class="hud"><span>Süre <b id="g-time">' + G.t + '</b></span><span>Puan <b id="g-score">' + G.score + '</b></span><span>Çarpan <b id="g-combo">x' + Math.min(5, 1 + Math.floor(G.combo / 3)) + '</b></span></div>' +
+    '<div class="time-bar' + (G.t <= 10 ? " low" : "") + '" id="g-tbar"><div style="width:' + (G.t / 60 * 100) + '%"></div></div>' +
+    '<div class="target" id="g-target">' + G.cur.html + '</div><div class="gfb" id="g-fb"><span class="muted">Klavye: ' + SPEED[G.id].keys + '</span></div>' +
+    '<div class="big5">' + G.opts.map(function (o, i) { return '<button style="--role:var(--' + o[3] + ')" data-gs="' + o[0] + '"><span class="ar">' + o[2] + '</span>' + o[1] + '<small>' + (i + 1) + '</small></button>'; }).join("") + '</div></div>';
+}
+function speedPick(v) {
+  if (!G || G.over || G.lock) return;
+  var c = G.cur, ok = c.a === v, tg = document.getElementById("g-target"), fb = document.getElementById("g-fb");
+  G.n++;
+  if (ok) {
+    G.ok++; G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo);
+    var m = Math.min(5, 1 + Math.floor((G.combo - 1) / 3)); G.score += 10 * m; beep("ok");
+    fb.innerHTML = '<b style="color:var(--good)">Doğru +' + 10 * m + '</b> · önceki: ' + c.fb;
+    tg.classList.remove("flash-no"); tg.classList.add("flash-ok"); nextSpeed(); tg.innerHTML = G.cur.html;
+    setTimeout(function () { tg.classList.remove("flash-ok"); }, 180);
+  } else {
+    G.combo = 0; G.t = Math.max(0, G.t - 3); beep("no"); G.lock = true;
+    fb.innerHTML = '<b style="color:var(--bad)">Yanlış, −3 sn.</b> ' + c.fb;
+    void tg.offsetWidth; tg.classList.add("flash-no");
+    var g0 = G;
+    setTimeout(function () { if (!G || G !== g0 || G.over) return; G.lock = false; tg.classList.remove("flash-no"); nextSpeed(); tg.innerHTML = G.cur.html; fb.innerHTML = '<span class="muted">Klavye: ' + SPEED[G.id].keys + '</span>'; if (G.t <= 0) endGame(G.score); }, 1800);
+  }
+  hud();
+}
+// hafıza
+function bodyHaf() {
+  if (G.over) return gameOver("Hafıza Kartları", ['<b class="tabular">' + G.moves + '</b> hamlede, <b class="tabular">' + G.secs + '</b> saniyede bitirdin.']);
+  return '<div class="card stack">' + gameHead("Hafıza Kartları · " + HAFIZA[G.deck].name) +
+    '<div class="hud"><span>Hamle <b id="g-moves">' + G.moves + '</b></span><span>Çift <b id="g-pairs">' + Object.keys(G.done).length + '/' + G.pairs + '</b></span><span>Süre <b id="g-clock">0 sn</b></span></div>' +
+    '<div class="mem">' + G.cards.map(function (c, i) { var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(c.t); return '<button class="mcard' + (G.done[c.p] ? " done" : "") + '" data-gc="' + i + '" aria-label="Kart ' + (i + 1) + '"><div class="in"><div class="face back">؟</div><div class="face front' + (lat ? " lat" : "") + '">' + c.t + '</div></div></button>'; }).join("") + '</div></div>';
+}
+function flip(i) {
+  if (!G || G.over || G.lock) return;
+  var c = G.cards[i]; if (G.done[c.p] || G.open.indexOf(i) >= 0) return;
+  G.open.push(i); document.querySelector('[data-gc="' + i + '"]').classList.add("up");
+  if (G.open.length < 2) return;
+  G.moves++; document.getElementById("g-moves").textContent = G.moves;
+  var a = G.cards[G.open[0]], b = G.cards[G.open[1]];
+  if (a.p === b.p) {
+    G.done[a.p] = 1; beep("ok");
+    G.open.forEach(function (j) { var e = document.querySelector('[data-gc="' + j + '"]'); e.classList.remove("up"); e.classList.add("done"); });
+    G.open = []; document.getElementById("g-pairs").textContent = Object.keys(G.done).length + "/" + G.pairs;
+    if (Object.keys(G.done).length === G.pairs) { G.secs = Math.floor((Date.now() - G.start) / 1000); G.stars = G.moves <= 9 ? 3 : G.moves <= 13 ? 2 : 1; setTimeout(function () { endGame(G.stars * 20 + Math.max(0, 60 - G.secs)); }, 500); }
+  } else {
+    G.lock = true; beep("no");
+    setTimeout(function () { if (!G) return; G.open.forEach(function (j) { var e = document.querySelector('[data-gc="' + j + '"]'); if (e) e.classList.remove("up"); }); G.open = []; G.lock = false; }, 950);
+  }
+}
+
+// ---------- QUIZ PROVASI ----------
+var TOPIC = { u1: "Harf-i cer ve mecrûr", u2: "Anlamlar", u3: "Soru-cevap", u4: "Hal ve sebep", u5: "Metin" };
+var TK = ["u1", "u2", "u3", "u4", "u5"];
+var Q = null, QT = null;
+function stopQuiz() { if (QT) { clearInterval(QT); QT = null; } if (Q && !Q.done) Q = null; }
+function quizBank() {
+  var bank = { u1: [], u2: [], u3: [], u4: [], u5: [] };
+  UNITS.forEach(function (u) {
+    u.ex.forEach(function (ex) {
+      expand(ex).forEach(function (it) {
+        if (it.kind === "pick") bank[u.id].push({ inst: ex.tr.split(".")[0] + ".", q: it.q.replace("___", "……"), o: it.o.slice(), a: it.o[it.a], why: it.why || "", tr: it.tr || "" });
+        if (it.kind === "classify") bank[u.id].push({ inst: ex.tr.split(".")[0] + ".", q: it.s, o: ex.opts.map(function (x) { return x[1]; }), a: ex.opts.filter(function (x) { return x[0] === it.a; })[0][1], why: it.why || "", tr: it.tr || "" });
+      });
+    });
+  });
+  POOL.forEach(function (p) {
+    bank[p.topic].push({ inst: "Boşluğa hangi harf-i cer gelir?", q: poolHtml(p, "blank"), o: p.forms.slice(), a: p.w, why: why(p), tr: p.tr });
+  });
+  UNITS[3].ex[0].items.forEach(function (it) {
+    var q = it.s.replace(/\[(.+?)\]/, '<b class="hl">$1</b>');
+    bank.u4.push({ inst: "Koyu kelimenin hali ne?", q: q, o: ["Merfû", "Mansûb", "Mecrûr"], a: HAL_TR[it.c], why: it.why, tr: it.tr });
+    bank.u4.push({ inst: "Koyu kelime neden bu halde?", q: q, o: [SEBEP_TR[it.t]].concat(shuffle(SEBEP.filter(function (x) { return x[0] !== it.t; })).slice(0, 2).map(function (x) { return x[1]; })), a: SEBEP_TR[it.t], why: it.why, tr: it.tr });
+  });
+  HM_LIST.forEach(function (x) { bank.u1.push({ inst: "Bu kelime ne?", q: x[0], o: ["Harf-i cer", "İsim / zarf", "Fiil"], a: HM_TR[x[1]], why: x[2], tr: "" }); });
+  HARF.forEach(function (h) {
+    var others = shuffle(HARF.filter(function (x) { return x !== h; })).slice(0, 2).map(function (x) { return x.tr; });
+    bank.u2.push({ inst: "Bu harf-i cerin anlamı ne?", q: h.h, o: [h.tr].concat(others), a: h.tr, why: "", tr: "" });
+  });
+  for (var i = 0; i < 12; i++) { var d = donItem(); bank.u1.push({ inst: "Doğru okunuş hangisi?", q: d.pre.replace(/ → $/, ""), o: d.forms.slice(), a: d.w, why: arWrap(d.role), tr: d.tr }); }
+  return bank;
+}
+function startQuiz() {
+  var bank = quizBank(), qs = [];
+  TK.forEach(function (k) {
+    var seen = {}, got = 0;
+    shuffle(bank[k]).forEach(function (q) { var sig = q.q.replace(/<[^>]+>/g, ""); if (got >= 4 || seen[sig]) return; seen[sig] = 1; got++; q.topic = k; q.o = shuffle(q.o); qs.push(q); });
+  });
+  Q = { qs: shuffle(qs), i: 0, ans: [], start: Date.now(), done: false };
+  main.innerHTML = renderQuiz();
+  QT = setInterval(function () { var el = document.getElementById("qz-clock"); if (el && Q && !Q.done) { var s = Math.floor((Date.now() - Q.start) / 1000); el.textContent = Math.floor(s / 60) + ":" + ("0" + s % 60).slice(-2); } }, 1000);
+}
+function renderQuiz() {
+  var best = store.get("qbest", null);
+  if (!Q) return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası</div><h2>Gerçek quiz gibi: 20 soru</h2>' +
+    '<p class="muted" style="max-width:60ch">Beş konudan dörder soru gelir: harf-i cer ve mecrûr, anlamlar, soru-cevap, hal ve sebep, metin. Cevaplar sonda gösterilir. Sonunda konu konu puanını ve yanlışlarının açıklamasını görürsün. Her denemede sorular değişir.</p>' +
+    (best != null ? '<p>En iyi sonucun: <b class="tabular">' + best + ' / 20</b></p>' : '') + '<button class="btn solid" data-qstart="1">Provayı başlat</button></div></section>';
+  if (Q.done) {
+    var by = {}; Q.qs.forEach(function (q, i) { by[q.topic] = by[q.topic] || [0, 0]; by[q.topic][1]++; if (Q.ans[i] === q.a) by[q.topic][0]++; });
+    var tot = Q.qs.filter(function (q, i) { return Q.ans[i] === q.a; }).length;
+    var col = { u1: "mi", u2: "nasb", u3: "mz", u4: "cerr", u5: "muz" };
+    var weak = Object.keys(by).filter(function (k) { return by[k][0] / by[k][1] < 0.8; });
+    return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası bitti · ' + Q.time + '</div>' + starsHtml(tot >= 18 ? 3 : tot >= 14 ? 2 : 1) + '<div class="score-big tabular">' + tot + ' / 20</div>' +
+      '<p>' + (tot >= 18 ? "Konuya hâkimsin. Aferin!" : tot >= 14 ? "İyi gidiyorsun. Aşağıdaki zayıf konuya bir kez daha bak." : "Önce Özet'teki harf-i cer makinesiyle çalış, zayıf konunun alıştırmalarını çöz, sonra provayı tekrarla.") + '</p>' +
+      '<div class="qz-bars">' + TK.map(function (k) { var v = by[k] || [0, 4]; return '<div class="qz-bar" style="--role:var(--' + col[k] + ')"><span>' + TOPIC[k] + '</span><div class="tr2"><div style="width:' + (v[0] / v[1] * 100) + '%"></div></div><b class="tabular">' + v[0] + '/' + v[1] + '</b></div>'; }).join("") + '</div>' +
+      (weak.length ? '<div class="row-btns" style="justify-content:center">' + weak.map(function (k) { return '<button class="btn small" data-go="' + k + '">' + TOPIC[k] + ' konusuna dön</button>'; }).join("") + '</div>' : '') +
+      '<div class="row-btns" style="justify-content:center"><button class="btn solid" data-qstart="1">Yeni prova</button></div></div>' +
+      '<div class="card stack"><div class="lbl">Cevap anahtarı</div><h2>Yanlışların</h2>' + (tot === 20 ? '<p>Hiç yanlışın yok.</p>' : '<div class="items">' + Q.qs.map(function (q, i) {
+        if (Q.ans[i] === q.a) return "";
+        return '<div class="item no"><span class="qz-type">' + TOPIC[q.topic] + ' · ' + q.inst + '</span>' + (q.q ? '<div class="q">' + q.q + '</div>' : '') + '<div class="fb"><span class="no">Senin cevabın:</span> ' + arw(Q.ans[i] || "boş") + '<br><span class="ok">Doğrusu:</span> ' + arw(q.a) + (q.why ? '<br>' + q.why : '') + '</div>' + (q.tr ? '<div class="trline">' + q.tr + '</div>' : '') + '</div>';
+      }).join("") + '</div>') + '</div></section>';
+  }
+  var q = Q.qs[Q.i];
+  return '<section class="panel"><div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Quiz provası · ' + TOPIC[q.topic] + '</div><h2>Soru ' + (Q.i + 1) + ' / 20</h2></div><div class="hud"><span>Süre <b id="qz-clock">0:00</b></span></div></div>' +
+    '<div class="progress prog"><div style="width:' + (Q.i / 20 * 100) + '%;--role:var(--accent)"></div></div>' +
+    '<p><b>' + q.inst + '</b></p>' + (q.q ? '<div class="target" style="font-size:clamp(1.5rem,5vw,2.2rem)">' + q.q + '</div>' : '') +
+    '<div class="opts">' + q.o.map(function (o, oi) { var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(o); return '<button class="opt block' + (lat ? " lat" : "") + (Q.ans[Q.i] === o ? " sel-ok" : "") + '" data-qa="' + oi + '">' + o + '</button>'; }).join("") + '</div>' +
+    '<div class="row-btns"><button class="btn small" data-qprev="1"' + (Q.i === 0 ? " disabled" : "") + '>Önceki</button><button class="btn small" data-qskip="1">' + (Q.i < 19 ? "Sonraki" : "Bitir") + '</button></div></div></section>';
+}
+function arw(t) { return /[؀-ۿ]/.test(t) ? '<span class="ar">' + t + '</span>' : '<b>' + t + '</b>'; }
+function quizNext() {
+  if (Q.i < 19) { Q.i++; main.innerHTML = renderQuiz(); return; }
+  var s = Math.floor((Date.now() - Q.start) / 1000); Q.time = Math.floor(s / 60) + " dk " + (s % 60) + " sn"; Q.done = true;
+  if (QT) { clearInterval(QT); QT = null; }
+  var tot = Q.qs.filter(function (q, i) { return Q.ans[i] === q.a; }).length, best = store.get("qbest", null);
+  if (best == null || tot > best) store.set("qbest", tot);
+  main.innerHTML = renderQuiz(); window.scrollTo({ top: 0 }); addXP(tot * 4); if (tot >= 18) confetti(); beep("win");
+}
+
+main.addEventListener("click", function (ev) {
+  var b = ev.target.closest("button"); if (!b) return;
+  var d = b.dataset;
+  if (d.qstart) { startQuiz(); window.scrollTo({ top: 0 }); return; }
+  if (d.qa != null && Q && !Q.done) { Q.ans[Q.i] = Q.qs[Q.i].o[+d.qa]; beep("tick"); setTimeout(quizNext, 180); return; }
+  if (d.qprev && Q && Q.i > 0) { Q.i--; main.innerHTML = renderQuiz(); return; }
+  if (d.qskip && Q) { quizNext(); return; }
+  if (d.gstart) { startGame(d.gstart, d.deck); window.scrollTo({ top: 0 }); return; }
+  if (d.gmenu) { stopGame(); redraw(); return; }
+  if (!G) return;
+  if (d.gs) speedPick(d.gs);
+  else if (d.ga != null) { if (G.ans != null) return; G.ans = d.ga; if (d.ga === G.list[G.i].w) { G.ok++; G.score += 10; beep("ok"); } else beep("no"); redraw(); }
+  else if (d.gnext) { G.i++; G.ans = null; if (G.i >= G.list.length) { G.stars = starsBy(G.ok, G.list.length); endGame(G.score); } else redraw(); }
+  else if (d.gc != null) flip(+d.gc);
+});
+document.addEventListener("keydown", function (ev) {
+  if (ST.tab !== "oyun" || !G || G.over || !SPEED[G.id]) return;
+  var i = ["1", "2", "3", "4", "5", "6", "7"].indexOf(ev.key); if (i >= 0 && i < G.opts.length) { ev.preventDefault(); speedPick(G.opts[i][0]); }
+});
+
+
+document.getElementById("tabs").addEventListener("click", function (ev) {
+  var b = ev.target.closest("button[data-tab]"); if (!b) return; setTab(b.dataset.tab); window.scrollTo({ top: 0 });
+});
+renderTabs(); renderXP(); setTab(ST.tab);
+})();
+</script>
+</body>
+</html>
