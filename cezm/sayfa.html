@@ -1,0 +1,1520 @@
+<title>Muzâri Fiilin Cezmi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Amiri:wght@400;700&display=swap">
+<style>
+
+/* Düzen: her ders aynı sırayla akar: hedefler, örnekler, görsel, kaide, alıştırmalar. Hal renkleri (merfû, mansûb, mecrûr) ve tür renkleri her yerde aynıdır. */
+:root {
+  --paper: #F4F6F2;
+  --card: #FFFFFF;
+  --ink: #1B2420;
+  --muted: #5E6A63;
+  --line: #D9E0DA;
+  --soft: #EAEFEA;
+  --accent: #1E5B4F;
+  --ref: #B3402F;
+  --nasb: #A86A0E;
+  --cerr: #2D5FA8;
+  --muf: #6B6152;
+  --mus: #0F8A7A;
+  --mzs: #5A4FB0;
+  --mns: #B23A75;
+  --tks: #1E7A46;
+  --mz: #1E7A46;
+  --mi: #8A3F9E;
+  --mv: #1D6E8C;
+  --sf: #B0532A;
+  --muz: #2F67B0;
+  --mun: #B23A75;
+  --y: #1E5B4F;
+  --x: #7E8A84;
+  --good: #1F7A3E;
+  --bad: #B3261E;
+  --good-bg: #E2F2E6;
+  --bad-bg: #FBE7E4;
+  --role: var(--accent);
+  --f-display: "Alegreya", Georgia, "Times New Roman", serif;
+  --f-body: "Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  --f-ar: "Amiri", "Scheherazade New", "Traditional Arabic", "Noto Naskh Arabic", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111614; --card: #19201D; --ink: #E6ECE8; --muted: #9FACA5; --line: #2C3632; --soft: #202925;
+    --accent: #6CC3AE; --ref: #F28B78; --nasb: #EDB45C; --cerr: #8DB4F5; --muf: #CDBB95; --mus: #5ED1C2; --mzs: #ABA3F5; --mns: #F28DC0; --tks: #6FD69A; --mz: #6FD69A; --mi: #D49BEA; --mv: #6CC7E6; --sf: #F2A07A; --muz: #93B8F2; --mun: #F28DC0; --y: #6CC3AE; --x: #98A39D;
+    --good: #6FD08E; --bad: #FF8A80; --good-bg: #17301F; --bad-bg: #3A1D1A; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111614; --card: #19201D; --ink: #E6ECE8; --muted: #9FACA5; --line: #2C3632; --soft: #202925;
+  --accent: #6CC3AE; --ref: #F28B78; --nasb: #EDB45C; --cerr: #8DB4F5; --muf: #CDBB95; --mus: #5ED1C2; --mzs: #ABA3F5; --mns: #F28DC0; --tks: #6FD69A; --mz: #6FD69A; --mi: #D49BEA; --mv: #6CC7E6; --sf: #F2A07A; --muz: #93B8F2; --mun: #F28DC0; --y: #6CC3AE; --x: #98A39D;
+  --good: #6FD08E; --bad: #FF8A80; --good-bg: #17301F; --bad-bg: #3A1D1A; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 1060px; margin: 0 auto; padding-inline: 16px; padding-block: 0 72px; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.65rem; }
+h3 { font-size: 1.2rem; }
+p { margin: 0; }
+.ar { font-family: var(--f-ar); direction: rtl; unicode-bidi: isolate; line-height: 1.9; }
+.muted { color: var(--muted); }
+.lbl { font-size: .74rem; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.tabular { font-variant-numeric: tabular-nums; }
+.r-ref { --role: var(--ref); color: var(--ref); } .r-nasb { --role: var(--nasb); color: var(--nasb); } .r-cerr { --role: var(--cerr); color: var(--cerr); } .r-muf { --role: var(--muf); color: var(--muf); } .r-mus { --role: var(--mus); color: var(--mus); } .r-mzs { --role: var(--mzs); color: var(--mzs); } .r-mns { --role: var(--mns); color: var(--mns); } .r-tks { --role: var(--tks); color: var(--tks); } .r-mz { --role: var(--mz); color: var(--mz); } .r-mi { --role: var(--mi); color: var(--mi); } .r-good { --role: var(--good); color: var(--good); } .r-bad { --role: var(--bad); color: var(--bad); } .r-mv { --role: var(--mv); color: var(--mv); } .r-sf { --role: var(--sf); color: var(--sf); } .r-muz { --role: var(--muz); color: var(--muz); } .r-mun { --role: var(--mun); color: var(--mun); } .r-y { --role: var(--y); color: var(--y); }
+.r-x { --role: var(--x); color: var(--x); }
+button { font: inherit; color: inherit; }
+button:focus-visible, select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* üst */
+header.top { padding-block: 26px 14px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: end; }
+header.top h1 { font-size: clamp(2rem, 5.4vw, 3.2rem); font-weight: 800; letter-spacing: -.01em; }
+header.top .h1ar { font-family: var(--f-ar); font-size: clamp(1.5rem, 4vw, 2.1rem); color: var(--accent); direction: rtl; line-height: 1.5; }
+header.top p { color: var(--muted); max-width: 62ch; margin-top: 6px; }
+.xpbox { display: grid; gap: 4px; min-width: 210px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
+.xpbox .row { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; font-size: .9rem; }
+.xpbox b.rank { font-family: var(--f-display); font-size: 1.1rem; }
+.xpbar { height: 6px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.xpbar div { height: 100%; width: 0; background: linear-gradient(90deg, var(--ref), var(--nasb), var(--cerr), var(--mus), var(--mzs), var(--mns), var(--tks)); transition: width .5s ease; }
+
+nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line); display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-block: 8px; }
+nav.tabs::-webkit-scrollbar { display: none; }
+nav.tabs button { flex: none; font-weight: 700; font-size: .96rem; color: var(--muted); background: transparent; border: 0; border-radius: 999px; padding: 8px 14px; cursor: pointer; display: flex; gap: 6px; align-items: center; }
+nav.tabs button .num { font-family: var(--f-display); width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--soft); color: var(--ink); font-size: .85rem; }
+nav.tabs button .pc { font-size: .72rem; color: var(--muted); font-weight: 500; }
+nav.tabs button[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+nav.tabs button[aria-selected="true"] .num { background: var(--paper); color: var(--ink); }
+nav.tabs button[aria-selected="true"] .pc { color: var(--paper); opacity: .8; }
+
+section.panel { display: grid; gap: 22px; padding-top: 24px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; min-width: 0; }
+.stack { display: grid; gap: 12px; min-width: 0; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.btn { font-weight: 700; border: 1.5px solid var(--accent); color: var(--accent); background: transparent; padding: 7px 15px; border-radius: 10px; cursor: pointer; }
+.btn.solid { background: var(--accent); color: var(--card); }
+.btn.small { padding: 4px 10px; font-size: .88rem; }
+.btn:hover { filter: brightness(1.08); }
+.row-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* cümle parçaları */
+.sent { display: flex; flex-wrap: wrap; gap: 6px; direction: rtl; align-items: flex-end; }
+.chunk { display: inline-grid; justify-items: center; gap: 0; }
+.chunk .w { font-family: var(--f-ar); font-size: 1.7rem; line-height: 1.6; padding: 0 10px; border-radius: 10px; background: color-mix(in srgb, var(--role) 13%, transparent); color: var(--ink); border-bottom: 3px solid var(--role); }
+.chunk .t { font-size: .68rem; font-weight: 700; color: var(--role); letter-spacing: .04em; text-transform: uppercase; direction: ltr; }
+.chunk.r-x .w { background: transparent; border-bottom-color: transparent; color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; }
+.legend span { display: inline-flex; gap: 6px; align-items: center; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; background: var(--role); display: inline-block; }
+.trline { font-size: .92rem; color: var(--muted); }
+.ex-list { display: grid; gap: 14px; }
+.ex-item { display: grid; gap: 2px; padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
+.ex-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.pairgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px 18px; }
+
+/* ders başlığı */
+.unit-hero { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; border-top: 5px solid var(--role); }
+.unit-no { font-family: var(--f-display); font-weight: 800; font-size: 3.4rem; color: var(--role); line-height: 1; }
+.unit-hero .ar.big { font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.5; }
+.goals { margin: 0; padding-inline-start: 20px; display: grid; gap: 2px; }
+.prog { height: 8px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.prog div { height: 100%; background: var(--role); width: 0; transition: width .4s; }
+
+/* kaide */
+.rules { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: k; }
+.rules li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
+.rules li::before { counter-increment: k; content: counter(k); font-family: var(--f-display); font-weight: 800; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--paper); }
+.rules .exs { display: flex; flex-wrap: wrap; gap: 4px 16px; direction: rtl; font-family: var(--f-ar); font-size: 1.35rem; color: var(--accent); }
+details.kaide { border: 1px dashed var(--line); border-radius: 12px; padding: 10px 14px; }
+details.kaide summary { cursor: pointer; font-weight: 700; }
+details.kaide .ar { font-size: 1.3rem; }
+
+/* görseller */
+.viz { display: grid; gap: 10px; justify-items: center; }
+.viz svg { width: 100%; max-width: 640px; height: auto; display: block; }
+.viz .cap { font-size: .9rem; color: var(--muted); text-align: center; max-width: 60ch; }
+svg .s-ref { fill: var(--ref); } svg .s-nasb { fill: var(--nasb); } svg .s-cerr { fill: var(--cerr); } svg .s-muf { fill: var(--muf); } svg .s-mus { fill: var(--mus); } svg .s-mzs { fill: var(--mzs); } svg .s-mns { fill: var(--mns); } svg .s-tks { fill: var(--tks); }
+svg .s-ink { fill: var(--ink); } svg .s-muted { fill: var(--muted); } svg .s-card { fill: var(--card); } svg .s-soft { fill: var(--soft); } svg .s-good { fill: var(--good); } svg .s-bad { fill: var(--bad); }
+svg .k-ink { stroke: var(--ink); } svg .k-muted { stroke: var(--muted); } svg .k-fiil { stroke: var(--fiil); } svg .k-line { stroke: var(--line); } svg .k-good { stroke: var(--good); } svg .k-bad { stroke: var(--bad); }
+svg text { font-family: var(--f-body); }
+svg text.a { font-family: var(--f-ar); }
+.svg-scroll { overflow-x: auto; width: 100%; }
+
+/* harita (giriş) */
+.tree { display: grid; gap: 18px; justify-items: center; }
+.node { border-radius: 14px; padding: 10px 16px; text-align: center; background: var(--card); border: 2px solid var(--role); display: grid; gap: 0; }
+.node .ar { font-size: 1.5rem; line-height: 1.6; color: var(--role); }
+.node small { color: var(--muted); font-size: .8rem; }
+.node.root { --role: var(--accent); }
+.tree-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; width: 100%; max-width: 760px; }
+.branch { display: grid; gap: 12px; justify-items: center; padding: 14px; border-radius: 16px; background: var(--soft); position: relative; }
+.branch .kids { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; direction: rtl; }
+.branch .kids .node { padding: 6px 12px; }
+.branch .kids .node .ar { font-size: 1.2rem; }
+.branch .sample { font-family: var(--f-ar); font-size: 1.3rem; direction: rtl; }
+.branch button { margin-top: 2px; }
+.map-units { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.map-units .card { display: grid; gap: 6px; align-content: start; border-top: 5px solid var(--role); }
+.map-units .card .ar { font-size: 1.5rem; color: var(--role); }
+
+/* alıştırmalar */
+.exer { display: grid; gap: 14px; }
+.exer-head { display: grid; gap: 4px; }
+.exer-head .ar { font-size: 1.35rem; color: var(--accent); }
+.exer-head .cnt { font-size: .85rem; color: var(--muted); }
+.exbox { background: var(--soft); border-radius: 10px; padding: 8px 12px; font-size: .95rem; }
+.exbox .ar { font-size: 1.25rem; }
+.items { display: grid; gap: 12px; }
+.item { display: grid; gap: 8px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+.item.ok { border-color: var(--good); }
+.item.no { border-color: var(--bad); }
+.item .qn { font-family: var(--f-display); font-weight: 800; color: var(--muted); font-size: .95rem; }
+.item .q { font-family: var(--f-ar); font-size: 1.55rem; direction: rtl; line-height: 1.8; }
+.item .q u { text-decoration: none; border-bottom: 2px dashed var(--accent); padding-inline: 18px; }
+.item .q u.filled { padding-inline: 2px; border-bottom-style: solid; color: var(--accent); }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; }
+.opt { font-family: var(--f-ar); font-size: 1.35rem; line-height: 1.6; padding: 4px 14px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; text-align: right; }
+.opt.lat { font-family: var(--f-body); font-size: 1rem; font-weight: 700; padding: 8px 16px; }
+.opt.block { flex: 1 1 100%; }
+.opt:hover:not([disabled]) { border-color: var(--accent); }
+.opt.sel-ok { border-color: var(--good); background: var(--good-bg); color: var(--good); }
+.opt.sel-no { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); }
+.opt[disabled] { cursor: default; }
+.fb { font-size: .95rem; }
+.fb .ok { color: var(--good); font-weight: 700; } .fb .no { color: var(--bad); font-weight: 700; }
+.fb .ar { font-size: 1.2rem; }
+.tile-line { min-height: 58px; border: 2px dashed var(--line); border-radius: 12px; padding: 6px; display: flex; flex-wrap: wrap; gap: 6px; direction: rtl; align-items: center; }
+.tile-line.okk { border-style: solid; border-color: var(--good); background: var(--good-bg); }
+.tile-line.nok { border-style: solid; border-color: var(--bad); background: var(--bad-bg); }
+.tiles { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; }
+.tile { font-family: var(--f-ar); font-size: 1.4rem; line-height: 1.5; padding: 2px 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; box-shadow: 0 2px 0 var(--line); }
+.tile:hover:not([disabled]) { border-color: var(--accent); }
+.tile[disabled] { opacity: .25; cursor: default; box-shadow: none; }
+.tile.inl { background: var(--soft); }
+.tagbtn { display: inline-grid; justify-items: center; cursor: pointer; border: 0; background: transparent; padding: 0; }
+.tagbtn .w { font-family: var(--f-ar); font-size: 1.55rem; line-height: 1.6; padding: 0 10px; border-radius: 10px; border: 1.5px dashed var(--line); }
+.tagbtn .t { font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); min-height: 1.1em; }
+.tagbtn.has .w { border-style: solid; border-color: var(--role); background: color-mix(in srgb, var(--role) 13%, transparent); }
+.tagbtn.has .t { color: var(--role); }
+.tagbtn.wrong .w { outline: 2px solid var(--bad); outline-offset: 2px; }
+.slot { font-family: var(--f-ar); font-size: 1.5rem; line-height: 1.6; padding: 0 12px; border-radius: 10px; border: 1.5px solid var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); cursor: pointer; min-width: 64px; }
+.slot.empty { color: var(--muted); border-style: dashed; }
+.slot.wrong { border-color: var(--bad); background: var(--bad-bg); }
+.slot.right { border-color: var(--good); background: var(--good-bg); }
+.combo-line { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; align-items: center; font-family: var(--f-ar); font-size: 1.5rem; }
+.bank { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; padding: 10px; border-radius: 12px; background: var(--soft); }
+.bank .tile[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: var(--card); }
+.cls-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.passage { font-family: var(--f-ar); font-size: 1.45rem; line-height: 2.1; direction: rtl; text-align: justify; }
+.passage-tr { font-size: .98rem; color: var(--muted); }
+.qa { display: grid; gap: 6px; padding: 10px 12px; border-radius: 10px; background: var(--soft); }
+.qa .ar { font-size: 1.35rem; }
+
+/* oyunlar */
+.game-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.game-card { display: grid; gap: 8px; align-content: start; border-top: 5px solid var(--role); }
+.game-card .ico { font-family: var(--f-ar); font-size: 1.9rem; color: var(--role); direction: rtl; line-height: 1.4; }
+.hud { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: baseline; font-variant-numeric: tabular-nums; }
+.hud b { font-family: var(--f-display); font-size: 1.45rem; color: var(--accent); }
+.time-bar { height: 10px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.time-bar div { height: 100%; background: var(--accent); transition: width 1s linear; }
+.time-bar.low div { background: var(--bad); }
+.target { font-family: var(--f-ar); font-size: clamp(1.7rem, 6vw, 2.5rem); text-align: center; line-height: 1.8; padding: 12px; border-radius: 16px; background: var(--soft); direction: rtl; }
+.target.flash-ok { background: var(--good-bg); }
+.target.flash-no { background: var(--bad-bg); animation: shake .35s; }
+.q-end { display: inline-block; min-width: 34px; border: 2px dashed var(--accent); border-radius: 8px; color: var(--accent); font-family: var(--f-body); font-size: 1rem; vertical-align: middle; line-height: 1.6; text-align: center; }
+.big2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.big2 button, .big3 button { border: 0; border-radius: 14px; padding: 14px 6px; font-weight: 800; font-family: var(--f-display); font-size: 1.15rem; color: var(--card); background: var(--role); cursor: pointer; display: grid; gap: 2px; justify-items: center; }
+.big2 button .ar, .big3 button .ar { font-weight: 400; font-size: 1.4rem; line-height: 1.3; }
+.big2 button small { font-family: var(--f-body); font-weight: 500; font-size: .75rem; opacity: .85; }
+.big3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
+.big3 button { --role: var(--accent); font-family: var(--f-ar); font-size: 1.8rem; font-weight: 400; }
+.gfb { min-height: 3em; text-align: center; }
+.gfb .ar { font-size: 1.3rem; }
+.score-big { font-family: var(--f-display); font-size: 3rem; font-weight: 800; color: var(--accent); }
+.stars { font-size: 2.1rem; letter-spacing: .15em; color: var(--muf); }
+.stars .off { color: var(--line); }
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+@keyframes pop { 0% { transform: scale(.92); } 60% { transform: scale(1.05); } 100% { transform: scale(1); } }
+.pop { animation: pop .3s; }
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(20px); background: var(--ink); color: var(--paper); padding: 10px 18px; border-radius: 12px; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 20; max-width: calc(100% - 32px); text-align: center; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; }
+@media (max-width: 720px) {
+  header.top { grid-template-columns: 1fr; }
+  .unit-hero { grid-template-columns: 1fr; }
+  .tree-row { grid-template-columns: 1fr; }
+  .chunk .w { font-size: 1.45rem; }
+  .item .q { font-size: 1.35rem; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* --- bu programa özel --- */
+.viz { grid-template-columns: minmax(0, 1fr); }
+.viz > * { max-width: 100%; min-width: 0; }
+.chunk.r-dash .w { background: transparent; border-bottom-color: transparent; color: var(--muted); }
+.sent .plain { font-family: var(--f-ar); font-size: 1.55rem; line-height: 1.6; color: var(--muted); align-self: center; padding: 0 2px; }
+.tagbtn.findbtn.on .w { border-style: solid; border-color: var(--y); background: color-mix(in srgb, var(--y) 14%, transparent); }
+.tagbtn.findbtn.miss .w { outline: 2px dashed var(--good); outline-offset: 2px; }
+.srcline { font-size: .85rem; color: var(--muted); }
+.sumgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; }
+.sumcard { display: grid; gap: 10px; align-content: start; border-top: 5px solid var(--role); }
+.sumcard h3 { color: var(--role); }
+.sumcard .ar.t { font-size: 1.45rem; color: var(--role); }
+.sumcard ul { margin: 0; padding-inline-start: 18px; display: grid; gap: 4px; }
+.sumcard .ar { font-size: 1.2rem; }
+.flash-wrap { display: grid; gap: 12px; justify-items: center; }
+.flash { width: 100%; max-width: 560px; min-height: 170px; perspective: 900px; border: 0; background: transparent; padding: 0; cursor: pointer; }
+.flash .in { position: relative; width: 100%; min-height: 170px; transition: transform .45s; transform-style: preserve-3d; }
+.flash.up .in { transform: rotateY(180deg); }
+.flash .face { position: absolute; inset: 0; border-radius: 16px; display: grid; place-items: center; padding: 18px; backface-visibility: hidden; -webkit-backface-visibility: hidden; text-align: center; font-size: 1.15rem; }
+.flash .front { background: var(--ink); color: var(--paper); font-family: var(--f-display); font-weight: 700; font-size: 1.35rem; }
+.flash .back { background: var(--card); border: 2px solid var(--accent); transform: rotateY(180deg); }
+.flash .back .ar { font-size: 1.25rem; }
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.checklist label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.checklist input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--accent); }
+.icons { display: inline-flex; gap: 2px; flex-wrap: wrap; }
+.icons .ico { width: 22px; height: 22px; }
+.sfx { color: var(--role); font-weight: 700; }
+.qz-bars { display: grid; gap: 10px; width: 100%; max-width: 560px; }
+.qz-bar { display: grid; grid-template-columns: 150px minmax(0, 1fr) 54px; gap: 10px; align-items: center; font-size: .92rem; }
+.qz-bar .tr2 { height: 12px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.qz-bar .tr2 div { height: 100%; background: var(--role); }
+.qz-type { font-size: .85rem; color: var(--muted); }
+.big5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.big5 button { border: 0; border-radius: 14px; padding: 12px 6px; font-weight: 800; font-family: var(--f-display); font-size: 1rem; color: var(--card); background: var(--role); cursor: pointer; display: grid; gap: 2px; justify-items: center; }
+.big5 button .ar { font-weight: 400; font-size: 1.15rem; line-height: 1.4; }
+.big5 button small { font-family: var(--f-body); font-weight: 500; font-size: .72rem; opacity: .85; }
+.mem { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.mcard { aspect-ratio: 4 / 3; max-width: 100%; perspective: 700px; border: 0; padding: 0; background: transparent; cursor: pointer; }
+.mcard .in { position: relative; width: 100%; height: 100%; transition: transform .35s; transform-style: preserve-3d; }
+.mcard.up .in, .mcard.done .in { transform: rotateY(180deg); }
+.mcard .face { position: absolute; inset: 0; border-radius: 12px; display: grid; place-items: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 4px; text-align: center; }
+.mcard .back { background: var(--ink); color: var(--paper); font-family: var(--f-ar); font-size: 1.3rem; opacity: .92; }
+.mcard .front { transform: rotateY(180deg); background: var(--card); border: 2px solid var(--line); font-family: var(--f-ar); font-size: 1.55rem; }
+.mcard.done .front { border-color: var(--good); background: var(--good-bg); }
+.mcard .front.lat { font-family: var(--f-body); font-size: .9rem; font-weight: 700; line-height: 1.25; }
+/* i'rab tablosu: mansûb ile mecrûr aynıysa tek hücre */
+.itab { display: grid; grid-template-columns: minmax(0, 1.05fr) repeat(3, minmax(0, 1fr)); direction: rtl; width: 100%; max-width: 820px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
+.itab > div { direction: ltr; padding: 8px 6px; text-align: center; display: grid; gap: 1px; align-content: center; justify-items: center; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); min-width: 0; }
+.itab > div.end { border-left: 0; }
+.itab .hd { background: var(--role); color: var(--card); font-weight: 800; font-family: var(--f-display); }
+.itab .hd .ar { font-size: 1.05rem; line-height: 1.4; font-family: var(--f-ar); font-weight: 400; }
+.itab .corner { background: var(--soft); color: var(--muted); font-size: .8rem; }
+.itab .rh { background: color-mix(in srgb, var(--role) 11%, var(--card)); border-right: 5px solid var(--role); }
+.itab .rh b { color: var(--role); font-size: .95rem; line-height: 1.2; }
+.itab .c .ar { font-size: 1.3rem; line-height: 1.6; }
+.itab .c .ar b { color: var(--role); }
+.itab .c small { color: var(--muted); font-size: .78rem; }
+.itab .c.same { grid-column: span 2; background: repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--role) 6%, transparent) 10px 20px); }
+.itab .c.same small b { color: var(--ink); }
+.itab > div.last { border-bottom: 0; }
+.fork { display: flex; gap: 12px; align-items: center; justify-content: center; direction: rtl; flex-wrap: wrap; width: 100%; }
+.fork .outs { display: grid; gap: 8px; direction: ltr; }
+.fcard { border-radius: 14px; padding: 8px 14px; text-align: center; display: grid; gap: 0; justify-items: center; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); min-width: 0; }
+.fcard .ar { font-size: 1.6rem; line-height: 1.6; }
+.fcard .ar b { color: var(--role); }
+.fcard small { color: var(--muted); font-size: .8rem; }
+.fcard b.t { color: var(--role); font-size: .9rem; }
+.fork .arr { font-size: 1.8rem; color: var(--muted); }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.badge { border-radius: 999px; padding: 4px 12px; background: var(--soft); font-size: .9rem; display: inline-flex; gap: 6px; align-items: center; }
+.badge .ar { font-size: 1.15rem; line-height: 1.4; color: var(--role); }
+.vs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; width: 100%; max-width: 640px; }
+.vs .fcard .ar { font-size: 1.5rem; }
+.nope { text-decoration: line-through; text-decoration-color: var(--bad); text-decoration-thickness: 2px; opacity: .8; }
+.pairs6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 640px; direction: rtl; }
+.pairs6 > div { border-radius: 10px; background: var(--soft); padding: 6px; text-align: center; font-family: var(--f-ar); font-size: 1.2rem; line-height: 1.6; direction: rtl; border-top: 3px solid var(--tks); }
+.pairs6 > div b { color: var(--tks); font-weight: 700; }
+.steps3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.steps3 > div { border-radius: 14px; padding: 12px; background: var(--soft); display: grid; gap: 4px; align-content: start; }
+.steps3 .n { font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; color: var(--accent); line-height: 1; }
+.steps3 .ar { font-size: 1.15rem; }
+.gorev { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; direction: rtl; }
+.gorev > div { direction: ltr; border-radius: 12px; padding: 10px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 8%, var(--card)); display: grid; gap: 2px; align-content: start; }
+.gorev b { color: var(--role); }
+.gorev .ar { font-size: 1.1rem; }
+.hl { color: var(--accent); border-bottom: 3px solid var(--accent); padding-inline: 2px; }
+.ul { border-bottom: 2.5px solid var(--accent); padding-inline: 1px; }
+.irow { display: grid; gap: 6px; }
+.irow .lbl { margin: 0; }
+.opt.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--card)); }
+.extra-tag { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 0 8px; margin-inline-start: 6px; vertical-align: middle; }
+.blank { display: inline-block; min-width: 70px; border-bottom: 3px dashed var(--accent); }
+@media (max-width: 720px) {
+  .mem { grid-template-columns: repeat(3, 1fr); }
+  .qz-bar { grid-template-columns: 110px minmax(0, 1fr) 46px; }
+  .steps3, .gorev { grid-template-columns: 1fr; }
+  .itab .c .ar { font-size: 1.05rem; }
+  .itab .rh b { font-size: .8rem; }
+  .itab .hd { font-size: .85rem; }
+  .itab > div { padding: 6px 3px; }
+  .itab .c small { font-size: .7rem; }
+  .pairs6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vs { grid-template-columns: 1fr; }
+}
+.hlb b { color: var(--role); }
+.gorev .ar.hlb { font-size: 1.2rem; }
+.steps3.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.steps3.four .ar { font-size: 1.1rem; }
+@media (max-width: 860px) { .steps3.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .steps3.four { grid-template-columns: 1fr; } }
+.makine { display: grid; gap: 8px; width: 100%; max-width: 760px; justify-items: center; }
+.mk-row { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; direction: rtl; }
+.mk { border: 1.5px solid var(--line); background: var(--card); border-radius: 10px; padding: 2px 12px; cursor: pointer; font-weight: 700; font-size: .9rem; min-height: 40px; }
+.mk .ar { font-size: 1.3rem; font-weight: 400; }
+.mk.on { border-color: var(--accent); background: var(--accent); color: var(--card); }
+.mk-out { margin-top: 6px; width: 100%; border-radius: 16px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 9%, var(--card)); padding: 12px; display: grid; justify-items: center; gap: 2px; text-align: center; }
+.mk-out .ar { font-size: clamp(2rem, 7vw, 2.8rem); line-height: 1.6; }
+.mk-out > b { color: var(--role); }
+.gorev.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gorev.six { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gorev > div { justify-items: center; text-align: center; }
+.sumgrid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (max-width: 720px) { .gorev.four, .gorev.six { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.mk.g-n { border-color: color-mix(in srgb, var(--mi) 55%, var(--line)); }
+.mk.g-c { border-color: color-mix(in srgb, var(--mz) 55%, var(--line)); }
+.mk.g-n.on { background: var(--mi); border-color: var(--mi); }
+.mk.g-c.on { background: var(--mz); border-color: var(--mz); }
+.mk-legend { display: flex; gap: 14px; font-size: .82rem; justify-content: center; }
+.mk-legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-inline-end: 5px; vertical-align: middle; }
+.mk-legend .g-n::before { background: var(--mi); } .mk-legend .g-c::before { background: var(--mz); }
+.timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 760px; direction: rtl; align-items: center; position: relative; }
+.timeline::before { content: ""; position: absolute; inset-inline: 4%; top: 50%; border-top: 2px dashed var(--line); z-index: 0; }
+.tl-card, .tl-now { position: relative; z-index: 1; direction: ltr; border-radius: 14px; padding: 10px; text-align: center; display: grid; gap: 2px; justify-items: center; }
+.tl-card { border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); }
+.tl-card .ar { font-size: 1.6rem; } .tl-card b { color: var(--role); }
+.tl-now { background: var(--soft); } .tl-now .ar { font-size: 1.4rem; }
+.tl-card small, .tl-now small { color: var(--muted); }
+
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="lbl">Kitaptaki ders · beş konu</div>
+      <h1>Muzâri Fiilin Cezmi</h1>
+      <div class="h1ar">جَزْمُ الفِعْلِ المُضَارِعِ</div>
+      <p>Muzâri normalde merfûdur: <span class="ar">يَكْتُبُ</span>. Önüne <span class="ar">لَمْ</span>، <span class="ar">لَا</span> (nâhiye) ya da <span class="ar">لِـ</span> (emr) gelince meczûm olur: <span class="ar">لَمْ يَكْتُبْ</span>. İ'rab makinesiyle dene, kaideyi oku, alıştırmaları çöz, oyunlarla pekiştir.</p>
+    </div>
+    <div class="xpbox" id="xpbox" aria-live="polite"></div>
+  </header>
+  <nav class="tabs" role="tablist" aria-label="Bölümler" id="tabs"></nav>
+  <main id="main"></main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// ================= VERİ: Muzâri Fiilin Cezmi (جَزْمُ الفِعْلِ المُضَارِعِ) =================
+// Parça yazımı: "kelime:rol / kelime:rol". Rol "-" düz metin. "cerr.not" gibi yazılırsa etikete not eklenir.
+var ROLES = {
+  mz: { ar: "أَدَاةُ جَزْمٍ", tr: "Cezm edatı" }, mi: { ar: "أَدَاةُ نَصْبٍ", tr: "Nasb edatı" },
+  cerr: { ar: "مَجْزُومٌ", tr: "Meczûm fiil" }, nasb: { ar: "مَنْصُوبٌ", tr: "Mansûb fiil" }, ref: { ar: "مَرْفُوعٌ", tr: "Merfû fiil" },
+  x: { ar: "", tr: "" }, y: { ar: "✓", tr: "Seçtin" }
+};
+var HAL_OPTS = [["ref", "Merfû", "مَرْفُوعٌ", "ref"], ["nasb", "Mansûb", "مَنْصُوبٌ", "nasb"], ["cezm", "Meczûm", "مَجْزُومٌ", "cerr"]];
+var EDAT_TUR = [["cezm", "Cezm edatı", "أَدَاةُ جَزْمٍ", "mz"], ["nasb", "Nasb edatı", "أَدَاةُ نَصْبٍ", "mi"], ["yok", "Etkisiz (lâ-i nâfiye)", "لَا النَّافِيَةُ", "ref"]];
+var TUR_OPTS = EDAT_TUR;
+var NM_OPTS = HAL_OPTS;
+var DUS_OPTS = [["sukun", "Sükûn", "السُّكُونُ", "x"], ["son", "Sondaki illet harfi düştü", "حَذْفُ حَرْفِ العِلَّةِ", "x"], ["orta", "Ortadaki harf düştü", "حَذْفُ الوَسَطِ", "x"], ["nun", "Nun düştü", "حَذْفُ النُّونِ", "x"]];
+var E7 = ["أَنْ", "لَنْ", "كَيْ", "حَتَّى", "لِـ", "لَمْ", "لَا"];
+function AM(pre, post) { return [2, 3, 4].map(function (x) { return pre.concat([x]).concat(post || []); }); }
+
+function W(s, tr, why) {
+  return { c: s.split(" ").map(function (w) {
+    var m = /^\[(.*)\](.*)$/.exec(w), p = /^\{(.*)\}(.*)$/.exec(w);
+    if (m) return (m[1] + m[2]).replace(/_/g, " ") + ":y";
+    if (p) return (p[1] + p[2]).replace(/_/g, " ") + ":-";
+    return w.replace(/_/g, " ") + ":x";
+  }).join(" / "), tr: tr, why: why };
+}
+function CB(q, parts, ok, tr, why) {
+  return { q: q, p: parts.map(function (x) { return Array.isArray(x) ? { o: x } : x; }), ok: Array.isArray(ok[0]) ? ok : [ok], tr: tr, why: why };
+}
+function IR(s, t, c, why, tr) { return { s: s, t: t, c: c, why: why, tr: tr }; }
+
+var UNITS = [
+// ---------------------------------------------------------------- 1 · CEZM EDATLARI
+{
+  id: "u1", no: 1, ar: "أَدَوَاتُ الجَزْمِ", tr: "Cezm Edatları", short: "Cezm edatları", col: "mz", legend: ["mz", "cerr"],
+  goals: ["Üç cezm edatını tanımak: لَمْ، لَا (nâhiye), لِـ (lâm-ı emr)", "Cezm edatından sonra muzârinin meczûm olduğunu, alametinin sükûn olduğunu görmek", "Cezm edatını nasb edatından ve etkisiz لَا'dan ayırmak"],
+  examples: [
+    { s: "لَمْ:mz / يَكْتُبْ:cerr / الدَّرْسَ:-", tr: "Dersi yazmadı.", why: "يَكْتُبُ ← لَمْ يَكْتُبْ: damme sükûna döndü." },
+    { s: "لَمْ:mz / يَسْتَيْقِظْ:cerr / عَلِيٌّ:-", tr: "Ali uyanmadı.", why: "لَمْ: geçmişi olumsuz yapar." },
+    { s: "لَمْ:mz / تَصِلْ:cerr / رُقَيَّةُ:- / إِلَى:- / البَيْتِ:-", tr: "Rukıyye eve varmadı.", why: "لَمْ + meczûm." },
+    { s: "لَا:mz / تَأْكُلْ:cerr / كَثِيرًا:-", tr: "Çok yeme!", why: "لَا nâhiye: yasaklar." },
+    { s: "لَا:mz / تَجْلِسْ:cerr / عَلَى:- / الأَرْضِ:-", tr: "Yere oturma!", why: "لَا nâhiye + meczûm." },
+    { s: "لَا:mz / تَتَكَلَّمْ:cerr / إِلَّا:- / الصِّدْقَ:-", tr: "Doğrudan başkasını konuşma!", why: "لَا nâhiye + meczûm." },
+    { s: "لِـ:mz / يَذْهَبْ:cerr / مُصْطَفَى:- / إِلَى:- / المَدْرَسَةِ:-", tr: "Mustafa okula gitsin.", why: "Lâm-ı emr: \"-sın\"." },
+    { s: "لِـ:mz / تُحَافِظْ:cerr / عَلَى:- / حُقُوقِ:- / وَالِدَيْكَ:-", tr: "Anne babanın haklarını gözet.", why: "Lâm-ı emr + meczûm." },
+    { s: "لِـ:mz / يَرْجِعْ:cerr / عَلِيٌّ:- / إِلَى:- / البَيْتِ:-", tr: "Ali eve dönsün.", why: "Lâm-ı emr + meczûm." }
+  ],
+  rules: [
+    { tr: "<b class=\"r-mz\">Cezm edatları</b>: <span class=\"ar\">لَمْ</span>، <span class=\"ar\">لَا</span> (nâhiye: yasaklayan) ve <span class=\"ar\">لِـ</span> (lâm-ı emr: emreden)." },
+    { tr: "Bunlardan biri gelince muzâri <b class=\"r-cerr\">meczûm</b> olur. Sonu sahih harf olan fiilde cezmin alameti <b>sükûn</b>dur.", ex: ["يَكْتُبُ خَلِيلٌ دَرْسَهُ ← لَمْ يَكْتُبْ خَلِيلٌ دَرْسَهُ", "تَأْكُلُ كَثِيرًا ← لَا تَأْكُلْ كَثِيرًا"] },
+    { tr: "Üç hal yan yana: <b class=\"r-ref\">merfû</b> (damme), <b class=\"r-nasb\">mansûb</b> (fetha), <b class=\"r-cerr\">meczûm</b> (sükûn).", ex: ["يَكْتُبُ", "لَنْ يَكْتُبَ", "لَمْ يَكْتُبْ"] },
+    { tr: "Dikkat: her لَا cezm etmez. Yasaklamıyor, sadece haber veriyorsa (<b>lâ-i nâfiye</b>) fiil merfû kalır.", ex: ["لَا تَدْخُلْ (girme!)", "لَا يَدْخُلُ الكَافِرُ الجَنَّةَ (girmez)"] },
+    { tr: "Okuma notu: sükûnlu fiilden sonra ال gelirse, okurken sükûn kesreye döner.", ex: ["لَمْ يَحْضُرِ الطَّالِبُ", "لَا تَشْرَبِ المَاءَ"] }
+  ],
+  kaide: [
+    "١ ـ لَمْ، لَا النَّاهِيَةُ وَلَامُ الأَمْرِ (لِـ) مِنَ الأَدَوَاتِ الجَازِمَةِ لِلْفِعْلِ المُضَارِعِ.",
+    "٢ ـ يَكُونُ الفِعْلُ المُضَارِعُ مَجْزُومًا إِذَا دَخَلَتْ أَدَاةٌ مِنْ هَذِهِ الأَدَوَاتِ عَلَيْهِ: يَكْتُبُ خَلِيلٌ دَرْسَهُ ← لَمْ يَكْتُبْ خَلِيلٌ دَرْسَهُ.",
+    "٣ ـ عَلَامَةُ الجَزْمِ السُّكُونُ فِي الفِعْلِ المُضَارِعِ الصَّحِيحِ الآخِرِ: تَأْكُلُ كَثِيرًا مِنَ الطَّعَامِ (مَرْفُوعٌ بِالضَّمَّةِ) ← لَا تَأْكُلْ كَثِيرًا مِنَ الطَّعَامِ (مَجْزُومٌ بِالسُّكُونِ)."
+  ],
+  ex: [
+    { type: "irab", num: "١", tlist: EDAT_TUR, tlbl: "Önündeki edat", ar: "عَيِّنْ أَدَاةَ الجَزْمِ فِيمَا يَأْتِي مَعَ ضَبْطِ الفِعْلِ بَعْدَهَا", tr: "Fiilin sonu harekesiz verildi. Önündeki edat cezm mi, nasb mı, etkisiz mi? Sonra fiilin halini seç. Dikkat: üç cümlede cezm edatı yok!",
+      exHtml: "<span class=\"ar\">لَا تَشْرَبِ المَاءَ البَارِدَ.</span>", items: [
+      IR("لَمْ [يَحْضُر] الطَّالِبُ فِي الامْتِحَانِ.", "cezm", "cezm", "لَمْ → meczûm: يَحْضُرْ (ال'den önce okunuşta: لَمْ يَحْضُرِ الطَّالِبُ).", "Öğrenci sınava gelmedi."),
+      IR("[لِتَعْمَل] وَاجِبَكَ فِي وَقْتِهِ.", "cezm", "cezm", "Lâm-ı emr → meczûm: لِتَعْمَلْ.", "Ödevini vaktinde yap."),
+      IR("لَا [يَدْخُل] الكَافِرُ الجَنَّةَ.", "yok", "ref", "Bu لَا yasaklamıyor, haber veriyor (nâfiye): يَدْخُلُ merfû.", "Kâfir cennete girmez."),
+      IR("لَنْ [أَسْتَيْقِظ] مُتَأَخِّرًا غَدًا.", "nasb", "nasb", "لَنْ nasb edatıdır: أَسْتَيْقِظَ.", "Yarın asla geç uyanmayacağım."),
+      IR("[لِتُنَظِّف] خَدِيجَةُ البَيْتَ اليَوْمَ.", "cezm", "cezm", "Lâm-ı emr → meczûm: لِتُنَظِّفْ.", "Hatice bugün evi temizlesin."),
+      IR("لَا [تَتْرُكنِي] وَحِيدًا هُنَا.", "cezm", "cezm", "لَا nâhiye → meczûm: لَا تَتْرُكْنِي.", "Beni burada yalnız bırakma."),
+      IR("أُرِيدُ أَنْ [أُسَافِر] إِلَى اليَمَنِ.", "nasb", "nasb", "أَنْ nasb edatıdır: أُسَافِرَ.", "Yemen'e gitmek istiyorum."),
+      IR("لَمْ [يَخْرُج] مِنَ البَيْتِ وَلَمْ يُكَلِّمْ أَحَدًا.", "cezm", "cezm", "لَمْ → يَخْرُجْ.", "Evden çıkmadı ve kimseyle konuşmadı."),
+      IR("لَمْ يَخْرُجْ مِنَ البَيْتِ وَلَمْ [يُكَلِّم] أَحَدًا.", "cezm", "cezm", "لَمْ → يُكَلِّمْ.", "Evden çıkmadı ve kimseyle konuşmadı.")
+    ]},
+    { type: "combo", num: "٢", ar: "أَعِدِ الجُمَلَ التَّالِيَةَ مُبْتَدِئًا بِالأَدَاةِ الَّتِي بَيْنَ القَوْسَيْنِ", tr: "Cümleyi parantezdeki edatla yeniden kur; fiilin doğru şeklini seç.",
+      exHtml: "<span class=\"ar\">يَجِبُ أَنْ تُحْسِنَ إِلَى الفُقَرَاءِ. (لِـ) ← لِتُحْسِنْ إِلَى الفُقَرَاءِ.</span>", items: [
+      CB("تَرْجِعُ التِّلْمِيذَةُ إِلَى المَنْزِلِ. <span class=\"muted\">(لَمْ)</span>", ["لَمْ", ["تَرْجِعُ", "تَرْجِعَ", "تَرْجِعْ"], "التِّلْمِيذَةُ إِلَى المَنْزِلِ."], [2], "Kız öğrenci eve dönmedi.", "لَمْ + meczûm."),
+      CB("تَتَكَلَّمُ بِصَوْتٍ مُرْتَفِعٍ. <span class=\"muted\">(لَا)</span>", ["لَا", ["تَتَكَلَّمُ", "تَتَكَلَّمَ", "تَتَكَلَّمْ"], "بِصَوْتٍ مُرْتَفِعٍ."], [2], "Yüksek sesle konuşma!", "لَا nâhiye + meczûm."),
+      CB("تَذْهَبُ إِلَى أُسْرَتِكَ فِي العِيدِ. <span class=\"muted\">(لِـ)</span>", [["لِتَذْهَبُ", "لِتَذْهَبَ", "لِتَذْهَبْ"], "إِلَى أُسْرَتِكَ فِي العِيدِ."], [2], "Bayramda ailene git.", "Lâm-ı emr + meczûm. (لِتَذْهَبَ olsaydı \"gitmen için\" olurdu.)"),
+      CB("يَسْكُنُ أَخِي فِي أُسْكُدَارَ. <span class=\"muted\">(لَمْ)</span>", ["لَمْ", ["يَسْكُنُ", "يَسْكُنَ", "يَسْكُنْ"], "أَخِي فِي أُسْكُدَارَ."], [2], "Kardeşim Üsküdar'da oturmadı.", "لَمْ + meczûm."),
+      CB("تَجْلِسُ زَهْرَاءُ فِي مَكَانٍ مُرِيحٍ. <span class=\"muted\">(لِـ)</span>", [["لِتَجْلِسُ", "لِتَجْلِسَ", "لِتَجْلِسْ"], "زَهْرَاءُ فِي مَكَانٍ مُرِيحٍ."], [2], "Zehra rahat bir yerde otursun.", "Lâm-ı emr + meczûm."),
+      CB("أَنْتَ تُنَاقِشُ صَدِيقَكَ كَثِيرًا. <span class=\"muted\">(لَا)</span>", ["لَا", ["تُنَاقِشُ", "تُنَاقِشَ", "تُنَاقِشْ"], "صَدِيقَكَ كَثِيرًا."], [2], "Arkadaşınla çok tartışma!", "لَا nâhiye + meczûm."),
+      CB("أَسْكُنُ فِي هَذِهِ القَرْيَةِ. <span class=\"muted\">(لَمْ)</span>", ["لَمْ", ["أَسْكُنُ", "أَسْكُنَ", "أَسْكُنْ"], "فِي هَذِهِ القَرْيَةِ."], [2], "Bu köyde oturmadım.", "لَمْ + meczûm."),
+      CB("يَجِبُ أَنْ تُمَارِسَ الرِّيَاضَةَ. <span class=\"muted\">(لِـ)</span>", [["لِتُمَارِسُ", "لِتُمَارِسَ", "لِتُمَارِسْ"], "الرِّيَاضَةَ."], [2], "Spor yap.", "Lâm-ı emr + meczûm (ال'den önce okunuşta: لِتُمَارِسِ الرِّيَاضَةَ).")
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 2 · لَمْ VE لَنْ
+{
+  id: "u2", no: 2, ar: "لَمْ وَلَنْ", tr: "لَمْ mi, لَنْ mi?", short: "لَمْ · لَنْ", col: "cerr", legend: ["mz", "mi", "cerr", "nasb"],
+  goals: ["لَمْ'in geçmişi, لَنْ'in geleceği olumsuz yaptığını bilmek", "لَمْ'den sonra sükûn, لَنْ'den sonra fetha koymak", "Türkçe cümleye göre doğru edatı seçmek"],
+  examples: [
+    { s: "يَسْتَيْقِظُ:ref / أَحْمَدُ:- / السَّاعَةَ:- / السَّابِعَةَ:-", tr: "Ahmed saat yedide uyanır.", why: "Edat yok: merfû." },
+    { s: "لَمْ:mz / يَسْتَيْقِظْ:cerr / أَحْمَدُ:- / السَّاعَةَ:- / السَّابِعَةَ:-", tr: "Ahmed saat yedide uyanmadı.", why: "لَمْ: geçmiş olumsuz, sükûn." },
+    { s: "لَنْ:mi / يَسْتَيْقِظَ:nasb / أَحْمَدُ:- / السَّاعَةَ:- / السَّابِعَةَ:-", tr: "Ahmed saat yedide asla uyanmayacak.", why: "لَنْ: gelecek olumsuz, fetha." }
+  ],
+  rules: [
+    { tr: "<span class=\"ar\">لَمْ</span> muzâriye gelir ama anlamı <b>geçmiş</b> zamana çevirir ve olumsuz yapar: \"-medi\". Fiil <b class=\"r-cerr\">meczûm</b>.", ex: ["لَمْ يَكْتُبْ (yazmadı)"] },
+    { tr: "<span class=\"ar\">لَنْ</span> <b>geleceği</b> olumsuz yapar: \"asla -meyecek\". Fiil <b class=\"r-nasb\">mansûb</b>.", ex: ["لَنْ يَكْتُبَ (asla yazmayacak)"] },
+    { tr: "Hatırlama yolu: <b>لَمْ → mim → mâzi (geçmiş) → sükûn</b>; <b>لَنْ → nun → gelecek → fetha</b>." },
+    { tr: "Beş fiilde ikisinde de nun düşer: <span class=\"ar\">لَمْ يَذْهَبُوا · لَنْ يَذْهَبُوا</span>. Farkı anlam söyler." }
+  ],
+  kaide: [
+    "لَمْ مِنْ أَدَوَاتِ الجَزْمِ وَلَنْ مِنْ أَدَوَاتِ النَّصْبِ.",
+    "يَسْتَيْقِظُ أَحْمَدُ السَّاعَةَ السَّابِعَةَ ← لَمْ يَسْتَيْقِظْ أَحْمَدُ السَّاعَةَ السَّابِعَةَ ← لَنْ يَسْتَيْقِظَ أَحْمَدُ السَّاعَةَ السَّابِعَةَ."
+  ],
+  ex: [
+    { type: "combo", num: "٤", ar: "حَوِّلْ إِلَى صِيغَةِ النَّفْيِ مُسْتَعْمِلًا «لَمْ» مَرَّةً وَ«لَنْ» مَرَّةً أُخْرَى", tr: "Her cümleyi önce لَمْ ile (geçmiş), sonra لَنْ ile (gelecek) olumsuz yap.",
+      exHtml: "<span class=\"ar\">يَسْتَيْقِظُ أَحْمَدُ السَّاعَةَ السَّابِعَةَ ← لَمْ يَسْتَيْقِظْ … · لَنْ يَسْتَيْقِظَ …</span>", items: [].concat.apply([], [
+        ["يَتَنَاوَلُ أَحْمَدُ الفَطُورَ فِي المَطْبَخِ.", "يَتَنَاوَل", "أَحْمَدُ الفَطُورَ فِي المَطْبَخِ.", "Ahmed kahvaltıyı mutfakta yapmadı.", "Ahmed kahvaltıyı mutfakta asla yapmayacak."],
+        ["تَغْسِلُ خَدِيجَةُ وَجْهَهَا فِي الحَمَّامِ.", "تَغْسِل", "خَدِيجَةُ وَجْهَهَا فِي الحَمَّامِ.", "Hatice yüzünü banyoda yıkamadı.", "Hatice yüzünü banyoda asla yıkamayacak."],
+        ["يُكْرِمُ مُحَمَّدٌ أَصْدِقَاءَهُ فِي بَيْتِهِ.", "يُكْرِم", "مُحَمَّدٌ أَصْدِقَاءَهُ فِي بَيْتِهِ.", "Muhammed arkadaşlarını evinde ağırlamadı.", "Muhammed arkadaşlarını evinde asla ağırlamayacak."],
+        ["يَرْكَبُ الرَّجُلُ سَيَّارَتَهُ بِسُرْعَةٍ.", "يَرْكَب", "الرَّجُلُ سَيَّارَتَهُ بِسُرْعَةٍ.", "Adam arabasına hızla binmedi.", "Adam arabasına asla hızla binmeyecek."],
+        ["يَتَّصِلُ الطَّالِبُ بِأُسْرَتِهِ كُلَّ يَوْمٍ.", "يَتَّصِل", "الطَّالِبُ بِأُسْرَتِهِ كُلَّ يَوْمٍ.", "Öğrenci ailesini her gün aramadı.", "Öğrenci ailesini her gün aramayacak."],
+        ["يَرْجِعُ العَامِلُ إِلَى بَيْتِهِ مَسَاءً.", "يَرْجِع", "العَامِلُ إِلَى بَيْتِهِ مَسَاءً.", "İşçi akşam evine dönmedi.", "İşçi akşam evine asla dönmeyecek."],
+        ["تُقَابِلُ فَاطِمَةُ صَدِيقَتَهَا فِي المَحَطَّةِ.", "تُقَابِل", "فَاطِمَةُ صَدِيقَتَهَا فِي المَحَطَّةِ.", "Fâtıma arkadaşıyla istasyonda buluşmadı.", "Fâtıma arkadaşıyla istasyonda asla buluşmayacak."],
+        ["يَقْرَأُ خَالِدٌ فِي غُرْفَةِ الجُلُوسِ.", "يَقْرَأ", "خَالِدٌ فِي غُرْفَةِ الجُلُوسِ.", "Hâlid oturma odasında okumadı.", "Hâlid oturma odasında asla okumayacak."]
+      ].map(function (r) {
+        var f = [r[1] + "ُ", r[1] + "َ", r[1] + "ْ"];
+        return [CB(r[0] + " <b class=\"r-cerr\">→ لَمْ</b>", ["لَمْ", f, r[2]], [2], r[3], "لَمْ: geçmiş olumsuz → sükûn."),
+                CB(r[0] + " <b class=\"r-nasb\">→ لَنْ</b>", ["لَنْ", f, r[2]], [1], r[4], "لَنْ: gelecek olumsuz → fetha.")];
+      }))
+    },
+    { type: "pick", num: "+", extra: true, ar: "لَمْ أَمْ لَنْ؟", tr: "Ek alıştırma: Türkçe cümleye uyan Arapçayı seç. Geçmiş mi, gelecek mi?", items: [
+      { q: "Dün okula gitmedim.", o: ["لَمْ أَذْهَبْ إِلَى المَدْرَسَةِ أَمْسِ.", "لَنْ أَذْهَبَ إِلَى المَدْرَسَةِ أَمْسِ."], a: 0, why: "Geçmiş (dün) → لَمْ + sükûn." },
+      { q: "Yarın okula gitmeyeceğim.", o: ["لَمْ أَذْهَبْ إِلَى المَدْرَسَةِ غَدًا.", "لَنْ أَذْهَبَ إِلَى المَدْرَسَةِ غَدًا."], a: 1, why: "Gelecek (yarın) → لَنْ + fetha." },
+      { q: "Ali kahvaltı yapmadı.", o: ["لَمْ يَتَنَاوَلْ عَلِيٌّ الفَطُورَ.", "لَنْ يَتَنَاوَلَ عَلِيٌّ الفَطُورَ."], a: 0, why: "Geçmiş → لَمْ." },
+      { q: "Bir daha asla yalan söylemeyeceğim.", o: ["لَمْ أَكْذِبْ بَعْدَ اليَوْمِ.", "لَنْ أَكْذِبَ بَعْدَ اليَوْمِ."], a: 1, why: "Gelecek → لَنْ." },
+      { q: "Geçen yıl hacca gitmedi.", o: ["لَمْ يَحُجَّ فِي السَّنَةِ المَاضِيَةِ.", "لَنْ يَحُجَّ فِي السَّنَةِ المَاضِيَةِ."], a: 0, why: "Geçmiş → لَمْ. (Şeddeli fiilde cezm fethayla okunur: لَمْ يَحُجَّ.)" },
+      { q: "Gelecek ay seyahat etmeyecekler.", o: ["لَمْ يُسَافِرُوا الشَّهْرَ القَادِمَ.", "لَنْ يُسَافِرُوا الشَّهْرَ القَادِمَ."], a: 1, why: "Gelecek → لَنْ. İkisinde de nun düşer; farkı anlam belirler." }
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 3 · LÂ-İ NÂHİYE VE LÂM-I EMR
+{
+  id: "u3", no: 3, ar: "لَا النَّاهِيَةُ وَلَامُ الأَمْرِ", tr: "Lâ-i Nâhiye ve Lâm-ı Emr", short: "لَا · لِـ", col: "ref", legend: ["mz", "cerr"],
+  goals: ["لَا nâhiye ile yasak (\"yapma!\") kurmak", "Lâm-ı emr ile emir (\"yapsın\") kurmak", "Lâm-ı emri lâm-ı ta'lîlden, lâ-i nâhiyeyi lâ-i nâfiyeden ayırmak"],
+  examples: [
+    { s: "سَأَعْمَلُ:ref / عَمَلِي:- / صَبَاحًا:-", tr: "İşimi sabah yapacağım.", why: "Merfû." },
+    { s: "لَا:mz / تَعْمَلْ:cerr / عَمَلَكَ:- / صَبَاحًا:-", tr: "İşini sabah yapma!", why: "لَا nâhiye: 2. şahıs + sükûn. سَـ düşer." },
+    { s: "لِـ:mz / تَجْتَهِدْ:cerr / كَثِيرًا:-", tr: "Çok çalış!", why: "Lâm-ı emr: emir anlamı + sükûn." },
+    { s: "لِـ:mi / تَجْتَهِدَ:nasb / كَثِيرًا:-", tr: "…çok çalışman için", why: "Aynı لِـ, ama lâm-ı ta'lîl: amaç + fetha." }
+  ],
+  rules: [
+    { tr: "<b>Lâ-i nâhiye</b> (<span class=\"ar\">لَا</span>): olumsuz emir, \"yapma!\". Çoğunlukla 2. şahısla gelir; fiil meczûm.", ex: ["لَا تَأْكُلْ", "لَا تَحْضُرْ مُتَأَخِّرًا"] },
+    { tr: "<b>Lâm-ı emr</b> (<span class=\"ar\">لِـ</span>): \"yapsın, yapmalı\". Çoğunlukla 3. şahısla gelir; fiil meczûm. <span class=\"ar\">وَ</span> ya da <span class=\"ar\">فَ</span>'dan sonra lâm sakin okunur.", ex: ["لِيَذْهَبْ مُصْطَفَى", "فَلْيُنْفِقْ", "وَلْيَكْتُبْ"] },
+    { tr: "İki <span class=\"ar\">لِـ</span>: <b>lâm-ı emr</b> cezm eder (\"gitsin\": <span class=\"ar\">لِيَذْهَبْ</span>), <b>lâm-ı ta'lîl</b> nasb eder (\"gitmesi için\": <span class=\"ar\">لِيَذْهَبَ</span>). Anlama bak." },
+    { tr: "İki <span class=\"ar\">لَا</span>: <b>nâhiye</b> cezm eder (\"girme!\": <span class=\"ar\">لَا تَدْخُلْ</span>), <b>nâfiye</b> etkisizdir (\"girmez\": <span class=\"ar\">لَا يَدْخُلُ</span>)." },
+    { tr: "Nasblı yapıyı cezme çevirirken edat değişir, fiilin sonu fethadan sükûna döner.", ex: ["يَجِبُ أَنْ تَجْتَهِدَ ← لِتَجْتَهِدْ", "لَنْ يَرْجِعَ ← لَمْ يَرْجِعْ"] }
+  ],
+  kaide: ["لَا النَّاهِيَةُ وَلَامُ الأَمْرِ (لِـ) مِنَ الأَدَوَاتِ الجَازِمَةِ لِلْفِعْلِ المُضَارِعِ: لَا تَأْكُلْ كَثِيرًا. لِيَذْهَبْ مُصْطَفَى إِلَى المَدْرَسَةِ."],
+  ex: [
+    { type: "combo", num: "٥", ar: "أَدْخِلْ «لَا النَّاهِيَةَ» عَلَى الجُمَلِ التَّالِيَةِ ثُمَّ اضْبِطِ الفِعْلَ", tr: "Cümleyi karşındakine yasak olarak söyle: لَا + 2. şahıs + sükûn. سَـ düşer.",
+      exHtml: "<span class=\"ar\">سَأَعْمَلُ عَمَلِي صَبَاحًا ← لَا تَعْمَلْ عَمَلَكَ صَبَاحًا.</span>", items: [
+      CB("أَحْضُرُ إِلَى البَيْتِ مُتَأَخِّرًا.", ["لَا", ["أَحْضُرْ", "تَحْضُرُ", "تَحْضُرْ", "تَحْضُرَ"], "إِلَى البَيْتِ مُتَأَخِّرًا."], [2], "Eve geç gelme!", "2. şahıs ve sükûn: لَا تَحْضُرْ."),
+      CB("سَأُسَافِرُ إِلَى دِمَشْقَ فِي الصَّيْفِ.", ["لَا", ["سَتُسَافِرُ", "تُسَافِرَ", "تُسَافِرْ", "أُسَافِرْ"], "إِلَى دِمَشْقَ فِي الصَّيْفِ."], [2], "Yazın Şam'a gitme!", "سَـ düşer: لَا تُسَافِرْ."),
+      CB("أَكْتُبُ التَّقْرِيرَ آخِرَ الأُسْبُوعِ.", ["لَا", ["أَكْتُبْ", "تَكْتُبُ", "تَكْتُبْ", "تَكْتُبَ"], "التَّقْرِيرَ آخِرَ الأُسْبُوعِ."], [2], "Raporu hafta sonunda yazma!", "لَا تَكْتُبْ (okunuşta: لَا تَكْتُبِ التَّقْرِيرَ)."),
+      CB("أَقْلَقُ عَلَى هَذَا الوَلَدِ.", ["لَا", ["أَقْلَقْ", "تَقْلَقُ", "تَقْلَقْ", "تَقْلَقَ"], "عَلَى هَذَا الوَلَدِ."], [2], "Bu çocuk için endişelenme!", "لَا تَقْلَقْ."),
+      CB("سَأَقْرَأُ هَذِهِ الحِكَايَةَ عَلَى أَوْلَادِي.", ["لَا", ["سَتَقْرَأُ", "تَقْرَأَ", "تَقْرَأْ", "أَقْرَأْ"], "هَذِهِ الحِكَايَةَ عَلَى", ["أَوْلَادِي", "أَوْلَادِكَ"]], [2, 1], "Bu hikâyeyi çocuklarına okuma!", "لَا تَقْرَأْ; zamir de 2. şahıs: أَوْلَادِكَ."),
+      CB("أَشْرَبُ المَاءَ البَارِدَ بَعْدَ المُبَارَاةِ.", ["لَا", ["أَشْرَبْ", "تَشْرَبُ", "تَشْرَبْ", "تَشْرَبَ"], "المَاءَ البَارِدَ بَعْدَ المُبَارَاةِ."], [2], "Maçtan sonra soğuk su içme!", "لَا تَشْرَبْ (okunuşta: لَا تَشْرَبِ المَاءَ)."),
+      CB("أَقْرَأُ كَثِيرًا بَعْدَ الظُّهْرِ.", ["لَا", ["أَقْرَأْ", "تَقْرَأُ", "تَقْرَأْ", "تَقْرَأَ"], "كَثِيرًا بَعْدَ الظُّهْرِ."], [2], "Öğleden sonra çok okuma!", "لَا تَقْرَأْ."),
+      CB("سَأَذْكُرُ هَذَا لِعُثْمَانَ.", ["لَا", ["سَتَذْكُرُ", "تَذْكُرَ", "تَذْكُرْ", "أَذْكُرْ"], "هَذَا لِعُثْمَانَ."], [2], "Bunu Osman'a söyleme!", "سَـ düşer: لَا تَذْكُرْ.")
+    ]},
+    { type: "combo", num: "٦", ar: "حَوِّلِ المُضَارِعَ المَنْصُوبَ إِلَى صِيغَةِ الجَزْمِ مُسْتَعِينًا بِالأَدَاةِ الَّتِي بَيْنَ القَوْسَيْنِ", tr: "Nasblı cümleyi parantezdeki cezm edatıyla kur. Fetha sükûna döner.",
+      exHtml: "<span class=\"ar\">أُحِبُّ أَنْ أَشْرَبَ الشَّايَ بِالسُّكَّرِ الكَثِيرِ. (لَا) ← لَا تَشْرَبِ الشَّايَ بِالسُّكَّرِ الكَثِيرِ.</span>", items: [
+      CB("يَجِبُ أَنْ تَجْتَهِدَ كَثِيرًا. <span class=\"muted\">(لِـ)</span>", [["لِتَجْتَهِدَ", "لِتَجْتَهِدُ", "لِتَجْتَهِدْ"], "كَثِيرًا."], [2], "Çok çalış!", "Lâm-ı emr → sükûn. (لِتَجْتَهِدَ \"çalışman için\" olurdu.)"),
+      CB("لَنْ يَرْجِعَ أَحْمَدُ فِي وَقْتِهِ. <span class=\"muted\">(لَمْ)</span>", ["لَمْ", ["يَرْجِعَ", "يَرْجِعُ", "يَرْجِعْ"], "أَحْمَدُ فِي وَقْتِهِ."], [2], "Ahmed vaktinde dönmedi.", "لَنْ ← لَمْ: fetha sükûna döner."),
+      CB("لَنْ تَجْتَمِعَ بِأَصْدِقَائِكَ فِي مَنْزِلِي. <span class=\"muted\">(لَا)</span>", ["لَا", ["تَجْتَمِعَ", "تَجْتَمِعُ", "تَجْتَمِعْ"], "بِأَصْدِقَائِكَ فِي مَنْزِلِي."], [2], "Arkadaşlarınla benim evimde toplanma!", "لَا nâhiye → sükûn."),
+      CB("لَنْ تُكَلِّمَ زَيْنَبَ. <span class=\"muted\">(لِـ)</span>", [["لِتُكَلِّمَ", "لِتُكَلِّمُ", "لِتُكَلِّمْ"], "زَيْنَبَ."], [2], "Zeyneb'le konuş!", "Lâm-ı emr → sükûn."),
+      CB("يَجِبُ أَنْ تُخْلِصَ فِي عَمَلِكَ. <span class=\"muted\">(لِـ)</span>", [["لِتُخْلِصَ", "لِتُخْلِصُ", "لِتُخْلِصْ"], "فِي عَمَلِكَ."], [2], "İşinde ihlaslı ol!", "Lâm-ı emr → sükûn."),
+      CB("يُحَاوِلُ أَنْ يُقَدِّمَ هَذَا المَشْرُوعَ. <span class=\"muted\">(لَمْ)</span>", ["لَمْ", ["يُحَاوِلُ", "يُحَاوِلَ", "يُحَاوِلْ"], "أَنْ", ["يُقَدِّمُ", "يُقَدِّمَ", "يُقَدِّمْ"], "هَذَا المَشْرُوعَ."], [2, 1], "Bu projeyi sunmaya çalışmadı.", "لَمْ ilk fiili meczûm yapar; أَنْ'den sonraki fiil mansûb kalır."),
+      CB("يَجِبُ أَنْ تُنَاقِشَ هَذِهِ المَسْأَلَةَ مَعَ أُخْتِكَ. <span class=\"muted\">(لَا)</span>", ["لَا", ["تُنَاقِشَ", "تُنَاقِشُ", "تُنَاقِشْ"], "هَذِهِ المَسْأَلَةَ مَعَ أُخْتِكَ."], [2], "Bu meseleyi kız kardeşinle tartışma!", "لَا nâhiye → sükûn."),
+      CB("يَنْبَغِي أَنْ تَعْتَذِرَ مِنْ زَمِيلِكَ. <span class=\"muted\">(لِـ)</span>", [["لِتَعْتَذِرَ", "لِتَعْتَذِرُ", "لِتَعْتَذِرْ"], "مِنْ زَمِيلِكَ."], [2], "Arkadaşından özür dile!", "Lâm-ı emr → sükûn.")
+    ]},
+    { type: "classify", num: "+", extra: true, opts: [["emr", "Lâm-ı emr (cezm)", "لَامُ الأَمْرِ", "x"], ["talil", "Lâm-ı ta'lîl (nasb)", "لَامُ التَّعْلِيلِ", "x"]], ar: "لَامُ الأَمْرِ أَمْ لَامُ التَّعْلِيلِ؟", tr: "Ek alıştırma: harekeye ve anlama bak. Bu لِـ emir mi veriyor, amaç mı bildiriyor?", items: [
+      { s: "لِيَذْهَبْ مُصْطَفَى إِلَى المَدْرَسَةِ.", a: "emr", why: "Sükûn ve emir: Mustafa okula gitsin.", tr: "Mustafa okula gitsin." },
+      { s: "سَافَرَ مُحَمَّدٌ لِيَعْمَلَ فِي شَرِكَةٍ.", a: "talil", why: "Fetha ve amaç: çalışmak için.", tr: "Muhammed bir şirkette çalışmak için yolculuk etti." },
+      { s: "لِتُحَافِظْ عَلَى حُقُوقِ وَالِدَيْكَ.", a: "emr", why: "Sükûn: emir.", tr: "Anne babanın haklarını gözet." },
+      { s: "نَظَرْتُ إِلَى البَحْرِ لِأَتَمَتَّعَ بِجَمَالِهِ.", a: "talil", why: "Fetha: amaç.", tr: "Güzelliğinin tadını çıkarmak için denize baktım." },
+      { s: "فَلْيُنْفِقْ مِمَّا آتَاهُ اللَّهُ", a: "emr", why: "فَ'dan sonra sakin lâm: emir.", tr: "Allah'ın kendisine verdiğinden harcasın." },
+      { s: "دَخَلَ المُدِيرُ المَصْنَعَ لِيَجْتَمِعَ بِالمُهَنْدِسِينَ.", a: "talil", why: "Fetha: amaç.", tr: "Müdür mühendislerle toplanmak için fabrikaya girdi." },
+      { s: "لِيَرْجِعْ عَلِيٌّ إِلَى البَيْتِ.", a: "emr", why: "Sükûn: emir.", tr: "Ali eve dönsün." },
+      { s: "اسْتَيْقَظْتُ مُبَكِّرًا لِأُصَلِّيَ الفَجْرَ.", a: "talil", why: "Fetha: amaç.", tr: "Sabah namazını kılmak için erken kalktım." }
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 4 · NASB MI CEZM Mİ
+{
+  id: "u4", no: 4, ar: "النَّصْبُ أَمِ الجَزْمُ؟", tr: "Nasb mı, Cezm mi?", short: "Nasb mı cezm mi", col: "nasb", legend: ["mi", "nasb", "mz", "cerr"],
+  goals: ["Nasb ve cezm edatlarını iki ayrı grupta toplamak", "Edata göre fiile fetha ya da sükûn koymak", "Boşluğa anlama uyan edatı kendin seçmek"],
+  examples: [
+    { s: "يُمْكِنُ:- / أَنْ:mi / تَنْزِلَ:nasb / مِنَ:- / السَّيَّارَةِ:-", tr: "Arabadan inebilirsin.", why: "Nasb edatı → fetha." },
+    { s: "لَمْ:mz / يَحْضُرْ:cerr / حَمْزَةُ:- / إِلَى:- / الصَّفِّ:-", tr: "Hamza sınıfa gelmedi.", why: "Cezm edatı → sükûn." },
+    { s: "اقْتَرِبْ:- / مِنِّي:- / حَتَّى:mi / تَسْمَعَ:nasb / مَا:- / أَقُولُ:ref", tr: "Söylediğimi duyman için bana yaklaş.", why: "تَسْمَعَ mansûb; أَقُولُ merfû (edatsız)." }
+  ],
+  rules: [
+    { tr: "<b class=\"r-mi\">Nasb edatları</b> (fetha): <span class=\"ar\">أَنْ، لَنْ، كَيْ، لِكَيْ، لِـ (ta'lîl)، حَتَّى</span>." },
+    { tr: "<b class=\"r-mz\">Cezm edatları</b> (sükûn): <span class=\"ar\">لَمْ، لَا (nâhiye)، لِـ (emr)</span>." },
+    { tr: "Edat yoksa (ya da لَا nâfiye ise) fiil <b class=\"r-ref\">merfû</b>dur (damme)." },
+    { tr: "Anlam rehberi: \"-mek / -mesi\" → <span class=\"ar\">أَنْ</span>; \"asla -meyecek\" → <span class=\"ar\">لَنْ</span>; \"-mek için\" → <span class=\"ar\">كَيْ / لِـ / حَتَّى</span>; \"-medi\" → <span class=\"ar\">لَمْ</span>; \"yapma!\" → <span class=\"ar\">لَا</span>; \"yapsın\" → <span class=\"ar\">لِـ</span>." }
+  ],
+  kaide: ["أَدَوَاتُ النَّصْبِ: أَنْ – لَنْ – كَيْ – لِكَيْ – لَامُ التَّعْلِيلِ – حَتَّى. أَدَوَاتُ الجَزْمِ: لَمْ – لَا النَّاهِيَةُ – لَامُ الأَمْرِ."],
+  ex: [
+    { type: "pick", fill: true, num: "٣", ar: "امْلَأِ الفَرَاغَ بِوَضْعِ الفِعْلِ المُنَاسِبِ مِمَّا بَيْنَ القَوْسَيْنِ", tr: "Önündeki edata bak: nasb edatı mı (fetha), cezm edatı mı (sükûn), edat yok mu (damme)?", exHtml: "<span class=\"ar\">لَا تُسْرِعْ بِسَيَّارَتِكَ فِي الطَّرِيقِ. (تُسْرِعُ – تُسْرِعَ – تُسْرِعْ)</span>", items: [
+      { q: "دَخَلَ المُدِيرُ المَصْنَعَ لِـ___ بِالمُهَنْدِسِينَ.", o: ["يَجْتَمِعُ", "يَجْتَمِعَ", "يَجْتَمِعْ"], a: 1, tr: "Müdür mühendislerle toplanmak için fabrikaya girdi.", why: "Amaç bildiren lâm-ı ta'lîl → fetha." },
+      { q: "يُمْكِنُ أَنْ ___ مِنَ السَّيَّارَةِ الآنَ.", o: ["تَنْزِلُ", "تَنْزِلَ", "تَنْزِلْ"], a: 1, tr: "Şimdi arabadan inebilirsin.", why: "أَنْ → fetha." },
+      { q: "لَمْ ___ حَمْزَةُ إِلَى الصَّفِّ أَمْسِ.", o: ["يَحْضُرُ", "يَحْضُرَ", "يَحْضُرْ"], a: 2, tr: "Hamza dün sınıfa gelmedi.", why: "لَمْ → sükûn." },
+      { q: "اقْتَرِبْ مِنِّي حَتَّى ___ مَا أَقُولُ.", o: ["تَسْمَعُ", "تَسْمَعَ", "تَسْمَعْ"], a: 1, tr: "Söylediğimi duyman için bana yaklaş.", why: "حَتَّى → fetha." },
+      { q: "لَنْ ___ مَعَكَ غَدًا.", o: ["أَخْرُجُ", "أَخْرُجَ", "أَخْرُجْ"], a: 1, tr: "Yarın seninle çıkmayacağım.", why: "لَنْ → fetha." },
+      { q: "لَا ___ فِي الغَابَةِ لَيْلًا.", o: ["تَتَجَوَّلُ", "تَتَجَوَّلَ", "تَتَجَوَّلْ"], a: 2, tr: "Gece ormanda dolaşma!", why: "لَا nâhiye → sükûn." },
+      { q: "فَتَحَ التِّلْفَازَ كَيْ ___ الأَخْبَارَ.", o: ["يُشَاهِدُ", "يُشَاهِدَ", "يُشَاهِدْ"], a: 1, tr: "Haberleri izlemek için televizyonu açtı.", why: "كَيْ → fetha." },
+      { q: "نَظَرْتُ إِلَى البَحْرِ لِـ___ مِنْ جَمَالِهِ.", o: ["أَتَمَتَّعُ", "أَتَمَتَّعَ", "أَتَمَتَّعْ"], a: 1, tr: "Güzelliğinin tadını çıkarmak için denize baktım.", why: "Amaç bildiren lâm-ı ta'lîl → fetha." }
+    ]},
+    { type: "combo", num: "٧", ar: "امْلَأِ الفَرَاغَ بِأَدَاةٍ مُنَاسِبَةٍ مِنَ الأَدَوَاتِ النَّاصِبَةِ وَالجَازِمَةِ وَاضْبِطِ الفِعْلَ", tr: "Önce edat kutusuna dokunarak anlama uyan edatı bul, sonra fiilin sonunu seç. Amaç anlamında كَيْ، حَتَّى ve لِـ'nin hepsi doğru sayılır.",
+      exHtml: "<span class=\"ar\">انْتَبِهْ يَا كَرِيمُ، حَتَّى تَفْهَمَ الدَّرْسَ.</span>", items: [
+      CB("أرادت الوالدة ... تشتري عسلا من السوق.", ["أَرَادَتِ الوَالِدَةُ", E7, ["تَشْتَرِي", "تَشْتَرِيَ", "تَشْتَرِ"], "عَسَلًا مِنَ السُّوقِ."], [0, 1], "Anne çarşıdan bal almak istedi.", "أَرَادَتْ أَنْ… → fetha (yâ üzerinde)."),
+      CB("... يذهب العاملان إلى المصنع غدا.", [E7, ["يَذْهَبُ", "يَذْهَبَ", "يَذْهَبْ"], "العَامِلَانِ إِلَى المَصْنَعِ غَدًا."], [[1, 1], [4, 2]], "İki işçi yarın fabrikaya asla gitmeyecek. / …gitsinler.", "Gelecek olumsuz: لَنْ يَذْهَبَ. Emir anlamında لِيَذْهَبِ de olur."),
+      CB("اجتهدت كثيرا ... أنجح في الامتحان.", ["اجْتَهَدْتُ كَثِيرًا", E7, ["أَنْجَحُ", "أَنْجَحَ", "أَنْجَحْ"], "فِي الامْتِحَانِ."], AM([], [1]), "Sınavda başarılı olmak için çok çalıştım.", "Amaç: كَيْ / حَتَّى / لِـ + fetha."),
+      CB("لماذا ... تحفظ هذه الأبيات أمس؟", ["لِمَاذَا", E7, ["تَحْفَظُ", "تَحْفَظَ", "تَحْفَظْ"], "هَذِهِ الأَبْيَاتَ أَمْسِ؟"], [5, 2], "Dün bu beyitleri neden ezberlemedin?", "أَمْسِ geçmiş → لَمْ + sükûn."),
+      CB("... تعمل عملك في وقته دائما.", [E7, ["تَعْمَلُ", "تَعْمَلَ", "تَعْمَلْ"], "عَمَلَكَ فِي وَقْتِهِ دَائِمًا."], [4, 2], "İşini her zaman vaktinde yap!", "Emir: lâm-ı emr + sükûn: لِتَعْمَلْ."),
+      CB("... تتأخر عن النوم في الليل.", [E7, ["تَتَأَخَّرُ", "تَتَأَخَّرَ", "تَتَأَخَّرْ"], "عَنِ النَّوْمِ فِي اللَّيْلِ."], [6, 2], "Gece uyumayı geciktirme!", "Yasak: لَا + sükûn."),
+      CB("فتحت النافذة ... يتجدد الهواء.", ["فَتَحْتُ النَّافِذَةَ", E7, ["يَتَجَدَّدُ", "يَتَجَدَّدَ", "يَتَجَدَّدْ"], "الهَوَاءُ."], AM([], [1]), "Hava tazelensin diye pencereyi açtım.", "Amaç → fetha."),
+      CB("أسرعت ... أدرك القطار.", ["أَسْرَعْتُ", E7, ["أُدْرِكُ", "أُدْرِكَ", "أُدْرِكْ"], "القِطَارَ."], AM([], [1]), "Trene yetişmek için acele ettim.", "Amaç → fetha.")
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 5 · KUR'AN VE OKUMA
+{
+  id: "u5", no: 5, ar: "القُرْآنُ وَالقِرَاءَةُ", tr: "Kur'an'da ve Okumada", short: "Kur'an · okuma", col: "mi", legend: ["mz", "cerr", "mi", "nasb"],
+  goals: ["Âyetlerde cezm edatlarını bulmak", "Sonu illetli fiillerde cezmin harf düşürmekle olduğunu görmek (ileri bilgi)", "Bir metinde nasb ve cezm edatlarını birlikte bulmak"],
+  examples: [
+    { s: "لَمْ:mz / يَلِدْ:cerr / وَلَمْ:mz / يُولَدْ:cerr", tr: "O doğurmamış ve doğurulmamıştır. (İhlâs 3)", why: "Sahih fiil: sükûn." },
+    { s: "يَا:- / مُوسَى:- / لَا:mz / تَخَفْ:cerr", tr: "Ey Mûsâ, korkma! (Neml 10)", why: "تَخَافُ ← لَا تَخَفْ: ortadaki elif düştü." },
+    { s: "وَلَا:mz / يَأْبَ:cerr / كَاتِبٌ:-", tr: "Kâtip (yazmaktan) kaçınmasın. (Bakara 282)", why: "يَأْبَى ← لَا يَأْبَ: sondaki elif düştü." }
+  ],
+  rules: [
+    { tr: "Âyetlerde lâm-ı emr çoğunlukla <span class=\"ar\">وَ / فَ</span>'dan sonra sakin gelir.", ex: ["فَلْيُنْفِقْ", "وَلْيَكْتُبْ", "وَلْيَتَّقِ"] },
+    { tr: "<b>İleri bilgi</b>: sonu illet harfi (<span class=\"ar\">ا، و، ي</span>) olan fiilde cezmin alameti o harfin düşmesidir.", ex: ["يَأْبَى ← لَا يَأْبَ", "يَتَّقِي ← وَلْيَتَّقِ", "تَنْسَى ← لَا تَنْسَ"] },
+    { tr: "Ortası illetli fiilde (<span class=\"ar\">يَكُونُ، يَخَافُ</span>) sükûn gelince ortadaki harf düşer.", ex: ["يَكُونُ ← لَمْ يَكُنْ", "تَخَافُ ← لَا تَخَفْ"] },
+    { tr: "Beş fiilde nun düşer: <span class=\"ar\">لَمْ يَذْهَبُوا</span>. Âyetteki <span class=\"ar\">أَنْ يَكُونُوا</span> ise nasbdır." },
+    { tr: "Tuzaklar: <span class=\"ar\">لَا يُؤْمِنُونَ، لَا يُكَلِّفُ، لَا يَخَافُ</span> lâ-i nâfiyedir; fiil merfû." }
+  ],
+  kaide: ["عَلَامَةُ الجَزْمِ السُّكُونُ فِي الفِعْلِ المُضَارِعِ الصَّحِيحِ الآخِرِ."],
+  ex: [
+    { type: "find", target: "y", num: "٨", ar: "عَيِّنْ أَدَوَاتِ الجَزْمِ لِلْفِعْلِ المُضَارِعِ فِي الآيَاتِ التَّالِيَةِ", tr: "Âyetlerde cezm edatlarına dokun (وَلَمْ، فَلْيُنْفِقْ gibi bitişik yazılanlarda kelimenin tamamına). Tuzaklar: أَنْ nasb edatıdır, لَا يُؤْمِنُونَ'daki لَا etkisizdir.", items: [
+      W("يَا أَيُّهَا الَّذِينَ آمَنُوا [لَا] يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسَى أَنْ يَكُونُوا خَيْرًا مِنْهُمْ", "Ey iman edenler! Bir topluluk diğerini alaya almasın; belki onlar kendilerinden daha hayırlıdır. (Hucurât 11)", "لَا nâhiye → يَسْخَرْ. أَنْ يَكُونُوا nasbdır (nun düştü)."),
+      W("وَإِذْ بَوَّأْنَا لِإِبْرَاهِيمَ مَكَانَ الْبَيْتِ أَنْ [لَا] تُشْرِكْ بِي شَيْئًا", "Hani İbrahim'e Beyt'in yerini hazırlamış ve 'Bana hiçbir şeyi ortak koşma' demiştik. (Hac 26)", "لَا nâhiye → تُشْرِكْ. Buradaki أَنْ \"yani\" anlamındadır, fiili etkilemez."),
+      W("وَلَّى مُدْبِرًا [وَلَمْ] يُعَقِّبْ يَا مُوسَى [لَا] تَخَفْ إِنِّي لَا يَخَافُ لَدَيَّ الْمُرْسَلُونَ", "Arkasına bakmadan döndü kaçtı. 'Ey Mûsâ, korkma! Benim huzurumda peygamberler korkmaz.' (Neml 10)", "لَمْ يُعَقِّبْ, لَا تَخَفْ (elif düştü). لَا يَخَافُ nâfiyedir."),
+      W("[لِيُنْفِقْ] ذُو سَعَةٍ مِنْ سَعَتِهِ وَمَنْ قُدِرَ عَلَيْهِ رِزْقُهُ [فَلْيُنْفِقْ] مِمَّا آتَاهُ اللَّهُ لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا مَا آتَاهَا", "Varlıklı olan, varlığına göre harcasın; rızkı daraltılmış olan da Allah'ın kendisine verdiğinden harcasın. Allah kimseye verdiğinden fazlasını yüklemez. (Talâk 7)", "İki lâm-ı emr. لَا يُكَلِّفُ nâfiyedir."),
+      W("فَاكْتُبُوهُ [وَلْيَكْتُبْ] بَيْنَكُمْ كَاتِبٌ بِالْعَدْلِ [وَلَا] يَأْبَ كَاتِبٌ أَنْ يَكْتُبَ كَمَا عَلَّمَهُ اللَّهُ [فَلْيَكْتُبْ] [وَلْيُمْلِلِ] الَّذِي عَلَيْهِ الْحَقُّ [وَلْيَتَّقِ] اللَّهَ رَبَّهُ [وَلَا] يَبْخَسْ مِنْهُ شَيْئًا", "…onu yazın. Aranızda bir kâtip adaletle yazsın; kâtip, Allah'ın kendisine öğrettiği gibi yazmaktan kaçınmasın, yazsın. Borçlu olan da yazdırsın, Rabbi Allah'tan korksun ve ondan hiçbir şey eksiltmesin. (Bakara 282)", "Dört lâm-ı emr, iki lâ-i nâhiye. أَنْ يَكْتُبَ nasbdır."),
+      W("[لَمْ] يَلِدْ [وَلَمْ] يُولَدْ [وَلَمْ] يَكُنْ لَهُ كُفُوًا أَحَدٌ", "O doğurmamış ve doğurulmamıştır. Hiçbir şey O'na denk değildir. (İhlâs 3-4)", "Üç لَمْ. يَكُنْ: ortadaki و düştü."),
+      W("إِنَّ الَّذِينَ كَفَرُوا سَوَاءٌ عَلَيْهِمْ أَأَنْذَرْتَهُمْ أَمْ [لَمْ] تُنْذِرْهُمْ لَا يُؤْمِنُونَ", "İnkâr edenleri uyarsan da uyarmasan da onlar için birdir; iman etmezler. (Bakara 6)", "لَمْ تُنْذِرْهُمْ. لَا يُؤْمِنُونَ nâfiyedir: nun duruyor."),
+      W("فَمَنْ تَصَدَّقَ بِهِ فَهُوَ كَفَّارَةٌ لَهُ وَمَنْ [لَمْ] يَحْكُمْ بِمَا أَنْزَلَ اللَّهُ فَأُولَئِكَ هُمُ الظَّالِمُونَ", "Kim hakkını bağışlarsa bu ona kefaret olur. Kim Allah'ın indirdiğiyle hükmetmezse, işte onlar zalimlerin ta kendileridir. (Mâide 45)", "لَمْ يَحْكُمْ.")
+    ]},
+    { type: "classify", num: "+", extra: true, opts: DUS_OPTS, ar: "كَيْفَ جُزِمَ الفِعْلُ؟", tr: "İleri bilgi (ek alıştırma): bu meczûm fiilde cezm nasıl görünüyor? Sükûn mu, harf düşmesi mi, nun düşmesi mi?", items: [
+      { s: "لَا <b class=\"hl\">يَسْخَرْ</b> قَوْمٌ", a: "sukun", why: "يَسْخَرُ → sükûn." },
+      { s: "لَا <b class=\"hl\">تَخَفْ</b>", a: "orta", why: "تَخَافُ → ortadaki elif düştü." },
+      { s: "وَلَا <b class=\"hl\">يَأْبَ</b> كَاتِبٌ", a: "son", why: "يَأْبَى → sondaki elif düştü." },
+      { s: "وَلْ<b class=\"hl\">يَتَّقِ</b> اللَّهَ", a: "son", why: "يَتَّقِي → sondaki yâ düştü." },
+      { s: "وَلَمْ <b class=\"hl\">يَكُنْ</b> لَهُ كُفُوًا أَحَدٌ", a: "orta", why: "يَكُونُ → ortadaki vav düştü." },
+      { s: "لِ<b class=\"hl\">يُنْفِقْ</b> ذُو سَعَةٍ", a: "sukun", why: "يُنْفِقُ → sükûn." },
+      { s: "وَلَا <b class=\"hl\">تَنْسَ</b> أَنْ تَحْفَظَ", a: "son", why: "تَنْسَى → sondaki elif düştü." },
+      { s: "لَمْ <b class=\"hl\">يَذْهَبُوا</b>", a: "nun", why: "يَذْهَبُونَ → nun düştü." },
+      { s: "لَمْ <b class=\"hl\">يَلِدْ</b>", a: "sukun", why: "يَلِدُ → sükûn." }
+    ]},
+    { type: "reading", num: "٩", ar: "اقْرَإِ القِطْعَةَ التَّالِيَةَ وَعَيِّنْ أَدَوَاتِ النَّصْبِ وَالجَزْمِ", tr: "Parçayı oku, sorulara bak, sonra fiilleri sınıflandır.", title: "مَحْمُودٌ وَاللُّغَةُ العَرَبِيَّةُ",
+      text: "يُرِيدُ مَحْمُودٌ أَنْ يَتَعَلَّمَ اللُّغَةَ العَرَبِيَّةَ جَيِّدًا حَتَّى يَفْهَمَ القُرْآنَ. وَسَأَلَ المُدَرِّسَ قَائِلًا: «مَاذَا يَجِبُ عَلَيَّ أَنْ أَفْعَلَ كَيْ أَتَحَدَّثَ العَرَبِيَّةَ جَيِّدًا وَأَفْهَمَ مَا أَقْرَأُ مِنَ القُرْآنِ وَالحَدِيثِ؟». أَجَابَ المُدَرِّسُ مُبْتَسِمًا: «عَلَيْكَ أَوَّلًا أَنْ تَسْتَمِعَ وَتُشَاهِدَ البَرَامِجَ العَرَبِيَّةَ، ثُمَّ لِتَتَحَدَّثْ بِالعَرَبِيَّةِ كَثِيرًا، وَلَا تَنْسَ أَيْضًا أَنْ تَحْفَظَ قَدْرًا كَافِيًا مِنَ الآيَاتِ القُرْآنِيَّةِ وَالأَحَادِيثِ النَّبَوِيَّةِ».",
+      textTr: "Mahmud, Kur'an'ı anlamak için Arapçayı iyi öğrenmek istiyor. Öğretmene sordu: \"Arapçayı iyi konuşmak ve Kur'an'dan ve hadisten okuduğumu anlamak için ne yapmam gerekir?\" Öğretmen gülümseyerek cevap verdi: \"Önce Arapça programları dinlemeli ve izlemelisin; sonra bol bol Arapça konuş. Yeterli miktarda âyet ve hadis ezberlemeyi de unutma.\"",
+      qa: [
+        { q: "مَاذَا يُرِيدُ مَحْمُودٌ؟", a: "يُرِيدُ أَنْ يَتَعَلَّمَ اللُّغَةَ العَرَبِيَّةَ جَيِّدًا.", tr: "Mahmud ne istiyor? Arapçayı iyi öğrenmek." },
+        { q: "لِمَاذَا يُرِيدُ أَنْ يَتَعَلَّمَ العَرَبِيَّةَ؟", a: "حَتَّى يَفْهَمَ القُرْآنَ.", tr: "Neden Arapça öğrenmek istiyor? Kur'an'ı anlamak için." },
+        { q: "بِمَاذَا نَصَحَهُ المُدَرِّسُ؟", a: "أَنْ يَسْتَمِعَ وَيُشَاهِدَ البَرَامِجَ العَرَبِيَّةَ، وَأَنْ يَتَحَدَّثَ كَثِيرًا، وَأَنْ يَحْفَظَ الآيَاتِ وَالأَحَادِيثَ.", tr: "Öğretmen ona ne tavsiye etti? Dinlemesini, izlemesini, çok konuşmasını, âyet ve hadis ezberlemesini." }
+      ],
+      cls: { opts: NM_OPTS, ar: "صَنِّفِ الأَفْعَالَ المُضَارِعَةَ", tr: "Parçadaki altı çizili fiil merfû mu, mansûb mu, meczûm mu?", items: [
+        { s: "يُرِيدُ مَحْمُودٌ أَنْ <b class=\"hl\">يَتَعَلَّمَ</b> اللُّغَةَ", a: "nasb", why: "أَنْ → mansûb." },
+        { s: "حَتَّى <b class=\"hl\">يَفْهَمَ</b> القُرْآنَ", a: "nasb", why: "حَتَّى → mansûb." },
+        { s: "مَاذَا <b class=\"hl\">يَجِبُ</b> عَلَيَّ", a: "ref", why: "Edat yok → merfû." },
+        { s: "كَيْ <b class=\"hl\">أَتَحَدَّثَ</b> العَرَبِيَّةَ", a: "nasb", why: "كَيْ → mansûb." },
+        { s: "وَأَفْهَمَ مَا <b class=\"hl\">أَقْرَأُ</b>", a: "ref", why: "Edat yok → merfû." },
+        { s: "أَنْ <b class=\"hl\">تَسْتَمِعَ</b> وَتُشَاهِدَ", a: "nasb", why: "أَنْ → mansûb." },
+        { s: "ثُمَّ <b class=\"hl\">لِتَتَحَدَّثْ</b> بِالعَرَبِيَّةِ", a: "cezm", why: "Lâm-ı emr → meczûm." },
+        { s: "وَلَا <b class=\"hl\">تَنْسَ</b> أَيْضًا", a: "cezm", why: "Lâ-i nâhiye → meczûm; sondaki elif düştü (تَنْسَى)." },
+        { s: "أَنْ <b class=\"hl\">تَحْفَظَ</b> قَدْرًا كَافِيًا", a: "nasb", why: "أَنْ → mansûb." }
+      ]}
+    },
+    { type: "find", target: "y", num: "٩ (ب)", ar: "عَيِّنْ أَدَوَاتِ النَّصْبِ وَالجَزْمِ", tr: "Parçadan alınan cümlelerde nasb ve cezm edatlarının hepsine dokun.", items: [
+      W("يُرِيدُ مَحْمُودٌ [أَنْ] يَتَعَلَّمَ اللُّغَةَ العَرَبِيَّةَ جَيِّدًا [حَتَّى] يَفْهَمَ القُرْآنَ.", "Mahmud Kur'an'ı anlamak için Arapçayı iyi öğrenmek istiyor.", "أَنْ ve حَتَّى: nasb."),
+      W("مَاذَا يَجِبُ عَلَيَّ [أَنْ] أَفْعَلَ [كَيْ] أَتَحَدَّثَ العَرَبِيَّةَ جَيِّدًا؟", "Arapçayı iyi konuşmak için ne yapmam gerekir?", "أَنْ ve كَيْ: nasb."),
+      W("عَلَيْكَ أَوَّلًا [أَنْ] تَسْتَمِعَ وَتُشَاهِدَ البَرَامِجَ العَرَبِيَّةَ", "Önce Arapça programları dinlemeli ve izlemelisin.", "أَنْ: nasb; وَتُشَاهِدَ atıfla mansûb."),
+      W("ثُمَّ [لِتَتَحَدَّثْ] بِالعَرَبِيَّةِ كَثِيرًا، [وَلَا] تَنْسَ أَيْضًا [أَنْ] تَحْفَظَ قَدْرًا كَافِيًا", "Sonra bol bol Arapça konuş; yeterli miktarda ezberlemeyi de unutma.", "لِـ (emr) ve لَا (nâhiye): cezm; أَنْ: nasb.")
+    ]}
+  ]
+}
+];
+
+// İ'rab makinesi: [merfû, mansûb, meczûm, Türkçe: yalın, أَنْ, لَنْ, كَيْ, لَمْ, لَا, لِـ]
+var MAKINE = [
+  ["يَكْتُبُ", "يَكْتُبَ", "يَكْتُبْ", ["yazar", "yazması", "asla yazmayacak", "yazması için", "yazmadı", "yazmasın", "yazsın"]],
+  ["تَأْكُلُ", "تَأْكُلَ", "تَأْكُلْ", ["yersin", "yemen", "asla yemeyeceksin", "yemen için", "yemedin", "yeme!", "ye (yemelisin)"]],
+  ["يَسْتَيْقِظُ", "يَسْتَيْقِظَ", "يَسْتَيْقِظْ", ["uyanır", "uyanması", "asla uyanmayacak", "uyanması için", "uyanmadı", "uyanmasın", "uyansın"]],
+  ["تَجْلِسُ", "تَجْلِسَ", "تَجْلِسْ", ["oturursun", "oturman", "asla oturmayacaksın", "oturman için", "oturmadın", "oturma!", "otur (oturmalısın)"]],
+  ["يَذْهَبُ", "يَذْهَبَ", "يَذْهَبْ", ["gider", "gitmesi", "asla gitmeyecek", "gitmesi için", "gitmedi", "gitmesin", "gitsin"]],
+  ["تَنْسَى", "تَنْسَى", "تَنْسَ", ["unutursun", "unutman", "asla unutmayacaksın", "unutman için", "unutmadın", "unutma!", "unut"]],
+  ["يَكُونُ", "يَكُونَ", "يَكُنْ", ["olur", "olması", "asla olmayacak", "olması için", "olmadı", "olmasın", "olsun"]],
+  ["يَكْتُبُونَ", "يَكْتُبُوا", "يَكْتُبُوا", ["yazarlar", "yazmaları", "asla yazmayacaklar", "yazmaları için", "yazmadılar", "yazmasınlar", "yazsınlar"]]
+];
+var MAKINE_E = [["", "edat yok", ""], ["أَنْ", "أَنْ", "n"], ["لَنْ", "لَنْ", "n"], ["كَيْ", "كَيْ", "n"], ["لَمْ", "لَمْ", "c"], ["لَا", "لَا", "c"], ["لِ", "لِـ (emir)", "c"]];
+
+// Oyun havuzu: [cümle {fiil}, seçenekler (ilki doğru), hal, açıklama, Türkçe, konu]
+var CZ_POOL = [
+  ["لَمْ {يَكْتُبْ} الدَّرْسَ.", ["يَكْتُبْ", "يَكْتُبُ", "يَكْتُبَ"], "cezm", "لَمْ → sükûn", "Dersi yazmadı.", "u1"],
+  ["لَمْ {يَسْتَيْقِظْ} عَلِيٌّ.", ["يَسْتَيْقِظْ", "يَسْتَيْقِظُ", "يَسْتَيْقِظَ"], "cezm", "لَمْ → sükûn", "Ali uyanmadı.", "u1"],
+  ["لَا {تَأْكُلْ} كَثِيرًا.", ["تَأْكُلْ", "تَأْكُلُ", "تَأْكُلَ"], "cezm", "lâ-i nâhiye → sükûn", "Çok yeme!", "u1"],
+  ["لَا {تَجْلِسْ} عَلَى الأَرْضِ.", ["تَجْلِسْ", "تَجْلِسُ", "تَجْلِسَ"], "cezm", "lâ-i nâhiye → sükûn", "Yere oturma!", "u1"],
+  ["لِـ{يَذْهَبْ} مُصْطَفَى إِلَى المَدْرَسَةِ.", ["يَذْهَبْ", "يَذْهَبُ", "يَذْهَبَ"], "cezm", "lâm-ı emr → sükûn", "Mustafa okula gitsin.", "u1"],
+  ["لِـ{يَرْجِعْ} عَلِيٌّ إِلَى البَيْتِ.", ["يَرْجِعْ", "يَرْجِعُ", "يَرْجِعَ"], "cezm", "lâm-ı emr → sükûn", "Ali eve dönsün.", "u1"],
+  ["لَا {يَدْخُلُ} الكَافِرُ الجَنَّةَ.", ["يَدْخُلُ", "يَدْخُلْ", "يَدْخُلَ"], "ref", "lâ-i nâfiye: etkisiz → damme", "Kâfir cennete girmez.", "u1"],
+  ["{يَكْتُبُ} خَلِيلٌ دَرْسَهُ.", ["يَكْتُبُ", "يَكْتُبْ", "يَكْتُبَ"], "ref", "edat yok → damme", "Halil dersini yazar.", "u1"],
+  ["لَمْ {يَتَنَاوَلْ} أَحْمَدُ الفَطُورَ.", ["يَتَنَاوَلْ", "يَتَنَاوَلَ", "يَتَنَاوَلُ"], "cezm", "لَمْ → sükûn", "Ahmed kahvaltı yapmadı.", "u2"],
+  ["لَنْ {يَتَنَاوَلَ} أَحْمَدُ الفَطُورَ.", ["يَتَنَاوَلَ", "يَتَنَاوَلْ", "يَتَنَاوَلُ"], "nasb", "لَنْ → fetha", "Ahmed asla kahvaltı yapmayacak.", "u2"],
+  ["لَمْ {تَغْسِلْ} خَدِيجَةُ وَجْهَهَا.", ["تَغْسِلْ", "تَغْسِلَ", "تَغْسِلُ"], "cezm", "لَمْ → sükûn", "Hatice yüzünü yıkamadı.", "u2"],
+  ["لَنْ {يَرْكَبَ} الرَّجُلُ سَيَّارَتَهُ.", ["يَرْكَبَ", "يَرْكَبْ", "يَرْكَبُ"], "nasb", "لَنْ → fetha", "Adam arabasına asla binmeyecek.", "u2"],
+  ["لَمْ {يَرْجِعْ} العَامِلُ إِلَى بَيْتِهِ.", ["يَرْجِعْ", "يَرْجِعَ", "يَرْجِعُ"], "cezm", "لَمْ → sükûn", "İşçi evine dönmedi.", "u2"],
+  ["لَنْ {يَقْرَأَ} خَالِدٌ فِي غُرْفَةِ الجُلُوسِ.", ["يَقْرَأَ", "يَقْرَأْ", "يَقْرَأُ"], "nasb", "لَنْ → fetha", "Hâlid oturma odasında asla okumayacak.", "u2"],
+  ["لَا {تَحْضُرْ} إِلَى البَيْتِ مُتَأَخِّرًا.", ["تَحْضُرْ", "تَحْضُرُ", "أَحْضُرْ"], "cezm", "lâ-i nâhiye + 2. şahıs", "Eve geç gelme!", "u3"],
+  ["لَا {تُسَافِرْ} إِلَى دِمَشْقَ.", ["تُسَافِرْ", "سَتُسَافِرُ", "تُسَافِرَ"], "cezm", "lâ-i nâhiye; سَـ düşer", "Şam'a gitme!", "u3"],
+  ["{لِتَجْتَهِدْ} كَثِيرًا.", ["لِتَجْتَهِدْ", "لِتَجْتَهِدَ", "لِتَجْتَهِدُ"], "cezm", "emir anlamı: lâm-ı emr → sükûn", "Çok çalış!", "u3"],
+  ["سَافَرَ مُحَمَّدٌ {لِيَعْمَلَ} فِي شَرِكَةٍ.", ["لِيَعْمَلَ", "لِيَعْمَلْ", "لِيَعْمَلُ"], "nasb", "amaç: lâm-ı ta'lîl → fetha", "Muhammed çalışmak için yolculuk etti.", "u3"],
+  ["{لِتُكَلِّمْ} زَيْنَبَ.", ["لِتُكَلِّمْ", "لِتُكَلِّمَ", "لِتُكَلِّمُ"], "cezm", "lâm-ı emr → sükûn", "Zeyneb'le konuş!", "u3"],
+  ["لَمْ {يُحَاوِلْ} أَنْ يُقَدِّمَ المَشْرُوعَ.", ["يُحَاوِلْ", "يُحَاوِلَ", "يُحَاوِلُ"], "cezm", "لَمْ → sükûn", "Projeyi sunmaya çalışmadı.", "u3"],
+  ["لَمْ يُحَاوِلْ أَنْ {يُقَدِّمَ} المَشْرُوعَ.", ["يُقَدِّمَ", "يُقَدِّمْ", "يُقَدِّمُ"], "nasb", "أَنْ → fetha", "Projeyi sunmaya çalışmadı.", "u3"],
+  ["يُمْكِنُ أَنْ {تَنْزِلَ} مِنَ السَّيَّارَةِ.", ["تَنْزِلَ", "تَنْزِلْ", "تَنْزِلُ"], "nasb", "أَنْ → fetha", "Arabadan inebilirsin.", "u4"],
+  ["لَمْ {يَحْضُرْ} حَمْزَةُ إِلَى الصَّفِّ.", ["يَحْضُرْ", "يَحْضُرَ", "يَحْضُرُ"], "cezm", "لَمْ → sükûn", "Hamza sınıfa gelmedi.", "u4"],
+  ["اقْتَرِبْ مِنِّي حَتَّى {تَسْمَعَ} مَا أَقُولُ.", ["تَسْمَعَ", "تَسْمَعْ", "تَسْمَعُ"], "nasb", "حَتَّى → fetha", "Duyman için yaklaş.", "u4"],
+  ["اقْتَرِبْ مِنِّي حَتَّى تَسْمَعَ مَا {أَقُولُ}.", ["أَقُولُ", "أَقُولَ", "أَقُلْ"], "ref", "edat yok → damme", "Söylediğimi duyman için yaklaş.", "u4"],
+  ["لَا {تَتَجَوَّلْ} فِي الغَابَةِ لَيْلًا.", ["تَتَجَوَّلْ", "تَتَجَوَّلَ", "تَتَجَوَّلُ"], "cezm", "lâ-i nâhiye → sükûn", "Gece ormanda dolaşma!", "u4"],
+  ["فَتَحَ التِّلْفَازَ كَيْ {يُشَاهِدَ} الأَخْبَارَ.", ["يُشَاهِدَ", "يُشَاهِدْ", "يُشَاهِدُ"], "nasb", "كَيْ → fetha", "Haberleri izlemek için televizyonu açtı.", "u4"],
+  ["لِمَاذَا لَمْ {تَحْفَظْ} هَذِهِ الأَبْيَاتَ أَمْسِ؟", ["تَحْفَظْ", "تَحْفَظَ", "تَحْفَظُ"], "cezm", "لَمْ → sükûn", "Dün bu beyitleri neden ezberlemedin?", "u4"],
+  ["لَمْ {يَلِدْ} وَلَمْ يُولَدْ", ["يَلِدْ", "يَلِدَ", "يَلِدُ"], "cezm", "لَمْ → sükûn", "O doğurmamıştır ve doğurulmamıştır.", "u5"],
+  ["وَلَمْ {يَكُنْ} لَهُ كُفُوًا أَحَدٌ", ["يَكُنْ", "يَكُونْ", "يَكُونُ"], "cezm", "لَمْ → sükûn; ortadaki و düşer", "Hiçbir şey O'na denk değildir.", "u5"],
+  ["يَا مُوسَى لَا {تَخَفْ}", ["تَخَفْ", "تَخَافْ", "تَخَافُ"], "cezm", "lâ-i nâhiye; ortadaki elif düşer", "Ey Mûsâ, korkma!", "u5"],
+  ["لَا {يُؤْمِنُونَ}", ["يُؤْمِنُونَ", "يُؤْمِنُوا", "يُؤْمِنْ"], "ref", "lâ-i nâfiye: nun durur", "İman etmezler.", "u5"],
+  ["وَلَا {تَنْسَ} أَنْ تَحْفَظَ", ["تَنْسَ", "تَنْسَى", "تَنْسَيْ"], "cezm", "lâ-i nâhiye; sondaki elif düşer", "Ezberlemeyi unutma!", "u5"],
+  ["أُرِيدُ أَنْ {أُسَافِرَ} إِلَى اليَمَنِ.", ["أُسَافِرَ", "أُسَافِرْ", "أُسَافِرُ"], "nasb", "أَنْ → fetha", "Yemen'e gitmek istiyorum.", "u1"]
+];
+// Edat dedektifi: [ifade (fiil harekesiz), Türkçe anlam, grup: nasb / cezm / ref]
+var EDAT_POOL = [
+  ["لَمْ يَذْهَب", "gitmedi", "cezm"], ["لَنْ يَذْهَب", "asla gitmeyecek", "nasb"], ["لِيَذْهَب", "gitsin (emir)", "cezm"], ["لِيَذْهَب", "gitmesi için (amaç)", "nasb"],
+  ["لَا تَذْهَب", "gitme!", "cezm"], ["لَا يَذْهَب", "gitmez (haber)", "ref"], ["أَنْ يَذْهَب", "gitmesi", "nasb"], ["كَيْ يَذْهَب", "gitmesi için", "nasb"],
+  ["حَتَّى يَذْهَب", "gitsin diye", "nasb"], ["يَذْهَب", "gider", "ref"], ["لَمْ تَكْتُب", "yazmadın", "cezm"], ["لَا تَكْتُب", "yazma!", "cezm"],
+  ["لَا يَكْتُب", "yazmaz", "ref"], ["لِتَكْتُب", "yaz (emir)", "cezm"], ["لِتَكْتُب", "yazman için", "nasb"], ["لِكَيْ تَكْتُب", "yazman için", "nasb"]
+];
+// لَمْ mi لَنْ mi: [Türkçe cümle, doğru: lam / lan, Arapça örnek]
+var LEM_POOL = [
+  ["Dün okula gitmedim.", "lam", "لَمْ أَذْهَبْ"], ["Yarın okula gitmeyeceğim.", "lan", "لَنْ أَذْهَبَ"], ["Ali kahvaltı yapmadı.", "lam", "لَمْ يَتَنَاوَلْ"], ["Bir daha asla yalan söylemeyeceğim.", "lan", "لَنْ أَكْذِبَ"],
+  ["Hamza dün derse gelmedi.", "lam", "لَمْ يَحْضُرْ"], ["Gelecek ay seyahat etmeyecekler.", "lan", "لَنْ يُسَافِرُوا"], ["Geçen hafta mektup yazmadım.", "lam", "لَمْ أَكْتُبْ"], ["Bundan sonra derse geç kalmayacağım.", "lan", "لَنْ أَتَأَخَّرَ"],
+  ["Ahmed saat yedide uyanmadı.", "lam", "لَمْ يَسْتَيْقِظْ"], ["Fâtıma gelecek yıl umre yapmayacak.", "lan", "لَنْ تَعْتَمِرَ"], ["O doğurmadı ve doğurulmadı.", "lam", "لَمْ يَلِدْ وَلَمْ يُولَدْ"], ["Allah'ın yazdığından başkası bize isabet etmeyecek.", "lan", "لَنْ يُصِيبَنَا"],
+  ["Rukıyye eve varmadı.", "lam", "لَمْ تَصِلْ"], ["Yarın seninle çıkmayacağım.", "lan", "لَنْ أَخْرُجَ"]
+];
+var HAFIZA = {
+  anlam: { name: "Edat ↔ anlam", pairs: [["لَمْ", "-medi (geçmiş olumsuz)"], ["لَنْ", "asla -meyecek"], ["لَا (nâhiye)", "-me! (yasak)"], ["لِـ (emr)", "-sın (emir)"], ["أَنْ", "-mek / -mesi"], ["كَيْ", "-mek için"], ["حَتَّى", "-sın diye"], ["لَا (nâfiye)", "-mez (etkisiz)"]] },
+  cezm: { name: "Merfû ↔ meczûm", pairs: [["يَكْتُبُ", "لَمْ يَكْتُبْ"], ["تَأْكُلُ", "لَا تَأْكُلْ"], ["يَذْهَبُ", "لِيَذْهَبْ"], ["تَخَافُ", "لَا تَخَفْ"], ["يَكُونُ", "لَمْ يَكُنْ"], ["تَنْسَى", "لَا تَنْسَ"], ["يَذْهَبُونَ", "لَمْ يَذْهَبُوا"], ["يَرْجِعُ", "لِيَرْجِعْ"]] }
+};
+var KARTLAR = [
+  ["Cezm edatları hangileri?", "لَمْ، لَا (nâhiye), لِـ (lâm-ı emr)"],
+  ["Cezmin alameti (sahih fiilde)?", "Sükûn: يَكْتُبُ ← لَمْ يَكْتُبْ"],
+  ["Muzârinin üç hali?", "Merfû يَكْتُبُ · mansûb لَنْ يَكْتُبَ · meczûm لَمْ يَكْتُبْ"],
+  ["لَمْ hangi anlamı verir?", "Geçmiş olumsuz: لَمْ يَكْتُبْ (yazmadı)"],
+  ["لَمْ ile لَنْ farkı?", "لَمْ geçmiş + sükûn; لَنْ gelecek + fetha"],
+  ["لَا nâhiye ne demek?", "Yasak: لَا تَأْكُلْ كَثِيرًا (çok yeme!)"],
+  ["لَا nâfiye fiili etkiler mi?", "Hayır: لَا يَدْخُلُ الكَافِرُ الجَنَّةَ (girmez) — merfû"],
+  ["Lâm-ı emr ne demek?", "Emir: لِيَذْهَبْ مُصْطَفَى (Mustafa gitsin)"],
+  ["İki لِـ'yi nasıl ayırırım?", "Emir + sükûn: لِيَذْهَبْ (gitsin). Amaç + fetha: لِيَذْهَبَ (gitmesi için)"],
+  ["فَلْيُنْفِقْ'teki lâm neden sakin?", "وَ / فَ'dan sonra lâm-ı emr sakin okunur."],
+  ["Sükûnlu fiilden sonra ال gelirse?", "Okunuşta kesre olur: لَمْ يَحْضُرِ الطَّالِبُ"],
+  ["تَنْسَى meczûm olunca?", "Sondaki elif düşer: لَا تَنْسَ"],
+  ["يَكُونُ meczûm olunca?", "Ortadaki vav düşer: لَمْ يَكُنْ"],
+  ["يَذْهَبُونَ meczûm olunca?", "Nun düşer: لَمْ يَذْهَبُوا"]
+];
+
+</script>
+<script>
+(function () {
+"use strict";
+// ---------- yardımcılar ----------
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function plain(h) { return String(h).replace(/<[^>]+>/g, ""); }
+function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+function chunks(str) { return str.split(" / ").map(function (p) { var i = p.lastIndexOf(":"); return { t: p.slice(0, i), r: p.slice(i + 1) }; }); }
+function sentHtml(str) {
+  return '<div class="sent">' + chunks(str).map(function (c) {
+    if (c.r === "-") return '<span class="plain">' + c.t + '</span>';
+    var rr = c.r.split("."), lb = ROLES[rr[0]] ? ROLES[rr[0]].tr + (rr[1] ? " · " + rr[1] : "") : "&nbsp;";
+    return '<span class="chunk r-' + rr[0] + '"><span class="w">' + c.t + '</span><span class="t">' + lb + '</span></span>';
+  }).join("") + '</div>';
+}
+function legendHtml(roles) { return '<div class="legend">' + roles.map(function (r) { return '<span class="r-' + r + '"><i></i>' + ROLES[r].tr + ' <span class="ar" style="color:var(--muted)">' + ROLES[r].ar + '</span></span>'; }).join("") + '</div>'; }
+var store = {
+  get: function (k, d) { try { var v = localStorage.getItem("cezm:" + k); return v === null ? d : JSON.parse(v); } catch (x) { return d; } },
+  set: function (k, v) { try { localStorage.setItem("cezm:" + k, JSON.stringify(v)); } catch (x) {} }
+};
+function icon(kind, cls, n) {
+  var one = {
+    person: '<circle cx="12" cy="7" r="5" class="' + cls + '"/><path d="M3 24 Q3 13 12 13 Q21 13 21 24 Z" class="' + cls + '"/>',
+    camel: '<path d="M2 20 L2 14 Q2 11 5 11 L8 11 Q9 6 12 9 Q14 5 17 9 L19 9 Q20 5 22 6 L22 9 L20 11 L20 20 L18 20 L18 14 L6 14 L6 20 Z" class="' + cls + '"/>',
+    leaf: '<path d="M4 20 Q4 4 21 3 Q20 20 4 20 Z" class="' + cls + '"/><path d="M4 20 L15 9" stroke="var(--card)" stroke-width="1.5" fill="none"/>',
+    pin: '<path d="M12 2 Q20 2 20 10 Q20 15 12 23 Q4 15 4 10 Q4 2 12 2 Z" class="' + cls + '"/><circle cx="12" cy="10" r="3" fill="var(--card)"/>',
+    clock: '<circle cx="12" cy="12" r="10" class="' + cls + '"/><path d="M12 6 L12 12 L16 14" stroke="var(--card)" stroke-width="2" fill="none" stroke-linecap="round"/>',
+    pen: '<path d="M4 20 L5 15 L16 4 L20 8 L9 19 Z" class="' + cls + '"/><path d="M14 6 L18 10" stroke="var(--card)" stroke-width="1.5"/>'
+  }[kind];
+  var s = ""; for (var i = 0; i < (n || 1); i++) s += '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + one + '</svg>';
+  return '<span class="icons">' + s + '</span>';
+}
+
+// ---------- rütbe, ses, konfeti ----------
+var LEVELS = [[0, "Mübtedî", "yeni başlayan"], [100, "Talebe", "öğrenci"], [300, "Kâtip", "yazan"], [600, "Edîb", "dil ustası"], [1000, "Nahvî", "dil bilgini"], [1600, "Allâme", "çok bilen"]];
+function getXP() { return store.get("xp", 0); }
+function levelOf(x) { var i = 0; for (var k = 0; k < LEVELS.length; k++) if (x >= LEVELS[k][0]) i = k; return i; }
+function renderXP() {
+  var box = document.getElementById("xpbox"), x = getXP(), i = levelOf(x), cur = LEVELS[i], nx = LEVELS[i + 1];
+  var pct = nx ? (x - cur[0]) / (nx[0] - cur[0]) * 100 : 100;
+  box.innerHTML = '<div class="row"><span class="lbl">Rütben</span><span class="tabular muted">' + x + ' puan</span></div><div class="row"><b class="rank">' + cur[1] + '</b><span class="muted">' + (nx ? "sonra: " + nx[1] : "en yüksek rütbe") + '</span></div><div class="xpbar"><div style="width:' + pct + '%"></div></div>';
+}
+var toastT;
+function toast(m) { var t = document.getElementById("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("show"); }, 2000); }
+function addXP(n, quiet) {
+  n = Math.max(0, Math.round(n)); if (!n) return;
+  var b = levelOf(getXP()), v = getXP() + n; store.set("xp", v); renderXP();
+  var a = levelOf(v);
+  if (a > b) { toast("Yeni rütbe: " + LEVELS[a][1] + " (" + LEVELS[a][2] + ")"); confetti(); beep("win"); }
+  else if (!quiet) toast("+" + n + " puan");
+}
+var SND = { on: store.get("snd", true), ctx: null };
+function beep(type) {
+  if (!SND.on) return;
+  try {
+    SND.ctx = SND.ctx || new (window.AudioContext || window.webkitAudioContext)();
+    var c = SND.ctx, notes = type === "ok" ? [660, 880] : type === "win" ? [523, 659, 784, 1046] : type === "tick" ? [1200] : [220, 160];
+    notes.forEach(function (f, i) {
+      var o = c.createOscillator(), g = c.createGain(); o.type = type === "no" ? "sawtooth" : "triangle"; o.frequency.value = f;
+      var t = c.currentTime + i * 0.09, vol = type === "tick" ? 0.04 : 0.12;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.17);
+      o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + 0.2);
+    });
+  } catch (x) {}
+}
+function confetti() {
+  try { if (matchMedia("(prefers-reduced-motion: reduce)").matches) return; } catch (x) {}
+  var cv = document.createElement("canvas"); cv.className = "confetti"; document.body.appendChild(cv);
+  var W = cv.width = innerWidth, H = cv.height = innerHeight, ctx = cv.getContext("2d"), cs = getComputedStyle(document.documentElement);
+  var cols = ["--mz", "--cerr", "--ref", "--nasb", "--mi", "--mus"].map(function (v) { return cs.getPropertyValue(v).trim() || "#888"; }), ps = [];
+  for (var i = 0; i < 150; i++) ps.push({ x: W / 2 + (Math.random() - .5) * W * .5, y: H * .4, vx: (Math.random() - .5) * 12, vy: -Math.random() * 11 - 4, r: Math.random() * 7 + 4, c: cols[i % 6], a: Math.random() * 6 });
+  var t0 = performance.now();
+  (function step(t) { ctx.clearRect(0, 0, W, H); ps.forEach(function (p) { p.vy += .33; p.x += p.vx; p.y += p.vy; p.a += .2; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.fillStyle = p.c; ctx.fillRect(-p.r / 2, -p.r / 4, p.r, p.r / 2); ctx.restore(); }); if (t - t0 < 2000) requestAnimationFrame(step); else cv.remove(); })(t0);
+}
+function starsHtml(n) { var s = ""; for (var i = 1; i <= 3; i++) s += i <= n ? "★" : '<span class="off">★</span>'; return '<div class="stars" aria-label="' + n + ' yıldız">' + s + '</div>'; }
+
+// ---------- görseller ----------
+function badges(list) { return '<div class="badges">' + list.map(function (b) { return '<span class="badge" style="--role:var(--' + (b[2] || "accent") + ')">' + (b[0] ? '<span class="ar">' + b[0] + '</span>' : '') + b[1] + '</span>'; }).join("") + '</div>'; }
+// İ'rab makinesi: fiil ve edat seç; merfû, mansûb ya da meczûm şekli gör
+function makine() {
+  var v = LIVE.mk || 0, e = LIVE.me == null ? 4 : LIVE.me, f = MAKINE[v], E = MAKINE_E[e];
+  var word, lbl, col;
+  if (!E[2]) { word = '<b style="color:var(--ref)">' + f[0] + '</b>'; lbl = "Merfû · " + (v === 7 ? "nun duruyor" : v === 5 ? "damme görünmez" : "sonu damme"); col = "ref"; }
+  else {
+    var w = E[2] === "n" ? f[1] : f[2], c = E[2] === "n" ? "nasb" : "cerr";
+    word = '<b style="color:var(--' + (E[2] === "n" ? "mi" : "mz") + ')">' + E[0] + '</b>' + (E[0] === "لِ" ? "" : " ") + '<b style="color:var(--' + c + ')">' + w + '</b>';
+    if (E[2] === "n") lbl = "Mansûb · " + (v === 7 ? "nun düştü" : v === 5 ? "fetha görünmez" : "sonu fetha");
+    else lbl = "Meczûm · " + (v === 7 ? "nun düştü" : v === 5 ? "sondaki elif düştü" : v === 6 ? "ortadaki و düştü" : "sonu sükûn");
+    col = c;
+  }
+  return '<div id="makine" class="makine">' +
+    '<div class="lbl">1. Fiili seç</div><div class="mk-row">' + MAKINE.map(function (m, i) { return '<button class="mk' + (i === v ? " on" : "") + '" data-mk="' + i + '"><span class="ar">' + m[0] + '</span></button>'; }).join("") + '</div>' +
+    '<div class="lbl">2. Edatı seç</div><div class="mk-row">' + MAKINE_E.map(function (m, i) { return '<button class="mk' + (i === e ? " on" : "") + (m[2] ? " g-" + m[2] : "") + '" data-me="' + i + '">' + (m[0] ? '<span class="ar">' + m[1] + '</span>' : 'edat yok') + '</button>'; }).join("") + '</div>' +
+    '<div class="mk-legend"><span class="g-n">nasb edatları</span><span class="g-c">cezm edatları</span></div>' +
+    '<div class="mk-out" style="--role:var(--' + col + ')"><span class="ar">' + word + '</span><b>' + lbl + '</b><span class="muted">' + f[3][e] + '</span></div></div>';
+}
+function ucHal() {
+  return '<div class="gorev" style="width:100%;max-width:860px">' +
+    '<div style="--role:var(--ref)"><b>Merfû · damme</b><span class="muted">edat yok ya da لَا nâfiye</span><span class="ar" style="font-size:1.5rem">يَكْتُبُ</span><span class="ar">لَا يَدْخُلُ الكَافِرُ الجَنَّةَ</span></div>' +
+    '<div style="--role:var(--nasb)"><b>Mansûb · fetha</b><span class="ar">أَنْ · لَنْ · كَيْ · لِكَيْ · لِـ · حَتَّى</span><span class="ar" style="font-size:1.5rem">لَنْ يَكْتُبَ</span></div>' +
+    '<div style="--role:var(--cerr)"><b>Meczûm · sükûn</b><span class="ar">لَمْ · لَا (nâhiye) · لِـ (emr)</span><span class="ar" style="font-size:1.5rem">لَمْ يَكْتُبْ</span></div></div>';
+}
+function vizU1() { return makine() + '<p class="cap">Mor düğmeler nasb, yeşil düğmeler cezm edatı. Son üç fiilde cezm harf düşürür: <span class="ar">لَا تَنْسَ</span>، <span class="ar">لَمْ يَكُنْ</span>، <span class="ar">لَمْ يَكْتُبُوا</span>.</p>'; }
+function vizU2() {
+  return '<div class="timeline"><div class="tl-card" style="--role:var(--cerr)"><span class="ar">لَمْ يَكْتُبْ</span><b>yazmadı</b><small>geçmiş · sükûn</small></div>' +
+    '<div class="tl-now"><span class="ar">يَكْتُبُ</span><small>yazar · şimdi</small></div>' +
+    '<div class="tl-card" style="--role:var(--nasb)"><span class="ar">لَنْ يَكْتُبَ</span><b>asla yazmayacak</b><small>gelecek · fetha</small></div></div>' +
+    '<p class="cap">Zaman çizgisi sağdan sola: geçmiş sağda, gelecek solda. <b>لَمْ</b>: mim → mâzi → sükûn. <b>لَنْ</b>: nun → gelecek → fetha.</p>';
+}
+function vizU3() {
+  return '<div class="lbl">İki لَا</div><div class="vs">' +
+    '<div class="fcard" style="--role:var(--cerr)"><span class="ar">لَا تَدْخُ<b>لْ</b></span><b class="t">Nâhiye: \"girme!\" → meczûm</b></div>' +
+    '<div class="fcard" style="--role:var(--ref)"><span class="ar">لَا يَدْخُ<b>لُ</b></span><b class="t">Nâfiye: \"girmez\" → merfû</b></div></div>' +
+    '<div class="lbl">İki لِـ</div><div class="vs">' +
+    '<div class="fcard" style="--role:var(--cerr)"><span class="ar">لِيَذْهَ<b>بْ</b></span><b class="t">Lâm-ı emr: \"gitsin\" → meczûm</b></div>' +
+    '<div class="fcard" style="--role:var(--nasb)"><span class="ar">لِيَذْهَ<b>بَ</b></span><b class="t">Lâm-ı ta\'lîl: \"gitmesi için\" → mansûb</b></div></div>';
+}
+function vizU4() { return ucHal() + '<p class="cap">Boşluğu doldururken önce Türkçe anlamı düşün; edat grubunu anlam seçer, son hareke gruptan gelir.</p>'; }
+function vizU5() {
+  return badges([["لَمْ يَلِدْ", "sükûn", "cerr"], ["لَا تَخَفْ", "ortadaki elif düştü", "cerr"], ["وَلَا يَأْبَ", "sondaki elif düştü", "cerr"], ["وَلْيَتَّقِ", "sondaki yâ düştü", "cerr"], ["لَمْ يَكُنْ", "ortadaki vav düştü", "cerr"], ["فَلْيُنْفِقْ", "فَ'dan sonra sakin lâm", "mz"], ["لَا يُؤْمِنُونَ", "nâfiye: merfû", "ref"]]);
+}
+var VIZ = { u1: vizU1, u2: vizU2, u3: vizU3, u4: vizU4, u5: vizU5 };
+
+// ---------- durum ----------
+var ST = { tab: "ozet", tr: store.get("tr", true), items: store.get("items", {}) };
+var TABS = ["ozet", "u1", "u2", "u3", "u4", "u5", "oyun", "quiz"];
+var hashT = location.hash.replace("#", "");
+ST.tab = TABS.indexOf(hashT) >= 0 ? hashT : store.get("tab", "ozet");
+if (TABS.indexOf(ST.tab) < 0) ST.tab = "ozet";
+var main = document.getElementById("main");
+var LIVE = {};
+function saveItems() { store.set("items", ST.items); }
+function unitById(id) { return UNITS.filter(function (u) { return u.id === id; })[0]; }
+
+// Alıştırmaları maddelere aç
+function expand(ex) {
+  if (ex._items) return ex._items;
+  var out = [];
+  if (ex.type === "dp") {
+    ex.rows.forEach(function (r) {
+      out.push({ kind: "pick", q: r.s + " ← (müsennâ)", o: shuffle(r.d), a: r.d[0], tr: r.tr[1], why: r.why });
+      out.push({ kind: "pick", q: r.s + " ← (cem)", o: shuffle(r.p), a: r.p[0], tr: r.tr[2], why: r.why });
+    });
+  } else if (ex.type === "bank") {
+    var n = ex.parts ? ex.parts.filter(function (p) { return typeof p !== "string"; }).length : ex.items.length;
+    for (var i = 0; i < n; i++) out.push({ kind: "bank" });
+  } else if (ex.items) {
+    ex.items.forEach(function (it) { var c = {}; for (var k in it) c[k] = it[k]; c.kind = ex.type; out.push(c); });
+  }
+  ex._items = out;
+  return out;
+}
+function subCls(ex) { var a = []; if (ex.cls) a.push(["c", ex.cls]); if (ex.cls2) a.push(["d", ex.cls2]); return a; }
+function allScorable(u) {
+  var n = 0, ok = 0;
+  u.ex.forEach(function (ex, ei) {
+    expand(ex).forEach(function (it, ii) { n++; if (ST.items[u.id + "-" + ei + "-" + ii] === 1) ok++; });
+    subCls(ex).forEach(function (sc) { sc[1].items.forEach(function (it, ii) { n++; if (ST.items[u.id + "-" + ei + "-" + sc[0] + ii] === 1) ok++; }); });
+  });
+  return { n: n, ok: ok };
+}
+function mark(key, good) {
+  var prev = ST.items[key];
+  if (good) { if (prev !== 1) { ST.items[key] = 1; saveItems(); addXP(prev === 2 ? 2 : 5, true); beep("ok"); } }
+  else { if (prev !== 1) { ST.items[key] = 2; saveItems(); } beep("no"); }
+  updateProgress();
+}
+function updateProgress() {
+  UNITS.forEach(function (u) {
+    var p = allScorable(u), el = document.querySelector('nav.tabs [data-tab="' + u.id + '"] .pc');
+    if (el) el.textContent = Math.round(p.ok / p.n * 100) + "%";
+    var bar = document.getElementById("prog-" + u.id);
+    if (bar) { bar.style.width = (p.ok / p.n * 100) + "%"; var t = document.getElementById("progt-" + u.id); if (t) t.textContent = p.ok + " / " + p.n; }
+  });
+}
+
+// ---------- sekmeler ----------
+function renderTabs() {
+  document.getElementById("tabs").innerHTML = '<button role="tab" data-tab="ozet">Özet</button>' +
+    UNITS.map(function (u) { return '<button role="tab" data-tab="' + u.id + '"><span class="num">' + u.no + '</span>' + u.short + ' <span class="pc">0%</span></button>'; }).join("") +
+    '<button role="tab" data-tab="oyun">Oyunlar</button><button role="tab" data-tab="quiz">Quiz Provası</button>';
+}
+function setTab(t) {
+  if (t !== "oyun") stopGame();
+  if (t !== "quiz") stopQuiz();
+  ST.tab = t; store.set("tab", t);
+  document.querySelectorAll("nav.tabs button").forEach(function (b) { b.setAttribute("aria-selected", b.dataset.tab === t ? "true" : "false"); });
+  render();
+  var sel = document.querySelector('nav.tabs button[data-tab="' + t + '"]');
+  if (sel) { try { sel.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (x) {} }
+}
+function render() {
+  LIVE = {};
+  if (ST.tab === "ozet") main.innerHTML = renderOzet();
+  else if (ST.tab === "oyun") main.innerHTML = renderGames();
+  else if (ST.tab === "quiz") main.innerHTML = renderQuiz();
+  else main.innerHTML = renderUnit(unitById(ST.tab));
+  updateProgress();
+}
+
+// ---------- özet ----------
+var CHECK = [
+  "Üç cezm edatını sayabiliyorum: لَمْ، لَا (nâhiye), لِـ (lâm-ı emr).",
+  "Cezm edatından sonra sahih fiilin sonuna sükûn koyabiliyorum: لَمْ يَكْتُبْ.",
+  "Muzârinin üç halini ayırabiliyorum: يَكْتُبُ · لَنْ يَكْتُبَ · لَمْ يَكْتُبْ.",
+  "لَمْ (geçmiş, sükûn) ile لَنْ (gelecek, fetha) farkını biliyorum.",
+  "لَا nâhiye ile yasak kurabiliyorum: لَا تَأْكُلْ.",
+  "لَا nâfiyenin fiili etkilemediğini biliyorum: لَا يَدْخُلُ.",
+  "Lâm-ı emri (لِيَذْهَبْ) lâm-ı ta'lîlden (لِيَذْهَبَ) ayırabiliyorum.",
+  "Nasblı bir cümleyi cezm edatıyla yeniden kurabiliyorum.",
+  "Âyetlerde cezm edatlarını bulabiliyorum: لَمْ يَلِدْ، فَلْيُنْفِقْ، لَا تَخَفْ.",
+  "Sükûnlu fiilden sonra ال gelince kesreyle okunduğunu biliyorum: لَمْ يَحْضُرِ الطَّالِبُ."
+];
+function arWrap(t) { return t.replace(/([؀-ۿ][؀-ۿً-ْ\s،/←…]*[؀-ۿً-ْ])/g, '<span class="ar">$1</span>'); }
+function renderOzet() {
+  var fi = LIVE.fi || 0, fu = LIVE.fu || false, ch = store.get("check", {});
+  function card(u, items) {
+    return '<div class="card sumcard" style="--role:var(--' + u.col + ')"><div class="lbl">Konu ' + u.no + '</div><div class="ar t">' + u.ar + '</div><h3>' + u.tr + '</h3><ul>' + items.map(function (i) { return '<li>' + i + '</li>'; }).join("") + '</ul><button class="btn small" data-go="' + u.id + '" style="--accent:var(--' + u.col + ')">Konu ' + u.no + '</button></div>';
+  }
+  return '<section class="panel">' +
+    '<div class="card stack"><div class="lbl">Bütün konu tek bakışta</div><h2>Muzârinin üç hali</h2><div class="viz">' + ucHal() + '</div></div>' +
+    '<div class="card stack"><div class="lbl">Etkinlik</div><h2>İ\'rab makinesi</h2><p class="muted">Bir fiil ve bir edat seç; fiilin sonu, hali ve anlamı nasıl değişiyor, gör. Nasb dersinde öğrendiğin edatlar da burada.</p><div class="viz">' + makine() + '</div></div>' +
+    '<div class="sumgrid">' +
+      card(UNITS[0], ['Cezm edatları: <span class="ar">لَمْ، لَا، لِـ</span>', 'Alamet: sükûn. <span class="ar">لَمْ يَكْتُبْ</span>', 'Tuzak: <span class="ar">لَنْ، أَنْ</span> nasb eder; <span class="ar">لَا يَدْخُلُ</span> etkisiz.']) +
+      card(UNITS[1], ['<span class="ar">لَمْ</span>: -medi, sükûn.', '<span class="ar">لَنْ</span>: asla -meyecek, fetha.', '<span class="ar">لَمْ يَسْتَيْقِظْ · لَنْ يَسْتَيْقِظَ</span>']) +
+      card(UNITS[2], ['<span class="ar">لَا تَعْمَلْ</span>: yapma! (2. şahıs)', '<span class="ar">لِيَذْهَبْ</span>: gitsin (emir).', '<span class="ar">لِيَذْهَبَ</span>: gitmesi için (amaç, nasb).']) +
+      card(UNITS[3], ['Önce anlam, sonra edat, sonra hareke.', 'Nasb: <span class="ar">أَنْ لَنْ كَيْ لِـ حَتَّى</span> → fetha', 'Cezm: <span class="ar">لَمْ لَا لِـ</span> → sükûn']) +
+      card(UNITS[4], ['<span class="ar">لَمْ يَلِدْ وَلَمْ يُولَدْ</span>', '<span class="ar">فَلْيُنْفِقْ · وَلْيَكْتُبْ</span>: sakin lâm.', 'Harf düşer: <span class="ar">لَا تَخَفْ · لَمْ يَكُنْ · لَا تَنْسَ</span>']) +
+    '</div>' +
+    '<div class="card stack"><div class="lbl">Hatırlatma kartları</div><h2>Kartı çevir, cevabı hatırla</h2>' +
+      '<div class="flash-wrap"><button class="flash' + (fu ? " up" : "") + '" data-flip="1" aria-label="Kartı çevir"><div class="in"><div class="face front">' + arWrap(KARTLAR[fi][0]) + '</div><div class="face back">' + arWrap(KARTLAR[fi][1]) + '</div></div></button>' +
+      '<div class="row-btns"><button class="btn small" data-fprev="1">Önceki</button><span class="muted tabular" style="align-self:center">' + (fi + 1) + ' / ' + KARTLAR.length + '</span><button class="btn small solid" data-fnext="1">Sonraki</button><button class="btn small" data-fshuf="1">Karıştır</button></div></div></div>' +
+    '<div class="card stack"><div class="lbl">Kontrol listesi</div><h2>Konuyu kavradın mı?</h2><p class="muted">Bildiğin maddeleri işaretle. İşaretleyemediğin maddenin konusuna dön.</p>' +
+      '<ul class="checklist">' + CHECK.map(function (c, i) { return '<li><label><input type="checkbox" id="chk-' + i + '" data-chk="' + i + '"' + (ch[i] ? " checked" : "") + '><span>' + arWrap(c) + '</span></label></li>'; }).join("") + '</ul>' +
+      '<div class="row-btns"><button class="btn solid" data-go="u1">1. konudan başla</button><button class="btn" data-go="oyun">Oyunlar</button><button class="btn" data-go="quiz">Quiz provası</button><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+  '</section>';
+}
+
+// ---------- ders sayfası ----------
+var AR_NUM = ["١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩", "١٠"];
+function renderUnit(u) {
+  var p = allScorable(u);
+  var viz = VIZ[u.id]();
+  var rolesUsed = u.legend;
+  var exHtml = u.examples.map(function (e) {
+    if (e.pair) return '<div class="pairgrid"><div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + '</div><div class="ex-item">' + sentHtml(e.pair) + (ST.tr ? '<div class="trline">' + e.pairTr + '</div>' : '') + '</div></div>';
+    return '<div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + (e.why ? '<div class="trline">' + e.why + '</div>' : '') + '</div>';
+  }).join("");
+  return '<section class="panel" style="--role:var(--' + u.col + ')">' +
+    '<div class="card unit-hero"><div class="unit-no">' + u.no + '</div><div class="stack">' +
+      '<div class="lbl">Muzâri fiilin cezmi · konu ' + u.no + ' / 5</div><div class="ar big" style="color:var(--role)">' + u.ar + '</div><h2>' + u.tr + '</h2>' +
+      '<ul class="goals">' + u.goals.map(function (g) { return '<li>' + g + '</li>'; }).join("") + '</ul>' +
+      '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> alıştırma maddesi doğru</div>' +
+    '</div></div>' +
+    '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Kitaptaki örnekler</div><h2>Önce gör</h2></div><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button></div>' +
+      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Yeşil kelime cezm edatı, mavi kelime meczûm fiil.", u2: "Aynı fiil üç halde: merfû, meczûm (لَمْ), mansûb (لَنْ).", u3: "Aynı fiil: önce merfû, sonra yasak. Son iki örnekte iki ayrı لِـ.", u4: "Nasb ve cezm edatları aynı yerde.", u5: "Âyetlerden üç örnek." })[u.id] + '</p>' + '</div>' +
+    '<div class="card viz"><div class="lbl">Görsel</div>' + viz + '</div>' +
+    '<div class="card stack"><div class="lbl">القَاعِدَةُ · Kaide</div><h2>Kural</h2>' +
+      '<ol class="rules">' + u.rules.map(function (r) { return '<li><div class="stack" style="gap:4px"><div>' + r.tr + '</div>' + (r.ex ? '<div class="exs">' + r.ex.map(function (x) { return '<span>' + x + '</span>'; }).join("") + '</div>' : '') + '</div></li>'; }).join("") + '</ol>' +
+      '<details class="kaide"><summary>Kitaptaki kaide metni (Arapça)</summary><div class="stack" style="margin-top:8px">' + u.kaide.map(function (k) { return '<p class="ar">' + k + '</p>'; }).join("") + '</div></details>' +
+    '</div>' +
+    '<div class="stack"><div><div class="lbl">التَّدْرِيبَاتُ · Alıştırmalar</div><h2>Şimdi sen yap</h2></div>' + u.ex.map(function (ex, ei) { return renderExercise(u, ex, ei); }).join("") + '</div>' +
+    '<div class="card stack" style="text-align:center;justify-items:center"><h2>Pekiştirmek için oyna ya da kendini dene</h2><div class="row-btns" style="justify-content:center"><button class="btn solid" data-go="oyun">Oyunlar</button><button class="btn" data-go="quiz">Quiz provası</button></div></div>' +
+  '</section>';
+}
+function renderExercise(u, ex, ei) {
+  var its = expand(ex), body = "";
+  if (ex.type === "reading") body = renderReading(u, ex, ei);
+  else if (ex.type === "bank") body = renderBank(u, ex, ei);
+  else {
+    if (ex.reading) body += readingText(ex);
+    if (ex.type === "tag") body += legendHtml(ex.roles);
+    body += '<div class="items">' + its.map(function (it, ii) { var k = u.id + "-" + ei + "-" + ii; return '<div class="item ' + statusCls(k) + '" id="it-' + k + '">' + itemInner(u, ei, ii, it, ex) + '</div>'; }).join("") + '</div>';
+  }
+  return '<div class="card exer" id="ex-' + u.id + '-' + ei + '"><div class="exer-head"><div class="ar">' + (ex.num || AR_NUM[ei]) + ' ـ ' + ex.ar + '</div><div><b>' + ex.tr + '</b>' + (ex.extra ? '<span class="extra-tag">Ek alıştırma</span>' : '') + '</div></div>' +
+    (ex.exHtml ? '<div class="exbox"><span class="lbl">مِثَالٌ · Örnek</span><div>' + ex.exHtml + '</div></div>' : '') + body + '</div>';
+}
+function statusCls(k) { return ""; }
+function readingText(ex) {
+  var body = ex.dialog ? '<div class="stack" style="gap:4px">' + ex.dialog.map(function (d) { return '<p class="passage" style="text-align:right"><b class="' + (d[0] === "مَرْيَمُ" ? "r-mun" : "r-muz") + '">' + d[0] + ':</b> ' + d[1] + '</p>'; }).join("") + '</div>' : '<p class="passage">' + ex.text + '</p>';
+  return '<div class="card stack" style="background:var(--soft);border:0"><h3 class="ar" style="font-size:1.6rem;color:var(--accent)">' + ex.title + '</h3>' + body +
+    '<details><summary class="muted" style="cursor:pointer">Türkçesini göster</summary><p class="passage-tr" style="margin-top:6px">' + ex.textTr + '</p></details></div>';
+}
+function trAfter(it) { return it.tr && typeof it.tr === "string" ? '<div class="trline">' + it.tr + '</div>' : ''; }
+function retryBtn(key) { return '<div><button class="btn small" data-act="retry" data-key="' + key + '">Tekrar dene</button></div>'; }
+function optsFor(it, ex) { return it.opts || ex.opts || [["i", "İsim cümlesi", "اسْمِيَّةٌ", "x"], ["f", "Fiil cümlesi", "فِعْلِيَّةٌ", "x"]]; }
+
+function itemInner(u, ei, ii, it, ex) {
+  var key = u.id + "-" + ei + "-" + ii;
+  var L = LIVE[key] || (LIVE[key] = {});
+  var num = '<span class="qn tabular">' + (ii + 1) + '</span>';
+  if (it.kind === "pick") {
+    var ansIdx = typeof it.a === "number" ? it.a : it.o.indexOf(it.a), chosen = L.ch;
+    var q = it.q || "";
+    if (it.q && ex.fill) q = it.q.replace("___", '<u class="' + (chosen != null ? "filled" : "") + '">' + (chosen != null ? it.o[chosen] : "&nbsp;") + '</u>');
+    return num + (q ? '<div class="q">' + q + '</div>' : '') +
+      '<div class="opts">' + it.o.map(function (o, oi) {
+        var cls = chosen != null ? (oi === ansIdx ? " sel-ok" : (oi === chosen ? " sel-no" : "")) : "";
+        var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(o);
+        return '<button class="opt' + (ex.fill ? "" : " block") + (lat ? " lat" : "") + cls + '" data-act="pick" data-key="' + key + '" data-i="' + oi + '"' + (chosen != null ? " disabled" : "") + '>' + o + '</button>';
+      }).join("") + '</div>' +
+      (chosen != null ? '<div class="fb">' + (chosen === ansIdx ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <span class="ar">' + it.o[ansIdx] + '</span> ') + (it.why || '') + '</div>' + trAfter(it) + retryBtn(key) : '');
+  }
+  if (it.kind === "classify") {
+    var c = L.ch, opts = optsFor(it, ex), right = opts.filter(function (o) { return o[0] === it.a; })[0];
+    return num + '<div class="q">' + it.s + '</div><div class="cls-btns">' + opts.map(function (b) {
+      var cls = c ? (b[0] === it.a ? " sel-ok" : (b[0] === c ? " sel-no" : "")) : "";
+      return '<button class="opt lat' + cls + '" data-act="cls" data-key="' + key + '" data-v="' + b[0] + '"' + (c ? " disabled" : "") + '>' + b[1] + ' <span class="ar" style="font-weight:400">' + b[2] + '</span></button>';
+    }).join("") + '</div>' +
+      (c ? '<div class="fb">' + (c === it.a ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <b>' + right[1] + '</b>. ') + (it.why || '') + '</div>' + trAfter(it) + retryBtn(key) : '');
+  }
+  if (it.kind === "tag" || it.kind === "find") {
+    var cs = chunks(it.c), find = it.kind === "find";
+    if (!L.tags) L.tags = cs.map(function () { return null; });
+    var res = L.res;
+    var line = cs.map(function (ch, ci) {
+      if (ch.r === "-") return '<span class="plain">' + ch.t + '</span>';
+      if (find) {
+        var on = !!L.tags[ci], target = ch.r === "y";
+        var cl = "tagbtn findbtn" + (on ? " on" : "") + (res && on !== target ? (on ? " wrong" : " miss") : "");
+        return '<button class="' + cl + '" data-act="find" data-key="' + key + '" data-ci="' + ci + '"' + (res === "ok" ? " disabled" : "") + '><span class="w">' + ch.t + '</span><span class="t">' + (on ? ROLES[ex.target].tr : "&nbsp;") + '</span></button>';
+      }
+      var r = res === "ok" ? ch.r : L.tags[ci], wrong = res === "no" && L.tags[ci] !== ch.r;
+      return '<button class="tagbtn' + (r ? " has r-" + r : "") + (wrong ? " wrong" : "") + '" data-act="tag" data-key="' + key + '" data-ci="' + ci + '"' + (res === "ok" ? " disabled" : "") + '><span class="w">' + ch.t + '</span><span class="t">' + (r ? ROLES[r].tr : "dokun") + '</span></button>';
+    }).join("");
+    return num + '<div class="sent" style="gap:8px">' + (it.pre ? '<span class="plain">' + it.pre + '</span>' : '') + line + (it.post ? '<span class="plain">' + it.post + '</span>' : '') + '</div>' + (it.src ? '<div class="srcline ar">(' + it.src + ')</div>' : '') +
+      (res === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + trAfter(it) :
+        '<div class="row-btns"><button class="btn small solid" data-act="tcheck" data-key="' + key + '">Kontrol et</button>' + (res === "no" ? '<button class="btn small" data-act="tshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (res === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> ' + (find ? 'Kırmızı çerçeveliler yanlış seçildi; yeşil kesik çizgililer atlandı.' : 'Kırmızı çerçeveli kelimeleri yeniden düşün.') + '</div>' : ''));
+  }
+  if (it.kind === "combo") {
+    var slots = it.p.filter(function (x) { return typeof x !== "string"; });
+    if (!L.sel) L.sel = slots.map(function () { return -1; });
+    var r3 = L.res, si = -1;
+    var ln = it.p.map(function (part) {
+      if (typeof part === "string") return '<span>' + part + '</span>';
+      si++; var v = L.sel[si];
+      return '<button class="slot' + (v < 0 ? " empty" : "") + (r3 === "ok" ? " right" : "") + (r3 === "no" ? " wrong" : "") + '" data-act="cycle" data-key="' + key + '" data-si="' + si + '"' + (r3 === "ok" ? " disabled" : "") + '>' + (v < 0 ? "؟" : part.o[v]) + '</button>';
+    }).join("");
+    var trc = Array.isArray(it.tr) ? it.tr[Math.max(0, it.ok.findIndex(function (cmb) { return cmb.every(function (v, i) { return L.sel[i] === v; }); }))] : it.tr;
+    return num + (it.q ? '<div class="q" style="font-size:1.3rem">' + it.q + '</div>' : '') + '<div class="combo-line">' + ln + '</div>' +
+      (r3 === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + (trc ? '<div class="trline">' + trc + '</div>' : '') :
+        '<div class="row-btns"><button class="btn small solid" data-act="ccheck" data-key="' + key + '">Kontrol et</button>' + (r3 === "no" ? '<button class="btn small" data-act="cshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (r3 === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> Kutulara dokunarak seçenekleri değiştir.</div>' : ''));
+  }
+  if (it.kind === "irab") {
+    var topts = ex.tlist || (ex.topts ? TUR_OPTS.filter(function (o) { return ex.topts.indexOf(o[0]) >= 0; }) : TUR_OPTS), onlyC = ex.only === "c", ri = L.res;
+    var qs = it.s.replace(/\[(.+?)\]/, '<b class="hl">$1</b>');
+    function row(lbl, opts, act, cur, ans) {
+      return '<div class="irow"><span class="lbl">' + lbl + '</span><div class="cls-btns">' + opts.map(function (o) {
+        var cl = ri === "ok" ? (o[0] === ans ? " sel-ok" : "") : ri === "no" && cur === o[0] ? (o[0] === ans ? " sel-ok" : " sel-no") : cur === o[0] ? " on" : "";
+        return '<button class="opt lat' + cl + '" data-act="' + act + '" data-key="' + key + '" data-v="' + o[0] + '"' + (ri === "ok" ? " disabled" : "") + '>' + o[1] + ' <span class="ar" style="font-weight:400">' + o[2] + '</span></button>';
+      }).join("") + '</div></div>';
+    }
+    return num + '<div class="q">' + qs + '</div>' + (onlyC ? '' : row(ex.tlbl || "Türü", topts, "it", L.t, it.t)) + row("Hali", HAL_OPTS, "ic", L.c, it.c) +
+      (ri === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + trAfter(it) :
+        '<div class="row-btns"><button class="btn small solid" data-act="icheck" data-key="' + key + '">Kontrol et</button>' + (ri === "no" ? '<button class="btn small" data-act="ishow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (ri === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> Kırmızı seçimi değiştir. İpucu: önce kelimenin görevini bul.</div>' : ri === "eksik" ? '<div class="fb"><span class="no">Önce ' + (onlyC ? "hali" : "iki satırdan da birer seçenek") + ' seç.</span></div>' : ''));
+  }
+  return "";
+}
+function rerenderItem(key) {
+  var p = key.split("-"), u = unitById(p[0]), ei = +p[1], ii = +p[2], ex = u.ex[ei];
+  var el = document.getElementById("it-" + key); if (!el) return;
+  el.innerHTML = itemInner(u, ei, ii, expand(ex)[ii], ex);
+  el.className = "item " + (LIVE[key] && LIVE[key].res === "ok" ? "ok" : LIVE[key] && LIVE[key].res === "no" ? "no" : "");
+}
+function itemFromKey(key) { var p = key.split("-"), u = unitById(p[0]), ex = u.ex[+p[1]]; return { u: u, ex: ex, it: expand(ex)[+p[2]] }; }
+
+// sözcük bankası (eşleştirme ya da metin içi boşluk)
+function renderBank(u, ex, ei) {
+  var key = u.id + "-" + ei + "-bank";
+  var slots = ex.parts ? ex.parts.filter(function (p) { return typeof p !== "string"; }) : ex.items;
+  var L = LIVE[key] || (LIVE[key] = { fill: slots.map(function () { return -1; }), sel: -1 });
+  var used = {}; L.fill.forEach(function (b) { if (b >= 0) used[b] = 1; });
+  function slotBtn(ii) {
+    var f = L.fill[ii], res = L.res ? L.res[ii] : null;
+    return '<button class="slot' + (f < 0 ? " empty" : "") + (res === true ? " right" : res === false ? " wrong" : "") + '" data-act="bput" data-key="' + key + '" data-ii="' + ii + '"' + (res === true ? " disabled" : "") + '>' + (f < 0 ? "؟" : ex.bank[f]) + '</button>';
+  }
+  var body;
+  if (ex.parts) {
+    var si = -1;
+    body = '<p class="story" style="line-height:2.4">' + ex.parts.map(function (p) { if (typeof p === "string") return ' ' + p + ' '; si++; return slotBtn(si); }).join("") + '</p>' +
+      (L.res && L.res.every(Boolean) && ST.tr ? '<p class="trline">' + ex.tr + '</p>' : '');
+  } else {
+    body = '<div class="items">' + ex.items.map(function (it, ii) {
+      var res = L.res ? L.res[ii] : null;
+      return '<div class="item' + (res === true ? " ok" : res === false ? " no" : "") + '"><span class="qn tabular">' + (ii + 1) + '</span><div class="combo-line">' + (it.pre ? '<span>' + it.pre + '</span>' : '') + slotBtn(ii) + (it.h ? '<span>' + it.h + '</span>' : '') + '</div>' + (res === true ? trAfter(it) + (it.why ? '<div class="trline">' + it.why + '</div>' : '') : '') + '</div>';
+    }).join("") + '</div>';
+  }
+  return '<div class="bank">' + ex.bank.map(function (b, bi) { return '<button class="tile" data-act="bsel" data-key="' + key + '" data-bi="' + bi + '" aria-pressed="' + (L.sel === bi ? "true" : "false") + '"' + (used[bi] ? " disabled" : "") + '>' + b + '</button>'; }).join("") + '</div>' + body +
+    '<div class="row-btns"><button class="btn small solid" data-act="bcheck" data-key="' + key + '">Kontrol et</button><button class="btn small" data-act="breset" data-key="' + key + '">Sıfırla</button></div>' + (L.msg ? '<div class="fb">' + L.msg + '</div>' : '');
+}
+// okuma (diyalog) alıştırması
+function renderReading(u, ex, ei) {
+  return readingText(ex) +
+    '<div class="stack">' + ex.qa.map(function (q, qi) {
+      var k = u.id + "-" + ei + "-q" + qi, open = LIVE[k] && LIVE[k].open;
+      return '<div class="qa"><div class="ar">' + ["أ", "ب", "ج", "د"][qi] + ' ـ ' + q.q + '</div>' + (open ? '<div class="ar" style="color:var(--accent)">' + q.a + '</div><div class="trline">' + q.tr + '</div>' : '<div><button class="btn small" data-act="qa" data-key="' + k + '">Örnek cevabı göster</button></div>') + '</div>';
+    }).join("") + '</div>' +
+    subCls(ex).map(function (sc) {
+      return '<div class="exer-head"><div class="ar">' + sc[1].ar + '</div><div><b>' + sc[1].tr + '</b></div></div><div class="items">' +
+        sc[1].items.map(function (it, ii) { var key = u.id + "-" + ei + "-" + sc[0] + ii; return '<div class="item" id="it-' + key + '">' + clsInner(key, it, ii, sc[1].opts) + '</div>'; }).join("") + '</div>';
+    }).join("");
+}
+function clsInner(key, it, ii, opts) {
+  var L = LIVE[key] || (LIVE[key] = {}), c = L.ch, right = opts.filter(function (o) { return o[0] === it.a; })[0];
+  return '<span class="qn tabular">' + (ii + 1) + '</span><div class="q">' + it.s + '</div><div class="cls-btns">' + opts.map(function (b) {
+    var cl = c ? (b[0] === it.a ? " sel-ok" : (b[0] === c ? " sel-no" : "")) : "";
+    return '<button class="opt lat' + cl + '" data-act="rcls" data-key="' + key + '" data-ii="' + ii + '" data-v="' + b[0] + '"' + (c ? " disabled" : "") + '>' + b[1] + ' <span class="ar" style="font-weight:400">' + b[2] + '</span></button>';
+  }).join("") + '</div>' + (c ? '<div class="fb">' + (c === it.a ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <b>' + right[1] + '</b>. ') + (it.why || '') + '</div>' : '');
+}
+
+// ---------- olaylar ----------
+main.addEventListener("click", function (ev) {
+  var b = ev.target.closest("button"); if (!b) return;
+  var d = b.dataset, key = d.key;
+  if (d.go) { setTab(d.go); window.scrollTo({ top: 0 }); return; }
+  if (d.trtoggle) { ST.tr = !ST.tr; store.set("tr", ST.tr); var y = window.scrollY; render(); window.scrollTo({ top: y }); return; }
+  if (d.snd) { SND.on = !SND.on; store.set("snd", SND.on); render(); if (SND.on) beep("ok"); return; }
+  if (d.mk != null || d.me != null) { if (d.mk != null) LIVE.mk = +d.mk; if (d.me != null) LIVE.me = +d.me; var mk = document.getElementById("makine"); if (mk) mk.outerHTML = makine(); beep("tick"); return; }
+  if (d.flip) { LIVE.fu = !LIVE.fu; b.classList.toggle("up", LIVE.fu); return; }
+  if (d.fnext || d.fprev || d.fshuf) {
+    var fi = LIVE.fi || 0;
+    if (d.fshuf) { KARTLAR.sort(function () { return Math.random() - .5; }); fi = 0; }
+    else fi = (fi + (d.fnext ? 1 : -1) + KARTLAR.length) % KARTLAR.length;
+    var y2 = window.scrollY; LIVE = { fi: fi, fu: false }; main.innerHTML = renderOzet(); window.scrollTo({ top: y2 }); return;
+  }
+  if (!d.act) return;
+  var L = LIVE[key] || (LIVE[key] = {}), o;
+  switch (d.act) {
+    case "pick":
+      o = itemFromKey(key); L.ch = +d.i;
+      var ai = typeof o.it.a === "number" ? o.it.a : o.it.o.indexOf(o.it.a);
+      L.res = L.ch === ai ? "ok" : "no"; mark(key, L.ch === ai); rerenderItem(key); break;
+    case "cls": o = itemFromKey(key); L.ch = d.v; L.res = d.v === o.it.a ? "ok" : "no"; mark(key, d.v === o.it.a); rerenderItem(key); break;
+    case "retry": LIVE[key] = {}; rerenderItem(key); break;
+    case "tag":
+      o = itemFromKey(key);
+      var roles = o.ex.roles, cur = L.tags[+d.ci], idx = cur ? roles.indexOf(cur) : -1;
+      L.tags[+d.ci] = roles[(idx + 1) % roles.length]; L.res = null; rerenderItem(key); break;
+    case "find": L.tags[+d.ci] = !L.tags[+d.ci]; L.res = null; rerenderItem(key); break;
+    case "tcheck":
+      o = itemFromKey(key);
+      var cs = chunks(o.it.c), good = cs.every(function (c, i) { if (c.r === "-") return true; if (o.it.kind === "find") return !!L.tags[i] === (c.r === "y"); return L.tags[i] === c.r; });
+      L.res = good ? "ok" : "no"; mark(key, good); rerenderItem(key); break;
+    case "tshow":
+      o = itemFromKey(key); L.tags = chunks(o.it.c).map(function (c) { return o.it.kind === "find" ? c.r === "y" : c.r; }); L.res = "ok"; rerenderItem(key); break;
+    case "cycle":
+      o = itemFromKey(key);
+      var sl = o.it.p.filter(function (x) { return typeof x !== "string"; }), si = +d.si;
+      L.sel[si] = (L.sel[si] + 1) % sl[si].o.length; L.res = null; rerenderItem(key); break;
+    case "ccheck":
+      o = itemFromKey(key);
+      var gc = o.it.ok.some(function (cmb) { return cmb.every(function (v, i) { return L.sel[i] === v; }); });
+      L.res = gc ? "ok" : "no"; mark(key, gc); rerenderItem(key); break;
+    case "cshow": o = itemFromKey(key); L.sel = o.it.ok[0].slice(); L.res = "ok"; rerenderItem(key); break;
+    case "bsel": L.sel = L.sel === +d.bi ? -1 : +d.bi; rerenderExercise(key); break;
+    case "bput":
+      var ii = +d.ii;
+      if (L.sel >= 0) { L.fill = L.fill.map(function (f) { return f === L.sel ? -1 : f; }); L.fill[ii] = L.sel; L.sel = -1; }
+      else if (L.fill[ii] >= 0) L.fill[ii] = -1;
+      if (L.res) L.res[ii] = null; L.msg = ""; rerenderExercise(key); break;
+    case "breset": LIVE[key] = { fill: L.fill.map(function () { return -1; }), sel: -1 }; rerenderExercise(key); break;
+    case "bcheck":
+      var pb = key.split("-"), ub = unitById(pb[0]), exb = ub.ex[+pb[1]];
+      var acc = exb.parts ? exb.parts.filter(function (p) { return typeof p !== "string"; }) : exb.items;
+      L.res = acc.map(function (it, i) { return L.fill[i] >= 0 && it.a.indexOf(L.fill[i]) >= 0; });
+      L.res.forEach(function (r, i) { if (L.fill[i] >= 0) mark(ub.id + "-" + pb[1] + "-" + i, r); });
+      var nOk = L.res.filter(Boolean).length;
+      L.msg = nOk === acc.length ? '<span class="ok">Hepsi doğru!</span>' : '<span class="no">' + nOk + ' / ' + acc.length + ' doğru.</span> Kırmızı kutuları değiştir.';
+      if (nOk === acc.length) confetti();
+      rerenderExercise(key); break;
+    case "qa": L.open = true; rerenderExercise(key); break;
+    case "it": L.t = d.v; if (L.res !== "ok") L.res = null; rerenderItem(key); break;
+    case "ic": L.c = d.v; if (L.res !== "ok") L.res = null; rerenderItem(key); break;
+    case "icheck":
+      o = itemFromKey(key);
+      var oc = o.ex.only === "c";
+      if (!L.c || (!oc && !L.t)) { L.res = "eksik"; rerenderItem(key); break; }
+      var gi = L.c === o.it.c && (oc || L.t === o.it.t);
+      L.res = gi ? "ok" : "no"; mark(key, gi); rerenderItem(key); break;
+    case "ishow": o = itemFromKey(key); L.t = o.it.t; L.c = o.it.c; L.res = "ok"; rerenderItem(key); break;
+    case "rcls":
+      var pr = key.split("-"), exr = unitById(pr[0]).ex[+pr[1]], sub = pr[2].charAt(0) === "c" ? exr.cls : exr.cls2, itr = sub.items[+d.ii];
+      L.ch = d.v; mark(key, d.v === itr.a);
+      document.getElementById("it-" + key).innerHTML = clsInner(key, itr, +d.ii, sub.opts); break;
+  }
+});
+main.addEventListener("change", function (ev) {
+  var t = ev.target; if (!t.dataset || t.dataset.chk == null) return;
+  var ch = store.get("check", {}); ch[t.dataset.chk] = t.checked; store.set("check", ch);
+  var all = CHECK.every(function (_, i) { return ch[i]; }); if (all && t.checked) { confetti(); toast("Hepsi işaretli: quize hazırsın!"); }
+});
+function rerenderExercise(key) {
+  var p = key.split("-"), u = unitById(p[0]), ei = +p[1], el = document.getElementById("ex-" + u.id + "-" + ei);
+  if (!el) return;
+  var tmp = document.createElement("div"); tmp.innerHTML = renderExercise(u, u.ex[ei], ei); el.replaceWith(tmp.firstChild);
+}
+
+// ---------- oyunlar ----------
+var HAL_TR = { ref: "Merfû", nasb: "Mansûb", cezm: "Meczûm" };
+var POOL = CZ_POOL.map(function (p) {
+  var m = /\{([^}]+)\}/.exec(p[0]);
+  return { pre: p[0].slice(0, m.index), post: p[0].slice(m.index + m[0].length), w: m[1], forms: p[1], c: p[2], role: p[3], tr: p[4], topic: p[5] };
+});
+function poolHtml(it, mode) { return it.pre + (mode === "blank" ? '<span class="blank">&nbsp;</span>' : '<b class="hl">' + it.w + '</b>') + it.post; }
+function why(it) { return '<span class="ar">' + it.w + '</span>: ' + arWrap(it.role) + ' → <b>' + HAL_TR[it.c] + '</b>'; }
+var EDAT_G = [["nasb", "Nasb (fetha)", "نَصْبٌ", "nasb"], ["cezm", "Cezm (sükûn)", "جَزْمٌ", "cerr"], ["ref", "Etkisiz (damme)", "رَفْعٌ", "ref"]];
+var LEM_G = [["lam", "لَمْ + sükûn", "لَمْ", "cerr"], ["lan", "لَنْ + fetha", "لَنْ", "nasb"]];
+
+var GAMES = {
+  avci: { name: "Doğru Son", ico: "يَكْتُبُ · يَكْتُبَ · يَكْتُبْ", col: "cerr", d: "12 cümle. Fiilin sonunu seç: damme mi, fetha mı, sükûn mu? Edatı ve anlamı düşün." },
+  hal: { name: "Üç Hal Yarışı", ico: "مَرْفُوعٌ · مَنْصُوبٌ · مَجْزُومٌ", col: "ref", d: "60 saniye. Altı çizili fiil merfû mu, mansûb mu, meczûm mu?" },
+  edat: { name: "Edat Dedektifi", ico: "لِيَذْهَب ؟", col: "mz", d: "60 saniye. Aynı Arapça, farklı anlam! Türkçeye bak: bu edat nasb mı eder, cezm mi, yoksa etkisiz mi?" },
+  lem: { name: "لَمْ mi, لَنْ mi?", ico: "لَمْ ؟ لَنْ", col: "nasb", d: "60 saniye. Türkçe cümle geçmiş mi, gelecek mi? Doğru olumsuzluk edatını seç." },
+  hafiza: { name: "Hafıza Kartları", ico: "لَمْ ↔ -medi", col: "mi", d: "Kartları çevir, eşleri bul: edat ile anlamı ya da merfû ile meczûm şekli." }
+};
+var G = null, GT = null;
+function stopGame() { if (GT) { clearInterval(GT); GT = null; } G = null; }
+function renderGames() {
+  if (G) return '<section class="panel">' + gameBody() + '</section>';
+  var best = store.get("gbest", {});
+  return '<section class="panel"><div class="card stack"><div class="lbl">Oyunlar</div><h2>Oynayarak pekiştir</h2><p class="muted">Her oyun cezmin bir kuralını çalıştırır ve rütbe puanı kazandırır.</p><div class="row-btns"><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+    '<div class="game-menu">' + Object.keys(GAMES).map(function (k) {
+      var g = GAMES[k];
+      return '<div class="card game-card" style="--role:var(--' + g.col + ')"><div class="ico">' + g.ico + '</div><h3>' + g.name + '</h3><p class="muted">' + g.d + '</p><p class="muted" style="margin-top:auto">' + (best[k] != null ? 'En iyi: <b class="tabular">' + best[k] + '</b>' : 'Henüz oynanmadı') + '</p>' +
+        (k === "hafiza" ? '<div class="row-btns">' + Object.keys(HAFIZA).map(function (dk) { return '<button class="btn solid small" data-gstart="hafiza" data-deck="' + dk + '" style="--accent:var(--' + g.col + ')">' + HAFIZA[dk].name + '</button>'; }).join("") + '</div>' :
+          '<button class="btn solid" data-gstart="' + k + '" style="--accent:var(--' + g.col + ')">Oyna</button>') + '</div>';
+    }).join("") + '</div></section>';
+}
+function gameHead(t) { return '<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Oyun</div><h2>' + t + '</h2></div><button class="btn small" data-gmenu="1">Oyunlara dön</button></div>'; }
+function redraw() { main.innerHTML = renderGames(); }
+var SPEED = { hal: { opts: HAL_OPTS, keys: "1 Merfû · 2 Mansûb · 3 Meczûm" }, edat: { opts: EDAT_G, keys: "1 Nasb · 2 Cezm · 3 Etkisiz" }, lem: { opts: LEM_G, keys: "1 لَمْ · 2 لَنْ" } };
+function startGame(k, deck) {
+  stopGame();
+  G = { id: k, score: 0, n: 0, ok: 0, over: false, start: Date.now(), combo: 0, maxCombo: 0 };
+  if (k === "avci") { G.list = shuffle(POOL).slice(0, 12); G.i = 0; G.list.forEach(function (it) { it.opts = shuffle(it.forms); }); }
+  if (SPEED[k]) { G.t = 60; G.opts = SPEED[k].opts; nextSpeed(); }
+  if (k === "hafiza") { var ps = shuffle(HAFIZA[deck].pairs).slice(0, 6), cards = []; ps.forEach(function (p, i) { cards.push({ p: i, t: p[0] }); cards.push({ p: i, t: p[1] }); }); G.deck = deck; G.cards = shuffle(cards); G.open = []; G.done = {}; G.moves = 0; G.pairs = 6; }
+  ST.tab = "oyun"; document.querySelectorAll("nav.tabs button").forEach(function (b) { b.setAttribute("aria-selected", b.dataset.tab === "oyun" ? "true" : "false"); });
+  redraw();
+  if (SPEED[k]) GT = setInterval(function () {
+    if (!G || G.over) return; G.t--; if (G.t <= 5 && G.t > 0) beep("tick");
+    if (G.t <= 0) { G.t = 0; endGame(G.score); return; } hud();
+  }, 1000);
+  if (k === "hafiza") GT = setInterval(function () { var el = document.getElementById("g-clock"); if (el && G && !G.over) el.textContent = Math.floor((Date.now() - G.start) / 1000) + " sn"; }, 1000);
+}
+function hud() {
+  var a = document.getElementById("g-time"); if (a) a.textContent = G.t;
+  var tb = document.getElementById("g-tbar"); if (tb) { tb.firstChild.style.width = (G.t / 60 * 100) + "%"; tb.classList.toggle("low", G.t <= 10); }
+  var s = document.getElementById("g-score"); if (s) s.textContent = G.score;
+  var c = document.getElementById("g-combo"); if (c) c.textContent = "x" + Math.min(5, 1 + Math.floor(G.combo / 3));
+}
+function endGame(score) {
+  if (GT) { clearInterval(GT); GT = null; }
+  G.over = true; G.final = score;
+  var best = store.get("gbest", {}); G.record = best[G.id] == null || score > best[G.id];
+  if (G.record) { best[G.id] = score; store.set("gbest", best); }
+  G.xp = Math.round(score / (SPEED[G.id] ? 5 : 2));
+  redraw(); addXP(G.xp); beep("win"); if (G.record || G.stars === 3) confetti();
+}
+function gameOver(t, lines) {
+  return '<div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">' + t + ' bitti</div>' + (G.stars != null ? starsHtml(G.stars) : '') + '<div class="score-big tabular">' + G.final + '</div>' + (G.record ? '<p><b>Yeni rekor!</b></p>' : '') + lines.map(function (l) { return '<p>' + l + '</p>'; }).join("") +
+    '<p class="muted">Kazandığın: +' + G.xp + ' rütbe puanı</p><div class="row-btns" style="justify-content:center"><button class="btn solid" data-gstart="' + G.id + '"' + (G.deck ? ' data-deck="' + G.deck + '"' : '') + '>Tekrar oyna</button><button class="btn" data-gmenu="1">Başka oyun</button></div></div>';
+}
+function gameBody() { return { avci: bodyAvci, hal: bodySpeed, edat: bodySpeed, lem: bodySpeed, hafiza: bodyHaf }[G.id](); }
+function starsBy(ok, n) { return ok >= n - 1 ? 3 : ok >= Math.ceil(n * 0.66) ? 2 : 1; }
+
+// doğru şekil
+function bodyAvci() {
+  if (G.over) return gameOver("Doğru Son", ['<b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> doğru.']);
+  var it = G.list[G.i], done = G.ans != null;
+  return '<div class="card stack">' + gameHead("Doğru Son") + '<div class="hud"><span>Cümle <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Puan <b>' + G.score + '</b></span></div>' +
+    '<div class="target">' + (done ? poolHtml(it) : poolHtml(it, "blank")) + '</div>' +
+    (done ? '<div class="fb" style="text-align:center">' + (G.ans === it.w ? '<span class="ok">Doğru! +10</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <span class="ar">' + it.w + '</span>. ') + '<br>' + why(it) + '</div>' + (ST.tr ? '<p class="trline" style="text-align:center">' + it.tr + '</p>' : '') +
+      '<div style="text-align:center"><button class="btn solid" data-gnext="1" id="g-next">' + (G.i + 1 < G.list.length ? "Sonraki" : "Sonucu gör") + '</button></div>' :
+      '<p class="muted" style="text-align:center">Fiilin doğru sonu hangisi?</p><div class="big3">' + it.opts.map(function (f) { return '<button data-ga="' + f + '">' + f + '</button>'; }).join("") + '</div>') + '</div>';
+}
+// hız oyunları: hal yarışı ve doğru/yanlış
+function nextSpeed() {
+  var g = 0, it;
+  if (G.id === "hal") { do { it = pick(POOL); g++; } while (G.cur && it.w === G.cur.w && g < 10); G.cur = { w: it.w, html: poolHtml(it), a: it.c, fb: why(it) }; }
+  else if (G.id === "edat") { do { it = pick(EDAT_POOL); g++; } while (G.cur && it[0] + it[1] === G.cur.w && g < 10); var e = EDAT_G.filter(function (x) { return x[0] === it[2]; })[0]; G.cur = { w: it[0] + it[1], html: it[0] + '<div class="muted" style="font-family:var(--f-body);font-size:1.1rem;direction:ltr">' + it[1] + '</div>', a: it[2], fb: '<span class="ar">' + it[0] + '</span> (' + it[1] + ') → ' + e[1] }; }
+  else { do { it = pick(LEM_POOL); g++; } while (G.cur && it[0] === G.cur.w && g < 10); G.cur = { w: it[0], html: '<span style="font-family:var(--f-body);direction:ltr;display:block;font-size:1.4rem">' + it[0] + '</span>', a: it[1], fb: it[0] + ' → <span class="ar">' + it[2] + '</span>' }; }
+}
+function bodySpeed() {
+  var title = GAMES[G.id].name;
+  if (G.over) return gameOver(title, ['Doğru: <b class="tabular">' + G.ok + ' / ' + G.n + '</b> · en uzun seri: <b class="tabular">' + G.maxCombo + '</b>']);
+  return '<div class="card stack">' + gameHead(title) +
+    '<div class="hud"><span>Süre <b id="g-time">' + G.t + '</b></span><span>Puan <b id="g-score">' + G.score + '</b></span><span>Çarpan <b id="g-combo">x' + Math.min(5, 1 + Math.floor(G.combo / 3)) + '</b></span></div>' +
+    '<div class="time-bar' + (G.t <= 10 ? " low" : "") + '" id="g-tbar"><div style="width:' + (G.t / 60 * 100) + '%"></div></div>' +
+    '<div class="target" id="g-target">' + G.cur.html + '</div><div class="gfb" id="g-fb"><span class="muted">Klavye: ' + SPEED[G.id].keys + '</span></div>' +
+    '<div class="big5">' + G.opts.map(function (o, i) { return '<button style="--role:var(--' + o[3] + ')" data-gs="' + o[0] + '"><span class="ar">' + o[2] + '</span>' + o[1] + '<small>' + (i + 1) + '</small></button>'; }).join("") + '</div></div>';
+}
+function speedPick(v) {
+  if (!G || G.over || G.lock) return;
+  var c = G.cur, ok = c.a === v, tg = document.getElementById("g-target"), fb = document.getElementById("g-fb");
+  G.n++;
+  if (ok) {
+    G.ok++; G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo);
+    var m = Math.min(5, 1 + Math.floor((G.combo - 1) / 3)); G.score += 10 * m; beep("ok");
+    fb.innerHTML = '<b style="color:var(--good)">Doğru +' + 10 * m + '</b> · önceki: ' + c.fb;
+    tg.classList.remove("flash-no"); tg.classList.add("flash-ok"); nextSpeed(); tg.innerHTML = G.cur.html;
+    setTimeout(function () { tg.classList.remove("flash-ok"); }, 180);
+  } else {
+    G.combo = 0; G.t = Math.max(0, G.t - 3); beep("no"); G.lock = true;
+    fb.innerHTML = '<b style="color:var(--bad)">Yanlış, −3 sn.</b> ' + c.fb;
+    void tg.offsetWidth; tg.classList.add("flash-no");
+    setTimeout(function () { if (!G || G.over) return; G.lock = false; tg.classList.remove("flash-no"); nextSpeed(); tg.innerHTML = G.cur.html; fb.innerHTML = '<span class="muted">Klavye: ' + SPEED[G.id].keys + '</span>'; if (G.t <= 0) endGame(G.score); }, 1800);
+  }
+  hud();
+}
+// hafıza
+function bodyHaf() {
+  if (G.over) return gameOver("Hafıza Kartları", ['<b class="tabular">' + G.moves + '</b> hamlede, <b class="tabular">' + G.secs + '</b> saniyede bitirdin.']);
+  return '<div class="card stack">' + gameHead("Hafıza Kartları · " + HAFIZA[G.deck].name) +
+    '<div class="hud"><span>Hamle <b id="g-moves">' + G.moves + '</b></span><span>Çift <b id="g-pairs">' + Object.keys(G.done).length + '/' + G.pairs + '</b></span><span>Süre <b id="g-clock">0 sn</b></span></div>' +
+    '<div class="mem">' + G.cards.map(function (c, i) { var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(c.t); return '<button class="mcard' + (G.done[c.p] ? " done" : "") + '" data-gc="' + i + '" aria-label="Kart ' + (i + 1) + '"><div class="in"><div class="face back">؟</div><div class="face front' + (lat ? " lat" : "") + '">' + c.t + '</div></div></button>'; }).join("") + '</div></div>';
+}
+function flip(i) {
+  if (!G || G.over || G.lock) return;
+  var c = G.cards[i]; if (G.done[c.p] || G.open.indexOf(i) >= 0) return;
+  G.open.push(i); document.querySelector('[data-gc="' + i + '"]').classList.add("up");
+  if (G.open.length < 2) return;
+  G.moves++; document.getElementById("g-moves").textContent = G.moves;
+  var a = G.cards[G.open[0]], b = G.cards[G.open[1]];
+  if (a.p === b.p) {
+    G.done[a.p] = 1; beep("ok");
+    G.open.forEach(function (j) { var e = document.querySelector('[data-gc="' + j + '"]'); e.classList.remove("up"); e.classList.add("done"); });
+    G.open = []; document.getElementById("g-pairs").textContent = Object.keys(G.done).length + "/" + G.pairs;
+    if (Object.keys(G.done).length === G.pairs) { G.secs = Math.floor((Date.now() - G.start) / 1000); G.stars = G.moves <= 9 ? 3 : G.moves <= 13 ? 2 : 1; setTimeout(function () { endGame(G.stars * 20 + Math.max(0, 60 - G.secs)); }, 500); }
+  } else {
+    G.lock = true; beep("no");
+    setTimeout(function () { if (!G) return; G.open.forEach(function (j) { var e = document.querySelector('[data-gc="' + j + '"]'); if (e) e.classList.remove("up"); }); G.open = []; G.lock = false; }, 950);
+  }
+}
+
+// ---------- QUIZ PROVASI ----------
+var TOPIC = { u1: "Cezm edatları", u2: "لَمْ · لَنْ", u3: "لَا · لِـ", u4: "Nasb mı cezm mi", u5: "Kur'an ve okuma" };
+var TK = ["u1", "u2", "u3", "u4", "u5"];
+var Q = null, QT = null;
+function stopQuiz() { if (QT) { clearInterval(QT); QT = null; } if (Q && !Q.done) Q = null; }
+function quizBank() {
+  var bank = { u1: [], u2: [], u3: [], u4: [], u5: [] };
+  UNITS.forEach(function (u) {
+    u.ex.forEach(function (ex) {
+      expand(ex).forEach(function (it) {
+        if (it.kind === "pick") bank[u.id].push({ inst: ex.tr.split(".")[0] + ".", q: it.q.replace("___", "……"), o: it.o.slice(), a: it.o[it.a], why: it.why || "", tr: it.tr || "" });
+        if (it.kind === "classify") bank[u.id].push({ inst: "Bu kelimenin türü ne?", q: it.s, o: ex.opts.map(function (x) { return x[1]; }), a: ex.opts.filter(function (x) { return x[0] === it.a; })[0][1], why: it.why || "", tr: it.tr || "" });
+        if (it.kind === "irab") bank[u.id].push({ inst: "Altı çizili kelimenin hali ne?", q: it.s.replace(/\[(.+?)\]/, '<b class="hl">$1</b>'), o: ["Merfû", "Mansûb", "Meczûm"], a: HAL_TR[it.c], why: it.why || "", tr: it.tr || "" });
+      });
+    });
+  });
+  POOL.forEach(function (p) {
+    bank[p.topic].push({ inst: "Fiilin doğru şekli hangisi?", q: poolHtml(p, "blank"), o: p.forms.slice(), a: p.w, why: why(p), tr: p.tr });
+  });
+  EDAT_POOL.forEach(function (d) { bank[/emir|için/.test(d[1]) ? "u3" : "u4"].push({ inst: "Bu anlamda edat nasb mı eder, cezm mi? (" + d[1] + ")", q: d[0], o: ["Nasb", "Cezm", "Etkisiz"], a: { nasb: "Nasb", cezm: "Cezm", ref: "Etkisiz" }[d[2]], why: "" }); });
+  LEM_POOL.forEach(function (l) { bank.u2.push({ inst: "Türkçeye uyan olumsuzluk: " + l[0], q: "", o: ["لَمْ + sükûn", "لَنْ + fetha"], a: l[1] === "lam" ? "لَمْ + sükûn" : "لَنْ + fetha", why: '<span class="ar">' + l[2] + '</span>' }); });
+  return bank;
+}
+function startQuiz() {
+  var bank = quizBank(), qs = [];
+  TK.forEach(function (k) {
+    var seen = {}, got = 0;
+    shuffle(bank[k]).forEach(function (q) { var sig = q.q.replace(/<[^>]+>/g, ""); if (got >= 4 || seen[sig]) return; seen[sig] = 1; got++; q.topic = k; q.o = shuffle(q.o); qs.push(q); });
+  });
+  Q = { qs: shuffle(qs), i: 0, ans: [], start: Date.now(), done: false };
+  main.innerHTML = renderQuiz();
+  QT = setInterval(function () { var el = document.getElementById("qz-clock"); if (el && Q && !Q.done) { var s = Math.floor((Date.now() - Q.start) / 1000); el.textContent = Math.floor(s / 60) + ":" + ("0" + s % 60).slice(-2); } }, 1000);
+}
+function renderQuiz() {
+  var best = store.get("qbest", null);
+  if (!Q) return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası</div><h2>Gerçek quiz gibi: 20 soru</h2>' +
+    '<p class="muted" style="max-width:60ch">Beş konudan dörder soru gelir: doğru son, لَمْ-لَنْ, iki لِـ ve iki لَا, nasb-cezm ayırma. Cevaplar sonda gösterilir. Sonunda konu konu puanını ve yanlışlarının açıklamasını görürsün. Her denemede sorular değişir.</p>' +
+    (best != null ? '<p>En iyi sonucun: <b class="tabular">' + best + ' / 20</b></p>' : '') + '<button class="btn solid" data-qstart="1">Provayı başlat</button></div></section>';
+  if (Q.done) {
+    var by = {}; Q.qs.forEach(function (q, i) { by[q.topic] = by[q.topic] || [0, 0]; by[q.topic][1]++; if (Q.ans[i] === q.a) by[q.topic][0]++; });
+    var tot = Q.qs.filter(function (q, i) { return Q.ans[i] === q.a; }).length;
+    var col = { u1: "mz", u2: "cerr", u3: "ref", u4: "nasb", u5: "mi" };
+    var weak = Object.keys(by).filter(function (k) { return by[k][0] / by[k][1] < 0.8; });
+    return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası bitti · ' + Q.time + '</div>' + starsHtml(tot >= 18 ? 3 : tot >= 14 ? 2 : 1) + '<div class="score-big tabular">' + tot + ' / 20</div>' +
+      '<p>' + (tot >= 18 ? "Konuya hâkimsin. Aferin!" : tot >= 14 ? "İyi gidiyorsun. Aşağıdaki zayıf konuya bir kez daha bak." : "Önce Özet'teki i'rab makinesiyle çalış, zayıf konunun alıştırmalarını çöz, sonra provayı tekrarla.") + '</p>' +
+      '<div class="qz-bars">' + TK.map(function (k) { var v = by[k] || [0, 4]; return '<div class="qz-bar" style="--role:var(--' + col[k] + ')"><span>' + TOPIC[k] + '</span><div class="tr2"><div style="width:' + (v[0] / v[1] * 100) + '%"></div></div><b class="tabular">' + v[0] + '/' + v[1] + '</b></div>'; }).join("") + '</div>' +
+      (weak.length ? '<div class="row-btns" style="justify-content:center">' + weak.map(function (k) { return '<button class="btn small" data-go="' + k + '">' + TOPIC[k] + ' konusuna dön</button>'; }).join("") + '</div>' : '') +
+      '<div class="row-btns" style="justify-content:center"><button class="btn solid" data-qstart="1">Yeni prova</button></div></div>' +
+      '<div class="card stack"><div class="lbl">Cevap anahtarı</div><h2>Yanlışların</h2>' + (tot === 20 ? '<p>Hiç yanlışın yok.</p>' : '<div class="items">' + Q.qs.map(function (q, i) {
+        if (Q.ans[i] === q.a) return "";
+        return '<div class="item no"><span class="qz-type">' + TOPIC[q.topic] + ' · ' + q.inst + '</span>' + (q.q ? '<div class="q">' + q.q + '</div>' : '') + '<div class="fb"><span class="no">Senin cevabın:</span> ' + arw(Q.ans[i] || "boş") + '<br><span class="ok">Doğrusu:</span> ' + arw(q.a) + (q.why ? '<br>' + q.why : '') + '</div>' + (q.tr ? '<div class="trline">' + q.tr + '</div>' : '') + '</div>';
+      }).join("") + '</div>') + '</div></section>';
+  }
+  var q = Q.qs[Q.i];
+  return '<section class="panel"><div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Quiz provası · ' + TOPIC[q.topic] + '</div><h2>Soru ' + (Q.i + 1) + ' / 20</h2></div><div class="hud"><span>Süre <b id="qz-clock">0:00</b></span></div></div>' +
+    '<div class="progress prog"><div style="width:' + (Q.i / 20 * 100) + '%;--role:var(--accent)"></div></div>' +
+    '<p><b>' + q.inst + '</b></p>' + (q.q ? '<div class="target" style="font-size:clamp(1.5rem,5vw,2.2rem)">' + q.q + '</div>' : '') +
+    '<div class="opts">' + q.o.map(function (o, oi) { var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(o); return '<button class="opt block' + (lat ? " lat" : "") + (Q.ans[Q.i] === o ? " sel-ok" : "") + '" data-qa="' + oi + '">' + o + '</button>'; }).join("") + '</div>' +
+    '<div class="row-btns"><button class="btn small" data-qprev="1"' + (Q.i === 0 ? " disabled" : "") + '>Önceki</button><button class="btn small" data-qskip="1">' + (Q.i < 19 ? "Sonraki" : "Bitir") + '</button></div></div></section>';
+}
+function arw(t) { return /[؀-ۿ]/.test(t) ? '<span class="ar">' + t + '</span>' : '<b>' + t + '</b>'; }
+function quizNext() {
+  if (Q.i < 19) { Q.i++; main.innerHTML = renderQuiz(); return; }
+  var s = Math.floor((Date.now() - Q.start) / 1000); Q.time = Math.floor(s / 60) + " dk " + (s % 60) + " sn"; Q.done = true;
+  if (QT) { clearInterval(QT); QT = null; }
+  var tot = Q.qs.filter(function (q, i) { return Q.ans[i] === q.a; }).length, best = store.get("qbest", null);
+  if (best == null || tot > best) store.set("qbest", tot);
+  main.innerHTML = renderQuiz(); window.scrollTo({ top: 0 }); addXP(tot * 4); if (tot >= 18) confetti(); beep("win");
+}
+
+main.addEventListener("click", function (ev) {
+  var b = ev.target.closest("button"); if (!b) return;
+  var d = b.dataset;
+  if (d.qstart) { startQuiz(); window.scrollTo({ top: 0 }); return; }
+  if (d.qa != null && Q && !Q.done) { Q.ans[Q.i] = Q.qs[Q.i].o[+d.qa]; beep("tick"); setTimeout(quizNext, 180); return; }
+  if (d.qprev && Q && Q.i > 0) { Q.i--; main.innerHTML = renderQuiz(); return; }
+  if (d.qskip && Q) { quizNext(); return; }
+  if (d.gstart) { startGame(d.gstart, d.deck); window.scrollTo({ top: 0 }); return; }
+  if (d.gmenu) { stopGame(); redraw(); return; }
+  if (!G) return;
+  if (d.gs) speedPick(d.gs);
+  else if (d.ga != null) { if (G.ans != null) return; G.ans = d.ga; if (d.ga === G.list[G.i].w) { G.ok++; G.score += 10; beep("ok"); } else beep("no"); redraw(); }
+  else if (d.gnext) { G.i++; G.ans = null; if (G.i >= G.list.length) { G.stars = starsBy(G.ok, G.list.length); endGame(G.score); } else redraw(); }
+  else if (d.gc != null) flip(+d.gc);
+});
+document.addEventListener("keydown", function (ev) {
+  if (ST.tab !== "oyun" || !G || G.over || !SPEED[G.id]) return;
+  var i = ["1", "2", "3"].indexOf(ev.key); if (i >= 0 && i < G.opts.length) { ev.preventDefault(); speedPick(G.opts[i][0]); }
+});
+
+
+document.getElementById("tabs").addEventListener("click", function (ev) {
+  var b = ev.target.closest("button[data-tab]"); if (!b) return; setTab(b.dataset.tab); window.scrollTo({ top: 0 });
+});
+renderTabs(); renderXP(); setTab(ST.tab);
+})();
+</script>
