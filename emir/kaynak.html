@@ -10,7 +10,7 @@
 <div class="wrap">
   <header class="top">
     <div>
-      <div class="lbl">Kitaptaki ders · dört konu</div>
+      <div class="lbl">Kitaptaki ders · beş konu</div>
       <h1>Emir ve Nehiy</h1>
       <div class="h1ar">الأَمْرُ وَالنَّهْيُ</div>
       <p>Emir "yap!", nehiy "yapma!" der. İkisi de muzâriden yapılır: <span class="ar" style="color:var(--ref)">اُكْتُبْ</span> (yaz), <span class="ar" style="color:var(--nasb)">لِيَكْتُبْ</span> (yazsın), <span class="ar" style="color:var(--cerr)">لَا تَكْتُبْ</span> (yazma), <span class="ar" style="color:var(--mi)">لَا يَكْتُبْ</span> (yazmasın). Makineyle dene, alıştırmaları çöz, oyunlarla pekiştir.</p>
@@ -132,7 +132,7 @@ function cjNote(vk, mode, i) {
 }
 // Emir-nehiy makinesi: fiil ve tür seç; kitaptaki tablo sağdan sola
 function cekimMakine() {
-  var vi = LIVE.cv || 0, vk = MAK_V[vi], mode = LIVE.cm || (ST.tab === "u3" ? "l" : "a"), cells = MOD_CELLS[mode], ci = LIVE.cc == null || cells.indexOf(LIVE.cc) < 0 ? cells[0] : LIVE.cc, c = CELLS[ci];
+  var vi = LIVE.cv || 0, vk = MAK_V[vi], mode = LIVE.cm || ({ u1: "a", u2: "l", u3: "nh", u4: "ng" })[ST.tab] || "a", cells = MOD_CELLS[mode], ci = LIVE.cc == null || cells.indexOf(LIVE.cc) < 0 ? cells[0] : LIVE.cc, c = CELLS[ci];
   var rowsIdx = mode === "a" || mode === "nh" ? [2, 3] : [0, 1];
   var head = '<div class="zt-c hd"></div><div class="zt-c hd">Tekil</div><div class="zt-c hd">İkil</div><div class="zt-c hd">Çoğul</div>';
   var rows = rowsIdx.map(function (ri) {
@@ -155,26 +155,32 @@ function dortTur() {
     '<div style="--role:var(--cerr)"><b>Nehy-i hâzır</b><span class="muted">sen, siz: yapma!</span><span class="ar hlb" style="font-size:1.45rem">لَا تَكْتُبْ</span><small class="muted">لَا + meczûm</small></div>' +
     '<div style="--role:var(--mi)"><b>Nehy-i gâib</b><span class="muted">o, onlar: yapmasın!</span><span class="ar hlb" style="font-size:1.45rem">لَا يَكْتُبْ</span><small class="muted">لَا + meczûm</small></div></div>';
 }
-function vizU1() { return dortTur() + '<p class="cap">Hepsi muzâriden yapılır ve fiil meczûm olur. Allah\'a yönelik emir ve nehiy duadır: <span class="ar">اغْفِرْ لَنَا، لَا تُؤَاخِذْنَا</span>.</p>'; }
-function vizU2() {
+function vizU1() {
   return '<div class="steps3" style="width:100%;max-width:760px;direction:rtl">' +
     '<div style="direction:ltr;text-align:center"><span class="lbl">1. Muzâri</span><span class="ar" style="font-size:1.7rem">تَفْتَحُونَ</span><small class="muted">açıyorsunuz</small></div>' +
     '<div style="direction:ltr;text-align:center"><span class="lbl">2. تَـ ve nûn düşer</span><span class="ar" style="font-size:1.7rem">فْتَحُوا</span><small class="muted">ilk harf sakin</small></div>' +
-    '<div style="direction:ltr;text-align:center"><span class="lbl">3. Hemze gelir</span><span class="ar" style="font-size:1.7rem"><b style="color:var(--ref)">اِ</b>فْتَحُوا</span><small class="muted">açın!</small></div></div>' + cekimMakine();
+    '<div style="direction:ltr;text-align:center"><span class="lbl">3. Hemze gelir</span><span class="ar" style="font-size:1.7rem"><b style="color:var(--ref)">اِ</b>فْتَحُوا</span><small class="muted">açın!</small></div></div>' + cekimMakine() + '<p class="cap">Muhatab (sen, siz) için: muzâriden تَـ atılır, son harf meczûm olur, ilk harf sakin kalırsa başa hemze gelir. Ayn harekesi damme ise <span class="ar">اُ</span>, değilse <span class="ar">اِ</span>.</p>';
 }
-function vizU3() {
+function vizU2() {
   return cekimMakine() + '<div class="lbl">Fiil önde: tekil</div><div class="vs">' +
     '<div class="fcard" style="--role:var(--nasb)"><span class="ar">لِيَرْجِعِ الأَوْلَادُ</span><b class="t">çocuklar dönsün</b><small>fiil tekil</small></div>' +
     '<div class="fcard" style="--role:var(--x)"><span class="ar">الأَوْلَادُ لِيَرْجِعُوا</span><b class="t">isim önde: çoğul</b></div></div>';
 }
-function vizU4() {
-  return badges([["نَزَلَ", "→ اِنْزِلْ · لَا تَنْزِلْ", "ref"], ["دَخَلَ", "→ اُدْخُلْ · لَا تَدْخُلْ", "ref"], ["يَشْرَبُونَ", "→ اِشْرَبُوا · لَا تَشْرَبُوا", "cerr"], ["يَنْتَفِعُونَ", "→ اِنْتَفِعُوا · لَا تَنْتَفِعُوا", "cerr"]]);
+function vizU3() {
+  return cekimMakine() + '<p class="cap">Muhataba "yapma!": muzârinin başına <span class="ar">لَا</span> gelir, fiil meczûm olur; hemze gelmez, <span class="ar">تَـ</span> kalır: <span class="ar">لَا تَكْتُبْ، لَا تَكْتُبُوا، لَا تَكْتُبِي</span>.</p>';
 }
-var VIZ = { u1: vizU1, u2: vizU2, u3: vizU3, u4: vizU4 };
+function vizU4() {
+  return cekimMakine() + '<p class="cap">Gâibe (o, onlar) "yapmasın!": yine <span class="ar">لَا</span> + meczûm muzâri; baştaki harf <span class="ar">يَـ</span> ya da <span class="ar">تَـ</span> olur: <span class="ar">لَا يَكْتُبْ، لَا تَكْتُبْ، لَا يَكْتُبُوا</span>.</p>';
+}
+function vizU5() {
+  return dortTur() + '<p class="cap">Metinde fiili bul, türünü söyle. Allah\'a yönelik emir ve nehiy duadır: <span class="ar">اغْفِرْ لَنَا، لَا تُؤَاخِذْنَا</span>.</p>' +
+    badges([["نَزَلَ", "→ اِنْزِلْ · لَا تَنْزِلْ", "ref"], ["دَخَلَ", "→ اُدْخُلْ · لَا تَدْخُلْ", "ref"], ["يَشْرَبُونَ", "→ اِشْرَبُوا · لَا تَشْرَبُوا", "cerr"], ["يَنْتَفِعُونَ", "→ اِنْتَفِعُوا · لَا تَنْتَفِعُوا", "cerr"]]);
+}
+var VIZ = { u1: vizU1, u2: vizU2, u3: vizU3, u4: vizU4, u5: vizU5 };
 
 // ---------- durum ----------
 var ST = { tab: "ozet", tr: store.get("tr", true), items: store.get("items", {}) };
-var TABS = ["ozet", "u1", "u2", "u3", "u4", "oyun", "quiz"];
+var TABS = ["ozet", "u1", "u2", "u3", "u4", "u5", "oyun", "quiz"];
 var hashT = location.hash.replace("#", "");
 ST.tab = TABS.indexOf(hashT) >= 0 ? hashT : store.get("tab", "ozet");
 if (TABS.indexOf(ST.tab) < 0) ST.tab = "ozet";
@@ -272,10 +278,11 @@ function renderOzet() {
     '<div class="card stack"><div class="lbl">Bütün konu tek bakışta</div><h2>Dört tür</h2><div class="viz">' + dortTur() + '</div></div>' +
     '<div class="card stack"><div class="lbl">Etkinlik</div><h2>Emir-nehiy makinesi</h2><p class="muted">Bir fiil ve tür seç; kitaptaki tablo sağdan sola çıkar. Bir şahsa dokun, açıklamayı oku. Gri kısım emir ya da nehiy edatı.</p><div class="viz">' + cekimMakine() + '</div></div>' +
     '<div class="sumgrid">' +
-      card(UNITS[0], ['<span class="ar">اُكْتُبْ · لِيَكْتُبْ</span>: emir', '<span class="ar">لَا تَكْتُبْ · لَا يَكْتُبْ</span>: nehiy', 'Âyette: <span class="ar">خُذُوا، كُلُوا، لَا تُسْرِفُوا</span>']) +
-      card(UNITS[1], ['<span class="ar">تَفْتَحُ ← اِفْتَحْ</span>', '<span class="ar">يَكْتُبُ ← اُكْتُبْ</span>', '<span class="ar">اِفْتَحْ اِفْتَحَا اِفْتَحُوا اِفْتَحِي اِفْتَحْنَ</span>']) +
-      card(UNITS[2], ['<span class="ar">لِيَجْلِسْ، لِتَجْلِسْ</span>', '<span class="ar">لَا تَجْلِسِي، لَا يَجْلِسُوا</span>', 'Fiil önde tekil: <span class="ar">لِيَرْجِعِ الأَوْلَادُ</span>']) +
-      card(UNITS[3], ['<span class="ar">نَزَلَ ← اِنْزِلْ</span>', '<span class="ar">يَشْرَبُونَ ← اِشْرَبُوا</span>', '<span class="ar">لَا تَشْرَبُوا</span>']) +
+      card(UNITS[0], ['<span class="ar">تَفْتَحُ ← اِفْتَحْ</span>', '<span class="ar">يَكْتُبُ ← اُكْتُبْ</span>', '<span class="ar">اِفْتَحْ اِفْتَحَا اِفْتَحُوا اِفْتَحِي اِفْتَحْنَ</span>']) +
+      card(UNITS[1], ['<span class="ar">لِيَكْتُبْ، لِتَكْتُبْ</span>', '<span class="ar">لِيَكْتُبُوا، لِيَكْتُبْنَ</span>', 'Fiil önde tekil: <span class="ar">لِيَرْجِعِ الأَوْلَادُ</span>']) +
+      card(UNITS[2], ['<span class="ar">لَا تَكْتُبْ</span>', '<span class="ar">لَا تَكْتُبُوا، لَا تَكْتُبِي</span>', 'Âyette: <span class="ar">لَا تُسْرِفُوا</span>']) +
+      card(UNITS[3], ['<span class="ar">لَا يَكْتُبْ، لَا تَكْتُبْ</span>', '<span class="ar">لَا يَكْتُبُوا، لَا يَكْتُبْنَ</span>', '<span class="ar">لَا يُهْمِلْ</span>']) +
+      card(UNITS[4], ['Âyet: <span class="ar">خُذُوا، كُلُوا</span>', 'Dua: <span class="ar">اغْفِرْ لَنَا</span>', '<span class="ar">يَشْرَبُونَ ← اِشْرَبُوا</span>']) +
     '</div>' +
     '<div class="card stack"><div class="lbl">Hatırlatma kartları</div><h2>Kartı çevir, cevabı hatırla</h2>' +
       '<div class="flash-wrap"><button class="flash' + (fu ? " up" : "") + '" data-flip="1" aria-label="Kartı çevir"><div class="in"><div class="face front">' + arWrap(KARTLAR[fi][0]) + '</div><div class="face back">' + arWrap(KARTLAR[fi][1]) + '</div></div></button>' +
@@ -298,12 +305,12 @@ function renderUnit(u) {
   }).join("");
   return '<section class="panel" style="--role:var(--' + u.col + ')">' +
     '<div class="card unit-hero"><div class="unit-no">' + u.no + '</div><div class="stack">' +
-      '<div class="lbl">Emir ve nehiy · konu ' + u.no + ' / 4</div><div class="ar big" style="color:var(--role)">' + u.ar + '</div><h2>' + u.tr + '</h2>' +
+      '<div class="lbl">Emir ve nehiy · konu ' + u.no + ' / 5</div><div class="ar big" style="color:var(--role)">' + u.ar + '</div><h2>' + u.tr + '</h2>' +
       '<ul class="goals">' + u.goals.map(function (g) { return '<li>' + g + '</li>'; }).join("") + '</ul>' +
       '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> alıştırma maddesi doğru</div>' +
     '</div></div>' +
     '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Kitaptaki örnekler</div><h2>Önce gör</h2></div><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button></div>' +
-      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Sağda emir, solda nehiy; etikette türü yazıyor.", u2: "Hitap edilen kişiye göre emir değişir.", u3: "Emr-i gâib ve nehiy.", u4: "Metindeki fiilden emir ve nehiy."})[u.id] + '</p>' + '</div>' +
+      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Hitap edilen kişiye göre emir değişir.", u2: "Gâibe emir: لِـ + meczûm muzâri.", u3: "Muhataba yasak: لَا + meczûm muzâri.", u4: "Gâibe yasak: لَا + meczûm muzâri.", u5: "Metindeki fiilden emir ve nehiy."})[u.id] + '</p>' + '</div>' +
     '<div class="card viz"><div class="lbl">Görsel</div>' + viz + '</div>' +
     '<div class="card stack"><div class="lbl">القَاعِدَةُ · Kaide</div><h2>Kural</h2>' +
       '<ol class="rules">' + u.rules.map(function (r) { return '<li><div class="stack" style="gap:4px"><div>' + r.tr + '</div>' + (r.ex ? '<div class="exs">' + r.ex.map(function (x) { return '<span>' + x + '</span>'; }).join("") + '</div>' : '') + '</div></li>'; }).join("") + '</ol>' +

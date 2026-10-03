@@ -156,12 +156,12 @@ function flip(i) {
 }
 
 // ---------- QUIZ PROVASI ----------
-var TOPIC = { u1: "Emir ve nehyi tanıma", u2: "Emr-i hâzır", u3: "Emr-i gâib ve nehiy", u4: "Okuma ve karışık" };
-var TK = ["u1", "u2", "u3", "u4"];
+var TOPIC = { u1: "Emr-i hâzır", u2: "Emr-i gâib", u3: "Nehy-i hâzır", u4: "Nehy-i gâib", u5: "Âyet, hadis ve okuma" };
+var TK = ["u1", "u2", "u3", "u4", "u5"];
 var Q = null, QT = null;
 function stopQuiz() { if (QT) { clearInterval(QT); QT = null; } if (Q && !Q.done) Q = null; }
 function quizBank() {
-  var bank = { u1: [], u2: [], u3: [], u4: [] };
+  var bank = { u1: [], u2: [], u3: [], u4: [], u5: [] };
   UNITS.forEach(function (u) {
     u.ex.forEach(function (ex) {
       expand(ex).forEach(function (it) {
@@ -177,8 +177,8 @@ function quizBank() {
     MODS.forEach(function (m) {
       MOD_CELLS[m].forEach(function (ci) {
         var f = FE(vk, m, ci), c = CELLS[ci];
-        bank[m === "a" ? "u2" : "u3"].push({ inst: MOD[m] + ": doğru şekil hangisi? (" + V[vk].tr + ")", q: '<span class="ar">' + c[3] + '</span> + <span class="ar">' + cjText(vk, "u", 0) + '</span>', o: f.o.slice(), a: f.o[f.a], why: c[2], tr: "" });
-        bank.u4.push({ inst: "Bu şekil hangi tür?", q: cjText(vk, m, ci), o: ["Emr-i hâzır", "Emr-i gâib", "Nehy-i hâzır", "Nehy-i gâib"], a: MOD[m], why: c[2], tr: "" });
+        bank[({ a: "u1", l: "u2", nh: "u3", ng: "u4" })[m]].push({ inst: MOD[m] + ": doğru şekil hangisi? (" + V[vk].tr + ")", q: '<span class="ar">' + c[3] + '</span> + <span class="ar">' + cjText(vk, "u", 0) + '</span>', o: f.o.slice(), a: f.o[f.a], why: c[2], tr: "" });
+        bank.u5.push({ inst: "Bu şekil hangi tür?", q: cjText(vk, m, ci), o: ["Emr-i hâzır", "Emr-i gâib", "Nehy-i hâzır", "Nehy-i gâib"], a: MOD[m], why: c[2], tr: "" });
       });
     });
   });
@@ -188,7 +188,7 @@ function startQuiz() {
   var bank = quizBank(), qs = [];
   TK.forEach(function (k) {
     var seen = {}, got = 0;
-    shuffle(bank[k]).forEach(function (q) { var sig = q.q.replace(/<[^>]+>/g, ""); if (got >= 5 || seen[sig]) return; seen[sig] = 1; got++; q.topic = k; q.o = shuffle(q.o); qs.push(q); });
+    shuffle(bank[k]).forEach(function (q) { var sig = q.q.replace(/<[^>]+>/g, ""); if (got >= 4 || seen[sig]) return; seen[sig] = 1; got++; q.topic = k; q.o = shuffle(q.o); qs.push(q); });
   });
   Q = { qs: shuffle(qs), i: 0, ans: [], start: Date.now(), done: false };
   main.innerHTML = renderQuiz();
@@ -202,11 +202,11 @@ function renderQuiz() {
   if (Q.done) {
     var by = {}; Q.qs.forEach(function (q, i) { by[q.topic] = by[q.topic] || [0, 0]; by[q.topic][1]++; if (Q.ans[i] === q.a) by[q.topic][0]++; });
     var tot = Q.qs.filter(function (q, i) { return Q.ans[i] === q.a; }).length;
-    var col = { u1: "ref", u2: "cerr", u3: "mz", u4: "mi" };
+    var col = { u1: "ref", u2: "nasb", u3: "cerr", u4: "mi", u5: "muz" };
     var weak = Object.keys(by).filter(function (k) { return by[k][0] / by[k][1] < 0.8; });
     return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası bitti · ' + Q.time + '</div>' + starsHtml(tot >= 18 ? 3 : tot >= 14 ? 2 : 1) + '<div class="score-big tabular">' + tot + ' / 20</div>' +
       '<p>' + (tot >= 18 ? "Konuya hâkimsin. Aferin!" : tot >= 14 ? "İyi gidiyorsun. Aşağıdaki zayıf konuya bir kez daha bak." : "Önce Özet'teki emir-nehiy makinesiyle çalış, zayıf konunun alıştırmalarını çöz, sonra provayı tekrarla.") + '</p>' +
-      '<div class="qz-bars">' + TK.map(function (k) { var v = by[k] || [0, 5]; return '<div class="qz-bar" style="--role:var(--' + col[k] + ')"><span>' + TOPIC[k] + '</span><div class="tr2"><div style="width:' + (v[0] / v[1] * 100) + '%"></div></div><b class="tabular">' + v[0] + '/' + v[1] + '</b></div>'; }).join("") + '</div>' +
+      '<div class="qz-bars">' + TK.map(function (k) { var v = by[k] || [0, 4]; return '<div class="qz-bar" style="--role:var(--' + col[k] + ')"><span>' + TOPIC[k] + '</span><div class="tr2"><div style="width:' + (v[0] / v[1] * 100) + '%"></div></div><b class="tabular">' + v[0] + '/' + v[1] + '</b></div>'; }).join("") + '</div>' +
       (weak.length ? '<div class="row-btns" style="justify-content:center">' + weak.map(function (k) { return '<button class="btn small" data-go="' + k + '">' + TOPIC[k] + ' konusuna dön</button>'; }).join("") + '</div>' : '') +
       '<div class="row-btns" style="justify-content:center"><button class="btn solid" data-qstart="1">Yeni prova</button></div></div>' +
       '<div class="card stack"><div class="lbl">Cevap anahtarı</div><h2>Yanlışların</h2>' + (tot === 20 ? '<p>Hiç yanlışın yok.</p>' : '<div class="items">' + Q.qs.map(function (q, i) {

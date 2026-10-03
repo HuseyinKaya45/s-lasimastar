@@ -440,7 +440,7 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
 <div class="wrap">
   <header class="top">
     <div>
-      <div class="lbl">Kitaptaki ders · dört konu</div>
+      <div class="lbl">Kitaptaki ders · beş konu</div>
       <h1>Emir ve Nehiy</h1>
       <div class="h1ar">الأَمْرُ وَالنَّهْيُ</div>
       <p>Emir "yap!", nehiy "yapma!" der. İkisi de muzâriden yapılır: <span class="ar" style="color:var(--ref)">اُكْتُبْ</span> (yaz), <span class="ar" style="color:var(--nasb)">لِيَكْتُبْ</span> (yazsın), <span class="ar" style="color:var(--cerr)">لَا تَكْتُبْ</span> (yazma), <span class="ar" style="color:var(--mi)">لَا يَكْتُبْ</span> (yazmasın). Makineyle dene, alıştırmaları çöz, oyunlarla pekiştir.</p>
@@ -821,32 +821,106 @@ var UNITS = [
 }
 ];
 
+// ---------------- konuları dört türe göre yeniden düzenle ----------------
+var OLD = UNITS;
+var EXS = { find: OLD[0].ex[0], hadis: OLD[0].ex[1], ex3: OLD[1].ex[0], ex4: OLD[1].ex[1], ex5: OLD[2].ex[0], ex6: OLD[2].ex[1], ex7: OLD[2].ex[2], oku: OLD[3].ex[0], ex8: OLD[3].ex[1] };
+UNITS = [
+{
+  id: "u1", no: 1, ar: "أَمْرُ الحَاضِرِ", tr: "Emr-i Hâzır", short: "Emr-i hâzır", col: "ref", legend: ["ref"],
+  goals: ["Karşıdakine emir vermek: اُكْتُبْ (yaz!)", "Muzâriden emr-i hâzır yapmak ve hemzenin harekesini seçmek: اُكْتُبْ ama اِفْتَحْ", "Emri karşıdakine göre çekmek: اِفْتَحْ، اِفْتَحَا، اِفْتَحُوا، اِفْتَحِي، اِفْتَحْنَ"],
+  examples: [
+    { s: "اِقْرَإِ:ref / القُرْآنَ:- / يَا أَحْمَدُ:-", tr: "Kur'an'ı oku ey Ahmed.", pair: "اِفْتَحِي:ref.ـي / الكِتَابَ:- / يَا فَاطِمَةُ:-", pairTr: "Kitabı aç ey Fâtıma." }
+  ].concat(OLD[1].examples),
+  rules: [
+    { tr: "Emir ve nehiy <b>muzâri lafzından</b> yapılır. <b class=\"r-ref\">Emr-i hâzır</b> karşıdakine (sen, siz) verilen emirdir: <span class=\"ar\">اُكْتُبِ الدَّرْسَ</span> (dersi yaz)." }
+  ].concat(OLD[1].rules, [OLD[0].rules[5]]),
+  kaide: [OLD[0].kaide[0], "أَمْرُ الحَاضِرِ، مِثْلُ: اُكْتُبِ الدَّرْسَ."].concat(OLD[1].kaide),
+  ex: [EXS.ex3, EXS.ex4]
+},
+{
+  id: "u2", no: 2, ar: "أَمْرُ الغَائِبِ", tr: "Emr-i Gâib", short: "Emr-i gâib", col: "nasb", legend: ["ref"],
+  goals: ["Orada olmayana emir vermek: لِيَكْتُبْ (yazsın)", "Lâm-ı emrin fiili meczûm yaptığını bilmek", "Fiil önde ise tekil kaldığını uygulamak: لِيَرْجِعِ الأَوْلَادُ"],
+  examples: [
+    { s: "لِيَذْهَبْ:ref.emr-i gâib / عَلِيٌّ:- / إِلَى المَكْتَبَةِ:-", tr: "Ali kütüphaneye gitsin.", pair: "لِيَفْتَحْ:ref.emr-i gâib / عَلِيٌّ:- / الحَاسُوبَ:-", pairTr: "Ali bilgisayarı açsın." },
+    { s: "﴿فَلْيَعْبُدُوا:ref.ـو / رَبَّ هَذَا البَيْتِ﴾:-", tr: "Bu evin Rabbine ibadet etsinler.", pair: "لِتَكْنُسِ:ref.müennes / المَرْأَةُ:- / الغُرْفَةَ:-", pairTr: "Kadın odayı süpürsün." }
+  ],
+  rules: [
+    { tr: "<b class=\"r-ref\">Emr-i gâib</b>: orada olmayana (o, onlar) emir: <span class=\"ar\">لِـ</span> + meczûm muzâri: <span class=\"ar\">لِيَكْتُبِ الدَّرْسَ</span> (dersi yazsın)." },
+    OLD[2].rules[0],
+    { tr: "<span class=\"ar\">وَ</span> ya da <span class=\"ar\">فَ</span>'den sonra lâm sakin okunur: <span class=\"ar\">فَلْيَعْبُدُوا، فَلْيَقُلْ، وَلْيَكْتُبْ</span>." },
+    OLD[2].rules[3], OLD[2].rules[4]
+  ],
+  kaide: ["أَمْرُ الغَائِبِ، مِثْلُ: لِيَكْتُبِ الدَّرْسَ.", OLD[2].kaide[0]],
+  ex: [EXS.ex6]
+},
+{
+  id: "u3", no: 3, ar: "نَهْيُ الحَاضِرِ", tr: "Nehy-i Hâzır", short: "Nehy-i hâzır", col: "cerr", legend: ["cerr"],
+  goals: ["Karşıdakine yasak koymak: لَا تَكْتُبْ (yazma)", "Lâ-yı nâhiyenin fiili meczûm yaptığını bilmek", "Nehyi karşıdakine göre çekmek: لَا تَجْلِسْ، لَا تَجْلِسِي، لَا تَجْلِسُوا"],
+  examples: [
+    { s: "لَا تَأْكُلِ:cerr / الحَرَامَ:- / يَا جَمِيلُ:-", tr: "Haram yeme ey Cemîl.", pair: "لَا تَجْلِسِي:cerr.ـي / فِي الحَدِيقَةِ:- / يَا زَيْنَبُ:-", pairTr: "Bahçede oturma ey Zeynep." },
+    { s: "لَا تَفْتَحْ:cerr / كِتَابَكَ:- / يَا نَدِيمُ:-", tr: "Kitabını açma ey Nedîm.", pair: "لَا تُسْرِفُوا:cerr.ـو / يَا شَبَابُ:-", pairTr: "Gençler, israf etmeyin." }
+  ],
+  rules: [
+    { tr: "<b class=\"r-cerr\">Nehy-i hâzır</b>: karşıdakine yasak: <span class=\"ar\">لَا</span> + meczûm muzâri: <span class=\"ar\">لَا تَظْلِمِ النَّاسَ</span> (insanlara zulmetme)." },
+    OLD[2].rules[1],
+    { tr: "Meczûm: tekilde son harf sakin, elif ve vav'dan sonra nûn düşer, yâ'dan sonra nûn düşer: <span class=\"ar\">لَا تَجْلِسُونَ ← لَا تَجْلِسُوا، لَا تَجْلِسِينَ ← لَا تَجْلِسِي</span>. Kadınlar nûnu kalır: <span class=\"ar\">لَا تَجْلِسْنَ</span>." },
+    { tr: "Allah'a yönelen nehiy duadır: <span class=\"ar\">رَبَّنَا لَا تُؤَاخِذْنَا</span>." }
+  ],
+  kaide: ["نَهْيُ الحَاضِرِ، مِثْلُ: لَا تَظْلِمِ النَّاسَ.", OLD[2].kaide[1]],
+  ex: [EXS.ex5]
+},
+{
+  id: "u4", no: 4, ar: "نَهْيُ الغَائِبِ", tr: "Nehy-i Gâib", short: "Nehy-i gâib", col: "mi", legend: ["cerr"],
+  goals: ["Orada olmayana yasak koymak: لَا يَكْتُبْ (yazmasın)", "Gâib ve gâibe şekillerini ayırmak: لَا يَغْسِلْ ↔ لَا تَغْسِلْ", "Fiil önde ise tekil kaldığını uygulamak: لَا يَشْرَبِ الشَّبَابُ"],
+  examples: [
+    { s: "لَا يَذْهَبْ:cerr / أَحْمَدُ:- / إِلَى السُّوقِ:-", tr: "Ahmed çarşıya gitmesin.", pair: "لَا تَغْسِلْ:cerr.gâibe / عَائِشَةُ:- / الأَطْبَاقَ:-", pairTr: "Âişe tabakları yıkamasın." },
+    { s: "لَا يُهْمِلْ:cerr / عَلِيٌّ:- / الدَّرْسَ:-", tr: "Ali dersi ihmal etmesin.", pair: "﴿وَلَا يَحْزُنْكَ:cerr / قَوْلُهُمْ﴾:-", pairTr: "Onların sözü seni üzmesin." }
+  ],
+  rules: [
+    { tr: "<b class=\"r-cerr\">Nehy-i gâib</b>: orada olmayana yasak: <span class=\"ar\">لَا</span> + meczûm muzâri (gâib): <span class=\"ar\">لَا يَظْلِمِ النَّاسَ</span> (insanlara zulmetmesin)." },
+    OLD[2].rules[2],
+    { tr: "Gâibe tekil ve ikil <span class=\"ar\">تَـ</span> ile başlar; nehy-i hâzırla aynı görünür, özneye bak: <span class=\"ar\">لَا تَغْسِلْ عَائِشَةُ</span> (Âişe yıkamasın) ↔ <span class=\"ar\">لَا تَغْسِلْ يَا خَلِيلُ</span> (yıkama Halil)." },
+    OLD[2].rules[3]
+  ],
+  kaide: ["نَهْيُ الغَائِبِ، مِثْلُ: لَا يَظْلِمِ النَّاسَ.", OLD[2].kaide[2]],
+  ex: [EXS.ex7]
+},
+{
+  id: "u5", no: 5, ar: "فِي الآيَاتِ وَالأَحَادِيثِ وَالقِرَاءَةِ", tr: "Âyet, Hadis ve Okuma", short: "Âyet · hadis · okuma", col: "muz", legend: ["ref", "cerr"],
+  goals: ["Âyet ve hadislerde dört türü bulup ayırmak", "Emrin cevabındaki meczûm muzâriyi emir sanmamak: اِحْفَظِ اللهَ يَحْفَظْكَ", "Bir metindeki fiilleri emre ve nehye çevirmek"],
+  examples: OLD[0].examples.concat(OLD[3].examples),
+  rules: OLD[0].rules.slice(1, 5).concat(OLD[3].rules),
+  kaide: OLD[0].kaide.slice(1).concat(OLD[3].kaide),
+  ex: [EXS.find, EXS.hadis, EXS.oku, EXS.ex8]
+}
+];
+
 // Doğru Emir oyunu: [cümle {hedef}, seçenekler (ilki doğru), açıklama, Türkçe, konu]
 var RZ_POOL = [
-  ["{اِقْرَإِ} القُرْآنَ يَا أَحْمَدُ.", ["اِقْرَإِ", "يَقْرَأُ", "لِيَقْرَأْ"], "hitap → emr-i hâzır", "Kur'an'ı oku ey Ahmed.", "u1"],
-  ["{اِفْتَحِي} الكِتَابَ يَا فَاطِمَةُ.", ["اِفْتَحِي", "اِفْتَحْ", "تَفْتَحِينَ"], "kadına → ـي", "Kitabı aç ey Fâtıma.", "u1"],
-  ["{لِيَذْهَبْ} عَلِيٌّ إِلَى المَكْتَبَةِ.", ["لِيَذْهَبْ", "اِذْهَبْ", "يَذْهَبُ"], "gâibe emir → لِـ", "Ali kütüphaneye gitsin.", "u1"],
-  ["{لَا تَأْكُلِ} الحَرَامَ يَا جَمِيلُ.", ["لَا تَأْكُلِ", "لَا يَأْكُلِ", "لَا تَأْكُلُ"], "hitaba nehiy → لَا + meczûm", "Haram yeme ey Cemîl.", "u1"],
-  ["{لَا يَذْهَبْ} أَحْمَدُ إِلَى السُّوقِ.", ["لَا يَذْهَبْ", "لَا تَذْهَبْ", "لَا يَذْهَبُ"], "gâibe nehiy", "Ahmed çarşıya gitmesin.", "u1"],
-  ["﴿{فَلْيَعْبُدُوا} رَبَّ هَذَا البَيْتِ﴾", ["فَلْيَعْبُدُوا", "فَيَعْبُدُونَ", "فَاعْبُدُوا"], "emr-i gâib (فَ + لْ)", "Bu evin Rabbine ibadet etsinler.", "u1"],
-  ["يَا طُلَّابُ، {اِفْتَحُوا} الكِتَابَ.", ["اِفْتَحُوا", "اِفْتَحُو", "اِفْتَحْنَ"], "erkek çoğul + elif-i fâriqa", "Öğrenciler, kitabı açın.", "u2"],
-  ["يَا طَالِبَاتُ، {اِفْتَحْنَ} الكِتَابَ.", ["اِفْتَحْنَ", "اِفْتَحُوا", "اِفْتَحِي"], "kadın çoğul → ـنَ", "Kız öğrenciler, kitabı açın.", "u2"],
-  ["يَا طَالِبَانِ، {اِفْتَحَا} الكِتَابَ.", ["اِفْتَحَا", "اِفْتَحَانِ", "اِفْتَحُوا"], "ikil → ـا (nûn düşer)", "İki öğrenci, kitabı açın.", "u2"],
-  ["يَا كَرِيمُ، {اُعْبُدْ} رَبَّكَ.", ["اُعْبُدْ", "اِعْبُدْ", "اُعْبُدِي"], "يَعْبُدُ → اُ", "Kerîm, Rabbine ibadet et.", "u2"],
-  ["يَا مَرْوَةُ، {اِجْلِسِي} فِي المَسْجِدِ.", ["اِجْلِسِي", "اِجْلِسْ", "اُجْلُسِي"], "kadına; يَجْلِسُ → اِ", "Merve, mescitte otur.", "u2"],
-  ["يَا زَيْنَبُ وَفَاطِمَةُ، {اُطْبُخَا} الطَّعَامَ.", ["اُطْبُخَا", "اُطْبُخُوا", "اِطْبَخَا"], "ikil; يَطْبُخُ → اُ", "Zeynep ve Fâtıma, yemeği pişirin.", "u2"],
-  ["يَا فَلَّاحُونَ، {اِجْمَعُوا} الثِّمَارَ.", ["اِجْمَعُوا", "اُجْمُعُوا", "اِجْمَعْنَ"], "erkek çoğul", "Çiftçiler, meyveleri toplayın.", "u2"],
-  ["{لِيَفْتَحْ} عَلِيٌّ الحَاسُوبَ.", ["لِيَفْتَحْ", "لِيَفْتَحُ", "اِفْتَحْ"], "emr-i gâib, meczûm", "Ali bilgisayarı açsın.", "u3"],
-  ["{لَا يُهْمِلْ} عَلِيٌّ الدَّرْسَ.", ["لَا يُهْمِلْ", "لَا تُهْمِلْ", "لَا يُهْمِلُ"], "nehy-i gâib", "Ali dersi ihmal etmesin.", "u3"],
+  ["{اِقْرَإِ} القُرْآنَ يَا أَحْمَدُ.", ["اِقْرَإِ", "يَقْرَأُ", "لِيَقْرَأْ"], "hitap → emr-i hâzır", "Kur'an'ı oku ey Ahmed.", "u5"],
+  ["{اِفْتَحِي} الكِتَابَ يَا فَاطِمَةُ.", ["اِفْتَحِي", "اِفْتَحْ", "تَفْتَحِينَ"], "kadına → ـي", "Kitabı aç ey Fâtıma.", "u5"],
+  ["{لِيَذْهَبْ} عَلِيٌّ إِلَى المَكْتَبَةِ.", ["لِيَذْهَبْ", "اِذْهَبْ", "يَذْهَبُ"], "gâibe emir → لِـ", "Ali kütüphaneye gitsin.", "u5"],
+  ["{لَا تَأْكُلِ} الحَرَامَ يَا جَمِيلُ.", ["لَا تَأْكُلِ", "لَا يَأْكُلِ", "لَا تَأْكُلُ"], "hitaba nehiy → لَا + meczûm", "Haram yeme ey Cemîl.", "u5"],
+  ["{لَا يَذْهَبْ} أَحْمَدُ إِلَى السُّوقِ.", ["لَا يَذْهَبْ", "لَا تَذْهَبْ", "لَا يَذْهَبُ"], "gâibe nehiy", "Ahmed çarşıya gitmesin.", "u5"],
+  ["﴿{فَلْيَعْبُدُوا} رَبَّ هَذَا البَيْتِ﴾", ["فَلْيَعْبُدُوا", "فَيَعْبُدُونَ", "فَاعْبُدُوا"], "emr-i gâib (فَ + لْ)", "Bu evin Rabbine ibadet etsinler.", "u5"],
+  ["يَا طُلَّابُ، {اِفْتَحُوا} الكِتَابَ.", ["اِفْتَحُوا", "اِفْتَحُو", "اِفْتَحْنَ"], "erkek çoğul + elif-i fâriqa", "Öğrenciler, kitabı açın.", "u1"],
+  ["يَا طَالِبَاتُ، {اِفْتَحْنَ} الكِتَابَ.", ["اِفْتَحْنَ", "اِفْتَحُوا", "اِفْتَحِي"], "kadın çoğul → ـنَ", "Kız öğrenciler, kitabı açın.", "u1"],
+  ["يَا طَالِبَانِ، {اِفْتَحَا} الكِتَابَ.", ["اِفْتَحَا", "اِفْتَحَانِ", "اِفْتَحُوا"], "ikil → ـا (nûn düşer)", "İki öğrenci, kitabı açın.", "u1"],
+  ["يَا كَرِيمُ، {اُعْبُدْ} رَبَّكَ.", ["اُعْبُدْ", "اِعْبُدْ", "اُعْبُدِي"], "يَعْبُدُ → اُ", "Kerîm, Rabbine ibadet et.", "u1"],
+  ["يَا مَرْوَةُ، {اِجْلِسِي} فِي المَسْجِدِ.", ["اِجْلِسِي", "اِجْلِسْ", "اُجْلُسِي"], "kadına; يَجْلِسُ → اِ", "Merve, mescitte otur.", "u1"],
+  ["يَا زَيْنَبُ وَفَاطِمَةُ، {اُطْبُخَا} الطَّعَامَ.", ["اُطْبُخَا", "اُطْبُخُوا", "اِطْبَخَا"], "ikil; يَطْبُخُ → اُ", "Zeynep ve Fâtıma, yemeği pişirin.", "u1"],
+  ["يَا فَلَّاحُونَ، {اِجْمَعُوا} الثِّمَارَ.", ["اِجْمَعُوا", "اُجْمُعُوا", "اِجْمَعْنَ"], "erkek çoğul", "Çiftçiler, meyveleri toplayın.", "u1"],
+  ["{لِيَفْتَحْ} عَلِيٌّ الحَاسُوبَ.", ["لِيَفْتَحْ", "لِيَفْتَحُ", "اِفْتَحْ"], "emr-i gâib, meczûm", "Ali bilgisayarı açsın.", "u2"],
+  ["{لَا يُهْمِلْ} عَلِيٌّ الدَّرْسَ.", ["لَا يُهْمِلْ", "لَا تُهْمِلْ", "لَا يُهْمِلُ"], "nehy-i gâib", "Ali dersi ihmal etmesin.", "u4"],
   ["{لَا تَفْتَحْ} كِتَابَكَ يَا نَدِيمُ.", ["لَا تَفْتَحْ", "لَا يَفْتَحْ", "لَا تَفْتَحُ"], "nehy-i hâzır", "Kitabını açma ey Nedîm.", "u3"],
   ["{لَا تُسْرِفُوا} يَا شَبَابُ.", ["لَا تُسْرِفُوا", "لَا تُسْرِفُونَ", "لَا يُسْرِفُوا"], "nehy-i hâzır, çoğul", "Gençler, israf etmeyin.", "u3"],
-  ["{لِيَرْجِعِ} الأَوْلَادُ إِلَى البَيْتِ.", ["لِيَرْجِعِ", "لِيَرْجِعُوا", "لِتَرْجِعْ"], "fiil önde → tekil", "Çocuklar eve dönsün.", "u3"],
-  ["{لِتَكْنُسِ} المَرْأَةُ الغُرْفَةَ.", ["لِتَكْنُسِ", "لِيَكْنُسِ", "اُكْنُسِي"], "müennes gâib → لِتَـ", "Kadın odayı süpürsün.", "u3"],
-  ["{لَا تَغْسِلْ} عَائِشَةُ الأَطْبَاقَ.", ["لَا تَغْسِلْ", "لَا تَغْسِلِي", "لَا يَغْسِلْ"], "nehy-i gâib, müennes", "Âişe tabakları yıkamasın.", "u3"],
-  ["يَا عُثْمَانُ، {اِنْزِلْ} ضَيْفًا عِنْدَ أُسْتَاذِكَ.", ["اِنْزِلْ", "اُنْزُلْ", "نَزَلَ"], "يَنْزِلُ → اِنْزِلْ", "Osman, hocanın yanında misafir kal.", "u4"],
-  ["يَا نَاسُ، {اِنْتَفِعُوا} بِهَذِهِ الأَنْهَارِ.", ["اِنْتَفِعُوا", "يَنْتَفِعُونَ", "اِنْتَفَعُوا"], "mezîd emir, çoğul", "Ey insanlar, bu nehirlerden faydalanın.", "u4"],
-  ["يَا بُنَيَّ، {لَا تَمُدَّ} رِجْلَيْكَ إِلَى المُصْحَفِ.", ["لَا تَمُدَّ", "لَا تَمُدُّ", "لَا يَمُدَّ"], "nehiy (muzâaf fiilde fetha)", "Oğulcuğum, ayaklarını mushafa uzatma.", "u4"],
-  ["{اُدْخُلْ} هَذِهِ الغُرْفَةَ لِلنَّوْمِ.", ["اُدْخُلْ", "اِدْخَلْ", "دَخَلَ"], "يَدْخُلُ → اُ", "Uyumak için bu odaya gir.", "u4"]
+  ["{لِيَرْجِعِ} الأَوْلَادُ إِلَى البَيْتِ.", ["لِيَرْجِعِ", "لِيَرْجِعُوا", "لِتَرْجِعْ"], "fiil önde → tekil", "Çocuklar eve dönsün.", "u2"],
+  ["{لِتَكْنُسِ} المَرْأَةُ الغُرْفَةَ.", ["لِتَكْنُسِ", "لِيَكْنُسِ", "اُكْنُسِي"], "müennes gâib → لِتَـ", "Kadın odayı süpürsün.", "u2"],
+  ["{لَا تَغْسِلْ} عَائِشَةُ الأَطْبَاقَ.", ["لَا تَغْسِلْ", "لَا تَغْسِلِي", "لَا يَغْسِلْ"], "nehy-i gâib, müennes", "Âişe tabakları yıkamasın.", "u4"],
+  ["يَا عُثْمَانُ، {اِنْزِلْ} ضَيْفًا عِنْدَ أُسْتَاذِكَ.", ["اِنْزِلْ", "اُنْزُلْ", "نَزَلَ"], "يَنْزِلُ → اِنْزِلْ", "Osman, hocanın yanında misafir kal.", "u5"],
+  ["يَا نَاسُ، {اِنْتَفِعُوا} بِهَذِهِ الأَنْهَارِ.", ["اِنْتَفِعُوا", "يَنْتَفِعُونَ", "اِنْتَفَعُوا"], "mezîd emir, çoğul", "Ey insanlar, bu nehirlerden faydalanın.", "u5"],
+  ["يَا بُنَيَّ، {لَا تَمُدَّ} رِجْلَيْكَ إِلَى المُصْحَفِ.", ["لَا تَمُدَّ", "لَا تَمُدُّ", "لَا يَمُدَّ"], "nehiy (muzâaf fiilde fetha)", "Oğulcuğum, ayaklarını mushafa uzatma.", "u5"],
+  ["{اُدْخُلْ} هَذِهِ الغُرْفَةَ لِلنَّوْمِ.", ["اُدْخُلْ", "اِدْخَلْ", "دَخَلَ"], "يَدْخُلُ → اُ", "Uyumak için bu odaya gir.", "u5"]
 ];
 var HAFIZA = {
   me: { name: "Muzâri ↔ emir", pairs: [["تَكْتُبُ", "اُكْتُبْ"], ["تَجْلِسُ", "اِجْلِسْ"], ["تَفْتَحُ", "اِفْتَحْ"], ["تَجْلِسِينَ", "اِجْلِسِي"], ["تَكْتُبُونَ", "اُكْتُبُوا"], ["تَفْتَحْنَ", "اِفْتَحْنَ"], ["تَذْكُرَانِ", "اُذْكُرَا"], ["تَشْرَبِينَ", "اِشْرَبِي"], ["تَدْخُلُونَ", "اُدْخُلُوا"], ["تَسْمَعُ", "اِسْمَعْ"], ["تَحْفَظْنَ", "اِحْفَظْنَ"], ["تَنْصُرُ", "اُنْصُرْ"]] },
@@ -976,7 +1050,7 @@ function cjNote(vk, mode, i) {
 }
 // Emir-nehiy makinesi: fiil ve tür seç; kitaptaki tablo sağdan sola
 function cekimMakine() {
-  var vi = LIVE.cv || 0, vk = MAK_V[vi], mode = LIVE.cm || (ST.tab === "u3" ? "l" : "a"), cells = MOD_CELLS[mode], ci = LIVE.cc == null || cells.indexOf(LIVE.cc) < 0 ? cells[0] : LIVE.cc, c = CELLS[ci];
+  var vi = LIVE.cv || 0, vk = MAK_V[vi], mode = LIVE.cm || ({ u1: "a", u2: "l", u3: "nh", u4: "ng" })[ST.tab] || "a", cells = MOD_CELLS[mode], ci = LIVE.cc == null || cells.indexOf(LIVE.cc) < 0 ? cells[0] : LIVE.cc, c = CELLS[ci];
   var rowsIdx = mode === "a" || mode === "nh" ? [2, 3] : [0, 1];
   var head = '<div class="zt-c hd"></div><div class="zt-c hd">Tekil</div><div class="zt-c hd">İkil</div><div class="zt-c hd">Çoğul</div>';
   var rows = rowsIdx.map(function (ri) {
@@ -999,26 +1073,32 @@ function dortTur() {
     '<div style="--role:var(--cerr)"><b>Nehy-i hâzır</b><span class="muted">sen, siz: yapma!</span><span class="ar hlb" style="font-size:1.45rem">لَا تَكْتُبْ</span><small class="muted">لَا + meczûm</small></div>' +
     '<div style="--role:var(--mi)"><b>Nehy-i gâib</b><span class="muted">o, onlar: yapmasın!</span><span class="ar hlb" style="font-size:1.45rem">لَا يَكْتُبْ</span><small class="muted">لَا + meczûm</small></div></div>';
 }
-function vizU1() { return dortTur() + '<p class="cap">Hepsi muzâriden yapılır ve fiil meczûm olur. Allah\'a yönelik emir ve nehiy duadır: <span class="ar">اغْفِرْ لَنَا، لَا تُؤَاخِذْنَا</span>.</p>'; }
-function vizU2() {
+function vizU1() {
   return '<div class="steps3" style="width:100%;max-width:760px;direction:rtl">' +
     '<div style="direction:ltr;text-align:center"><span class="lbl">1. Muzâri</span><span class="ar" style="font-size:1.7rem">تَفْتَحُونَ</span><small class="muted">açıyorsunuz</small></div>' +
     '<div style="direction:ltr;text-align:center"><span class="lbl">2. تَـ ve nûn düşer</span><span class="ar" style="font-size:1.7rem">فْتَحُوا</span><small class="muted">ilk harf sakin</small></div>' +
-    '<div style="direction:ltr;text-align:center"><span class="lbl">3. Hemze gelir</span><span class="ar" style="font-size:1.7rem"><b style="color:var(--ref)">اِ</b>فْتَحُوا</span><small class="muted">açın!</small></div></div>' + cekimMakine();
+    '<div style="direction:ltr;text-align:center"><span class="lbl">3. Hemze gelir</span><span class="ar" style="font-size:1.7rem"><b style="color:var(--ref)">اِ</b>فْتَحُوا</span><small class="muted">açın!</small></div></div>' + cekimMakine() + '<p class="cap">Muhatab (sen, siz) için: muzâriden تَـ atılır, son harf meczûm olur, ilk harf sakin kalırsa başa hemze gelir. Ayn harekesi damme ise <span class="ar">اُ</span>, değilse <span class="ar">اِ</span>.</p>';
 }
-function vizU3() {
+function vizU2() {
   return cekimMakine() + '<div class="lbl">Fiil önde: tekil</div><div class="vs">' +
     '<div class="fcard" style="--role:var(--nasb)"><span class="ar">لِيَرْجِعِ الأَوْلَادُ</span><b class="t">çocuklar dönsün</b><small>fiil tekil</small></div>' +
     '<div class="fcard" style="--role:var(--x)"><span class="ar">الأَوْلَادُ لِيَرْجِعُوا</span><b class="t">isim önde: çoğul</b></div></div>';
 }
-function vizU4() {
-  return badges([["نَزَلَ", "→ اِنْزِلْ · لَا تَنْزِلْ", "ref"], ["دَخَلَ", "→ اُدْخُلْ · لَا تَدْخُلْ", "ref"], ["يَشْرَبُونَ", "→ اِشْرَبُوا · لَا تَشْرَبُوا", "cerr"], ["يَنْتَفِعُونَ", "→ اِنْتَفِعُوا · لَا تَنْتَفِعُوا", "cerr"]]);
+function vizU3() {
+  return cekimMakine() + '<p class="cap">Muhataba "yapma!": muzârinin başına <span class="ar">لَا</span> gelir, fiil meczûm olur; hemze gelmez, <span class="ar">تَـ</span> kalır: <span class="ar">لَا تَكْتُبْ، لَا تَكْتُبُوا، لَا تَكْتُبِي</span>.</p>';
 }
-var VIZ = { u1: vizU1, u2: vizU2, u3: vizU3, u4: vizU4 };
+function vizU4() {
+  return cekimMakine() + '<p class="cap">Gâibe (o, onlar) "yapmasın!": yine <span class="ar">لَا</span> + meczûm muzâri; baştaki harf <span class="ar">يَـ</span> ya da <span class="ar">تَـ</span> olur: <span class="ar">لَا يَكْتُبْ، لَا تَكْتُبْ، لَا يَكْتُبُوا</span>.</p>';
+}
+function vizU5() {
+  return dortTur() + '<p class="cap">Metinde fiili bul, türünü söyle. Allah\'a yönelik emir ve nehiy duadır: <span class="ar">اغْفِرْ لَنَا، لَا تُؤَاخِذْنَا</span>.</p>' +
+    badges([["نَزَلَ", "→ اِنْزِلْ · لَا تَنْزِلْ", "ref"], ["دَخَلَ", "→ اُدْخُلْ · لَا تَدْخُلْ", "ref"], ["يَشْرَبُونَ", "→ اِشْرَبُوا · لَا تَشْرَبُوا", "cerr"], ["يَنْتَفِعُونَ", "→ اِنْتَفِعُوا · لَا تَنْتَفِعُوا", "cerr"]]);
+}
+var VIZ = { u1: vizU1, u2: vizU2, u3: vizU3, u4: vizU4, u5: vizU5 };
 
 // ---------- durum ----------
 var ST = { tab: "ozet", tr: store.get("tr", true), items: store.get("items", {}) };
-var TABS = ["ozet", "u1", "u2", "u3", "u4", "oyun", "quiz"];
+var TABS = ["ozet", "u1", "u2", "u3", "u4", "u5", "oyun", "quiz"];
 var hashT = location.hash.replace("#", "");
 ST.tab = TABS.indexOf(hashT) >= 0 ? hashT : store.get("tab", "ozet");
 if (TABS.indexOf(ST.tab) < 0) ST.tab = "ozet";
@@ -1116,10 +1196,11 @@ function renderOzet() {
     '<div class="card stack"><div class="lbl">Bütün konu tek bakışta</div><h2>Dört tür</h2><div class="viz">' + dortTur() + '</div></div>' +
     '<div class="card stack"><div class="lbl">Etkinlik</div><h2>Emir-nehiy makinesi</h2><p class="muted">Bir fiil ve tür seç; kitaptaki tablo sağdan sola çıkar. Bir şahsa dokun, açıklamayı oku. Gri kısım emir ya da nehiy edatı.</p><div class="viz">' + cekimMakine() + '</div></div>' +
     '<div class="sumgrid">' +
-      card(UNITS[0], ['<span class="ar">اُكْتُبْ · لِيَكْتُبْ</span>: emir', '<span class="ar">لَا تَكْتُبْ · لَا يَكْتُبْ</span>: nehiy', 'Âyette: <span class="ar">خُذُوا، كُلُوا، لَا تُسْرِفُوا</span>']) +
-      card(UNITS[1], ['<span class="ar">تَفْتَحُ ← اِفْتَحْ</span>', '<span class="ar">يَكْتُبُ ← اُكْتُبْ</span>', '<span class="ar">اِفْتَحْ اِفْتَحَا اِفْتَحُوا اِفْتَحِي اِفْتَحْنَ</span>']) +
-      card(UNITS[2], ['<span class="ar">لِيَجْلِسْ، لِتَجْلِسْ</span>', '<span class="ar">لَا تَجْلِسِي، لَا يَجْلِسُوا</span>', 'Fiil önde tekil: <span class="ar">لِيَرْجِعِ الأَوْلَادُ</span>']) +
-      card(UNITS[3], ['<span class="ar">نَزَلَ ← اِنْزِلْ</span>', '<span class="ar">يَشْرَبُونَ ← اِشْرَبُوا</span>', '<span class="ar">لَا تَشْرَبُوا</span>']) +
+      card(UNITS[0], ['<span class="ar">تَفْتَحُ ← اِفْتَحْ</span>', '<span class="ar">يَكْتُبُ ← اُكْتُبْ</span>', '<span class="ar">اِفْتَحْ اِفْتَحَا اِفْتَحُوا اِفْتَحِي اِفْتَحْنَ</span>']) +
+      card(UNITS[1], ['<span class="ar">لِيَكْتُبْ، لِتَكْتُبْ</span>', '<span class="ar">لِيَكْتُبُوا، لِيَكْتُبْنَ</span>', 'Fiil önde tekil: <span class="ar">لِيَرْجِعِ الأَوْلَادُ</span>']) +
+      card(UNITS[2], ['<span class="ar">لَا تَكْتُبْ</span>', '<span class="ar">لَا تَكْتُبُوا، لَا تَكْتُبِي</span>', 'Âyette: <span class="ar">لَا تُسْرِفُوا</span>']) +
+      card(UNITS[3], ['<span class="ar">لَا يَكْتُبْ، لَا تَكْتُبْ</span>', '<span class="ar">لَا يَكْتُبُوا، لَا يَكْتُبْنَ</span>', '<span class="ar">لَا يُهْمِلْ</span>']) +
+      card(UNITS[4], ['Âyet: <span class="ar">خُذُوا، كُلُوا</span>', 'Dua: <span class="ar">اغْفِرْ لَنَا</span>', '<span class="ar">يَشْرَبُونَ ← اِشْرَبُوا</span>']) +
     '</div>' +
     '<div class="card stack"><div class="lbl">Hatırlatma kartları</div><h2>Kartı çevir, cevabı hatırla</h2>' +
       '<div class="flash-wrap"><button class="flash' + (fu ? " up" : "") + '" data-flip="1" aria-label="Kartı çevir"><div class="in"><div class="face front">' + arWrap(KARTLAR[fi][0]) + '</div><div class="face back">' + arWrap(KARTLAR[fi][1]) + '</div></div></button>' +
@@ -1142,12 +1223,12 @@ function renderUnit(u) {
   }).join("");
   return '<section class="panel" style="--role:var(--' + u.col + ')">' +
     '<div class="card unit-hero"><div class="unit-no">' + u.no + '</div><div class="stack">' +
-      '<div class="lbl">Emir ve nehiy · konu ' + u.no + ' / 4</div><div class="ar big" style="color:var(--role)">' + u.ar + '</div><h2>' + u.tr + '</h2>' +
+      '<div class="lbl">Emir ve nehiy · konu ' + u.no + ' / 5</div><div class="ar big" style="color:var(--role)">' + u.ar + '</div><h2>' + u.tr + '</h2>' +
       '<ul class="goals">' + u.goals.map(function (g) { return '<li>' + g + '</li>'; }).join("") + '</ul>' +
       '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> alıştırma maddesi doğru</div>' +
     '</div></div>' +
     '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Kitaptaki örnekler</div><h2>Önce gör</h2></div><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button></div>' +
-      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Sağda emir, solda nehiy; etikette türü yazıyor.", u2: "Hitap edilen kişiye göre emir değişir.", u3: "Emr-i gâib ve nehiy.", u4: "Metindeki fiilden emir ve nehiy."})[u.id] + '</p>' + '</div>' +
+      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Hitap edilen kişiye göre emir değişir.", u2: "Gâibe emir: لِـ + meczûm muzâri.", u3: "Muhataba yasak: لَا + meczûm muzâri.", u4: "Gâibe yasak: لَا + meczûm muzâri.", u5: "Metindeki fiilden emir ve nehiy."})[u.id] + '</p>' + '</div>' +
     '<div class="card viz"><div class="lbl">Görsel</div>' + viz + '</div>' +
     '<div class="card stack"><div class="lbl">القَاعِدَةُ · Kaide</div><h2>Kural</h2>' +
       '<ol class="rules">' + u.rules.map(function (r) { return '<li><div class="stack" style="gap:4px"><div>' + r.tr + '</div>' + (r.ex ? '<div class="exs">' + r.ex.map(function (x) { return '<span>' + x + '</span>'; }).join("") + '</div>' : '') + '</div></li>'; }).join("") + '</ol>' +
@@ -1550,12 +1631,12 @@ function flip(i) {
 }
 
 // ---------- QUIZ PROVASI ----------
-var TOPIC = { u1: "Emir ve nehyi tanıma", u2: "Emr-i hâzır", u3: "Emr-i gâib ve nehiy", u4: "Okuma ve karışık" };
-var TK = ["u1", "u2", "u3", "u4"];
+var TOPIC = { u1: "Emr-i hâzır", u2: "Emr-i gâib", u3: "Nehy-i hâzır", u4: "Nehy-i gâib", u5: "Âyet, hadis ve okuma" };
+var TK = ["u1", "u2", "u3", "u4", "u5"];
 var Q = null, QT = null;
 function stopQuiz() { if (QT) { clearInterval(QT); QT = null; } if (Q && !Q.done) Q = null; }
 function quizBank() {
-  var bank = { u1: [], u2: [], u3: [], u4: [] };
+  var bank = { u1: [], u2: [], u3: [], u4: [], u5: [] };
   UNITS.forEach(function (u) {
     u.ex.forEach(function (ex) {
       expand(ex).forEach(function (it) {
@@ -1571,8 +1652,8 @@ function quizBank() {
     MODS.forEach(function (m) {
       MOD_CELLS[m].forEach(function (ci) {
         var f = FE(vk, m, ci), c = CELLS[ci];
-        bank[m === "a" ? "u2" : "u3"].push({ inst: MOD[m] + ": doğru şekil hangisi? (" + V[vk].tr + ")", q: '<span class="ar">' + c[3] + '</span> + <span class="ar">' + cjText(vk, "u", 0) + '</span>', o: f.o.slice(), a: f.o[f.a], why: c[2], tr: "" });
-        bank.u4.push({ inst: "Bu şekil hangi tür?", q: cjText(vk, m, ci), o: ["Emr-i hâzır", "Emr-i gâib", "Nehy-i hâzır", "Nehy-i gâib"], a: MOD[m], why: c[2], tr: "" });
+        bank[({ a: "u1", l: "u2", nh: "u3", ng: "u4" })[m]].push({ inst: MOD[m] + ": doğru şekil hangisi? (" + V[vk].tr + ")", q: '<span class="ar">' + c[3] + '</span> + <span class="ar">' + cjText(vk, "u", 0) + '</span>', o: f.o.slice(), a: f.o[f.a], why: c[2], tr: "" });
+        bank.u5.push({ inst: "Bu şekil hangi tür?", q: cjText(vk, m, ci), o: ["Emr-i hâzır", "Emr-i gâib", "Nehy-i hâzır", "Nehy-i gâib"], a: MOD[m], why: c[2], tr: "" });
       });
     });
   });
@@ -1582,7 +1663,7 @@ function startQuiz() {
   var bank = quizBank(), qs = [];
   TK.forEach(function (k) {
     var seen = {}, got = 0;
-    shuffle(bank[k]).forEach(function (q) { var sig = q.q.replace(/<[^>]+>/g, ""); if (got >= 5 || seen[sig]) return; seen[sig] = 1; got++; q.topic = k; q.o = shuffle(q.o); qs.push(q); });
+    shuffle(bank[k]).forEach(function (q) { var sig = q.q.replace(/<[^>]+>/g, ""); if (got >= 4 || seen[sig]) return; seen[sig] = 1; got++; q.topic = k; q.o = shuffle(q.o); qs.push(q); });
   });
   Q = { qs: shuffle(qs), i: 0, ans: [], start: Date.now(), done: false };
   main.innerHTML = renderQuiz();
@@ -1596,11 +1677,11 @@ function renderQuiz() {
   if (Q.done) {
     var by = {}; Q.qs.forEach(function (q, i) { by[q.topic] = by[q.topic] || [0, 0]; by[q.topic][1]++; if (Q.ans[i] === q.a) by[q.topic][0]++; });
     var tot = Q.qs.filter(function (q, i) { return Q.ans[i] === q.a; }).length;
-    var col = { u1: "ref", u2: "cerr", u3: "mz", u4: "mi" };
+    var col = { u1: "ref", u2: "nasb", u3: "cerr", u4: "mi", u5: "muz" };
     var weak = Object.keys(by).filter(function (k) { return by[k][0] / by[k][1] < 0.8; });
     return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası bitti · ' + Q.time + '</div>' + starsHtml(tot >= 18 ? 3 : tot >= 14 ? 2 : 1) + '<div class="score-big tabular">' + tot + ' / 20</div>' +
       '<p>' + (tot >= 18 ? "Konuya hâkimsin. Aferin!" : tot >= 14 ? "İyi gidiyorsun. Aşağıdaki zayıf konuya bir kez daha bak." : "Önce Özet'teki emir-nehiy makinesiyle çalış, zayıf konunun alıştırmalarını çöz, sonra provayı tekrarla.") + '</p>' +
-      '<div class="qz-bars">' + TK.map(function (k) { var v = by[k] || [0, 5]; return '<div class="qz-bar" style="--role:var(--' + col[k] + ')"><span>' + TOPIC[k] + '</span><div class="tr2"><div style="width:' + (v[0] / v[1] * 100) + '%"></div></div><b class="tabular">' + v[0] + '/' + v[1] + '</b></div>'; }).join("") + '</div>' +
+      '<div class="qz-bars">' + TK.map(function (k) { var v = by[k] || [0, 4]; return '<div class="qz-bar" style="--role:var(--' + col[k] + ')"><span>' + TOPIC[k] + '</span><div class="tr2"><div style="width:' + (v[0] / v[1] * 100) + '%"></div></div><b class="tabular">' + v[0] + '/' + v[1] + '</b></div>'; }).join("") + '</div>' +
       (weak.length ? '<div class="row-btns" style="justify-content:center">' + weak.map(function (k) { return '<button class="btn small" data-go="' + k + '">' + TOPIC[k] + ' konusuna dön</button>'; }).join("") + '</div>' : '') +
       '<div class="row-btns" style="justify-content:center"><button class="btn solid" data-qstart="1">Yeni prova</button></div></div>' +
       '<div class="card stack"><div class="lbl">Cevap anahtarı</div><h2>Yanlışların</h2>' + (tot === 20 ? '<p>Hiç yanlışın yok.</p>' : '<div class="items">' + Q.qs.map(function (q, i) {

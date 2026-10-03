@@ -366,32 +366,106 @@ var UNITS = [
 }
 ];
 
+// ---------------- konuları dört türe göre yeniden düzenle ----------------
+var OLD = UNITS;
+var EXS = { find: OLD[0].ex[0], hadis: OLD[0].ex[1], ex3: OLD[1].ex[0], ex4: OLD[1].ex[1], ex5: OLD[2].ex[0], ex6: OLD[2].ex[1], ex7: OLD[2].ex[2], oku: OLD[3].ex[0], ex8: OLD[3].ex[1] };
+UNITS = [
+{
+  id: "u1", no: 1, ar: "أَمْرُ الحَاضِرِ", tr: "Emr-i Hâzır", short: "Emr-i hâzır", col: "ref", legend: ["ref"],
+  goals: ["Karşıdakine emir vermek: اُكْتُبْ (yaz!)", "Muzâriden emr-i hâzır yapmak ve hemzenin harekesini seçmek: اُكْتُبْ ama اِفْتَحْ", "Emri karşıdakine göre çekmek: اِفْتَحْ، اِفْتَحَا، اِفْتَحُوا، اِفْتَحِي، اِفْتَحْنَ"],
+  examples: [
+    { s: "اِقْرَإِ:ref / القُرْآنَ:- / يَا أَحْمَدُ:-", tr: "Kur'an'ı oku ey Ahmed.", pair: "اِفْتَحِي:ref.ـي / الكِتَابَ:- / يَا فَاطِمَةُ:-", pairTr: "Kitabı aç ey Fâtıma." }
+  ].concat(OLD[1].examples),
+  rules: [
+    { tr: "Emir ve nehiy <b>muzâri lafzından</b> yapılır. <b class=\"r-ref\">Emr-i hâzır</b> karşıdakine (sen, siz) verilen emirdir: <span class=\"ar\">اُكْتُبِ الدَّرْسَ</span> (dersi yaz)." }
+  ].concat(OLD[1].rules, [OLD[0].rules[5]]),
+  kaide: [OLD[0].kaide[0], "أَمْرُ الحَاضِرِ، مِثْلُ: اُكْتُبِ الدَّرْسَ."].concat(OLD[1].kaide),
+  ex: [EXS.ex3, EXS.ex4]
+},
+{
+  id: "u2", no: 2, ar: "أَمْرُ الغَائِبِ", tr: "Emr-i Gâib", short: "Emr-i gâib", col: "nasb", legend: ["ref"],
+  goals: ["Orada olmayana emir vermek: لِيَكْتُبْ (yazsın)", "Lâm-ı emrin fiili meczûm yaptığını bilmek", "Fiil önde ise tekil kaldığını uygulamak: لِيَرْجِعِ الأَوْلَادُ"],
+  examples: [
+    { s: "لِيَذْهَبْ:ref.emr-i gâib / عَلِيٌّ:- / إِلَى المَكْتَبَةِ:-", tr: "Ali kütüphaneye gitsin.", pair: "لِيَفْتَحْ:ref.emr-i gâib / عَلِيٌّ:- / الحَاسُوبَ:-", pairTr: "Ali bilgisayarı açsın." },
+    { s: "﴿فَلْيَعْبُدُوا:ref.ـو / رَبَّ هَذَا البَيْتِ﴾:-", tr: "Bu evin Rabbine ibadet etsinler.", pair: "لِتَكْنُسِ:ref.müennes / المَرْأَةُ:- / الغُرْفَةَ:-", pairTr: "Kadın odayı süpürsün." }
+  ],
+  rules: [
+    { tr: "<b class=\"r-ref\">Emr-i gâib</b>: orada olmayana (o, onlar) emir: <span class=\"ar\">لِـ</span> + meczûm muzâri: <span class=\"ar\">لِيَكْتُبِ الدَّرْسَ</span> (dersi yazsın)." },
+    OLD[2].rules[0],
+    { tr: "<span class=\"ar\">وَ</span> ya da <span class=\"ar\">فَ</span>'den sonra lâm sakin okunur: <span class=\"ar\">فَلْيَعْبُدُوا، فَلْيَقُلْ، وَلْيَكْتُبْ</span>." },
+    OLD[2].rules[3], OLD[2].rules[4]
+  ],
+  kaide: ["أَمْرُ الغَائِبِ، مِثْلُ: لِيَكْتُبِ الدَّرْسَ.", OLD[2].kaide[0]],
+  ex: [EXS.ex6]
+},
+{
+  id: "u3", no: 3, ar: "نَهْيُ الحَاضِرِ", tr: "Nehy-i Hâzır", short: "Nehy-i hâzır", col: "cerr", legend: ["cerr"],
+  goals: ["Karşıdakine yasak koymak: لَا تَكْتُبْ (yazma)", "Lâ-yı nâhiyenin fiili meczûm yaptığını bilmek", "Nehyi karşıdakine göre çekmek: لَا تَجْلِسْ، لَا تَجْلِسِي، لَا تَجْلِسُوا"],
+  examples: [
+    { s: "لَا تَأْكُلِ:cerr / الحَرَامَ:- / يَا جَمِيلُ:-", tr: "Haram yeme ey Cemîl.", pair: "لَا تَجْلِسِي:cerr.ـي / فِي الحَدِيقَةِ:- / يَا زَيْنَبُ:-", pairTr: "Bahçede oturma ey Zeynep." },
+    { s: "لَا تَفْتَحْ:cerr / كِتَابَكَ:- / يَا نَدِيمُ:-", tr: "Kitabını açma ey Nedîm.", pair: "لَا تُسْرِفُوا:cerr.ـو / يَا شَبَابُ:-", pairTr: "Gençler, israf etmeyin." }
+  ],
+  rules: [
+    { tr: "<b class=\"r-cerr\">Nehy-i hâzır</b>: karşıdakine yasak: <span class=\"ar\">لَا</span> + meczûm muzâri: <span class=\"ar\">لَا تَظْلِمِ النَّاسَ</span> (insanlara zulmetme)." },
+    OLD[2].rules[1],
+    { tr: "Meczûm: tekilde son harf sakin, elif ve vav'dan sonra nûn düşer, yâ'dan sonra nûn düşer: <span class=\"ar\">لَا تَجْلِسُونَ ← لَا تَجْلِسُوا، لَا تَجْلِسِينَ ← لَا تَجْلِسِي</span>. Kadınlar nûnu kalır: <span class=\"ar\">لَا تَجْلِسْنَ</span>." },
+    { tr: "Allah'a yönelen nehiy duadır: <span class=\"ar\">رَبَّنَا لَا تُؤَاخِذْنَا</span>." }
+  ],
+  kaide: ["نَهْيُ الحَاضِرِ، مِثْلُ: لَا تَظْلِمِ النَّاسَ.", OLD[2].kaide[1]],
+  ex: [EXS.ex5]
+},
+{
+  id: "u4", no: 4, ar: "نَهْيُ الغَائِبِ", tr: "Nehy-i Gâib", short: "Nehy-i gâib", col: "mi", legend: ["cerr"],
+  goals: ["Orada olmayana yasak koymak: لَا يَكْتُبْ (yazmasın)", "Gâib ve gâibe şekillerini ayırmak: لَا يَغْسِلْ ↔ لَا تَغْسِلْ", "Fiil önde ise tekil kaldığını uygulamak: لَا يَشْرَبِ الشَّبَابُ"],
+  examples: [
+    { s: "لَا يَذْهَبْ:cerr / أَحْمَدُ:- / إِلَى السُّوقِ:-", tr: "Ahmed çarşıya gitmesin.", pair: "لَا تَغْسِلْ:cerr.gâibe / عَائِشَةُ:- / الأَطْبَاقَ:-", pairTr: "Âişe tabakları yıkamasın." },
+    { s: "لَا يُهْمِلْ:cerr / عَلِيٌّ:- / الدَّرْسَ:-", tr: "Ali dersi ihmal etmesin.", pair: "﴿وَلَا يَحْزُنْكَ:cerr / قَوْلُهُمْ﴾:-", pairTr: "Onların sözü seni üzmesin." }
+  ],
+  rules: [
+    { tr: "<b class=\"r-cerr\">Nehy-i gâib</b>: orada olmayana yasak: <span class=\"ar\">لَا</span> + meczûm muzâri (gâib): <span class=\"ar\">لَا يَظْلِمِ النَّاسَ</span> (insanlara zulmetmesin)." },
+    OLD[2].rules[2],
+    { tr: "Gâibe tekil ve ikil <span class=\"ar\">تَـ</span> ile başlar; nehy-i hâzırla aynı görünür, özneye bak: <span class=\"ar\">لَا تَغْسِلْ عَائِشَةُ</span> (Âişe yıkamasın) ↔ <span class=\"ar\">لَا تَغْسِلْ يَا خَلِيلُ</span> (yıkama Halil)." },
+    OLD[2].rules[3]
+  ],
+  kaide: ["نَهْيُ الغَائِبِ، مِثْلُ: لَا يَظْلِمِ النَّاسَ.", OLD[2].kaide[2]],
+  ex: [EXS.ex7]
+},
+{
+  id: "u5", no: 5, ar: "فِي الآيَاتِ وَالأَحَادِيثِ وَالقِرَاءَةِ", tr: "Âyet, Hadis ve Okuma", short: "Âyet · hadis · okuma", col: "muz", legend: ["ref", "cerr"],
+  goals: ["Âyet ve hadislerde dört türü bulup ayırmak", "Emrin cevabındaki meczûm muzâriyi emir sanmamak: اِحْفَظِ اللهَ يَحْفَظْكَ", "Bir metindeki fiilleri emre ve nehye çevirmek"],
+  examples: OLD[0].examples.concat(OLD[3].examples),
+  rules: OLD[0].rules.slice(1, 5).concat(OLD[3].rules),
+  kaide: OLD[0].kaide.slice(1).concat(OLD[3].kaide),
+  ex: [EXS.find, EXS.hadis, EXS.oku, EXS.ex8]
+}
+];
+
 // Doğru Emir oyunu: [cümle {hedef}, seçenekler (ilki doğru), açıklama, Türkçe, konu]
 var RZ_POOL = [
-  ["{اِقْرَإِ} القُرْآنَ يَا أَحْمَدُ.", ["اِقْرَإِ", "يَقْرَأُ", "لِيَقْرَأْ"], "hitap → emr-i hâzır", "Kur'an'ı oku ey Ahmed.", "u1"],
-  ["{اِفْتَحِي} الكِتَابَ يَا فَاطِمَةُ.", ["اِفْتَحِي", "اِفْتَحْ", "تَفْتَحِينَ"], "kadına → ـي", "Kitabı aç ey Fâtıma.", "u1"],
-  ["{لِيَذْهَبْ} عَلِيٌّ إِلَى المَكْتَبَةِ.", ["لِيَذْهَبْ", "اِذْهَبْ", "يَذْهَبُ"], "gâibe emir → لِـ", "Ali kütüphaneye gitsin.", "u1"],
-  ["{لَا تَأْكُلِ} الحَرَامَ يَا جَمِيلُ.", ["لَا تَأْكُلِ", "لَا يَأْكُلِ", "لَا تَأْكُلُ"], "hitaba nehiy → لَا + meczûm", "Haram yeme ey Cemîl.", "u1"],
-  ["{لَا يَذْهَبْ} أَحْمَدُ إِلَى السُّوقِ.", ["لَا يَذْهَبْ", "لَا تَذْهَبْ", "لَا يَذْهَبُ"], "gâibe nehiy", "Ahmed çarşıya gitmesin.", "u1"],
-  ["﴿{فَلْيَعْبُدُوا} رَبَّ هَذَا البَيْتِ﴾", ["فَلْيَعْبُدُوا", "فَيَعْبُدُونَ", "فَاعْبُدُوا"], "emr-i gâib (فَ + لْ)", "Bu evin Rabbine ibadet etsinler.", "u1"],
-  ["يَا طُلَّابُ، {اِفْتَحُوا} الكِتَابَ.", ["اِفْتَحُوا", "اِفْتَحُو", "اِفْتَحْنَ"], "erkek çoğul + elif-i fâriqa", "Öğrenciler, kitabı açın.", "u2"],
-  ["يَا طَالِبَاتُ، {اِفْتَحْنَ} الكِتَابَ.", ["اِفْتَحْنَ", "اِفْتَحُوا", "اِفْتَحِي"], "kadın çoğul → ـنَ", "Kız öğrenciler, kitabı açın.", "u2"],
-  ["يَا طَالِبَانِ، {اِفْتَحَا} الكِتَابَ.", ["اِفْتَحَا", "اِفْتَحَانِ", "اِفْتَحُوا"], "ikil → ـا (nûn düşer)", "İki öğrenci, kitabı açın.", "u2"],
-  ["يَا كَرِيمُ، {اُعْبُدْ} رَبَّكَ.", ["اُعْبُدْ", "اِعْبُدْ", "اُعْبُدِي"], "يَعْبُدُ → اُ", "Kerîm, Rabbine ibadet et.", "u2"],
-  ["يَا مَرْوَةُ، {اِجْلِسِي} فِي المَسْجِدِ.", ["اِجْلِسِي", "اِجْلِسْ", "اُجْلُسِي"], "kadına; يَجْلِسُ → اِ", "Merve, mescitte otur.", "u2"],
-  ["يَا زَيْنَبُ وَفَاطِمَةُ، {اُطْبُخَا} الطَّعَامَ.", ["اُطْبُخَا", "اُطْبُخُوا", "اِطْبَخَا"], "ikil; يَطْبُخُ → اُ", "Zeynep ve Fâtıma, yemeği pişirin.", "u2"],
-  ["يَا فَلَّاحُونَ، {اِجْمَعُوا} الثِّمَارَ.", ["اِجْمَعُوا", "اُجْمُعُوا", "اِجْمَعْنَ"], "erkek çoğul", "Çiftçiler, meyveleri toplayın.", "u2"],
-  ["{لِيَفْتَحْ} عَلِيٌّ الحَاسُوبَ.", ["لِيَفْتَحْ", "لِيَفْتَحُ", "اِفْتَحْ"], "emr-i gâib, meczûm", "Ali bilgisayarı açsın.", "u3"],
-  ["{لَا يُهْمِلْ} عَلِيٌّ الدَّرْسَ.", ["لَا يُهْمِلْ", "لَا تُهْمِلْ", "لَا يُهْمِلُ"], "nehy-i gâib", "Ali dersi ihmal etmesin.", "u3"],
+  ["{اِقْرَإِ} القُرْآنَ يَا أَحْمَدُ.", ["اِقْرَإِ", "يَقْرَأُ", "لِيَقْرَأْ"], "hitap → emr-i hâzır", "Kur'an'ı oku ey Ahmed.", "u5"],
+  ["{اِفْتَحِي} الكِتَابَ يَا فَاطِمَةُ.", ["اِفْتَحِي", "اِفْتَحْ", "تَفْتَحِينَ"], "kadına → ـي", "Kitabı aç ey Fâtıma.", "u5"],
+  ["{لِيَذْهَبْ} عَلِيٌّ إِلَى المَكْتَبَةِ.", ["لِيَذْهَبْ", "اِذْهَبْ", "يَذْهَبُ"], "gâibe emir → لِـ", "Ali kütüphaneye gitsin.", "u5"],
+  ["{لَا تَأْكُلِ} الحَرَامَ يَا جَمِيلُ.", ["لَا تَأْكُلِ", "لَا يَأْكُلِ", "لَا تَأْكُلُ"], "hitaba nehiy → لَا + meczûm", "Haram yeme ey Cemîl.", "u5"],
+  ["{لَا يَذْهَبْ} أَحْمَدُ إِلَى السُّوقِ.", ["لَا يَذْهَبْ", "لَا تَذْهَبْ", "لَا يَذْهَبُ"], "gâibe nehiy", "Ahmed çarşıya gitmesin.", "u5"],
+  ["﴿{فَلْيَعْبُدُوا} رَبَّ هَذَا البَيْتِ﴾", ["فَلْيَعْبُدُوا", "فَيَعْبُدُونَ", "فَاعْبُدُوا"], "emr-i gâib (فَ + لْ)", "Bu evin Rabbine ibadet etsinler.", "u5"],
+  ["يَا طُلَّابُ، {اِفْتَحُوا} الكِتَابَ.", ["اِفْتَحُوا", "اِفْتَحُو", "اِفْتَحْنَ"], "erkek çoğul + elif-i fâriqa", "Öğrenciler, kitabı açın.", "u1"],
+  ["يَا طَالِبَاتُ، {اِفْتَحْنَ} الكِتَابَ.", ["اِفْتَحْنَ", "اِفْتَحُوا", "اِفْتَحِي"], "kadın çoğul → ـنَ", "Kız öğrenciler, kitabı açın.", "u1"],
+  ["يَا طَالِبَانِ، {اِفْتَحَا} الكِتَابَ.", ["اِفْتَحَا", "اِفْتَحَانِ", "اِفْتَحُوا"], "ikil → ـا (nûn düşer)", "İki öğrenci, kitabı açın.", "u1"],
+  ["يَا كَرِيمُ، {اُعْبُدْ} رَبَّكَ.", ["اُعْبُدْ", "اِعْبُدْ", "اُعْبُدِي"], "يَعْبُدُ → اُ", "Kerîm, Rabbine ibadet et.", "u1"],
+  ["يَا مَرْوَةُ، {اِجْلِسِي} فِي المَسْجِدِ.", ["اِجْلِسِي", "اِجْلِسْ", "اُجْلُسِي"], "kadına; يَجْلِسُ → اِ", "Merve, mescitte otur.", "u1"],
+  ["يَا زَيْنَبُ وَفَاطِمَةُ، {اُطْبُخَا} الطَّعَامَ.", ["اُطْبُخَا", "اُطْبُخُوا", "اِطْبَخَا"], "ikil; يَطْبُخُ → اُ", "Zeynep ve Fâtıma, yemeği pişirin.", "u1"],
+  ["يَا فَلَّاحُونَ، {اِجْمَعُوا} الثِّمَارَ.", ["اِجْمَعُوا", "اُجْمُعُوا", "اِجْمَعْنَ"], "erkek çoğul", "Çiftçiler, meyveleri toplayın.", "u1"],
+  ["{لِيَفْتَحْ} عَلِيٌّ الحَاسُوبَ.", ["لِيَفْتَحْ", "لِيَفْتَحُ", "اِفْتَحْ"], "emr-i gâib, meczûm", "Ali bilgisayarı açsın.", "u2"],
+  ["{لَا يُهْمِلْ} عَلِيٌّ الدَّرْسَ.", ["لَا يُهْمِلْ", "لَا تُهْمِلْ", "لَا يُهْمِلُ"], "nehy-i gâib", "Ali dersi ihmal etmesin.", "u4"],
   ["{لَا تَفْتَحْ} كِتَابَكَ يَا نَدِيمُ.", ["لَا تَفْتَحْ", "لَا يَفْتَحْ", "لَا تَفْتَحُ"], "nehy-i hâzır", "Kitabını açma ey Nedîm.", "u3"],
   ["{لَا تُسْرِفُوا} يَا شَبَابُ.", ["لَا تُسْرِفُوا", "لَا تُسْرِفُونَ", "لَا يُسْرِفُوا"], "nehy-i hâzır, çoğul", "Gençler, israf etmeyin.", "u3"],
-  ["{لِيَرْجِعِ} الأَوْلَادُ إِلَى البَيْتِ.", ["لِيَرْجِعِ", "لِيَرْجِعُوا", "لِتَرْجِعْ"], "fiil önde → tekil", "Çocuklar eve dönsün.", "u3"],
-  ["{لِتَكْنُسِ} المَرْأَةُ الغُرْفَةَ.", ["لِتَكْنُسِ", "لِيَكْنُسِ", "اُكْنُسِي"], "müennes gâib → لِتَـ", "Kadın odayı süpürsün.", "u3"],
-  ["{لَا تَغْسِلْ} عَائِشَةُ الأَطْبَاقَ.", ["لَا تَغْسِلْ", "لَا تَغْسِلِي", "لَا يَغْسِلْ"], "nehy-i gâib, müennes", "Âişe tabakları yıkamasın.", "u3"],
-  ["يَا عُثْمَانُ، {اِنْزِلْ} ضَيْفًا عِنْدَ أُسْتَاذِكَ.", ["اِنْزِلْ", "اُنْزُلْ", "نَزَلَ"], "يَنْزِلُ → اِنْزِلْ", "Osman, hocanın yanında misafir kal.", "u4"],
-  ["يَا نَاسُ، {اِنْتَفِعُوا} بِهَذِهِ الأَنْهَارِ.", ["اِنْتَفِعُوا", "يَنْتَفِعُونَ", "اِنْتَفَعُوا"], "mezîd emir, çoğul", "Ey insanlar, bu nehirlerden faydalanın.", "u4"],
-  ["يَا بُنَيَّ، {لَا تَمُدَّ} رِجْلَيْكَ إِلَى المُصْحَفِ.", ["لَا تَمُدَّ", "لَا تَمُدُّ", "لَا يَمُدَّ"], "nehiy (muzâaf fiilde fetha)", "Oğulcuğum, ayaklarını mushafa uzatma.", "u4"],
-  ["{اُدْخُلْ} هَذِهِ الغُرْفَةَ لِلنَّوْمِ.", ["اُدْخُلْ", "اِدْخَلْ", "دَخَلَ"], "يَدْخُلُ → اُ", "Uyumak için bu odaya gir.", "u4"]
+  ["{لِيَرْجِعِ} الأَوْلَادُ إِلَى البَيْتِ.", ["لِيَرْجِعِ", "لِيَرْجِعُوا", "لِتَرْجِعْ"], "fiil önde → tekil", "Çocuklar eve dönsün.", "u2"],
+  ["{لِتَكْنُسِ} المَرْأَةُ الغُرْفَةَ.", ["لِتَكْنُسِ", "لِيَكْنُسِ", "اُكْنُسِي"], "müennes gâib → لِتَـ", "Kadın odayı süpürsün.", "u2"],
+  ["{لَا تَغْسِلْ} عَائِشَةُ الأَطْبَاقَ.", ["لَا تَغْسِلْ", "لَا تَغْسِلِي", "لَا يَغْسِلْ"], "nehy-i gâib, müennes", "Âişe tabakları yıkamasın.", "u4"],
+  ["يَا عُثْمَانُ، {اِنْزِلْ} ضَيْفًا عِنْدَ أُسْتَاذِكَ.", ["اِنْزِلْ", "اُنْزُلْ", "نَزَلَ"], "يَنْزِلُ → اِنْزِلْ", "Osman, hocanın yanında misafir kal.", "u5"],
+  ["يَا نَاسُ، {اِنْتَفِعُوا} بِهَذِهِ الأَنْهَارِ.", ["اِنْتَفِعُوا", "يَنْتَفِعُونَ", "اِنْتَفَعُوا"], "mezîd emir, çoğul", "Ey insanlar, bu nehirlerden faydalanın.", "u5"],
+  ["يَا بُنَيَّ، {لَا تَمُدَّ} رِجْلَيْكَ إِلَى المُصْحَفِ.", ["لَا تَمُدَّ", "لَا تَمُدُّ", "لَا يَمُدَّ"], "nehiy (muzâaf fiilde fetha)", "Oğulcuğum, ayaklarını mushafa uzatma.", "u5"],
+  ["{اُدْخُلْ} هَذِهِ الغُرْفَةَ لِلنَّوْمِ.", ["اُدْخُلْ", "اِدْخَلْ", "دَخَلَ"], "يَدْخُلُ → اُ", "Uyumak için bu odaya gir.", "u5"]
 ];
 var HAFIZA = {
   me: { name: "Muzâri ↔ emir", pairs: [["تَكْتُبُ", "اُكْتُبْ"], ["تَجْلِسُ", "اِجْلِسْ"], ["تَفْتَحُ", "اِفْتَحْ"], ["تَجْلِسِينَ", "اِجْلِسِي"], ["تَكْتُبُونَ", "اُكْتُبُوا"], ["تَفْتَحْنَ", "اِفْتَحْنَ"], ["تَذْكُرَانِ", "اُذْكُرَا"], ["تَشْرَبِينَ", "اِشْرَبِي"], ["تَدْخُلُونَ", "اُدْخُلُوا"], ["تَسْمَعُ", "اِسْمَعْ"], ["تَحْفَظْنَ", "اِحْفَظْنَ"], ["تَنْصُرُ", "اُنْصُرْ"]] },

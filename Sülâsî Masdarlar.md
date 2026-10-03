@@ -141,8 +141,8 @@ Kartları) ve 20 soruluk quiz provasıyla öğretir. Düzenleme: `salim/veri.js`
 
 ## Uygulama: Emir ve Nehiy
 
-`emir/index.html` dosyasını tarayıcıda aç. Kitaptaki dersi dört konu olarak (emir ve nehyi tanıma,
-emr-i hâzır, emr-i gâib ve nehiy, Osman Gazi okuması) emir-nehiy makinesi (dört tablo, sağdan sola),
+`emir/index.html` dosyasını tarayıcıda aç. Kitaptaki dersi beş konu olarak (emr-i hâzır,
+emr-i gâib, nehy-i hâzır, nehy-i gâib; âyet, hadis ve Osman Gazi okuması) emir-nehiy makinesi (dört tablo, sağdan sola),
 kaide, örnek, bütün alıştırmalar, beş oyun (Doğru Emir, Emir Ustası, Hangi Tür?, Hangi Zamir?, Hafıza
 Kartları) ve 20 soruluk quiz provasıyla öğretir. Düzenleme: `emir/veri.js`, `emir/kaynak.html`,
 `emir/oyunlar.js`, `emir/ortak.css`, `emir/ozel.css`; sonra `python3 emir/yap.py`.
