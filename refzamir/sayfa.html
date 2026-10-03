@@ -420,6 +420,12 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
 .mk-out .muted .ar { font-size: 1.1rem; line-height: 1.4; }
 .mk-out > b .ar { font-size: 1.1rem; line-height: 1.4; }
 @media (max-width: 480px) { .zt-b.cz .ar { font-size: 1.05rem; } .zt-b.cz small.ar { font-size: .72rem; } }
+/* çekim tabloları sağdan sola: satır adı sağda, Tekil → İkil → Çoğul */
+.zt-grid { direction: rtl; }
+.zt-grid > * { direction: ltr; }
+.zt-c.rh { border-inline-start: 0; border-right: 4px solid var(--role); }
+.pairgrid { direction: rtl; }
+.pairgrid > * { direction: ltr; }
 
 </style>
 

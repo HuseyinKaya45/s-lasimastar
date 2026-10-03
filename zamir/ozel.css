@@ -157,3 +157,9 @@
 .zt-l small { color: var(--muted); font-size: .8rem; text-align: right; }
 @media (max-width: 480px) { .zt-l { grid-template-columns: 1fr; } .zt-l .lbl { grid-row: auto; } .zt-b .ar { font-size: 1.15rem; } }
 .zt-out > .muted .ar { font-size: 1.2rem; line-height: 1.4; }
+/* çekim tabloları sağdan sola: satır adı sağda, Tekil → İkil → Çoğul */
+.zt-grid { direction: rtl; }
+.zt-grid > * { direction: ltr; }
+.zt-c.rh { border-inline-start: 0; border-right: 4px solid var(--role); }
+.pairgrid { direction: rtl; }
+.pairgrid > * { direction: ltr; }
