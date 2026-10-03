@@ -12,9 +12,9 @@ var SG_OPTS = [["s", "Sülâsîden ism-i fâil", "مِنَ الثُّلَاثِ�
 
 function W(s, tr, why) {
   return { c: s.split(" ").map(function (w) {
-    var m = /^\[(.*)\](.*)$/.exec(w), p = /^\{(.*)\}(.*)$/.exec(w);
-    if (m) return (m[1] + m[2]).replace(/_/g, " ") + ":y";
-    if (p) return (p[1] + p[2]).replace(/_/g, " ") + ":-";
+    var m = /^([^\[\{]*)\[(.*)\](.*)$/.exec(w), p = /^([^\[\{]*)\{(.*)\}(.*)$/.exec(w);
+    if (m) return (m[1] + m[2] + m[3]).replace(/_/g, " ") + ":y";
+    if (p) return (p[1] + p[2] + p[3]).replace(/_/g, " ") + ":-";
     return w.replace(/_/g, " ") + ":x";
   }).join(" / "), tr: tr, why: why };
 }
