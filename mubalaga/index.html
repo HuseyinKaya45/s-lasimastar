@@ -1,0 +1,1531 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mübalağa Sîgası</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Amiri:wght@400;700&display=swap">
+<style>
+
+/* Düzen: her ders aynı sırayla akar: hedefler, örnekler, görsel, kaide, alıştırmalar. Hal renkleri (merfû, mansûb, mecrûr) ve tür renkleri her yerde aynıdır. */
+:root {
+  --paper: #F4F6F2;
+  --card: #FFFFFF;
+  --ink: #1B2420;
+  --muted: #5E6A63;
+  --line: #D9E0DA;
+  --soft: #EAEFEA;
+  --accent: #1E5B4F;
+  --ref: #B3402F;
+  --nasb: #A86A0E;
+  --cerr: #2D5FA8;
+  --muf: #6B6152;
+  --mus: #0F8A7A;
+  --mzs: #5A4FB0;
+  --mns: #B23A75;
+  --tks: #1E7A46;
+  --mz: #1E7A46;
+  --mi: #8A3F9E;
+  --mv: #1D6E8C;
+  --sf: #B0532A;
+  --muz: #2F67B0;
+  --mun: #B23A75;
+  --y: #1E5B4F;
+  --x: #7E8A84;
+  --good: #1F7A3E;
+  --bad: #B3261E;
+  --good-bg: #E2F2E6;
+  --bad-bg: #FBE7E4;
+  --role: var(--accent);
+  --f-display: "Alegreya", Georgia, "Times New Roman", serif;
+  --f-body: "Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  --f-ar: "Amiri", "Scheherazade New", "Traditional Arabic", "Noto Naskh Arabic", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111614; --card: #19201D; --ink: #E6ECE8; --muted: #9FACA5; --line: #2C3632; --soft: #202925;
+    --accent: #6CC3AE; --ref: #F28B78; --nasb: #EDB45C; --cerr: #8DB4F5; --muf: #CDBB95; --mus: #5ED1C2; --mzs: #ABA3F5; --mns: #F28DC0; --tks: #6FD69A; --mz: #6FD69A; --mi: #D49BEA; --mv: #6CC7E6; --sf: #F2A07A; --muz: #93B8F2; --mun: #F28DC0; --y: #6CC3AE; --x: #98A39D;
+    --good: #6FD08E; --bad: #FF8A80; --good-bg: #17301F; --bad-bg: #3A1D1A; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111614; --card: #19201D; --ink: #E6ECE8; --muted: #9FACA5; --line: #2C3632; --soft: #202925;
+  --accent: #6CC3AE; --ref: #F28B78; --nasb: #EDB45C; --cerr: #8DB4F5; --muf: #CDBB95; --mus: #5ED1C2; --mzs: #ABA3F5; --mns: #F28DC0; --tks: #6FD69A; --mz: #6FD69A; --mi: #D49BEA; --mv: #6CC7E6; --sf: #F2A07A; --muz: #93B8F2; --mun: #F28DC0; --y: #6CC3AE; --x: #98A39D;
+  --good: #6FD08E; --bad: #FF8A80; --good-bg: #17301F; --bad-bg: #3A1D1A; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 1060px; margin: 0 auto; padding-inline: 16px; padding-block: 0 72px; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.65rem; }
+h3 { font-size: 1.2rem; }
+p { margin: 0; }
+.ar { font-family: var(--f-ar); direction: rtl; unicode-bidi: isolate; line-height: 1.9; }
+.muted { color: var(--muted); }
+.lbl { font-size: .74rem; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.tabular { font-variant-numeric: tabular-nums; }
+.r-ref { --role: var(--ref); color: var(--ref); } .r-nasb { --role: var(--nasb); color: var(--nasb); } .r-cerr { --role: var(--cerr); color: var(--cerr); } .r-muf { --role: var(--muf); color: var(--muf); } .r-mus { --role: var(--mus); color: var(--mus); } .r-mzs { --role: var(--mzs); color: var(--mzs); } .r-mns { --role: var(--mns); color: var(--mns); } .r-tks { --role: var(--tks); color: var(--tks); } .r-mz { --role: var(--mz); color: var(--mz); } .r-mi { --role: var(--mi); color: var(--mi); } .r-good { --role: var(--good); color: var(--good); } .r-bad { --role: var(--bad); color: var(--bad); } .r-mv { --role: var(--mv); color: var(--mv); } .r-sf { --role: var(--sf); color: var(--sf); } .r-muz { --role: var(--muz); color: var(--muz); } .r-mun { --role: var(--mun); color: var(--mun); } .r-y { --role: var(--y); color: var(--y); }
+.r-x { --role: var(--x); color: var(--x); }
+button { font: inherit; color: inherit; }
+button:focus-visible, select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* üst */
+header.top { padding-block: 26px 14px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: end; }
+header.top h1 { font-size: clamp(2rem, 5.4vw, 3.2rem); font-weight: 800; letter-spacing: -.01em; }
+header.top .h1ar { font-family: var(--f-ar); font-size: clamp(1.5rem, 4vw, 2.1rem); color: var(--accent); direction: rtl; line-height: 1.5; }
+header.top p { color: var(--muted); max-width: 62ch; margin-top: 6px; }
+.xpbox { display: grid; gap: 4px; min-width: 210px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
+.xpbox .row { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; font-size: .9rem; }
+.xpbox b.rank { font-family: var(--f-display); font-size: 1.1rem; }
+.xpbar { height: 6px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.xpbar div { height: 100%; width: 0; background: linear-gradient(90deg, var(--ref), var(--nasb), var(--cerr), var(--mus), var(--mzs), var(--mns), var(--tks)); transition: width .5s ease; }
+
+nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line); display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-block: 8px; }
+nav.tabs::-webkit-scrollbar { display: none; }
+nav.tabs button { flex: none; font-weight: 700; font-size: .96rem; color: var(--muted); background: transparent; border: 0; border-radius: 999px; padding: 8px 14px; cursor: pointer; display: flex; gap: 6px; align-items: center; }
+nav.tabs button .num { font-family: var(--f-display); width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--soft); color: var(--ink); font-size: .85rem; }
+nav.tabs button .pc { font-size: .72rem; color: var(--muted); font-weight: 500; }
+nav.tabs button[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+nav.tabs button[aria-selected="true"] .num { background: var(--paper); color: var(--ink); }
+nav.tabs button[aria-selected="true"] .pc { color: var(--paper); opacity: .8; }
+
+section.panel { display: grid; gap: 22px; padding-top: 24px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; min-width: 0; }
+.stack { display: grid; gap: 12px; min-width: 0; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.btn { font-weight: 700; border: 1.5px solid var(--accent); color: var(--accent); background: transparent; padding: 7px 15px; border-radius: 10px; cursor: pointer; }
+.btn.solid { background: var(--accent); color: var(--card); }
+.btn.small { padding: 4px 10px; font-size: .88rem; }
+.btn:hover { filter: brightness(1.08); }
+.row-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* cümle parçaları */
+.sent { display: flex; flex-wrap: wrap; gap: 6px; direction: rtl; align-items: flex-end; }
+.chunk { display: inline-grid; justify-items: center; gap: 0; }
+.chunk .w { font-family: var(--f-ar); font-size: 1.7rem; line-height: 1.6; padding: 0 10px; border-radius: 10px; background: color-mix(in srgb, var(--role) 13%, transparent); color: var(--ink); border-bottom: 3px solid var(--role); }
+.chunk .t { font-size: .68rem; font-weight: 700; color: var(--role); letter-spacing: .04em; text-transform: uppercase; direction: ltr; }
+.chunk.r-x .w { background: transparent; border-bottom-color: transparent; color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; }
+.legend span { display: inline-flex; gap: 6px; align-items: center; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; background: var(--role); display: inline-block; }
+.trline { font-size: .92rem; color: var(--muted); }
+.ex-list { display: grid; gap: 14px; }
+.ex-item { display: grid; gap: 2px; padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
+.ex-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.pairgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px 18px; }
+
+/* ders başlığı */
+.unit-hero { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; border-top: 5px solid var(--role); }
+.unit-no { font-family: var(--f-display); font-weight: 800; font-size: 3.4rem; color: var(--role); line-height: 1; }
+.unit-hero .ar.big { font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.5; }
+.goals { margin: 0; padding-inline-start: 20px; display: grid; gap: 2px; }
+.prog { height: 8px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.prog div { height: 100%; background: var(--role); width: 0; transition: width .4s; }
+
+/* kaide */
+.rules { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: k; }
+.rules li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
+.rules li::before { counter-increment: k; content: counter(k); font-family: var(--f-display); font-weight: 800; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--paper); }
+.rules .exs { display: flex; flex-wrap: wrap; gap: 4px 16px; direction: rtl; font-family: var(--f-ar); font-size: 1.35rem; color: var(--accent); }
+details.kaide { border: 1px dashed var(--line); border-radius: 12px; padding: 10px 14px; }
+details.kaide summary { cursor: pointer; font-weight: 700; }
+details.kaide .ar { font-size: 1.3rem; }
+
+/* görseller */
+.viz { display: grid; gap: 10px; justify-items: center; }
+.viz svg { width: 100%; max-width: 640px; height: auto; display: block; }
+.viz .cap { font-size: .9rem; color: var(--muted); text-align: center; max-width: 60ch; }
+svg .s-ref { fill: var(--ref); } svg .s-nasb { fill: var(--nasb); } svg .s-cerr { fill: var(--cerr); } svg .s-muf { fill: var(--muf); } svg .s-mus { fill: var(--mus); } svg .s-mzs { fill: var(--mzs); } svg .s-mns { fill: var(--mns); } svg .s-tks { fill: var(--tks); }
+svg .s-ink { fill: var(--ink); } svg .s-muted { fill: var(--muted); } svg .s-card { fill: var(--card); } svg .s-soft { fill: var(--soft); } svg .s-good { fill: var(--good); } svg .s-bad { fill: var(--bad); }
+svg .k-ink { stroke: var(--ink); } svg .k-muted { stroke: var(--muted); } svg .k-fiil { stroke: var(--fiil); } svg .k-line { stroke: var(--line); } svg .k-good { stroke: var(--good); } svg .k-bad { stroke: var(--bad); }
+svg text { font-family: var(--f-body); }
+svg text.a { font-family: var(--f-ar); }
+.svg-scroll { overflow-x: auto; width: 100%; }
+
+/* harita (giriş) */
+.tree { display: grid; gap: 18px; justify-items: center; }
+.node { border-radius: 14px; padding: 10px 16px; text-align: center; background: var(--card); border: 2px solid var(--role); display: grid; gap: 0; }
+.node .ar { font-size: 1.5rem; line-height: 1.6; color: var(--role); }
+.node small { color: var(--muted); font-size: .8rem; }
+.node.root { --role: var(--accent); }
+.tree-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; width: 100%; max-width: 760px; }
+.branch { display: grid; gap: 12px; justify-items: center; padding: 14px; border-radius: 16px; background: var(--soft); position: relative; }
+.branch .kids { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; direction: rtl; }
+.branch .kids .node { padding: 6px 12px; }
+.branch .kids .node .ar { font-size: 1.2rem; }
+.branch .sample { font-family: var(--f-ar); font-size: 1.3rem; direction: rtl; }
+.branch button { margin-top: 2px; }
+.map-units { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.map-units .card { display: grid; gap: 6px; align-content: start; border-top: 5px solid var(--role); }
+.map-units .card .ar { font-size: 1.5rem; color: var(--role); }
+
+/* alıştırmalar */
+.exer { display: grid; gap: 14px; }
+.exer-head { display: grid; gap: 4px; }
+.exer-head .ar { font-size: 1.35rem; color: var(--accent); }
+.exer-head .cnt { font-size: .85rem; color: var(--muted); }
+.exbox { background: var(--soft); border-radius: 10px; padding: 8px 12px; font-size: .95rem; }
+.exbox .ar { font-size: 1.25rem; }
+.items { display: grid; gap: 12px; }
+.item { display: grid; gap: 8px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+.item.ok { border-color: var(--good); }
+.item.no { border-color: var(--bad); }
+.item .qn { font-family: var(--f-display); font-weight: 800; color: var(--muted); font-size: .95rem; }
+.item .q { font-family: var(--f-ar); font-size: 1.55rem; direction: rtl; line-height: 1.8; }
+.item .q u { text-decoration: none; border-bottom: 2px dashed var(--accent); padding-inline: 18px; }
+.item .q u.filled { padding-inline: 2px; border-bottom-style: solid; color: var(--accent); }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; }
+.opt { font-family: var(--f-ar); font-size: 1.35rem; line-height: 1.6; padding: 4px 14px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; text-align: right; }
+.opt.lat { font-family: var(--f-body); font-size: 1rem; font-weight: 700; padding: 8px 16px; }
+.opt.block { flex: 1 1 100%; }
+.opt:hover:not([disabled]) { border-color: var(--accent); }
+.opt.sel-ok { border-color: var(--good); background: var(--good-bg); color: var(--good); }
+.opt.sel-no { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); }
+.opt[disabled] { cursor: default; }
+.fb { font-size: .95rem; }
+.fb .ok { color: var(--good); font-weight: 700; } .fb .no { color: var(--bad); font-weight: 700; }
+.fb .ar { font-size: 1.2rem; }
+.tile-line { min-height: 58px; border: 2px dashed var(--line); border-radius: 12px; padding: 6px; display: flex; flex-wrap: wrap; gap: 6px; direction: rtl; align-items: center; }
+.tile-line.okk { border-style: solid; border-color: var(--good); background: var(--good-bg); }
+.tile-line.nok { border-style: solid; border-color: var(--bad); background: var(--bad-bg); }
+.tiles { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; }
+.tile { font-family: var(--f-ar); font-size: 1.4rem; line-height: 1.5; padding: 2px 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; box-shadow: 0 2px 0 var(--line); }
+.tile:hover:not([disabled]) { border-color: var(--accent); }
+.tile[disabled] { opacity: .25; cursor: default; box-shadow: none; }
+.tile.inl { background: var(--soft); }
+.tagbtn { display: inline-grid; justify-items: center; cursor: pointer; border: 0; background: transparent; padding: 0; }
+.tagbtn .w { font-family: var(--f-ar); font-size: 1.55rem; line-height: 1.6; padding: 0 10px; border-radius: 10px; border: 1.5px dashed var(--line); }
+.tagbtn .t { font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); min-height: 1.1em; }
+.tagbtn.has .w { border-style: solid; border-color: var(--role); background: color-mix(in srgb, var(--role) 13%, transparent); }
+.tagbtn.has .t { color: var(--role); }
+.tagbtn.wrong .w { outline: 2px solid var(--bad); outline-offset: 2px; }
+.slot { font-family: var(--f-ar); font-size: 1.5rem; line-height: 1.6; padding: 0 12px; border-radius: 10px; border: 1.5px solid var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); cursor: pointer; min-width: 64px; }
+.slot.empty { color: var(--muted); border-style: dashed; }
+.slot.wrong { border-color: var(--bad); background: var(--bad-bg); }
+.slot.right { border-color: var(--good); background: var(--good-bg); }
+.combo-line { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; align-items: center; font-family: var(--f-ar); font-size: 1.5rem; }
+.bank { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; padding: 10px; border-radius: 12px; background: var(--soft); }
+.bank .tile[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: var(--card); }
+.cls-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.passage { font-family: var(--f-ar); font-size: 1.45rem; line-height: 2.1; direction: rtl; text-align: justify; }
+.passage-tr { font-size: .98rem; color: var(--muted); }
+.qa { display: grid; gap: 6px; padding: 10px 12px; border-radius: 10px; background: var(--soft); }
+.qa .ar { font-size: 1.35rem; }
+
+/* oyunlar */
+.game-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.game-card { display: grid; gap: 8px; align-content: start; border-top: 5px solid var(--role); }
+.game-card .ico { font-family: var(--f-ar); font-size: 1.9rem; color: var(--role); direction: rtl; line-height: 1.4; }
+.hud { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: baseline; font-variant-numeric: tabular-nums; }
+.hud b { font-family: var(--f-display); font-size: 1.45rem; color: var(--accent); }
+.time-bar { height: 10px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.time-bar div { height: 100%; background: var(--accent); transition: width 1s linear; }
+.time-bar.low div { background: var(--bad); }
+.target { font-family: var(--f-ar); font-size: clamp(1.7rem, 6vw, 2.5rem); text-align: center; line-height: 1.8; padding: 12px; border-radius: 16px; background: var(--soft); direction: rtl; }
+.target.flash-ok { background: var(--good-bg); }
+.target.flash-no { background: var(--bad-bg); animation: shake .35s; }
+.q-end { display: inline-block; min-width: 34px; border: 2px dashed var(--accent); border-radius: 8px; color: var(--accent); font-family: var(--f-body); font-size: 1rem; vertical-align: middle; line-height: 1.6; text-align: center; }
+.big2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.big2 button, .big3 button { border: 0; border-radius: 14px; padding: 14px 6px; font-weight: 800; font-family: var(--f-display); font-size: 1.15rem; color: var(--card); background: var(--role); cursor: pointer; display: grid; gap: 2px; justify-items: center; }
+.big2 button .ar, .big3 button .ar { font-weight: 400; font-size: 1.4rem; line-height: 1.3; }
+.big2 button small { font-family: var(--f-body); font-weight: 500; font-size: .75rem; opacity: .85; }
+.big3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
+.big3 button { --role: var(--accent); font-family: var(--f-ar); font-size: 1.8rem; font-weight: 400; }
+.gfb { min-height: 3em; text-align: center; }
+.gfb .ar { font-size: 1.3rem; }
+.score-big { font-family: var(--f-display); font-size: 3rem; font-weight: 800; color: var(--accent); }
+.stars { font-size: 2.1rem; letter-spacing: .15em; color: var(--muf); }
+.stars .off { color: var(--line); }
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+@keyframes pop { 0% { transform: scale(.92); } 60% { transform: scale(1.05); } 100% { transform: scale(1); } }
+.pop { animation: pop .3s; }
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(20px); background: var(--ink); color: var(--paper); padding: 10px 18px; border-radius: 12px; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 20; max-width: calc(100% - 32px); text-align: center; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; }
+@media (max-width: 720px) {
+  header.top { grid-template-columns: 1fr; }
+  .unit-hero { grid-template-columns: 1fr; }
+  .tree-row { grid-template-columns: 1fr; }
+  .chunk .w { font-size: 1.45rem; }
+  .item .q { font-size: 1.35rem; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* --- bu programa özel --- */
+.viz { grid-template-columns: minmax(0, 1fr); }
+.viz > * { max-width: 100%; min-width: 0; }
+.chunk.r-dash .w { background: transparent; border-bottom-color: transparent; color: var(--muted); }
+.sent .plain { font-family: var(--f-ar); font-size: 1.55rem; line-height: 1.6; color: var(--muted); align-self: center; padding: 0 2px; }
+.tagbtn.findbtn.on .w { border-style: solid; border-color: var(--y); background: color-mix(in srgb, var(--y) 14%, transparent); }
+.tagbtn.findbtn.miss .w { outline: 2px dashed var(--good); outline-offset: 2px; }
+.srcline { font-size: .85rem; color: var(--muted); }
+.sumgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; }
+.sumcard { display: grid; gap: 10px; align-content: start; border-top: 5px solid var(--role); }
+.sumcard h3 { color: var(--role); }
+.sumcard .ar.t { font-size: 1.45rem; color: var(--role); }
+.sumcard ul { margin: 0; padding-inline-start: 18px; display: grid; gap: 4px; }
+.sumcard .ar { font-size: 1.2rem; }
+.flash-wrap { display: grid; gap: 12px; justify-items: center; }
+.flash { width: 100%; max-width: 560px; min-height: 170px; perspective: 900px; border: 0; background: transparent; padding: 0; cursor: pointer; }
+.flash .in { position: relative; width: 100%; min-height: 170px; transition: transform .45s; transform-style: preserve-3d; }
+.flash.up .in { transform: rotateY(180deg); }
+.flash .face { position: absolute; inset: 0; border-radius: 16px; display: grid; place-items: center; padding: 18px; backface-visibility: hidden; -webkit-backface-visibility: hidden; text-align: center; font-size: 1.15rem; }
+.flash .front { background: var(--ink); color: var(--paper); font-family: var(--f-display); font-weight: 700; font-size: 1.35rem; }
+.flash .back { background: var(--card); border: 2px solid var(--accent); transform: rotateY(180deg); }
+.flash .back .ar { font-size: 1.25rem; }
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.checklist label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.checklist input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--accent); }
+.icons { display: inline-flex; gap: 2px; flex-wrap: wrap; }
+.icons .ico { width: 22px; height: 22px; }
+.sfx { color: var(--role); font-weight: 700; }
+.qz-bars { display: grid; gap: 10px; width: 100%; max-width: 560px; }
+.qz-bar { display: grid; grid-template-columns: 150px minmax(0, 1fr) 54px; gap: 10px; align-items: center; font-size: .92rem; }
+.qz-bar .tr2 { height: 12px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.qz-bar .tr2 div { height: 100%; background: var(--role); }
+.qz-type { font-size: .85rem; color: var(--muted); }
+.big5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.big5 button { border: 0; border-radius: 14px; padding: 12px 6px; font-weight: 800; font-family: var(--f-display); font-size: 1rem; color: var(--card); background: var(--role); cursor: pointer; display: grid; gap: 2px; justify-items: center; }
+.big5 button .ar { font-weight: 400; font-size: 1.15rem; line-height: 1.4; }
+.big5 button small { font-family: var(--f-body); font-weight: 500; font-size: .72rem; opacity: .85; }
+.mem { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.mcard { aspect-ratio: 4 / 3; max-width: 100%; perspective: 700px; border: 0; padding: 0; background: transparent; cursor: pointer; }
+.mcard .in { position: relative; width: 100%; height: 100%; transition: transform .35s; transform-style: preserve-3d; }
+.mcard.up .in, .mcard.done .in { transform: rotateY(180deg); }
+.mcard .face { position: absolute; inset: 0; border-radius: 12px; display: grid; place-items: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 4px; text-align: center; }
+.mcard .back { background: var(--ink); color: var(--paper); font-family: var(--f-ar); font-size: 1.3rem; opacity: .92; }
+.mcard .front { transform: rotateY(180deg); background: var(--card); border: 2px solid var(--line); font-family: var(--f-ar); font-size: 1.55rem; }
+.mcard.done .front { border-color: var(--good); background: var(--good-bg); }
+.mcard .front.lat { font-family: var(--f-body); font-size: .9rem; font-weight: 700; line-height: 1.25; }
+/* i'rab tablosu: mansûb ile mecrûr aynıysa tek hücre */
+.itab { display: grid; grid-template-columns: minmax(0, 1.05fr) repeat(3, minmax(0, 1fr)); direction: rtl; width: 100%; max-width: 820px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
+.itab > div { direction: ltr; padding: 8px 6px; text-align: center; display: grid; gap: 1px; align-content: center; justify-items: center; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); min-width: 0; }
+.itab > div.end { border-left: 0; }
+.itab .hd { background: var(--role); color: var(--card); font-weight: 800; font-family: var(--f-display); }
+.itab .hd .ar { font-size: 1.05rem; line-height: 1.4; font-family: var(--f-ar); font-weight: 400; }
+.itab .corner { background: var(--soft); color: var(--muted); font-size: .8rem; }
+.itab .rh { background: color-mix(in srgb, var(--role) 11%, var(--card)); border-right: 5px solid var(--role); }
+.itab .rh b { color: var(--role); font-size: .95rem; line-height: 1.2; }
+.itab .c .ar { font-size: 1.3rem; line-height: 1.6; }
+.itab .c .ar b { color: var(--role); }
+.itab .c small { color: var(--muted); font-size: .78rem; }
+.itab .c.same { grid-column: span 2; background: repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--role) 6%, transparent) 10px 20px); }
+.itab .c.same small b { color: var(--ink); }
+.itab > div.last { border-bottom: 0; }
+.fork { display: flex; gap: 12px; align-items: center; justify-content: center; direction: rtl; flex-wrap: wrap; width: 100%; }
+.fork .outs { display: grid; gap: 8px; direction: ltr; }
+.fcard { border-radius: 14px; padding: 8px 14px; text-align: center; display: grid; gap: 0; justify-items: center; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); min-width: 0; }
+.fcard .ar { font-size: 1.6rem; line-height: 1.6; }
+.fcard .ar b { color: var(--role); }
+.fcard small { color: var(--muted); font-size: .8rem; }
+.fcard b.t { color: var(--role); font-size: .9rem; }
+.fork .arr { font-size: 1.8rem; color: var(--muted); }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.badge { border-radius: 999px; padding: 4px 12px; background: var(--soft); font-size: .9rem; display: inline-flex; gap: 6px; align-items: center; }
+.badge .ar { font-size: 1.15rem; line-height: 1.4; color: var(--role); }
+.vs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; width: 100%; max-width: 640px; }
+.vs .fcard .ar { font-size: 1.5rem; }
+.nope { text-decoration: line-through; text-decoration-color: var(--bad); text-decoration-thickness: 2px; opacity: .8; }
+.pairs6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 640px; direction: rtl; }
+.pairs6 > div { border-radius: 10px; background: var(--soft); padding: 6px; text-align: center; font-family: var(--f-ar); font-size: 1.2rem; line-height: 1.6; direction: rtl; border-top: 3px solid var(--tks); }
+.pairs6 > div b { color: var(--tks); font-weight: 700; }
+.steps3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.steps3 > div { border-radius: 14px; padding: 12px; background: var(--soft); display: grid; gap: 4px; align-content: start; }
+.steps3 .n { font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; color: var(--accent); line-height: 1; }
+.steps3 .ar { font-size: 1.15rem; }
+.gorev { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; direction: rtl; }
+.gorev > div { direction: ltr; border-radius: 12px; padding: 10px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 8%, var(--card)); display: grid; gap: 2px; align-content: start; }
+.gorev b { color: var(--role); }
+.gorev .ar { font-size: 1.1rem; }
+.hl { color: var(--accent); border-bottom: 3px solid var(--accent); padding-inline: 2px; }
+.ul { border-bottom: 2.5px solid var(--accent); padding-inline: 1px; }
+.irow { display: grid; gap: 6px; }
+.irow .lbl { margin: 0; }
+.opt.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--card)); }
+.extra-tag { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 0 8px; margin-inline-start: 6px; vertical-align: middle; }
+.blank { display: inline-block; min-width: 70px; border-bottom: 3px dashed var(--accent); }
+@media (max-width: 720px) {
+  .mem { grid-template-columns: repeat(3, 1fr); }
+  .qz-bar { grid-template-columns: 110px minmax(0, 1fr) 46px; }
+  .steps3, .gorev { grid-template-columns: 1fr; }
+  .itab .c .ar { font-size: 1.05rem; }
+  .itab .rh b { font-size: .8rem; }
+  .itab .hd { font-size: .85rem; }
+  .itab > div { padding: 6px 3px; }
+  .itab .c small { font-size: .7rem; }
+  .pairs6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vs { grid-template-columns: 1fr; }
+}
+.hlb b { color: var(--role); }
+.gorev .ar.hlb { font-size: 1.2rem; }
+.steps3.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.steps3.four .ar { font-size: 1.1rem; }
+@media (max-width: 860px) { .steps3.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .steps3.four { grid-template-columns: 1fr; } }
+.makine { display: grid; gap: 8px; width: 100%; max-width: 760px; justify-items: center; }
+.mk-row { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; direction: rtl; }
+.mk { border: 1.5px solid var(--line); background: var(--card); border-radius: 10px; padding: 2px 12px; cursor: pointer; font-weight: 700; font-size: .9rem; min-height: 40px; }
+.mk .ar { font-size: 1.3rem; font-weight: 400; }
+.mk.on { border-color: var(--accent); background: var(--accent); color: var(--card); }
+.mk-out { margin-top: 6px; width: 100%; border-radius: 16px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 9%, var(--card)); padding: 12px; display: grid; justify-items: center; gap: 2px; text-align: center; }
+.mk-out .ar { font-size: clamp(2rem, 7vw, 2.8rem); line-height: 1.6; }
+.mk-out > b { color: var(--role); }
+.gorev.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gorev.six { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gorev > div { justify-items: center; text-align: center; }
+.sumgrid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (max-width: 720px) { .gorev.four, .gorev.six { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.mk.g-n { border-color: color-mix(in srgb, var(--mi) 55%, var(--line)); }
+.mk.g-c { border-color: color-mix(in srgb, var(--mz) 55%, var(--line)); }
+.mk.g-n.on { background: var(--mi); border-color: var(--mi); }
+.mk.g-c.on { background: var(--mz); border-color: var(--mz); }
+.mk-legend { display: flex; gap: 14px; font-size: .82rem; justify-content: center; }
+.mk-legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-inline-end: 5px; vertical-align: middle; }
+.mk-legend .g-n::before { background: var(--mi); } .mk-legend .g-c::before { background: var(--mz); }
+.timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 760px; direction: rtl; align-items: center; position: relative; }
+.timeline::before { content: ""; position: absolute; inset-inline: 4%; top: 50%; border-top: 2px dashed var(--line); z-index: 0; }
+.tl-card, .tl-now { position: relative; z-index: 1; direction: ltr; border-radius: 14px; padding: 10px; text-align: center; display: grid; gap: 2px; justify-items: center; }
+.tl-card { border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); }
+.tl-card .ar { font-size: 1.6rem; } .tl-card b { color: var(--role); }
+.tl-now { background: var(--soft); } .tl-now .ar { font-size: 1.4rem; }
+.tl-card small, .tl-now small { color: var(--muted); }
+/* zamir makinesi */
+.ico .fillrole { fill: var(--role); }
+.zt-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr)); gap: 6px; width: 100%; max-width: 640px; }
+.zt-c { display: grid; place-items: center; text-align: center; font-size: .82rem; min-width: 0; }
+.zt-c.hd { color: var(--muted); font-weight: 700; }
+.zt-c.rh { border-radius: 10px; background: color-mix(in srgb, var(--role) 12%, var(--card)); border-inline-start: 4px solid var(--role); padding: 2px 4px; line-height: 1.2; }
+.zt-c.rh b { color: var(--role); }
+.zt-c.rh .ar { font-size: .95rem; }
+.zt-b { border: 1.5px solid color-mix(in srgb, var(--role) 45%, var(--line)); background: var(--card); border-radius: 10px; cursor: pointer; min-height: 46px; padding: 0 4px; min-width: 0; color: var(--ink); }
+.zt-b .ar { font-size: 1.35rem; }
+.zt-b.span2 { grid-column: span 2; }
+.zt-b.on { background: var(--role); border-color: var(--role); color: var(--card); }
+.zt-out > .ar { font-size: clamp(2rem, 7vw, 2.6rem); }
+.zt-lines { display: grid; gap: 6px; width: 100%; max-width: 520px; margin-top: 6px; }
+.zt-l { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); align-items: center; gap: 2px 10px; text-align: start; border-top: 1px solid var(--line); padding-top: 6px; }
+.zt-l .lbl { grid-row: span 2; }
+.zt-l .ar { font-size: 1.45rem; line-height: 1.5; text-align: right; }
+.zt-l .ar b { color: var(--role); }
+.zt-l small { color: var(--muted); font-size: .8rem; text-align: right; }
+@media (max-width: 480px) { .zt-l { grid-template-columns: 1fr; } .zt-l .lbl { grid-row: auto; } .zt-b .ar { font-size: 1.15rem; } }
+.zt-out > .muted .ar { font-size: 1.2rem; line-height: 1.4; }
+/* çekim makinesi */
+.ct { font-style: normal; color: var(--muted); }
+.cm { font-style: normal; color: var(--muted); }
+.zt-b.cz { display: grid; place-items: center; gap: 0; padding: 2px 4px; min-height: 58px; }
+.zt-b.cz small.ar { font-size: .85rem; color: var(--muted); line-height: 1.2; }
+.zt-b.cz .ar { font-size: 1.3rem; line-height: 1.5; }
+.zt-b.cz.on { background: color-mix(in srgb, var(--role) 14%, var(--card)); color: var(--ink); outline: 3px solid var(--role); outline-offset: -1px; }
+.rz-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; font-size: .8rem; }
+.rz-legend span i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: var(--role); margin-inline-end: 5px; vertical-align: middle; }
+.mk-out .muted .ar { font-size: 1.1rem; line-height: 1.4; }
+.mk-out > b .ar { font-size: 1.1rem; line-height: 1.4; }
+@media (max-width: 480px) { .zt-b.cz .ar { font-size: 1.05rem; } .zt-b.cz small.ar { font-size: .72rem; } }
+.timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 760px; direction: rtl; align-items: center; position: relative; }
+.timeline::before { content: ""; position: absolute; inset-inline: 4%; top: 50%; border-top: 2px dashed var(--line); z-index: 0; }
+.tl-card, .tl-now { position: relative; z-index: 1; direction: ltr; border-radius: 14px; padding: 10px; text-align: center; display: grid; gap: 2px; justify-items: center; }
+.tl-card { border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); }
+.tl-card .ar { font-size: 1.6rem; } .tl-card b { color: var(--role); }
+.tl-now { background: var(--soft); } .tl-now .ar { font-size: 1.4rem; }
+.tl-card small, .tl-now small { color: var(--muted); }
+/* fiil çeşitleri */
+.fal { display: flex; gap: 10px; justify-content: center; direction: rtl; }
+.fal > div { border-radius: 14px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 9%, var(--card)); padding: 6px 18px; display: grid; justify-items: center; }
+.fal .ar { font-size: 2.2rem; line-height: 1.4; color: var(--role); }
+.fal b { color: var(--role); }
+.fal small { color: var(--muted); font-size: .78rem; }
+.alm { margin-top: 4px; border-radius: 10px; padding: 2px 8px; font-size: .85rem; font-weight: 700; }
+.alm.ok { background: var(--good-bg); color: var(--good); }
+.alm.ok .ar { font-size: 1.3rem; font-weight: 400; }
+.alm.no { background: color-mix(in srgb, var(--bad) 10%, var(--card)); color: var(--bad); }
+.mk small { font-weight: 500; font-size: .75rem; }
+/* kalıp makinesi */
+.km-chain { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; align-items: center; direction: rtl; width: 100%; }
+.km { border: 2px solid var(--role); border-radius: 14px; padding: 6px 12px; display: grid; justify-items: center; background: color-mix(in srgb, var(--role) 8%, var(--card)); min-width: 92px; }
+.km .ar { font-size: 1.7rem; line-height: 1.5; }
+.km small { color: var(--muted); font-size: .76rem; }
+.km-arr { color: var(--muted); font-size: 1.4rem; }
+.km-tab { display: grid; grid-template-columns: minmax(0, 1fr) repeat(3, minmax(0, 1.3fr)); direction: rtl; width: 100%; max-width: 560px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.km-tab > div { direction: ltr; padding: 6px; text-align: center; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); }
+.km-tab .hd { background: var(--role); color: var(--card); font-weight: 700; font-size: .85rem; }
+.km-tab .rh { background: color-mix(in srgb, var(--role) 12%, var(--card)); font-weight: 700; font-size: .85rem; color: var(--role); }
+.km-tab .ar { font-size: 1.3rem; line-height: 1.6; direction: rtl; }
+.kalip { display: flex; gap: 10px; align-items: center; justify-content: center; direction: rtl; flex-wrap: wrap; }
+.kalip > div { border: 2px solid var(--role); border-radius: 14px; padding: 6px 16px; display: grid; justify-items: center; background: color-mix(in srgb, var(--role) 8%, var(--card)); }
+.kalip .ar { font-size: 2rem; line-height: 1.5; }
+.kalip .ar b { color: var(--role); }
+.kalip small { color: var(--muted); font-size: .8rem; }
+@media (max-width: 480px) { .km { min-width: 0; padding: 4px 8px; } .km .ar { font-size: 1.35rem; } .km-tab .ar { font-size: 1.05rem; } }
+/* vezin makinesi */
+.vz-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 820px; direction: rtl; }
+.vz { border: 2px solid var(--role); border-radius: 12px; background: color-mix(in srgb, var(--role) 8%, var(--card)); display: grid; justify-items: center; padding: 6px 4px; cursor: pointer; color: var(--ink); min-width: 0; }
+.vz .vzn { font-size: 1rem; color: var(--role); }
+.vz .ar { font-size: 1.45rem; line-height: 1.5; }
+.vz small { color: var(--muted); font-size: .72rem; line-height: 1.2; text-align: center; }
+.vz.off { opacity: .45; cursor: default; border-style: dashed; }
+.vz.on { outline: 3px solid var(--role); outline-offset: 1px; background: color-mix(in srgb, var(--role) 18%, var(--card)); }
+.gorev.five { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.meter { display: flex; align-items: center; gap: 8px; width: 100%; max-width: 560px; font-size: .8rem; color: var(--muted); }
+.meter > div { flex: 1; display: flex; height: 12px; border-radius: 99px; overflow: hidden; }
+@media (max-width: 720px) { .vz-row, .gorev.five { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .vz-row, .gorev.five { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="lbl">Kitaptaki ders · dört konu</div>
+      <h1>Mübalağa Sîgası</h1>
+      <div class="h1ar">صِيغَةُ المُبَالَغَةِ</div>
+      <p>İsm-i fâil işi yapanı söyler: <span class="ar" style="color:var(--mz)">غَافِرٌ</span> (bağışlayan). Mübalağa sîgası onu çok, hep yapanı söyler: <span class="ar" style="color:var(--ref)">غَفُورٌ، غَفَّارٌ</span>. Beş vezni öğren, vezin makinesiyle dene, alıştırmaları çöz, oyunlarla pekiştir.</p>
+    </div>
+    <div class="xpbox" id="xpbox" aria-live="polite"></div>
+  </header>
+  <nav class="tabs" role="tablist" aria-label="Bölümler" id="tabs"></nav>
+  <main id="main"></main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// ================= VERİ: Mübalağa Sîgası (صِيغَةُ المُبَالَغَةِ) =================
+// Parça yazımı: "kelime:rol / kelime:rol". Rol "-" düz metin. "ref.فَعَّال" gibi yazılırsa etikete not eklenir.
+var ROLES = {
+  ref: { ar: "صِيغَةُ مُبَالَغَةٍ", tr: "Mübalağa sîgası" }, mz: { ar: "اسْمُ فَاعِلٍ", tr: "İsm-i fâil" }, cerr: { ar: "فِعْلٌ", tr: "Fiil" },
+  x: { ar: "", tr: "" }, y: { ar: "✓", tr: "Seçtin" }
+};
+var HAL_OPTS = [["ref", "Merfû", "مَرْفُوعٌ", "ref"], ["nasb", "Mansûb", "مَنْصُوبٌ", "nasb"], ["cezm", "Mecrûr", "مَجْرُورٌ", "cerr"]];
+var TUR_OPTS = HAL_OPTS;
+// beş vezin: [anahtar, vezin, Türkçe, renk]
+var VZ = [["i", "فَعِيلٌ", "fa'îl", "cerr"], ["u", "فَعُولٌ", "fa'ûl", "mz"], ["a", "فَعَّالٌ", "fa''âl", "ref"], ["e", "فَعِلٌ", "fa'il", "mi"], ["m", "مِفْعَالٌ", "mif'âl", "nasb"]];
+var VZ_BY = {}; VZ.forEach(function (v) { VZ_BY[v[0]] = v; });
+var VZ_OPTS = VZ.map(function (v) { return [v[0], v[2], v[1], "x"]; });
+var FB_OPTS = [["f", "İsm-i fâil", "اسْمُ فَاعِلٍ", "mz"], ["b", "Mübalağa sîgası", "صِيغَةُ مُبَالَغَةٍ", "ref"], ["n", "İkisi de değil", "لَيْسَ مِنْهُمَا", "x"]];
+var FB_TR = { f: "İsm-i fâil", b: "Mübalağa sîgası", m: "İsm-i mef'ûl", n: "İkisi de değil" };
+
+function W(s, tr, why) {
+  return { c: s.split(" ").map(function (w) {
+    var m = /^\[(.*)\](.*)$/.exec(w), p = /^\{(.*)\}(.*)$/.exec(w);
+    if (m) return (m[1] + m[2]).replace(/_/g, " ") + ":y";
+    if (p) return (p[1] + p[2]).replace(/_/g, " ") + ":-";
+    return w.replace(/_/g, " ") + ":x";
+  }).join(" / "), tr: tr, why: why };
+}
+function CB(q, parts, ok, tr, why) {
+  return { q: q, p: parts.map(function (x) { return Array.isArray(x) ? { o: x } : x; }), ok: Array.isArray(ok[0]) ? ok : [ok], tr: tr, why: why };
+}
+function PK(q, o, tr, why, k) { var r = o.slice(), a = (k || 0) % o.length; var c = r.splice(0, 1)[0]; r.splice(a, 0, c); return { q: q, o: r, a: a, tr: tr, why: why }; }
+function HL(s, w) { return s.replace(w, '<b class="hl">' + w + '</b>'); }
+function harfler(w) { return w.match(/[^ً-ْٰ][ً-ْٰ]*/g) || []; }
+// sülâsî kökten vezin üret (oyun ve seçenekler için)
+function vezinYap(kok, k) {
+  var f = kok[0], a = kok[1], l = kok[2];
+  return { i: f + "َ" + a + "ِي" + l + "ٌ", u: f + "َ" + a + "ُو" + l + "ٌ", a: f + "َ" + a + "َّا" + l + "ٌ", e: f + "َ" + a + "ِ" + l + "ٌ", m: "مِ" + f + "ْ" + a + "َا" + l + "ٌ" }[k];
+}
+
+// Fiiller: [fiil, Türkçe, ism-i fâil, Türkçe fâil, {vezin: [mübalağa, Türkçe]}, kök (sülâsî ise)]
+var MB = [
+  ["غَفَرَ", "bağışladı", "غَافِرٌ", "bağışlayan", { u: ["غَفُورٌ", "çok bağışlayan"], a: ["غَفَّارٌ", "durmadan bağışlayan"] }, "غفر"],
+  ["رَحِمَ", "merhamet etti", "رَاحِمٌ", "merhamet eden", { i: ["رَحِيمٌ", "çok merhametli"] }, "رحم"],
+  ["صَبَرَ", "sabretti", "صَابِرٌ", "sabreden", { u: ["صَبُورٌ", "çok sabırlı"], a: ["صَبَّارٌ", "çok sabırlı"] }, "صبر"],
+  ["شَكَرَ", "şükretti", "شَاكِرٌ", "şükreden", { u: ["شَكُورٌ", "çok şükreden"] }, "شكر"],
+  ["عَلِمَ", "bildi", "عَالِمٌ", "bilen", { i: ["عَلِيمٌ", "her şeyi bilen"], a: ["عَلَّامٌ", "çok bilgili"] }, "علم"],
+  ["سَمِعَ", "işitti", "سَامِعٌ", "işiten", { i: ["سَمِيعٌ", "her şeyi işiten"], a: ["سَمَّاعٌ", "çok dinleyen"] }, "سمع"],
+  ["حَذِرَ", "sakındı", "حَاذِرٌ", "sakınan", { e: ["حَذِرٌ", "çok dikkatli"] }, "حذر"],
+  ["فَطِنَ", "sezdi, anladı", "فَاطِنٌ", "sezen", { e: ["فَطِنٌ", "çok zeki"] }, "فطن"],
+  ["تَابَ", "tövbe etti", "تَائِبٌ", "tövbe eden", { a: ["تَوَّابٌ", "çok tövbe eden; tövbeleri çokça kabul eden"] }, "توب"],
+  ["أَكَلَ", "yedi", "آكِلٌ", "yiyen", { u: ["أَكُولٌ", "obur"], a: ["أَكَّالٌ", "çok yiyen"] }, "أكل"],
+  ["كَذَبَ", "yalan söyledi", "كَاذِبٌ", "yalancı", { u: ["كَذُوبٌ", "çok yalancı"], a: ["كَذَّابٌ", "çok yalancı"] }, "كذب"],
+  ["صَدَقَ", "doğru söyledi", "صَادِقٌ", "doğru sözlü", { u: ["صَدُوقٌ", "her zaman doğru sözlü"] }, "صدق"],
+  ["رَزَقَ", "rızık verdi", "رَازِقٌ", "rızık veren", { a: ["رَزَّاقٌ", "bol rızık veren"] }, "رزق"],
+  ["فَتَحَ", "açtı", "فَاتِحٌ", "açan", { a: ["فَتَّاحٌ", "çokça açan, hükmeden"] }, "فتح"],
+  ["ظَلَمَ", "zulmetti", "ظَالِمٌ", "zalim", { u: ["ظَلُومٌ", "çok zalim"] }, "ظلم"],
+  ["كَتَمَ", "gizledi", "كَاتِمٌ", "gizleyen", { u: ["كَتُومٌ", "sır saklayan"] }, "كتم"],
+  ["تَرَكَ", "bıraktı", "تَارِكٌ", "bırakan", { a: ["تَرَّاكٌ", "hep terk eden"] }, "ترك"],
+  ["بَصُرَ", "gördü", "بَاصِرٌ", "gören", { i: ["بَصِيرٌ", "her şeyi gören"] }, "بصر"],
+  ["أَقْدَمَ", "atıldı, cesaret etti", "مُقْدِمٌ", "atılan", { m: ["مِقْدَامٌ", "çok cesur"] }, null],
+  ["أَكْثَرَ", "çok yaptı", "مُكْثِرٌ", "çok yapan", { m: ["مِكْثَارٌ", "çok konuşan"] }, null],
+  ["أَعْطَى", "verdi", "مُعْطٍ", "veren", { m: ["مِعْطَاءٌ", "çok cömert"] }, null]
+];
+var MAK_V = [0, 1, 2, 4, 5, 6, 8, 10, 13, 18, 19, 20];
+var MESLEK = [["قَصَّابٌ", "kasap"], ["جَزَّارٌ", "kasap"], ["لَحَّامٌ", "kasap (et satan)"], ["خَبَّازٌ", "fırıncı"], ["فَلَّاحٌ", "çiftçi"], ["نَجَّارٌ", "marangoz"], ["حَدَّادٌ", "demirci"], ["نَقَّاشٌ", "nakkaş, boyacı"], ["بَقَّالٌ", "bakkal"]];
+
+var UNITS = [
+// ---------------------------------------------------------------- 1 · ANLAM
+{
+  id: "u1", no: 1, ar: "صِيغَةُ المُبَالَغَةِ", tr: "Mübalağa Sîgası Nedir?", short: "Anlam", col: "ref", legend: ["ref", "mz"],
+  goals: ["Mübalağa sîgasının ism-i fâilin anlamını güçlendirdiğini bilmek: غَافِرٌ ← غَفُورٌ", "Mübalağanın çoğunlukla üç harfli fiilden yapıldığını bilmek", "Bir cümlede mübalağa sîgasını ism-i fâilden ayırmak"],
+  examples: [
+    { s: "اللهُ:- / غَفَّارٌ:ref.فَعَّال / لِلتَّائِبِ:mz", tr: "Allah tövbe edeni çokça bağışlar.", why: "غَفَّارٌ mübalağa; التَّائِبُ ism-i fâil." },
+    { s: "النَّبِيُّ:- / رَحِيمٌ:ref.فَعِيل / بِالمُؤْمِنِينَ:-", tr: "Peygamber müminlere karşı çok merhametlidir." },
+    { s: "أَحْمَدُ:- / رَجُلٌ:- / صَبُورٌ:ref.فَعُول", tr: "Ahmed çok sabırlı bir adamdır." },
+    { s: "هَذَا:- / وَلَدٌ:- / حَذِرٌ:ref.فَعِل", tr: "Bu çok dikkatli bir çocuktur." }
+  ],
+  rules: [
+    { tr: "<b class=\"r-ref\">Mübalağa sîgası</b>, ism-i fâilin anlamını <b>çokluk ve süreklilik</b> katarak güçlendiren müştak bir isimdir." },
+    { tr: "İsm-i fâil işi yapanı söyler; mübalağa onu <b>çok</b> ya da <b>hep</b> yapanı söyler.", ex: ["غَافِرٌ: bağışlayan", "غَفُورٌ: çok bağışlayan", "غَفَّارٌ: durmadan bağışlayan"] },
+    { tr: "Çoğunlukla <b>üç harfli</b> fiillerden yapılır; üç harften fazla fiilden nadiren: <span class=\"ar\">أَقْدَمَ ← مِقْدَامٌ</span>." },
+    { tr: "Allah'ın isimlerinin çoğu mübalağa kalıbındadır: <span class=\"ar\">الغَفُورُ، الرَّحِيمُ، العَلِيمُ، التَّوَّابُ، الرَّزَّاقُ، الفَتَّاحُ</span>." },
+    { tr: "İsm-i fâil gibi mef'ûl alabilir: <span class=\"ar\">اللهُ رَزَّاقٌ عِبَادَهُ</span>, ya da لِـ ile: <span class=\"ar\">سَمَّاعٌ لِلْقُرْآنِ</span>." }
+  ],
+  kaide: ["صِيغَةُ المُبَالَغَةِ: اسْمٌ يُشْتَقُّ مِنَ الأَفْعَالِ لِلدَّلَالَةِ عَلَى مَعْنَى اسْمِ الفَاعِلِ بِقَصْدِ المُبَالَغَةِ. تَأْتِي صِيغَةُ المُبَالَغَةِ مِنَ الأَفْعَالِ الثُّلَاثِيَّةِ، وَنَادِرًا مَا تَأْتِي مِنَ الأَفْعَالِ غَيْرِ الثُّلَاثِيَّةِ، مِثْلُ: أَقْدَمَ – مِقْدَامٌ."],
+  ex: [
+    { type: "pick", extra: true, ar: "أَيُّهَا أَقْوَى مَعْنًى؟", tr: "Hangisi \"çok, hep\" anlamı taşıyor? (Mübalağa sîgası)", items: [
+      PK("bağışlamak", ["غَفُورٌ", "غَافِرٌ", "مَغْفُورٌ"], "çok bağışlayan", "غَافِرٌ ism-i fâil, مَغْفُورٌ ism-i mef'ûl.", 1),
+      PK("bilmek", ["عَلِيمٌ", "عَالِمٌ", "مَعْلُومٌ"], "her şeyi bilen", "فَعِيل: عَلِيمٌ.", 2),
+      PK("sabretmek", ["صَبُورٌ", "صَابِرٌ", "صَبْرٌ"], "çok sabırlı", "فَعُول: صَبُورٌ. صَبْرٌ masdar.", 0),
+      PK("yalan söylemek", ["كَذَّابٌ", "كَاذِبٌ", "كَذِبٌ"], "çok yalancı", "فَعَّال: كَذَّابٌ.", 1),
+      PK("dikkat etmek, sakınmak", ["حَذِرٌ", "حَاذِرٌ", "حَذَرٌ"], "çok dikkatli", "فَعِل: حَذِرٌ (ayn kesreli). حَذَرٌ masdar.", 2),
+      PK("vermek", ["مِعْطَاءٌ", "مُعْطٍ", "عَطَاءٌ"], "çok cömert", "مِفْعَال: مِعْطَاءٌ (أَعْطَى'dan, nadir).", 0)
+    ]},
+    { type: "combo", extra: true, ar: "حَوِّلِ اسْمَ الفَاعِلِ إِلَى صِيغَةِ المُبَالَغَةِ", tr: "Cümledeki ism-i fâili parantezdeki vezinle mübalağaya çevir.", exHtml: "<span class=\"ar\">اللهُ غَافِرٌ لِلذُّنُوبِ (فَعَّال) ← اللهُ غَفَّارٌ لِلذُّنُوبِ</span>", items: [
+      CB("المُؤْمِنُ صَابِرٌ. <span class=\"muted\">(فَعُول)</span>", ["المُؤْمِنُ", ["صَبُورٌ", "صَبِيرٌ", "صَبَّارٌ"], "."], [0], "Mümin çok sabırlıdır.", "فَعُول: صَبُورٌ."),
+      CB("اللهُ عَالِمٌ بِكُلِّ شَيْءٍ. <span class=\"muted\">(فَعِيل)</span>", ["اللهُ", ["عَلُومٌ", "عَلِيمٌ", "مِعْلَامٌ"], "بِكُلِّ شَيْءٍ."], [1], "Allah her şeyi bilendir.", "فَعِيل: عَلِيمٌ."),
+      CB("اللهُ رَازِقٌ عِبَادَهُ. <span class=\"muted\">(فَعَّال)</span>", ["اللهُ", ["رَزُوقٌ", "رَزِيقٌ", "رَزَّاقٌ"], "عِبَادَهُ."], [2], "Allah kullarına bol rızık verendir.", "فَعَّال: رَزَّاقٌ."),
+      CB("الحَارِسُ حَاذِرٌ. <span class=\"muted\">(فَعِل)</span>", ["الحَارِسُ", ["حَذِرٌ", "حَذِيرٌ", "حَذُورٌ"], "."], [0], "Bekçi çok dikkatlidir.", "فَعِل: حَذِرٌ."),
+      CB("هُوَ شَاكِرٌ لِرَبِّهِ. <span class=\"muted\">(فَعُول)</span>", ["هُوَ", ["شَكَّارٌ", "شَكُورٌ", "شَكِيرٌ"], "لِرَبِّهِ."], [1], "O Rabbine çok şükredendir.", "فَعُول: شَكُورٌ."),
+      CB("اللهُ تَائِبٌ عَلَى عِبَادِهِ. <span class=\"muted\">(فَعَّال)</span>", ["اللهُ", ["تَئُوبٌ", "تَوِيبٌ", "تَوَّابٌ"], "عَلَى عِبَادِهِ."], [2], "Allah kullarının tövbesini çokça kabul edendir.", "فَعَّال: تَوَّابٌ (ortadaki و şeddeli).")
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 2 · BEŞ VEZİN
+{
+  id: "u2", no: 2, ar: "أَوْزَانُ صِيغَةِ المُبَالَغَةِ", tr: "Beş Vezin", short: "Vezinler", col: "cerr", legend: ["ref"],
+  goals: ["Beş vezni ezberlemek: فَعِيل، فَعُول، فَعَّال، فَعِل، مِفْعَال", "Bir kelimenin hangi vezinde olduğunu söylemek", "Bazı meslek adlarının فَعَّال vezninde olduğunu bilmek"],
+  examples: [
+    { s: "رَحِيمٌ:ref.فَعِيل / عَلِيمٌ:ref.فَعِيل", tr: "çok merhametli · her şeyi bilen" },
+    { s: "غَفُورٌ:ref.فَعُول / شَكُورٌ:ref.فَعُول", tr: "çok bağışlayan · çok şükreden" },
+    { s: "تَوَّابٌ:ref.فَعَّال / غَفَّارٌ:ref.فَعَّال", tr: "tövbeleri çok kabul eden · durmadan bağışlayan" },
+    { s: "حَذِرٌ:ref.فَعِل / فَطِنٌ:ref.فَعِل", tr: "çok dikkatli · çok zeki" },
+    { s: "مِكْثَارٌ:ref.مِفْعَال / مِقْدَامٌ:ref.مِفْعَال", tr: "çok konuşan · çok cesur" }
+  ],
+  rules: [
+    { tr: "<b>فَعِيل</b>: ikinci harften sonra <span class=\"ar\">ي</span>.", ex: ["رَحِيمٌ", "عَلِيمٌ", "سَمِيعٌ", "بَصِيرٌ"] },
+    { tr: "<b>فَعُول</b>: ikinci harften sonra <span class=\"ar\">و</span>.", ex: ["غَفُورٌ", "شَكُورٌ", "صَبُورٌ", "ظَلُومٌ"] },
+    { tr: "<b>فَعَّال</b>: ikinci harf <b>şeddeli</b>, ardından elif.", ex: ["تَوَّابٌ", "غَفَّارٌ", "رَزَّاقٌ", "فَتَّاحٌ"] },
+    { tr: "<b>فَعِل</b>: ikinci harf <b>kesreli</b>, uzatma yok.", ex: ["حَذِرٌ", "فَطِنٌ"] },
+    { tr: "<b>مِفْعَال</b>: başa kesreli <span class=\"ar\">مِـ</span>, ikinci harften sonra elif.", ex: ["مِكْثَارٌ", "مِقْدَامٌ", "مِعْطَاءٌ"] },
+    { tr: "Not: Bazı meslek ve zanaat adları <span class=\"ar\">فَعَّال</span> veznindedir: <span class=\"ar\">قَصَّابٌ (جَزَّارٌ، لَحَّامٌ)، خَبَّازٌ، فَلَّاحٌ، نَجَّارٌ، حَدَّادٌ، نَقَّاشٌ، بَقَّالٌ</span>." },
+    { tr: "Dikkat: <span class=\"ar\">مِفْتَاحٌ</span> (anahtar) de مِفْعَال veznindedir ama alet ismidir, mübalağa değil. Anlama bak." }
+  ],
+  kaide: [
+    "أَوْزَانُ صِيغَةِ المُبَالَغَةِ: ١ ـ فَعِيلٌ: رَحِيمٌ، عَلِيمٌ. ٢ ـ فَعُولٌ: غَفُورٌ، شَكُورٌ. ٣ ـ فَعَّالٌ: تَوَّابٌ، غَفَّارٌ. ٤ ـ فَعِلٌ: حَذِرٌ، فَطِنٌ. ٥ ـ مِفْعَالٌ: مِكْثَارٌ، مِقْدَامٌ.",
+    "مُلَاحَظَةٌ: بَعْضُ أَسْمَاءِ المِهَنِ وَالحِرَفِ تَأْتِي عَلَى وَزْنِ صِيغَةِ المُبَالَغَةِ: قَصَّابٌ (جَزَّارٌ – لَحَّامٌ)، خَبَّازٌ، فَلَّاحٌ، نَجَّارٌ، حَدَّادٌ، نَقَّاشٌ، بَقَّالٌ."
+  ],
+  ex: [
+    { type: "classify", extra: true, opts: VZ_OPTS, ar: "عَلَى أَيِّ وَزْنٍ؟", tr: "Kelime hangi vezinde?", items: [
+      { s: "رَحِيمٌ", a: "i", why: "رَ حِ يـ مٌ: فَعِيل." }, { s: "شَكُورٌ", a: "u", why: "فَعُول." }, { s: "غَفَّارٌ", a: "a", why: "فَعَّال (şedde)." },
+      { s: "حَذِرٌ", a: "e", why: "فَعِل." }, { s: "مِقْدَامٌ", a: "m", why: "مِفْعَال." }, { s: "سَمِيعٌ", a: "i", why: "فَعِيل." },
+      { s: "ظَلُومٌ", a: "u", why: "فَعُول." }, { s: "رَزَّاقٌ", a: "a", why: "فَعَّال." }, { s: "فَطِنٌ", a: "e", why: "فَعِل." },
+      { s: "مِعْطَاءٌ", a: "m", why: "مِفْعَال." }, { s: "بَصِيرٌ", a: "i", why: "فَعِيل." }, { s: "كَتُومٌ", a: "u", why: "فَعُول." },
+      { s: "خَبَّازٌ", a: "a", why: "فَعَّال (meslek)." }, { s: "صَدُوقٌ", a: "u", why: "فَعُول." }, { s: "مِكْثَارٌ", a: "m", why: "مِفْعَال." }
+    ]},
+    { type: "pick", extra: true, ar: "أَسْمَاءُ المِهَنِ عَلَى وَزْنِ فَعَّالٍ", tr: "Mesleğin Arapçası hangisi? (فَعَّال vezni)", items: [
+      PK("ekmek yapan (fırıncı)", ["خَبَّازٌ", "خَابِزٌ", "مَخْبَزٌ"], "fırıncı", "خَبَزَ ← خَبَّازٌ. مَخْبَزٌ fırın (yer).", 0),
+      PK("marangoz", ["نَجَّارٌ", "نَاجِرٌ", "مِنْجَرٌ"], "marangoz", "نَجَّارٌ.", 1),
+      PK("demirci", ["حَدَّادٌ", "حَدِيدٌ", "حَادٌّ"], "demirci", "حَدَّادٌ. حَدِيدٌ demir.", 2),
+      PK("çiftçi", ["فَلَّاحٌ", "فَالِحٌ", "فَلَاحٌ"], "çiftçi", "فَلَّاحٌ. فَلَاحٌ kurtuluş.", 0),
+      PK("kasap", ["قَصَّابٌ", "قَاصِبٌ", "قَصَبٌ"], "kasap", "قَصَّابٌ (جَزَّارٌ، لَحَّامٌ da olur).", 1),
+      PK("bakkal", ["بَقَّالٌ", "بَاقِلٌ", "بَقْلٌ"], "bakkal", "بَقَّالٌ.", 2)
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 3 · ÂYET VE CÜMLELER
+{
+  id: "u3", no: 3, ar: "عَيِّنْ صِيغَةَ المُبَالَغَةِ", tr: "Âyetlerde ve Cümlelerde", short: "Bulma", col: "mz", legend: ["ref", "mz"],
+  goals: ["Âyet ve hadislerde mübalağa sîgasını bulmak", "Çoğul mübalağaları tanımak: سَمَّاعُونَ، خَطَّاؤُونَ", "İsm-i fâil (فَاطِرُ، الحَارِسُ) ve ism-i mef'ûl (مَحْبُوبٌ) tuzaklarına düşmemek"],
+  examples: [
+    { s: "﴿سَمَّاعُونَ:ref.فَعَّال / لِلْكَذِبِ:- / أَكَّالُونَ:ref.فَعَّال / لِلسُّحْتِ﴾:-", tr: "Yalana çok kulak verenler, haramı çok yiyenler." },
+    { s: "﴿فَاطِرُ:mz / السَّمَاوَاتِ:- / ...:- / وَهُوَ:- / السَّمِيعُ:ref.فَعِيل / البَصِيرُ﴾:ref.فَعِيل", tr: "Gökleri yaratan... O her şeyi işiten, her şeyi görendir." },
+    { s: "كُلُّكُمْ:- / خَطَّاؤُونَ:ref.فَعَّال", tr: "Hepiniz çok hata edersiniz." }
+  ],
+  rules: [
+    { tr: "Mübalağa sîgası da çoğul olabilir: <span class=\"ar\">سَمَّاعُونَ، أَكَّالُونَ، خَطَّاؤُونَ، التَّوَّابُونَ</span>." },
+    { tr: "Başına ال gelebilir ya da tenvinli olabilir: <span class=\"ar\">الغَفُورُ · غَفَّارًا</span>." },
+    { tr: "Tuzaklar: <span class=\"ar\">فَاطِرُ، العَاقِلُ، الحَارِسُ، التَّاجِرُ</span> ism-i fâil; <span class=\"ar\">مَحْبُوبٌ</span> ism-i mef'ûl." }
+  ],
+  kaide: ["عَيِّنْ صِيغَةَ المُبَالَغَةِ فِي الآيَاتِ وَالأَحَادِيثِ وَالجُمَلِ."],
+  ex: [
+    { type: "find", target: "y", num: "١ (أ)", ar: "عَيِّنْ صِيغَةَ المُبَالَغَةِ فِيمَا يَلِي", tr: "Âyet ve hadislerde mübalağa sîgasına dokun. Bazılarında birden fazla var.", items: [
+      W("﴿[سَمَّاعُونَ] لِلْكَذِبِ [أَكَّالُونَ] لِلسُّحْتِ﴾", "Yalana çok kulak verenler, haramı çok yiyenler. (Mâide 5/42)", "سَمَّاعٌ ← سَمِعَ; أَكَّالٌ ← أَكَلَ (فَعَّال, çoğul)."),
+      W("﴿فَقُلْتُ اسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ [غَفَّارًا]﴾", "Dedim ki: Rabbinizden bağışlanma dileyin, çünkü O çok bağışlayandır. (Nûh 71/10)", "غَفَّارٌ: فَعَّال."),
+      W("﴿وَرَبُّكَ [الغَفُورُ] ذُو الرَّحْمَةِ﴾", "Rabbin çok bağışlayandır, rahmet sahibidir. (Kehf 18/58)", "غَفُورٌ: فَعُول. الرَّحْمَةُ masdar."),
+      W("﴿فَاطِرُ السَّمَاوَاتِ وَالأَرْضِ جَعَلَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا وَمِنَ الأَنْعَامِ أَزْوَاجًا يَذْرَؤُكُمْ فِيهِ لَيْسَ كَمِثْلِهِ شَيْءٌ وَهُوَ [السَّمِيعُ] [البَصِيرُ]﴾", "Gökleri ve yeri yaratandır; size kendinizden eşler, hayvanlardan da eşler yarattı; sizi bununla çoğaltır. O'nun benzeri hiçbir şey yoktur; O her şeyi işitendir, görendir. (Şûrâ 42/11)", "سَمِيعٌ، بَصِيرٌ: فَعِيل. فَاطِرُ ism-i fâildir."),
+      W("﴿قُلْ يَجْمَعُ بَيْنَنَا رَبُّنَا ثُمَّ يَفْتَحُ بَيْنَنَا بِالحَقِّ وَهُوَ [الفَتَّاحُ] [العَلِيمُ]﴾", "De ki: Rabbimiz bizi bir araya getirecek, sonra aramızda hak ile hükmedecek. O, hakkıyla hükmeden ve her şeyi bilendir. (Sebe' 34/26)", "فَتَّاحٌ: فَعَّال; عَلِيمٌ: فَعِيل."),
+      W("قَالَ النَّبِيُّ ﷺ: كُلُّكُمْ [خَطَّاؤُونَ]، وَخَيْرُ [الخَطَّائِينَ] [التَّوَّابُونَ].", "Hepiniz çok hata edersiniz; çok hata edenlerin en hayırlısı çok tövbe edenlerdir.", "خَطَّاءٌ ← خَطِئَ; تَوَّابٌ ← تَابَ (فَعَّال, çoğul).")
+    ]},
+    { type: "find", target: "y", num: "١ (ب)", ar: "عَيِّنْ صِيغَةَ المُبَالَغَةِ فِيمَا يَلِي", tr: "Cümlelerde mübalağa sîgasına dokun. İsm-i fâil ve ism-i mef'ûl hedef değil.", items: [
+      W("خَالِدٌ [رَحِيمٌ] بِالضُّعَفَاءِ.", "Hâlid zayıflara karşı çok merhametlidir.", "رَحِيمٌ: فَعِيل."),
+      W("العَاقِلُ [تَرَّاكٌ] لِلسُّوءِ.", "Akıllı kişi kötülüğü hep terk eder.", "تَرَّاكٌ: فَعَّال. العَاقِلُ ism-i fâildir."),
+      W("المُؤْمِنُ [صَبُورٌ] عِنْدَ الشَّدَائِدِ.", "Mümin sıkıntılarda çok sabırlıdır.", "صَبُورٌ: فَعُول."),
+      W("اللهُ [رَزَّاقٌ] عِبَادَهُ.", "Allah kullarına bol rızık verendir.", "رَزَّاقٌ: فَعَّال; عِبَادَهُ onun mef'ûlü."),
+      W("مُصْطَفَى [عَلِيمٌ] بِالمَسْأَلَةِ.", "Mustafa meseleyi çok iyi bilir.", "عَلِيمٌ: فَعِيل."),
+      W("المُؤْمِنُ [تَوَّابٌ] إِلَى رَبِّهِ.", "Mümin Rabbine çokça tövbe eder.", "تَوَّابٌ: فَعَّال."),
+      W("الإِنْسَانُ [ظَلُومٌ] نَفْسَهُ.", "İnsan kendine çok zulmeder.", "ظَلُومٌ: فَعُول."),
+      W("هَذَا الإِنْسَانُ [أَكُولٌ].", "Bu insan oburdur.", "أَكُولٌ: فَعُول."),
+      W("حَسَنٌ [سَمَّاعٌ] لِلْقُرْآنِ الكَرِيمِ.", "Hasan Kur'an'ı çok dinler.", "سَمَّاعٌ: فَعَّال. الكَرِيمُ فَعِيل kalıbında ama sıfat-ı müşebbehedir."),
+      W("جَمَالٌ رَجُلٌ [كَتُومٌ] لِلسِّرِّ.", "Cemal sır saklayan bir adamdır.", "كَتُومٌ: فَعُول."),
+      W("المُؤْمِنُ [شَكُورٌ] عِنْدَ النِّعْمَةِ [وَصَبُورٌ] عِنْدَ البَلَاءِ.", "Mümin nimette çok şükreder, belada çok sabreder.", "شَكُورٌ، صَبُورٌ: فَعُول."),
+      W("التَّاجِرُ [الصَّدُوقُ] مَحْبُوبٌ مِنَ النَّاسِ.", "Doğru sözlü tüccar insanlarca sevilir.", "صَدُوقٌ: فَعُول. التَّاجِرُ ism-i fâil, مَحْبُوبٌ ism-i mef'ûl."),
+      W("حَارِسُ المَصْنَعِ رَجُلٌ [حَذِرٌ].", "Fabrikanın bekçisi çok dikkatli bir adamdır.", "حَذِرٌ: فَعِل. حَارِسٌ ism-i fâildir."),
+      W("أَحْمَدُ رَجُلٌ [فَطِنٌ] [وَمِعْطَاءٌ].", "Ahmed çok zeki ve çok cömert bir adamdır.", "فَطِنٌ: فَعِل; مِعْطَاءٌ: مِفْعَال.")
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 4 · OKUMA
+{
+  id: "u4", no: 4, ar: "قِرَاءَةٌ: الصَّبْرُ", tr: "Okuma: Sabır", short: "Okuma", col: "mi", legend: ["ref", "mz"],
+  goals: ["Bir metinde ism-i fâil ile mübalağa sîgasını ayırmak", "صَابِرٌ (sabreden) ile صَبُورٌ (çok sabırlı) farkını anlamak", "مِفْتَاحٌ gibi مِفْعَال vezninde ama mübalağa olmayan kelimeyi fark etmek"],
+  examples: [
+    { s: "فَالمُؤْمِنُ:mz / صَبُورٌ:ref.فَعُول / شَكُورٌ:ref.فَعُول / لِرَبِّهِ:-", tr: "Mümin çok sabırlı, Rabbine çok şükredendir." },
+    { s: "المُسْلِمُ:mz / الصَّابِرُ:mz / يَشْعُرُ:- / بِأَنَّ:- / اللهَ:- / مَعَهُ:-", tr: "Sabreden Müslüman Allah'ın kendisiyle olduğunu hisseder." },
+    { s: "الصَّبْرُ:- / مِفْتَاحُ:- / الفَرَجِ:-", tr: "Sabır ferahlığın anahtarıdır.", why: "مِفْتَاحٌ alet ismidir, mübalağa değil." }
+  ],
+  rules: [
+    { tr: "<span class=\"ar\">صَابِرٌ</span>: sabreden (ism-i fâil). <span class=\"ar\">صَبُورٌ</span>: çok, her zaman sabreden (mübalağa)." },
+    { tr: "<span class=\"ar\">المُؤْمِنُ، المُسْلِمُ</span>: gayr-i sülâsî fiillerden ism-i fâil (آمَنَ، أَسْلَمَ)." },
+    { tr: "<span class=\"ar\">مِفْتَاحٌ</span> مِفْعَال veznindedir ama \"açmaya yarayan alet\" demektir; mübalağa sayılmaz." }
+  ],
+  kaide: ["اسْتَخْرِجْ مِنَ النَّصِّ: اسْمَ الفَاعِلِ وَصِيغَةَ المُبَالَغَةِ."],
+  ex: [
+    { type: "reading", num: "٢", ar: "اقْرَأِ النَّصَّ التَّالِيَ", tr: "Metni oku; sonra kelimeleri sınıflandır.", title: "الصَّبْرُ",
+      text: "الصَّبْرُ حَبْسُ اللِّسَانِ وَالقَلْبِ وَالنَّفْسِ وَالجَوَارِحِ عَنِ الشَّكْوَى وَالغَضَبِ، وَهُوَ أَنْوَاعٌ كَثِيرَةٌ، مِنْهَا: الصَّبْرُ عَلَى الطَّاعَةِ، وَالصَّبْرُ عَنِ المَعْصِيَةِ، وَالصَّبْرُ عَلَى المَرَضِ، وَالصَّبْرُ عَلَى المُصِيبَةِ، وَالصَّبْرُ عَلَى الفَقْرِ، وَالصَّبْرُ عَلَى أَذَى النَّاسِ... وَالصَّبْرُ مِفْتَاحُ النَّجَاةِ وَالخَلَاصِ مِنْ كُلِّ مُصِيبَةٍ وَبَلَاءٍ، قَالَ عَلَيْهِ الصَّلَاةُ وَالسَّلَامُ: «الصَّبْرُ مِفْتَاحُ الفَرَجِ». وَكَذَلِكَ الصَّبْرُ مِفْتَاحُ الجَنَّةِ. قَالَ الرَّسُولُ ﷺ: «مَنْ صَبَرَ ظَفِرَ». وَالصَّبْرُ المَطْلُوبُ هُوَ الصَّبْرُ فِي بِدَايَةِ المُصِيبَةِ؛ لِأَنَّ النَّبِيَّ ﷺ قَالَ: «الصَّبْرُ عِنْدَ الصَّدْمَةِ الأُولَى». فَالمُؤْمِنُ صَبُورٌ، شَكُورٌ لِرَبِّهِ. وَالصَّبْرُ يَدُلُّ عَلَى إِيمَانِ العَبْدِ بِالقَضَاءِ وَالقَدَرِ. المُسْلِمُ الصَّابِرُ يَشْعُرُ بِأَنَّ اللهَ مَعَهُ. قَالَ اللهُ تَعَالَى: ﴿وَاصْبِرُوا إِنَّ اللهَ مَعَ الصَّابِرِينَ﴾ (الأنفال 8/46).",
+      textTr: "Sabır. Sabır; dili, kalbi, nefsi ve organları şikâyetten ve öfkeden alıkoymaktır. Birçok çeşidi vardır: itaatte sabır, günahtan uzak durmada sabır, hastalığa sabır, musibete sabır, fakirliğe sabır, insanların eziyetine sabır... Sabır her musibetten ve beladan kurtuluşun anahtarıdır. Peygamber (s.a.v.): \"Sabır ferahlığın anahtarıdır\" buyurdu. Sabır aynı zamanda cennetin anahtarıdır. Resûlullah (s.a.v.): \"Sabreden zafere ulaşır\" buyurdu. İstenen sabır, musibetin başındaki sabırdır; çünkü Peygamber (s.a.v.): \"Sabır, ilk sarsıntı anındadır\" buyurdu. Mümin çok sabırlı, Rabbine çok şükredendir. Sabır, kulun kazâ ve kadere imanını gösterir. Sabreden Müslüman Allah'ın kendisiyle beraber olduğunu hisseder. Allah Teâlâ: \"Sabredin, şüphesiz Allah sabredenlerle beraberdir\" buyurur. (Enfâl 8/46)",
+      qa: [
+        { q: "مَا الصَّبْرُ؟", a: "الصَّبْرُ حَبْسُ اللِّسَانِ وَالقَلْبِ وَالنَّفْسِ وَالجَوَارِحِ عَنِ الشَّكْوَى وَالغَضَبِ.", tr: "Sabır nedir? Dili, kalbi, nefsi ve organları şikâyet ve öfkeden alıkoymaktır." },
+        { q: "مَتَى يَكُونُ الصَّبْرُ المَطْلُوبُ؟", a: "يَكُونُ فِي بِدَايَةِ المُصِيبَةِ، عِنْدَ الصَّدْمَةِ الأُولَى.", tr: "İstenen sabır ne zamandır? Musibetin başında, ilk sarsıntı anında." },
+        { q: "مَعَ مَنْ يَكُونُ اللهُ؟", a: "إِنَّ اللهَ مَعَ الصَّابِرِينَ.", tr: "Allah kimlerle beraberdir? Sabredenlerle." }
+      ],
+      cls: { opts: FB_OPTS, ar: "اسْتَخْرِجْ مِنَ النَّصِّ: اسْمَ الفَاعِلِ وَصِيغَةَ المُبَالَغَةِ", tr: "Bu kelime ism-i fâil mi, mübalağa sîgası mı, yoksa ikisi de değil mi?", items: [
+        { s: "صَبُورٌ", a: "b", why: "فَعُول: çok sabırlı." },
+        { s: "شَكُورٌ", a: "b", why: "فَعُول: çok şükreden." },
+        { s: "الصَّابِرُ", a: "f", why: "فَاعِل: sabreden." },
+        { s: "الصَّابِرِينَ", a: "f", why: "صَابِرٌ'ın çoğulu: ism-i fâil." },
+        { s: "المُؤْمِنُ", a: "f", why: "آمَنَ – يُؤْمِنُ – مُؤْمِنٌ: gayr-i sülâsîden ism-i fâil." },
+        { s: "المُسْلِمُ", a: "f", why: "أَسْلَمَ – يُسْلِمُ – مُسْلِمٌ." },
+        { s: "مِفْتَاحُ", a: "n", why: "مِفْعَال vezninde ama alet ismi (anahtar)." },
+        { s: "المَطْلُوبُ", a: "n", why: "İsm-i mef'ûl (طَلَبَ)." },
+        { s: "الصَّبْرُ", a: "n", why: "Masdar." },
+        { s: "الغَضَبِ", a: "n", why: "Masdar." },
+        { s: "كَثِيرَةٌ", a: "n", why: "فَعِيل kalıbında ama sıfat-ı müşebbehe; \"çok yapan\" anlamı yok." },
+        { s: "الرَّسُولُ", a: "n", why: "فَعُول kalıbında ama \"gönderilen\" anlamında; mübalağa değil." }
+      ]}
+    }
+  ]
+}
+];
+
+// Doğru Sîga oyunu: [cümle {hedef}, seçenekler (ilki doğru), açıklama, Türkçe, konu]
+var MB_POOL = [
+  ["اللهُ {غَفَّارٌ} لِلتَّائِبِ.", ["غَفَّارٌ", "غَافِرٌ", "مَغْفُورٌ"], "durmadan bağışlayan → فَعَّال", "Allah tövbe edeni çokça bağışlar.", "u1"],
+  ["النَّبِيُّ {رَحِيمٌ} بِالمُؤْمِنِينَ.", ["رَحِيمٌ", "رَاحِمٌ", "مَرْحُومٌ"], "çok merhametli → فَعِيل", "Peygamber müminlere çok merhametlidir.", "u1"],
+  ["أَحْمَدُ رَجُلٌ {صَبُورٌ}.", ["صَبُورٌ", "صَابِرٌ", "صَبْرٌ"], "çok sabırlı → فَعُول", "Ahmed çok sabırlı bir adamdır.", "u1"],
+  ["هَذَا وَلَدٌ {حَذِرٌ}.", ["حَذِرٌ", "حَذَرٌ", "مَحْذُورٌ"], "çok dikkatli → فَعِل", "Bu çok dikkatli bir çocuktur.", "u1"],
+  ["خَالِدٌ رَجُلٌ {مِقْدَامٌ}.", ["مِقْدَامٌ", "مُقْدِمٌ", "قَدِيمٌ"], "çok cesur → مِفْعَال", "Hâlid çok cesur bir adamdır.", "u1"],
+  ["﴿وَهُوَ {السَّمِيعُ} البَصِيرُ﴾", ["السَّمِيعُ", "السَّامِعُ", "المَسْمُوعُ"], "her şeyi işiten → فَعِيل", "O her şeyi işiten, görendir.", "u2"],
+  ["﴿وَرَبُّكَ {الغَفُورُ} ذُو الرَّحْمَةِ﴾", ["الغَفُورُ", "الغَافِرُ", "المَغْفُورُ"], "فَعُول", "Rabbin çok bağışlayandır.", "u2"],
+  ["﴿وَهُوَ {الفَتَّاحُ} العَلِيمُ﴾", ["الفَتَّاحُ", "الفَاتِحُ", "المِفْتَاحُ"], "فَعَّال; مِفْتَاحٌ alet ismi", "O hakkıyla hükmeden, bilendir.", "u2"],
+  ["أَحْمَدُ رَجُلٌ {فَطِنٌ}.", ["فَطِنٌ", "فَطِينٌ", "فَاطِنٌ"], "çok zeki → فَعِل", "Ahmed çok zeki bir adamdır.", "u2"],
+  ["هُوَ رَجُلٌ {مِعْطَاءٌ}.", ["مِعْطَاءٌ", "مُعْطٍ", "عَطَاءٌ"], "çok cömert → مِفْعَال", "O çok cömert bir adamdır.", "u2"],
+  ["يَعْمَلُ {الخَبَّازُ} الخُبْزَ.", ["الخَبَّازُ", "الخَابِزُ", "المَخْبَزُ"], "meslek → فَعَّال", "Fırıncı ekmek yapar.", "u2"],
+  ["﴿{سَمَّاعُونَ} لِلْكَذِبِ﴾", ["سَمَّاعُونَ", "سَامِعُونَ", "مَسْمُوعُونَ"], "çok dinleyenler → فَعَّال (çoğul)", "Yalana çok kulak verenler.", "u3"],
+  ["﴿إِنَّهُ كَانَ {غَفَّارًا}﴾", ["غَفَّارًا", "غَافِرًا", "مَغْفُورًا"], "durmadan bağışlayan", "Çünkü O çok bağışlayandır.", "u3"],
+  ["كُلُّكُمْ {خَطَّاؤُونَ}.", ["خَطَّاؤُونَ", "خَاطِئُونَ", "مُخْطِئُونَ"], "çok hata edenler → فَعَّال", "Hepiniz çok hata edersiniz.", "u3"],
+  ["العَاقِلُ {تَرَّاكٌ} لِلسُّوءِ.", ["تَرَّاكٌ", "تَارِكٌ", "مَتْرُوكٌ"], "hep terk eden → فَعَّال", "Akıllı kötülüğü hep terk eder.", "u3"],
+  ["الإِنْسَانُ {ظَلُومٌ} نَفْسَهُ.", ["ظَلُومٌ", "ظَالِمٌ", "مَظْلُومٌ"], "çok zalim → فَعُول", "İnsan kendine çok zulmeder.", "u3"],
+  ["جَمَالٌ رَجُلٌ {كَتُومٌ} لِلسِّرِّ.", ["كَتُومٌ", "كَاتِمٌ", "مَكْتُومٌ"], "sır saklayan → فَعُول", "Cemal sır saklayan bir adamdır.", "u3"],
+  ["التَّاجِرُ {الصَّدُوقُ} مَحْبُوبٌ.", ["الصَّدُوقُ", "الصَّادِقُ", "المَصْدُوقُ"], "her zaman doğru sözlü → فَعُول", "Doğru sözlü tüccar sevilir.", "u3"],
+  ["اللهُ {رَزَّاقٌ} عِبَادَهُ.", ["رَزَّاقٌ", "رَازِقٌ", "مَرْزُوقٌ"], "bol rızık veren → فَعَّال", "Allah kullarına bol rızık verir.", "u3"],
+  ["فَالمُؤْمِنُ {صَبُورٌ}، شَكُورٌ لِرَبِّهِ.", ["صَبُورٌ", "صَابِرٌ", "مَصْبُورٌ"], "çok sabırlı → فَعُول", "Mümin çok sabırlıdır.", "u4"],
+  ["فَالمُؤْمِنُ صَبُورٌ، {شَكُورٌ} لِرَبِّهِ.", ["شَكُورٌ", "شَاكِرٌ", "مَشْكُورٌ"], "çok şükreden → فَعُول", "Mümin Rabbine çok şükreder.", "u4"],
+  ["المُسْلِمُ {الصَّابِرُ} يَشْعُرُ بِأَنَّ اللهَ مَعَهُ.", ["الصَّابِرُ", "الصَّبْرُ", "المَصْبُورُ"], "sabreden → ism-i fâil", "Sabreden Müslüman Allah'ın kendisiyle olduğunu hisseder.", "u4"],
+  ["﴿إِنَّ اللهَ مَعَ {الصَّابِرِينَ}﴾", ["الصَّابِرِينَ", "الصَّبُورِينَ", "المَصْبُورِينَ"], "âyette ism-i fâil çoğulu", "Allah sabredenlerle beraberdir.", "u4"],
+  ["الصَّبْرُ {مِفْتَاحُ} الفَرَجِ.", ["مِفْتَاحُ", "فَاتِحُ", "مَفْتُوحُ"], "anahtar → alet ismi", "Sabır ferahlığın anahtarıdır.", "u4"]
+];
+var HAFIZA = {
+  fb: { name: "Fâil ↔ mübalağa", pairs: [["غَافِرٌ", "غَفُورٌ"], ["رَاحِمٌ", "رَحِيمٌ"], ["صَابِرٌ", "صَبُورٌ"], ["عَالِمٌ", "عَلِيمٌ"], ["تَائِبٌ", "تَوَّابٌ"], ["رَازِقٌ", "رَزَّاقٌ"], ["فَاتِحٌ", "فَتَّاحٌ"], ["ظَالِمٌ", "ظَلُومٌ"], ["حَاذِرٌ", "حَذِرٌ"], ["كَاتِمٌ", "كَتُومٌ"], ["مُقْدِمٌ", "مِقْدَامٌ"], ["صَادِقٌ", "صَدُوقٌ"]] },
+  tr: { name: "Arapça ↔ Türkçe", pairs: [["غَفُورٌ", "çok bağışlayan"], ["رَحِيمٌ", "çok merhametli"], ["عَلِيمٌ", "her şeyi bilen"], ["سَمِيعٌ", "her şeyi işiten"], ["صَبُورٌ", "çok sabırlı"], ["شَكُورٌ", "çok şükreden"], ["حَذِرٌ", "çok dikkatli"], ["فَطِنٌ", "çok zeki"], ["مِقْدَامٌ", "çok cesur"], ["مِعْطَاءٌ", "çok cömert"], ["أَكُولٌ", "obur"], ["كَتُومٌ", "sır saklayan"]] },
+  me: { name: "Meslekler", pairs: MESLEK.filter(function (m, i) { return i !== 1 && i !== 2; }).map(function (m) { return [m[0], m[1]]; }) }
+};
+var KARTLAR = [
+  ["Mübalağa sîgası nedir?", "İsm-i fâilin anlamını çokluk ve süreklilikle güçlendiren müştak isim: غَافِرٌ ← غَفُورٌ"],
+  ["Beş vezin?", "فَعِيلٌ · فَعُولٌ · فَعَّالٌ · فَعِلٌ · مِفْعَالٌ"],
+  ["فَعِيل örnekleri?", "رَحِيمٌ، عَلِيمٌ، سَمِيعٌ، بَصِيرٌ"],
+  ["فَعُول örnekleri?", "غَفُورٌ، شَكُورٌ، صَبُورٌ، ظَلُومٌ"],
+  ["فَعَّال örnekleri?", "تَوَّابٌ، غَفَّارٌ، رَزَّاقٌ، فَتَّاحٌ"],
+  ["فَعِل örnekleri?", "حَذِرٌ، فَطِنٌ"],
+  ["مِفْعَال örnekleri?", "مِكْثَارٌ، مِقْدَامٌ، مِعْطَاءٌ"],
+  ["Hangi fiillerden yapılır?", "Çoğunlukla üç harfli; nadiren daha uzun: أَقْدَمَ ← مِقْدَامٌ"],
+  ["Meslek adları?", "Çoğu فَعَّال: خَبَّازٌ، نَجَّارٌ، حَدَّادٌ، فَلَّاحٌ، بَقَّالٌ، قَصَّابٌ"],
+  ["صَابِرٌ ile صَبُورٌ farkı?", "صَابِرٌ sabreden (fâil); صَبُورٌ çok, her zaman sabreden (mübalağa)."],
+  ["مِفْتَاحٌ mübalağa mı?", "Hayır. Vezni مِفْعَال ama anlamı \"anahtar\": alet ismi."],
+  ["Mübalağa mef'ûl alır mı?", "Evet: اللهُ رَزَّاقٌ عِبَادَهُ · سَمَّاعٌ لِلْقُرْآنِ"]
+];
+
+</script>
+<script>
+(function () {
+"use strict";
+// ---------- yardımcılar ----------
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function plain(h) { return String(h).replace(/<[^>]+>/g, ""); }
+function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+function chunks(str) { return str.split(" / ").map(function (p) { var i = p.lastIndexOf(":"); return { t: p.slice(0, i), r: p.slice(i + 1) }; }); }
+function sentHtml(str) {
+  return '<div class="sent">' + chunks(str).map(function (c) {
+    if (c.r === "-") return '<span class="plain">' + c.t + '</span>';
+    var rr = c.r.split("."), lb = ROLES[rr[0]] ? ROLES[rr[0]].tr + (rr[1] ? " · " + rr[1] : "") : "&nbsp;";
+    return '<span class="chunk r-' + rr[0] + '"><span class="w">' + c.t + '</span><span class="t">' + lb + '</span></span>';
+  }).join("") + '</div>';
+}
+function legendHtml(roles) { return '<div class="legend">' + roles.map(function (r) { return '<span class="r-' + r + '"><i></i>' + ROLES[r].tr + ' <span class="ar" style="color:var(--muted)">' + ROLES[r].ar + '</span></span>'; }).join("") + '</div>'; }
+var store = {
+  get: function (k, d) { try { var v = localStorage.getItem("mubalaga:" + k); return v === null ? d : JSON.parse(v); } catch (x) { return d; } },
+  set: function (k, v) { try { localStorage.setItem("mubalaga:" + k, JSON.stringify(v)); } catch (x) {} }
+};
+function icon(kind, cls, n) {
+  var one = {
+    person: '<circle cx="12" cy="7" r="5" class="' + cls + '"/><path d="M3 24 Q3 13 12 13 Q21 13 21 24 Z" class="' + cls + '"/>',
+    camel: '<path d="M2 20 L2 14 Q2 11 5 11 L8 11 Q9 6 12 9 Q14 5 17 9 L19 9 Q20 5 22 6 L22 9 L20 11 L20 20 L18 20 L18 14 L6 14 L6 20 Z" class="' + cls + '"/>',
+    leaf: '<path d="M4 20 Q4 4 21 3 Q20 20 4 20 Z" class="' + cls + '"/><path d="M4 20 L15 9" stroke="var(--card)" stroke-width="1.5" fill="none"/>',
+    pin: '<path d="M12 2 Q20 2 20 10 Q20 15 12 23 Q4 15 4 10 Q4 2 12 2 Z" class="' + cls + '"/><circle cx="12" cy="10" r="3" fill="var(--card)"/>',
+    clock: '<circle cx="12" cy="12" r="10" class="' + cls + '"/><path d="M12 6 L12 12 L16 14" stroke="var(--card)" stroke-width="2" fill="none" stroke-linecap="round"/>',
+    pen: '<path d="M4 20 L5 15 L16 4 L20 8 L9 19 Z" class="' + cls + '"/><path d="M14 6 L18 10" stroke="var(--card)" stroke-width="1.5"/>'
+  }[kind];
+  var s = ""; for (var i = 0; i < (n || 1); i++) s += '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + one + '</svg>';
+  return '<span class="icons">' + s + '</span>';
+}
+
+// ---------- rütbe, ses, konfeti ----------
+var LEVELS = [[0, "Mübtedî", "yeni başlayan"], [100, "Talebe", "öğrenci"], [300, "Kâtip", "yazan"], [600, "Edîb", "dil ustası"], [1000, "Nahvî", "dil bilgini"], [1600, "Allâme", "çok bilen"]];
+function getXP() { return store.get("xp", 0); }
+function levelOf(x) { var i = 0; for (var k = 0; k < LEVELS.length; k++) if (x >= LEVELS[k][0]) i = k; return i; }
+function renderXP() {
+  var box = document.getElementById("xpbox"), x = getXP(), i = levelOf(x), cur = LEVELS[i], nx = LEVELS[i + 1];
+  var pct = nx ? (x - cur[0]) / (nx[0] - cur[0]) * 100 : 100;
+  box.innerHTML = '<div class="row"><span class="lbl">Rütben</span><span class="tabular muted">' + x + ' puan</span></div><div class="row"><b class="rank">' + cur[1] + '</b><span class="muted">' + (nx ? "sonra: " + nx[1] : "en yüksek rütbe") + '</span></div><div class="xpbar"><div style="width:' + pct + '%"></div></div>';
+}
+var toastT;
+function toast(m) { var t = document.getElementById("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("show"); }, 2000); }
+function addXP(n, quiet) {
+  n = Math.max(0, Math.round(n)); if (!n) return;
+  var b = levelOf(getXP()), v = getXP() + n; store.set("xp", v); renderXP();
+  var a = levelOf(v);
+  if (a > b) { toast("Yeni rütbe: " + LEVELS[a][1] + " (" + LEVELS[a][2] + ")"); confetti(); beep("win"); }
+  else if (!quiet) toast("+" + n + " puan");
+}
+var SND = { on: store.get("snd", true), ctx: null };
+function beep(type) {
+  if (!SND.on) return;
+  try {
+    SND.ctx = SND.ctx || new (window.AudioContext || window.webkitAudioContext)();
+    var c = SND.ctx, notes = type === "ok" ? [660, 880] : type === "win" ? [523, 659, 784, 1046] : type === "tick" ? [1200] : [220, 160];
+    notes.forEach(function (f, i) {
+      var o = c.createOscillator(), g = c.createGain(); o.type = type === "no" ? "sawtooth" : "triangle"; o.frequency.value = f;
+      var t = c.currentTime + i * 0.09, vol = type === "tick" ? 0.04 : 0.12;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.17);
+      o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + 0.2);
+    });
+  } catch (x) {}
+}
+function confetti() {
+  try { if (matchMedia("(prefers-reduced-motion: reduce)").matches) return; } catch (x) {}
+  var cv = document.createElement("canvas"); cv.className = "confetti"; document.body.appendChild(cv);
+  var W = cv.width = innerWidth, H = cv.height = innerHeight, ctx = cv.getContext("2d"), cs = getComputedStyle(document.documentElement);
+  var cols = ["--mz", "--cerr", "--ref", "--nasb", "--mi", "--mus"].map(function (v) { return cs.getPropertyValue(v).trim() || "#888"; }), ps = [];
+  for (var i = 0; i < 150; i++) ps.push({ x: W / 2 + (Math.random() - .5) * W * .5, y: H * .4, vx: (Math.random() - .5) * 12, vy: -Math.random() * 11 - 4, r: Math.random() * 7 + 4, c: cols[i % 6], a: Math.random() * 6 });
+  var t0 = performance.now();
+  (function step(t) { ctx.clearRect(0, 0, W, H); ps.forEach(function (p) { p.vy += .33; p.x += p.vx; p.y += p.vy; p.a += .2; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.fillStyle = p.c; ctx.fillRect(-p.r / 2, -p.r / 4, p.r, p.r / 2); ctx.restore(); }); if (t - t0 < 2000) requestAnimationFrame(step); else cv.remove(); })(t0);
+}
+function starsHtml(n) { var s = ""; for (var i = 1; i <= 3; i++) s += i <= n ? "★" : '<span class="off">★</span>'; return '<div class="stars" aria-label="' + n + ' yıldız">' + s + '</div>'; }
+
+// ---------- görseller ----------
+function badges(list) { return '<div class="badges">' + list.map(function (b) { return '<span class="badge" style="--role:var(--' + (b[2] || "accent") + ')">' + (b[0] ? '<span class="ar">' + b[0] + '</span>' : '') + b[1] + '</span>'; }).join("") + '</div>'; }
+// Vezin makinesi: fiil seç; ism-i fâil ve kullanılan mübalağa şekilleri beş vezin kutusunda
+function vezinMakine() {
+  var vi = LIVE.bv == null ? MAK_V[0] : LIVE.bv, v = MB[vi], sel = LIVE.bk || Object.keys(v[4])[0];
+  if (!v[4][sel]) sel = Object.keys(v[4])[0];
+  var cur = v[4][sel];
+  return '<div id="makine" class="makine">' +
+    '<div class="lbl">1. Fiili seç</div><div class="mk-row">' + MAK_V.map(function (i) { return '<button class="mk' + (i === vi ? " on" : "") + '" data-bv="' + i + '"><span class="ar">' + MB[i][0] + '</span></button>'; }).join("") + '</div>' +
+    '<div class="km-chain"><div class="km" style="--role:var(--cerr)"><small>fiil</small><span class="ar">' + v[0] + '</span><small>' + v[1] + '</small></div><span class="km-arr">←</span>' +
+    '<div class="km" style="--role:var(--mz)"><small>ism-i fâil</small><span class="ar">' + v[2] + '</span><small>' + v[3] + '</small></div><span class="km-arr">←</span>' +
+    '<div class="km" style="--role:var(--ref)"><small>mübalağa</small><span class="ar">' + cur[0] + '</span><small>' + cur[1] + '</small></div></div>' +
+    '<div class="lbl">2. Beş vezin: bu fiilden hangileri kullanılıyor?</div><div class="vz-row">' + VZ.map(function (z) {
+      var f = v[4][z[0]];
+      return '<button class="vz' + (f ? "" : " off") + (z[0] === sel ? " on" : "") + '" style="--role:var(--' + z[3] + ')"' + (f ? ' data-bk="' + z[0] + '"' : ' disabled') + '><span class="ar vzn">' + z[1] + '</span><span class="ar">' + (f ? f[0] : "—") + '</span><small>' + (f ? f[1] : "kullanılmaz") + '</small></button>';
+    }).join("") + '</div>' +
+    '<p class="cap">Bir fiilden her vezin gelmez; mübalağa şekilleri <b>semâîdir</b> (duyularak öğrenilir).' + (v[5] ? '' : ' Bu fiil üç harften fazla: mübalağası nadirdir.') + '</p></div>';
+}
+function vizU1() {
+  return '<div class="kalip"><div style="--role:var(--mz)"><span class="ar">غَافِرٌ</span><small>bağışlayan</small></div><span class="km-arr">←</span>' +
+    '<div style="--role:var(--ref)"><span class="ar">غَفُورٌ</span><small>çok bağışlayan</small></div><span class="km-arr">←</span>' +
+    '<div style="--role:var(--ref)"><span class="ar">غَفَّارٌ</span><small>durmadan bağışlayan</small></div></div>' +
+    '<div class="meter"><span>bir kez yapan</span><div><i style="width:34%;background:var(--mz)"></i><i style="width:33%;background:color-mix(in srgb,var(--ref) 60%,var(--card))"></i><i style="width:33%;background:var(--ref)"></i></div><span>hep, çok yapan</span></div>' +
+    '<p class="cap">İsm-i fâil işi yapanı söyler; mübalağa sîgası \"çok, hep\" anlamı katar.</p>';
+}
+function vizU2() {
+  return '<div class="gorev five" style="width:100%;max-width:960px">' + VZ.map(function (z) {
+    var ex = MB.filter(function (v) { return v[4][z[0]]; }).slice(0, 3).map(function (v) { return v[4][z[0]][0]; });
+    return '<div style="--role:var(--' + z[3] + ')"><b>' + z[2] + '</b><span class="ar" style="font-size:1.6rem">' + z[1] + '</span><span class="ar hlb">' + ex.join(" · ") + '</span></div>';
+  }).join("") + '</div>' +
+    '<div class="lbl">Meslekler: فَعَّال</div>' + badges(MESLEK.map(function (m) { return [m[0], m[1], "ref"]; }));
+}
+function vizU3() {
+  return badges([["سَمَّاعُونَ", "فَعَّال · çoğul", "ref"], ["غَفَّارًا", "فَعَّال", "ref"], ["الغَفُورُ", "فَعُول", "ref"], ["السَّمِيعُ البَصِيرُ", "فَعِيل", "ref"], ["الفَتَّاحُ العَلِيمُ", "فَعَّال · فَعِيل", "ref"], ["فَاطِرُ", "tuzak: ism-i fâil", "mz"], ["مَحْبُوبٌ", "tuzak: ism-i mef'ûl", "nasb"]]) +
+    '<p class="cap">Âyetlerdeki Allah isimlerinin çoğu mübalağa veznindedir.</p>';
+}
+function vizU4() {
+  return '<div class="vs"><div class="fcard" style="--role:var(--mz)"><span class="ar">صَابِرٌ</span><b class="t">sabreden · ism-i fâil</b></div><div class="fcard" style="--role:var(--ref)"><span class="ar">صَبُورٌ</span><b class="t">çok sabırlı · mübalağa</b></div></div>' +
+    '<div class="vs"><div class="fcard" style="--role:var(--ref)"><span class="ar">مِقْدَامٌ</span><b class="t">çok cesur · mübalağa</b><small>مِفْعَال</small></div><div class="fcard" style="--role:var(--x)"><span class="ar">مِفْتَاحٌ</span><b class="t">anahtar · alet ismi</b><small>aynı vezin, farklı anlam</small></div></div>';
+}
+var VIZ = { u1: vizU1, u2: vizU2, u3: vizU3, u4: vizU4 };
+
+// ---------- durum ----------
+var ST = { tab: "ozet", tr: store.get("tr", true), items: store.get("items", {}) };
+var TABS = ["ozet", "u1", "u2", "u3", "u4", "oyun", "quiz"];
+var hashT = location.hash.replace("#", "");
+ST.tab = TABS.indexOf(hashT) >= 0 ? hashT : store.get("tab", "ozet");
+if (TABS.indexOf(ST.tab) < 0) ST.tab = "ozet";
+var main = document.getElementById("main");
+var LIVE = {};
+function saveItems() { store.set("items", ST.items); }
+function unitById(id) { return UNITS.filter(function (u) { return u.id === id; })[0]; }
+
+// Alıştırmaları maddelere aç
+function expand(ex) {
+  if (ex._items) return ex._items;
+  var out = [];
+  if (ex.type === "dp") {
+    ex.rows.forEach(function (r) {
+      out.push({ kind: "pick", q: r.s + " ← (müsennâ)", o: shuffle(r.d), a: r.d[0], tr: r.tr[1], why: r.why });
+      out.push({ kind: "pick", q: r.s + " ← (cem)", o: shuffle(r.p), a: r.p[0], tr: r.tr[2], why: r.why });
+    });
+  } else if (ex.type === "bank") {
+    var n = ex.parts ? ex.parts.filter(function (p) { return typeof p !== "string"; }).length : ex.items.length;
+    for (var i = 0; i < n; i++) out.push({ kind: "bank" });
+  } else if (ex.items) {
+    ex.items.forEach(function (it) { var c = {}; for (var k in it) c[k] = it[k]; c.kind = ex.type; out.push(c); });
+  }
+  ex._items = out;
+  return out;
+}
+function subCls(ex) { var a = []; if (ex.cls) a.push(["c", ex.cls]); if (ex.cls2) a.push(["d", ex.cls2]); return a; }
+function allScorable(u) {
+  var n = 0, ok = 0;
+  u.ex.forEach(function (ex, ei) {
+    expand(ex).forEach(function (it, ii) { n++; if (ST.items[u.id + "-" + ei + "-" + ii] === 1) ok++; });
+    subCls(ex).forEach(function (sc) { sc[1].items.forEach(function (it, ii) { n++; if (ST.items[u.id + "-" + ei + "-" + sc[0] + ii] === 1) ok++; }); });
+  });
+  return { n: n, ok: ok };
+}
+function mark(key, good) {
+  var prev = ST.items[key];
+  if (good) { if (prev !== 1) { ST.items[key] = 1; saveItems(); addXP(prev === 2 ? 2 : 5, true); beep("ok"); } }
+  else { if (prev !== 1) { ST.items[key] = 2; saveItems(); } beep("no"); }
+  updateProgress();
+}
+function updateProgress() {
+  UNITS.forEach(function (u) {
+    var p = allScorable(u), el = document.querySelector('nav.tabs [data-tab="' + u.id + '"] .pc');
+    if (el) el.textContent = Math.round(p.ok / p.n * 100) + "%";
+    var bar = document.getElementById("prog-" + u.id);
+    if (bar) { bar.style.width = (p.ok / p.n * 100) + "%"; var t = document.getElementById("progt-" + u.id); if (t) t.textContent = p.ok + " / " + p.n; }
+  });
+}
+
+// ---------- sekmeler ----------
+function renderTabs() {
+  document.getElementById("tabs").innerHTML = '<button role="tab" data-tab="ozet">Özet</button>' +
+    UNITS.map(function (u) { return '<button role="tab" data-tab="' + u.id + '"><span class="num">' + u.no + '</span>' + u.short + ' <span class="pc">0%</span></button>'; }).join("") +
+    '<button role="tab" data-tab="oyun">Oyunlar</button><button role="tab" data-tab="quiz">Quiz Provası</button>';
+}
+function setTab(t) {
+  if (t !== "oyun") stopGame();
+  if (t !== "quiz") stopQuiz();
+  ST.tab = t; store.set("tab", t);
+  document.querySelectorAll("nav.tabs button").forEach(function (b) { b.setAttribute("aria-selected", b.dataset.tab === t ? "true" : "false"); });
+  render();
+  var sel = document.querySelector('nav.tabs button[data-tab="' + t + '"]');
+  if (sel) { try { sel.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (x) {} }
+}
+function render() {
+  LIVE = {};
+  if (ST.tab === "ozet") main.innerHTML = renderOzet();
+  else if (ST.tab === "oyun") main.innerHTML = renderGames();
+  else if (ST.tab === "quiz") main.innerHTML = renderQuiz();
+  else main.innerHTML = renderUnit(unitById(ST.tab));
+  updateProgress();
+}
+
+// ---------- özet ----------
+var CHECK = [
+  "Mübalağa sîgasının ism-i fâile \"çok, hep\" anlamı kattığını biliyorum.",
+  "Beş vezni sayabiliyorum: فَعِيلٌ، فَعُولٌ، فَعَّالٌ، فَعِلٌ، مِفْعَالٌ.",
+  "Her vezinden en az iki örnek verebiliyorum: رَحِيمٌ، غَفُورٌ، تَوَّابٌ، حَذِرٌ، مِقْدَامٌ.",
+  "Mübalağanın çoğunlukla üç harfli fiillerden yapıldığını biliyorum.",
+  "غَافِرٌ (fâil) ile غَفُورٌ (mübalağa) farkını görüyorum.",
+  "Bazı meslek adlarının فَعَّال vezninde olduğunu biliyorum: خَبَّازٌ، نَجَّارٌ.",
+  "Âyetlerde Allah'ın mübalağa vezninde isimlerini tanıyorum: الغَفُورُ، العَلِيمُ، الفَتَّاحُ.",
+  "Çoğul mübalağaları tanıyorum: سَمَّاعُونَ، خَطَّاؤُونَ.",
+  "مِفْتَاحٌ gibi aynı vezinde ama farklı anlamdaki kelimeleri mübalağa sanmıyorum.",
+  "Bir metinde ism-i fâil ile mübalağa sîgasını ayırabiliyorum."
+];
+function arWrap(t) { return t.replace(/([؀-ۿ][؀-ۿً-ْ\s،/←…]*[؀-ۿً-ْ])/g, '<span class="ar">$1</span>'); }
+function renderOzet() {
+  var fi = LIVE.fi || 0, fu = LIVE.fu || false, ch = store.get("check", {});
+  function card(u, items) {
+    return '<div class="card sumcard" style="--role:var(--' + u.col + ')"><div class="lbl">Konu ' + u.no + '</div><div class="ar t">' + u.ar + '</div><h3>' + u.tr + '</h3><ul>' + items.map(function (i) { return '<li>' + i + '</li>'; }).join("") + '</ul><button class="btn small" data-go="' + u.id + '" style="--accent:var(--' + u.col + ')">Konu ' + u.no + '</button></div>';
+  }
+  return '<section class="panel">' +
+    '<div class="card stack"><div class="lbl">Bütün konu tek bakışta</div><h2>Beş vezin</h2><div class="viz">' + vizU2() + '</div></div>' +
+    '<div class="card stack"><div class="lbl">Etkinlik</div><h2>Vezin makinesi</h2><p class="muted">Bir fiil seç; ism-i fâilini ve kullanılan mübalağa şekillerini gör. Renkli kutular bu fiilden gelen vezinler.</p><div class="viz">' + vezinMakine() + '</div></div>' +
+    '<div class="sumgrid">' +
+      card(UNITS[0], ['<span class="ar">غَافِرٌ ← غَفُورٌ ← غَفَّارٌ</span>', 'İsm-i fâil + \"çok, hep\"', 'Çoğunlukla sülâsîden.']) +
+      card(UNITS[1], ['<span class="ar">فَعِيلٌ · فَعُولٌ · فَعَّالٌ · فَعِلٌ · مِفْعَالٌ</span>', 'Meslekler: <span class="ar">خَبَّازٌ، نَجَّارٌ</span>', 'Tuzak: <span class="ar">مِفْتَاحٌ</span> alet ismi']) +
+      card(UNITS[2], ['<span class="ar">سَمَّاعُونَ، غَفَّارًا، الغَفُورُ</span>', '<span class="ar">السَّمِيعُ البَصِيرُ، الفَتَّاحُ العَلِيمُ</span>', 'Tuzak: <span class="ar">فَاطِرُ، مَحْبُوبٌ</span>']) +
+      card(UNITS[3], ['<span class="ar">صَابِرٌ ≠ صَبُورٌ</span>', '<span class="ar">صَبُورٌ، شَكُورٌ</span>: mübalağa', '<span class="ar">المُؤْمِنُ، الصَّابِرُ</span>: ism-i fâil']) +
+    '</div>' +
+    '<div class="card stack"><div class="lbl">Hatırlatma kartları</div><h2>Kartı çevir, cevabı hatırla</h2>' +
+      '<div class="flash-wrap"><button class="flash' + (fu ? " up" : "") + '" data-flip="1" aria-label="Kartı çevir"><div class="in"><div class="face front">' + arWrap(KARTLAR[fi][0]) + '</div><div class="face back">' + arWrap(KARTLAR[fi][1]) + '</div></div></button>' +
+      '<div class="row-btns"><button class="btn small" data-fprev="1">Önceki</button><span class="muted tabular" style="align-self:center">' + (fi + 1) + ' / ' + KARTLAR.length + '</span><button class="btn small solid" data-fnext="1">Sonraki</button><button class="btn small" data-fshuf="1">Karıştır</button></div></div></div>' +
+    '<div class="card stack"><div class="lbl">Kontrol listesi</div><h2>Konuyu kavradın mı?</h2><p class="muted">Bildiğin maddeleri işaretle. İşaretleyemediğin maddenin konusuna dön.</p>' +
+      '<ul class="checklist">' + CHECK.map(function (c, i) { return '<li><label><input type="checkbox" id="chk-' + i + '" data-chk="' + i + '"' + (ch[i] ? " checked" : "") + '><span>' + arWrap(c) + '</span></label></li>'; }).join("") + '</ul>' +
+      '<div class="row-btns"><button class="btn solid" data-go="u1">1. konudan başla</button><button class="btn" data-go="oyun">Oyunlar</button><button class="btn" data-go="quiz">Quiz provası</button><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+  '</section>';
+}
+
+// ---------- ders sayfası ----------
+var AR_NUM = ["١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩", "١٠"];
+function renderUnit(u) {
+  var p = allScorable(u);
+  var viz = VIZ[u.id]();
+  var rolesUsed = u.legend;
+  var exHtml = u.examples.map(function (e) {
+    if (e.pair) return '<div class="pairgrid"><div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + '</div><div class="ex-item">' + sentHtml(e.pair) + (ST.tr ? '<div class="trline">' + e.pairTr + '</div>' : '') + '</div></div>';
+    return '<div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + (e.why ? '<div class="trline">' + e.why + '</div>' : '') + '</div>';
+  }).join("");
+  return '<section class="panel" style="--role:var(--' + u.col + ')">' +
+    '<div class="card unit-hero"><div class="unit-no">' + u.no + '</div><div class="stack">' +
+      '<div class="lbl">Mübalağa sîgası · konu ' + u.no + ' / 4</div><div class="ar big" style="color:var(--role)">' + u.ar + '</div><h2>' + u.tr + '</h2>' +
+      '<ul class="goals">' + u.goals.map(function (g) { return '<li>' + g + '</li>'; }).join("") + '</ul>' +
+      '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> alıştırma maddesi doğru</div>' +
+    '</div></div>' +
+    '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Kitaptaki örnekler</div><h2>Önce gör</h2></div><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button></div>' +
+      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Kırmızı kelime mübalağa sîgası; etikette vezni yazıyor. Yeşil kelime ism-i fâil.", u2: "Her satırda aynı vezinden iki örnek.", u3: "Âyet ve hadislerden örnekler.", u4: "Okuma parçasından örnekler."})[u.id] + '</p>' + '</div>' +
+    '<div class="card viz"><div class="lbl">Görsel</div>' + viz + '</div>' +
+    '<div class="card stack"><div class="lbl">القَاعِدَةُ · Kaide</div><h2>Kural</h2>' +
+      '<ol class="rules">' + u.rules.map(function (r) { return '<li><div class="stack" style="gap:4px"><div>' + r.tr + '</div>' + (r.ex ? '<div class="exs">' + r.ex.map(function (x) { return '<span>' + x + '</span>'; }).join("") + '</div>' : '') + '</div></li>'; }).join("") + '</ol>' +
+      '<details class="kaide"><summary>Kitaptaki kaide metni (Arapça)</summary><div class="stack" style="margin-top:8px">' + u.kaide.map(function (k) { return '<p class="ar">' + k + '</p>'; }).join("") + '</div></details>' +
+    '</div>' +
+    '<div class="stack"><div><div class="lbl">التَّدْرِيبَاتُ · Alıştırmalar</div><h2>Şimdi sen yap</h2></div>' + u.ex.map(function (ex, ei) { return renderExercise(u, ex, ei); }).join("") + '</div>' +
+    '<div class="card stack" style="text-align:center;justify-items:center"><h2>Pekiştirmek için oyna ya da kendini dene</h2><div class="row-btns" style="justify-content:center"><button class="btn solid" data-go="oyun">Oyunlar</button><button class="btn" data-go="quiz">Quiz provası</button></div></div>' +
+  '</section>';
+}
+function renderExercise(u, ex, ei) {
+  var its = expand(ex), body = "";
+  if (ex.type === "reading") body = renderReading(u, ex, ei);
+  else if (ex.type === "bank") body = renderBank(u, ex, ei);
+  else {
+    if (ex.reading) body += readingText(ex);
+    if (ex.type === "tag") body += legendHtml(ex.roles);
+    body += '<div class="items">' + its.map(function (it, ii) { var k = u.id + "-" + ei + "-" + ii; return '<div class="item ' + statusCls(k) + '" id="it-' + k + '">' + itemInner(u, ei, ii, it, ex) + '</div>'; }).join("") + '</div>';
+  }
+  return '<div class="card exer" id="ex-' + u.id + '-' + ei + '"><div class="exer-head"><div class="ar">' + (ex.num || AR_NUM[ei]) + ' ـ ' + ex.ar + '</div><div><b>' + ex.tr + '</b>' + (ex.extra ? '<span class="extra-tag">Ek alıştırma</span>' : '') + '</div></div>' +
+    (ex.exHtml ? '<div class="exbox"><span class="lbl">مِثَالٌ · Örnek</span><div>' + ex.exHtml + '</div></div>' : '') + body + '</div>';
+}
+function statusCls(k) { return ""; }
+function readingText(ex) {
+  var body = ex.dialog ? '<div class="stack" style="gap:4px">' + ex.dialog.map(function (d) { return '<p class="passage" style="text-align:right"><b class="' + (d[0] === "مَرْيَمُ" ? "r-mun" : "r-muz") + '">' + d[0] + ':</b> ' + d[1] + '</p>'; }).join("") + '</div>' : '<p class="passage">' + ex.text + '</p>';
+  return '<div class="card stack" style="background:var(--soft);border:0"><h3 class="ar" style="font-size:1.6rem;color:var(--accent)">' + ex.title + '</h3>' + body +
+    '<details><summary class="muted" style="cursor:pointer">Türkçesini göster</summary><p class="passage-tr" style="margin-top:6px">' + ex.textTr + '</p></details></div>';
+}
+function trAfter(it) { return it.tr && typeof it.tr === "string" ? '<div class="trline">' + it.tr + '</div>' : ''; }
+function retryBtn(key) { return '<div><button class="btn small" data-act="retry" data-key="' + key + '">Tekrar dene</button></div>'; }
+function optsFor(it, ex) { return it.opts || ex.opts || [["i", "İsim cümlesi", "اسْمِيَّةٌ", "x"], ["f", "Fiil cümlesi", "فِعْلِيَّةٌ", "x"]]; }
+
+function itemInner(u, ei, ii, it, ex) {
+  var key = u.id + "-" + ei + "-" + ii;
+  var L = LIVE[key] || (LIVE[key] = {});
+  var num = '<span class="qn tabular">' + (ii + 1) + '</span>';
+  if (it.kind === "pick") {
+    var ansIdx = typeof it.a === "number" ? it.a : it.o.indexOf(it.a), chosen = L.ch;
+    var q = it.q || "";
+    if (it.q && ex.fill) q = it.q.replace("___", '<u class="' + (chosen != null ? "filled" : "") + '">' + (chosen != null ? it.o[chosen] : "&nbsp;") + '</u>');
+    return num + (q ? '<div class="q">' + q + '</div>' : '') +
+      '<div class="opts">' + it.o.map(function (o, oi) {
+        var cls = chosen != null ? (oi === ansIdx ? " sel-ok" : (oi === chosen ? " sel-no" : "")) : "";
+        var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(o);
+        return '<button class="opt' + (ex.fill ? "" : " block") + (lat ? " lat" : "") + cls + '" data-act="pick" data-key="' + key + '" data-i="' + oi + '"' + (chosen != null ? " disabled" : "") + '>' + o + '</button>';
+      }).join("") + '</div>' +
+      (chosen != null ? '<div class="fb">' + (chosen === ansIdx ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <span class="ar">' + it.o[ansIdx] + '</span> ') + (it.why || '') + '</div>' + trAfter(it) + retryBtn(key) : '');
+  }
+  if (it.kind === "classify") {
+    var c = L.ch, opts = optsFor(it, ex), right = opts.filter(function (o) { return o[0] === it.a; })[0];
+    return num + '<div class="q">' + it.s + '</div><div class="cls-btns">' + opts.map(function (b) {
+      var cls = c ? (b[0] === it.a ? " sel-ok" : (b[0] === c ? " sel-no" : "")) : "";
+      return '<button class="opt lat' + cls + '" data-act="cls" data-key="' + key + '" data-v="' + b[0] + '"' + (c ? " disabled" : "") + '>' + b[1] + ' <span class="ar" style="font-weight:400">' + b[2] + '</span></button>';
+    }).join("") + '</div>' +
+      (c ? '<div class="fb">' + (c === it.a ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <b>' + right[1] + '</b>. ') + (it.why || '') + '</div>' + trAfter(it) + retryBtn(key) : '');
+  }
+  if (it.kind === "tag" || it.kind === "find") {
+    var cs = chunks(it.c), find = it.kind === "find";
+    if (!L.tags) L.tags = cs.map(function () { return null; });
+    var res = L.res;
+    var line = cs.map(function (ch, ci) {
+      if (ch.r === "-") return '<span class="plain">' + ch.t + '</span>';
+      if (find) {
+        var on = !!L.tags[ci], target = ch.r === "y";
+        var cl = "tagbtn findbtn" + (on ? " on" : "") + (res && on !== target ? (on ? " wrong" : " miss") : "");
+        return '<button class="' + cl + '" data-act="find" data-key="' + key + '" data-ci="' + ci + '"' + (res === "ok" ? " disabled" : "") + '><span class="w">' + ch.t + '</span><span class="t">' + (on ? ROLES[ex.target].tr : "&nbsp;") + '</span></button>';
+      }
+      var r = res === "ok" ? ch.r : L.tags[ci], wrong = res === "no" && L.tags[ci] !== ch.r;
+      return '<button class="tagbtn' + (r ? " has r-" + r : "") + (wrong ? " wrong" : "") + '" data-act="tag" data-key="' + key + '" data-ci="' + ci + '"' + (res === "ok" ? " disabled" : "") + '><span class="w">' + ch.t + '</span><span class="t">' + (r ? ROLES[r].tr : "dokun") + '</span></button>';
+    }).join("");
+    return num + '<div class="sent" style="gap:8px">' + (it.pre ? '<span class="plain">' + it.pre + '</span>' : '') + line + (it.post ? '<span class="plain">' + it.post + '</span>' : '') + '</div>' + (it.src ? '<div class="srcline ar">(' + it.src + ')</div>' : '') +
+      (res === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + trAfter(it) :
+        '<div class="row-btns"><button class="btn small solid" data-act="tcheck" data-key="' + key + '">Kontrol et</button>' + (res === "no" ? '<button class="btn small" data-act="tshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (res === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> ' + (find ? 'Kırmızı çerçeveliler yanlış seçildi; yeşil kesik çizgililer atlandı.' : 'Kırmızı çerçeveli kelimeleri yeniden düşün.') + '</div>' : ''));
+  }
+  if (it.kind === "combo") {
+    var slots = it.p.filter(function (x) { return typeof x !== "string"; });
+    if (!L.sel) L.sel = slots.map(function () { return -1; });
+    var r3 = L.res, si = -1;
+    var ln = it.p.map(function (part) {
+      if (typeof part === "string") return '<span>' + part + '</span>';
+      si++; var v = L.sel[si];
+      return '<button class="slot' + (v < 0 ? " empty" : "") + (r3 === "ok" ? " right" : "") + (r3 === "no" ? " wrong" : "") + '" data-act="cycle" data-key="' + key + '" data-si="' + si + '"' + (r3 === "ok" ? " disabled" : "") + '>' + (v < 0 ? "؟" : part.o[v]) + '</button>';
+    }).join("");
+    var trc = Array.isArray(it.tr) ? it.tr[Math.max(0, it.ok.findIndex(function (cmb) { return cmb.every(function (v, i) { return L.sel[i] === v; }); }))] : it.tr;
+    return num + (it.q ? '<div class="q" style="font-size:1.3rem">' + it.q + '</div>' : '') + '<div class="combo-line">' + ln + '</div>' +
+      (r3 === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + (trc ? '<div class="trline">' + trc + '</div>' : '') :
+        '<div class="row-btns"><button class="btn small solid" data-act="ccheck" data-key="' + key + '">Kontrol et</button>' + (r3 === "no" ? '<button class="btn small" data-act="cshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (r3 === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> Kutulara dokunarak seçenekleri değiştir.</div>' : ''));
+  }
+  if (it.kind === "irab") {
+    var topts = ex.tlist || (ex.topts ? TUR_OPTS.filter(function (o) { return ex.topts.indexOf(o[0]) >= 0; }) : TUR_OPTS), onlyC = ex.only === "c", ri = L.res;
+    var qs = it.s.replace(/\[(.+?)\]/, '<b class="hl">$1</b>');
+    function row(lbl, opts, act, cur, ans) {
+      return '<div class="irow"><span class="lbl">' + lbl + '</span><div class="cls-btns">' + opts.map(function (o) {
+        var cl = ri === "ok" ? (o[0] === ans ? " sel-ok" : "") : ri === "no" && cur === o[0] ? (o[0] === ans ? " sel-ok" : " sel-no") : cur === o[0] ? " on" : "";
+        return '<button class="opt lat' + cl + '" data-act="' + act + '" data-key="' + key + '" data-v="' + o[0] + '"' + (ri === "ok" ? " disabled" : "") + '>' + o[1] + ' <span class="ar" style="font-weight:400">' + o[2] + '</span></button>';
+      }).join("") + '</div></div>';
+    }
+    return num + '<div class="q">' + qs + '</div>' + (onlyC ? '' : row(ex.tlbl || "Türü", topts, "it", L.t, it.t)) + row("Hali", HAL_OPTS, "ic", L.c, it.c) +
+      (ri === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + trAfter(it) :
+        '<div class="row-btns"><button class="btn small solid" data-act="icheck" data-key="' + key + '">Kontrol et</button>' + (ri === "no" ? '<button class="btn small" data-act="ishow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (ri === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> Kırmızı seçimi değiştir. İpucu: önce kelimenin görevini bul.</div>' : ri === "eksik" ? '<div class="fb"><span class="no">Önce ' + (onlyC ? "hali" : "iki satırdan da birer seçenek") + ' seç.</span></div>' : ''));
+  }
+  return "";
+}
+function rerenderItem(key) {
+  var p = key.split("-"), u = unitById(p[0]), ei = +p[1], ii = +p[2], ex = u.ex[ei];
+  var el = document.getElementById("it-" + key); if (!el) return;
+  el.innerHTML = itemInner(u, ei, ii, expand(ex)[ii], ex);
+  el.className = "item " + (LIVE[key] && LIVE[key].res === "ok" ? "ok" : LIVE[key] && LIVE[key].res === "no" ? "no" : "");
+}
+function itemFromKey(key) { var p = key.split("-"), u = unitById(p[0]), ex = u.ex[+p[1]]; return { u: u, ex: ex, it: expand(ex)[+p[2]] }; }
+
+// sözcük bankası (eşleştirme ya da metin içi boşluk)
+function renderBank(u, ex, ei) {
+  var key = u.id + "-" + ei + "-bank";
+  var slots = ex.parts ? ex.parts.filter(function (p) { return typeof p !== "string"; }) : ex.items;
+  var L = LIVE[key] || (LIVE[key] = { fill: slots.map(function () { return -1; }), sel: -1 });
+  var used = {}; L.fill.forEach(function (b) { if (b >= 0) used[b] = 1; });
+  function slotBtn(ii) {
+    var f = L.fill[ii], res = L.res ? L.res[ii] : null;
+    return '<button class="slot' + (f < 0 ? " empty" : "") + (res === true ? " right" : res === false ? " wrong" : "") + '" data-act="bput" data-key="' + key + '" data-ii="' + ii + '"' + (res === true ? " disabled" : "") + '>' + (f < 0 ? "؟" : ex.bank[f]) + '</button>';
+  }
+  var body;
+  if (ex.parts) {
+    var si = -1;
+    body = '<p class="story" style="line-height:2.4">' + ex.parts.map(function (p) { if (typeof p === "string") return ' ' + p + ' '; si++; return slotBtn(si); }).join("") + '</p>' +
+      (L.res && L.res.every(Boolean) && ST.tr ? '<p class="trline">' + ex.tr + '</p>' : '');
+  } else {
+    body = '<div class="items">' + ex.items.map(function (it, ii) {
+      var res = L.res ? L.res[ii] : null;
+      return '<div class="item' + (res === true ? " ok" : res === false ? " no" : "") + '"><span class="qn tabular">' + (ii + 1) + '</span><div class="combo-line">' + (it.pre ? '<span>' + it.pre + '</span>' : '') + slotBtn(ii) + (it.h ? '<span>' + it.h + '</span>' : '') + '</div>' + (res === true ? trAfter(it) + (it.why ? '<div class="trline">' + it.why + '</div>' : '') : '') + '</div>';
+    }).join("") + '</div>';
+  }
+  return '<div class="bank">' + ex.bank.map(function (b, bi) { return '<button class="tile" data-act="bsel" data-key="' + key + '" data-bi="' + bi + '" aria-pressed="' + (L.sel === bi ? "true" : "false") + '"' + (used[bi] ? " disabled" : "") + '>' + b + '</button>'; }).join("") + '</div>' + body +
+    '<div class="row-btns"><button class="btn small solid" data-act="bcheck" data-key="' + key + '">Kontrol et</button><button class="btn small" data-act="breset" data-key="' + key + '">Sıfırla</button></div>' + (L.msg ? '<div class="fb">' + L.msg + '</div>' : '');
+}
+// okuma (diyalog) alıştırması
+function renderReading(u, ex, ei) {
+  return readingText(ex) +
+    '<div class="stack">' + ex.qa.map(function (q, qi) {
+      var k = u.id + "-" + ei + "-q" + qi, open = LIVE[k] && LIVE[k].open;
+      return '<div class="qa"><div class="ar">' + ["أ", "ب", "ج", "د"][qi] + ' ـ ' + q.q + '</div>' + (open ? '<div class="ar" style="color:var(--accent)">' + q.a + '</div><div class="trline">' + q.tr + '</div>' : '<div><button class="btn small" data-act="qa" data-key="' + k + '">Örnek cevabı göster</button></div>') + '</div>';
+    }).join("") + '</div>' +
+    subCls(ex).map(function (sc) {
+      return '<div class="exer-head"><div class="ar">' + sc[1].ar + '</div><div><b>' + sc[1].tr + '</b></div></div><div class="items">' +
+        sc[1].items.map(function (it, ii) { var key = u.id + "-" + ei + "-" + sc[0] + ii; return '<div class="item" id="it-' + key + '">' + clsInner(key, it, ii, sc[1].opts) + '</div>'; }).join("") + '</div>';
+    }).join("");
+}
+function clsInner(key, it, ii, opts) {
+  var L = LIVE[key] || (LIVE[key] = {}), c = L.ch, right = opts.filter(function (o) { return o[0] === it.a; })[0];
+  return '<span class="qn tabular">' + (ii + 1) + '</span><div class="q">' + it.s + '</div><div class="cls-btns">' + opts.map(function (b) {
+    var cl = c ? (b[0] === it.a ? " sel-ok" : (b[0] === c ? " sel-no" : "")) : "";
+    return '<button class="opt lat' + cl + '" data-act="rcls" data-key="' + key + '" data-ii="' + ii + '" data-v="' + b[0] + '"' + (c ? " disabled" : "") + '>' + b[1] + ' <span class="ar" style="font-weight:400">' + b[2] + '</span></button>';
+  }).join("") + '</div>' + (c ? '<div class="fb">' + (c === it.a ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <b>' + right[1] + '</b>. ') + (it.why || '') + '</div>' : '');
+}
+
+// ---------- olaylar ----------
+main.addEventListener("click", function (ev) {
+  var b = ev.target.closest("button"); if (!b) return;
+  var d = b.dataset, key = d.key;
+  if (d.go) { setTab(d.go); window.scrollTo({ top: 0 }); return; }
+  if (d.trtoggle) { ST.tr = !ST.tr; store.set("tr", ST.tr); var y = window.scrollY; render(); window.scrollTo({ top: y }); return; }
+  if (d.snd) { SND.on = !SND.on; store.set("snd", SND.on); render(); if (SND.on) beep("ok"); return; }
+  if (d.bv != null || d.bk != null) { if (d.bv != null) { LIVE.bv = +d.bv; LIVE.bk = null; } if (d.bk != null) LIVE.bk = d.bk; var mk = document.getElementById("makine"); if (mk) mk.outerHTML = vezinMakine(); beep("tick"); return; }
+  if (d.flip) { LIVE.fu = !LIVE.fu; b.classList.toggle("up", LIVE.fu); return; }
+  if (d.fnext || d.fprev || d.fshuf) {
+    var fi = LIVE.fi || 0;
+    if (d.fshuf) { KARTLAR.sort(function () { return Math.random() - .5; }); fi = 0; }
+    else fi = (fi + (d.fnext ? 1 : -1) + KARTLAR.length) % KARTLAR.length;
+    var y2 = window.scrollY; LIVE = { fi: fi, fu: false }; main.innerHTML = renderOzet(); window.scrollTo({ top: y2 }); return;
+  }
+  if (!d.act) return;
+  var L = LIVE[key] || (LIVE[key] = {}), o;
+  switch (d.act) {
+    case "pick":
+      o = itemFromKey(key); L.ch = +d.i;
+      var ai = typeof o.it.a === "number" ? o.it.a : o.it.o.indexOf(o.it.a);
+      L.res = L.ch === ai ? "ok" : "no"; mark(key, L.ch === ai); rerenderItem(key); break;
+    case "cls": o = itemFromKey(key); L.ch = d.v; L.res = d.v === o.it.a ? "ok" : "no"; mark(key, d.v === o.it.a); rerenderItem(key); break;
+    case "retry": LIVE[key] = {}; rerenderItem(key); break;
+    case "tag":
+      o = itemFromKey(key);
+      var roles = o.ex.roles, cur = L.tags[+d.ci], idx = cur ? roles.indexOf(cur) : -1;
+      L.tags[+d.ci] = roles[(idx + 1) % roles.length]; L.res = null; rerenderItem(key); break;
+    case "find": L.tags[+d.ci] = !L.tags[+d.ci]; L.res = null; rerenderItem(key); break;
+    case "tcheck":
+      o = itemFromKey(key);
+      var cs = chunks(o.it.c), good = cs.every(function (c, i) { if (c.r === "-") return true; if (o.it.kind === "find") return !!L.tags[i] === (c.r === "y"); return L.tags[i] === c.r; });
+      L.res = good ? "ok" : "no"; mark(key, good); rerenderItem(key); break;
+    case "tshow":
+      o = itemFromKey(key); L.tags = chunks(o.it.c).map(function (c) { return o.it.kind === "find" ? c.r === "y" : c.r; }); L.res = "ok"; rerenderItem(key); break;
+    case "cycle":
+      o = itemFromKey(key);
+      var sl = o.it.p.filter(function (x) { return typeof x !== "string"; }), si = +d.si;
+      L.sel[si] = (L.sel[si] + 1) % sl[si].o.length; L.res = null; rerenderItem(key); break;
+    case "ccheck":
+      o = itemFromKey(key);
+      var gc = o.it.ok.some(function (cmb) { return cmb.every(function (v, i) { return L.sel[i] === v; }); });
+      L.res = gc ? "ok" : "no"; mark(key, gc); rerenderItem(key); break;
+    case "cshow": o = itemFromKey(key); L.sel = o.it.ok[0].slice(); L.res = "ok"; rerenderItem(key); break;
+    case "bsel": L.sel = L.sel === +d.bi ? -1 : +d.bi; rerenderExercise(key); break;
+    case "bput":
+      var ii = +d.ii;
+      if (L.sel >= 0) { L.fill = L.fill.map(function (f) { return f === L.sel ? -1 : f; }); L.fill[ii] = L.sel; L.sel = -1; }
+      else if (L.fill[ii] >= 0) L.fill[ii] = -1;
+      if (L.res) L.res[ii] = null; L.msg = ""; rerenderExercise(key); break;
+    case "breset": LIVE[key] = { fill: L.fill.map(function () { return -1; }), sel: -1 }; rerenderExercise(key); break;
+    case "bcheck":
+      var pb = key.split("-"), ub = unitById(pb[0]), exb = ub.ex[+pb[1]];
+      var acc = exb.parts ? exb.parts.filter(function (p) { return typeof p !== "string"; }) : exb.items;
+      L.res = acc.map(function (it, i) { return L.fill[i] >= 0 && it.a.indexOf(L.fill[i]) >= 0; });
+      L.res.forEach(function (r, i) { if (L.fill[i] >= 0) mark(ub.id + "-" + pb[1] + "-" + i, r); });
+      var nOk = L.res.filter(Boolean).length;
+      L.msg = nOk === acc.length ? '<span class="ok">Hepsi doğru!</span>' : '<span class="no">' + nOk + ' / ' + acc.length + ' doğru.</span> Kırmızı kutuları değiştir.';
+      if (nOk === acc.length) confetti();
+      rerenderExercise(key); break;
+    case "qa": L.open = true; rerenderExercise(key); break;
+    case "it": L.t = d.v; if (L.res !== "ok") L.res = null; rerenderItem(key); break;
+    case "ic": L.c = d.v; if (L.res !== "ok") L.res = null; rerenderItem(key); break;
+    case "icheck":
+      o = itemFromKey(key);
+      var oc = o.ex.only === "c";
+      if (!L.c || (!oc && !L.t)) { L.res = "eksik"; rerenderItem(key); break; }
+      var gi = L.c === o.it.c && (oc || L.t === o.it.t);
+      L.res = gi ? "ok" : "no"; mark(key, gi); rerenderItem(key); break;
+    case "ishow": o = itemFromKey(key); L.t = o.it.t; L.c = o.it.c; L.res = "ok"; rerenderItem(key); break;
+    case "rcls":
+      var pr = key.split("-"), exr = unitById(pr[0]).ex[+pr[1]], sub = pr[2].charAt(0) === "c" ? exr.cls : exr.cls2, itr = sub.items[+d.ii];
+      L.ch = d.v; mark(key, d.v === itr.a);
+      document.getElementById("it-" + key).innerHTML = clsInner(key, itr, +d.ii, sub.opts); break;
+  }
+});
+main.addEventListener("change", function (ev) {
+  var t = ev.target; if (!t.dataset || t.dataset.chk == null) return;
+  var ch = store.get("check", {}); ch[t.dataset.chk] = t.checked; store.set("check", ch);
+  var all = CHECK.every(function (_, i) { return ch[i]; }); if (all && t.checked) { confetti(); toast("Hepsi işaretli: quize hazırsın!"); }
+});
+function rerenderExercise(key) {
+  var p = key.split("-"), u = unitById(p[0]), ei = +p[1], el = document.getElementById("ex-" + u.id + "-" + ei);
+  if (!el) return;
+  var tmp = document.createElement("div"); tmp.innerHTML = renderExercise(u, u.ex[ei], ei); el.replaceWith(tmp.firstChild);
+}
+
+// ---------- oyunlar ----------
+// Doğru Sîga: MB_POOL → boşluklu cümle
+var POOL = MB_POOL.map(function (p) {
+  var m = /\{([^}]+)\}/.exec(p[0]);
+  return { pre: p[0].slice(0, m.index), post: p[0].slice(m.index + m[0].length), w: m[1], forms: p[1], role: p[2], tr: p[3], topic: p[4] };
+});
+function poolHtml(it, mode) { return it.pre + (mode === "blank" ? '<span class="blank">&nbsp;</span>' : '<b class="hl">' + it.w + '</b>') + it.post; }
+function why(it) { return '<span class="ar">' + it.w + '</span>: ' + arWrap(it.role); }
+// Vezin Ustası: ism-i fâil + vezin → mübalağa
+var DON_LIST = [];
+MB.forEach(function (v) { if (v[5]) Object.keys(v[4]).forEach(function (k) { DON_LIST.push([v, k]); }); });
+function donItem() {
+  var d = pick(DON_LIST), v = d[0], k = d[1], w = v[4][k][0], forms = [w];
+  shuffle(["i", "u", "a", "e", "m"].filter(function (x) { return x !== k; })).forEach(function (x) { var f = v[4][x] ? v[4][x][0] : vezinYap(v[5], x); if (forms.length < 3 && forms.indexOf(f) < 0) forms.push(f); });
+  return { pre: '<span class="ar">' + v[2] + '</span> <small class="muted" style="font-family:var(--f-body)">(' + v[3] + ')</small> → <span class="ar">' + VZ_BY[k][1] + '</span> = ', post: "", w: w, forms: forms,
+    role: VZ_BY[k][1] + " vezni: " + v[4][k][1], tr: v[4][k][1] };
+}
+// Hangi Vezin: kelime → beş vezin
+var VZG = VZ.map(function (z) { return [z[0], z[2], z[1], z[3]]; });
+var VZ_LIST = [];
+MB.forEach(function (v) { Object.keys(v[4]).forEach(function (k) { VZ_LIST.push([v[4][k][0], k, v[4][k][1]]); }); });
+MESLEK.forEach(function (m) { VZ_LIST.push([m[0], "a", m[1]]); });
+// Fâil mi Mübalağa mı: kelime → fâil / mübalağa / mef'ûl
+var FBG = [["f", "İsm-i fâil", "فَاعِلٌ", "mz"], ["b", "Mübalağa", "مُبَالَغَةٌ", "ref"], ["m", "İsm-i mef'ûl", "مَفْعُولٌ", "nasb"]];
+var FB_LIST = [];
+MB.forEach(function (v) { FB_LIST.push([v[2], "f", v[3]]); Object.keys(v[4]).forEach(function (k) { FB_LIST.push([v[4][k][0], "b", v[4][k][1]]); }); });
+[["مَغْفُورٌ", "bağışlanmış"], ["مَعْلُومٌ", "bilinen"], ["مَشْكُورٌ", "teşekkür edilen"], ["مَرْحُومٌ", "merhum"], ["مَسْمُوعٌ", "işitilen"], ["مَكْتُومٌ", "gizlenmiş"], ["مَأْكُولٌ", "yenmiş"], ["مَرْزُوقٌ", "rızıklandırılmış"], ["مَفْتُوحٌ", "açık"], ["مَظْلُومٌ", "mazlum"]].forEach(function (x) { FB_LIST.push([x[0], "m", x[1]]); });
+
+var GAMES = {
+  avci: { name: "Doğru Sîga", ico: "غَافِرٌ · غَفُورٌ", col: "ref", d: "12 cümle. Boşluğa uyan kelimeyi seç: \"çok, hep\" anlamı mı (mübalağa), yapan mı (fâil), yapılan mı (mef'ûl)?" },
+  don: { name: "Vezin Ustası", ico: "صَابِرٌ → فَعُولٌ", col: "cerr", d: "12 soru. İsm-i fâil ve bir vezin verilir; mübalağa şeklini kur." },
+  vz: { name: "Hangi Vezin?", ico: "فَعِيل · فَعُول · فَعَّال", col: "mi", d: "60 saniye. Kelime beş vezinden hangisinde? (Meslek adları da var.)" },
+  fb: { name: "Fâil mi Mübalağa mı?", ico: "صَابِرٌ ؟ صَبُورٌ", col: "mz", d: "60 saniye. Kelime ism-i fâil mi, mübalağa sîgası mı, ism-i mef'ûl mü?" },
+  hafiza: { name: "Hafıza Kartları", ico: "غَافِرٌ ↔ غَفُورٌ", col: "nasb", d: "Kartları çevir, eşleri bul: fâil ile mübalağa, Arapça ile Türkçe ya da meslekler." }
+};
+var G = null, GT = null;
+function stopGame() { if (GT) { clearInterval(GT); GT = null; } G = null; }
+function renderGames() {
+  if (G) return '<section class="panel">' + gameBody() + '</section>';
+  var best = store.get("gbest", {});
+  return '<section class="panel"><div class="card stack"><div class="lbl">Oyunlar</div><h2>Oynayarak pekiştir</h2><p class="muted">Her oyun mübalağa sîgasının bir kuralını çalıştırır ve rütbe puanı kazandırır.</p><div class="row-btns"><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+    '<div class="game-menu">' + Object.keys(GAMES).map(function (k) {
+      var g = GAMES[k];
+      return '<div class="card game-card" style="--role:var(--' + g.col + ')"><div class="ico">' + g.ico + '</div><h3>' + g.name + '</h3><p class="muted">' + g.d + '</p><p class="muted" style="margin-top:auto">' + (best[k] != null ? 'En iyi: <b class="tabular">' + best[k] + '</b>' : 'Henüz oynanmadı') + '</p>' +
+        (k === "hafiza" ? '<div class="row-btns">' + Object.keys(HAFIZA).map(function (dk) { return '<button class="btn solid small" data-gstart="hafiza" data-deck="' + dk + '" style="--accent:var(--' + g.col + ')">' + HAFIZA[dk].name + '</button>'; }).join("") + '</div>' :
+          '<button class="btn solid" data-gstart="' + k + '" style="--accent:var(--' + g.col + ')">Oyna</button>') + '</div>';
+    }).join("") + '</div></section>';
+}
+function gameHead(t) { return '<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Oyun</div><h2>' + t + '</h2></div><button class="btn small" data-gmenu="1">Oyunlara dön</button></div>'; }
+function redraw() { main.innerHTML = renderGames(); }
+var SPEED = { vz: { opts: VZG, keys: "1 fa'îl · 2 fa'ûl · 3 fa''âl · 4 fa'il · 5 mif'âl" }, fb: { opts: FBG, keys: "1 Fâil · 2 Mübalağa · 3 Mef'ûl" } };
+function startGame(k, deck) {
+  stopGame();
+  G = { id: k, score: 0, n: 0, ok: 0, over: false, start: Date.now(), combo: 0, maxCombo: 0 };
+  if (k === "avci" || k === "don") { if (k === "avci") G.list = shuffle(POOL).slice(0, 12); else { G.list = []; var sg = {}; while (G.list.length < 12) { var di = donItem(); if (!sg[di.w]) { sg[di.w] = 1; G.list.push(di); } } } G.i = 0; G.list.forEach(function (it) { it.opts = shuffle(it.forms); }); }
+  if (SPEED[k]) { G.t = 60; G.opts = SPEED[k].opts; nextSpeed(); }
+  if (k === "hafiza") { var ps = shuffle(HAFIZA[deck].pairs).slice(0, 6), cards = []; ps.forEach(function (p, i) { cards.push({ p: i, t: p[0] }); cards.push({ p: i, t: p[1] }); }); G.deck = deck; G.cards = shuffle(cards); G.open = []; G.done = {}; G.moves = 0; G.pairs = 6; }
+  ST.tab = "oyun"; document.querySelectorAll("nav.tabs button").forEach(function (b) { b.setAttribute("aria-selected", b.dataset.tab === "oyun" ? "true" : "false"); });
+  redraw();
+  if (SPEED[k]) GT = setInterval(function () {
+    if (!G || G.over) return; G.t--; if (G.t <= 5 && G.t > 0) beep("tick");
+    if (G.t <= 0) { G.t = 0; endGame(G.score); return; } hud();
+  }, 1000);
+  if (k === "hafiza") GT = setInterval(function () { var el = document.getElementById("g-clock"); if (el && G && !G.over) el.textContent = Math.floor((Date.now() - G.start) / 1000) + " sn"; }, 1000);
+}
+function hud() {
+  var a = document.getElementById("g-time"); if (a) a.textContent = G.t;
+  var tb = document.getElementById("g-tbar"); if (tb) { tb.firstChild.style.width = (G.t / 60 * 100) + "%"; tb.classList.toggle("low", G.t <= 10); }
+  var s = document.getElementById("g-score"); if (s) s.textContent = G.score;
+  var c = document.getElementById("g-combo"); if (c) c.textContent = "x" + Math.min(5, 1 + Math.floor(G.combo / 3));
+}
+function endGame(score) {
+  if (GT) { clearInterval(GT); GT = null; }
+  G.over = true; G.final = score;
+  var best = store.get("gbest", {}); G.record = best[G.id] == null || score > best[G.id];
+  if (G.record) { best[G.id] = score; store.set("gbest", best); }
+  G.xp = Math.round(score / (SPEED[G.id] ? 5 : 2));
+  redraw(); addXP(G.xp); beep("win"); if (G.record || G.stars === 3) confetti();
+}
+function gameOver(t, lines) {
+  return '<div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">' + t + ' bitti</div>' + (G.stars != null ? starsHtml(G.stars) : '') + '<div class="score-big tabular">' + G.final + '</div>' + (G.record ? '<p><b>Yeni rekor!</b></p>' : '') + lines.map(function (l) { return '<p>' + l + '</p>'; }).join("") +
+    '<p class="muted">Kazandığın: +' + G.xp + ' rütbe puanı</p><div class="row-btns" style="justify-content:center"><button class="btn solid" data-gstart="' + G.id + '"' + (G.deck ? ' data-deck="' + G.deck + '"' : '') + '>Tekrar oyna</button><button class="btn" data-gmenu="1">Başka oyun</button></div></div>';
+}
+function gameBody() { return { avci: bodyAvci, don: bodyAvci, vz: bodySpeed, fb: bodySpeed, hafiza: bodyHaf }[G.id](); }
+function starsBy(ok, n) { return ok >= n - 1 ? 3 : ok >= Math.ceil(n * 0.66) ? 2 : 1; }
+
+// doğru şekil
+function bodyAvci() {
+  var title = GAMES[G.id].name;
+  if (G.over) return gameOver(title, ['<b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> doğru.']);
+  var it = G.list[G.i], done = G.ans != null;
+  return '<div class="card stack">' + gameHead(title) + '<div class="hud"><span>Cümle <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Puan <b>' + G.score + '</b></span></div>' +
+    '<div class="target">' + (done ? poolHtml(it) : poolHtml(it, "blank")) + '</div>' +
+    (done ? '<div class="fb" style="text-align:center">' + (G.ans === it.w ? '<span class="ok">Doğru! +10</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <span class="ar">' + it.w + '</span>. ') + '<br>' + why(it) + '</div>' + (ST.tr ? '<p class="trline" style="text-align:center">' + it.tr + '</p>' : '') +
+      '<div style="text-align:center"><button class="btn solid" data-gnext="1" id="g-next">' + (G.i + 1 < G.list.length ? "Sonraki" : "Sonucu gör") + '</button></div>' :
+      '<p class="muted" style="text-align:center">' + (G.id === "don" ? "Mübalağa şekli hangisi?" : "Boşluğa hangisi gelir?") + '</p><div class="big3">' + it.opts.map(function (f) { return '<button data-ga="' + f + '">' + f + '</button>'; }).join("") + '</div>') + '</div>';
+}
+// hız oyunları: hal yarışı ve doğru/yanlış
+function nextSpeed() {
+  var g = 0, it, w, a, fb;
+  do {
+    g++;
+    if (G.id === "vz") { it = pick(VZ_LIST); w = it[0]; a = it[1]; fb = '<span class="ar">' + w + '</span> → <span class="ar">' + VZ_BY[a][1] + '</span> (' + it[2] + ')'; }
+    else { it = pick(FB_LIST); w = it[0]; a = it[1]; fb = '<span class="ar">' + w + '</span> → ' + FB_TR[a === "b" ? "b" : a] + ' (' + it[2] + ')'; }
+  } while (G.cur && w === G.cur.w && g < 10);
+  G.cur = { w: w, html: w, a: a, fb: fb };
+}
+function bodySpeed() {
+  var title = GAMES[G.id].name;
+  if (G.over) return gameOver(title, ['Doğru: <b class="tabular">' + G.ok + ' / ' + G.n + '</b> · en uzun seri: <b class="tabular">' + G.maxCombo + '</b>']);
+  return '<div class="card stack">' + gameHead(title) +
+    '<div class="hud"><span>Süre <b id="g-time">' + G.t + '</b></span><span>Puan <b id="g-score">' + G.score + '</b></span><span>Çarpan <b id="g-combo">x' + Math.min(5, 1 + Math.floor(G.combo / 3)) + '</b></span></div>' +
+    '<div class="time-bar' + (G.t <= 10 ? " low" : "") + '" id="g-tbar"><div style="width:' + (G.t / 60 * 100) + '%"></div></div>' +
+    '<div class="target" id="g-target">' + G.cur.html + '</div><div class="gfb" id="g-fb"><span class="muted">Klavye: ' + SPEED[G.id].keys + '</span></div>' +
+    '<div class="big5">' + G.opts.map(function (o, i) { return '<button style="--role:var(--' + o[3] + ')" data-gs="' + o[0] + '"><span class="ar">' + o[2] + '</span>' + o[1] + '<small>' + (i + 1) + '</small></button>'; }).join("") + '</div></div>';
+}
+function speedPick(v) {
+  if (!G || G.over || G.lock) return;
+  var c = G.cur, ok = c.a === v, tg = document.getElementById("g-target"), fb = document.getElementById("g-fb");
+  G.n++;
+  if (ok) {
+    G.ok++; G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo);
+    var m = Math.min(5, 1 + Math.floor((G.combo - 1) / 3)); G.score += 10 * m; beep("ok");
+    fb.innerHTML = '<b style="color:var(--good)">Doğru +' + 10 * m + '</b> · önceki: ' + c.fb;
+    tg.classList.remove("flash-no"); tg.classList.add("flash-ok"); nextSpeed(); tg.innerHTML = G.cur.html;
+    setTimeout(function () { tg.classList.remove("flash-ok"); }, 180);
+  } else {
+    G.combo = 0; G.t = Math.max(0, G.t - 3); beep("no"); G.lock = true;
+    fb.innerHTML = '<b style="color:var(--bad)">Yanlış, −3 sn.</b> ' + c.fb;
+    void tg.offsetWidth; tg.classList.add("flash-no");
+    var g0 = G;
+    setTimeout(function () { if (!G || G !== g0 || G.over) return; G.lock = false; tg.classList.remove("flash-no"); nextSpeed(); tg.innerHTML = G.cur.html; fb.innerHTML = '<span class="muted">Klavye: ' + SPEED[G.id].keys + '</span>'; if (G.t <= 0) endGame(G.score); }, 1800);
+  }
+  hud();
+}
+// hafıza
+function bodyHaf() {
+  if (G.over) return gameOver("Hafıza Kartları", ['<b class="tabular">' + G.moves + '</b> hamlede, <b class="tabular">' + G.secs + '</b> saniyede bitirdin.']);
+  return '<div class="card stack">' + gameHead("Hafıza Kartları · " + HAFIZA[G.deck].name) +
+    '<div class="hud"><span>Hamle <b id="g-moves">' + G.moves + '</b></span><span>Çift <b id="g-pairs">' + Object.keys(G.done).length + '/' + G.pairs + '</b></span><span>Süre <b id="g-clock">0 sn</b></span></div>' +
+    '<div class="mem">' + G.cards.map(function (c, i) { var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(c.t); return '<button class="mcard' + (G.done[c.p] ? " done" : "") + '" data-gc="' + i + '" aria-label="Kart ' + (i + 1) + '"><div class="in"><div class="face back">؟</div><div class="face front' + (lat ? " lat" : "") + '">' + c.t + '</div></div></button>'; }).join("") + '</div></div>';
+}
+function flip(i) {
+  if (!G || G.over || G.lock) return;
+  var c = G.cards[i]; if (G.done[c.p] || G.open.indexOf(i) >= 0) return;
+  G.open.push(i); document.querySelector('[data-gc="' + i + '"]').classList.add("up");
+  if (G.open.length < 2) return;
+  G.moves++; document.getElementById("g-moves").textContent = G.moves;
+  var a = G.cards[G.open[0]], b = G.cards[G.open[1]];
+  if (a.p === b.p) {
+    G.done[a.p] = 1; beep("ok");
+    G.open.forEach(function (j) { var e = document.querySelector('[data-gc="' + j + '"]'); e.classList.remove("up"); e.classList.add("done"); });
+    G.open = []; document.getElementById("g-pairs").textContent = Object.keys(G.done).length + "/" + G.pairs;
+    if (Object.keys(G.done).length === G.pairs) { G.secs = Math.floor((Date.now() - G.start) / 1000); G.stars = G.moves <= 9 ? 3 : G.moves <= 13 ? 2 : 1; setTimeout(function () { endGame(G.stars * 20 + Math.max(0, 60 - G.secs)); }, 500); }
+  } else {
+    G.lock = true; beep("no");
+    setTimeout(function () { if (!G) return; G.open.forEach(function (j) { var e = document.querySelector('[data-gc="' + j + '"]'); if (e) e.classList.remove("up"); }); G.open = []; G.lock = false; }, 950);
+  }
+}
+
+// ---------- QUIZ PROVASI ----------
+var TOPIC = { u1: "Anlam", u2: "Vezinler", u3: "Âyet ve cümleler", u4: "Okuma" };
+var TK = ["u1", "u2", "u3", "u4"];
+var Q = null, QT = null;
+function stopQuiz() { if (QT) { clearInterval(QT); QT = null; } if (Q && !Q.done) Q = null; }
+function quizBank() {
+  var bank = { u1: [], u2: [], u3: [], u4: [] };
+  UNITS.forEach(function (u) {
+    u.ex.forEach(function (ex) {
+      expand(ex).forEach(function (it) {
+        if (it.kind === "pick") bank[u.id].push({ inst: ex.tr.split(".")[0] + ".", q: it.q.replace("___", "……"), o: it.o.slice(), a: it.o[it.a], why: it.why || "", tr: it.tr || "" });
+        if (it.kind === "classify") bank[u.id].push({ inst: ex.tr.split(".")[0] + ".", q: it.s, o: ex.opts.map(function (x) { return x[1]; }), a: ex.opts.filter(function (x) { return x[0] === it.a; })[0][1], why: it.why || "", tr: it.tr || "" });
+      });
+    });
+  });
+  POOL.forEach(function (p) {
+    bank[p.topic].push({ inst: "Boşluğa hangi zamir gelir?", q: poolHtml(p, "blank"), o: p.forms.slice(), a: p.w, why: why(p), tr: p.tr });
+  });
+  MB.forEach(function (v) {
+    Object.keys(v[4]).forEach(function (k) {
+      var w = v[4][k][0];
+      bank.u1.push({ inst: "\"" + v[4][k][1] + "\" anlamında hangisi?", q: "", o: [w, v[2]].concat(v[5] ? [vezinYap(v[5], k === "u" ? "i" : "u")] : []), a: w, why: VZ_BY[k][1] + " vezni; " + v[2] + " ism-i fâildir.", tr: "" });
+      bank.u2.push({ inst: "Bu kelime hangi vezinde?", q: w, o: VZ.map(function (z) { return z[1]; }), a: VZ_BY[k][1], why: v[4][k][1], tr: "" });
+    });
+  });
+  UNITS.forEach(function (u) { u.ex.forEach(function (ex) { if (ex.cls) ex.cls.items.forEach(function (it) { bank[u.id].push({ inst: ex.cls.tr.split("?")[0] + "?", q: it.s, o: ex.cls.opts.map(function (x) { return x[1]; }), a: ex.cls.opts.filter(function (x) { return x[0] === it.a; })[0][1], why: it.why || "", tr: "" }); }); }); });
+  FB_LIST.forEach(function (x) { bank.u3.push({ inst: "Bu kelime ne?", q: x[0], o: ["İsm-i fâil", "Mübalağa sîgası", "İsm-i mef'ûl"], a: FB_TR[x[1]], why: x[2], tr: "" }); });
+  return bank;
+}
+function startQuiz() {
+  var bank = quizBank(), qs = [];
+  TK.forEach(function (k) {
+    var seen = {}, got = 0;
+    shuffle(bank[k]).forEach(function (q) { var sig = q.q.replace(/<[^>]+>/g, ""); if (got >= 5 || seen[sig]) return; seen[sig] = 1; got++; q.topic = k; q.o = shuffle(q.o); qs.push(q); });
+  });
+  Q = { qs: shuffle(qs), i: 0, ans: [], start: Date.now(), done: false };
+  main.innerHTML = renderQuiz();
+  QT = setInterval(function () { var el = document.getElementById("qz-clock"); if (el && Q && !Q.done) { var s = Math.floor((Date.now() - Q.start) / 1000); el.textContent = Math.floor(s / 60) + ":" + ("0" + s % 60).slice(-2); } }, 1000);
+}
+function renderQuiz() {
+  var best = store.get("qbest", null);
+  if (!Q) return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası</div><h2>Gerçek quiz gibi: 20 soru</h2>' +
+    '<p class="muted" style="max-width:60ch">Dört konudan beşer soru gelir: anlam, beş vezin, âyet ve cümleler, okuma. Cevaplar sonda gösterilir. Sonunda konu konu puanını ve yanlışlarının açıklamasını görürsün. Her denemede sorular değişir.</p>' +
+    (best != null ? '<p>En iyi sonucun: <b class="tabular">' + best + ' / 20</b></p>' : '') + '<button class="btn solid" data-qstart="1">Provayı başlat</button></div></section>';
+  if (Q.done) {
+    var by = {}; Q.qs.forEach(function (q, i) { by[q.topic] = by[q.topic] || [0, 0]; by[q.topic][1]++; if (Q.ans[i] === q.a) by[q.topic][0]++; });
+    var tot = Q.qs.filter(function (q, i) { return Q.ans[i] === q.a; }).length;
+    var col = { u1: "ref", u2: "cerr", u3: "mz", u4: "mi" };
+    var weak = Object.keys(by).filter(function (k) { return by[k][0] / by[k][1] < 0.8; });
+    return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası bitti · ' + Q.time + '</div>' + starsHtml(tot >= 18 ? 3 : tot >= 14 ? 2 : 1) + '<div class="score-big tabular">' + tot + ' / 20</div>' +
+      '<p>' + (tot >= 18 ? "Konuya hâkimsin. Aferin!" : tot >= 14 ? "İyi gidiyorsun. Aşağıdaki zayıf konuya bir kez daha bak." : "Önce Özet'teki vezin makinesiyle çalış, zayıf konunun alıştırmalarını çöz, sonra provayı tekrarla.") + '</p>' +
+      '<div class="qz-bars">' + TK.map(function (k) { var v = by[k] || [0, 5]; return '<div class="qz-bar" style="--role:var(--' + col[k] + ')"><span>' + TOPIC[k] + '</span><div class="tr2"><div style="width:' + (v[0] / v[1] * 100) + '%"></div></div><b class="tabular">' + v[0] + '/' + v[1] + '</b></div>'; }).join("") + '</div>' +
+      (weak.length ? '<div class="row-btns" style="justify-content:center">' + weak.map(function (k) { return '<button class="btn small" data-go="' + k + '">' + TOPIC[k] + ' konusuna dön</button>'; }).join("") + '</div>' : '') +
+      '<div class="row-btns" style="justify-content:center"><button class="btn solid" data-qstart="1">Yeni prova</button></div></div>' +
+      '<div class="card stack"><div class="lbl">Cevap anahtarı</div><h2>Yanlışların</h2>' + (tot === 20 ? '<p>Hiç yanlışın yok.</p>' : '<div class="items">' + Q.qs.map(function (q, i) {
+        if (Q.ans[i] === q.a) return "";
+        return '<div class="item no"><span class="qz-type">' + TOPIC[q.topic] + ' · ' + q.inst + '</span>' + (q.q ? '<div class="q">' + q.q + '</div>' : '') + '<div class="fb"><span class="no">Senin cevabın:</span> ' + arw(Q.ans[i] || "boş") + '<br><span class="ok">Doğrusu:</span> ' + arw(q.a) + (q.why ? '<br>' + q.why : '') + '</div>' + (q.tr ? '<div class="trline">' + q.tr + '</div>' : '') + '</div>';
+      }).join("") + '</div>') + '</div></section>';
+  }
+  var q = Q.qs[Q.i];
+  return '<section class="panel"><div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Quiz provası · ' + TOPIC[q.topic] + '</div><h2>Soru ' + (Q.i + 1) + ' / 20</h2></div><div class="hud"><span>Süre <b id="qz-clock">0:00</b></span></div></div>' +
+    '<div class="progress prog"><div style="width:' + (Q.i / 20 * 100) + '%;--role:var(--accent)"></div></div>' +
+    '<p><b>' + q.inst + '</b></p>' + (q.q ? '<div class="target" style="font-size:clamp(1.5rem,5vw,2.2rem)">' + q.q + '</div>' : '') +
+    '<div class="opts">' + q.o.map(function (o, oi) { var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(o); return '<button class="opt block' + (lat ? " lat" : "") + (Q.ans[Q.i] === o ? " sel-ok" : "") + '" data-qa="' + oi + '">' + o + '</button>'; }).join("") + '</div>' +
+    '<div class="row-btns"><button class="btn small" data-qprev="1"' + (Q.i === 0 ? " disabled" : "") + '>Önceki</button><button class="btn small" data-qskip="1">' + (Q.i < 19 ? "Sonraki" : "Bitir") + '</button></div></div></section>';
+}
+function arw(t) { return /[؀-ۿ]/.test(t) ? '<span class="ar">' + t + '</span>' : '<b>' + t + '</b>'; }
+function quizNext() {
+  if (Q.i < 19) { Q.i++; main.innerHTML = renderQuiz(); return; }
+  var s = Math.floor((Date.now() - Q.start) / 1000); Q.time = Math.floor(s / 60) + " dk " + (s % 60) + " sn"; Q.done = true;
+  if (QT) { clearInterval(QT); QT = null; }
+  var tot = Q.qs.filter(function (q, i) { return Q.ans[i] === q.a; }).length, best = store.get("qbest", null);
+  if (best == null || tot > best) store.set("qbest", tot);
+  main.innerHTML = renderQuiz(); window.scrollTo({ top: 0 }); addXP(tot * 4); if (tot >= 18) confetti(); beep("win");
+}
+
+main.addEventListener("click", function (ev) {
+  var b = ev.target.closest("button"); if (!b) return;
+  var d = b.dataset;
+  if (d.qstart) { startQuiz(); window.scrollTo({ top: 0 }); return; }
+  if (d.qa != null && Q && !Q.done) { Q.ans[Q.i] = Q.qs[Q.i].o[+d.qa]; beep("tick"); setTimeout(quizNext, 180); return; }
+  if (d.qprev && Q && Q.i > 0) { Q.i--; main.innerHTML = renderQuiz(); return; }
+  if (d.qskip && Q) { quizNext(); return; }
+  if (d.gstart) { startGame(d.gstart, d.deck); window.scrollTo({ top: 0 }); return; }
+  if (d.gmenu) { stopGame(); redraw(); return; }
+  if (!G) return;
+  if (d.gs) speedPick(d.gs);
+  else if (d.ga != null) { if (G.ans != null) return; G.ans = d.ga; if (d.ga === G.list[G.i].w) { G.ok++; G.score += 10; beep("ok"); } else beep("no"); redraw(); }
+  else if (d.gnext) { G.i++; G.ans = null; if (G.i >= G.list.length) { G.stars = starsBy(G.ok, G.list.length); endGame(G.score); } else redraw(); }
+  else if (d.gc != null) flip(+d.gc);
+});
+document.addEventListener("keydown", function (ev) {
+  if (ST.tab !== "oyun" || !G || G.over || !SPEED[G.id]) return;
+  var i = ["1", "2", "3", "4", "5", "6"].indexOf(ev.key); if (i >= 0 && i < G.opts.length) { ev.preventDefault(); speedPick(G.opts[i][0]); }
+});
+
+
+document.getElementById("tabs").addEventListener("click", function (ev) {
+  var b = ev.target.closest("button[data-tab]"); if (!b) return; setTab(b.dataset.tab); window.scrollTo({ top: 0 });
+});
+renderTabs(); renderXP(); setTab(ST.tab);
+})();
+</script>
+</body>
+</html>
