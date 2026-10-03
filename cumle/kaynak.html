@@ -246,6 +246,48 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
   .chunk .w { font-size: 1.45rem; }
   .item .q { font-size: 1.35rem; }
 }
+
+/* görsel bileşenleri (HTML) */
+.icons { display: inline-flex; gap: 2px; }
+.icons .ico { width: 22px; height: 22px; }
+.icons.xl .ico { width: 56px; height: 56px; }
+.vchip { font-family: var(--f-ar); font-size: 1.45rem; line-height: 1.6; padding: 2px 14px; border-radius: 10px; background: var(--role); color: var(--card); direction: rtl; white-space: nowrap; }
+.vchip.big { font-size: 1.9rem; padding: 4px 20px; }
+.vz-mufide { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.3fr); gap: 16px; align-items: center; width: 100%; }
+.vz-col { display: grid; gap: 8px; justify-items: center; text-align: center; min-width: 0; }
+.vz-jumble { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; direction: rtl; padding: 10px; }
+.vz-jumble span { font-family: var(--f-ar); font-size: 1.4rem; background: var(--soft); border-radius: 10px; padding: 2px 12px; display: inline-block; }
+.vz-arrow { font-size: 2rem; color: var(--muted); }
+.vz-table { display: grid; gap: 10px; width: 100%; max-width: 640px; }
+.vz-row { display: grid; grid-template-columns: 90px 100px auto minmax(0, 1fr); gap: 12px; align-items: center; }
+.vz-head { order: -1; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+.vz-pair { display: flex; gap: 8px; direction: rtl; justify-content: flex-start; }
+.vz-head .vz-pair b { min-width: 90px; text-align: center; }
+.vz-note { font-size: .85rem; color: var(--muted); }
+.vz-note.warn { color: var(--fail); font-weight: 700; }
+.vz-lab { font-size: .85rem; }
+.vz-fiil { display: flex; gap: 14px; align-items: center; justify-content: center; direction: rtl; flex-wrap: wrap; }
+.vz-fails { display: grid; gap: 10px; }
+.vz-row2 { display: flex; gap: 12px; align-items: center; direction: rtl; }
+.vz-brace { width: 18px; align-self: stretch; border: 3px solid var(--fiil); border-right: 0; border-radius: 14px 0 0 14px; opacity: .7; }
+.vz-verb { display: grid; justify-items: center; gap: 4px; }
+.vz-tani { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; width: 100%; max-width: 640px; }
+.vz-box { background: var(--soft); border-radius: 12px; padding: 10px; text-align: center; display: grid; gap: 4px; }
+.vz-big { font-size: 1.9rem; }
+.hl { font-weight: 700; }
+.vz-mef { display: flex; gap: 18px; align-items: center; justify-content: center; direction: rtl; flex-wrap: wrap; }
+.vz-actor { display: grid; justify-items: center; gap: 6px; }
+.vz-tag { font-size: .75rem; letter-spacing: .05em; direction: ltr; }
+.vz-act { display: grid; justify-items: center; gap: 0; }
+.vz-arr { font-size: 2.6rem; color: var(--fiil); line-height: 1; }
+@media (max-width: 720px) {
+  .vz-mufide { grid-template-columns: 1fr; }
+  .vz-arrow { transform: rotate(90deg); justify-self: center; }
+  .vz-row { grid-template-columns: 70px auto; }
+  .vz-row .vz-lab, .vz-head { display: none; }
+  .vz-row .vz-pair { grid-column: 1 / -1; }
+  .vz-row .vz-note { grid-column: 1 / -1; }
+}
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 </style>
 
@@ -333,81 +375,62 @@ function confetti() {
 function starsHtml(n) { var s = ""; for (var i = 1; i <= 3; i++) s += i <= n ? "★" : '<span class="off">★</span>'; return '<div class="stars" aria-label="' + n + ' yıldız">' + s + '</div>'; }
 
 // ---------- görseller (SVG) ----------
-function person(x, y, s, cls) {
-  return '<g transform="translate(' + x + ' ' + y + ') scale(' + s + ')"><circle cx="0" cy="-34" r="11" class="' + cls + '"/><path d="M-16 0 Q-16 -20 0 -20 Q16 -20 16 0 Z" class="' + cls + '"/></g>';
+// Simgeler yalnız çizimdir; Arapça yazılar HTML'de kalır (harekeler her tarayıcıda doğru dursun diye)
+function icon(kind, cls, n) {
+  var one = {
+    person: '<circle cx="12" cy="7" r="5" class="' + cls + '"/><path d="M3 24 Q3 13 12 13 Q21 13 21 24 Z" class="' + cls + '"/>',
+    tree: '<rect x="10.5" y="17" width="3" height="7" class="s-muted"/><path d="M12 1 L21 18 L3 18 Z" class="' + cls + '"/>',
+    book: '<path d="M1 4 Q6 1 12 5 Q18 1 23 4 L23 21 Q18 18 12 22 Q6 18 1 21 Z" class="' + cls + '"/><path d="M12 5 L12 22" class="k-ink" stroke-width="1" opacity=".35"/>'
+  }[kind];
+  var s = "";
+  for (var i = 0; i < (n || 1); i++) s += '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + one + '</svg>';
+  return '<span class="icons">' + s + '</span>';
 }
-function tree(x, y, s, cls) {
-  return '<g transform="translate(' + x + ' ' + y + ') scale(' + s + ')"><rect x="-3" y="-12" width="6" height="12" class="s-muted"/><path d="M0 -46 L15 -12 L-15 -12 Z" class="' + cls + '"/></g>';
-}
-function book(x, y, cls) {
-  return '<g transform="translate(' + x + ' ' + y + ')"><path d="M-30 -22 Q-15 -28 0 -20 Q15 -28 30 -22 L30 18 Q15 12 0 20 Q-15 12 -30 18 Z" class="' + cls + '"/><path d="M0 -20 L0 20" class="k-ink" stroke-width="2" opacity=".4"/></g>';
-}
+function chip(txt, role, big) { return '<span class="vchip' + (big ? " big" : "") + '" style="--role:var(--' + role + ')">' + txt + '</span>'; }
 function vizMufide() {
-  return '<div class="svg-scroll"><svg viewBox="0 0 640 210" role="img" aria-label="Kelimeler anlamlı bir cümlede birleşir">' +
-    '<text x="160" y="22" text-anchor="middle" class="s-muted" font-size="13" font-weight="700">KARIŞIK: ANLAM YOK</text>' +
-    '<text x="480" y="22" text-anchor="middle" class="s-good" font-size="13" font-weight="700">CÜMLE-İ MÜFÎDE: ANLAM TAM</text>' +
-    '<g transform="rotate(-8 90 80)"><rect x="40" y="55" width="100" height="44" rx="10" class="s-soft"/><text x="90" y="85" text-anchor="middle" class="a s-ink" font-size="22">مِنْ</text></g>' +
-    '<g transform="rotate(6 200 110)"><rect x="150" y="88" width="110" height="44" rx="10" class="s-soft"/><text x="205" y="118" text-anchor="middle" class="a s-ink" font-size="22">رَجَعَ</text></g>' +
-    '<g transform="rotate(-4 120 160)"><rect x="60" y="140" width="130" height="44" rx="10" class="s-soft"/><text x="125" y="170" text-anchor="middle" class="a s-ink" font-size="22">مُتَأَخِّرًا</text></g>' +
-    '<g transform="rotate(10 250 50)"><rect x="210" y="34" width="90" height="44" rx="10" class="s-soft"/><text x="255" y="64" text-anchor="middle" class="a s-ink" font-size="22">أَحْمَدُ</text></g>' +
-    '<path d="M310 105 L340 105" class="k-muted" stroke-width="3" fill="none"/><path d="M336 97 L348 105 L336 113 Z" class="s-muted"/>' +
-    '<rect x="362" y="70" width="64" height="48" rx="10" class="s-fiil"/><text x="394" y="102" text-anchor="middle" class="a s-card" font-size="22">رَجَعَ</text>' +
-    '<rect x="432" y="70" width="70" height="48" rx="10" class="s-fail"/><text x="467" y="102" text-anchor="middle" class="a s-card" font-size="22">أَحْمَدُ</text>' +
-    '<rect x="508" y="70" width="120" height="48" rx="10" class="s-x"/><text x="568" y="102" text-anchor="middle" class="a s-card" font-size="20">مِنَ العَمَلِ</text>' +
-    '<text x="495" y="150" text-anchor="middle" class="s-muted" font-size="13">Arapça sağdan sola okunur: önce fiil, sonra fâil.</text>' +
-    '<circle cx="495" cy="182" r="14" class="s-good"/><path d="M488 182 L493 188 L503 176" class="k-good" stroke="var(--card)" stroke-width="3" fill="none" style="stroke:var(--card)"/>' +
-  '</svg></div>';
+  return '<div class="vz-mufide">' +
+    '<div class="vz-col"><div class="lbl">Karışık: anlam yok</div><div class="vz-jumble">' +
+      '<span style="transform:rotate(-8deg)">مِنْ</span><span style="transform:rotate(6deg)">أَحْمَدُ</span><span style="transform:rotate(-3deg)">مُتَأَخِّرًا</span><span style="transform:rotate(9deg)">رَجَعَ</span>' +
+    '</div></div>' +
+    '<div class="vz-arrow" aria-hidden="true">→</div>' +
+    '<div class="vz-col"><div class="lbl" style="color:var(--good)">Cümle-i müfîde: anlam tam</div>' +
+      sentHtml("رَجَعَ:fiil / أَحْمَدُ:fail / مِنَ العَمَلِ:x / مُتَأَخِّرًا:x") +
+      '<p class="muted" style="font-size:.88rem">Arapça sağdan sola okunur: önce fiil (رَجَعَ), sonra fâil (أَحْمَدُ).</p></div>' +
+  '</div>';
 }
 function vizUyum() {
-  var y0 = 52;
-  function pair(row, n, cls, mub, hab, lab) {
-    var y = y0 + row * 74, ppl = "";
-    for (var i = 0; i < n; i++) ppl += person(40 + i * 26, y + 26, 0.62, cls);
-    return ppl + '<text x="150" y="' + (y + 18) + '" class="s-muted" font-size="12">' + lab + '</text>' +
-      '<rect x="380" y="' + (y - 8) + '" width="118" height="42" rx="10" class="s-mub"/><text x="439" y="' + (y + 20) + '" text-anchor="middle" class="a s-card" font-size="19">' + mub + '</text>' +
-      '<rect x="252" y="' + (y - 8) + '" width="118" height="42" rx="10" class="s-hab"/><text x="311" y="' + (y + 20) + '" text-anchor="middle" class="a s-card" font-size="19">' + hab + '</text>';
-  }
-  var trees = ""; for (var i = 0; i < 3; i++) trees += tree(40 + i * 26, y0 + 3 * 74 + 26, 0.62, "s-hab");
-  return '<div class="svg-scroll"><svg viewBox="0 0 640 320" role="img" aria-label="Mübtedâ ile haberin sayı ve cinsiyette uyumu">' +
-    '<text x="439" y="24" text-anchor="middle" class="s-mub" font-size="13" font-weight="700">MÜBTEDÂ</text><text x="311" y="24" text-anchor="middle" class="s-hab" font-size="13" font-weight="700">HABER</text>' +
-    pair(0, 1, "s-mub", "المُعَلِّمُ", "رَحِيمٌ", "tekil") + pair(1, 2, "s-mub", "الطَّالِبَانِ", "طَوِيلَانِ", "ikil") + pair(2, 3, "s-mub", "المُهَنْدِسُونَ", "نَشِيطُونَ", "çoğul") +
-    trees + '<text x="150" y="' + (y0 + 3 * 74 + 18) + '" class="s-muted" font-size="12">akılsız çoğul</text>' +
-    '<rect x="380" y="' + (y0 + 3 * 74 - 8) + '" width="118" height="42" rx="10" class="s-mub"/><text x="439" y="' + (y0 + 3 * 74 + 20) + '" text-anchor="middle" class="a s-card" font-size="19">الأَشْجَارُ</text>' +
-    '<rect x="252" y="' + (y0 + 3 * 74 - 8) + '" width="118" height="42" rx="10" class="s-hab"/><text x="311" y="' + (y0 + 3 * 74 + 20) + '" text-anchor="middle" class="a s-card" font-size="19">طَوِيلَةٌ</text>' +
-    '<text x="520" y="' + (y0 + 20) + '" class="s-muted" font-size="12">uyar</text><text x="520" y="' + (y0 + 94) + '" class="s-muted" font-size="12">uyar</text><text x="520" y="' + (y0 + 168) + '" class="s-muted" font-size="12">uyar</text>' +
-    '<text x="520" y="' + (y0 + 242) + '" class="s-fail" font-size="12" font-weight="700">tekil müennes!</text>' +
-  '</svg></div>';
+  var rows = [
+    ["person", "mub", 1, "tekil", "المُعَلِّمُ", "رَحِيمٌ", "uyar"],
+    ["person", "mub", 2, "ikil", "الطَّالِبَانِ", "طَوِيلَانِ", "uyar"],
+    ["person", "mub", 3, "çoğul", "المُهَنْدِسُونَ", "نَشِيطُونَ", "uyar"],
+    ["tree", "hab", 3, "akılsız çoğul", "الأَشْجَارُ", "طَوِيلَةٌ", "tekil müennes!"]
+  ];
+  return '<div class="vz-table">' + rows.map(function (r) {
+    return '<div class="vz-row">' + icon(r[0], "s-" + r[1], r[2]) + '<span class="muted vz-lab">' + r[3] + '</span>' +
+      '<span class="vz-pair">' + chip(r[4], "mub") + chip(r[5], "hab") + '</span>' +
+      '<span class="vz-note' + (r[6] !== "uyar" ? " warn" : "") + '">' + (r[6] === "uyar" ? "haber uyar" : r[6]) + '</span></div>';
+  }).join("") + '<div class="vz-row vz-head"><span></span><span></span><span class="vz-pair"><b class="r-mub">mübtedâ</b><b class="r-hab">haber</b></span><span></span></div></div>';
 }
 function vizFiil() {
-  var rows = [["الطَّالِبُ", 1], ["الطَّالِبَانِ", 2], ["الطُّلَّابُ", 4]], s = "";
-  rows.forEach(function (r, i) {
-    var y = 40 + i * 70, ppl = "";
-    for (var k = 0; k < r[1]; k++) ppl += person(60 + k * 24, y + 30, 0.6, "s-fail");
-    s += ppl + '<rect x="250" y="' + (y - 6) + '" width="120" height="42" rx="10" class="s-fail"/><text x="310" y="' + (y + 22) + '" text-anchor="middle" class="a s-card" font-size="19">' + r[0] + '</text>' +
-      '<path d="M372 ' + (y + 15) + ' L424 107" class="k-fiil" stroke-width="2" fill="none" stroke-dasharray="4 4"/>';
-  });
-  return '<div class="svg-scroll"><svg viewBox="0 0 640 250" role="img" aria-label="Baştaki fiil fâil çoğalsa da tekil kalır">' + s +
-    '<rect x="426" y="82" width="110" height="50" rx="12" class="s-fiil"/><text x="481" y="115" text-anchor="middle" class="a s-card" font-size="22">وَقَفَ</text>' +
-    '<text x="481" y="152" text-anchor="middle" class="s-fiil" font-size="12" font-weight="700">HEP TEKİL</text>' +
-    '<text x="481" y="70" text-anchor="middle" class="s-muted" font-size="12">fiil</text><text x="310" y="24" text-anchor="middle" class="s-muted" font-size="12">fâil</text>' +
-  '</svg></div>' +
-  '<div class="svg-scroll"><svg viewBox="0 0 640 150" role="img" aria-label="Müennes fâil için tâ işareti">' +
-    '<text x="160" y="22" text-anchor="middle" class="s-muted" font-size="12" font-weight="700">MÂZÎ: SONA ـتْ</text><text x="480" y="22" text-anchor="middle" class="s-muted" font-size="12" font-weight="700">MUZÂRİ: BAŞA تـ</text>' +
-    '<rect x="40" y="40" width="240" height="56" rx="12" class="s-soft"/><text x="160" y="78" text-anchor="middle" class="a s-ink" font-size="26">شَرِبَ<tspan class="s-fiil" font-weight="700">تْ</tspan> فَاطِمَةُ</text>' +
-    '<rect x="360" y="40" width="240" height="56" rx="12" class="s-soft"/><text x="480" y="78" text-anchor="middle" class="a s-ink" font-size="26"><tspan class="s-fiil" font-weight="700">تَـ</tspan>شْرَبُ فَاطِمَةُ</text>' +
-    '<text x="320" y="128" text-anchor="middle" class="s-muted" font-size="13">Akılsız çoğul fâil de böyle: لَمَعَتِ النُّجُومُ ، تَلْمَعُ النُّجُومُ</text>' +
-  '</svg></div>';
+  var rows = [["الطَّالِبُ", 1], ["الطَّالِبَانِ", 2], ["الطُّلَّابُ", 4]];
+  return '<div class="vz-fiil">' +
+    '<div class="vz-verb">' + chip("وَقَفَ", "fiil", true) + '<b class="r-fiil" style="font-size:.8rem;letter-spacing:.06em">HEP TEKİL</b></div>' +
+    '<div class="vz-brace" aria-hidden="true"></div>' +
+    '<div class="vz-fails">' + rows.map(function (r) { return '<div class="vz-row2">' + chip(r[0], "fail") + icon("person", "s-fail", r[1]) + '</div>'; }).join("") + '</div>' +
+  '</div>' +
+  '<div class="vz-tani">' +
+    '<div class="vz-box"><div class="lbl">Mâzî: sona tâ</div><div class="ar vz-big">شَرِبَ<span class="r-fiil hl">تْ</span> فَاطِمَةُ</div></div>' +
+    '<div class="vz-box"><div class="lbl">Muzâri: başa tâ</div><div class="ar vz-big"><span class="r-fiil hl">تَ</span>شْرَبُ فَاطِمَةُ</div></div>' +
+  '</div>' +
+  '<p class="muted" style="text-align:center;font-size:.9rem">Akılsız çoğul fâil de böyle: <span class="ar" style="font-size:1.2rem">لَمَعَتِ النُّجُومُ ، تَلْمَعُ النُّجُومُ</span></p>';
 }
 function vizMef() {
-  return '<div class="svg-scroll"><svg viewBox="0 0 640 230" role="img" aria-label="Fâilin işi mef\'ûle ulaşır">' +
-    person(500, 120, 1.25, "s-fail") +
-    '<text x="500" y="160" text-anchor="middle" class="a s-fail" font-size="22">فَاطِمَةُ</text><text x="500" y="182" text-anchor="middle" class="s-fail" font-size="12" font-weight="700">FÂİL · ÖTRE</text>' +
-    '<path d="M450 92 C 380 40, 260 40, 190 92" class="k-fiil" stroke-width="4" fill="none"/><path d="M196 80 L184 96 L204 98 Z" class="s-fiil"/>' +
-    '<rect x="270" y="30" width="100" height="40" rx="10" class="s-fiil"/><text x="320" y="58" text-anchor="middle" class="a s-card" font-size="20">قَرَأَتْ</text>' +
-    book(140, 110, "s-mef") +
-    '<text x="140" y="160" text-anchor="middle" class="a s-mef" font-size="22">الكِتَابَ</text><text x="140" y="182" text-anchor="middle" class="s-mef" font-size="12" font-weight="700">MEF\'ÛL · ÜSTÜN</text>' +
-    '<text x="320" y="214" text-anchor="middle" class="s-muted" font-size="13">İş fâilden çıkar, mef\'ûle ulaşır. Fâil ötre (merfû), mef\'ûl üstün (mansûb) alır.</text>' +
-  '</svg></div>';
+  return '<div class="vz-mef">' +
+    '<div class="vz-actor">' + icon("person", "s-fail", 1).replace('class="icons"', 'class="icons xl"') + chip("فَاطِمَةُ", "fail") + '<b class="r-fail vz-tag">FÂİL · ÖTRE (ـُ)</b></div>' +
+    '<div class="vz-act">' + chip("قَرَأَتْ", "fiil") + '<div class="vz-arr" aria-hidden="true">←</div></div>' +
+    '<div class="vz-actor">' + icon("book", "s-mef", 1).replace('class="icons"', 'class="icons xl"') + chip("الكِتَابَ", "mef") + '<b class="r-mef vz-tag">MEF\'ÛL · ÜSTÜN (ـَ)</b></div>' +
+  '</div>' +
+  '<p class="muted" style="text-align:center;font-size:.9rem">İş fâilden çıkar, mef\'ûle ulaşır. Sağdan sola oku: <span class="ar" style="font-size:1.2rem">قَرَأَتْ فَاطِمَةُ الكِتَابَ</span></p>';
 }
 
 // ---------- durum ----------
@@ -427,15 +450,15 @@ function expand(ex) {
   var out = [];
   if (ex.type === "agree") {
     ex.rows.forEach(function (r) {
-      out.push({ kind: "pick", q: r[0] + " ← (ikil)", o: shuffle([r[1] + " " + r[2], r[1] + " " + r[5][0], r[1] + " " + r[5][1]]), a: r[1] + " " + r[2], tr: r[7], why: ex.akil ? "Akıl sahibi: haber ikilde de uyar." : "İkilde haber de ikil olur." });
-      out.push({ kind: "pick", q: r[0] + " ← (çoğul)", o: shuffle([r[3] + " " + r[4], r[3] + " " + r[6][0], r[3] + " " + r[6][1]]), a: r[3] + " " + r[4], tr: r[7], why: ex.akil ? "Akıl sahibi çoğul: haber de çoğul olur." : "Akıl sahibi olmayan çoğul: haber tekil müennes olur." });
+      out.push({ kind: "pick", q: r[0] + " ← (ikil)", o: shuffle([r[1] + " " + r[2], r[1] + " " + r[5][0], r[1] + " " + r[5][1]]), a: r[1] + " " + r[2], tr: r[7][1], why: ex.akil ? "Akıl sahibi: haber ikilde de uyar." : "İkilde haber de ikil olur." });
+      out.push({ kind: "pick", q: r[0] + " ← (çoğul)", o: shuffle([r[3] + " " + r[4], r[3] + " " + r[6][0], r[3] + " " + r[6][1]]), a: r[3] + " " + r[4], tr: r[7][2], why: ex.akil ? "Akıl sahibi çoğul: haber de çoğul olur." : "Akıl sahibi olmayan çoğul: haber tekil müennes olur." });
     });
   } else if (ex.type === "number") {
     ex.rows.forEach(function (r) {
       [1, 2].forEach(function (n) {
         var rest = r.r[n] || r.r[0];
         var ok = r.v[0] + " " + r.f[n] + " " + rest + ".";
-        out.push({ kind: "pick", q: r.v[0] + " " + r.f[0] + " " + (r.r[0]) + ". ← (" + (n === 1 ? "ikil" : "çoğul") + ")", o: shuffle([ok, r.v[1] + " " + r.f[n] + " " + rest + ".", r.v[2] + " " + r.f[n] + " " + rest + "."]), a: ok, tr: r.tr, why: "Fiil cümlenin başında olduğu için tekil kalır: <span class=\"ar\">" + r.v[0] + "</span>." });
+        out.push({ kind: "pick", q: r.v[0] + " " + r.f[0] + " " + (r.r[0]) + ". ← (" + (n === 1 ? "ikil" : "çoğul") + ")", o: shuffle([ok, r.v[1] + " " + r.f[n] + " " + rest + ".", r.v[2] + " " + r.f[n] + " " + rest + "."]), a: ok, tr: r.tr[n], why: "Fiil cümlenin başında olduğu için tekil kalır: <span class=\"ar\">" + r.v[0] + "</span>." });
       });
     });
   } else if (ex.type === "story") {
@@ -657,7 +680,7 @@ function itemInner(u, ei, ii, it, ex) {
       return '<button class="slot' + (v < 0 ? " empty" : "") + (okSlot ? " right" : "") + (res3 === "no" ? " wrong" : "") + '" data-act="cycle" data-key="' + key + '" data-si="' + si + '"' + (okSlot ? " disabled" : "") + '>' + (v < 0 ? "؟" : part.o[v]) + '</button>';
     }).join("");
     return num + (it.q ? '<div class="q" style="font-size:1.3rem">' + it.q + '</div>' : '') + '<div class="combo-line">' + line + '</div>' +
-      (res3 === "ok" ? '<div class="fb"><span class="ok">Doğru.</span></div>' + trAfter(it, true) :
+      (res3 === "ok" ? '<div class="fb"><span class="ok">Doğru.</span></div>' + (Array.isArray(it.tr) ? '<div class="trline">' + it.tr[Math.max(0, it.ok.findIndex(function (c) { return c.every(function (v, i) { return L.sel[i] === v; }); }))] + '</div>' : trAfter(it, true)) :
         '<div class="row-btns"><button class="btn small solid" data-act="ccheck" data-key="' + key + '">Kontrol et</button>' + (res3 === "no" ? '<button class="btn small" data-act="cshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
         (res3 === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> Kutulara dokunarak seçenekleri değiştir. Fâil ve mübtedâ ötre, mef\'ûl üstün alır; fiil fâile uyar.</div>' : ''));
   }

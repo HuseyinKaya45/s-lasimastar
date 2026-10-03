@@ -116,7 +116,7 @@ function hizPick(v) {
   if (ok) {
     G.ok++; G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo);
     var m = Math.min(5, 1 + Math.floor((G.combo - 1) / 3)); G.score += 10 * m; beep("ok");
-    fb.innerHTML = '<b style="color:var(--good)">Doğru +' + 10 * m + '</b>' + (c.tr ? ' · ' + c.tr : '');
+    fb.innerHTML = '<b style="color:var(--good)">Doğru +' + 10 * m + '</b> · önceki cümle: <span class="ar">' + c.s + '</span>' + (c.tr ? ' = ' + c.tr : '');
     tg.classList.remove("flash-no"); tg.classList.add("flash-ok"); nextHiz(); tg.textContent = G.cur.s;
     setTimeout(function () { tg.classList.remove("flash-ok"); }, 180);
   } else {
