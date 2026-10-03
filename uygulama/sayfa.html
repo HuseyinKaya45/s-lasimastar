@@ -214,6 +214,85 @@ input.ar-in { font-family: var(--f-ar); font-size: 1.3rem; direction: rtl; width
   .fact dd { margin-bottom: 8px; }
   .emsile { font-size: 1.5rem; }
 }
+
+/* oyunlar ve rütbe */
+.top-side { display: grid; gap: 12px; justify-items: end; }
+.xpbox { display: grid; gap: 4px; min-width: 210px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
+.xpbox .row { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; font-size: .9rem; }
+.xpbox b.rank { font-family: var(--f-display); font-size: 1.1rem; }
+.xpbar { height: 6px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.xpbar div { height: 100%; width: 0; background: linear-gradient(90deg, var(--ifal), var(--tefil), var(--mufaale)); transition: width .5s ease; }
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(20px); background: var(--ink); color: var(--paper); padding: 10px 18px; border-radius: 12px; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 20; max-width: calc(100% - 32px); text-align: center; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; }
+
+.game-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.game-card { display: grid; gap: 8px; align-content: start; border-top: 5px solid var(--bab); }
+.game-card .ico { font-family: var(--f-ar); font-size: 2.2rem; line-height: 1.3; color: var(--bab); direction: rtl; }
+.game-card .best { margin-top: auto; }
+.gbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; justify-content: space-between; }
+.hud { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: baseline; font-variant-numeric: tabular-nums; }
+.hud b { font-family: var(--f-display); font-size: 1.5rem; color: var(--bab); }
+.time-bar { height: 10px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.time-bar div { height: 100%; background: var(--bab); transition: width 1s linear; }
+.time-bar.low div { background: var(--bad); }
+.target { font-size: clamp(3rem, 12vw, 5rem); text-align: center; line-height: 1.6; padding-block: 8px; border-radius: 16px; background: var(--soft); transition: background .2s; }
+.target.flash-ok { background: var(--good-bg); }
+.target.flash-no { background: var(--bad-bg); animation: shake .35s; }
+.gfb { min-height: 3.2em; text-align: center; }
+.gfb .ar { font-size: 1.4rem; }
+.pick3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pick3 button { font: inherit; font-weight: 800; font-family: var(--f-display); font-size: 1.15rem; padding: 16px 6px; border-radius: 14px; border: 0; color: var(--card); background: var(--bab); cursor: pointer; display: grid; gap: 2px; justify-items: center; }
+.pick3 button .ar { font-size: 1.5rem; font-weight: 400; line-height: 1.3; }
+.pick3 button small { font-family: var(--f-body); font-weight: 500; font-size: .75rem; opacity: .85; }
+.pick3 button:active { transform: scale(.97); }
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+@keyframes pop { 0% { transform: scale(.9); } 60% { transform: scale(1.06); } 100% { transform: scale(1); } }
+
+.mem { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.mcard { aspect-ratio: 4 / 3; max-width: 100%; perspective: 700px; border: 0; padding: 0; background: transparent; cursor: pointer; font: inherit; }
+.mcard .in { position: relative; width: 100%; height: 100%; transition: transform .35s; transform-style: preserve-3d; }
+.mcard.up .in, .mcard.done .in { transform: rotateY(180deg); }
+.mcard .face { position: absolute; inset: 0; border-radius: 12px; display: grid; place-items: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 4px; text-align: center; }
+.mcard .back { background: var(--ink); color: var(--paper); font-family: var(--f-ar); font-size: 1.6rem; letter-spacing: .2em; opacity: .92; }
+.mcard .front { transform: rotateY(180deg); background: var(--card); border: 2px solid var(--line); color: var(--ink); }
+.mcard .front .ar { font-size: 1.55rem; line-height: 1.5; }
+.mcard .front b { font-family: var(--f-display); font-size: 1.15rem; }
+.mcard.done .front { border-color: var(--bab); background: var(--soft); animation: pop .3s; }
+.mcard.done .front small { color: var(--bab); font-weight: 700; font-size: .72rem; display: block; }
+
+.build { min-height: 92px; display: grid; place-items: center; border: 2px dashed var(--line); border-radius: 16px; padding: 6px; }
+.build .ar { font-size: clamp(2.6rem, 10vw, 3.6rem); line-height: 1.5; }
+.build.ok { border-style: solid; border-color: var(--good); background: var(--good-bg); }
+.build.no { border-style: solid; border-color: var(--bad); background: var(--bad-bg); animation: shake .35s; }
+.slots { display: flex; gap: 6px; justify-content: center; direction: rtl; }
+.slots i { width: 22px; height: 6px; border-radius: 4px; background: var(--line); }
+.slots i.on { background: var(--bab); }
+.tiles { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; direction: rtl; }
+.tile { font-family: var(--f-ar); font-size: 1.9rem; line-height: 1.4; min-width: 62px; padding: 4px 12px; border-radius: 12px; border: 2px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; box-shadow: 0 3px 0 var(--line); }
+.tile:hover:not([disabled]) { border-color: var(--bab); }
+.tile[disabled] { opacity: .2; cursor: default; box-shadow: none; }
+.row-btns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+
+.kova-pool { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; min-height: 48px; }
+.kova-pool .chip { font-size: 1.05rem; padding: 8px 15px; }
+.kova-pool .chip[aria-pressed="true"] { --bab: var(--ink); animation: pop .25s; }
+.kovalar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.kova { font: inherit; text-align: start; border: 2px solid var(--bab); border-radius: 0 0 18px 18px; border-top-width: 6px; background: var(--card); color: var(--ink); padding: 10px; min-height: 170px; display: grid; align-content: start; gap: 6px; cursor: pointer; }
+.kova h3 { color: var(--bab); font-size: 1.05rem; }
+.kova .ar.v { font-size: 1.3rem; color: var(--bab); line-height: 1.4; }
+.kova .tag { font-size: .85rem; background: var(--soft); border-radius: 8px; padding: 2px 8px; animation: pop .3s; }
+.kova .tag .ar { font-size: 1.05rem; }
+.kova.shake { animation: shake .35s; border-color: var(--bad); }
+.kova.k-other { --bab: var(--muted); }
+.stars { font-size: 2.2rem; letter-spacing: .15em; color: var(--bab); }
+.stars .off { color: var(--line); }
+@media (max-width: 720px) {
+  .top-side { justify-items: start; }
+  .mem { grid-template-columns: repeat(3, 1fr); }
+  .kovalar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pick3 button { font-size: 1rem; padding: 12px 4px; }
+}
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 </style>
 
@@ -224,7 +303,7 @@ input.ar-in { font-family: var(--f-ar); font-size: 1.3rem; direction: rtl; width
       <h1>Bir Harfle Üç Bab</h1>
       <p>Üç harfli köke tek bir harf ekleyince üç ayrı bab doğar: başa hemze <b class="ar" style="color:var(--ifal)">أ</b>, ortaya bir ayn daha <b class="ar" style="color:var(--tefil)">ّ</b>, fâ'dan sonra elif <b class="ar" style="color:var(--mufaale)">ا</b>. Türkçede zaten bildiğin kelimeler bu üç kalıbın çapası olacak.</p>
     </div>
-    <div class="seal" aria-hidden="true"><span class="i">أ</span><span class="t">ـّـ</span><span class="m">ا</span></div>
+    <div class="top-side"><div class="seal" aria-hidden="true"><span class="i">أ</span><span class="t">ـّـ</span><span class="m">ا</span></div><div class="xpbox" id="xpbox" aria-live="polite"></div></div>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Bölümler">
@@ -233,11 +312,13 @@ input.ar-in { font-family: var(--f-ar); font-size: 1.3rem; direction: rtl; width
     <button role="tab" id="tab-tefil" data-tab="tefil" class="b-tefil" aria-selected="false">Tef'îl <span class="ar">تفعيل</span></button>
     <button role="tab" id="tab-mufaale" data-tab="mufaale" class="b-mufaale" aria-selected="false">Mufâale <span class="ar">مفاعلة</span></button>
     <button role="tab" id="tab-karsilastir" data-tab="karsilastir" aria-selected="false">Karşılaştır</button>
+    <button role="tab" id="tab-oyunlar" data-tab="oyunlar" aria-selected="false">Oyunlar</button>
     <button role="tab" id="tab-sinav" data-tab="sinav" aria-selected="false">Sınav</button>
   </nav>
 
   <main id="main"></main>
 </div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function () {
@@ -503,9 +584,9 @@ var store = {
   get: function (k, d) { try { var v = localStorage.getItem("bhub:" + k); return v === null ? d : JSON.parse(v); } catch (x) { return d; } },
   set: function (k, v) { try { localStorage.setItem("bhub:" + k, JSON.stringify(v)); } catch (x) {} }
 };
-var state = { tab: "giris", sel: { ifal: "كرم", tefil: "صرف", mufaale: "قتل" }, showConj: {}, quiz: null };
+var state = { gbab: store.get("gbab", ""), tab: "giris", sel: { ifal: "كرم", tefil: "صرف", mufaale: "قتل" }, showConj: {}, quiz: null };
 var h = location.hash.replace("#", "");
-if (["giris", "ifal", "tefil", "mufaale", "karsilastir", "sinav"].indexOf(h) >= 0) state.tab = h;
+if (["giris", "ifal", "tefil", "mufaale", "karsilastir", "oyunlar", "sinav"].indexOf(h) >= 0) state.tab = h;
 else state.tab = store.get("tab", "giris");
 
 var main = document.getElementById("main");
@@ -647,9 +728,9 @@ function renderBab(b) {
     '</div>' +
 
     '<div class="card stack" style="text-align:center;justify-items:center">' +
-      '<h2>Oturdu mu? Kendini dene.</h2>' +
+      '<h2>Oturdu mu? Kendini dene ya da oyna.</h2>' +
       '<p class="muted">Bu babdan 10 soru: kelime tanıma, sîga bulma, doğru kalıbı seçme ve mânâ türü.</p>' +
-      '<button class="btn solid" data-quiz="' + b + '">' + B.name + ' sınavını başlat</button>' +
+      '<div class="row-btns"><button class="btn solid" data-quiz="' + b + '">' + B.name + ' sınavını başlat</button><button class="btn" data-gplay="' + b + '">' + B.name + ' ile oyun oyna</button></div>' +
     '</div>' +
   '</section>';
 }
@@ -866,6 +947,7 @@ function renderSinav() {
     var key = Q.only || "karma";
     var prev = best[key];
     if (prev == null || Q.score > prev) { best[key] = Q.score; store.set("best", best); }
+    if (!Q.xpGiven) { Q.xpGiven = true; setTimeout(function () { addXP(Q.score * 5); if (Q.score >= 9) confetti(); }, 50); }
     var msg = Q.score >= 9 ? "Kalıplar yerine oturmuş. Şimdi karma sınavla tuzakları dene." : Q.score >= 6 ? "İyi gidiyor. Yanlışların açıklamasını oku ve bir tur daha çöz." : "Önce bab sayfasındaki Emsile satırını sesli oku, Türkçe çapalara bak, sonra tekrar dene.";
     return '<section class="panel ' + (Q.only ? "b-" + Q.only : "") + '"><div class="card stack" style="text-align:center;justify-items:center">' +
       '<div class="lbl">' + (Q.only ? BABS[Q.only].name : "Karma") + ' sınavı bitti</div>' +
@@ -893,8 +975,437 @@ function renderSinav() {
   '</div></section>';
 }
 
+
+// ---------- rütbe (XP), ses, konfeti ----------
+var LEVELS = [[0, "Mübtedî", "yeni başlayan"], [100, "Talebe", "öğrenci"], [300, "Sûhte", "medrese talebesi"], [600, "Dânişmend", "ilim sahibi"], [1000, "Müderris", "ders veren"], [1600, "Allâme", "çok bilen"]];
+function getXP() { return store.get("xp", 0); }
+function levelOf(x) { var i = 0; for (var k = 0; k < LEVELS.length; k++) if (x >= LEVELS[k][0]) i = k; return i; }
+function renderXP() {
+  var box = document.getElementById("xpbox"); if (!box) return;
+  var x = getXP(), i = levelOf(x), cur = LEVELS[i], nx = LEVELS[i + 1];
+  var pct = nx ? (x - cur[0]) / (nx[0] - cur[0]) * 100 : 100;
+  box.innerHTML = '<div class="row"><span class="lbl">Rütben</span><span class="tabular muted">' + x + ' puan</span></div>' +
+    '<div class="row"><b class="rank">' + cur[1] + '</b><span class="muted">' + (nx ? "sonra: " + nx[1] : "en yüksek rütbe") + '</span></div>' +
+    '<div class="xpbar" aria-hidden="true"><div style="width:' + pct + '%"></div></div>';
+}
+function addXP(n) {
+  n = Math.max(0, Math.round(n)); if (!n) return;
+  var before = levelOf(getXP()), v = getXP() + n;
+  store.set("xp", v); renderXP();
+  var after = levelOf(v);
+  if (after > before) { toast("Yeni rütbe: " + LEVELS[after][1] + " (" + LEVELS[after][2] + ")"); confetti(); beep("win"); }
+  else toast("+" + n + " puan");
+}
+var toastT;
+function toast(msg) {
+  var t = document.getElementById("toast"); if (!t) return;
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("show"); }, 2200);
+}
+var SND = { on: store.get("snd", true), ctx: null };
+function beep(type) {
+  if (!SND.on) return;
+  try {
+    SND.ctx = SND.ctx || new (window.AudioContext || window.webkitAudioContext)();
+    var c = SND.ctx;
+    var notes = type === "ok" ? [660, 880] : type === "win" ? [523, 659, 784, 1046] : type === "tick" ? [1200] : [220, 160];
+    notes.forEach(function (f, i) {
+      var o = c.createOscillator(), g = c.createGain();
+      o.type = type === "no" ? "sawtooth" : "triangle"; o.frequency.value = f;
+      var t = c.currentTime + i * 0.09, vol = type === "tick" ? 0.04 : 0.13;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.17);
+      o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + 0.2);
+    });
+  } catch (x) {}
+}
+function confetti() {
+  try { if (matchMedia("(prefers-reduced-motion: reduce)").matches) return; } catch (x) {}
+  var cv = document.createElement("canvas"); cv.className = "confetti"; document.body.appendChild(cv);
+  var W = cv.width = innerWidth, H = cv.height = innerHeight, ctx = cv.getContext("2d");
+  var cs = getComputedStyle(document.documentElement);
+  var cols = ["--ifal", "--tefil", "--mufaale"].map(function (v) { return cs.getPropertyValue(v).trim() || "#888"; });
+  var ps = [];
+  for (var i = 0; i < 140; i++) ps.push({ x: W / 2 + (Math.random() - .5) * W * .5, y: H * .4, vx: (Math.random() - .5) * 12, vy: -Math.random() * 11 - 4, r: Math.random() * 7 + 4, c: cols[i % 3], a: Math.random() * 6 });
+  var t0 = performance.now();
+  function step(t) {
+    ctx.clearRect(0, 0, W, H);
+    ps.forEach(function (p) { p.vy += 0.33; p.x += p.vx; p.y += p.vy; p.a += 0.2; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.fillStyle = p.c; ctx.fillRect(-p.r / 2, -p.r / 4, p.r, p.r / 2); ctx.restore(); });
+    if (t - t0 < 2000) requestAnimationFrame(step); else cv.remove();
+  }
+  requestAnimationFrame(step);
+}
+function starsHtml(n) { var s = ""; for (var i = 1; i <= 3; i++) s += i <= n ? "★" : '<span class="off">★</span>'; return '<div class="stars" aria-label="' + n + ' yıldız">' + s + '</div>'; }
+
+// ---------- oyun yardımcıları ----------
+function clusters(s) {
+  var out = [];
+  Array.from(s).forEach(function (ch) {
+    if (/[ً-ْٰ]/.test(ch) && out.length) out[out.length - 1] += ch; else out.push(ch);
+  });
+  return out;
+}
+function randItem(only, forms) {
+  var b = only || pick(BAB_KEYS);
+  var rt = pick(BABS[b].roots);
+  var fs = forms.slice();
+  if (b === "mufaale" && rt.m2) fs.push("masdar2");
+  var f = pick(fs);
+  var html = gen(b, rt.r, f);
+  return { b: b, rt: rt, f: f, html: html, txt: plain(html) };
+}
+function trWordFor(b, r, f) {
+  var w = WORDS.filter(function (x) { return x.bab === b && x.root.r === r && x.form === f; })[0];
+  return w ? w.w : "";
+}
+var GAMES = {
+  avci: { name: "Kalıp Avcısı", ico: "أَ ـّـ ا", d: "60 saniye. Ekrana gelen Arapça kelimenin babını hızla seç. Üst üste doğrular çarpanı büyütür, yanlış 3 saniye yer.", babFilter: false },
+  hafiza: { name: "Hafıza Kartları", ico: "مُعَلِّم", d: "Kartları çevir, Türkçe kelimeyi Arapça aslıyla eşleştir. Ne kadar az hamle, o kadar çok yıldız.", babFilter: true },
+  usta: { name: "Kalıp Ustası", ico: "مُـ + عَـ + لِّـ", d: "Harf parçalarını doğru sırayla dizip istenen kalıbı kendin kur. Araya başka babların parçaları karışmış.", babFilter: true },
+  kova: { name: "Bab Kovaları", ico: "إِ · تَ · مُ", d: "Türkçe kelimeleri doğru bab kovasına at. Aralarında başka babdan gelen tuzak kelimeler de var.", babFilter: false }
+};
+var G = null, GT = null;
+function stopGame() { if (GT) { clearInterval(GT); GT = null; } G = null; }
+
+function renderOyunlar() {
+  if (G) return '<section class="panel ' + (G.only ? "b-" + G.only : "") + '" id="game-panel">' + gameBody() + '</section>';
+  var best = store.get("gbest", {});
+  var gb = state.gbab || "";
+  return '<section class="panel">' +
+    '<div class="card gbar">' +
+      '<div><div class="lbl">Oyunlar</div><h2>Oynayarak ezberle</h2><p class="muted">Her oyun puan kazandırır. Puanla rütben yükselir: Mübtedî, Talebe, Sûhte, Dânişmend, Müderris, Allâme.</p></div>' +
+      '<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:end">' +
+        '<div class="field"><label for="g-bab">Hangi bab?</label><select id="g-bab"><option value="">Üç bab birlikte</option>' + BAB_KEYS.map(function (b) { return '<option value="' + b + '"' + (gb === b ? " selected" : "") + '>' + BABS[b].name + '</option>'; }).join("") + '</select></div>' +
+        '<button class="btn small" data-gsnd="1" style="--bab:var(--ink)" aria-pressed="' + (SND.on ? "true" : "false") + '">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="game-menu">' +
+      Object.keys(GAMES).map(function (k, i) {
+        var g = GAMES[k], col = ["ifal", "tefil", "mufaale", "ifal"][i];
+        return '<div class="card game-card b-' + col + '"><div class="ico">' + g.ico + '</div><h3>' + g.name + '</h3><p class="muted">' + g.d + '</p>' +
+          (g.babFilter ? '' : '<p class="lbl" style="font-size:.66rem">Her zaman üç bab birlikte</p>') +
+          '<p class="best">' + (best[k] != null ? 'En iyi: <b class="tabular">' + best[k] + '</b>' : 'Henüz oynanmadı') + '</p>' +
+          '<button class="btn solid" data-gstart="' + k + '">Oyna</button></div>';
+      }).join("") +
+    '</div>' +
+  '</section>';
+}
+function startGame(k) {
+  stopGame();
+  var only = GAMES[k].babFilter ? (state.gbab || null) : null;
+  G = { id: k, only: only, over: false };
+  if (k === "avci") { G.t = 60; G.score = 0; G.combo = 0; G.maxCombo = 0; G.n = 0; G.ok = 0; G.lock = false; G.cur = null; nextAvci(); }
+  if (k === "hafiza") setupHafiza();
+  if (k === "usta") { G.round = 0; G.rounds = 8; G.score = 0; G.okCount = 0; nextUsta(); }
+  if (k === "kova") setupKova();
+  render();
+  if (k === "avci") {
+    GT = setInterval(function () {
+      if (!G || G.id !== "avci") return;
+      G.t--; if (G.t <= 5 && G.t > 0) beep("tick");
+      if (G.t <= 0) { G.t = 0; endGame(G.score); return; }
+      updAvciHud();
+    }, 1000);
+  }
+  if (k === "hafiza" || k === "kova") {
+    G.start = Date.now();
+    GT = setInterval(function () { var el = document.getElementById("g-clock"); if (el && G && !G.over) el.textContent = Math.floor((Date.now() - G.start) / 1000) + " sn"; }, 1000);
+  }
+}
+function endGame(score, extra) {
+  if (GT) { clearInterval(GT); GT = null; }
+  G.over = true; G.final = score; G.extra = extra || "";
+  var best = store.get("gbest", {});
+  G.record = best[G.id] == null || score > best[G.id];
+  if (G.record) { best[G.id] = score; store.set("gbest", best); }
+  var xpGain = { avci: score / 5, hafiza: score, usta: score / 2, kova: score }[G.id];
+  G.xp = Math.round(xpGain);
+  render();
+  addXP(G.xp);
+  if (G.record || (G.stars || 0) >= 3) confetti();
+  beep("win");
+}
+function gameHead(title) {
+  return '<div class="gbar"><div><div class="lbl">' + (G.only ? BABS[G.only].name + " · " : "") + 'Oyun</div><h2>' + title + '</h2></div><button class="btn small" data-gmenu="1" style="--bab:var(--ink)">Oyunlara dön</button></div>';
+}
+function gameOver(title, lines) {
+  return '<div class="card stack" style="text-align:center;justify-items:center">' +
+    '<div class="lbl">' + title + ' bitti</div>' +
+    (G.stars != null ? starsHtml(G.stars) : '') +
+    '<div class="score-big tabular">' + G.final + '</div>' +
+    (G.record ? '<p><b>Yeni rekor!</b></p>' : '') +
+    lines.map(function (l) { return '<p>' + l + '</p>'; }).join("") +
+    '<p class="muted">Kazandığın: +' + G.xp + ' rütbe puanı</p>' +
+    '<div class="row-btns"><button class="btn solid" data-gstart="' + G.id + '">Tekrar oyna</button><button class="btn" data-gmenu="1">Başka oyun</button></div>' +
+  '</div>';
+}
+function gameBody() {
+  if (G.id === "avci") return bodyAvci();
+  if (G.id === "hafiza") return bodyHafiza();
+  if (G.id === "usta") return bodyUsta();
+  if (G.id === "kova") return bodyKova();
+  return "";
+}
+
+// ---------- 1. Kalıp Avcısı ----------
+function nextAvci() {
+  var it, guard = 0;
+  do { it = randItem(null, ["mazi", "muzari", "masdar", "fail", "meful", "emir", "nehy"]); guard++; } while (G.cur && it.txt === G.cur.txt && guard < 10);
+  G.cur = it;
+}
+function bodyAvci() {
+  if (G.over) return gameOver("Kalıp Avcısı", [
+    'Doğru: <b class="tabular">' + G.ok + ' / ' + G.n + '</b> · en uzun seri: <b class="tabular">' + G.maxCombo + '</b>',
+    G.ok >= 25 ? "Gözün kalıpları anında tanıyor." : G.ok >= 12 ? "Hızlanıyorsun. İpucu: önce başa bak (أَ / إِ / مُ / يُ), sonra ortaya (şedde mi, elif mi)." : "Önce Karşılaştır sekmesindeki ayırt etme ipuçlarına göz at, sonra tekrar avlan."
+  ]);
+  var mult = Math.min(5, 1 + Math.floor(G.combo / 3));
+  return '<div class="card stack">' + gameHead("Kalıp Avcısı") +
+    '<div class="hud"><span>Süre <b id="g-time">' + G.t + '</b></span><span>Puan <b id="g-score">' + G.score + '</b></span><span>Çarpan <b id="g-combo">x' + mult + '</b></span></div>' +
+    '<div class="time-bar' + (G.t <= 10 ? " low" : "") + '" id="g-tbar"><div style="width:' + (G.t / 60 * 100) + '%"></div></div>' +
+    '<div class="target ar" id="g-word">' + G.cur.txt + '</div>' +
+    '<div class="gfb" id="g-fb"><span class="muted">Bu kelime hangi babdan? Klavyede 1, 2, 3 tuşlarını da kullanabilirsin.</span></div>' +
+    '<div class="pick3">' + BAB_KEYS.map(function (b, i) {
+      return '<button class="b-' + b + '" data-gpick="' + b + '"><span class="ar">' + BABS[b].vezin + '</span>' + BABS[b].name + '<small>' + (i + 1) + '</small></button>';
+    }).join("") + '</div>' +
+  '</div>';
+}
+function updAvciHud() {
+  var a = document.getElementById("g-time"); if (a) a.textContent = G.t;
+  var s = document.getElementById("g-score"); if (s) s.textContent = G.score;
+  var c = document.getElementById("g-combo"); if (c) c.textContent = "x" + Math.min(5, 1 + Math.floor(G.combo / 3));
+  var tb = document.getElementById("g-tbar"); if (tb) { tb.firstChild.style.width = (G.t / 60 * 100) + "%"; tb.classList.toggle("low", G.t <= 10); }
+}
+function avciPick(b) {
+  if (!G || G.over || G.lock) return;
+  var cur = G.cur, ok = cur.b === b;
+  var word = document.getElementById("g-word"), fb = document.getElementById("g-fb");
+  G.n++;
+  var info = '<span class="ar b-' + cur.b + '">' + cur.html + '</span> · <b>' + BABS[cur.b].name + '</b>, ' + FORM_NAMES[cur.f].toLowerCase();
+  if (ok) {
+    G.ok++; G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo);
+    var mult = Math.min(5, 1 + Math.floor((G.combo - 1) / 3));
+    G.score += 10 * mult; beep("ok");
+    fb.innerHTML = '<b class="okk" style="color:var(--good)">Doğru +' + (10 * mult) + '</b> · ' + info;
+    word.classList.remove("flash-no"); word.classList.add("flash-ok");
+    nextAvci(); word.textContent = G.cur.txt;
+    setTimeout(function () { word.classList.remove("flash-ok"); }, 180);
+  } else {
+    G.combo = 0; G.t = Math.max(0, G.t - 3); beep("no");
+    fb.innerHTML = '<b style="color:var(--bad)">Yanlış, −3 sn.</b> ' + info + '<br><span class="muted">' + sigaClue(cur.b, cur.f) + '</span>';
+    word.classList.remove("flash-ok"); void word.offsetWidth; word.classList.add("flash-no");
+    word.innerHTML = '<span class="b-' + cur.b + '">' + cur.html + '</span>';
+    G.lock = true;
+    setTimeout(function () {
+      if (!G || G.id !== "avci" || G.over) return;
+      G.lock = false; word.classList.remove("flash-no"); nextAvci(); word.textContent = G.cur.txt;
+      if (G.t <= 0) endGame(G.score);
+    }, 1300);
+  }
+  updAvciHud();
+}
+
+// ---------- 2. Hafıza Kartları ----------
+function setupHafiza() {
+  var pool = shuffle(WORDS.filter(function (w) { return !G.only || w.bab === G.only; }));
+  var chosen = [], seenAr = {}, seenTr = {};
+  pool.forEach(function (w) {
+    if (chosen.length >= 6) return;
+    var ar = plain(gen(w.bab, w.root.r, w.form));
+    if (seenAr[ar] || seenTr[w.w]) return;
+    seenAr[ar] = seenTr[w.w] = 1; chosen.push(w);
+  });
+  var cards = [];
+  chosen.forEach(function (w, i) {
+    cards.push({ p: i, kind: "tr", w: w }); cards.push({ p: i, kind: "ar", w: w });
+  });
+  G.cards = shuffle(cards); G.open = []; G.done = {}; G.moves = 0; G.lock = false; G.pairs = chosen.length;
+}
+function cardFace(c) {
+  var w = c.w;
+  if (c.kind === "tr") return '<b>' + esc(w.w) + '</b><small>' + FORM_NAMES[w.form] + '</small>';
+  return '<span class="ar">' + plain(gen(w.bab, w.root.r, w.form)) + '</span><small>' + BABS[w.bab].name + '</small>';
+}
+function bodyHafiza() {
+  if (G.over) return gameOver("Hafıza Kartları", ['<b class="tabular">' + G.moves + '</b> hamlede ' + G.pairs + ' çifti buldun, <b class="tabular">' + G.secs + '</b> saniyede.']);
+  return '<div class="card stack">' + gameHead("Hafıza Kartları") +
+    '<div class="hud"><span>Hamle <b id="g-moves">' + G.moves + '</b></span><span>Çift <b id="g-pairs">' + Object.keys(G.done).length + '/' + G.pairs + '</b></span><span>Süre <b id="g-clock">0 sn</b></span></div>' +
+    '<p class="muted">Bir Türkçe kelimeyi, Arapça aslıyla eşleştir. Eşleşen çift babının rengini alır.</p>' +
+    '<div class="mem" id="g-mem">' + G.cards.map(function (c, i) {
+      var cls = G.done[c.p] ? " done b-" + c.w.bab : (G.open.indexOf(i) >= 0 ? " up" : "");
+      return '<button class="mcard' + cls + '" data-gcard="' + i + '" aria-label="Kart ' + (i + 1) + '"><div class="in"><div class="face back">ف ع ل</div><div class="face front">' + cardFace(c) + '</div></div></button>';
+    }).join("") + '</div>' +
+  '</div>';
+}
+function flipCard(i) {
+  if (!G || G.over || G.lock) return;
+  var c = G.cards[i];
+  if (G.done[c.p] || G.open.indexOf(i) >= 0) return;
+  G.open.push(i);
+  var el = document.querySelector('[data-gcard="' + i + '"]'); el.classList.add("up");
+  if (G.open.length < 2) return;
+  G.moves++; document.getElementById("g-moves").textContent = G.moves;
+  var a = G.cards[G.open[0]], b = G.cards[G.open[1]];
+  if (a.p === b.p) {
+    G.done[a.p] = 1; beep("ok");
+    G.open.forEach(function (j) { var e2 = document.querySelector('[data-gcard="' + j + '"]'); e2.classList.remove("up"); e2.classList.add("done", "b-" + a.w.bab); });
+    G.open = [];
+    document.getElementById("g-pairs").textContent = Object.keys(G.done).length + "/" + G.pairs;
+    if (Object.keys(G.done).length === G.pairs) {
+      G.secs = Math.floor((Date.now() - G.start) / 1000);
+      G.stars = G.moves <= 9 ? 3 : G.moves <= 13 ? 2 : 1;
+      setTimeout(function () { endGame(G.stars * 20 + Math.max(0, 60 - G.secs)); }, 600);
+    }
+  } else {
+    G.lock = true; beep("no");
+    setTimeout(function () {
+      if (!G || G.id !== "hafiza") return;
+      G.open.forEach(function (j) { var e2 = document.querySelector('[data-gcard="' + j + '"]'); if (e2) e2.classList.remove("up"); });
+      G.open = []; G.lock = false;
+    }, 950);
+  }
+}
+
+// ---------- 3. Kalıp Ustası ----------
+function nextUsta() {
+  var it = randItem(G.only, ["mazi", "muzari", "masdar", "fail", "meful", "emir"]);
+  var ans = clusters(it.txt);
+  var inAns = {}; ans.forEach(function (c) { inAns[c] = 1; });
+  var distract = [];
+  BAB_KEYS.forEach(function (o) {
+    if (o === it.b) return;
+    var f = GEN[o][it.f] ? it.f : "masdar";
+    clusters(plain(gen(o, it.rt.r, f))).forEach(function (c) { if (!inAns[c] && distract.indexOf(c) < 0) distract.push(c); });
+  });
+  distract = shuffle(distract).slice(0, 3);
+  ["أَ", "تَ", "مُ", "يُ", "ا"].forEach(function (c) { if (distract.length < 3 && !inAns[c] && distract.indexOf(c) < 0) distract.push(c); });
+  G.it = it; G.ans = ans;
+  G.tiles = shuffle(ans.concat(distract).map(function (t, i) { return { t: t, id: i } }));
+  G.placed = []; G.hints = 0; G.state = "play";
+}
+function bodyUsta() {
+  if (G.over) return gameOver("Kalıp Ustası", ['<b class="tabular">' + G.okCount + ' / ' + G.rounds + '</b> kalıbı doğru kurdun.']);
+  var it = G.it, tw = trWordFor(it.b, it.rt.r, it.f);
+  var built = G.placed.map(function (id) { return G.tiles.filter(function (t) { return t.id === id; })[0].t; }).join("");
+  var buildCls = G.state === "ok" ? " ok" : G.state === "no" ? " no" : "";
+  var buildInner = G.state === "play" ? (built ? '<span class="ar">' + built + '</span>' : '<span class="muted">Aşağıdaki parçalara sağdan sola sırayla dokun</span>') : '<span class="ar b-' + it.b + '">' + (G.state === "ok" ? it.html : built) + '</span>';
+  return '<div class="card stack b-' + it.b + '">' + gameHead("Kalıp Ustası") +
+    '<div class="hud"><span>Tur <b>' + (G.round + 1) + '/' + G.rounds + '</b></span><span>Puan <b>' + G.score + '</b></span></div>' +
+    '<p class="q-prompt"><span class="ar" style="font-size:1.4rem">' + letters(it.rt.r).join(" ") + '</span> kökünden <b style="color:var(--bab)">' + BABS[it.b].name + '</b> babının <b>' + FORM_NAMES[it.f].toLowerCase() + '</b>ini kur. <span class="muted">(' + FORM_TR[it.f] + (tw ? ' · Türkçede: ' + esc(tw) : '') + ')</span></p>' +
+    '<div class="build' + buildCls + '">' + buildInner + '</div>' +
+    '<div class="slots" aria-hidden="true">' + G.ans.map(function (_, i) { return '<i class="' + (i < G.placed.length ? "on" : "") + '"></i>'; }).join("") + '</div>' +
+    (G.state === "play" ?
+      '<div class="tiles">' + G.tiles.map(function (t) { return '<button class="tile" data-gtile="' + t.id + '"' + (G.placed.indexOf(t.id) >= 0 ? " disabled" : "") + '>' + t.t + '</button>'; }).join("") + '</div>' +
+      '<div class="row-btns"><button class="btn small" data-gundo="1">Son parçayı geri al</button><button class="btn small" data-ghint="1">İpucu (−3)</button></div>'
+    :
+      '<div class="explain">' + (G.state === "ok" ? '<b class="okk">Doğru!</b> ' : '<b class="nok">Olmadı.</b> Doğrusu: <span class="ar" style="font-size:1.5rem">' + it.html + '</span> · ') + sigaClue(it.b, it.f) + ' Renkli harf babın ilâvesidir.</div>' +
+      '<div class="row-btns"><button class="btn solid" data-gnext="1" id="g-next">' + (G.round + 1 < G.rounds ? "Sonraki kalıp" : "Sonucu gör") + '</button></div>') +
+  '</div>';
+}
+function ustaCheck() {
+  var built = G.placed.map(function (id) { return G.tiles.filter(function (t) { return t.id === id; })[0].t; }).join("");
+  if (built === G.it.txt) { G.state = "ok"; G.okCount++; G.score += Math.max(2, 10 - G.hints * 3); beep("ok"); }
+  else { G.state = "no"; beep("no"); }
+  render();
+  var n = document.getElementById("g-next"); if (n) n.focus({ preventScroll: true });
+}
+function ustaTile(id) {
+  if (G.state !== "play" || G.placed.indexOf(id) >= 0) return;
+  G.placed.push(id); beep("tick");
+  if (G.placed.length === G.ans.length) ustaCheck(); else render();
+}
+function ustaHint() {
+  // doğru öneki koru, sıradaki doğru parçayı koy
+  var good = [];
+  for (var i = 0; i < G.placed.length; i++) {
+    var t = G.tiles.filter(function (x) { return x.id === G.placed[i]; })[0];
+    if (t.t === G.ans[i]) good.push(G.placed[i]); else break;
+  }
+  G.placed = good;
+  var need = G.ans[G.placed.length];
+  var tile = G.tiles.filter(function (x) { return x.t === need && G.placed.indexOf(x.id) < 0; })[0];
+  G.hints++;
+  if (tile) G.placed.push(tile.id);
+  if (G.placed.length === G.ans.length) ustaCheck(); else render();
+}
+
+// ---------- 4. Bab Kovaları ----------
+function setupKova() {
+  var items = [];
+  BAB_KEYS.forEach(function (b) {
+    var seen = {};
+    shuffle(WORDS.filter(function (w) { return w.bab === b; })).forEach(function (w) {
+      if (items.filter(function (x) { return x.bab === b; }).length >= 3 || seen[w.w]) return;
+      seen[w.w] = 1; items.push({ w: w.w, bab: b, ar: plain(gen(b, w.root.r, w.form)), form: w.form });
+    });
+  });
+  shuffle(TRAPS).slice(0, 2).forEach(function (t) { items.push({ w: t.w, bab: "other", ar: plain(t.ar), why: t.why }); });
+  G.items = shuffle(items).map(function (x, i) { x.id = i; return x; });
+  G.sel = null; G.placed = {}; G.miss = 0; G.msg = "";
+}
+function bodyKova() {
+  if (G.over) return gameOver("Bab Kovaları", ['<b class="tabular">' + G.secs + '</b> saniye, <b class="tabular">' + G.miss + '</b> hata.']);
+  var left = G.items.filter(function (x) { return !G.placed[x.id]; });
+  var kovs = BAB_KEYS.map(function (b) { return { k: b, name: BABS[b].name, v: BABS[b].vezin }; }).concat([{ k: "other", name: "Başka bab", v: "" }]);
+  return '<div class="card stack">' + gameHead("Bab Kovaları") +
+    '<div class="hud"><span>Kalan <b>' + left.length + '</b></span><span>Hata <b>' + G.miss + '</b></span><span>Süre <b id="g-clock">' + Math.floor((Date.now() - G.start) / 1000) + ' sn</b></span></div>' +
+    '<p class="muted">Önce bir kelimeye, sonra doğru kovaya dokun.</p>' +
+    '<div class="kova-pool">' + left.map(function (x) { return '<button class="chip" data-gitem="' + x.id + '" aria-pressed="' + (G.sel === x.id ? "true" : "false") + '">' + esc(x.w) + '</button>'; }).join("") + '</div>' +
+    '<div class="gfb" id="g-fb">' + (G.msg || "") + '</div>' +
+    '<div class="kovalar">' + kovs.map(function (k) {
+      var inK = G.items.filter(function (x) { return G.placed[x.id] && x.bab === k.k; });
+      return '<button class="kova ' + (k.k === "other" ? "k-other" : "b-" + k.k) + '" data-gkova="' + k.k + '"><h3>' + k.name + '</h3>' + (k.v ? '<span class="ar v">' + k.v + '</span>' : '<span class="muted" style="font-size:.85rem">İfti\'âl, Tefa\'\'ul, mücerred…</span>') +
+        inK.map(function (x) { return '<span class="tag">' + esc(x.w) + ' <span class="ar">' + x.ar + '</span></span>'; }).join("") + '</button>';
+    }).join("") + '</div>' +
+  '</div>';
+}
+function kovaDrop(k) {
+  if (G.sel == null) { G.msg = '<span class="muted">Önce yukarıdan bir kelime seç.</span>'; render(); return; }
+  var x = G.items.filter(function (i) { return i.id === G.sel; })[0];
+  if (x.bab === k) {
+    G.placed[x.id] = 1; G.sel = null; beep("ok");
+    G.msg = '<b style="color:var(--good)">Doğru.</b> ' + esc(x.w) + ' = <span class="ar">' + x.ar + '</span>' + (x.why ? ' · ' + x.why : ' · ' + BABS[x.bab].name + ' ' + FORM_NAMES[x.form].toLowerCase());
+    if (G.items.every(function (i) { return G.placed[i.id]; })) {
+      G.secs = Math.floor((Date.now() - G.start) / 1000);
+      G.stars = G.miss === 0 ? 3 : G.miss <= 2 ? 2 : 1;
+      render(); setTimeout(function () { endGame(G.stars * 25 + Math.max(0, 90 - G.secs)); }, 500); return;
+    }
+    render();
+  } else {
+    G.miss++; beep("no");
+    G.msg = '<b style="color:var(--bad)">' + esc(x.w) + ' bu kovaya ait değil.</b> <span class="muted">Masdarın sesini dinle: İ…â… / Te…î… / Mu…â…e, fâilde Mu…i…</span>';
+    render();
+    var kv = document.querySelector('[data-gkova="' + k + '"]'); if (kv) { kv.classList.add("shake"); }
+  }
+}
+
+// ---------- oyun olayları ----------
+main.addEventListener("click", function (ev) {
+  var t = ev.target.closest("button"); if (!t) return;
+  var d = t.dataset;
+  if (d.gstart) { state.tab = "oyunlar"; startGame(d.gstart); window.scrollTo({ top: 0 }); }
+  else if (d.gmenu) { stopGame(); render(); }
+  else if (d.gsnd) { SND.on = !SND.on; store.set("snd", SND.on); render(); if (SND.on) beep("ok"); }
+  else if (d.gpick) avciPick(d.gpick);
+  else if (d.gcard != null) flipCard(+d.gcard);
+  else if (d.gtile != null) ustaTile(+d.gtile);
+  else if (d.gundo) { if (G && G.state === "play") { G.placed.pop(); render(); } }
+  else if (d.ghint) { if (G && G.state === "play") ustaHint(); }
+  else if (d.gnext) { G.round++; if (G.round >= G.rounds) { G.stars = G.okCount >= 7 ? 3 : G.okCount >= 5 ? 2 : 1; endGame(G.score); } else { nextUsta(); render(); } }
+  else if (d.gitem != null) { G.sel = +d.gitem; G.msg = ""; render(); }
+  else if (d.gkova) kovaDrop(d.gkova);
+  else if (d.gplay) { state.gbab = d.gplay; setTab("oyunlar"); window.scrollTo({ top: 0 }); }
+});
+main.addEventListener("change", function (ev) {
+  if (ev.target.id === "g-bab") { state.gbab = ev.target.value; store.set("gbab", state.gbab); }
+});
+document.addEventListener("keydown", function (ev) {
+  if (state.tab !== "oyunlar" || !G || G.id !== "avci" || G.over) return;
+  var i = ["1", "2", "3"].indexOf(ev.key);
+  if (i >= 0) { ev.preventDefault(); avciPick(BAB_KEYS[i]); }
+});
+
 // ---------- yönlendirme ----------
 function setTab(t) {
+  if (t !== "oyunlar" || state.tab !== "oyunlar") stopGame();
   state.tab = t; store.set("tab", t);
   document.querySelectorAll("nav.tabs button").forEach(function (bt) { bt.setAttribute("aria-selected", bt.dataset.tab === t ? "true" : "false"); });
   render();
@@ -906,6 +1417,7 @@ function render() {
   if (t === "giris") main.innerHTML = renderGiris();
   else if (BABS[t]) { main.innerHTML = renderBab(t); renderMachine(t); }
   else if (t === "karsilastir") main.innerHTML = renderKarsilastir();
+  else if (t === "oyunlar") main.innerHTML = renderOyunlar();
   else if (t === "sinav") main.innerHTML = renderSinav();
 }
 
@@ -955,6 +1467,7 @@ main.addEventListener("keydown", function (ev) {
   }
 });
 
+renderXP();
 setTab(state.tab);
 })();
 </script>
