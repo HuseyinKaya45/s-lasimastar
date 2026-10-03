@@ -31,3 +31,12 @@ ve `cumle/oyunlar.js` değiştirilir, sonra `python3 cumle/yap.py` çalıştır�
 hatırlatma kartları, kontrol listesi, bütün alıştırmalar, beş oyun ve 20 soruluk
 quiz provasıyla çalıştırır. Düzenleme: `kelime/veri.js`, `kelime/kaynak.html`,
 `kelime/oyunlar.js`, `kelime/ortak.css`; sonra `python3 kelime/yap.py`.
+
+## Uygulama: İsimlerin İ'rabı
+
+`irab/index.html` dosyasını tarayıcıda aç. Kitaptaki iki dersi dört konu olarak
+(müsennâ, cem-i müzekker sâlim, cem-i müennes sâlim, cem-i teksîr) i'rab tablosu,
+örnekler, kaide, bütün alıştırmalar, iki okuma parçası (bulma ve i'rab), beş oyun
+(Ek Avcısı, Hal Yarışı, İ'rab Dedektifi, Tür Makinesi, Hafıza Kartları) ve 20 soruluk
+quiz provasıyla öğretir. Düzenleme: `irab/veri.js`, `irab/kaynak.html`, `irab/oyunlar.js`,
+`irab/ortak.css`, `irab/ozel.css`; sonra `python3 irab/yap.py`.
