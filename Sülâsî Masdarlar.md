@@ -262,3 +262,12 @@ muzâri / emir, 14 şahıs tablosu), mezîd nâkıs tablosu, kaide, örnek, büt
 etkinliği (biçimleri seçip çekim tablosuna yerleştirme), beş oyun (Doğru Çekim, Zamir Avı, Hangi Bâb?, Vâv mı Yâ mı?,
 Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Fiiller ve çekim motoru `nakis/veri.js` içindedir; sonra
 `python3 nakis/yap.py`.
+
+## Uygulama: Lefîf Fiil ve Çekimi
+
+`lefif/index.html` dosyasını tarayıcıda aç. Kitaptaki dersi beş konu olarak (lefîf fiil ve türleri, mâzinin çekimi,
+muzârinin çekimi, emir ve mezîd lefîf, "İnnemâ’l-a’mâlü bi’n-niyyât" okuması) kök kartları (mekrûn: ن و ي, mefrûk:
+و ق ي), bâb kartları, çekim makinesi (25 fiil × mâzi / muzâri / emir), mezîd lefîf tablosu, kaide, örnek, bütün
+alıştırmalar, "Tablo doldur" etkinliği, beş oyun (Doğru Çekim, Zamir Avı, Mekrûn mu Mefrûk mu?, Hangi Tür?, Hafıza
+Kartları) ve 20 soruluk quiz provasıyla öğretir. Fiiller ve çekim motoru `lefif/veri.js` içindedir; sonra
+`python3 lefif/yap.py`.
