@@ -1,0 +1,1698 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>İsm-i Tafdîl</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Amiri:wght@400;700&display=swap">
+<style>
+
+/* Düzen: her ders aynı sırayla akar: hedefler, örnekler, görsel, kaide, alıştırmalar. Hal renkleri (merfû, mansûb, mecrûr) ve tür renkleri her yerde aynıdır. */
+:root {
+  --paper: #F4F6F2;
+  --card: #FFFFFF;
+  --ink: #1B2420;
+  --muted: #5E6A63;
+  --line: #D9E0DA;
+  --soft: #EAEFEA;
+  --accent: #1E5B4F;
+  --ref: #B3402F;
+  --nasb: #A86A0E;
+  --cerr: #2D5FA8;
+  --muf: #6B6152;
+  --mus: #0F8A7A;
+  --mzs: #5A4FB0;
+  --mns: #B23A75;
+  --tks: #1E7A46;
+  --mz: #1E7A46;
+  --mi: #8A3F9E;
+  --mv: #1D6E8C;
+  --sf: #B0532A;
+  --muz: #2F67B0;
+  --mun: #B23A75;
+  --y: #1E5B4F;
+  --x: #7E8A84;
+  --good: #1F7A3E;
+  --bad: #B3261E;
+  --good-bg: #E2F2E6;
+  --bad-bg: #FBE7E4;
+  --role: var(--accent);
+  --f-display: "Alegreya", Georgia, "Times New Roman", serif;
+  --f-body: "Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  --f-ar: "Amiri", "Scheherazade New", "Traditional Arabic", "Noto Naskh Arabic", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111614; --card: #19201D; --ink: #E6ECE8; --muted: #9FACA5; --line: #2C3632; --soft: #202925;
+    --accent: #6CC3AE; --ref: #F28B78; --nasb: #EDB45C; --cerr: #8DB4F5; --muf: #CDBB95; --mus: #5ED1C2; --mzs: #ABA3F5; --mns: #F28DC0; --tks: #6FD69A; --mz: #6FD69A; --mi: #D49BEA; --mv: #6CC7E6; --sf: #F2A07A; --muz: #93B8F2; --mun: #F28DC0; --y: #6CC3AE; --x: #98A39D;
+    --good: #6FD08E; --bad: #FF8A80; --good-bg: #17301F; --bad-bg: #3A1D1A; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111614; --card: #19201D; --ink: #E6ECE8; --muted: #9FACA5; --line: #2C3632; --soft: #202925;
+  --accent: #6CC3AE; --ref: #F28B78; --nasb: #EDB45C; --cerr: #8DB4F5; --muf: #CDBB95; --mus: #5ED1C2; --mzs: #ABA3F5; --mns: #F28DC0; --tks: #6FD69A; --mz: #6FD69A; --mi: #D49BEA; --mv: #6CC7E6; --sf: #F2A07A; --muz: #93B8F2; --mun: #F28DC0; --y: #6CC3AE; --x: #98A39D;
+  --good: #6FD08E; --bad: #FF8A80; --good-bg: #17301F; --bad-bg: #3A1D1A; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 1060px; margin: 0 auto; padding-inline: 16px; padding-block: 0 72px; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.65rem; }
+h3 { font-size: 1.2rem; }
+p { margin: 0; }
+.ar { font-family: var(--f-ar); direction: rtl; unicode-bidi: isolate; line-height: 1.9; }
+.muted { color: var(--muted); }
+.lbl { font-size: .74rem; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.tabular { font-variant-numeric: tabular-nums; }
+.r-ref { --role: var(--ref); color: var(--ref); } .r-nasb { --role: var(--nasb); color: var(--nasb); } .r-cerr { --role: var(--cerr); color: var(--cerr); } .r-muf { --role: var(--muf); color: var(--muf); } .r-mus { --role: var(--mus); color: var(--mus); } .r-mzs { --role: var(--mzs); color: var(--mzs); } .r-mns { --role: var(--mns); color: var(--mns); } .r-tks { --role: var(--tks); color: var(--tks); } .r-mz { --role: var(--mz); color: var(--mz); } .r-mi { --role: var(--mi); color: var(--mi); } .r-good { --role: var(--good); color: var(--good); } .r-bad { --role: var(--bad); color: var(--bad); } .r-mv { --role: var(--mv); color: var(--mv); } .r-sf { --role: var(--sf); color: var(--sf); } .r-muz { --role: var(--muz); color: var(--muz); } .r-mun { --role: var(--mun); color: var(--mun); } .r-y { --role: var(--y); color: var(--y); }
+.r-x { --role: var(--x); color: var(--x); }
+button { font: inherit; color: inherit; }
+button:focus-visible, select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* üst */
+header.top { padding-block: 26px 14px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: end; }
+header.top h1 { font-size: clamp(2rem, 5.4vw, 3.2rem); font-weight: 800; letter-spacing: -.01em; }
+header.top .h1ar { font-family: var(--f-ar); font-size: clamp(1.5rem, 4vw, 2.1rem); color: var(--accent); direction: rtl; line-height: 1.5; }
+header.top p { color: var(--muted); max-width: 62ch; margin-top: 6px; }
+.xpbox { display: grid; gap: 4px; min-width: 210px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
+.xpbox .row { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; font-size: .9rem; }
+.xpbox b.rank { font-family: var(--f-display); font-size: 1.1rem; }
+.xpbar { height: 6px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.xpbar div { height: 100%; width: 0; background: linear-gradient(90deg, var(--ref), var(--nasb), var(--cerr), var(--mus), var(--mzs), var(--mns), var(--tks)); transition: width .5s ease; }
+
+nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line); display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-block: 8px; }
+nav.tabs::-webkit-scrollbar { display: none; }
+nav.tabs button { flex: none; font-weight: 700; font-size: .96rem; color: var(--muted); background: transparent; border: 0; border-radius: 999px; padding: 8px 14px; cursor: pointer; display: flex; gap: 6px; align-items: center; }
+nav.tabs button .num { font-family: var(--f-display); width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--soft); color: var(--ink); font-size: .85rem; }
+nav.tabs button .pc { font-size: .72rem; color: var(--muted); font-weight: 500; }
+nav.tabs button[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+nav.tabs button[aria-selected="true"] .num { background: var(--paper); color: var(--ink); }
+nav.tabs button[aria-selected="true"] .pc { color: var(--paper); opacity: .8; }
+
+section.panel { display: grid; gap: 22px; padding-top: 24px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; min-width: 0; }
+.stack { display: grid; gap: 12px; min-width: 0; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.btn { font-weight: 700; border: 1.5px solid var(--accent); color: var(--accent); background: transparent; padding: 7px 15px; border-radius: 10px; cursor: pointer; }
+.btn.solid { background: var(--accent); color: var(--card); }
+.btn.small { padding: 4px 10px; font-size: .88rem; }
+.btn:hover { filter: brightness(1.08); }
+.row-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* cümle parçaları */
+.sent { display: flex; flex-wrap: wrap; gap: 6px; direction: rtl; align-items: flex-end; }
+.chunk { display: inline-grid; justify-items: center; gap: 0; }
+.chunk .w { font-family: var(--f-ar); font-size: 1.7rem; line-height: 1.6; padding: 0 10px; border-radius: 10px; background: color-mix(in srgb, var(--role) 13%, transparent); color: var(--ink); border-bottom: 3px solid var(--role); }
+.chunk .t { font-size: .68rem; font-weight: 700; color: var(--role); letter-spacing: .04em; text-transform: uppercase; direction: ltr; }
+.chunk.r-x .w { background: transparent; border-bottom-color: transparent; color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; }
+.legend span { display: inline-flex; gap: 6px; align-items: center; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; background: var(--role); display: inline-block; }
+.trline { font-size: .92rem; color: var(--muted); }
+.ex-list { display: grid; gap: 14px; }
+.ex-item { display: grid; gap: 2px; padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
+.ex-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.pairgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px 18px; }
+
+/* ders başlığı */
+.unit-hero { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; border-top: 5px solid var(--role); }
+.unit-no { font-family: var(--f-display); font-weight: 800; font-size: 3.4rem; color: var(--role); line-height: 1; }
+.unit-hero .ar.big { font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.5; }
+.goals { margin: 0; padding-inline-start: 20px; display: grid; gap: 2px; }
+.prog { height: 8px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.prog div { height: 100%; background: var(--role); width: 0; transition: width .4s; }
+
+/* kaide */
+.rules { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: k; }
+.rules li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
+.rules li::before { counter-increment: k; content: counter(k); font-family: var(--f-display); font-weight: 800; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--paper); }
+.rules .exs { display: flex; flex-wrap: wrap; gap: 4px 16px; direction: rtl; font-family: var(--f-ar); font-size: 1.35rem; color: var(--accent); }
+details.kaide { border: 1px dashed var(--line); border-radius: 12px; padding: 10px 14px; }
+details.kaide summary { cursor: pointer; font-weight: 700; }
+details.kaide .ar { font-size: 1.3rem; }
+
+/* görseller */
+.viz { display: grid; gap: 10px; justify-items: center; }
+.viz svg { width: 100%; max-width: 640px; height: auto; display: block; }
+.viz .cap { font-size: .9rem; color: var(--muted); text-align: center; max-width: 60ch; }
+svg .s-ref { fill: var(--ref); } svg .s-nasb { fill: var(--nasb); } svg .s-cerr { fill: var(--cerr); } svg .s-muf { fill: var(--muf); } svg .s-mus { fill: var(--mus); } svg .s-mzs { fill: var(--mzs); } svg .s-mns { fill: var(--mns); } svg .s-tks { fill: var(--tks); }
+svg .s-ink { fill: var(--ink); } svg .s-muted { fill: var(--muted); } svg .s-card { fill: var(--card); } svg .s-soft { fill: var(--soft); } svg .s-good { fill: var(--good); } svg .s-bad { fill: var(--bad); }
+svg .k-ink { stroke: var(--ink); } svg .k-muted { stroke: var(--muted); } svg .k-fiil { stroke: var(--fiil); } svg .k-line { stroke: var(--line); } svg .k-good { stroke: var(--good); } svg .k-bad { stroke: var(--bad); }
+svg text { font-family: var(--f-body); }
+svg text.a { font-family: var(--f-ar); }
+.svg-scroll { overflow-x: auto; width: 100%; }
+
+/* harita (giriş) */
+.tree { display: grid; gap: 18px; justify-items: center; }
+.node { border-radius: 14px; padding: 10px 16px; text-align: center; background: var(--card); border: 2px solid var(--role); display: grid; gap: 0; }
+.node .ar { font-size: 1.5rem; line-height: 1.6; color: var(--role); }
+.node small { color: var(--muted); font-size: .8rem; }
+.node.root { --role: var(--accent); }
+.tree-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; width: 100%; max-width: 760px; }
+.branch { display: grid; gap: 12px; justify-items: center; padding: 14px; border-radius: 16px; background: var(--soft); position: relative; }
+.branch .kids { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; direction: rtl; }
+.branch .kids .node { padding: 6px 12px; }
+.branch .kids .node .ar { font-size: 1.2rem; }
+.branch .sample { font-family: var(--f-ar); font-size: 1.3rem; direction: rtl; }
+.branch button { margin-top: 2px; }
+.map-units { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.map-units .card { display: grid; gap: 6px; align-content: start; border-top: 5px solid var(--role); }
+.map-units .card .ar { font-size: 1.5rem; color: var(--role); }
+
+/* alıştırmalar */
+.exer { display: grid; gap: 14px; }
+.exer-head { display: grid; gap: 4px; }
+.exer-head .ar { font-size: 1.35rem; color: var(--accent); }
+.exer-head .cnt { font-size: .85rem; color: var(--muted); }
+.exbox { background: var(--soft); border-radius: 10px; padding: 8px 12px; font-size: .95rem; }
+.exbox .ar { font-size: 1.25rem; }
+.items { display: grid; gap: 12px; }
+.item { display: grid; gap: 8px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+.item.ok { border-color: var(--good); }
+.item.no { border-color: var(--bad); }
+.item .qn { font-family: var(--f-display); font-weight: 800; color: var(--muted); font-size: .95rem; }
+.item .q { font-family: var(--f-ar); font-size: 1.55rem; direction: rtl; line-height: 1.8; }
+.item .q u { text-decoration: none; border-bottom: 2px dashed var(--accent); padding-inline: 18px; }
+.item .q u.filled { padding-inline: 2px; border-bottom-style: solid; color: var(--accent); }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; }
+.opt { font-family: var(--f-ar); font-size: 1.35rem; line-height: 1.6; padding: 4px 14px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; text-align: right; }
+.opt.lat { font-family: var(--f-body); font-size: 1rem; font-weight: 700; padding: 8px 16px; }
+.opt.block { flex: 1 1 100%; }
+.opt:hover:not([disabled]) { border-color: var(--accent); }
+.opt.sel-ok { border-color: var(--good); background: var(--good-bg); color: var(--good); }
+.opt.sel-no { border-color: var(--bad); background: var(--bad-bg); color: var(--bad); }
+.opt[disabled] { cursor: default; }
+.fb { font-size: .95rem; }
+.fb .ok { color: var(--good); font-weight: 700; } .fb .no { color: var(--bad); font-weight: 700; }
+.fb .ar { font-size: 1.2rem; }
+.tile-line { min-height: 58px; border: 2px dashed var(--line); border-radius: 12px; padding: 6px; display: flex; flex-wrap: wrap; gap: 6px; direction: rtl; align-items: center; }
+.tile-line.okk { border-style: solid; border-color: var(--good); background: var(--good-bg); }
+.tile-line.nok { border-style: solid; border-color: var(--bad); background: var(--bad-bg); }
+.tiles { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; }
+.tile { font-family: var(--f-ar); font-size: 1.4rem; line-height: 1.5; padding: 2px 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; box-shadow: 0 2px 0 var(--line); }
+.tile:hover:not([disabled]) { border-color: var(--accent); }
+.tile[disabled] { opacity: .25; cursor: default; box-shadow: none; }
+.tile.inl { background: var(--soft); }
+.tagbtn { display: inline-grid; justify-items: center; cursor: pointer; border: 0; background: transparent; padding: 0; }
+.tagbtn .w { font-family: var(--f-ar); font-size: 1.55rem; line-height: 1.6; padding: 0 10px; border-radius: 10px; border: 1.5px dashed var(--line); }
+.tagbtn .t { font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); min-height: 1.1em; }
+.tagbtn.has .w { border-style: solid; border-color: var(--role); background: color-mix(in srgb, var(--role) 13%, transparent); }
+.tagbtn.has .t { color: var(--role); }
+.tagbtn.wrong .w { outline: 2px solid var(--bad); outline-offset: 2px; }
+.slot { font-family: var(--f-ar); font-size: 1.5rem; line-height: 1.6; padding: 0 12px; border-radius: 10px; border: 1.5px solid var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); cursor: pointer; min-width: 64px; }
+.slot.empty { color: var(--muted); border-style: dashed; }
+.slot.wrong { border-color: var(--bad); background: var(--bad-bg); }
+.slot.right { border-color: var(--good); background: var(--good-bg); }
+.combo-line { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; align-items: center; font-family: var(--f-ar); font-size: 1.5rem; }
+.bank { display: flex; flex-wrap: wrap; gap: 8px; direction: rtl; padding: 10px; border-radius: 12px; background: var(--soft); }
+.bank .tile[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: var(--card); }
+.cls-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.passage { font-family: var(--f-ar); font-size: 1.45rem; line-height: 2.1; direction: rtl; text-align: justify; }
+.passage-tr { font-size: .98rem; color: var(--muted); }
+.qa { display: grid; gap: 6px; padding: 10px 12px; border-radius: 10px; background: var(--soft); }
+.qa .ar { font-size: 1.35rem; }
+
+/* oyunlar */
+.game-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.game-card { display: grid; gap: 8px; align-content: start; border-top: 5px solid var(--role); }
+.game-card .ico { font-family: var(--f-ar); font-size: 1.9rem; color: var(--role); direction: rtl; line-height: 1.4; }
+.hud { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: baseline; font-variant-numeric: tabular-nums; }
+.hud b { font-family: var(--f-display); font-size: 1.45rem; color: var(--accent); }
+.time-bar { height: 10px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.time-bar div { height: 100%; background: var(--accent); transition: width 1s linear; }
+.time-bar.low div { background: var(--bad); }
+.target { font-family: var(--f-ar); font-size: clamp(1.7rem, 6vw, 2.5rem); text-align: center; line-height: 1.8; padding: 12px; border-radius: 16px; background: var(--soft); direction: rtl; }
+.target.flash-ok { background: var(--good-bg); }
+.target.flash-no { background: var(--bad-bg); animation: shake .35s; }
+.q-end { display: inline-block; min-width: 34px; border: 2px dashed var(--accent); border-radius: 8px; color: var(--accent); font-family: var(--f-body); font-size: 1rem; vertical-align: middle; line-height: 1.6; text-align: center; }
+.big2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.big2 button, .big3 button { border: 0; border-radius: 14px; padding: 14px 6px; font-weight: 800; font-family: var(--f-display); font-size: 1.15rem; color: var(--card); background: var(--role); cursor: pointer; display: grid; gap: 2px; justify-items: center; }
+.big2 button .ar, .big3 button .ar { font-weight: 400; font-size: 1.4rem; line-height: 1.3; }
+.big2 button small { font-family: var(--f-body); font-weight: 500; font-size: .75rem; opacity: .85; }
+.big3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
+.big3 button { --role: var(--accent); font-family: var(--f-ar); font-size: 1.8rem; font-weight: 400; }
+.gfb { min-height: 3em; text-align: center; }
+.gfb .ar { font-size: 1.3rem; }
+.score-big { font-family: var(--f-display); font-size: 3rem; font-weight: 800; color: var(--accent); }
+.stars { font-size: 2.1rem; letter-spacing: .15em; color: var(--muf); }
+.stars .off { color: var(--line); }
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+@keyframes pop { 0% { transform: scale(.92); } 60% { transform: scale(1.05); } 100% { transform: scale(1); } }
+.pop { animation: pop .3s; }
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(20px); background: var(--ink); color: var(--paper); padding: 10px 18px; border-radius: 12px; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 20; max-width: calc(100% - 32px); text-align: center; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; }
+@media (max-width: 720px) {
+  header.top { grid-template-columns: 1fr; }
+  .unit-hero { grid-template-columns: 1fr; }
+  .tree-row { grid-template-columns: 1fr; }
+  .chunk .w { font-size: 1.45rem; }
+  .item .q { font-size: 1.35rem; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* --- bu programa özel --- */
+.viz { grid-template-columns: minmax(0, 1fr); }
+.viz > * { max-width: 100%; min-width: 0; }
+.chunk.r-dash .w { background: transparent; border-bottom-color: transparent; color: var(--muted); }
+.sent .plain { font-family: var(--f-ar); font-size: 1.55rem; line-height: 1.6; color: var(--muted); align-self: center; padding: 0 2px; }
+.tagbtn.findbtn.on .w { border-style: solid; border-color: var(--y); background: color-mix(in srgb, var(--y) 14%, transparent); }
+.tagbtn.findbtn.miss .w { outline: 2px dashed var(--good); outline-offset: 2px; }
+.srcline { font-size: .85rem; color: var(--muted); }
+.sumgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; }
+.sumcard { display: grid; gap: 10px; align-content: start; border-top: 5px solid var(--role); }
+.sumcard h3 { color: var(--role); }
+.sumcard .ar.t { font-size: 1.45rem; color: var(--role); }
+.sumcard ul { margin: 0; padding-inline-start: 18px; display: grid; gap: 4px; }
+.sumcard .ar { font-size: 1.2rem; }
+.flash-wrap { display: grid; gap: 12px; justify-items: center; }
+.flash { width: 100%; max-width: 560px; min-height: 170px; perspective: 900px; border: 0; background: transparent; padding: 0; cursor: pointer; }
+.flash .in { position: relative; width: 100%; min-height: 170px; transition: transform .45s; transform-style: preserve-3d; }
+.flash.up .in { transform: rotateY(180deg); }
+.flash .face { position: absolute; inset: 0; border-radius: 16px; display: grid; place-items: center; padding: 18px; backface-visibility: hidden; -webkit-backface-visibility: hidden; text-align: center; font-size: 1.15rem; }
+.flash .front { background: var(--ink); color: var(--paper); font-family: var(--f-display); font-weight: 700; font-size: 1.35rem; }
+.flash .back { background: var(--card); border: 2px solid var(--accent); transform: rotateY(180deg); }
+.flash .back .ar { font-size: 1.25rem; }
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.checklist label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.checklist input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--accent); }
+.icons { display: inline-flex; gap: 2px; flex-wrap: wrap; }
+.icons .ico { width: 22px; height: 22px; }
+.sfx { color: var(--role); font-weight: 700; }
+.qz-bars { display: grid; gap: 10px; width: 100%; max-width: 560px; }
+.qz-bar { display: grid; grid-template-columns: 150px minmax(0, 1fr) 54px; gap: 10px; align-items: center; font-size: .92rem; }
+.qz-bar .tr2 { height: 12px; border-radius: 99px; background: var(--soft); overflow: hidden; }
+.qz-bar .tr2 div { height: 100%; background: var(--role); }
+.qz-type { font-size: .85rem; color: var(--muted); }
+.big5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.big5 button { border: 0; border-radius: 14px; padding: 12px 6px; font-weight: 800; font-family: var(--f-display); font-size: 1rem; color: var(--card); background: var(--role); cursor: pointer; display: grid; gap: 2px; justify-items: center; }
+.big5 button .ar { font-weight: 400; font-size: 1.15rem; line-height: 1.4; }
+.big5 button small { font-family: var(--f-body); font-weight: 500; font-size: .72rem; opacity: .85; }
+.mem { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.mcard { aspect-ratio: 4 / 3; max-width: 100%; perspective: 700px; border: 0; padding: 0; background: transparent; cursor: pointer; }
+.mcard .in { position: relative; width: 100%; height: 100%; transition: transform .35s; transform-style: preserve-3d; }
+.mcard.up .in, .mcard.done .in { transform: rotateY(180deg); }
+.mcard .face { position: absolute; inset: 0; border-radius: 12px; display: grid; place-items: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 4px; text-align: center; }
+.mcard .back { background: var(--ink); color: var(--paper); font-family: var(--f-ar); font-size: 1.3rem; opacity: .92; }
+.mcard .front { transform: rotateY(180deg); background: var(--card); border: 2px solid var(--line); font-family: var(--f-ar); font-size: 1.55rem; }
+.mcard.done .front { border-color: var(--good); background: var(--good-bg); }
+.mcard .front.lat { font-family: var(--f-body); font-size: .9rem; font-weight: 700; line-height: 1.25; }
+/* i'rab tablosu: mansûb ile mecrûr aynıysa tek hücre */
+.itab { display: grid; grid-template-columns: minmax(0, 1.05fr) repeat(3, minmax(0, 1fr)); direction: rtl; width: 100%; max-width: 820px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
+.itab > div { direction: ltr; padding: 8px 6px; text-align: center; display: grid; gap: 1px; align-content: center; justify-items: center; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); min-width: 0; }
+.itab > div.end { border-left: 0; }
+.itab .hd { background: var(--role); color: var(--card); font-weight: 800; font-family: var(--f-display); }
+.itab .hd .ar { font-size: 1.05rem; line-height: 1.4; font-family: var(--f-ar); font-weight: 400; }
+.itab .corner { background: var(--soft); color: var(--muted); font-size: .8rem; }
+.itab .rh { background: color-mix(in srgb, var(--role) 11%, var(--card)); border-right: 5px solid var(--role); }
+.itab .rh b { color: var(--role); font-size: .95rem; line-height: 1.2; }
+.itab .c .ar { font-size: 1.3rem; line-height: 1.6; }
+.itab .c .ar b { color: var(--role); }
+.itab .c small { color: var(--muted); font-size: .78rem; }
+.itab .c.same { grid-column: span 2; background: repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--role) 6%, transparent) 10px 20px); }
+.itab .c.same small b { color: var(--ink); }
+.itab > div.last { border-bottom: 0; }
+.fork { display: flex; gap: 12px; align-items: center; justify-content: center; direction: rtl; flex-wrap: wrap; width: 100%; }
+.fork .outs { display: grid; gap: 8px; direction: ltr; }
+.fcard { border-radius: 14px; padding: 8px 14px; text-align: center; display: grid; gap: 0; justify-items: center; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); min-width: 0; }
+.fcard .ar { font-size: 1.6rem; line-height: 1.6; }
+.fcard .ar b { color: var(--role); }
+.fcard small { color: var(--muted); font-size: .8rem; }
+.fcard b.t { color: var(--role); font-size: .9rem; }
+.fork .arr { font-size: 1.8rem; color: var(--muted); }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.badge { border-radius: 999px; padding: 4px 12px; background: var(--soft); font-size: .9rem; display: inline-flex; gap: 6px; align-items: center; }
+.badge .ar { font-size: 1.15rem; line-height: 1.4; color: var(--role); }
+.vs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; width: 100%; max-width: 640px; }
+.vs .fcard .ar { font-size: 1.5rem; }
+.nope { text-decoration: line-through; text-decoration-color: var(--bad); text-decoration-thickness: 2px; opacity: .8; }
+.pairs6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 640px; direction: rtl; }
+.pairs6 > div { border-radius: 10px; background: var(--soft); padding: 6px; text-align: center; font-family: var(--f-ar); font-size: 1.2rem; line-height: 1.6; direction: rtl; border-top: 3px solid var(--tks); }
+.pairs6 > div b { color: var(--tks); font-weight: 700; }
+.steps3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.steps3 > div { border-radius: 14px; padding: 12px; background: var(--soft); display: grid; gap: 4px; align-content: start; }
+.steps3 .n { font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; color: var(--accent); line-height: 1; }
+.steps3 .ar { font-size: 1.15rem; }
+.gorev { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; direction: rtl; }
+.gorev > div { direction: ltr; border-radius: 12px; padding: 10px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 8%, var(--card)); display: grid; gap: 2px; align-content: start; }
+.gorev b { color: var(--role); }
+.gorev .ar { font-size: 1.1rem; }
+.hl { color: var(--accent); border-bottom: 3px solid var(--accent); padding-inline: 2px; }
+.ul { border-bottom: 2.5px solid var(--accent); padding-inline: 1px; }
+.irow { display: grid; gap: 6px; }
+.irow .lbl { margin: 0; }
+.opt.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--card)); }
+.extra-tag { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 0 8px; margin-inline-start: 6px; vertical-align: middle; }
+.blank { display: inline-block; min-width: 70px; border-bottom: 3px dashed var(--accent); }
+@media (max-width: 720px) {
+  .mem { grid-template-columns: repeat(3, 1fr); }
+  .qz-bar { grid-template-columns: 110px minmax(0, 1fr) 46px; }
+  .steps3, .gorev { grid-template-columns: 1fr; }
+  .itab .c .ar { font-size: 1.05rem; }
+  .itab .rh b { font-size: .8rem; }
+  .itab .hd { font-size: .85rem; }
+  .itab > div { padding: 6px 3px; }
+  .itab .c small { font-size: .7rem; }
+  .pairs6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vs { grid-template-columns: 1fr; }
+}
+.hlb b { color: var(--role); }
+.gorev .ar.hlb { font-size: 1.2rem; }
+.steps3.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.steps3.four .ar { font-size: 1.1rem; }
+@media (max-width: 860px) { .steps3.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .steps3.four { grid-template-columns: 1fr; } }
+.makine { display: grid; gap: 8px; width: 100%; max-width: 760px; justify-items: center; }
+.mk-row { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; direction: rtl; }
+.mk { border: 1.5px solid var(--line); background: var(--card); border-radius: 10px; padding: 2px 12px; cursor: pointer; font-weight: 700; font-size: .9rem; min-height: 40px; }
+.mk .ar { font-size: 1.3rem; font-weight: 400; }
+.mk.on { border-color: var(--accent); background: var(--accent); color: var(--card); }
+.mk-out { margin-top: 6px; width: 100%; border-radius: 16px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 9%, var(--card)); padding: 12px; display: grid; justify-items: center; gap: 2px; text-align: center; }
+.mk-out .ar { font-size: clamp(2rem, 7vw, 2.8rem); line-height: 1.6; }
+.mk-out > b { color: var(--role); }
+.gorev.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gorev.six { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gorev > div { justify-items: center; text-align: center; }
+.sumgrid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (max-width: 720px) { .gorev.four, .gorev.six { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.mk.g-n { border-color: color-mix(in srgb, var(--mi) 55%, var(--line)); }
+.mk.g-c { border-color: color-mix(in srgb, var(--mz) 55%, var(--line)); }
+.mk.g-n.on { background: var(--mi); border-color: var(--mi); }
+.mk.g-c.on { background: var(--mz); border-color: var(--mz); }
+.mk-legend { display: flex; gap: 14px; font-size: .82rem; justify-content: center; }
+.mk-legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-inline-end: 5px; vertical-align: middle; }
+.mk-legend .g-n::before { background: var(--mi); } .mk-legend .g-c::before { background: var(--mz); }
+.timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 760px; direction: rtl; align-items: center; position: relative; }
+.timeline::before { content: ""; position: absolute; inset-inline: 4%; top: 50%; border-top: 2px dashed var(--line); z-index: 0; }
+.tl-card, .tl-now { position: relative; z-index: 1; direction: ltr; border-radius: 14px; padding: 10px; text-align: center; display: grid; gap: 2px; justify-items: center; }
+.tl-card { border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); }
+.tl-card .ar { font-size: 1.6rem; } .tl-card b { color: var(--role); }
+.tl-now { background: var(--soft); } .tl-now .ar { font-size: 1.4rem; }
+.tl-card small, .tl-now small { color: var(--muted); }
+/* zamir makinesi */
+.ico .fillrole { fill: var(--role); }
+.zt-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr)); gap: 6px; width: 100%; max-width: 640px; }
+.zt-c { display: grid; place-items: center; text-align: center; font-size: .82rem; min-width: 0; }
+.zt-c.hd { color: var(--muted); font-weight: 700; }
+.zt-c.rh { border-radius: 10px; background: color-mix(in srgb, var(--role) 12%, var(--card)); border-inline-start: 4px solid var(--role); padding: 2px 4px; line-height: 1.2; }
+.zt-c.rh b { color: var(--role); }
+.zt-c.rh .ar { font-size: .95rem; }
+.zt-b { border: 1.5px solid color-mix(in srgb, var(--role) 45%, var(--line)); background: var(--card); border-radius: 10px; cursor: pointer; min-height: 46px; padding: 0 4px; min-width: 0; color: var(--ink); }
+.zt-b .ar { font-size: 1.35rem; }
+.zt-b.span2 { grid-column: span 2; }
+.zt-b.on { background: var(--role); border-color: var(--role); color: var(--card); }
+.zt-out > .ar { font-size: clamp(2rem, 7vw, 2.6rem); }
+.zt-lines { display: grid; gap: 6px; width: 100%; max-width: 520px; margin-top: 6px; }
+.zt-l { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); align-items: center; gap: 2px 10px; text-align: start; border-top: 1px solid var(--line); padding-top: 6px; }
+.zt-l .lbl { grid-row: span 2; }
+.zt-l .ar { font-size: 1.45rem; line-height: 1.5; text-align: right; }
+.zt-l .ar b { color: var(--role); }
+.zt-l small { color: var(--muted); font-size: .8rem; text-align: right; }
+@media (max-width: 480px) { .zt-l { grid-template-columns: 1fr; } .zt-l .lbl { grid-row: auto; } .zt-b .ar { font-size: 1.15rem; } }
+.zt-out > .muted .ar { font-size: 1.2rem; line-height: 1.4; }
+/* çekim makinesi */
+.ct { font-style: normal; color: var(--muted); }
+.cm { font-style: normal; color: var(--muted); }
+.zt-b.cz { display: grid; place-items: center; gap: 0; padding: 2px 4px; min-height: 58px; }
+.zt-b.cz small.ar { font-size: .85rem; color: var(--muted); line-height: 1.2; }
+.zt-b.cz .ar { font-size: 1.3rem; line-height: 1.5; }
+.zt-b.cz.on { background: color-mix(in srgb, var(--role) 14%, var(--card)); color: var(--ink); outline: 3px solid var(--role); outline-offset: -1px; }
+.rz-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; font-size: .8rem; }
+.rz-legend span i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: var(--role); margin-inline-end: 5px; vertical-align: middle; }
+.mk-out .muted .ar { font-size: 1.1rem; line-height: 1.4; }
+.mk-out > b .ar { font-size: 1.1rem; line-height: 1.4; }
+@media (max-width: 480px) { .zt-b.cz .ar { font-size: 1.05rem; } .zt-b.cz small.ar { font-size: .72rem; } }
+.timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 760px; direction: rtl; align-items: center; position: relative; }
+.timeline::before { content: ""; position: absolute; inset-inline: 4%; top: 50%; border-top: 2px dashed var(--line); z-index: 0; }
+.tl-card, .tl-now { position: relative; z-index: 1; direction: ltr; border-radius: 14px; padding: 10px; text-align: center; display: grid; gap: 2px; justify-items: center; }
+.tl-card { border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); }
+.tl-card .ar { font-size: 1.6rem; } .tl-card b { color: var(--role); }
+.tl-now { background: var(--soft); } .tl-now .ar { font-size: 1.4rem; }
+.tl-card small, .tl-now small { color: var(--muted); }
+/* fiil çeşitleri */
+.fal { display: flex; gap: 10px; justify-content: center; direction: rtl; }
+.fal > div { border-radius: 14px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 9%, var(--card)); padding: 6px 18px; display: grid; justify-items: center; }
+.fal .ar { font-size: 2.2rem; line-height: 1.4; color: var(--role); }
+.fal b { color: var(--role); }
+.fal small { color: var(--muted); font-size: .78rem; }
+.alm { margin-top: 4px; border-radius: 10px; padding: 2px 8px; font-size: .85rem; font-weight: 700; }
+.alm.ok { background: var(--good-bg); color: var(--good); }
+.alm.ok .ar { font-size: 1.3rem; font-weight: 400; }
+.alm.no { background: color-mix(in srgb, var(--bad) 10%, var(--card)); color: var(--bad); }
+.mk small { font-weight: 500; font-size: .75rem; }
+/* sahih ve mu’tel */
+.pairgrid { direction: rtl; } .pairgrid > * { direction: ltr; }
+.agac { width: 100%; max-width: 920px; display: grid; gap: 10px; justify-items: center; }
+.agac .kok { font-size: 1.6rem; line-height: 1.6; padding: 0 22px; border-radius: 12px; background: var(--ink); color: var(--paper); }
+.dallar { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 4fr); gap: 12px; width: 100%; direction: rtl; }
+.dal { direction: ltr; border: 2px solid var(--role); border-radius: 16px; padding: 10px; background: color-mix(in srgb, var(--role) 7%, var(--card)); display: grid; gap: 6px; justify-items: center; align-content: start; text-align: center; }
+.dal > b { color: var(--role); font-size: 1.1rem; font-family: var(--f-display); }
+.dal > b .ar { font-weight: 400; font-size: 1.25rem; }
+.yaprak { display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 8px; width: 100%; direction: rtl; }
+.yap { direction: ltr; border-radius: 12px; border-top: 5px solid var(--role); background: var(--card); padding: 6px 4px; display: grid; justify-items: center; gap: 0; min-width: 0; }
+.yap .ar { font-size: 1.15rem; line-height: 1.5; color: var(--role); }
+.yap .ar.ex { color: var(--ink); font-size: 1.5rem; }
+.yap b { font-size: .85rem; color: var(--role); }
+.yap small { font-size: .72rem; color: var(--muted); line-height: 1.2; }
+.kokrow { display: flex; gap: 10px; direction: rtl; justify-content: center; flex-wrap: wrap; }
+.kh { direction: ltr; border-radius: 14px; border: 2px solid var(--line); background: var(--card); padding: 4px 14px; display: grid; justify-items: center; min-width: 78px; }
+.kh .ar { font-size: 2.3rem; line-height: 1.4; }
+.kh small { color: var(--muted); font-size: .74rem; }
+.kh .tag { font-size: .74rem; font-weight: 800; color: var(--role); }
+.kh.il { border-color: var(--role); background: color-mix(in srgb, var(--role) 14%, var(--card)); }
+.kh.il .ar { color: var(--role); }
+.adimlar { display: grid; gap: 4px; width: 100%; max-width: 520px; }
+.adim { display: flex; gap: 8px; align-items: baseline; padding: 4px 10px; border-radius: 10px; background: var(--soft); }
+.adim .m { font-weight: 800; }
+.adim.yes .m { color: var(--good); } .adim.no .m { color: var(--muted); }
+.hukum { border-radius: 999px; padding: 4px 18px; background: var(--role); color: var(--card); font-weight: 800; text-align: center; }
+.hukum .ar { font-weight: 400; font-size: 1.25rem; }
+@media (max-width: 720px) { .dallar { grid-template-columns: 1fr; } .kh { min-width: 64px; padding: 2px 10px; } .kh .ar { font-size: 1.9rem; } }
+/* harf-i cer */
+.harfler { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 820px; direction: rtl; }
+.hf { direction: ltr; border-radius: 12px; border: 2px solid var(--mi); background: color-mix(in srgb, var(--mi) 8%, var(--card)); display: grid; justify-items: center; padding: 4px; text-align: center; min-width: 0; }
+.hf .ar { font-size: 1.7rem; line-height: 1.5; color: var(--mi); }
+.hf small { color: var(--muted); font-size: .78rem; line-height: 1.2; }
+.soru { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; width: 100%; max-width: 820px; direction: rtl; }
+.soru > div { direction: rtl; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; justify-content: center; border-radius: 12px; background: var(--soft); padding: 6px 10px; }
+.soru .q1 { font-size: 1.3rem; } .soru .q2 { font-size: 1.4rem; color: var(--mi); font-weight: 700; } .soru .arr { color: var(--muted); }
+.soru small { width: 100%; text-align: center; color: var(--muted); font-size: .8rem; direction: ltr; }
+.mk:disabled { opacity: .35; cursor: not-allowed; }
+@media (max-width: 720px) { .harfler { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* istifham */
+.dallar.ist { grid-template-columns: minmax(0, 1fr) minmax(0, 2.6fr); }
+.bela { display: grid; grid-template-columns: minmax(0, 1.1fr) repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 760px; direction: rtl; }
+.bc { direction: ltr; border-radius: 12px; padding: 10px 6px; text-align: center; display: grid; place-items: center; gap: 2px; min-width: 0; }
+.bc.corner { color: var(--muted); font-size: .78rem; }
+.bc.hd, .bc.rh { background: var(--soft); font-weight: 700; font-size: .9rem; }
+.bc.rh .ar { font-weight: 400; font-size: 1.05rem; line-height: 1.5; }
+.bc.cell { border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 11%, var(--card)); }
+.bc.cell .ar.big { font-size: 2.3rem; line-height: 1.3; color: var(--role); font-weight: 700; }
+.bc.cell .ar { font-size: 1.1rem; line-height: 1.5; }
+.isimler { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 980px; direction: rtl; }
+.ism { direction: ltr; border-radius: 14px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 8%, var(--card)); padding: 8px 6px; display: grid; justify-items: center; text-align: center; gap: 2px; min-width: 0; align-content: start; }
+.ism .ed { font-size: 2rem; line-height: 1.4; color: var(--role); }
+.ism .tag { background: var(--role); color: var(--card); border-radius: 999px; padding: 0 8px; font-weight: 700; font-size: .72rem; }
+.ism .ex { font-size: 1.05rem; line-height: 1.6; }
+.ism small.muted { font-size: .72rem; line-height: 1.2; }
+.soru-cumle { align-items: center; gap: 8px; }
+.soru-cumle .plainw { font-size: 1.6rem; }
+.mk.part { display: grid; justify-items: center; border-color: var(--role); padding: 2px 10px; }
+.mk.part .ar { font-size: 1.5rem; line-height: 1.5; }
+.mk.part small { font-size: .7rem; color: var(--role); }
+.mk.part.on { background: var(--role); color: var(--card); }
+.mk.part.on small { color: var(--card); }
+@media (max-width: 860px) { .isimler { grid-template-columns: repeat(2, minmax(0, 1fr)); } .dallar.ist { grid-template-columns: 1fr; } }
+/* ism-i işaret */
+.tablolar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; width: 100%; max-width: 980px; direction: rtl; }
+.itab2 { direction: rtl; display: grid; grid-template-columns: minmax(0, .8fr) repeat(3, minmax(0, 1fr)); grid-template-rows: auto auto auto auto; gap: 6px; border-radius: 16px; background: var(--soft); padding: 10px; }
+.itab2 .ttl { grid-column: 1 / -1; font-weight: 800; font-family: var(--f-display); color: var(--mi); text-align: center; }
+.itab2 .th, .itab2 .rh { direction: ltr; text-align: center; font-size: .82rem; font-weight: 700; color: var(--muted); align-self: center; }
+.itab2 .th.c1 { grid-column: 2; } .itab2 .th.c2 { grid-column: 3; } .itab2 .th.c3 { grid-column: 4; }
+.itab2 .rh.r1 { grid-column: 1; grid-row: 3; } .itab2 .rh.r2 { grid-column: 1; grid-row: 4; }
+.itab2 .tc { direction: ltr; border-radius: 12px; background: var(--card); border: 2px solid var(--line); display: grid; place-items: center; text-align: center; padding: 6px 4px; min-width: 0; }
+.itab2 .tc .ar { font-size: 1.3rem; line-height: 1.5; color: var(--ink); }
+.itab2 .tc small { font-size: .68rem; color: var(--muted); line-height: 1.2; }
+.itab2 .tc.c1 { grid-column: 2; } .itab2 .tc.c2 { grid-column: 3; } .itab2 .tc.c3 { grid-column: 4; }
+.itab2 .tc.r1 { grid-row: 3; } .itab2 .tc.r2 { grid-row: 4; } .itab2 .tc.rs { grid-row: 3 / span 2; }
+.itab2 .tc.on { border-color: var(--mi); background: color-mix(in srgb, var(--mi) 16%, var(--card)); box-shadow: 0 0 0 3px color-mix(in srgb, var(--mi) 30%, transparent); }
+.itab2 .tc.on .ar { color: var(--mi); font-weight: 700; }
+.mtab { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 1fr)); gap: 6px; width: 100%; max-width: 760px; direction: rtl; }
+.mtab.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.mtab > div { direction: ltr; border-radius: 10px; padding: 6px 4px; text-align: center; display: grid; place-items: center; min-width: 0; }
+.mtab .th { font-weight: 700; color: var(--muted); font-size: .85rem; }
+.mtab .rh { background: var(--soft); font-size: .8rem; font-weight: 700; }
+.mtab .tc { background: var(--card); border: 1.5px solid var(--line); }
+.mtab .tc .ar { font-size: 1.25rem; line-height: 1.5; }
+.mtab .tc.e { border-color: var(--mz); } .mtab .tc.y { border-color: var(--mi); background: color-mix(in srgb, var(--mi) 8%, var(--card)); }
+@media (max-width: 760px) { .tablolar { grid-template-columns: 1fr; } .itab2 .tc .ar { font-size: 1.1rem; } .mtab .tc .ar { font-size: 1rem; } }
+/* ism-i mevsul */
+.itab2.mv { max-width: 640px; width: 100%; }
+.itab2.mv .tc small.ar { font-size: .85rem; color: var(--muted); }
+.zincir { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center; direction: rtl; }
+.zincir .arr { font-size: 1.5rem; color: var(--muted); }
+.zk { border-radius: 14px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 10%, var(--card)); padding: 4px 16px; display: grid; justify-items: center; }
+.zk .ar { font-size: 1.6rem; line-height: 1.5; }
+.zk small { color: var(--role); font-weight: 700; font-size: .78rem; direction: ltr; }
+/* zaman · mekân · masdar */
+.ucg { width: 100%; max-width: 860px; }
+.ucg .ar.hlb { font-size: 1.25rem; line-height: 1.7; }
+.vtree { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 860px; direction: rtl; }
+.vtree > .vt { direction: ltr; border-radius: 14px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 8%, var(--card)); padding: 10px; display: grid; gap: 4px; justify-items: center; align-content: start; text-align: center; }
+.vt .vt-w { font-size: 1.9rem; line-height: 1.5; color: var(--role); }
+.vt b { color: var(--role); font-size: .9rem; }
+.vt ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; font-size: .85rem; }
+.vt ul .ar { font-size: 1.1rem; }
+.vt.on { outline: 3px solid var(--accent); outline-offset: 2px; background: color-mix(in srgb, var(--role) 20%, var(--card)); }
+.ttab { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; width: 100%; max-width: 480px; direction: rtl; }
+.ttab > * { direction: ltr; }
+.ttab .th { font-weight: 700; font-size: .8rem; color: var(--muted); text-align: center; }
+.ttab .tc { border: 1.5px solid var(--line); border-radius: 10px; text-align: center; background: var(--card); }
+.ttab .tc .ar { font-size: 1.3rem; line-height: 1.7; }
+.zsteps { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; direction: rtl; margin-top: 6px; }
+.zsteps .arr { font-size: 1.3rem; color: var(--muted); }
+.zs { --role: var(--line); direction: ltr; border: 2px solid var(--role); border-radius: 12px; padding: 2px 12px; display: grid; justify-items: center; background: var(--card); }
+.zs small { font-size: .72rem; color: var(--muted); font-weight: 700; }
+.zs .ar { font-size: 1.5rem; line-height: 1.5; }
+.zs.big { background: color-mix(in srgb, var(--role) 12%, var(--card)); }
+.zs.big .ar { font-size: 2.1rem; color: var(--role); }
+@media (max-width: 600px) { .vtree { grid-template-columns: 1fr; } }
+.nw { white-space: nowrap; }
+/* merre · hey’e · sınâî */
+.hcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; margin-top: 6px; direction: rtl; }
+.hcard { direction: ltr; border-radius: 14px; border: 2px solid var(--role); background: color-mix(in srgb, var(--role) 9%, var(--card)); padding: 8px; display: grid; justify-items: center; text-align: center; gap: 2px; min-width: 0; }
+.hcard .ar { font-size: clamp(1.4rem, 4.6vw, 1.9rem); line-height: 1.6; }
+.hcard b.t { color: var(--role); font-size: .85rem; }
+.hcard small { color: var(--muted); font-size: .78rem; }
+.ucg .ar.hlb b { color: var(--role); }
+@media (max-width: 600px) { .hcards { grid-template-columns: 1fr; } }
+/* tafdîl */
+.utab { display: grid; gap: 6px; width: 100%; max-width: 900px; }
+.urow { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr) auto; gap: 8px; align-items: center; border: 2px solid var(--role); border-radius: 14px; padding: 6px 10px; background: color-mix(in srgb, var(--role) 7%, var(--card)); }
+.urow.on { outline: 3px solid var(--accent); outline-offset: 2px; background: color-mix(in srgb, var(--role) 18%, var(--card)); }
+.urow .uk { display: grid; gap: 0; }
+.urow .uk b { color: var(--role); font-size: .9rem; }
+.urow .uk .ar { font-size: 1rem; color: var(--muted); }
+.urow .ue { text-align: center; font-size: 1.2rem; line-height: 1.7; }
+.urow .ue b, .tfo b { color: var(--mi); }
+.ub, .ubadge { background: var(--role); color: var(--card); font-weight: 800; font-size: .75rem; border-radius: 999px; padding: 3px 10px; white-space: nowrap; letter-spacing: .03em; }
+.ubadge { justify-self: center; margin: 2px 0; }
+.mk-out .tfo { font-size: clamp(1.6rem, 5.5vw, 2.4rem); }
+@media (max-width: 640px) { .urow { grid-template-columns: 1fr auto; } .urow .ue { grid-column: 1 / -1; } .urow .uk { grid-row: 1; } .urow .ub { grid-row: 1; grid-column: 2; } }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="lbl">Kitaptaki ders · beş konu</div>
+      <h1>İsm-i Tafdîl</h1>
+      <div class="h1ar">اسْمُ التَّفْضِيلِ</div>
+      <p>"Daha büyük" <span class="ar" style="color:var(--mi)">أَكْبَرُ مِنْ</span>, "en büyük" <span class="ar" style="color:var(--mi)">أَكْبَرُ الطُّلَّابِ</span>, "en büyük (kız)" <span class="ar" style="color:var(--mi)">الكُبْرَى</span>. Karışıklığın sırrı tek soruda: <b>tafdîl ne zaman değişir?</b> Dört kullanımı uyum tablosuyla öğren: <b>SABİT · SABİT · İKİ YOL · UYUM ŞART</b>. Tafdîl makinesiyle dene, alıştırmaları çöz, oyunlarla pekiştir.</p>
+    </div>
+    <div class="xpbox" id="xpbox" aria-live="polite"></div>
+  </header>
+  <nav class="tabs" role="tablist" aria-label="Bölümler" id="tabs"></nav>
+  <main id="main"></main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// ================= VERİ: İsm-i Tafdîl (اسْمُ التَّفْضِيلِ) =================
+// Parça yazımı: "kelime:rol / kelime:rol". Rol "-" düz metin.
+var ROLES = {
+  mi: { ar: "اسْمُ التَّفْضِيلِ", tr: "İsm-i tafdîl" }, cerr: { ar: "المُفَضَّلُ عَلَيْهِ", tr: "Kıyaslanan / muzâfun ileyh" },
+  nasb: { ar: "التَّمْيِيزُ", tr: "Temyiz" }, mz: { ar: "الصِّفَةُ", tr: "Sıfat / mevsuf" }, x: { ar: "", tr: "Başka" }, y: { ar: "✓", tr: "Seçtin" }
+};
+// Dört kullanım
+var KU = [["m", "1. Nekre + min", "نَكِرَةٌ + مِنْ", "mz"], ["n", "2. Nekreye muzâf", "مُضَافٌ إِلَى نَكِرَةٍ", "cerr"], ["e", "3. Marifeye muzâf", "مُضَافٌ إِلَى مَعْرِفَةٍ", "nasb"], ["l", "4. Elif-lâmlı", "مُعَرَّفٌ بِأَلْ", "mi"]];
+var KU_TR = { m: "1. Nekre + min", n: "2. Nekreye muzâf", e: "3. Marifeye muzâf", l: "4. Elif-lâmlı" };
+var KU_UY = { m: ["SABİT", "Daima أَفْعَلُ: müennes, müsennâ ve cemi için de değişmez.", "ref"], n: ["SABİT", "أَفْعَلُ değişmez; sonraki nekre isim özneye uyar.", "ref"], e: ["İKİ YOL", "Ya sabit kalır ya da uyar: أَفْضَلُ / أَفَاضِلُ، فُضْلَى / فُضْلَيَاتُ.", "nasb"], l: ["UYUM ŞART", "Mevsufuna cinsiyet ve sayıda uyar: الأَفْضَلُ، الفُضْلَى، الأَفَاضِلُ.", "mi"] };
+var DY = [["d", "Doğru", "صَحِيحٌ", "mz"], ["y", "Yanlış", "خَطَأٌ", "ref"]];
+// Makine sıfatları: [sıfat, tafdîl (müzekker), tafdîl (müennes), Türkçe]
+var TF = [
+  ["كَبِيرٌ", "أَكْبَرُ", "كُبْرَى", "büyük"], ["صَغِيرٌ", "أَصْغَرُ", "صُغْرَى", "küçük"], ["فَاضِلٌ", "أَفْضَلُ", "فُضْلَى", "faziletli"], ["حَسَنٌ", "أَحْسَنُ", "حُسْنَى", "güzel"],
+  ["طَوِيلٌ", "أَطْوَلُ", "طُولَى", "uzun"], ["عَظِيمٌ", "أَعْظَمُ", "عُظْمَى", "yüce"], ["عَالٍ", "أَعْلَى", "عُلْيَا", "yüksek"], ["قَرِيبٌ", "أَقْرَبُ", "قُرْبَى", "yakın"]
+];
+// Tafdîl yapma: [sıfat, tafdîl, yanlış 1, yanlış 2, Türkçe, not]
+var TY = [
+  ["صَغِيرٌ", "أَصْغَرُ", "صُغْرَى", "أُصَيْغِرُ", "küçük → daha küçük", ""], ["قَصِيرٌ", "أَقْصَرُ", "قُصْرَى", "أَقَاصِرُ", "kısa → daha kısa", ""],
+  ["حَسَنٌ", "أَحْسَنُ", "حُسْنَى", "إِحْسَانٌ", "güzel → daha güzel", ""], ["عَظِيمٌ", "أَعْظَمُ", "عُظْمَى", "عِظَامٌ", "büyük → daha büyük", ""],
+  ["وَاسِعٌ", "أَوْسَعُ", "وُسْعَى", "مُوَسَّعٌ", "geniş → daha geniş", ""], ["سَهْلٌ", "أَسْهَلُ", "سُهْلَى", "مُسَهَّلٌ", "kolay → daha kolay", ""],
+  ["طَوِيلٌ", "أَطْوَلُ", "طُولَى", "أَطْيَلُ", "uzun → daha uzun", ""], ["صَعْبٌ", "أَصْعَبُ", "صُعْبَى", "مُصَعَّبٌ", "zor → daha zor", ""],
+  ["عَالِمٌ", "أَعْلَمُ", "عُلْمَى", "عَلِيمٌ", "bilgin → daha bilgin", ""], ["كَرِيمٌ", "أَكْرَمُ", "كُرْمَى", "إِكْرَامٌ", "cömert → daha cömert", ""],
+  ["شَدِيدٌ", "أَشَدُّ", "أَشْدَدُ", "شِدَادٌ", "şiddetli → daha şiddetli", "Muzâaf: أَشْدَدُ → أَشَدُّ (idğam)."], ["قَلِيلٌ", "أَقَلُّ", "أَقْلَلُ", "قِلَّةٌ", "az → daha az", "Muzâaf: أَقْلَلُ → أَقَلُّ (idğam)."],
+  ["حُلْوٌ", "أَحْلَى", "أَحْلَوُ", "حَلْوَى", "tatlı → daha tatlı", "Nâkıs: son harf elif-i maksûre olur."], ["قَوِيٌّ", "أَقْوَى", "أَقْوَيُ", "قُوَّةٌ", "güçlü → daha güçlü", "Nâkıs: son harf elif-i maksûre olur."],
+  ["غَنِيٌّ", "أَغْنَى", "أَغْنَيُ", "غِنًى", "zengin → daha zengin", "Nâkıs: son harf elif-i maksûre olur."]
+];
+
+function W(s, tr, why) {
+  return { c: s.split(" ").map(function (w) {
+    var m = /^([^\[\{]*)\[(.*)\](.*)$/.exec(w), p = /^([^\[\{]*)\{(.*)\}(.*)$/.exec(w);
+    if (m) return (m[1] + m[2] + m[3]).replace(/_/g, " ") + ":y";
+    if (p) return (p[1] + p[2] + p[3]).replace(/_/g, " ") + ":-";
+    return w.replace(/_/g, " ") + ":x";
+  }).join(" / "), tr: tr, why: why };
+}
+function HL(s, w) { return s.replace(w, '<b class="hl">' + w + '</b>'); }
+function SUR(s) { return ' <small class="muted">(' + s + ')</small>'; }
+function P(q, c, w1, w2, i, tr, why) {
+  var k = [[0, 1, 2], [1, 0, 2], [2, 0, 1], [1, 2, 0], [0, 2, 1], [2, 1, 0]][i % 6], o = [c, w1, w2];
+  return { q: q, o: k.map(function (j) { return o[j]; }), a: k.indexOf(0), tr: tr, why: why };
+}
+
+var UNITS = [
+// ---------------------------------------------------------------- 1 · NEDİR
+{
+  id: "u1", no: 1, ar: "مَا اسْمُ التَّفْضِيلِ؟", tr: "İsm-i Tafdîl Nedir?", short: "Nedir?", col: "mi", legend: ["mi", "cerr"],
+  goals: ["İsm-i tafdîlin iki şeyin ortak bir sıfatta birinin üstün geldiğini bildirdiğini bilmek: \"daha …, en …\"", "Sülâsî sıfattan أَفْعَلُ kalıbıyla yapmak; خَيْرٌ ve شَرٌّ hemzesizdir", "Muzâaf (أَشَدُّ) ve nâkıs (أَعْلَى) şekilleri tanımak; renk sıfatı أَحْمَرُ ile ve fiil أَعْلَمُ ile karıştırmamak"],
+  examples: [
+    { s: "حَسَنٌ:- / أَفْضَلُ:mi / مِنْ جَمَالٍ.:cerr", tr: "Hasan Cemal’den daha faziletlidir.", pair: "فَاطِمَةُ:- / أَفْضَلُ:mi / مِنْ زَيْنَبَ.:cerr", pairTr: "Fâtıma Zeyneb’den daha faziletlidir." },
+    { s: "اليَدُ العُلْيَا:- / خَيْرٌ:mi / مِنَ اليَدِ السُّفْلَى.:cerr", tr: "Veren el alan elden daha hayırlıdır. (hadis)" }
+  ],
+  rules: [
+    { tr: "<b class=\"r-mi\">İsm-i tafdîl</b> (<span class=\"ar\">اسْمُ التَّفْضِيلِ</span>): iki şey bir sıfatta ortaktır, biri o sıfatta ötekinden <b>daha fazladır</b>. Türkçede \"daha …\" ya da \"en …\" ile karşılanır." },
+    { tr: "Vezni <b class=\"ar\">أَفْعَلُ</b>; gayr-ı munsariftir (tenvin almaz):", ex: ["كَبِيرٌ ← أَكْبَرُ", "صَغِيرٌ ← أَصْغَرُ", "عَالِمٌ ← أَعْلَمُ", "وَاسِعٌ ← أَوْسَعُ"] },
+    { tr: "İki kelime <b>hemzesiz</b> meşhur olmuştur: <span class=\"ar\">خَيْرٌ</span> (daha hayırlı) ve <span class=\"ar\">شَرٌّ</span> (daha kötü). Aslı أَخْيَرُ، أَشَرُّ." },
+    { tr: "Muzâafta idğam olur: <span class=\"ar\">أَشْدَدُ ← أَشَدُّ، أَقْلَلُ ← أَقَلُّ</span>. Nâkısta son harf elif-i maksûre olur: <span class=\"ar\">أَعْلَى، أَقْوَى، أَحْلَى، أَغْنَى</span>." },
+    { tr: "Karıştırma: renk ve ayıp sıfatları da أَفْعَلُ kalıbındadır ama tafdîl değildir (<span class=\"ar\">أَحْمَرُ – حَمْرَاءُ، أَعْرَجُ</span>). <span class=\"ar\">أَعْلَمُ ذَلِكَ</span> \"bunu bilirim\" muzâri fiildir." }
+  ],
+  kaide: [
+    "اسْمُ التَّفْضِيلِ: اسْمٌ مُشْتَقٌّ يَدُلُّ عَلَى زِيَادَةٍ فِي صِفَةٍ، اشْتَرَكَ فِيهَا اثْنَانِ، وَزَادَ أَحَدُهُمَا فِيهَا عَلَى الآخَرِ.",
+    "وَزْنُهُ: أَفْعَلُ.",
+    "هُنَاكَ صِيغَتَانِ فِي اسْمِ التَّفْضِيلِ اشْتَهَرَتَا بِحَذْفِ الهَمْزَةِ: خَيْرٌ – شَرٌّ."
+  ],
+  ex: [
+    { type: "pick", fill: true, num: "١", ar: "امْلَأِ الفَرَاغَ بِاسْمِ تَفْضِيلٍ مُنَاسِبٍ مِنَ الكَلِمَاتِ التَّالِيَةِ", tr: "Sıfattan ism-i tafdîli seç: أَفْعَلُ. Muzâafta idğam, nâkısta elif-i maksûre.", exHtml: "<span class=\"ar\">كَبِيرٌ ← أَكْبَرُ</span>",
+      items: TY.map(function (v, i) { return P(v[0] + " ← ___", v[1], v[2], v[3], i, v[4], v[5] || "أَفْعَلُ: " + v[1] + "."); }) },
+    { type: "classify", extra: true, opts: [["t", "İsm-i tafdîl", "اسْمُ تَفْضِيلٍ", "mi"], ["x", "Değil", "لَيْسَ تَفْضِيلًا", "x"]], ar: "اسْمُ تَفْضِيلٍ أَمْ لَا؟", tr: "أَفْعَلُ kalıbındaki her kelime tafdîl değildir. Koyu kelime tafdîl mi?", items: [
+      { s: HL("هُوَ أَكْبَرُ مِنْ أَخِيهِ", "أَكْبَرُ"), a: "t", why: "Kardeşinden daha büyük." },
+      { s: HL("لَبِسْتُ ثَوْبًا أَحْمَرَ", "أَحْمَرَ"), a: "x", why: "Renk sıfatı: أَحْمَرُ – حَمْرَاءُ." },
+      { s: HL("هُوَ أَعْلَمُ مِنِّي", "أَعْلَمُ"), a: "t", why: "Benden daha bilgili." },
+      { s: HL("أَنَا أَعْلَمُ ذَلِكَ", "أَعْلَمُ"), a: "x", why: "Muzâri fiil: \"bilirim\"." },
+      { s: HL("رَأَيْتُ رَجُلًا أَعْرَجَ", "أَعْرَجَ"), a: "x", why: "Ayıp sıfatı (topal): أَعْرَجُ – عَرْجَاءُ." },
+      { s: HL("الصِّدْقُ أَحْسَنُ الأَخْلَاقِ", "أَحْسَنُ"), a: "t", why: "Ahlâkın en güzeli." },
+      { s: HL("أَكْرَمَ الرَّجُلُ ضَيْفَهُ", "أَكْرَمَ"), a: "x", why: "Mâzi fiil: ikram etti." },
+      { s: HL("إِنَّ أَكْرَمَكُمْ عِنْدَ اللهِ أَتْقَاكُمْ", "أَكْرَمَكُمْ"), a: "t", why: "En değerliniz (Hucurât 13)." },
+      { s: HL("الثَّلْجُ أَبْيَضُ", "أَبْيَضُ"), a: "x", why: "Renk sıfatı: beyaz." },
+      { s: HL("هُوَ خَيْرٌ مِنْكَ", "خَيْرٌ"), a: "t", why: "Hemzesiz tafdîl: senden daha hayırlı." },
+      { s: HL("أَكْتُبُ الدَّرْسَ", "أَكْتُبُ"), a: "x", why: "Muzâri fiil: yazıyorum." },
+      { s: HL("القِطَارُ أَسْرَعُ مِنَ السَّيَّارَةِ", "أَسْرَعُ"), a: "t", why: "Arabadan daha hızlı." }
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 2 · DÖRT KULLANIM
+{
+  id: "u2", no: 2, ar: "اسْتِعْمَالَاتُ اسْمِ التَّفْضِيلِ", tr: "Dört Kullanım ve Uyum", short: "4 kullanım", col: "cerr", legend: ["mi", "cerr", "mz"],
+  goals: ["Tafdîlin dört kullanımını tanımak: nekre + مِنْ, nekreye muzâf, marifeye muzâf, elif-lâmlı", "Hangi kullanımda sabit kaldığını, hangisinde uyduğunu bilmek: SABİT · SABİT · İKİ YOL · UYUM ŞART", "Doğru biçimi seçmek: أَفْضَلُ مِنْ زَيْنَبَ ama الطَّالِبَةُ الفُضْلَى"],
+  examples: [
+    { s: "حَسَنٌ:- / أَفْضَلُ:mi / مِنْ جَمَالٍ.:cerr", tr: "1 · Hasan Cemal’den daha faziletli.", pair: "فَاطِمَةُ:- / أَفْضَلُ:mi / مِنْ زَيْنَبَ.:cerr", pairTr: "1 · Fâtıma Zeyneb’den daha faziletli. (müennes ama أَفْضَلُ)" },
+    { s: "حَسَنٌ:- / أَفْضَلُ:mi / طَالِبٍ:cerr / فِي الصَّفِّ.:-", tr: "2 · Hasan sınıftaki en faziletli öğrenci.", pair: "فَاطِمَةُ:- / أَفْضَلُ:mi / طَالِبَةٍ:cerr / فِي الصَّفِّ.:-", pairTr: "2 · Fâtıma sınıftaki en faziletli öğrenci. (أَفْضَلُ sabit, طَالِبَةٍ uydu)" },
+    { s: "حَسَنٌ:- / أَفْضَلُ:mi / الطُّلَّابِ.:cerr", tr: "3 · Hasan öğrencilerin en faziletlisi.", pair: "فَاطِمَةُ:- / أَفْضَلُ:mi / الطَّالِبَاتِ.:cerr", pairTr: "3 · Fâtıma öğrencilerin en faziletlisi. (فُضْلَى da olur)" },
+    { s: "أَحْمَدُ الطَّالِبُ:mz / الأَفْضَلُ:mi / خُلُقًا.:-", tr: "4 · Ahmed ahlâkça en faziletli öğrenci.", pair: "فَاطِمَةُ الطَّالِبَةُ:mz / الفُضْلَى:mi / خُلُقًا.:-", pairTr: "4 · Fâtıma ahlâkça en faziletli öğrenci. (uyum şart: الفُضْلَى)" }
+  ],
+  rules: [
+    { tr: "<b>1. Nekre + مِنْ</b>: tafdîl daima <b>أَفْعَلُ</b>, hiç değişmez. \"…den daha …\"", ex: ["حَسَنٌ أَفْضَلُ مِنْ جَمَالٍ", "فَاطِمَةُ أَفْضَلُ مِنْ زَيْنَبَ"] },
+    { tr: "<b>2. Nekreye muzâf</b>: tafdîl <b>sabit</b>; arkasındaki nekre isim özneye uyar. \"en … bir …\"", ex: ["حَسَنٌ أَفْضَلُ طَالِبٍ", "فَاطِمَةُ أَفْضَلُ طَالِبَةٍ", "هُمْ أَفْضَلُ رِجَالٍ", "هُنَّ أَفْضَلُ نِسَاءٍ"] },
+    { tr: "<b>3. Marifeye muzâf</b>: <b>iki yol</b> var; sabit kalabilir ya da uyabilir. \"…lerin en …i\"", ex: ["حَسَنٌ أَفْضَلُ الطُّلَّابِ", "فَاطِمَةُ أَفْضَلُ الطَّالِبَاتِ", "هُمْ أَفْضَلُ / أَفَاضِلُ الرِّجَالِ", "هُنَّ أَفْضَلُ / فُضْلَيَاتُ النِّسَاءِ"] },
+    { tr: "<b>4. Elif-lâmlı</b>: <b>uyum şart</b>; tafdîl sıfat gibi mevsufuna cinsiyet ve sayıda uyar, مِنْ almaz.", ex: ["أَحْمَدُ الطَّالِبُ الأَفْضَلُ خُلُقًا", "فَاطِمَةُ الطَّالِبَةُ الفُضْلَى خُلُقًا", "الأَسْمَاءُ الحُسْنَى", "اليَدُ العُلْيَا"] },
+    { tr: "Kısa yol: <b>Arkasında مِنْ ya da nekre varsa dokunma; ال aldıysa uydur; marifeye muzâfsa ikisi de olur.</b>" }
+  ],
+  kaide: [
+    "لِاسْمِ التَّفْضِيلِ اسْتِعْمَالَاتٌ أَرْبَعَةٌ:",
+    "١ ـ أَنْ يَكُونَ نَكِرَةً وَبَعْدَهُ «مِنْ»: حَسَنٌ أَفْضَلُ مِنْ جَمَالٍ، فَاطِمَةُ أَفْضَلُ مِنْ زَيْنَبَ.",
+    "٢ ـ أَنْ يَكُونَ نَكِرَةً مُضَافًا إِلَى نَكِرَةٍ: حَسَنٌ أَفْضَلُ طَالِبٍ فِي الصَّفِّ، فَاطِمَةُ أَفْضَلُ طَالِبَةٍ فِي الصَّفِّ، هُمْ أَفْضَلُ رِجَالٍ، هُنَّ أَفْضَلُ نِسَاءٍ.",
+    "٣ ـ أَنْ يَكُونَ مُضَافًا إِلَى مَعْرِفَةٍ: حَسَنٌ أَفْضَلُ الطُّلَّابِ، فَاطِمَةُ أَفْضَلُ الطَّالِبَاتِ، هُمْ أَفْضَلُ (أَفَاضِلُ) الرِّجَالِ، هُنَّ أَفْضَلُ (فُضْلَيَاتُ) النِّسَاءِ.",
+    "٤ ـ أَنْ يَكُونَ مَعْرِفَةً: أَحْمَدُ الطَّالِبُ الأَفْضَلُ خُلُقًا، فَاطِمَةُ الطَّالِبَةُ الفُضْلَى خُلُقًا."
+  ],
+  ex: [
+    { type: "classify", extra: true, opts: KU, ar: "مَا اسْتِعْمَالُ اسْمِ التَّفْضِيلِ؟", tr: "Kitabın örneklerinde tafdîl hangi kullanımda? Arkasına bak: مِنْ mi, nekre mi, marife mi, kendisi ال mı aldı?", items: [
+      { s: HL("حَسَنٌ أَفْضَلُ مِنْ جَمَالٍ", "أَفْضَلُ"), a: "m", why: "Arkasında مِنْ." },
+      { s: HL("فَاطِمَةُ أَفْضَلُ مِنْ زَيْنَبَ", "أَفْضَلُ"), a: "m", why: "مِنْ: müennese de أَفْضَلُ." },
+      { s: HL("حَسَنٌ أَفْضَلُ طَالِبٍ فِي الصَّفِّ", "أَفْضَلُ"), a: "n", why: "طَالِبٍ nekre." },
+      { s: HL("فَاطِمَةُ أَفْضَلُ طَالِبَةٍ فِي الصَّفِّ", "أَفْضَلُ"), a: "n", why: "طَالِبَةٍ nekre." },
+      { s: HL("هُمْ أَفْضَلُ رِجَالٍ", "أَفْضَلُ"), a: "n", why: "رِجَالٍ nekre." },
+      { s: HL("حَسَنٌ أَفْضَلُ الطُّلَّابِ", "أَفْضَلُ"), a: "e", why: "الطُّلَّابِ marife." },
+      { s: HL("هُنَّ فُضْلَيَاتُ النِّسَاءِ", "فُضْلَيَاتُ"), a: "e", why: "Marifeye muzâf, uyan yol seçilmiş." },
+      { s: HL("هُمْ أَفَاضِلُ الرِّجَالِ", "أَفَاضِلُ"), a: "e", why: "Marifeye muzâf, uyan yol." },
+      { s: HL("أَحْمَدُ الطَّالِبُ الأَفْضَلُ خُلُقًا", "الأَفْضَلُ"), a: "l", why: "Kendisi ال almış." },
+      { s: HL("فَاطِمَةُ الطَّالِبَةُ الفُضْلَى خُلُقًا", "الفُضْلَى"), a: "l", why: "ال almış, müennese uymuş." }
+    ]},
+    { type: "pick", fill: true, extra: true, ar: "اخْتَرِ الصِّيغَةَ الصَّحِيحَةَ", tr: "Doğru biçimi seç. Önce kullanımı bul: SABİT mi, İKİ YOL mu, UYUM ŞART mı?", items: [
+      P("فَاطِمَةُ ___ مِنْ زَيْنَبَ.", "أَفْضَلُ", "فُضْلَى", "الفُضْلَى", 0, "Fâtıma Zeyneb’den daha faziletli.", "1. kullanım (مِنْ): sabit أَفْضَلُ."),
+      P("الطَّالِبَتَانِ ___ مِنْ أُخْتِهِمَا.", "أَفْضَلُ", "فُضْلَيَانِ", "أَفْضَلَانِ", 1, "İki öğrenci kız kardeşlerinden daha faziletli.", "مِنْ: müsennâda da أَفْضَلُ."),
+      P("هُمْ ___ رِجَالٍ.", "أَفْضَلُ", "أَفَاضِلُ", "أَفْضَلُونَ", 2, "Onlar en faziletli adamlardır.", "2. kullanım (nekreye muzâf): sabit."),
+      P("مَكَّةُ ___ مَدِينَةٍ.", "أَفْضَلُ", "فُضْلَى", "الفُضْلَى", 3, "Mekke en faziletli şehirdir.", "Nekreye muzâf: sabit; مَدِينَةٍ özneye uydu."),
+      P("فَاطِمَةُ الطَّالِبَةُ ___ خُلُقًا.", "الفُضْلَى", "الأَفْضَلُ", "أَفْضَلُ", 4, "Fâtıma ahlâkça en faziletli öğrenci.", "4. kullanım (ال): uyum şart."),
+      P("أَحْمَدُ الطَّالِبُ ___ خُلُقًا.", "الأَفْضَلُ", "الفُضْلَى", "أَفْضَلُ", 5, "Ahmed ahlâkça en faziletli öğrenci.", "ال: müzekker mevsufa uyar."),
+      P("الطُّلَّابُ ___ يَجْلِسُونَ فِي الأَمَامِ.", "الأَفَاضِلُ", "الأَفْضَلُ", "أَفْضَلُ", 0, "En faziletli öğrenciler önde oturur.", "ال: çoğula uyar (الأَفْضَلُونَ da olur)."),
+      P("الجَامِعَةُ ___ فِي المَدِينَةِ.", "الكُبْرَى", "الأَكْبَرُ", "أَكْبَرُ", 1, "Şehirdeki en büyük üniversite.", "ال: müennese uyar."),
+      P("هُنَّ ___ النِّسَاءِ.", "أَفْضَلُ", "الفُضْلَى", "فُضْلَيَاتٍ", 2, "Onlar kadınların en faziletlileri.", "3. kullanım: أَفْضَلُ ya da فُضْلَيَاتُ; ikisi de doğru."),
+      P("زَيْنَبُ ___ أَخَوَاتِهَا.", "أَكْبَرُ", "الكُبْرَى", "أَكْبَرَ", 3, "Zeyneb kız kardeşlerinin en büyüğü.", "Marifeye muzâf: أَكْبَرُ ya da كُبْرَى olur."),
+      P("وَلِلهِ الأَسْمَاءُ ___.", "الحُسْنَى", "الأَحْسَنُ", "أَحْسَنُ", 4, "En güzel isimler Allah’ındır. (A’râf 180)", "ال: akılsız çoğul → tekil müennes: الحُسْنَى."),
+      P("اليَدُ ___ خَيْرٌ مِنَ اليَدِ السُّفْلَى.", "العُلْيَا", "الأَعْلَى", "أَعْلَى", 5, "Üstteki el alttaki elden hayırlıdır.", "ال: اليَدُ müennes → العُلْيَا.")
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 3 · YARDIMCI VE TESRİF
+{
+  id: "u3", no: 3, ar: "التَّفْضِيلُ المُسَاعِدُ وَالتَّصْرِيفُ", tr: "Yardımcı Tafdîl ve Tesrif", short: "Yardımcı · tesrif", col: "nasb", legend: ["mi", "nasb"],
+  goals: ["Mezîd fiilde ve renk-ayıp sıfatında tafdîli yardımcı kelimeyle kurmak: أَكْثَرُ، أَشَدُّ، أَعْظَمُ + mansûb masdar", "Tafdîlin müennes, müsennâ ve cemisini söylemek: أَكْبَرُ – كُبْرَى – أَكَابِرُ – كُبَرُ"],
+  examples: [
+    { s: "المُؤْمِنُ:- / أَكْثَرُ:mi / إِنْفَاقًا.:nasb", tr: "Mümin daha çok infak eder. (أَنْفَقَ mezîd: أَنْفَقُ denmez)", pair: "السَّمَاءُ:- / أَشَدُّ:mi / زُرْقَةً:nasb / اليَوْمَ.:-", pairTr: "Gökyüzü bugün daha mavi. (renk: أَزْرَقُ tafdîl olmaz)" },
+    { s: "هُوَ:- / أَكْثَرُ:mi / مِنْكَ:cerr / مَالًا.:nasb", tr: "O senden daha çok mal sahibi." }
+  ],
+  rules: [
+    { tr: "Fiil <b>sülâsî değilse</b> ya da sıfat <b>renk</b> bildiriyorsa (bazı kitaplarda ayıp da) tafdîl doğrudan yapılmaz; <b>yardımcı tafdîl</b> kullanılır: <span class=\"ar\">أَكْثَرُ، أَشَدُّ، أَعْظَمُ، أَحْسَنُ…</span>" },
+    { tr: "Yardımcı tafdîlden sonra fiilin <b>masdarı mansûb</b> gelir (temyiz):", ex: ["المُؤْمِنُ أَكْثَرُ إِنْفَاقًا", "السَّمَاءُ أَشَدُّ زُرْقَةً", "هُوَ أَكْثَرُ مِنْكَ مَالًا", "أَكْثَرُكُمْ عَلَيَّ صَلَاةً"] },
+    { tr: "Tesrif:", ex: ["müzekker: أَكْبَرُ – أَكْبَرَانِ – أَكْبَرُونَ / أَكَابِرُ", "müennes: كُبْرَى – كُبْرَيَانِ – كُبْرَيَاتٌ / كُبَرُ"] },
+    { tr: "Müennes kalıbı <b class=\"ar\">فُعْلَى</b>: <span class=\"ar\">أَفْضَلُ – فُضْلَى، أَصْغَرُ – صُغْرَى، أَحْسَنُ – حُسْنَى، أَعْلَى – عُلْيَا</span>." }
+  ],
+  kaide: [
+    "إِذَا كَانَ الفِعْلُ غَيْرَ الثُّلَاثِيِّ أَوْ إِذَا كَانَ يَدُلُّ عَلَى لَوْنٍ يَأْتِي اسْمُ التَّفْضِيلِ بِاسْتِعْمَالِ اسْمِ التَّفْضِيلِ المُسَاعِدِ، مِثْلُ: أَكْثَرُ، وَأَعْظَمُ، وَأَشَدُّ: المُؤْمِنُ أَكْثَرُ إِنْفَاقًا، السَّمَاءُ أَشَدُّ زُرْقَةً اليَوْمَ، هُوَ أَكْثَرُ مِنْكَ مَالًا.",
+    "تَصْرِيفُ اسْمِ التَّفْضِيلِ: المُذَكَّرُ: أَكْبَرُ – أَكْبَرَانِ – أَكْبَرُونَ / أَكَابِرُ. المُؤَنَّثُ: كُبْرَى – كُبْرَيَانِ – كُبْرَيَاتٌ / كُبَرُ."
+  ],
+  ex: [
+    { type: "pick", fill: true, extra: true, ar: "اسْتَعْمِلِ اسْمَ التَّفْضِيلِ المُسَاعِدَ", tr: "Fiil mezîd ya da sıfat renk ise yardımcı tafdîl + mansûb masdar. Doğrusunu seç.", items: [
+      P("المُؤْمِنُ ___ إِنْفَاقًا.", "أَكْثَرُ", "أَنْفَقُ", "مُنْفِقٌ", 0, "Mümin daha çok infak eder.", "أَنْفَقَ mezîd: أَكْثَرُ + إِنْفَاقًا."),
+      P("السَّمَاءُ ___ زُرْقَةً اليَوْمَ.", "أَشَدُّ", "أَزْرَقُ", "زَرْقَاءُ", 1, "Gökyüzü bugün daha mavi.", "Renk: أَزْرَقُ tafdîl değil; أَشَدُّ زُرْقَةً."),
+      P("هُوَ ___ مِنْكَ مَالًا.", "أَكْثَرُ", "أَمْوَلُ", "كَثِيرٌ", 2, "O senden daha çok mal sahibi.", "أَكْثَرُ + temyiz مَالًا."),
+      P("أَخِي ___ اجْتِهَادًا مِنِّي.", "أَكْثَرُ", "أَجْهَدُ", "مُجْتَهِدٌ", 3, "Kardeşim benden daha çalışkan.", "اجْتَهَدَ mezîd: أَكْثَرُ اجْتِهَادًا."),
+      P("الثَّلْجُ ___ بَيَاضًا مِنَ القُطْنِ.", "أَشَدُّ", "أَبْيَضُ", "بَيْضَاءُ", 4, "Kar pamuktan daha beyaz.", "Renk: أَشَدُّ بَيَاضًا."),
+      P("هَذَا الطَّرِيقُ ___ اسْتِقَامَةً.", "أَكْثَرُ", "أَسْتَقْوَمُ", "مُسْتَقِيمٌ", 5, "Bu yol daha düz.", "اسْتَقَامَ mezîd: أَكْثَرُ اسْتِقَامَةً."),
+      P("تَكُونُ الشَّمْسُ ___ حُمْرَةً عِنْدَ الغُرُوبِ.", "أَشَدَّ", "أَحْمَرَ", "حَمْرَاءَ", 0, "Güneş batarken daha kızıl olur.", "Renk: أَشَدَّ حُمْرَةً (كَانَ'nin haberi: mansûb).")
+    ]},
+    { type: "pick", fill: true, extra: true, ar: "صَرِّفِ اسْمَ التَّفْضِيلِ", tr: "Tafdîlin müennesini, müsennâsını ya da cemisini seç.", items: [
+      P("أَكْبَرُ ← müennes: ___", "كُبْرَى", "أَكْبَرَةٌ", "كَبِيرَةٌ", 0, "", "فُعْلَى: كُبْرَى."),
+      P("أَكْبَرُ ← müsennâ: ___", "أَكْبَرَانِ", "كُبْرَيَانِ", "أَكْبَرَتَانِ", 1, "", "أَكْبَرَانِ."),
+      P("أَكْبَرُ ← cemi: ___", "أَكَابِرُ", "كُبَرُ", "أَكْبَرَاتٌ", 2, "", "أَكَابِرُ ya da أَكْبَرُونَ."),
+      P("كُبْرَى ← müsennâ: ___", "كُبْرَيَانِ", "كُبْرَتَانِ", "أَكْبَرَانِ", 3, "", "Elif yâya döner: كُبْرَيَانِ."),
+      P("كُبْرَى ← cemi: ___", "كُبَرُ", "أَكَابِرُ", "كُبْرَاتٌ", 4, "", "كُبَرُ ya da كُبْرَيَاتٌ."),
+      P("أَفْضَلُ ← müennes: ___", "فُضْلَى", "أَفْضَلَةٌ", "فَاضِلَةٌ", 5, "", "فُعْلَى: فُضْلَى."),
+      P("أَصْغَرُ ← müennes: ___", "صُغْرَى", "أَصْغَرَةٌ", "صَغِيرَةٌ", 0, "", "صُغْرَى."),
+      P("أَعْلَى ← müennes: ___", "عُلْيَا", "أَعْلَاةٌ", "عَالِيَةٌ", 1, "", "عُلْيَا: اليَدُ العُلْيَا."),
+      P("أَحْسَنُ ← müennes: ___", "حُسْنَى", "أَحْسَنَةٌ", "حَسَنَةٌ", 2, "", "حُسْنَى: الأَسْمَاءُ الحُسْنَى."),
+      P("أَفْضَلُ ← cemi: ___", "أَفَاضِلُ", "فُضَلَاءُ", "أَفْضَلَاتٌ", 3, "", "أَفَاضِلُ ya da أَفْضَلُونَ.")
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 4 · ÂYET, HADİS, CÜMLE
+{
+  id: "u4", no: 4, ar: "فِي الآيَاتِ وَالأَحَادِيثِ وَالجُمَلِ", tr: "Âyet, Hadis ve Cümlelerde", short: "Âyet · hadis", col: "ref", legend: ["mi", "cerr"],
+  goals: ["Âyet ve hadislerde ism-i tafdîli bulmak", "Her birinin kullanımını söylemek", "Boşluğa anlama uygun tafdîli koymak"],
+  examples: [
+    { s: "إِنَّ:- / أَكْرَمَكُمْ:mi / عِنْدَ اللهِ:- / أَتْقَاكُمْ:mi", tr: "Allah katında en değerliniz, en takvalınızdır. (Hucurât 13)" },
+    { s: "خَيْرُ:mi / النَّاسِ:cerr / أَنْفَعُهُمْ:mi / لِلنَّاسِ:-", tr: "İnsanların en hayırlısı, insanlara en faydalı olanıdır. (hadis)" }
+  ],
+  rules: [
+    { tr: "Âyet ve hadislerde en sık görülen kullanım <b>marifeye muzâf</b>tır: <span class=\"ar\">أَكْرَمَكُمْ، أَتْقَاكُمْ، خَيْرُ النَّاسِ، أَحَبُّ الأَعْمَالِ</span>." },
+    { tr: "Elif-lâmlı tafdîl uyar: <span class=\"ar\">الأَسْمَاءُ الحُسْنَى، اليَدُ العُلْيَا، اليَدِ السُّفْلَى</span>." },
+    { tr: "Marifeye muzâf tafdîl uyan yolu da seçebilir: <span class=\"ar\">أَحَاسِنُكُمْ خُلُقًا</span> (أَحْسَنُ'ün çoğulu)." },
+    { tr: "<span class=\"ar\">أَكْثَرُكُمْ عَلَيَّ صَلَاةً</span>: yardımcı tafdîl + temyiz." }
+  ],
+  kaide: ["ضَعْ خَطًّا تَحْتَ اسْمِ التَّفْضِيلِ.", "امْلَأِ الفَرَاغَ بِاسْمِ تَفْضِيلٍ مُنَاسِبٍ مِمَّا بَيْنَ القَوْسَيْنِ: (أَعْدَلُ – أَسْعَدُ – أَشَدُّ – أَسْرَعُ – أَقْوَى – أَسْوَأُ – أَفْضَلُ – أَطْوَلُ)."],
+  ex: [
+    { type: "find", target: "y", num: "٢", ar: "ضَعْ خَطًّا تَحْتَ اسْمِ التَّفْضِيلِ", tr: "İsm-i tafdîle dokun. Çoğu cümlede iki tane var.", items: [
+      W("إِنَّ [أَكْرَمَكُمْ] عِنْدَ اللهِ [أَتْقَاكُمْ]", "Allah katında en değerliniz, en takvalınızdır. (Hucurât 13)", "أَكْرَمَكُمْ، أَتْقَاكُمْ."),
+      W("وَلِلهِ الأَسْمَاءُ [الحُسْنَى] فَادْعُوهُ بِهَا", "En güzel isimler Allah’ındır; O’na onlarla dua edin. (A’râf 180)", "الحُسْنَى: أَحْسَنُ'ün müennesi."),
+      W("أَدْخِلُوا آلَ فِرْعَوْنَ [أَشَدَّ] العَذَابِ", "Firavun ailesini azabın en çetinine sokun. (Mü’min 46)", "أَشَدَّ."),
+      W("اليَدُ [العُلْيَا] [خَيْرٌ] مِنَ اليَدِ [السُّفْلَى].", "Üstteki (veren) el, alttaki (alan) elden hayırlıdır. (Buhârî)", "العُلْيَا، خَيْرٌ، السُّفْلَى."),
+      W("[خَيْرُ] النَّاسِ [أَنْفَعُهُمْ] لِلنَّاسِ.", "İnsanların en hayırlısı insanlara en faydalı olanıdır.", "خَيْرُ، أَنْفَعُهُمْ."),
+      W("[أَقْرَبُكُمْ] إِلَيَّ يَوْمَ القِيَامَةِ [أَحَاسِنُكُمْ] خُلُقًا.", "Kıyamet günü bana en yakın olanınız ahlâkı en güzel olanınızdır.", "أَقْرَبُكُمْ، أَحَاسِنُكُمْ."),
+      W("[أَقْرَبُكُمْ] إِلَيَّ يَوْمَ القِيَامَةِ [أَكْثَرُكُمْ] عَلَيَّ صَلَاةً.", "Kıyamet günü bana en yakın olanınız bana en çok salavat getireninizdir. (Tirmizî)", "أَقْرَبُكُمْ، أَكْثَرُكُمْ."),
+      W("[أَحَبُّ] الأَعْمَالِ إِلَى اللهِ [أَدْوَمُهَا] وَإِنْ قَلَّ.", "Allah’a en sevimli amel, az da olsa devamlı olanıdır. (Buhârî, Müslim)", "أَحَبُّ، أَدْوَمُهَا.")
+    ]},
+    { type: "classify", num: "٢", opts: KU, ar: "مَا اسْتِعْمَالُهُ؟", tr: "Bulduğun tafdîlin kullanımı ne?", items: [
+      { s: HL("إِنَّ أَكْرَمَكُمْ عِنْدَ اللهِ", "أَكْرَمَكُمْ") + SUR("Hucurât 13"), a: "e", why: "كُمْ zamirine muzâf: marife." },
+      { s: HL("عِنْدَ اللهِ أَتْقَاكُمْ", "أَتْقَاكُمْ"), a: "e", why: "كُمْ zamirine muzâf." },
+      { s: HL("وَلِلهِ الأَسْمَاءُ الحُسْنَى", "الحُسْنَى") + SUR("A’râf 180"), a: "l", why: "ال almış, uymuş." },
+      { s: HL("أَشَدَّ العَذَابِ", "أَشَدَّ") + SUR("Mü’min 46"), a: "e", why: "العَذَابِ marife." },
+      { s: HL("اليَدُ العُلْيَا", "العُلْيَا"), a: "l", why: "ال, müennes." },
+      { s: HL("خَيْرٌ مِنَ اليَدِ السُّفْلَى", "خَيْرٌ"), a: "m", why: "Arkasında مِنْ." },
+      { s: HL("مِنَ اليَدِ السُّفْلَى", "السُّفْلَى"), a: "l", why: "ال, müennes." },
+      { s: HL("خَيْرُ النَّاسِ", "خَيْرُ"), a: "e", why: "النَّاسِ marife." },
+      { s: HL("أَنْفَعُهُمْ لِلنَّاسِ", "أَنْفَعُهُمْ"), a: "e", why: "هُمْ zamirine muzâf." },
+      { s: HL("أَحَاسِنُكُمْ خُلُقًا", "أَحَاسِنُكُمْ"), a: "e", why: "Marifeye muzâf; uyan yol (çoğul)." },
+      { s: HL("أَكْثَرُكُمْ عَلَيَّ صَلَاةً", "أَكْثَرُكُمْ"), a: "e", why: "Marifeye muzâf + temyiz." },
+      { s: HL("أَحَبُّ الأَعْمَالِ إِلَى اللهِ", "أَحَبُّ"), a: "e", why: "الأَعْمَالِ marife." }
+    ]},
+    { type: "bank", num: "٣", ar: "امْلَأِ الفَرَاغَ بِاسْمِ تَفْضِيلٍ مُنَاسِبٍ مِمَّا بَيْنَ القَوْسَيْنِ", tr: "Önce aşağıdan bir tafdîl seç, sonra uygun boşluğa dokun. Her kelime bir kez kullanılır.",
+      bank: ["أَعْدَلُ", "أَسْعَدُ", "أَشَدَّ", "أَسْرَعُ", "أَقْوَى", "أَسْوَأُ", "أَفْضَلُ", "أَطْوَلُ"], items: [
+      { pre: "الطَّالِبُ المُجْتَهِدُ", h: "مِنَ الطَّالِبِ الكَسُولِ.", a: [1, 6], tr: "Çalışkan öğrenci tembel öğrenciden daha mutludur." },
+      { pre: "القِطَارُ", h: "مِنَ السَّيَّارَةِ.", a: [3], tr: "Tren arabadan daha hızlıdır." },
+      { pre: "الأَسَدُ", h: "الحَيَوَانَاتِ.", a: [4], tr: "Aslan hayvanların en güçlüsüdür." },
+      { pre: "قِيزِلْ إِرْمَاقْ", h: "نَهْرٍ فِي تُرْكِيَا.", a: [7], tr: "Kızılırmak Türkiye’nin en uzun nehridir." },
+      { pre: "تَكُونُ الشَّمْسُ", h: "حُمْرَةً عِنْدَ الغُرُوبِ.", a: [2], tr: "Güneş batarken daha kızıl olur." },
+      { pre: "عُمَرُ", h: "الأُمَرَاءِ.", a: [0], tr: "Ömer emirlerin en âdilidir." },
+      { pre: "الطَّالِبُ النَّاجِحُ", h: "طَالِبٍ فِي الصَّفِّ.", a: [6, 1], tr: "Başarılı öğrenci sınıfın en iyi öğrencisidir." },
+      { pre: "الكَذِبُ", h: "طَبْعٍ.", a: [5], tr: "Yalan en kötü huydur." }
+    ]}
+  ]
+},
+// ---------------------------------------------------------------- 5 · OKUMA
+{
+  id: "u5", no: 5, ar: "قِرَاءَةٌ: العُطْلَةُ الصَّيْفِيَّةُ", tr: "Okuma: Yaz Tatili", short: "Okuma", col: "muz", legend: ["mi", "cerr"],
+  goals: ["Metinde ism-i tafdîli bulup kullanımını söylemek", "Tafdîli ism-i mekândan, mübalağadan, sıfat-ı müşebbeheden ve tasğirden ayırmak"],
+  examples: [
+    { s: "جَوُّ القَرْيَةِ:- / أَجْمَلُ:mi / مِنْ جَوِّ المَدِينَةِ.:cerr", tr: "Köyün havası şehrin havasından daha güzeldir." },
+    { s: "وَهِيَ:- / أَوْسَعُ:mi / حَدِيقَةٍ:cerr / فِي القَرْيَةِ.:-", tr: "O, köydeki en geniş bahçedir." }
+  ],
+  rules: [
+    { tr: "Tafdîl: <span class=\"ar\">أَجْمَلُ مِنْ، أَعْذَبُ مِنْ</span> (1), <span class=\"ar\">أَوْسَعُ حَدِيقَةٍ</span> (2), <span class=\"ar\">أَكْبَرِ المَنَازِلِ</span> (3)." },
+    { tr: "İsm-i mekân: <span class=\"ar\">مَنْزِلِ، مَصَانِعِهَا</span>. Mübalağa: <span class=\"ar\">الجَذَّابِ</span>. Sıfat-ı müşebbehe: <span class=\"ar\">بَعِيدًا، الصَّغِيرِ، كَبِيرٌ</span>. Tasğir: <span class=\"ar\">نُهَيْرٌ</span>." }
+  ],
+  kaide: ["اقْرَأِ النَّصَّ التَّالِيَ ثُمَّ اسْتَخْرِجْ مِنْهُ: اسْمَ التَّفْضِيلِ، اسْمَ المَكَانِ، صِيغَةَ المُبَالَغَةِ، الصِّفَةَ المُشَبَّهَةَ، اسْمَ التَّصْغِيرِ."],
+  ex: [
+    { type: "reading", num: "٤", ar: "اقْرَأِ النَّصَّ التَّالِيَ ثُمَّ اسْتَخْرِجْ مِنْهُ", tr: "Metni oku; sonra koyu kelimenin ne olduğunu ve tafdîlin kullanımını seç.", title: "العُطْلَةُ الصَّيْفِيَّةُ",
+      text: "فِي كُلِّ عُطْلَةٍ صَيْفِيَّةٍ أُسَافِرُ مَعَ أُسْرَتِي إِلَى مَنْزِلِ جَدِّي فِي القَرْيَةِ؛ لِأَنَّ جَوَّ القَرْيَةِ أَجْمَلُ مِنْ جَوِّ المَدِينَةِ، وَمَاؤُهَا أَعْذَبُ مِنْ مِيَاهِ المَدِينَةِ. الإِنْسَانُ يَعِيشُ فِي القَرْيَةِ بَعِيدًا عَنْ ضَوْضَاءِ المَدِينَةِ وَضَجِيجِ مَصَانِعِهَا، وَكَذَلِكَ يَتَمَتَّعُ الإِنْسَانُ فِي القَرْيَةِ بِجَمَالِ الطَّبِيعَةِ الجَذَّابِ. هَذِهِ القَرْيَةُ عَلَى مَسَافَةِ مِئَةِ كِيلُومِتْرٍ مِنَ المَدِينَةِ، وَبِجَانِبِهَا غَابَةٌ وَاسِعَةٌ، وَيَجْرِي نُهَيْرٌ فِي وَادِيهَا الصَّغِيرِ. مَنْزِلُ جَدِّي كَبِيرٌ وَفِيهِ سَبْعُ غُرَفٍ، وَهُوَ مِنْ أَكْبَرِ المَنَازِلِ فِي القَرْيَةِ، وَحَوْلَ المَنْزِلِ حَدِيقَةٌ وَاسِعَةٌ، وَهِيَ أَوْسَعُ حَدِيقَةٍ فِي القَرْيَةِ. وَنَقْضِي فِي القَرْيَةِ عِشْرِينَ يَوْمًا ثُمَّ نَرْجِعُ إِلَى مَنْزِلِنَا فِي المَدِينَةِ.",
+      textTr: "Yaz Tatili. Her yaz tatilinde ailemle birlikte köydeki dedemin evine giderim; çünkü köyün havası şehrin havasından daha güzel, suyu da şehrin sularından daha tatlıdır. İnsan köyde şehrin gürültüsünden ve fabrikalarının patırtısından uzak yaşar; ayrıca köyde tabiatın çekici güzelliğinin tadını çıkarır. Bu köy şehirden yüz kilometre uzaklıktadır; yanında geniş bir orman var, küçük vadisinde de bir dere akar. Dedemin evi büyüktür, yedi odası var; köyün en büyük evlerindendir. Evin etrafında geniş bir bahçe var; o da köyün en geniş bahçesidir. Köyde yirmi gün geçirip sonra şehirdeki evimize döneriz.",
+      qa: [
+        { q: "إِلَى أَيْنَ يُسَافِرُ الكَاتِبُ فِي العُطْلَةِ الصَّيْفِيَّةِ؟", a: "يُسَافِرُ إِلَى مَنْزِلِ جَدِّهِ فِي القَرْيَةِ.", tr: "Yazar yaz tatilinde nereye gider? Köydeki dedesinin evine." },
+        { q: "لِمَاذَا يُفَضِّلُ القَرْيَةَ عَلَى المَدِينَةِ؟", a: "لِأَنَّ جَوَّهَا أَجْمَلُ مِنْ جَوِّ المَدِينَةِ، وَمَاءَهَا أَعْذَبُ.", tr: "Köyü neden şehre tercih ediyor? Havası daha güzel, suyu daha tatlı olduğu için." },
+        { q: "كَمْ يَوْمًا يَقْضُونَ فِي القَرْيَةِ؟", a: "يَقْضُونَ عِشْرِينَ يَوْمًا.", tr: "Köyde kaç gün geçiriyorlar? Yirmi gün." }
+      ],
+      cls: { opts: [["t", "İsm-i tafdîl", "اسْمُ تَفْضِيلٍ", "mi"], ["m", "İsm-i mekân", "اسْمُ مَكَانٍ", "cerr"], ["b", "Mübalağa", "صِيغَةُ مُبَالَغَةٍ", "nasb"], ["s", "Sıfat-ı müşebbehe", "صِفَةٌ مُشَبَّهَةٌ", "mz"], ["z", "Tasğir", "اسْمُ تَصْغِيرٍ", "mun"], ["x", "Hiçbiri", "لَيْسَ مِنْهَا", "x"]], ar: "اسْتَخْرِجْ مِنَ النَّصِّ", tr: "Koyu kelime ne?", items: [
+        { s: HL("أُسَافِرُ مَعَ أُسْرَتِي إِلَى مَنْزِلِ جَدِّي", "مَنْزِلِ"), a: "m", why: "نَزَلَ – يَنْزِلُ → مَنْزِلٌ." },
+        { s: HL("جَوَّ القَرْيَةِ أَجْمَلُ مِنْ جَوِّ المَدِينَةِ", "أَجْمَلُ"), a: "t", why: "جَمِيلٌ → أَجْمَلُ." },
+        { s: HL("وَمَاؤُهَا أَعْذَبُ مِنْ مِيَاهِ المَدِينَةِ", "أَعْذَبُ"), a: "t", why: "عَذْبٌ → أَعْذَبُ." },
+        { s: HL("يَعِيشُ فِي القَرْيَةِ بَعِيدًا", "بَعِيدًا"), a: "s", why: "بَعُدَ → بَعِيدٌ: فَعِيلٌ." },
+        { s: HL("وَضَجِيجِ مَصَانِعِهَا", "مَصَانِعِهَا"), a: "m", why: "مَصْنَعٌ'ün çoğulu." },
+        { s: HL("بِجَمَالِ الطَّبِيعَةِ الجَذَّابِ", "الجَذَّابِ"), a: "b", why: "جَذَبَ → جَذَّابٌ: فَعَّالٌ." },
+        { s: HL("فِي كُلِّ عُطْلَةٍ صَيْفِيَّةٍ", "صَيْفِيَّةٍ"), a: "x", why: "İsm-i mensûb." },
+        { s: HL("وَيَجْرِي نُهَيْرٌ فِي وَادِيهَا", "نُهَيْرٌ"), a: "z", why: "نَهْرٌ → نُهَيْرٌ." },
+        { s: HL("فِي وَادِيهَا الصَّغِيرِ", "الصَّغِيرِ"), a: "s", why: "صَغُرَ → صَغِيرٌ." },
+        { s: HL("مَنْزِلُ جَدِّي كَبِيرٌ", "كَبِيرٌ"), a: "s", why: "كَبُرَ → كَبِيرٌ." },
+        { s: HL("وَهُوَ مِنْ أَكْبَرِ المَنَازِلِ", "أَكْبَرِ"), a: "t", why: "كَبِيرٌ → أَكْبَرُ." },
+        { s: HL("وَهِيَ أَوْسَعُ حَدِيقَةٍ فِي القَرْيَةِ", "أَوْسَعُ"), a: "t", why: "وَاسِعٌ → أَوْسَعُ." }
+      ]},
+      cls2: { opts: KU, ar: "مَا اسْتِعْمَالُ اسْمِ التَّفْضِيلِ؟", tr: "Metindeki tafdîlin kullanımı ne?", items: [
+        { s: HL("أَجْمَلُ مِنْ جَوِّ المَدِينَةِ", "أَجْمَلُ"), a: "m", why: "Arkasında مِنْ." },
+        { s: HL("أَعْذَبُ مِنْ مِيَاهِ المَدِينَةِ", "أَعْذَبُ"), a: "m", why: "Arkasında مِنْ." },
+        { s: HL("مِنْ أَكْبَرِ المَنَازِلِ", "أَكْبَرِ"), a: "e", why: "المَنَازِلِ marife." },
+        { s: HL("أَوْسَعُ حَدِيقَةٍ فِي القَرْيَةِ", "أَوْسَعُ"), a: "n", why: "حَدِيقَةٍ nekre; أَوْسَعُ sabit (müennes حَدِيقَةٌ için de)." }
+      ]}
+    }
+  ]
+}
+];
+
+// Doğru Biçim oyunu: [cümle {kelime}, seçenekler (ilki doğru), açıklama, Türkçe, konu]
+var TF_POOL = [
+  ["الوَلَدُ {أَكْبَرُ} مِنْ أَخِيهِ.", ["أَكْبَرُ", "كُبْرَى", "كَبِيرٌ"], "nekre + مِنْ", "Çocuk kardeşinden daha büyük.", "u1"],
+  ["هَذَا الدَّرْسُ {أَسْهَلُ} مِنْ ذَلِكَ.", ["أَسْهَلُ", "سَهْلٌ", "سُهْلَى"], "أَفْعَلُ", "Bu ders ötekinden daha kolay.", "u1"],
+  ["الحَدِيدُ {أَشَدُّ} مِنَ الخَشَبِ.", ["أَشَدُّ", "أَشْدَدُ", "شَدِيدٌ"], "muzâaf: idğam", "Demir tahtadan daha sert.", "u1"],
+  ["العَسَلُ {أَحْلَى} مِنَ السُّكَّرِ.", ["أَحْلَى", "أَحْلَوُ", "حُلْوٌ"], "nâkıs: elif-i maksûre", "Bal şekerden daha tatlı.", "u1"],
+  ["هُوَ {خَيْرٌ} مِنْكَ.", ["خَيْرٌ", "أَخْيَرُ", "خَيِّرٌ"], "hemzesiz tafdîl", "O senden daha hayırlı.", "u1"],
+  ["فَاطِمَةُ {أَفْضَلُ} مِنْ زَيْنَبَ.", ["أَفْضَلُ", "فُضْلَى", "الفُضْلَى"], "1: sabit", "Fâtıma Zeyneb’den daha faziletli.", "u2"],
+  ["فَاطِمَةُ {أَفْضَلُ} طَالِبَةٍ فِي الصَّفِّ.", ["أَفْضَلُ", "فُضْلَى", "الفُضْلَى"], "2: sabit", "Fâtıma sınıfın en faziletli öğrencisi.", "u2"],
+  ["هُمْ {أَفْضَلُ} رِجَالٍ.", ["أَفْضَلُ", "أَفَاضِلُ", "أَفْضَلُونَ"], "2: sabit", "Onlar en faziletli adamlar.", "u2"],
+  ["فَاطِمَةُ الطَّالِبَةُ {الفُضْلَى} خُلُقًا.", ["الفُضْلَى", "الأَفْضَلُ", "أَفْضَلُ"], "4: uyum şart", "Fâtıma ahlâkça en faziletli öğrenci.", "u2"],
+  ["أَحْمَدُ الطَّالِبُ {الأَفْضَلُ} خُلُقًا.", ["الأَفْضَلُ", "الفُضْلَى", "أَفْضَلُ"], "4: uyum şart", "Ahmed ahlâkça en faziletli öğrenci.", "u2"],
+  ["المُؤْمِنُ {أَكْثَرُ} إِنْفَاقًا.", ["أَكْثَرُ", "أَنْفَقُ", "مُنْفِقٌ"], "mezîd: yardımcı", "Mümin daha çok infak eder.", "u3"],
+  ["السَّمَاءُ {أَشَدُّ} زُرْقَةً اليَوْمَ.", ["أَشَدُّ", "أَزْرَقُ", "زَرْقَاءُ"], "renk: yardımcı", "Gökyüzü bugün daha mavi.", "u3"],
+  ["هِيَ {الكُبْرَى} فِي أَخَوَاتِهَا.", ["الكُبْرَى", "الأَكْبَرُ", "أَكْبَرُ"], "ال: müennes", "O, kız kardeşlerinin en büyüğü.", "u3"],
+  ["هُمْ {أَكَابِرُ} القَوْمِ.", ["أَكَابِرُ", "كُبَرُ", "كُبْرَى"], "marifeye muzâf, uyan yol", "Onlar kavmin ileri gelenleri.", "u3"],
+  ["إِنَّ {أَكْرَمَكُمْ} عِنْدَ اللهِ أَتْقَاكُمْ", ["أَكْرَمَكُمْ", "كَرِيمَكُمْ", "أَكْرَمُكُمْ"], "Hucurât 13: إِنَّ'nin ismi", "Allah katında en değerliniz…", "u4"],
+  ["وَلِلهِ الأَسْمَاءُ {الحُسْنَى}", ["الحُسْنَى", "الأَحْسَنُ", "الحَسَنَةُ"], "A’râf 180", "En güzel isimler Allah’ındır.", "u4"],
+  ["اليَدُ {العُلْيَا} خَيْرٌ مِنَ اليَدِ السُّفْلَى.", ["العُلْيَا", "الأَعْلَى", "العَالِيَةُ"], "ال: müennes", "Veren el alan elden hayırlıdır.", "u4"],
+  ["القِطَارُ {أَسْرَعُ} مِنَ السَّيَّارَةِ.", ["أَسْرَعُ", "سَرِيعٌ", "سُرْعَى"], "1: sabit", "Tren arabadan daha hızlı.", "u4"],
+  ["الكَذِبُ {أَسْوَأُ} طَبْعٍ.", ["أَسْوَأُ", "سَيِّئٌ", "سُوأَى"], "2: sabit", "Yalan en kötü huy.", "u4"],
+  ["جَوُّ القَرْيَةِ {أَجْمَلُ} مِنْ جَوِّ المَدِينَةِ.", ["أَجْمَلُ", "جَمِيلٌ", "جُمْلَى"], "1", "Köyün havası şehrinkinden güzel.", "u5"],
+  ["مَاؤُهَا {أَعْذَبُ} مِنْ مِيَاهِ المَدِينَةِ.", ["أَعْذَبُ", "عَذْبٌ", "عُذْبَى"], "1", "Suyu şehrin sularından tatlı.", "u5"],
+  ["هِيَ {أَوْسَعُ} حَدِيقَةٍ فِي القَرْيَةِ.", ["أَوْسَعُ", "وُسْعَى", "الوُسْعَى"], "2: sabit", "Köyün en geniş bahçesi.", "u5"],
+  ["هُوَ مِنْ {أَكْبَرِ} المَنَازِلِ.", ["أَكْبَرِ", "أَكْبَرَ", "كَبِيرِ"], "3: mecrûr", "Evlerin en büyüklerinden.", "u5"]
+];
+// Hangi kullanım? [ifade, kullanım, açıklama]
+var KU_LIST = [
+  [HL("أَحْمَدُ أَطْوَلُ مِنْ خَالِدٍ", "أَطْوَلُ"), "m", "مِنْ"], [HL("القِطَارُ أَسْرَعُ مِنَ السَّيَّارَةِ", "أَسْرَعُ"), "m", "مِنْ"], [HL("هُوَ خَيْرٌ مِنْكَ", "خَيْرٌ"), "m", "مِنْ"], [HL("العَسَلُ أَحْلَى مِنَ السُّكَّرِ", "أَحْلَى"), "m", "مِنْ"],
+  [HL("الكَذِبُ أَسْوَأُ طَبْعٍ", "أَسْوَأُ"), "n", "nekre"], [HL("هِيَ أَوْسَعُ حَدِيقَةٍ", "أَوْسَعُ"), "n", "nekre"], [HL("مَكَّةُ أَفْضَلُ مَدِينَةٍ", "أَفْضَلُ"), "n", "nekre"], [HL("هُنَّ أَفْضَلُ نِسَاءٍ", "أَفْضَلُ"), "n", "nekre"],
+  [HL("عُمَرُ أَعْدَلُ الأُمَرَاءِ", "أَعْدَلُ"), "e", "marife"], [HL("خَيْرُ النَّاسِ", "خَيْرُ"), "e", "marife"], [HL("إِنَّ أَكْرَمَكُمْ", "أَكْرَمَكُمْ"), "e", "zamir: marife"], [HL("أَحَبُّ الأَعْمَالِ", "أَحَبُّ"), "e", "marife"], [HL("أَشَدَّ العَذَابِ", "أَشَدَّ"), "e", "marife"],
+  [HL("الأَسْمَاءُ الحُسْنَى", "الحُسْنَى"), "l", "ال"], [HL("اليَدُ العُلْيَا", "العُلْيَا"), "l", "ال"], [HL("الطَّالِبُ الأَفْضَلُ", "الأَفْضَلُ"), "l", "ال"], [HL("الجَامِعَةُ الكُبْرَى", "الكُبْرَى"), "l", "ال"], [HL("المَسْجِدُ الأَقْصَى", "الأَقْصَى"), "l", "ال"]
+];
+// Doğru mu yanlış mı? [ifade, d/y, açıklama]
+var DY_LIST = [
+  ["فَاطِمَةُ أَفْضَلُ مِنْ زَيْنَبَ", "d", "مِنْ: sabit"], ["فَاطِمَةُ فُضْلَى مِنْ زَيْنَبَ", "y", "مِنْ ile daima أَفْضَلُ"], ["الطَّالِبَةُ الفُضْلَى", "d", "ال: uyum"], ["الطَّالِبَةُ الأَفْضَلُ", "y", "ال: müennes → الفُضْلَى"],
+  ["هُمْ أَفْضَلُ رِجَالٍ", "d", "nekreye muzâf: sabit"], ["هُمْ أَفَاضِلُ رِجَالٍ", "y", "nekreye muzâf: sabit kalmalı"], ["هُنَّ فُضْلَيَاتُ النِّسَاءِ", "d", "marifeye muzâf: uyan yol"], ["هُنَّ أَفْضَلُ النِّسَاءِ", "d", "marifeye muzâf: sabit yol"],
+  ["السَّمَاءُ أَزْرَقُ مِنَ البَحْرِ", "y", "renk: أَشَدُّ زُرْقَةً"], ["السَّمَاءُ أَشَدُّ زُرْقَةً", "d", "yardımcı tafdîl"], ["المُؤْمِنُ أَنْفَقُ مِنْ غَيْرِهِ", "y", "mezîd: أَكْثَرُ إِنْفَاقًا"], ["المُؤْمِنُ أَكْثَرُ إِنْفَاقًا", "d", "yardımcı tafdîl"],
+  ["الطُّلَّابُ الأَفَاضِلُ", "d", "ال: çoğula uyum"], ["الطُّلَّابُ الأَفْضَلُ", "y", "ال: الأَفَاضِلُ olmalı"], ["الأَسْمَاءُ الحُسْنَى", "d", "akılsız çoğul: tekil müennes"], ["الأَسْمَاءُ الأَحْسَنُ", "y", "ال: الحُسْنَى olmalı"],
+  ["هُوَ خَيْرٌ مِنْكَ", "d", "hemzesiz tafdîl"], ["هُوَ أَخْيَرُ مِنْكَ", "y", "خَيْرٌ hemzesiz kullanılır"], ["اليَدُ العُلْيَا", "d", "ال: müennes"], ["اليَدُ الأَعْلَى", "y", "ال: العُلْيَا olmalı"],
+  ["زَيْنَبُ أَكْبَرُ أَخَوَاتِهَا", "d", "marifeye muzâf: sabit yol"], ["زَيْنَبُ كُبْرَى مِنْ أُخْتِهَا", "y", "مِنْ ile daima أَكْبَرُ"], ["هُوَ أَشْدَدُ مِنْكَ", "y", "muzâaf: أَشَدُّ"], ["هُوَ أَشَدُّ مِنْكَ", "d", "idğam"],
+  ["فَاطِمَةُ أَفْضَلُ طَالِبَةٍ", "d", "nekreye muzâf: sabit"], ["فَاطِمَةُ فُضْلَى طَالِبَةٍ", "y", "nekreye muzâf: sabit kalmalı"]
+];
+var HAFIZA = {
+  st: { name: "Sıfat ↔ tafdîl", pairs: [["كَبِيرٌ", "أَكْبَرُ"], ["شَدِيدٌ", "أَشَدُّ"], ["قَوِيٌّ", "أَقْوَى"], ["قَلِيلٌ", "أَقَلُّ"], ["وَاسِعٌ", "أَوْسَعُ"], ["حُلْوٌ", "أَحْلَى"], ["عَالِمٌ", "أَعْلَمُ"]] },
+  mm: { name: "Müzekker ↔ müennes", pairs: [["أَكْبَرُ", "كُبْرَى"], ["أَفْضَلُ", "فُضْلَى"], ["أَصْغَرُ", "صُغْرَى"], ["أَحْسَنُ", "حُسْنَى"], ["أَعْلَى", "عُلْيَا"], ["أَسْفَلُ", "سُفْلَى"], ["أَعْظَمُ", "عُظْمَى"]] },
+  tr: { name: "Arapça ↔ Türkçe", pairs: [["أَكْبَرُ مِنْ", "-den daha büyük"], ["أَفْضَلُ طَالِبٍ", "en iyi öğrenci"], ["أَفْضَلُ الطُّلَّابِ", "öğrencilerin en iyisi"], ["الأَسْمَاءُ الحُسْنَى", "en güzel isimler"], ["أَشَدُّ زُرْقَةً", "daha mavi"], ["أَكْثَرُ إِنْفَاقًا", "daha çok infak eden"], ["خَيْرٌ مِنْ", "-den daha hayırlı"]] }
+};
+var KARTLAR = [
+  ["İsm-i tafdîl nedir?", "Ortak bir sıfatta birinin ötekinden üstün olduğunu bildiren isim: \"daha …, en …\""],
+  ["Vezni?", "أَفْعَلُ (gayr-ı munsarif): أَكْبَرُ، أَصْغَرُ"],
+  ["Hemzesiz iki tafdîl?", "خَيْرٌ ve شَرٌّ"],
+  ["Muzâaf ve nâkısta?", "أَشَدُّ، أَقَلُّ (idğam) · أَعْلَى، أَقْوَى (elif-i maksûre)"],
+  ["1. kullanım: nekre + مِنْ", "SABİT: فَاطِمَةُ أَفْضَلُ مِنْ زَيْنَبَ"],
+  ["2. kullanım: nekreye muzâf", "SABİT: فَاطِمَةُ أَفْضَلُ طَالِبَةٍ"],
+  ["3. kullanım: marifeye muzâf", "İKİ YOL: هُنَّ أَفْضَلُ / فُضْلَيَاتُ النِّسَاءِ"],
+  ["4. kullanım: elif-lâmlı", "UYUM ŞART: الطَّالِبَةُ الفُضْلَى"],
+  ["Mezîd fiil ve renkte?", "Yardımcı tafdîl + mansûb masdar: أَكْثَرُ إِنْفَاقًا، أَشَدُّ زُرْقَةً"],
+  ["أَكْبَرُ'ün tesrifi?", "أَكْبَرُ – أَكْبَرَانِ – أَكْبَرُونَ / أَكَابِرُ"],
+  ["كُبْرَى'nın tesrifi?", "كُبْرَى – كُبْرَيَانِ – كُبْرَيَاتٌ / كُبَرُ"],
+  ["أَحْمَرُ tafdîl mi?", "Hayır: renk sıfatı (أَحْمَرُ – حَمْرَاءُ). \"Daha kırmızı\": أَشَدُّ حُمْرَةً"]
+];
+
+</script>
+<script>
+(function () {
+"use strict";
+// ---------- yardımcılar ----------
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function plain(h) { return String(h).replace(/<[^>]+>/g, ""); }
+function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+function chunks(str) { return str.split(" / ").map(function (p) { var i = p.lastIndexOf(":"); return { t: p.slice(0, i), r: p.slice(i + 1) }; }); }
+function sentHtml(str) {
+  return '<div class="sent">' + chunks(str).map(function (c) {
+    if (c.r === "-") return '<span class="plain">' + c.t + '</span>';
+    var rr = c.r.split("."), lb = ROLES[rr[0]] ? ROLES[rr[0]].tr + (rr[1] ? " · " + rr[1] : "") : "&nbsp;";
+    return '<span class="chunk r-' + rr[0] + '"><span class="w">' + c.t + '</span><span class="t">' + lb + '</span></span>';
+  }).join("") + '</div>';
+}
+function legendHtml(roles) { return '<div class="legend">' + roles.map(function (r) { return '<span class="r-' + r + '"><i></i>' + ROLES[r].tr + ' <span class="ar" style="color:var(--muted)">' + ROLES[r].ar + '</span></span>'; }).join("") + '</div>'; }
+var store = {
+  get: function (k, d) { try { var v = localStorage.getItem("tafdil:" + k); return v === null ? d : JSON.parse(v); } catch (x) { return d; } },
+  set: function (k, v) { try { localStorage.setItem("tafdil:" + k, JSON.stringify(v)); } catch (x) {} }
+};
+function icon(kind, cls, n) {
+  var one = {
+    person: '<circle cx="12" cy="7" r="5" class="' + cls + '"/><path d="M3 24 Q3 13 12 13 Q21 13 21 24 Z" class="' + cls + '"/>',
+    camel: '<path d="M2 20 L2 14 Q2 11 5 11 L8 11 Q9 6 12 9 Q14 5 17 9 L19 9 Q20 5 22 6 L22 9 L20 11 L20 20 L18 20 L18 14 L6 14 L6 20 Z" class="' + cls + '"/>',
+    leaf: '<path d="M4 20 Q4 4 21 3 Q20 20 4 20 Z" class="' + cls + '"/><path d="M4 20 L15 9" stroke="var(--card)" stroke-width="1.5" fill="none"/>',
+    pin: '<path d="M12 2 Q20 2 20 10 Q20 15 12 23 Q4 15 4 10 Q4 2 12 2 Z" class="' + cls + '"/><circle cx="12" cy="10" r="3" fill="var(--card)"/>',
+    clock: '<circle cx="12" cy="12" r="10" class="' + cls + '"/><path d="M12 6 L12 12 L16 14" stroke="var(--card)" stroke-width="2" fill="none" stroke-linecap="round"/>',
+    pen: '<path d="M4 20 L5 15 L16 4 L20 8 L9 19 Z" class="' + cls + '"/><path d="M14 6 L18 10" stroke="var(--card)" stroke-width="1.5"/>'
+  }[kind];
+  var s = ""; for (var i = 0; i < (n || 1); i++) s += '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + one + '</svg>';
+  return '<span class="icons">' + s + '</span>';
+}
+
+// ---------- rütbe, ses, konfeti ----------
+var LEVELS = [[0, "Mübtedî", "yeni başlayan"], [100, "Talebe", "öğrenci"], [300, "Kâtip", "yazan"], [600, "Edîb", "dil ustası"], [1000, "Nahvî", "dil bilgini"], [1600, "Allâme", "çok bilen"]];
+function getXP() { return store.get("xp", 0); }
+function levelOf(x) { var i = 0; for (var k = 0; k < LEVELS.length; k++) if (x >= LEVELS[k][0]) i = k; return i; }
+function renderXP() {
+  var box = document.getElementById("xpbox"), x = getXP(), i = levelOf(x), cur = LEVELS[i], nx = LEVELS[i + 1];
+  var pct = nx ? (x - cur[0]) / (nx[0] - cur[0]) * 100 : 100;
+  box.innerHTML = '<div class="row"><span class="lbl">Rütben</span><span class="tabular muted">' + x + ' puan</span></div><div class="row"><b class="rank">' + cur[1] + '</b><span class="muted">' + (nx ? "sonra: " + nx[1] : "en yüksek rütbe") + '</span></div><div class="xpbar"><div style="width:' + pct + '%"></div></div>';
+}
+var toastT;
+function toast(m) { var t = document.getElementById("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("show"); }, 2000); }
+function addXP(n, quiet) {
+  n = Math.max(0, Math.round(n)); if (!n) return;
+  var b = levelOf(getXP()), v = getXP() + n; store.set("xp", v); renderXP();
+  var a = levelOf(v);
+  if (a > b) { toast("Yeni rütbe: " + LEVELS[a][1] + " (" + LEVELS[a][2] + ")"); confetti(); beep("win"); }
+  else if (!quiet) toast("+" + n + " puan");
+}
+var SND = { on: store.get("snd", true), ctx: null };
+function beep(type) {
+  if (!SND.on) return;
+  try {
+    SND.ctx = SND.ctx || new (window.AudioContext || window.webkitAudioContext)();
+    var c = SND.ctx, notes = type === "ok" ? [660, 880] : type === "win" ? [523, 659, 784, 1046] : type === "tick" ? [1200] : [220, 160];
+    notes.forEach(function (f, i) {
+      var o = c.createOscillator(), g = c.createGain(); o.type = type === "no" ? "sawtooth" : "triangle"; o.frequency.value = f;
+      var t = c.currentTime + i * 0.09, vol = type === "tick" ? 0.04 : 0.12;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.17);
+      o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + 0.2);
+    });
+  } catch (x) {}
+}
+function confetti() {
+  try { if (matchMedia("(prefers-reduced-motion: reduce)").matches) return; } catch (x) {}
+  var cv = document.createElement("canvas"); cv.className = "confetti"; document.body.appendChild(cv);
+  var W = cv.width = innerWidth, H = cv.height = innerHeight, ctx = cv.getContext("2d"), cs = getComputedStyle(document.documentElement);
+  var cols = ["--mz", "--cerr", "--ref", "--nasb", "--mi", "--mus"].map(function (v) { return cs.getPropertyValue(v).trim() || "#888"; }), ps = [];
+  for (var i = 0; i < 150; i++) ps.push({ x: W / 2 + (Math.random() - .5) * W * .5, y: H * .4, vx: (Math.random() - .5) * 12, vy: -Math.random() * 11 - 4, r: Math.random() * 7 + 4, c: cols[i % 6], a: Math.random() * 6 });
+  var t0 = performance.now();
+  (function step(t) { ctx.clearRect(0, 0, W, H); ps.forEach(function (p) { p.vy += .33; p.x += p.vx; p.y += p.vy; p.a += .2; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.fillStyle = p.c; ctx.fillRect(-p.r / 2, -p.r / 4, p.r, p.r / 2); ctx.restore(); }); if (t - t0 < 2000) requestAnimationFrame(step); else cv.remove(); })(t0);
+}
+function starsHtml(n) { var s = ""; for (var i = 1; i <= 3; i++) s += i <= n ? "★" : '<span class="off">★</span>'; return '<div class="stars" aria-label="' + n + ' yıldız">' + s + '</div>'; }
+
+// ---------- görseller ----------
+function badges(list) { return '<div class="badges">' + list.map(function (b) { return '<span class="badge" style="--role:var(--' + (b[2] || "accent") + ')">' + (b[0] ? '<span class="ar">' + b[0] + '</span>' : '') + b[1] + '</span>'; }).join("") + '</div>'; }
+// Uyum tablosu
+function uyumTablosu(hi) {
+  var rows = [["m", "حَسَنٌ <b>أَفْضَلُ</b> مِنْ جَمَالٍ", "فَاطِمَةُ <b>أَفْضَلُ</b> مِنْ زَيْنَبَ"], ["n", "حَسَنٌ <b>أَفْضَلُ</b> طَالِبٍ", "فَاطِمَةُ <b>أَفْضَلُ</b> طَالِبَةٍ"], ["e", "حَسَنٌ <b>أَفْضَلُ</b> الطُّلَّابِ", "فَاطِمَةُ <b>أَفْضَلُ / فُضْلَى</b> الطَّالِبَاتِ"], ["l", "الطَّالِبُ <b>الأَفْضَلُ</b>", "الطَّالِبَةُ <b>الفُضْلَى</b>"]];
+  return '<div class="utab">' + rows.map(function (r) {
+    var k = KU.filter(function (x) { return x[0] === r[0]; })[0], u = KU_UY[r[0]];
+    return '<div class="urow' + (hi === r[0] ? " on" : "") + '" style="--role:var(--' + k[3] + ')"><div class="uk"><b>' + k[1] + '</b><span class="ar">' + k[2] + '</span></div><div class="ue ar">' + r[1] + '</div><div class="ue ar">' + r[2] + '</div><div class="ub" style="--role:var(--' + u[2] + ')">' + u[0] + '</div></div>';
+  }).join("") + '</div>';
+}
+function kisaYol() { return '<p class="cap"><b>Kısa yol:</b> arkasında مِنْ ya da nekre varsa dokunma · kendisi ال aldıysa uydur · marifeye muzâfsa ikisi de olur.</p>'; }
+// Tafdîl makinesi
+var GEN = [["أَحْمَدُ", "خَالِدٍ", "طَالِبٍ", "الطُّلَّابِ", "الطَّالِبُ", "Ahmed", "Hâlid"], ["فَاطِمَةُ", "زَيْنَبَ", "طَالِبَةٍ", "الطَّالِبَاتِ", "الطَّالِبَةُ", "Fâtıma", "Zeyneb"]];
+function tafdilMakine() {
+  var ai = LIVE.ta || 0, ui = LIVE.tu || 0, g = LIVE.tg || 0, A = TF[ai], G = GEN[g], k = KU[ui], key = k[0], u = KU_UY[key];
+  var t = g ? A[2] : A[1], ar, tr, alt = "";
+  if (key === "m") { ar = G[0] + ' <b>' + A[1] + '</b> مِنْ ' + G[1]; tr = G[5] + ', ' + G[6] + '’den daha ' + A[3] + '.'; }
+  else if (key === "n") { ar = G[0] + ' <b>' + A[1] + '</b> ' + G[2] + ' فِي الصَّفِّ'; tr = G[5] + ', sınıftaki en ' + A[3] + ' öğrenci.'; }
+  else if (key === "e") { ar = G[0] + ' <b>' + A[1] + '</b> ' + G[3]; tr = G[5] + ', öğrencilerin en ' + A[3] + ' olanı.'; if (g) alt = 'Uyan yol da doğru: <span class="ar">' + G[0] + ' ' + A[2] + ' ' + G[3] + '</span>'; }
+  else { ar = G[0] + ' ' + G[4] + ' <b>ال' + t + '</b>'; tr = G[5] + ', en ' + A[3] + ' öğrenci (belirli).'; }
+  return '<div id="makine" class="makine">' +
+    '<div class="lbl">1. Sıfatı seç</div><div class="mk-row">' + TF.map(function (x, i) { return '<button class="mk' + (i === ai ? " on" : "") + '" data-ta="' + i + '"><span class="ar">' + x[0] + '</span></button>'; }).join("") + '</div>' +
+    '<div class="lbl">2. Kullanımı seç</div><div class="mk-row" style="direction:ltr">' + KU.map(function (x, i) { return '<button class="mk' + (i === ui ? " on" : "") + '" data-tu="' + i + '">' + x[1] + '</button>'; }).join("") + '</div>' +
+    '<div class="lbl">3. Kimden söz ediyoruz?</div><div class="mk-row" style="direction:ltr"><button class="mk' + (g === 0 ? " on" : "") + '" data-tg="0">Müzekker</button><button class="mk' + (g === 1 ? " on" : "") + '" data-tg="1">Müennes</button></div>' +
+    '<div class="mk-out" style="--role:var(--' + k[3] + ')"><span class="muted">' + A[0] + ' → ' + A[1] + ' · ' + A[2] + '</span><span class="ar tfo">' + ar + '</span><b>' + tr + '</b><span class="ubadge" style="--role:var(--' + u[2] + ')">' + u[0] + '</span><small class="muted">' + arWrap(u[1]) + '</small>' + (alt ? '<small class="muted">' + alt + '</small>' : '') + '</div>' +
+    uyumTablosu(key) + '</div>';
+}
+function vizU1() {
+  return '<div class="zsteps"><div class="zs"><small>Sıfat</small><span class="ar">كَبِيرٌ</span></div><span class="arr">←</span><div class="zs" style="--role:var(--mi)"><small>Vezin</small><span class="ar">أَفْعَلُ</span></div><span class="arr">←</span><div class="zs big" style="--role:var(--mi)"><small>Tafdîl</small><span class="ar">أَكْبَرُ</span></div></div>' +
+    '<div class="gorev four" style="width:100%;max-width:900px">' +
+    '<div style="--role:var(--mi)"><b>Hemzesiz</b><span class="ar hlb">خَيْرٌ · شَرٌّ</span><small class="muted">aslı أَخْيَرُ، أَشَرُّ</small></div>' +
+    '<div style="--role:var(--cerr)"><b>Muzâaf</b><span class="ar hlb">أَشَدُّ · أَقَلُّ</span><small class="muted">idğam</small></div>' +
+    '<div style="--role:var(--nasb)"><b>Nâkıs</b><span class="ar hlb">أَعْلَى · أَقْوَى</span><small class="muted">elif-i maksûre</small></div>' +
+    '<div style="--role:var(--x)"><b>Tafdîl değil</b><span class="ar hlb">أَحْمَرُ · أَعْرَجُ</span><small class="muted">renk ve ayıp sıfatı</small></div></div>';
+}
+function vizU2() { return tafdilMakine(); }
+function vizU3() {
+  return '<div class="vs"><div class="fcard" style="--role:var(--mi)"><span class="ar">المُؤْمِنُ <b>أَكْثَرُ</b> إِنْفَاقًا</span><b class="t">mezîd fiil → yardımcı + masdar</b></div><div class="fcard" style="--role:var(--nasb)"><span class="ar">السَّمَاءُ <b>أَشَدُّ</b> زُرْقَةً</span><b class="t">renk → yardımcı + masdar</b></div></div>' +
+    '<div class="lbl">Tesrif · تَصْرِيفُهُ</div><div class="ttab"><div class="th">Müfred</div><div class="th">Müsennâ</div><div class="th">Cemi</div>' +
+    ["أَكْبَرُ", "أَكْبَرَانِ", "أَكْبَرُونَ / أَكَابِرُ", "كُبْرَى", "كُبْرَيَانِ", "كُبْرَيَاتٌ / كُبَرُ"].map(function (w) { return '<div class="tc"><span class="ar">' + w + '</span></div>'; }).join("") + '</div><p class="cap">Üst satır müzekker, alt satır müennes (فُعْلَى).</p>';
+}
+function vizU4() {
+  return badges([["أَكْرَمَكُمْ", "marifeye muzâf", "nasb"], ["الحُسْنَى", "elif-lâmlı", "mi"], ["أَشَدَّ العَذَابِ", "marifeye muzâf", "nasb"], ["العُلْيَا", "elif-lâmlı", "mi"], ["خَيْرٌ مِنَ", "nekre + min", "mz"], ["أَحَاسِنُكُمْ", "uyan yol", "nasb"]]);
+}
+function vizU5() {
+  return badges([["أَجْمَلُ مِنْ", "1", "mz"], ["أَعْذَبُ مِنْ", "1", "mz"], ["أَوْسَعُ حَدِيقَةٍ", "2", "cerr"], ["أَكْبَرِ المَنَازِلِ", "3", "nasb"], ["الجَذَّابِ", "mübalağa", "x"], ["نُهَيْرٌ", "tasğir", "x"]]);
+}
+var VIZ = { u1: vizU1, u2: vizU2, u3: vizU3, u4: vizU4, u5: vizU5 };
+
+// ---------- durum ----------
+var ST = { tab: "ozet", tr: store.get("tr", true), items: store.get("items", {}) };
+var TABS = ["ozet", "u1", "u2", "u3", "u4", "u5", "oyun", "quiz"];
+var hashT = location.hash.replace("#", "");
+ST.tab = TABS.indexOf(hashT) >= 0 ? hashT : store.get("tab", "ozet");
+if (TABS.indexOf(ST.tab) < 0) ST.tab = "ozet";
+var main = document.getElementById("main");
+var LIVE = {};
+function saveItems() { store.set("items", ST.items); }
+function unitById(id) { return UNITS.filter(function (u) { return u.id === id; })[0]; }
+
+// Alıştırmaları maddelere aç
+function expand(ex) {
+  if (ex._items) return ex._items;
+  var out = [];
+  if (ex.type === "dp") {
+    ex.rows.forEach(function (r) {
+      out.push({ kind: "pick", q: r.s + " ← (müsennâ)", o: shuffle(r.d), a: r.d[0], tr: r.tr[1], why: r.why });
+      out.push({ kind: "pick", q: r.s + " ← (cem)", o: shuffle(r.p), a: r.p[0], tr: r.tr[2], why: r.why });
+    });
+  } else if (ex.type === "bank") {
+    var n = ex.parts ? ex.parts.filter(function (p) { return typeof p !== "string"; }).length : ex.items.length;
+    for (var i = 0; i < n; i++) out.push({ kind: "bank" });
+  } else if (ex.items) {
+    ex.items.forEach(function (it) { var c = {}; for (var k in it) c[k] = it[k]; c.kind = ex.type; out.push(c); });
+  }
+  ex._items = out;
+  return out;
+}
+function subCls(ex) { var a = []; if (ex.cls) a.push(["c", ex.cls]); if (ex.cls2) a.push(["d", ex.cls2]); return a; }
+function allScorable(u) {
+  var n = 0, ok = 0;
+  u.ex.forEach(function (ex, ei) {
+    expand(ex).forEach(function (it, ii) { n++; if (ST.items[u.id + "-" + ei + "-" + ii] === 1) ok++; });
+    subCls(ex).forEach(function (sc) { sc[1].items.forEach(function (it, ii) { n++; if (ST.items[u.id + "-" + ei + "-" + sc[0] + ii] === 1) ok++; }); });
+  });
+  return { n: n, ok: ok };
+}
+function mark(key, good) {
+  var prev = ST.items[key];
+  if (good) { if (prev !== 1) { ST.items[key] = 1; saveItems(); addXP(prev === 2 ? 2 : 5, true); beep("ok"); } }
+  else { if (prev !== 1) { ST.items[key] = 2; saveItems(); } beep("no"); }
+  updateProgress();
+}
+function updateProgress() {
+  UNITS.forEach(function (u) {
+    var p = allScorable(u), el = document.querySelector('nav.tabs [data-tab="' + u.id + '"] .pc');
+    if (el) el.textContent = Math.round(p.ok / p.n * 100) + "%";
+    var bar = document.getElementById("prog-" + u.id);
+    if (bar) { bar.style.width = (p.ok / p.n * 100) + "%"; var t = document.getElementById("progt-" + u.id); if (t) t.textContent = p.ok + " / " + p.n; }
+  });
+}
+
+// ---------- sekmeler ----------
+function renderTabs() {
+  document.getElementById("tabs").innerHTML = '<button role="tab" data-tab="ozet">Özet</button>' +
+    UNITS.map(function (u) { return '<button role="tab" data-tab="' + u.id + '"><span class="num">' + u.no + '</span>' + u.short + ' <span class="pc">0%</span></button>'; }).join("") +
+    '<button role="tab" data-tab="oyun">Oyunlar</button><button role="tab" data-tab="quiz">Quiz Provası</button>';
+}
+function setTab(t) {
+  if (t !== "oyun") stopGame();
+  if (t !== "quiz") stopQuiz();
+  ST.tab = t; store.set("tab", t);
+  document.querySelectorAll("nav.tabs button").forEach(function (b) { b.setAttribute("aria-selected", b.dataset.tab === t ? "true" : "false"); });
+  render();
+  var sel = document.querySelector('nav.tabs button[data-tab="' + t + '"]');
+  if (sel) { try { sel.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (x) {} }
+}
+function render() {
+  LIVE = {};
+  if (ST.tab === "ozet") main.innerHTML = renderOzet();
+  else if (ST.tab === "oyun") main.innerHTML = renderGames();
+  else if (ST.tab === "quiz") main.innerHTML = renderQuiz();
+  else main.innerHTML = renderUnit(unitById(ST.tab));
+  updateProgress();
+}
+
+// ---------- özet ----------
+var CHECK = [
+  "İsm-i tafdîlin \"daha …, en …\" anlamı verdiğini ve أَفْعَلُ kalıbında geldiğini biliyorum.",
+  "خَيْرٌ ve شَرٌّ'ın hemzesiz tafdîl olduğunu biliyorum.",
+  "Muzâafta أَشَدُّ, nâkısta أَعْلَى gibi şekilleri tanıyorum.",
+  "أَحْمَرُ gibi renk sıfatlarını ve أَعْلَمُ gibi fiilleri tafdîlle karıştırmıyorum.",
+  "1. kullanım: nekre + مِنْ → tafdîl SABİT: فَاطِمَةُ أَفْضَلُ مِنْ زَيْنَبَ.",
+  "2. kullanım: nekreye muzâf → tafdîl SABİT: فَاطِمَةُ أَفْضَلُ طَالِبَةٍ.",
+  "3. kullanım: marifeye muzâf → İKİ YOL: أَفْضَلُ / فُضْلَيَاتُ النِّسَاءِ.",
+  "4. kullanım: elif-lâmlı → UYUM ŞART: الطَّالِبَةُ الفُضْلَى.",
+  "Mezîd fiil ve renkte yardımcı tafdîl kullanıyorum: أَكْثَرُ إِنْفَاقًا، أَشَدُّ زُرْقَةً.",
+  "Tesrifi biliyorum: أَكْبَرُ – كُبْرَى – أَكَابِرُ – كُبَرُ."
+];
+function arWrap(t) { return t.replace(/([؀-ۿ][؀-ۿً-ْ\s،/←…]*[؀-ۿً-ْ])/g, '<span class="ar">$1</span>'); }
+function renderOzet() {
+  var fi = LIVE.fi || 0, fu = LIVE.fu || false, ch = store.get("check", {});
+  function card(u, items) {
+    return '<div class="card sumcard" style="--role:var(--' + u.col + ')"><div class="lbl">Konu ' + u.no + '</div><div class="ar t">' + u.ar + '</div><h3>' + u.tr + '</h3><ul>' + items.map(function (i) { return '<li>' + i + '</li>'; }).join("") + '</ul><button class="btn small" data-go="' + u.id + '" style="--accent:var(--' + u.col + ')">Konu ' + u.no + '</button></div>';
+  }
+  return '<section class="panel">' +
+    '<div class="card stack"><div class="lbl">Bütün konu tek bakışta</div><h2>Tafdîl ne zaman değişir?</h2><div class="viz">' + uyumTablosu() + kisaYol() + '</div></div>' +
+    '<div class="card stack"><div class="lbl">Etkinlik</div><h2>Tafdîl makinesi</h2><p class="muted">Sıfatı, kullanımı ve cinsiyeti seç: cümle kurulsun, tafdîlin sabit mi kaldığını, uydu mu görürsün.</p><div class="viz">' + tafdilMakine() + '</div></div>' +
+    '<div class="sumgrid">' +
+      card(UNITS[0], ['\"Daha …, en …\"', 'Vezin: <span class="ar">أَفْعَلُ</span>', '<span class="ar">خَيْرٌ، شَرٌّ، أَشَدُّ، أَعْلَى</span>']) +
+      card(UNITS[1], ['SABİT · SABİT', 'İKİ YOL', 'UYUM ŞART']) +
+      card(UNITS[2], ['<span class="ar">أَكْثَرُ إِنْفَاقًا</span>', '<span class="ar">أَشَدُّ زُرْقَةً</span>', '<span class="ar">أَكْبَرُ – كُبْرَى</span>']) +
+      card(UNITS[3], ['Sekiz âyet ve hadis', 'Kullanımı söyle', 'Boşluğa tafdîl']) +
+      card(UNITS[4], ['Yaz tatili', 'Tafdîl, mekân, mübalağa', 'Sıfat-ı müşebbehe, tasğir']) +
+    '</div>' +
+    '<div class="card stack"><div class="lbl">Hatırlatma kartları</div><h2>Kartı çevir, cevabı hatırla</h2>' +
+      '<div class="flash-wrap"><button class="flash' + (fu ? " up" : "") + '" data-flip="1" aria-label="Kartı çevir"><div class="in"><div class="face front">' + arWrap(KARTLAR[fi][0]) + '</div><div class="face back">' + arWrap(KARTLAR[fi][1]) + '</div></div></button>' +
+      '<div class="row-btns"><button class="btn small" data-fprev="1">Önceki</button><span class="muted tabular" style="align-self:center">' + (fi + 1) + ' / ' + KARTLAR.length + '</span><button class="btn small solid" data-fnext="1">Sonraki</button><button class="btn small" data-fshuf="1">Karıştır</button></div></div></div>' +
+    '<div class="card stack"><div class="lbl">Kontrol listesi</div><h2>Konuyu kavradın mı?</h2><p class="muted">Bildiğin maddeleri işaretle. İşaretleyemediğin maddenin konusuna dön.</p>' +
+      '<ul class="checklist">' + CHECK.map(function (c, i) { return '<li><label><input type="checkbox" id="chk-' + i + '" data-chk="' + i + '"' + (ch[i] ? " checked" : "") + '><span>' + arWrap(c) + '</span></label></li>'; }).join("") + '</ul>' +
+      '<div class="row-btns"><button class="btn solid" data-go="u1">1. konudan başla</button><button class="btn" data-go="oyun">Oyunlar</button><button class="btn" data-go="quiz">Quiz provası</button><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+  '</section>';
+}
+
+// ---------- ders sayfası ----------
+var AR_NUM = ["١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩", "١٠"];
+function renderUnit(u) {
+  var p = allScorable(u);
+  var viz = VIZ[u.id]();
+  var rolesUsed = u.legend;
+  var exHtml = u.examples.map(function (e) {
+    if (e.pair) return '<div class="pairgrid"><div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + '</div><div class="ex-item">' + sentHtml(e.pair) + (ST.tr ? '<div class="trline">' + e.pairTr + '</div>' : '') + '</div></div>';
+    return '<div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + (e.why ? '<div class="trline">' + e.why + '</div>' : '') + '</div>';
+  }).join("");
+  return '<section class="panel" style="--role:var(--' + u.col + ')">' +
+    '<div class="card unit-hero"><div class="unit-no">' + u.no + '</div><div class="stack">' +
+      '<div class="lbl">İsm-i tafdîl · konu ' + u.no + ' / 5</div><div class="ar big" style="color:var(--role)">' + u.ar + '</div><h2>' + u.tr + '</h2>' +
+      '<ul class="goals">' + u.goals.map(function (g) { return '<li>' + arWrap(g) + '</li>'; }).join("") + '</ul>' +
+      '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> alıştırma maddesi doğru</div>' +
+    '</div></div>' +
+    '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Kitaptaki örnekler</div><h2>Önce gör</h2></div><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button></div>' +
+      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Mor: ism-i tafdîl, mavi: kıyaslanan.", u2: "Numara kullanımı gösterir.", u3: "Turuncu: temyiz (mansûb masdar).", u4: "Kitaptaki âyet ve hadislerden.", u5: "Metinden örnekler." })[u.id] + '</p>' + '</div>' +
+    '<div class="card viz"><div class="lbl">Görsel</div>' + viz + '</div>' +
+    '<div class="card stack"><div class="lbl">القَاعِدَةُ · Kaide</div><h2>Kural</h2>' +
+      '<ol class="rules">' + u.rules.map(function (r) { return '<li><div class="stack" style="gap:4px"><div>' + arWrap(r.tr) + '</div>' + (r.ex ? '<div class="exs">' + r.ex.map(function (x) { return '<span>' + x + '</span>'; }).join("") + '</div>' : '') + '</div></li>'; }).join("") + '</ol>' +
+      '<details class="kaide"><summary>Kitaptaki kaide metni (Arapça)</summary><div class="stack" style="margin-top:8px">' + u.kaide.map(function (k) { return '<p class="ar">' + k + '</p>'; }).join("") + '</div></details>' +
+    '</div>' +
+    '<div class="stack"><div><div class="lbl">التَّدْرِيبَاتُ · Alıştırmalar</div><h2>Şimdi sen yap</h2></div>' + u.ex.map(function (ex, ei) { return renderExercise(u, ex, ei); }).join("") + '</div>' +
+    '<div class="card stack" style="text-align:center;justify-items:center"><h2>Pekiştirmek için oyna ya da kendini dene</h2><div class="row-btns" style="justify-content:center"><button class="btn solid" data-go="oyun">Oyunlar</button><button class="btn" data-go="quiz">Quiz provası</button></div></div>' +
+  '</section>';
+}
+function renderExercise(u, ex, ei) {
+  var its = expand(ex), body = "";
+  if (ex.type === "reading") body = renderReading(u, ex, ei);
+  else if (ex.type === "bank") body = renderBank(u, ex, ei);
+  else {
+    if (ex.reading) body += readingText(ex);
+    if (ex.type === "tag") body += legendHtml(ex.roles);
+    body += '<div class="items">' + its.map(function (it, ii) { var k = u.id + "-" + ei + "-" + ii; return '<div class="item ' + statusCls(k) + '" id="it-' + k + '">' + itemInner(u, ei, ii, it, ex) + '</div>'; }).join("") + '</div>';
+  }
+  return '<div class="card exer" id="ex-' + u.id + '-' + ei + '"><div class="exer-head"><div class="ar">' + (ex.num || AR_NUM[ei]) + ' ـ ' + ex.ar + '</div><div><b>' + ex.tr + '</b>' + (ex.extra ? '<span class="extra-tag">Ek alıştırma</span>' : '') + '</div></div>' +
+    (ex.exHtml ? '<div class="exbox"><span class="lbl">مِثَالٌ · Örnek</span><div>' + ex.exHtml + '</div></div>' : '') + body + '</div>';
+}
+function statusCls(k) { return ""; }
+function readingText(ex) {
+  var body = ex.dialog ? '<div class="stack" style="gap:4px">' + ex.dialog.map(function (d) { return '<p class="passage" style="text-align:right"><b class="' + (d[0] === "مَرْيَمُ" ? "r-mun" : "r-muz") + '">' + d[0] + ':</b> ' + d[1] + '</p>'; }).join("") + '</div>' : '<p class="passage">' + ex.text + '</p>';
+  return '<div class="card stack" style="background:var(--soft);border:0"><h3 class="ar" style="font-size:1.6rem;color:var(--accent)">' + ex.title + '</h3>' + body +
+    '<details><summary class="muted" style="cursor:pointer">Türkçesini göster</summary><p class="passage-tr" style="margin-top:6px">' + ex.textTr + '</p></details></div>';
+}
+function trAfter(it) { return it.tr && typeof it.tr === "string" ? '<div class="trline">' + it.tr + '</div>' : ''; }
+function retryBtn(key) { return '<div><button class="btn small" data-act="retry" data-key="' + key + '">Tekrar dene</button></div>'; }
+function isOk(it, v) { return v === it.a || !!(it.alt && it.alt.indexOf(v) >= 0); }
+function optsFor(it, ex) { return it.opts || ex.opts || [["i", "İsim cümlesi", "اسْمِيَّةٌ", "x"], ["f", "Fiil cümlesi", "فِعْلِيَّةٌ", "x"]]; }
+
+function itemInner(u, ei, ii, it, ex) {
+  var key = u.id + "-" + ei + "-" + ii;
+  var L = LIVE[key] || (LIVE[key] = {});
+  var num = '<span class="qn tabular">' + (ii + 1) + '</span>';
+  if (it.kind === "pick") {
+    var ansIdx = typeof it.a === "number" ? it.a : it.o.indexOf(it.a), chosen = L.ch;
+    var q = it.q || "";
+    if (it.q && ex.fill) q = it.q.replace("___", '<u class="' + (chosen != null ? "filled" : "") + '">' + (chosen != null ? it.o[chosen] : "&nbsp;") + '</u>');
+    return num + (q ? '<div class="q">' + q + '</div>' : '') +
+      '<div class="opts">' + it.o.map(function (o, oi) {
+        var cls = chosen != null ? (oi === ansIdx ? " sel-ok" : (oi === chosen ? " sel-no" : "")) : "";
+        var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(o);
+        return '<button class="opt' + (ex.fill ? "" : " block") + (lat ? " lat" : "") + cls + '" data-act="pick" data-key="' + key + '" data-i="' + oi + '"' + (chosen != null ? " disabled" : "") + '>' + o + '</button>';
+      }).join("") + '</div>' +
+      (chosen != null ? '<div class="fb">' + (chosen === ansIdx ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <span class="ar">' + it.o[ansIdx] + '</span> ') + (it.why || '') + '</div>' + trAfter(it) + retryBtn(key) : '');
+  }
+  if (it.kind === "classify") {
+    var c = L.ch, opts = optsFor(it, ex), right = opts.filter(function (o) { return o[0] === it.a; })[0];
+    return num + '<div class="q">' + it.s + '</div><div class="cls-btns">' + opts.map(function (b) {
+      var cls = c ? (b[0] === it.a || (b[0] === c && isOk(it, c)) ? " sel-ok" : (b[0] === c ? " sel-no" : "")) : "";
+      return '<button class="opt lat' + cls + '" data-act="cls" data-key="' + key + '" data-v="' + b[0] + '"' + (c ? " disabled" : "") + '>' + b[1] + ' <span class="ar" style="font-weight:400">' + b[2] + '</span></button>';
+    }).join("") + '</div>' +
+      (c ? '<div class="fb">' + (isOk(it, c) ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <b>' + right[1] + '</b>. ') + (it.why || '') + '</div>' + trAfter(it) + retryBtn(key) : '');
+  }
+  if (it.kind === "tag" || it.kind === "find") {
+    var cs = chunks(it.c), find = it.kind === "find";
+    if (!L.tags) L.tags = cs.map(function () { return null; });
+    var res = L.res;
+    var line = cs.map(function (ch, ci) {
+      if (ch.r === "-") return '<span class="plain">' + ch.t + '</span>';
+      if (find) {
+        var on = !!L.tags[ci], target = ch.r === "y";
+        var cl = "tagbtn findbtn" + (on ? " on" : "") + (res && on !== target ? (on ? " wrong" : " miss") : "");
+        return '<button class="' + cl + '" data-act="find" data-key="' + key + '" data-ci="' + ci + '"' + (res === "ok" ? " disabled" : "") + '><span class="w">' + ch.t + '</span><span class="t">' + (on ? ROLES[ex.target].tr : "&nbsp;") + '</span></button>';
+      }
+      var r = res === "ok" ? ch.r : L.tags[ci], wrong = res === "no" && L.tags[ci] !== ch.r;
+      return '<button class="tagbtn' + (r ? " has r-" + r : "") + (wrong ? " wrong" : "") + '" data-act="tag" data-key="' + key + '" data-ci="' + ci + '"' + (res === "ok" ? " disabled" : "") + '><span class="w">' + ch.t + '</span><span class="t">' + (r ? ROLES[r].tr : "dokun") + '</span></button>';
+    }).join("");
+    return num + '<div class="sent" style="gap:8px">' + (it.pre ? '<span class="plain">' + it.pre + '</span>' : '') + line + (it.post ? '<span class="plain">' + it.post + '</span>' : '') + '</div>' + (it.src ? '<div class="srcline ar">(' + it.src + ')</div>' : '') +
+      (res === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + trAfter(it) :
+        '<div class="row-btns"><button class="btn small solid" data-act="tcheck" data-key="' + key + '">Kontrol et</button>' + (res === "no" ? '<button class="btn small" data-act="tshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (res === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> ' + (find ? 'Kırmızı çerçeveliler yanlış seçildi; yeşil kesik çizgililer atlandı.' : 'Kırmızı çerçeveli kelimeleri yeniden düşün.') + '</div>' : ''));
+  }
+  if (it.kind === "combo") {
+    var slots = it.p.filter(function (x) { return typeof x !== "string"; });
+    if (!L.sel) L.sel = slots.map(function () { return -1; });
+    var r3 = L.res, si = -1;
+    var ln = it.p.map(function (part) {
+      if (typeof part === "string") return '<span>' + part + '</span>';
+      si++; var v = L.sel[si];
+      return '<button class="slot' + (v < 0 ? " empty" : "") + (r3 === "ok" ? " right" : "") + (r3 === "no" ? " wrong" : "") + '" data-act="cycle" data-key="' + key + '" data-si="' + si + '"' + (r3 === "ok" ? " disabled" : "") + '>' + (v < 0 ? "؟" : part.o[v]) + '</button>';
+    }).join("");
+    var trc = Array.isArray(it.tr) ? it.tr[Math.max(0, it.ok.findIndex(function (cmb) { return cmb.every(function (v, i) { return L.sel[i] === v; }); }))] : it.tr;
+    return num + (it.q ? '<div class="q" style="font-size:1.3rem">' + it.q + '</div>' : '') + '<div class="combo-line">' + ln + '</div>' +
+      (r3 === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + (trc ? '<div class="trline">' + trc + '</div>' : '') :
+        '<div class="row-btns"><button class="btn small solid" data-act="ccheck" data-key="' + key + '">Kontrol et</button>' + (r3 === "no" ? '<button class="btn small" data-act="cshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (r3 === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> Kutulara dokunarak seçenekleri değiştir.</div>' : ''));
+  }
+  if (it.kind === "irab") {
+    var topts = ex.tlist || (ex.topts ? TUR_OPTS.filter(function (o) { return ex.topts.indexOf(o[0]) >= 0; }) : TUR_OPTS), onlyC = ex.only === "c", ri = L.res;
+    var qs = it.s.replace(/\[(.+?)\]/, '<b class="hl">$1</b>');
+    function row(lbl, opts, act, cur, ans) {
+      return '<div class="irow"><span class="lbl">' + lbl + '</span><div class="cls-btns">' + opts.map(function (o) {
+        var cl = ri === "ok" ? (o[0] === ans ? " sel-ok" : "") : ri === "no" && cur === o[0] ? (o[0] === ans ? " sel-ok" : " sel-no") : cur === o[0] ? " on" : "";
+        return '<button class="opt lat' + cl + '" data-act="' + act + '" data-key="' + key + '" data-v="' + o[0] + '"' + (ri === "ok" ? " disabled" : "") + '>' + o[1] + ' <span class="ar" style="font-weight:400">' + o[2] + '</span></button>';
+      }).join("") + '</div></div>';
+    }
+    return num + '<div class="q">' + qs + '</div>' + (onlyC ? '' : row(ex.tlbl || "Türü", topts, "it", L.t, it.t)) + row("Hali", HAL_OPTS, "ic", L.c, it.c) +
+      (ri === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + (it.why || '') + '</div>' + trAfter(it) :
+        '<div class="row-btns"><button class="btn small solid" data-act="icheck" data-key="' + key + '">Kontrol et</button>' + (ri === "no" ? '<button class="btn small" data-act="ishow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
+        (ri === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> Kırmızı seçimi değiştir. İpucu: önce kelimenin görevini bul.</div>' : ri === "eksik" ? '<div class="fb"><span class="no">Önce ' + (onlyC ? "hali" : "iki satırdan da birer seçenek") + ' seç.</span></div>' : ''));
+  }
+  return "";
+}
+function rerenderItem(key) {
+  var p = key.split("-"), u = unitById(p[0]), ei = +p[1], ii = +p[2], ex = u.ex[ei];
+  var el = document.getElementById("it-" + key); if (!el) return;
+  el.innerHTML = itemInner(u, ei, ii, expand(ex)[ii], ex);
+  el.className = "item " + (LIVE[key] && LIVE[key].res === "ok" ? "ok" : LIVE[key] && LIVE[key].res === "no" ? "no" : "");
+}
+function itemFromKey(key) { var p = key.split("-"), u = unitById(p[0]), ex = u.ex[+p[1]]; return { u: u, ex: ex, it: expand(ex)[+p[2]] }; }
+
+// sözcük bankası (eşleştirme ya da metin içi boşluk)
+function renderBank(u, ex, ei) {
+  var key = u.id + "-" + ei + "-bank";
+  var slots = ex.parts ? ex.parts.filter(function (p) { return typeof p !== "string"; }) : ex.items;
+  var L = LIVE[key] || (LIVE[key] = { fill: slots.map(function () { return -1; }), sel: -1 });
+  var used = {}; L.fill.forEach(function (b) { if (b >= 0) used[b] = 1; });
+  function slotBtn(ii) {
+    var f = L.fill[ii], res = L.res ? L.res[ii] : null;
+    return '<button class="slot' + (f < 0 ? " empty" : "") + (res === true ? " right" : res === false ? " wrong" : "") + '" data-act="bput" data-key="' + key + '" data-ii="' + ii + '"' + (res === true ? " disabled" : "") + '>' + (f < 0 ? "؟" : ex.bank[f]) + '</button>';
+  }
+  var body;
+  if (ex.parts) {
+    var si = -1;
+    body = '<p class="story" style="line-height:2.4">' + ex.parts.map(function (p) { if (typeof p === "string") return ' ' + p + ' '; si++; return slotBtn(si); }).join("") + '</p>' +
+      (L.res && L.res.every(Boolean) && ST.tr ? '<p class="trline">' + (ex.tr2 || ex.tr) + '</p>' : '');
+  } else {
+    body = '<div class="items">' + ex.items.map(function (it, ii) {
+      var res = L.res ? L.res[ii] : null;
+      return '<div class="item' + (res === true ? " ok" : res === false ? " no" : "") + '"><span class="qn tabular">' + (ii + 1) + '</span><div class="combo-line">' + (it.pre ? '<span>' + it.pre + '</span>' : '') + slotBtn(ii) + (it.h ? '<span>' + it.h + '</span>' : '') + '</div>' + (res === true ? trAfter(it) + (it.why ? '<div class="trline">' + it.why + '</div>' : '') : '') + '</div>';
+    }).join("") + '</div>';
+  }
+  return '<div class="bank">' + ex.bank.map(function (b, bi) { return '<button class="tile" data-act="bsel" data-key="' + key + '" data-bi="' + bi + '" aria-pressed="' + (L.sel === bi ? "true" : "false") + '"' + (used[bi] && !ex.reuse ? " disabled" : "") + '>' + b + '</button>'; }).join("") + '</div>' + body +
+    '<div class="row-btns"><button class="btn small solid" data-act="bcheck" data-key="' + key + '">Kontrol et</button><button class="btn small" data-act="breset" data-key="' + key + '">Sıfırla</button></div>' + (L.msg ? '<div class="fb">' + L.msg + '</div>' : '');
+}
+// okuma (diyalog) alıştırması
+function renderReading(u, ex, ei) {
+  return readingText(ex) +
+    '<div class="stack">' + ex.qa.map(function (q, qi) {
+      var k = u.id + "-" + ei + "-q" + qi, open = LIVE[k] && LIVE[k].open;
+      return '<div class="qa"><div class="ar">' + ["أ", "ب", "ج", "د"][qi] + ' ـ ' + q.q + '</div>' + (open ? '<div class="ar" style="color:var(--accent)">' + q.a + '</div><div class="trline">' + q.tr + '</div>' : '<div><button class="btn small" data-act="qa" data-key="' + k + '">Örnek cevabı göster</button></div>') + '</div>';
+    }).join("") + '</div>' +
+    subCls(ex).map(function (sc) {
+      return '<div class="exer-head"><div class="ar">' + sc[1].ar + '</div><div><b>' + sc[1].tr + '</b></div></div><div class="items">' +
+        sc[1].items.map(function (it, ii) { var key = u.id + "-" + ei + "-" + sc[0] + ii; return '<div class="item" id="it-' + key + '">' + clsInner(key, it, ii, sc[1].opts) + '</div>'; }).join("") + '</div>';
+    }).join("");
+}
+function clsInner(key, it, ii, opts) {
+  var L = LIVE[key] || (LIVE[key] = {}), c = L.ch, right = opts.filter(function (o) { return o[0] === it.a; })[0];
+  return '<span class="qn tabular">' + (ii + 1) + '</span><div class="q">' + it.s + '</div><div class="cls-btns">' + opts.map(function (b) {
+    var cl = c ? (b[0] === it.a || (b[0] === c && isOk(it, c)) ? " sel-ok" : (b[0] === c ? " sel-no" : "")) : "";
+    return '<button class="opt lat' + cl + '" data-act="rcls" data-key="' + key + '" data-ii="' + ii + '" data-v="' + b[0] + '"' + (c ? " disabled" : "") + '>' + b[1] + ' <span class="ar" style="font-weight:400">' + b[2] + '</span></button>';
+  }).join("") + '</div>' + (c ? '<div class="fb">' + (isOk(it, c) ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <b>' + right[1] + '</b>. ') + (it.why || '') + '</div>' : '');
+}
+
+// ---------- olaylar ----------
+main.addEventListener("click", function (ev) {
+  var b = ev.target.closest("button"); if (!b) return;
+  var d = b.dataset, key = d.key;
+  if (d.go) { setTab(d.go); window.scrollTo({ top: 0 }); return; }
+  if (d.trtoggle) { ST.tr = !ST.tr; store.set("tr", ST.tr); var y = window.scrollY; render(); window.scrollTo({ top: y }); return; }
+  if (d.snd) { SND.on = !SND.on; store.set("snd", SND.on); render(); if (SND.on) beep("ok"); return; }
+  if (d.ta != null || d.tu != null || d.tg != null) { if (d.ta != null) LIVE.ta = +d.ta; if (d.tu != null) LIVE.tu = +d.tu; if (d.tg != null) LIVE.tg = +d.tg; var mk = document.getElementById("makine"); if (mk) mk.outerHTML = tafdilMakine(); beep("tick"); return; }
+  if (d.flip) { LIVE.fu = !LIVE.fu; b.classList.toggle("up", LIVE.fu); return; }
+  if (d.fnext || d.fprev || d.fshuf) {
+    var fi = LIVE.fi || 0;
+    if (d.fshuf) { KARTLAR.sort(function () { return Math.random() - .5; }); fi = 0; }
+    else fi = (fi + (d.fnext ? 1 : -1) + KARTLAR.length) % KARTLAR.length;
+    var y2 = window.scrollY; LIVE = { fi: fi, fu: false }; main.innerHTML = renderOzet(); window.scrollTo({ top: y2 }); return;
+  }
+  if (!d.act) return;
+  var L = LIVE[key] || (LIVE[key] = {}), o;
+  switch (d.act) {
+    case "pick":
+      o = itemFromKey(key); L.ch = +d.i;
+      var ai = typeof o.it.a === "number" ? o.it.a : o.it.o.indexOf(o.it.a);
+      L.res = L.ch === ai ? "ok" : "no"; mark(key, L.ch === ai); rerenderItem(key); break;
+    case "cls": o = itemFromKey(key); L.ch = d.v; L.res = isOk(o.it, d.v) ? "ok" : "no"; mark(key, isOk(o.it, d.v)); rerenderItem(key); break;
+    case "retry": LIVE[key] = {}; rerenderItem(key); break;
+    case "tag":
+      o = itemFromKey(key);
+      var roles = o.ex.roles, cur = L.tags[+d.ci], idx = cur ? roles.indexOf(cur) : -1;
+      L.tags[+d.ci] = roles[(idx + 1) % roles.length]; L.res = null; rerenderItem(key); break;
+    case "find": L.tags[+d.ci] = !L.tags[+d.ci]; L.res = null; rerenderItem(key); break;
+    case "tcheck":
+      o = itemFromKey(key);
+      var cs = chunks(o.it.c), good = cs.every(function (c, i) { if (c.r === "-") return true; if (o.it.kind === "find") return !!L.tags[i] === (c.r === "y"); return L.tags[i] === c.r; });
+      L.res = good ? "ok" : "no"; mark(key, good); rerenderItem(key); break;
+    case "tshow":
+      o = itemFromKey(key); L.tags = chunks(o.it.c).map(function (c) { return o.it.kind === "find" ? c.r === "y" : c.r; }); L.res = "ok"; rerenderItem(key); break;
+    case "cycle":
+      o = itemFromKey(key);
+      var sl = o.it.p.filter(function (x) { return typeof x !== "string"; }), si = +d.si;
+      L.sel[si] = (L.sel[si] + 1) % sl[si].o.length; L.res = null; rerenderItem(key); break;
+    case "ccheck":
+      o = itemFromKey(key);
+      var gc = o.it.ok.some(function (cmb) { return cmb.every(function (v, i) { return L.sel[i] === v; }); });
+      L.res = gc ? "ok" : "no"; mark(key, gc); rerenderItem(key); break;
+    case "cshow": o = itemFromKey(key); L.sel = o.it.ok[0].slice(); L.res = "ok"; rerenderItem(key); break;
+    case "bsel": L.sel = L.sel === +d.bi ? -1 : +d.bi; rerenderExercise(key); break;
+    case "bput":
+      var ii = +d.ii;
+      var exr0 = itemFromKey(key.replace(/-bank$/, "-0")).ex;
+      if (L.sel >= 0) { if (!exr0.reuse) { L.fill = L.fill.map(function (f) { return f === L.sel ? -1 : f; }); L.fill[ii] = L.sel; L.sel = -1; } else { L.fill[ii] = L.sel; L.sel = -1; } }
+      else if (L.fill[ii] >= 0) L.fill[ii] = -1;
+      if (L.res) L.res[ii] = null; L.msg = ""; rerenderExercise(key); break;
+    case "breset": LIVE[key] = { fill: L.fill.map(function () { return -1; }), sel: -1 }; rerenderExercise(key); break;
+    case "bcheck":
+      var pb = key.split("-"), ub = unitById(pb[0]), exb = ub.ex[+pb[1]];
+      var acc = exb.parts ? exb.parts.filter(function (p) { return typeof p !== "string"; }) : exb.items;
+      L.res = acc.map(function (it, i) { return L.fill[i] >= 0 && it.a.indexOf(L.fill[i]) >= 0; });
+      L.res.forEach(function (r, i) { if (L.fill[i] >= 0) mark(ub.id + "-" + pb[1] + "-" + i, r); });
+      var nOk = L.res.filter(Boolean).length;
+      L.msg = nOk === acc.length ? '<span class="ok">Hepsi doğru!</span>' : '<span class="no">' + nOk + ' / ' + acc.length + ' doğru.</span> Kırmızı kutuları değiştir.';
+      if (nOk === acc.length) confetti();
+      rerenderExercise(key); break;
+    case "qa": L.open = true; rerenderExercise(key); break;
+    case "it": L.t = d.v; if (L.res !== "ok") L.res = null; rerenderItem(key); break;
+    case "ic": L.c = d.v; if (L.res !== "ok") L.res = null; rerenderItem(key); break;
+    case "icheck":
+      o = itemFromKey(key);
+      var oc = o.ex.only === "c";
+      if (!L.c || (!oc && !L.t)) { L.res = "eksik"; rerenderItem(key); break; }
+      var gi = L.c === o.it.c && (oc || L.t === o.it.t);
+      L.res = gi ? "ok" : "no"; mark(key, gi); rerenderItem(key); break;
+    case "ishow": o = itemFromKey(key); L.t = o.it.t; L.c = o.it.c; L.res = "ok"; rerenderItem(key); break;
+    case "rcls":
+      var pr = key.split("-"), exr = unitById(pr[0]).ex[+pr[1]], sub = pr[2].charAt(0) === "c" ? exr.cls : exr.cls2, itr = sub.items[+d.ii];
+      L.ch = d.v; mark(key, isOk(itr, d.v));
+      document.getElementById("it-" + key).innerHTML = clsInner(key, itr, +d.ii, sub.opts); break;
+  }
+});
+main.addEventListener("change", function (ev) {
+  var t = ev.target; if (!t.dataset || t.dataset.chk == null) return;
+  var ch = store.get("check", {}); ch[t.dataset.chk] = t.checked; store.set("check", ch);
+  var all = CHECK.every(function (_, i) { return ch[i]; }); if (all && t.checked) { confetti(); toast("Hepsi işaretli: quize hazırsın!"); }
+});
+function rerenderExercise(key) {
+  var p = key.split("-"), u = unitById(p[0]), ei = +p[1], el = document.getElementById("ex-" + u.id + "-" + ei);
+  if (!el) return;
+  var tmp = document.createElement("div"); tmp.innerHTML = renderExercise(u, u.ex[ei], ei); el.replaceWith(tmp.firstChild);
+}
+
+// ---------- oyunlar ----------
+// Doğru Biçim: TF_POOL → boşluklu cümle
+var POOL = TF_POOL.map(function (p) {
+  var m = /\{([^}]+)\}/.exec(p[0]);
+  return { pre: p[0].slice(0, m.index), post: p[0].slice(m.index + m[0].length), w: m[1], forms: p[1], role: p[2], tr: p[3], topic: p[4] };
+});
+function poolHtml(it, mode) { return it.pre + (mode === "blank" ? '<span class="blank">&nbsp;</span>' : '<b class="hl">' + it.w + '</b>') + it.post; }
+function why(it) { return '<span class="ar">' + it.w + '</span>: ' + arWrap(it.role); }
+// Vezin Avı: fiil → doğru isim
+function donItem() {
+  var v = pick(TY);
+  return { pre: '<small dir="ltr" class="muted" style="display:block;font-size:1rem">' + v[4] + '</small><span class="ar">' + v[0] + ' ← </span>', post: "", w: v[1], forms: [v[1], v[2], v[3]], role: v[5] || "أَفْعَلُ", tr: "" };
+}
+var GAMES = {
+  avci: { name: "Doğru Biçim", ico: "أَفْضَلُ · الفُضْلَى", col: "mi", d: "12 cümle. Boşluğa tafdîlin doğru biçimini koy: sabit mi kalmalı, uymalı mı?" },
+  don: { name: "Tafdîl Yap", ico: "كَبِيرٌ ← أَكْبَرُ", col: "cerr", d: "12 soru. Sıfattan ism-i tafdîl yap. Tuzak: muzâaf (أَشَدُّ), nâkıs (أَعْلَى)." },
+  ku: { name: "Hangi Kullanım?", ico: "مِنْ · نَكِرَة · مَعْرِفَة · ال", col: "nasb", d: "60 saniye. Koyu tafdîl dört kullanımdan hangisinde? Arkasına bak." },
+  dy: { name: "Doğru mu Yanlış mı?", ico: "فُضْلَى مِنْ ✗", col: "ref", d: "60 saniye. İfade doğru mu? Karışıklığı bitiren oyun: SABİT · İKİ YOL · UYUM ŞART." },
+  hafiza: { name: "Hafıza Kartları", ico: "أَكْبَرُ ↔ كُبْرَى", col: "muz", d: "Kartları çevir, eşleri bul: sıfat ile tafdîl, müzekker ile müennes ya da Arapça ile Türkçe." }
+};
+var G = null, GT = null;
+function stopGame() { if (GT) { clearInterval(GT); GT = null; } G = null; }
+function renderGames() {
+  if (G) return '<section class="panel">' + gameBody() + '</section>';
+  var best = store.get("gbest", {});
+  return '<section class="panel"><div class="card stack"><div class="lbl">Oyunlar</div><h2>Oynayarak pekiştir</h2><p class="muted">Her oyun ism-i tafdîlin bir kuralını çalıştırır ve rütbe puanı kazandırır.</p><div class="row-btns"><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+    '<div class="game-menu">' + Object.keys(GAMES).map(function (k) {
+      var g = GAMES[k];
+      return '<div class="card game-card" style="--role:var(--' + g.col + ')"><div class="ico">' + g.ico + '</div><h3>' + g.name + '</h3><p class="muted">' + g.d + '</p><p class="muted" style="margin-top:auto">' + (best[k] != null ? 'En iyi: <b class="tabular">' + best[k] + '</b>' : 'Henüz oynanmadı') + '</p>' +
+        (k === "hafiza" ? '<div class="row-btns">' + Object.keys(HAFIZA).map(function (dk) { return '<button class="btn solid small" data-gstart="hafiza" data-deck="' + dk + '" style="--accent:var(--' + g.col + ')">' + HAFIZA[dk].name + '</button>'; }).join("") + '</div>' :
+          '<button class="btn solid" data-gstart="' + k + '" style="--accent:var(--' + g.col + ')">Oyna</button>') + '</div>';
+    }).join("") + '</div></section>';
+}
+function gameHead(t) { return '<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Oyun</div><h2>' + t + '</h2></div><button class="btn small" data-gmenu="1">Oyunlara dön</button></div>'; }
+function redraw() { main.innerHTML = renderGames(); }
+var SPEED = { ku: { opts: KU, keys: "1–4" }, dy: { opts: DY, keys: "1 Doğru · 2 Yanlış" } };
+function startGame(k, deck) {
+  stopGame();
+  G = { id: k, score: 0, n: 0, ok: 0, over: false, start: Date.now(), combo: 0, maxCombo: 0 };
+  if (k === "avci" || k === "don") { if (k === "avci") G.list = shuffle(POOL).slice(0, 12); else { G.list = []; var sg = {}; while (G.list.length < 12) { var di = donItem(); if (!sg[di.w]) { sg[di.w] = 1; G.list.push(di); } } } G.i = 0; G.list.forEach(function (it) { it.opts = shuffle(it.forms); }); }
+  if (SPEED[k]) { G.t = 60; G.opts = SPEED[k].opts; nextSpeed(); }
+  if (k === "hafiza") { var ps = shuffle(HAFIZA[deck].pairs).slice(0, 6), cards = []; ps.forEach(function (p, i) { cards.push({ p: i, t: p[0] }); cards.push({ p: i, t: p[1] }); }); G.deck = deck; G.cards = shuffle(cards); G.open = []; G.done = {}; G.moves = 0; G.pairs = 6; }
+  ST.tab = "oyun"; document.querySelectorAll("nav.tabs button").forEach(function (b) { b.setAttribute("aria-selected", b.dataset.tab === "oyun" ? "true" : "false"); });
+  redraw();
+  if (SPEED[k]) GT = setInterval(function () {
+    if (!G || G.over) return; G.t--; if (G.t <= 5 && G.t > 0) beep("tick");
+    if (G.t <= 0) { G.t = 0; endGame(G.score); return; } hud();
+  }, 1000);
+  if (k === "hafiza") GT = setInterval(function () { var el = document.getElementById("g-clock"); if (el && G && !G.over) el.textContent = Math.floor((Date.now() - G.start) / 1000) + " sn"; }, 1000);
+}
+function hud() {
+  var a = document.getElementById("g-time"); if (a) a.textContent = G.t;
+  var tb = document.getElementById("g-tbar"); if (tb) { tb.firstChild.style.width = (G.t / 60 * 100) + "%"; tb.classList.toggle("low", G.t <= 10); }
+  var s = document.getElementById("g-score"); if (s) s.textContent = G.score;
+  var c = document.getElementById("g-combo"); if (c) c.textContent = "x" + Math.min(5, 1 + Math.floor(G.combo / 3));
+}
+function endGame(score) {
+  if (GT) { clearInterval(GT); GT = null; }
+  G.over = true; G.final = score;
+  var best = store.get("gbest", {}); G.record = best[G.id] == null || score > best[G.id];
+  if (G.record) { best[G.id] = score; store.set("gbest", best); }
+  G.xp = Math.round(score / (SPEED[G.id] ? 5 : 2));
+  redraw(); addXP(G.xp); beep("win"); if (G.record || G.stars === 3) confetti();
+}
+function gameOver(t, lines) {
+  return '<div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">' + t + ' bitti</div>' + (G.stars != null ? starsHtml(G.stars) : '') + '<div class="score-big tabular">' + G.final + '</div>' + (G.record ? '<p><b>Yeni rekor!</b></p>' : '') + lines.map(function (l) { return '<p>' + l + '</p>'; }).join("") +
+    '<p class="muted">Kazandığın: +' + G.xp + ' rütbe puanı</p><div class="row-btns" style="justify-content:center"><button class="btn solid" data-gstart="' + G.id + '"' + (G.deck ? ' data-deck="' + G.deck + '"' : '') + '>Tekrar oyna</button><button class="btn" data-gmenu="1">Başka oyun</button></div></div>';
+}
+function gameBody() { return { avci: bodyAvci, don: bodyAvci, ku: bodySpeed, dy: bodySpeed, hafiza: bodyHaf }[G.id](); }
+function starsBy(ok, n) { return ok >= n - 1 ? 3 : ok >= Math.ceil(n * 0.66) ? 2 : 1; }
+
+// doğru şekil
+function bodyAvci() {
+  var title = GAMES[G.id].name;
+  if (G.over) return gameOver(title, ['<b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> doğru.']);
+  var it = G.list[G.i], done = G.ans != null;
+  return '<div class="card stack">' + gameHead(title) + '<div class="hud"><span>Cümle <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Puan <b>' + G.score + '</b></span></div>' +
+    '<div class="target">' + (done ? poolHtml(it) : poolHtml(it, "blank")) + '</div>' +
+    (done ? '<div class="fb" style="text-align:center">' + (G.ans === it.w ? '<span class="ok">Doğru! +10</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <span class="ar">' + it.w + '</span>. ') + '<br>' + why(it) + '</div>' + (ST.tr ? '<p class="trline" style="text-align:center">' + it.tr + '</p>' : '') +
+      '<div style="text-align:center"><button class="btn solid" data-gnext="1" id="g-next">' + (G.i + 1 < G.list.length ? "Sonraki" : "Sonucu gör") + '</button></div>' :
+      '<p class="muted" style="text-align:center">' + (G.id === "don" ? "Doğru tafdîl hangisi?" : "Boşluğa hangi biçim gelir?") + '</p><div class="big3">' + it.opts.map(function (f) { return '<button data-ga="' + f + '">' + f + '</button>'; }).join("") + '</div>') + '</div>';
+}
+// hız oyunları: hal yarışı ve doğru/yanlış
+function nextSpeed() {
+  var g = 0, it, w, html, a, fb;
+  do {
+    g++;
+    if (G.id === "ku") { var x = pick(KU_LIST); w = x[0]; html = x[0]; a = x[1]; fb = KU_TR[a] + ' (' + arWrap(x[2]) + ') · ' + KU_UY[a][0]; }
+    else { var y = pick(DY_LIST); w = y[0]; html = y[0]; a = y[1]; fb = (a === "d" ? "Doğru" : "Yanlış") + ': ' + arWrap(y[2]); }
+  } while (G.cur && w === G.cur.w && g < 10);
+  G.cur = { w: w, html: html, a: a, fb: fb };
+}
+function bodySpeed() {
+  var title = GAMES[G.id].name;
+  if (G.over) return gameOver(title, ['Doğru: <b class="tabular">' + G.ok + ' / ' + G.n + '</b> · en uzun seri: <b class="tabular">' + G.maxCombo + '</b>']);
+  return '<div class="card stack">' + gameHead(title) +
+    '<div class="hud"><span>Süre <b id="g-time">' + G.t + '</b></span><span>Puan <b id="g-score">' + G.score + '</b></span><span>Çarpan <b id="g-combo">x' + Math.min(5, 1 + Math.floor(G.combo / 3)) + '</b></span></div>' +
+    '<div class="time-bar' + (G.t <= 10 ? " low" : "") + '" id="g-tbar"><div style="width:' + (G.t / 60 * 100) + '%"></div></div>' +
+    '<div class="target" id="g-target">' + G.cur.html + '</div><div class="gfb" id="g-fb"><span class="muted">Klavye: ' + SPEED[G.id].keys + '</span></div>' +
+    '<div class="big5">' + G.opts.map(function (o, i) { return '<button style="--role:var(--' + o[3] + ')" data-gs="' + o[0] + '"><span class="ar">' + o[2] + '</span>' + o[1] + '<small>' + (i + 1) + '</small></button>'; }).join("") + '</div></div>';
+}
+function speedPick(v) {
+  if (!G || G.over || G.lock) return;
+  var c = G.cur, ok = c.a === v, tg = document.getElementById("g-target"), fb = document.getElementById("g-fb");
+  G.n++;
+  if (ok) {
+    G.ok++; G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo);
+    var m = Math.min(5, 1 + Math.floor((G.combo - 1) / 3)); G.score += 10 * m; beep("ok");
+    fb.innerHTML = '<b style="color:var(--good)">Doğru +' + 10 * m + '</b> · önceki: ' + c.fb;
+    tg.classList.remove("flash-no"); tg.classList.add("flash-ok"); nextSpeed(); tg.innerHTML = G.cur.html;
+    setTimeout(function () { tg.classList.remove("flash-ok"); }, 180);
+  } else {
+    G.combo = 0; G.t = Math.max(0, G.t - 3); beep("no"); G.lock = true;
+    fb.innerHTML = '<b style="color:var(--bad)">Yanlış, −3 sn.</b> ' + c.fb;
+    void tg.offsetWidth; tg.classList.add("flash-no");
+    var g0 = G;
+    setTimeout(function () { if (!G || G !== g0 || G.over) return; G.lock = false; tg.classList.remove("flash-no"); nextSpeed(); tg.innerHTML = G.cur.html; fb.innerHTML = '<span class="muted">Klavye: ' + SPEED[G.id].keys + '</span>'; if (G.t <= 0) endGame(G.score); }, 1800);
+  }
+  hud();
+}
+// hafıza
+function bodyHaf() {
+  if (G.over) return gameOver("Hafıza Kartları", ['<b class="tabular">' + G.moves + '</b> hamlede, <b class="tabular">' + G.secs + '</b> saniyede bitirdin.']);
+  return '<div class="card stack">' + gameHead("Hafıza Kartları · " + HAFIZA[G.deck].name) +
+    '<div class="hud"><span>Hamle <b id="g-moves">' + G.moves + '</b></span><span>Çift <b id="g-pairs">' + Object.keys(G.done).length + '/' + G.pairs + '</b></span><span>Süre <b id="g-clock">0 sn</b></span></div>' +
+    '<div class="mem">' + G.cards.map(function (c, i) { var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(c.t); return '<button class="mcard' + (G.done[c.p] ? " done" : "") + '" data-gc="' + i + '" aria-label="Kart ' + (i + 1) + '"><div class="in"><div class="face back">؟</div><div class="face front' + (lat ? " lat" : "") + '">' + c.t + '</div></div></button>'; }).join("") + '</div></div>';
+}
+function flip(i) {
+  if (!G || G.over || G.lock) return;
+  var c = G.cards[i]; if (G.done[c.p] || G.open.indexOf(i) >= 0) return;
+  G.open.push(i); document.querySelector('[data-gc="' + i + '"]').classList.add("up");
+  if (G.open.length < 2) return;
+  G.moves++; document.getElementById("g-moves").textContent = G.moves;
+  var a = G.cards[G.open[0]], b = G.cards[G.open[1]];
+  if (a.p === b.p) {
+    G.done[a.p] = 1; beep("ok");
+    G.open.forEach(function (j) { var e = document.querySelector('[data-gc="' + j + '"]'); e.classList.remove("up"); e.classList.add("done"); });
+    G.open = []; document.getElementById("g-pairs").textContent = Object.keys(G.done).length + "/" + G.pairs;
+    if (Object.keys(G.done).length === G.pairs) { G.secs = Math.floor((Date.now() - G.start) / 1000); G.stars = G.moves <= 9 ? 3 : G.moves <= 13 ? 2 : 1; setTimeout(function () { endGame(G.stars * 20 + Math.max(0, 60 - G.secs)); }, 500); }
+  } else {
+    G.lock = true; beep("no");
+    setTimeout(function () { if (!G) return; G.open.forEach(function (j) { var e = document.querySelector('[data-gc="' + j + '"]'); if (e) e.classList.remove("up"); }); G.open = []; G.lock = false; }, 950);
+  }
+}
+
+// ---------- QUIZ PROVASI ----------
+var TOPIC = { u1: "Nedir?", u2: "Dört kullanım", u3: "Yardımcı · tesrif", u4: "Âyet · hadis", u5: "Okuma" };
+var TK = ["u1", "u2", "u3", "u4", "u5"];
+var Q = null, QT = null;
+function stopQuiz() { if (QT) { clearInterval(QT); QT = null; } if (Q && !Q.done) Q = null; }
+function quizBank() {
+  var bank = { u1: [], u2: [], u3: [], u4: [], u5: [] };
+  UNITS.forEach(function (u) {
+    u.ex.forEach(function (ex) {
+      expand(ex).forEach(function (it) {
+        if (it.kind === "pick") bank[u.id].push({ inst: ex.tr.split(".")[0] + ".", q: it.q.replace("___", "……"), o: it.o.slice(), a: it.o[it.a], why: it.why || "", tr: it.tr || "" });
+        if (it.kind === "classify") bank[u.id].push({ inst: ex.tr.split(".")[0] + ".", q: it.s, o: ex.opts.filter(function (x) { return !(it.alt && it.alt.indexOf(x[0]) >= 0); }).map(function (x) { return x[1]; }), a: ex.opts.filter(function (x) { return x[0] === it.a; })[0][1], why: it.why || "", tr: it.tr || "" });
+      });
+    });
+  });
+  POOL.forEach(function (p) {
+    bank[p.topic].push({ inst: "Boşluğa hangi kelime gelir?", q: poolHtml(p, "blank"), o: p.forms.slice(), a: p.w, why: why(p), tr: p.tr });
+  });
+  TY.forEach(function (v) { bank.u1.push({ inst: "Bu sıfatın ism-i tafdîli hangisi?", q: v[0], o: [v[1], v[2], v[3]], a: v[1], why: v[5] || "أَفْعَلُ", tr: v[4] }); });
+  KU_LIST.forEach(function (x) { bank.u2.push({ inst: "Tafdîlin kullanımı hangisi?", q: x[0], o: KU.map(function (o) { return o[1]; }), a: KU_TR[x[1]], why: KU_UY[x[1]][0], tr: "" }); });
+  DY_LIST.forEach(function (x) { bank[/زُرْقَةً|إِنْفَاقًا|أَزْرَقُ|أَنْفَقُ/.test(x[0]) ? "u3" : "u2"].push({ inst: "Bu ifade doğru mu?", q: x[0], o: ["Doğru", "Yanlış"], a: x[1] === "d" ? "Doğru" : "Yanlış", why: x[2], tr: "" }); });
+  var rc = UNITS[4].ex[0].cls;
+  rc.items.forEach(function (it) { bank.u5.push({ inst: "Koyu kelime ne?", q: it.s, o: rc.opts.map(function (o) { return o[1]; }), a: rc.opts.filter(function (o) { return o[0] === it.a; })[0][1], why: it.why, tr: "" }); });
+  return bank;
+}
+function startQuiz() {
+  var bank = quizBank(), qs = [];
+  TK.forEach(function (k) {
+    var seen = {}, got = 0;
+    shuffle(bank[k]).forEach(function (q) { var sig = q.q.replace(/<[^>]+>/g, ""); if (got >= 4 || seen[sig]) return; seen[sig] = 1; got++; q.topic = k; q.o = shuffle(q.o); qs.push(q); });
+  });
+  Q = { qs: shuffle(qs), i: 0, ans: [], start: Date.now(), done: false };
+  main.innerHTML = renderQuiz();
+  QT = setInterval(function () { var el = document.getElementById("qz-clock"); if (el && Q && !Q.done) { var s = Math.floor((Date.now() - Q.start) / 1000); el.textContent = Math.floor(s / 60) + ":" + ("0" + s % 60).slice(-2); } }, 1000);
+}
+function renderQuiz() {
+  var best = store.get("qbest", null);
+  if (!Q) return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası</div><h2>Gerçek quiz gibi: 20 soru</h2>' +
+    '<p class="muted" style="max-width:60ch">Beş konudan dörder soru gelir: tafdîl nedir, dört kullanım, yardımcı tafdîl ve tesrif, âyet ve hadisler, okuma. Cevaplar sonda gösterilir. Sonunda konu konu puanını ve yanlışlarının açıklamasını görürsün. Her denemede sorular değişir.</p>' +
+    (best != null ? '<p>En iyi sonucun: <b class="tabular">' + best + ' / 20</b></p>' : '') + '<button class="btn solid" data-qstart="1">Provayı başlat</button></div></section>';
+  if (Q.done) {
+    var by = {}; Q.qs.forEach(function (q, i) { by[q.topic] = by[q.topic] || [0, 0]; by[q.topic][1]++; if (Q.ans[i] === q.a) by[q.topic][0]++; });
+    var tot = Q.qs.filter(function (q, i) { return Q.ans[i] === q.a; }).length;
+    var col = { u1: "mi", u2: "cerr", u3: "nasb", u4: "mz", u5: "muz" };
+    var weak = Object.keys(by).filter(function (k) { return by[k][0] / by[k][1] < 0.8; });
+    return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası bitti · ' + Q.time + '</div>' + starsHtml(tot >= 18 ? 3 : tot >= 14 ? 2 : 1) + '<div class="score-big tabular">' + tot + ' / 20</div>' +
+      '<p>' + (tot >= 18 ? "Konuya hâkimsin. Aferin!" : tot >= 14 ? "İyi gidiyorsun. Aşağıdaki zayıf konuya bir kez daha bak." : "Önce Özet’teki uyum tablosu ve tafdîl makinesiyle çalış, zayıf konunun alıştırmalarını çöz, sonra provayı tekrarla.") + '</p>' +
+      '<div class="qz-bars">' + TK.map(function (k) { var v = by[k] || [0, 4]; return '<div class="qz-bar" style="--role:var(--' + col[k] + ')"><span>' + TOPIC[k] + '</span><div class="tr2"><div style="width:' + (v[0] / v[1] * 100) + '%"></div></div><b class="tabular">' + v[0] + '/' + v[1] + '</b></div>'; }).join("") + '</div>' +
+      (weak.length ? '<div class="row-btns" style="justify-content:center">' + weak.map(function (k) { return '<button class="btn small" data-go="' + k + '">' + TOPIC[k] + ' konusuna dön</button>'; }).join("") + '</div>' : '') +
+      '<div class="row-btns" style="justify-content:center"><button class="btn solid" data-qstart="1">Yeni prova</button></div></div>' +
+      '<div class="card stack"><div class="lbl">Cevap anahtarı</div><h2>Yanlışların</h2>' + (tot === 20 ? '<p>Hiç yanlışın yok.</p>' : '<div class="items">' + Q.qs.map(function (q, i) {
+        if (Q.ans[i] === q.a) return "";
+        return '<div class="item no"><span class="qz-type">' + TOPIC[q.topic] + ' · ' + q.inst + '</span>' + (q.q ? '<div class="q">' + q.q + '</div>' : '') + '<div class="fb"><span class="no">Senin cevabın:</span> ' + arw(Q.ans[i] || "boş") + '<br><span class="ok">Doğrusu:</span> ' + arw(q.a) + (q.why ? '<br>' + q.why : '') + '</div>' + (q.tr ? '<div class="trline">' + q.tr + '</div>' : '') + '</div>';
+      }).join("") + '</div>') + '</div></section>';
+  }
+  var q = Q.qs[Q.i];
+  return '<section class="panel"><div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Quiz provası · ' + TOPIC[q.topic] + '</div><h2>Soru ' + (Q.i + 1) + ' / 20</h2></div><div class="hud"><span>Süre <b id="qz-clock">0:00</b></span></div></div>' +
+    '<div class="progress prog"><div style="width:' + (Q.i / 20 * 100) + '%;--role:var(--accent)"></div></div>' +
+    '<p><b>' + q.inst + '</b></p>' + (q.q ? '<div class="target" style="font-size:clamp(1.5rem,5vw,2.2rem)">' + q.q + '</div>' : '') +
+    '<div class="opts">' + q.o.map(function (o, oi) { var lat = /^[A-Za-zÇĞİÖŞÜçğıöşü]/.test(o); return '<button class="opt block' + (lat ? " lat" : "") + (Q.ans[Q.i] === o ? " sel-ok" : "") + '" data-qa="' + oi + '">' + o + '</button>'; }).join("") + '</div>' +
+    '<div class="row-btns"><button class="btn small" data-qprev="1"' + (Q.i === 0 ? " disabled" : "") + '>Önceki</button><button class="btn small" data-qskip="1">' + (Q.i < 19 ? "Sonraki" : "Bitir") + '</button></div></div></section>';
+}
+function arw(t) { return /[؀-ۿ]/.test(t) ? '<span class="ar">' + t + '</span>' : '<b>' + t + '</b>'; }
+function quizNext() {
+  if (Q.i < 19) { Q.i++; main.innerHTML = renderQuiz(); return; }
+  var s = Math.floor((Date.now() - Q.start) / 1000); Q.time = Math.floor(s / 60) + " dk " + (s % 60) + " sn"; Q.done = true;
+  if (QT) { clearInterval(QT); QT = null; }
+  var tot = Q.qs.filter(function (q, i) { return Q.ans[i] === q.a; }).length, best = store.get("qbest", null);
+  if (best == null || tot > best) store.set("qbest", tot);
+  main.innerHTML = renderQuiz(); window.scrollTo({ top: 0 }); addXP(tot * 4); if (tot >= 18) confetti(); beep("win");
+}
+
+main.addEventListener("click", function (ev) {
+  var b = ev.target.closest("button"); if (!b) return;
+  var d = b.dataset;
+  if (d.qstart) { startQuiz(); window.scrollTo({ top: 0 }); return; }
+  if (d.qa != null && Q && !Q.done) { Q.ans[Q.i] = Q.qs[Q.i].o[+d.qa]; beep("tick"); setTimeout(quizNext, 180); return; }
+  if (d.qprev && Q && Q.i > 0) { Q.i--; main.innerHTML = renderQuiz(); return; }
+  if (d.qskip && Q) { quizNext(); return; }
+  if (d.gstart) { startGame(d.gstart, d.deck); window.scrollTo({ top: 0 }); return; }
+  if (d.gmenu) { stopGame(); redraw(); return; }
+  if (!G) return;
+  if (d.gs) speedPick(d.gs);
+  else if (d.ga != null) { if (G.ans != null) return; G.ans = d.ga; if (d.ga === G.list[G.i].w) { G.ok++; G.score += 10; beep("ok"); } else beep("no"); redraw(); }
+  else if (d.gnext) { G.i++; G.ans = null; if (G.i >= G.list.length) { G.stars = starsBy(G.ok, G.list.length); endGame(G.score); } else redraw(); }
+  else if (d.gc != null) flip(+d.gc);
+});
+document.addEventListener("keydown", function (ev) {
+  if (ST.tab !== "oyun" || !G || G.over || !SPEED[G.id]) return;
+  var i = ["1", "2", "3", "4", "5", "6", "7", "8", "9"].indexOf(ev.key); if (i >= 0 && i < G.opts.length) { ev.preventDefault(); speedPick(G.opts[i][0]); }
+});
+
+
+document.getElementById("tabs").addEventListener("click", function (ev) {
+  var b = ev.target.closest("button[data-tab]"); if (!b) return; setTab(b.dataset.tab); window.scrollTo({ top: 0 });
+});
+renderTabs(); renderXP(); setTab(ST.tab);
+})();
+</script>
+</body>
+</html>
