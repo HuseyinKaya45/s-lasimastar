@@ -290,3 +290,12 @@ kartı (sahih, elif → vâv, orta harf illetli, son harf illetli, şeddeli), me
 renkli), kaide, örnek, üç dersin bütün alıştırmaları, beş oyun (Meçhulünü Bul, Malûmunu Bul, Malûm mu Meçhul mü?,
 Hangi Kural?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `mechul/veri.js` içindedir; sonra
 `python3 mechul/yap.py`.
+
+## Uygulama: Ecvef Fiil ve Çekimi
+
+`ecvef/index.html` dosyasını tarayıcıda aç. Kitaptaki dersi beş konu olarak (ecvef fiil ve bâbları, mâzinin çekimi,
+muzârinin çekimi, emir ve mezîd ecvef, okumalar: "Ziyâretü’l-arâzi’l-mukaddese" ve "Eyne’l-hakîbe?") kök kartları
+(vâvî ق و ل, yâî ب ي ع), bâb kartları, çekim makinesi (27 fiil × mâzi / muzâri / emir), mezîd ecvef tablosu, kaide,
+örnek, bütün alıştırmalar ve boş tablolar (26 çekim tablosu "Tablo doldur" etkinliği olarak), beş oyun (Doğru Çekim,
+Zamir Avı, Hangi Bâb?, Vâv mı Yâ mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `ecvef/veri.js`
+içindedir; sonra `python3 ecvef/yap.py`.
