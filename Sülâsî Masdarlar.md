@@ -280,3 +280,13 @@ kartları (فَعْلَلَ، تَفَعْلَلَ، اِفْعَنْلَلَ، 
 / emir; اِفْعَلَلَّ'de şeddenin çözülmesi dahil), kaide, örnek, bütün alıştırmalar, "Tablo doldur" etkinliği, beş oyun
 (Doğru Çekim, Zamir Avı, Hangi Vezin?, Rubâî mi Sülâsî mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
 Fiiller ve çekim motoru `rubai/veri.js` içindedir; sonra `python3 rubai/yap.py`.
+
+## Uygulama: Meçhul Fiil ve Nâibu’l-Fâil
+
+`mechul/index.html` dosyasını tarayıcıda aç. Kitaptaki üç dersi (mâzi fiilin meçhulü, muzâri fiilin meçhulü,
+nâibu’l-fâil) beş konu olarak (mâzinin meçhulü, muzârinin meçhulü, nâibu’l-fâil, âyet ve hadislerde meçhul, üç
+okuma: Kerâhiyetü’l-harb, el-Mücâhid fî sebîlillâh, Feth-i İstanbul) "dört adımda meçhul cümle" şeması, beş kural
+kartı (sahih, elif → vâv, orta harf illetli, son harf illetli, şeddeli), meçhul makinesi (23 fiil; değişen harfler
+renkli), kaide, örnek, üç dersin bütün alıştırmaları, beş oyun (Meçhulünü Bul, Malûmunu Bul, Malûm mu Meçhul mü?,
+Hangi Kural?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `mechul/veri.js` içindedir; sonra
+`python3 mechul/yap.py`.
