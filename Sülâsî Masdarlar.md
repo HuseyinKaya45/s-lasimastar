@@ -299,3 +299,12 @@ muzârinin çekimi, emir ve mezîd ecvef, okumalar: "Ziyâretü’l-arâzi’l-m
 örnek, bütün alıştırmalar ve boş tablolar (26 çekim tablosu "Tablo doldur" etkinliği olarak), beş oyun (Doğru Çekim,
 Zamir Avı, Hangi Bâb?, Vâv mı Yâ mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `ecvef/veri.js`
 içindedir; sonra `python3 ecvef/yap.py`.
+
+## Uygulama: Sayıların Temyizi
+
+`temyiz/index.html` dosyasını tarayıcıda aç. Kitaptaki dersi beş konu olarak (1–10, 11–19, onlar-yüz-bin, sayıları
+okuma ve kullanma, okumalar: Ziyâd ve Üsâme, Hz. Ali) yedi grup kartı, tek bakışta kural tablosu (sayının cinsiyeti ·
+temyizin sayısı · i’rabı), sayı makinesi (6 isim × 1–99 ve hazır sayılar 100…10000; doğru ifade, grup ve kural),
+kaide, örnek, bütün alıştırmalar, beş oyun (Doğru Sayı, Doğru Temyiz, Uyumlu mu Zıt mı?, Temyiz Nasıl?, Hafıza
+Kartları) ve 20 soruluk quiz provasıyla öğretir. Sayı motoru `temyiz/veri.js` içindeki `SAY()` işlevidir; sonra
+`python3 temyiz/yap.py`.
