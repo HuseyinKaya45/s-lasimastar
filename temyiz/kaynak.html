@@ -130,7 +130,7 @@ function cekimMakine() {
       [[1, "+1"], [10, "+10"]].map(function (b) { return '<button class="mk" data-ct="' + cl((n > 99 ? 99 : n) + b[0]) + '">' + b[1] + '</button>'; }).join("") + '</div>' +
     '<div class="mk-row" style="direction:ltr">' + PRESETS.map(function (p) { return '<button class="mk small' + (p === n ? " on" : "") + '" data-ct="' + p + '">' + p + '</button>'; }).join("") + '</div>' +
     '<div class="mk-out" style="--role:var(--' + G[3] + ')"><span class="ar tm-say">' + Nn[4] + ' ' + (sy.first ? temH + ' ' + numH : numH + ' ' + temH) + '</span><b>' + n + ' ' + Nn[5] + '</b></div>' +
-    '<div class="tm-why"><div class="tm-chip" style="--role:var(--' + G[3] + ')"><small>Grup</small><b>' + G[0] + '</b></div><div class="tm-chip"><small>Sayının cinsiyeti</small><span>' + G[1] + '</span></div><div class="tm-chip"><small>Temyiz</small><span>' + G[2] + '</span></div></div>' +
+    '<div class="tm-why"><div class="tm-chip" style="--role:var(--' + G[3] + ')"><small>Grup</small><b>' + G[0] + '</b></div><div class="tm-chip"><small>Sayının cinsiyeti</small><span>' + G[1] + '</span></div><div class="tm-chip"><small>Temyiz</small><span>' + G[2].replace("Temyiz: ", "") + '</span></div></div>' +
     '<p class="cap">Ma’dûdun tekili <b>' + (Nn[1] ? "müennes" : "müzekker") + '</b> (<span class="ar">' + Nn[0] + (Nn[1] ? "ٌ" : "ٌ") + '</span>). Renkli kısım sayı, koyu kısım temyizdir.</p></div>';
 }
 function babKart(list, on) { return '<div class="vtree grp6">' + (list || ["g1", "g3", "g11", "g13", "g20", "gh", "gk"]).map(function (g) { return grpCard(g, on === g); }).join("") + '</div>'; }
