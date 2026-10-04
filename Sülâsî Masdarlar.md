@@ -209,7 +209,7 @@ nûn makinesi (fiil, şahıs; merfû/mansûb/meczûm), kaide, örnek, bütün al
 Ef'âl-i Hamse mi?, Hal Yarışı, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Düzenleme: `hamse/veri.js`,
 `hamse/kaynak.html`, `hamse/oyunlar.js`, `hamse/ortak.css`, `hamse/ozel.css`; sonra `python3 hamse/yap.py`.
 
-## Uygulama: İsm-i Zaman, İsm-i Mekân, Mimli Masdar
+## Uygulama: İsm-i Zaman, İsm-i Mekân ve Mim’li Masdar
 
 `zaman/index.html` dosyasını tarayıcıda aç. Kitaptaki dersi beş konu olarak (üç isim tek kalıp, مَفْعَل vezni ve
 tesrif, مَفْعِل vezni ve mezîd fiil, âyet ve cümlelerde, "Hocamla Randevu" okuması) üç anlam kartları, vezin ağacı,

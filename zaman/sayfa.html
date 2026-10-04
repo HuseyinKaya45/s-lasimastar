@@ -1,4 +1,4 @@
-<title>Zaman, Mekân ve Masdar</title>
+<title>İsm-i Zaman, İsm-i Mekân ve Mim’li Masdar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Amiri:wght@400;700&display=swap">
@@ -555,6 +555,7 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
 .zs.big { background: color-mix(in srgb, var(--role) 12%, var(--card)); }
 .zs.big .ar { font-size: 2.1rem; color: var(--role); }
 @media (max-width: 600px) { .vtree { grid-template-columns: 1fr; } }
+.nw { white-space: nowrap; }
 
 </style>
 
@@ -562,7 +563,7 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
   <header class="top">
     <div>
       <div class="lbl">Kitaptaki ders · beş konu</div>
-      <h1>Zaman, Mekân ve Mimli Masdar</h1>
+      <h1><span class="nw">İsm-i Zaman,</span> <span class="nw">İsm-i Mekân</span> ve <span class="nw">Mim’li Masdar</span></h1>
       <div class="h1ar">اسْمَا الزَّمَانِ وَالمَكَانِ وَالمَصْدَرُ المِيمِيُّ</div>
       <p>"Giriş", "giriş yeri", "giriş vakti": Arapçada üçü de <span class="ar" style="color:var(--cerr)">مَدْخَلٌ</span>. Fiilden başına mîm alarak türeyen bu isimler <b>مَفْعَل</b> ya da <b>مَفْعِل</b> veznine girer; hangisinin kastedildiğini cümle söyler. Vezin makinesiyle dene, alıştırmaları çöz, oyunlarla pekiştir.</p>
     </div>
@@ -574,14 +575,14 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-// ================= VERİ: İsm-i Zaman, İsm-i Mekân, Mimli Masdar =================
+// ================= VERİ: İsm-i Zaman, İsm-i Mekân, Mim’li Masdar =================
 // Parça yazımı: "kelime:rol / kelime:rol". Rol "-" düz metin.
 var ROLES = {
-  nasb: { ar: "اسْمُ زَمَانٍ", tr: "İsm-i zaman" }, cerr: { ar: "اسْمُ مَكَانٍ", tr: "İsm-i mekân" }, mi: { ar: "مَصْدَرٌ مِيمِيٌّ", tr: "Mimli masdar" },
+  nasb: { ar: "اسْمُ زَمَانٍ", tr: "İsm-i zaman" }, cerr: { ar: "اسْمُ مَكَانٍ", tr: "İsm-i mekân" }, mi: { ar: "مَصْدَرٌ مِيمِيٌّ", tr: "Mim’li masdar" },
   mz: { ar: "الفِعْلُ", tr: "Fiil" }, x: { ar: "", tr: "Başka" }, y: { ar: "✓", tr: "Seçtin" }
 };
-var TUR = [["z", "İsm-i zaman", "اسْمُ زَمَانٍ", "nasb"], ["m", "İsm-i mekân", "اسْمُ مَكَانٍ", "cerr"], ["d", "Mimli masdar", "مَصْدَرٌ مِيمِيٌّ", "mi"]];
-var TUR_TR = { z: "İsm-i zaman", m: "İsm-i mekân", d: "Mimli masdar" };
+var TUR = [["z", "İsm-i zaman", "اسْمُ زَمَانٍ", "nasb"], ["m", "İsm-i mekân", "اسْمُ مَكَانٍ", "cerr"], ["d", "Mim’li masdar", "مَصْدَرٌ مِيمِيٌّ", "mi"]];
+var TUR_TR = { z: "İsm-i zaman", m: "İsm-i mekân", d: "Mim’li masdar" };
 var VZ = [["a", "Mef’al", "مَفْعَلٌ", "mz"], ["i", "Mef’il", "مَفْعِلٌ", "ref"], ["z", "Mef’ûl kalıbı", "مُفْعَلٌ", "mun"]];
 var VZ3 = [["a", "Mef’al", "مَفْعَلٌ", "mz"], ["i", "Mef’il", "مَفْعِلٌ", "ref"], ["at", "Mef’ala", "مَفْعَلَةٌ", "mun"]];
 // Sebep → vezin
@@ -625,8 +626,8 @@ var VERBS = [
   ["اِلْتَقَى", "يَلْتَقِي", "z", "مُلْتَقًى", "مُلْتَقٍ", "مَلْقًى", "buluşma yeri"]
 ];
 var KEY_NOTE = {
-  i: "Bu kalıp zaman ve mekân içindir. Aynı fiilden kıyâsî mimli masdar مَفْعَل gelir: ",
-  ms: "Misâlde mimli masdar da مَفْعِل gelir: مَوْعِدٌ (söz verme).",
+  i: "Bu kalıp zaman ve mekân içindir. Aynı fiilden kıyâsî mim’li masdar مَفْعَل gelir: ",
+  ms: "Misâlde mim’li masdar da مَفْعِل gelir: مَوْعِدٌ (söz verme).",
   ay: "Zaman ve mekân مَفْعِل; مَصِيرٌ ve مَبِيتٌ masdar olarak da kullanılır.",
   z: "Mezîdde üçü de ism-i mef’ûl kalıbındadır: başta ötreli mîm, sondan önceki harf üstünlü.",
   n: "Sondaki illet harfi elif-i maksûreye döner: مَبْنًى (aslı مَبْنَيٌ).",
@@ -657,7 +658,7 @@ var UNITS = [
 // ---------------------------------------------------------------- 1 · ÜÇ İSİM
 {
   id: "u1", no: 1, ar: "اسْمُ الزَّمَانِ وَاسْمُ المَكَانِ وَالمَصْدَرُ المِيمِيُّ", tr: "Üç İsim, Tek Kalıp", short: "Üç isim", col: "mi", legend: ["nasb", "cerr", "mi"],
-  goals: ["İsm-i zamanın işin vaktini, ism-i mekânın işin yerini, mimli masdarın işin kendisini bildirdiğini bilmek", "Üçünün aynı kalıpta geldiğini, aralarını cümlenin (siyak) ayırdığını görmek", "Cümlede bu isimleri bulup türünü söylemek"],
+  goals: ["İsm-i zamanın işin vaktini, ism-i mekânın işin yerini, mim’li masdarın işin kendisini bildirdiğini bilmek", "Üçünün aynı kalıpta geldiğini, aralarını cümlenin (siyak) ayırdığını görmek", "Cümlede bu isimleri bulup türünü söylemek"],
   examples: [
     { s: "مَدْخَلُ:cerr / الكُلِّيَّةِ وَاسِعٌ.:-", tr: "Fakültenin girişi (giriş yeri) geniştir.", pair: "أَكَلْتُ الغَدَاءَ فِي:- / المَنْزِلِ.:cerr", pairTr: "Öğle yemeğini evde yedim." },
     { s: "عَمِلْتُ وَاجِبِي فِي:- / المَكْتَبَةِ.:cerr", tr: "Ödevimi kütüphanede yaptım.", pair: "أُرِيدُ:- / مَخْرَجًا:mi / جَمِيلًا مِنَ المُشْكِلَةِ.:-", pairTr: "Sorundan güzel bir çıkış istiyorum." },
@@ -666,7 +667,7 @@ var UNITS = [
   rules: [
     { tr: "<b class=\"r-nasb\">İsm-i zaman</b> (<span class=\"ar\">اسْمُ الزَّمَانِ</span>): işin <b>vaktini</b> bildiren türemiş isim: <span class=\"ar\">مَطْلَعَ الشَّمْسِ</span> = güneşin doğduğu vakit. Soru: <b>ne zaman?</b>" },
     { tr: "<b class=\"r-cerr\">İsm-i mekân</b> (<span class=\"ar\">اسْمُ المَكَانِ</span>): işin <b>yerini</b> bildiren türemiş isim: <span class=\"ar\">المَنْزِلُ، المَكْتَبَةُ، مَدْخَلُ الكُلِّيَّةِ</span>. Soru: <b>nerede?</b>" },
-    { tr: "<b class=\"r-mi\">Mimli masdar</b> (<span class=\"ar\">المَصْدَرُ المِيمِيُّ</span>): başına fazladan bir mîm gelen masdar; asıl masdarın anlamını taşır: <span class=\"ar\">مَخْرَجٌ = خُرُوجٌ</span> (çıkış). Soru: <b>ne / ne yapmak?</b>" },
+    { tr: "<b class=\"r-mi\">Mim’li masdar</b> (<span class=\"ar\">المَصْدَرُ المِيمِيُّ</span>): başına fazladan bir mîm gelen masdar; asıl masdarın anlamını taşır: <span class=\"ar\">مَخْرَجٌ = خُرُوجٌ</span> (çıkış). Soru: <b>ne / ne yapmak?</b>" },
     { tr: "Üçü de <b>aynı kalıpta</b> gelir; hangisi olduğunu <b>cümle</b> (siyak) belirler:", ex: ["مَخْرَجُ المَحَطَّةِ قَرِيبٌ (mekân)", "مَخْرَجُ القِطَارِ السَّاعَةَ الخَامِسَةَ (zaman)", "أُرِيدُ مَخْرَجًا مِنَ المُشْكِلَةِ (masdar)"] },
     { tr: "Dikkat: Mîmle başlayan her kelime bu üçünden değildir. <span class=\"ar\">مُغْلَقَةٌ، مَفْتُوحَةٌ</span> ism-i mef’ûl, <span class=\"ar\">المُتَّقِينَ</span> ism-i fâil, <span class=\"ar\">المَرْءُ</span> ise mîmi aslî olan bir isimdir." }
   ],
@@ -677,7 +678,7 @@ var UNITS = [
     "يَأْتِي اسْمُ الزَّمَانِ وَاسْمُ المَكَانِ وَالمَصْدَرُ المِيمِيُّ دَائِمًا عَلَى صُورَةٍ وَاحِدَةٍ، وَالسِّيَاقُ يُفَرِّقُ بَيْنَهَا."
   ],
   ex: [
-    { type: "classify", extra: true, opts: TUR, ar: "مَا نَوْعُ الكَلِمَةِ المُلَوَّنَةِ؟", tr: "Isınma: kitabın örnek cümlelerinde koyu kelime zaman mı, mekân mı, mimli masdar mı? Ne zaman? Nerede? Ne?", items: [
+    { type: "classify", extra: true, opts: TUR, ar: "مَا نَوْعُ الكَلِمَةِ المُلَوَّنَةِ؟", tr: "Isınma: kitabın örnek cümlelerinde koyu kelime zaman mı, mekân mı, mim’li masdar mı? Ne zaman? Nerede? Ne?", items: [
       { s: HL("مَدْخَلُ الكُلِّيَّةِ وَاسِعٌ.", "مَدْخَلُ"), a: "m", why: "Giriş yeri: nerede?", tr: "Fakültenin girişi geniştir." },
       { s: HL("أَكَلْتُ الغَدَاءَ فِي المَنْزِلِ.", "المَنْزِلِ"), a: "m", why: "Ev: yemeğin yendiği yer.", tr: "Öğle yemeğini evde yedim." },
       { s: HL("عَمِلْتُ وَاجِبِي فِي المَكْتَبَةِ.", "المَكْتَبَةِ"), a: "m", why: "Kütüphane: yer (tâ’lı, semâî).", tr: "Ödevimi kütüphanede yaptım." },
@@ -685,7 +686,7 @@ var UNITS = [
       { s: HL("خَرَجْتُ مِنَ البَيْتِ مَطْلَعَ الشَّمْسِ.", "مَطْلَعَ"), a: "z", why: "Güneşin doğduğu vakit: ne zaman?", tr: "Evden güneş doğarken çıktım." },
       { s: HL("وَقَفَتِ السَّيَّارَةُ فِي مُنْتَصَفِ الطَّرِيقِ.", "مُنْتَصَفِ"), a: "m", why: "Yolun ortası: yer. Mezîd اِنْتَصَفَ'den, ism-i mef’ûl kalıbında.", tr: "Araba yolun ortasında durdu." }
     ]},
-    { type: "find", target: "y", num: "٤", ar: "ضَعْ خَطًّا تَحْتَ اسْمِ الزَّمَانِ وَالمَكَانِ وَالمَصْدَرِ المِيمِيِّ", tr: "Zaman, mekân ya da mimli masdar olan kelimeye dokun. Tuzak: ism-i mef’ûl de mîmle başlar (مُغْلَقَةٌ، مَفْتُوحَةٌ).", exHtml: "<span class=\"ar\">بَدَأَتِ المُبَارَاةُ عَلَى <u>مَلْعَبِ</u> الكُلِّيَّةِ.</span> ← اسْمُ مَكَانٍ", items: [
+    { type: "find", target: "y", num: "٤", ar: "ضَعْ خَطًّا تَحْتَ اسْمِ الزَّمَانِ وَالمَكَانِ وَالمَصْدَرِ المِيمِيِّ", tr: "Zaman, mekân ya da mim’li masdar olan kelimeye dokun. Tuzak: ism-i mef’ûl de mîmle başlar (مُغْلَقَةٌ، مَفْتُوحَةٌ).", exHtml: "<span class=\"ar\">بَدَأَتِ المُبَارَاةُ عَلَى <u>مَلْعَبِ</u> الكُلِّيَّةِ.</span> ← اسْمُ مَكَانٍ", items: [
       W("تَحُفُّ الأَشْجَارُ [مَدْخَلَ] المَدِينَةِ.", "Ağaçlar şehrin girişini çevreliyor.", "مَدْخَلَ: giriş yeri."),
       W("[مَجْلِسُ] العُلَمَاءِ بَعْدَ صَلَاةِ الفَجْرِ.", "Âlimlerin oturma vakti sabah namazından sonradır.", "مَجْلِسُ: oturma vakti."),
       W("بَعْضُ [المَطَاعِمِ] مَفْتُوحَةٌ حَتَّى الصَّبَاحِ.", "Bazı lokantalar sabaha kadar açık.", "المَطَاعِمِ (مَطْعَمٌ'un çoğulu). مَفْتُوحَةٌ ism-i mef’ûl."),
@@ -697,12 +698,12 @@ var UNITS = [
     ]},
     { type: "classify", num: "٤", opts: TUR, ar: "اذْكُرْ نَوْعَهَا", tr: "Şimdi bulduğun kelimenin türünü seç. İpucu: haberi bir vakitse zaman, bir yerse mekândır.", items: [
       { s: HL("تَحُفُّ الأَشْجَارُ مَدْخَلَ المَدِينَةِ.", "مَدْخَلَ"), a: "m", why: "Şehrin girişi: yer." },
-      { s: HL("مَجْلِسُ العُلَمَاءِ بَعْدَ صَلَاةِ الفَجْرِ.", "مَجْلِسُ"), a: "z", why: "Haberi bir vakit (بَعْدَ صَلَاةِ الفَجْرِ): oturma vakti. Kalıp da ipucu: مَفْعِل zaman-mekân içindir; mimli masdar olsaydı مَجْلَسٌ olurdu." },
+      { s: HL("مَجْلِسُ العُلَمَاءِ بَعْدَ صَلَاةِ الفَجْرِ.", "مَجْلِسُ"), a: "z", why: "Haberi bir vakit (بَعْدَ صَلَاةِ الفَجْرِ): oturma vakti. Kalıp da ipucu: مَفْعِل zaman-mekân içindir; mim’li masdar olsaydı مَجْلَسٌ olurdu." },
       { s: HL("بَعْضُ المَطَاعِمِ مَفْتُوحَةٌ حَتَّى الصَّبَاحِ.", "المَطَاعِمِ"), a: "m", why: "Lokantalar: yemek yenen yerler." },
-      { s: HL("اقْتَرَبَ مَذْهَبُ القِطَارِ.", "مَذْهَبُ"), a: "z", alt: ["d"], why: "Trenin gidiş vakti yaklaştı: zaman. \"Trenin gidişi yaklaştı\" diye mimli masdar da anlaşılabilir." },
+      { s: HL("اقْتَرَبَ مَذْهَبُ القِطَارِ.", "مَذْهَبُ"), a: "z", alt: ["d"], why: "Trenin gidiş vakti yaklaştı: zaman. \"Trenin gidişi yaklaştı\" diye mim’li masdar da anlaşılabilir." },
       { s: HL("مَدْخَلُ المَحَطَّةِ وَاسِعٌ.", "مَدْخَلُ"), a: "m", why: "Geniş olan bir yer: giriş." },
       { s: HL("أَبْوَابُ المَدْرَسَةِ مُغْلَقَةٌ.", "المَدْرَسَةِ"), a: "m", why: "Ders okunan yer (tâ’lı, semâî)." },
-      { s: HL("مَوْلِدُ النَّبِيِّ ﷺ فِي مَكَّةَ المُكَرَّمَةِ.", "مَوْلِدُ"), a: "m", alt: ["d"], why: "Haberi bir yer (فِي مَكَّةَ): doğum yeri. \"Doğumu Mekke’de oldu\" diye mimli masdar da anlaşılabilir." },
+      { s: HL("مَوْلِدُ النَّبِيِّ ﷺ فِي مَكَّةَ المُكَرَّمَةِ.", "مَوْلِدُ"), a: "m", alt: ["d"], why: "Haberi bir yer (فِي مَكَّةَ): doğum yeri. \"Doğumu Mekke’de oldu\" diye mim’li masdar da anlaşılabilir." },
       { s: HL("مَطْلَعُ الشَّمْسِ السَّاعَةَ السَّادِسَةَ.", "مَطْلَعُ"), a: "z", why: "Haberi bir saat: doğuş vakti." }
     ]}
   ]
@@ -717,7 +718,7 @@ var UNITS = [
     { s: "فَرَّ:- / يَفِرُّ:mz / مَفَرٌّ:cerr", tr: "muzâaf → kaçacak yer (muzârisi esreli olduğu halde مَفْعَل)", pair: "دَرَسَ:- / يَدْرُسُ:mz / مَدْرَسَةٌ:cerr", pairTr: "tâ’lı semâî → okul" }
   ],
   rules: [
-    { tr: "<b>مَفْعَل</b> (<span class=\"ar\">مَـ ـْـ ـَـ ـ</span>): zaman, mekân ve mimli masdar bu vezinde gelir; şu iki durumda <b>kıyâsîdir</b>:" },
+    { tr: "<b>مَفْعَل</b> (<span class=\"ar\">مَـ ـْـ ـَـ ـ</span>): zaman, mekân ve mim’li masdar bu vezinde gelir; şu iki durumda <b>kıyâsîdir</b>:" },
     { tr: "a) Muzâride aynü’l-fiil <b>ötreli ya da üstünlü</b> ise (<span class=\"ar\">يَفْعُلُ – يَفْعَلُ</span>):", ex: ["شَرِبَ – يَشْرَبُ – مَشْرَبٌ", "كَتَبَ – يَكْتُبُ – مَكْتَبٌ", "خَرَجَ – يَخْرُجُ – مَخْرَجٌ"] },
     { tr: "b) Fiil <b>muzâaf</b>, <b>ecvef vâvî</b>, <b>nâkıs</b> ya da <b>lefîf</b> ise (muzârinin harekesine bakılmaz):", ex: ["بَنَى – يَبْنِي – مَبْنًى", "فَرَّ – يَفِرُّ – مَفَرٌّ", "قَامَ – يَقُومُ – مَقَامٌ"] },
     { tr: "Tâ-yı merbûta ile de gelir (<span class=\"ar\">مَفْعَلَةٌ</span>); bu şekil <b>semâîdir</b> (kurala bağlı değil, Araplardan duyulmuştur):", ex: ["مَكْتَبَةٌ", "مَدْرَسَةٌ", "مَحْكَمَةٌ", "مَسْأَلَةٌ", "مَنْفَعَةٌ", "مَرْحَمَةٌ"] },
@@ -731,7 +732,7 @@ var UNITS = [
     "تَصْرِيفُهَا: مَكْتَبٌ – مَكْتَبَانِ – مَكَاتِبُ، مَدْرَسَةٌ – مَدْرَسَتَانِ – مَدَارِسُ."
   ],
   ex: [
-    { type: "pick", fill: true, num: "١", ar: "هَاتِ المَصْدَرَ المِيمِيَّ القِيَاسِيَّ مِنَ الأَفْعَالِ التَّالِيَةِ", tr: "Kıyâsî mimli masdarı seç. Muzârinin aynü’l-fiiline bak: ötre ya da üstün → مَفْعَل.", items: [
+    { type: "pick", fill: true, num: "١", ar: "هَاتِ المَصْدَرَ المِيمِيَّ القِيَاسِيَّ مِنَ الأَفْعَالِ التَّالِيَةِ", tr: "Kıyâsî mim’li masdarı seç. Muzârinin aynü’l-fiiline bak: ötre ya da üstün → مَفْعَل.", items: [
       { q: "قَدِمَ – يَقْدَمُ ← ___", o: ["مَقْدَمٌ", "مَقْدِمٌ", "مَقْدُومٌ"], a: 0, tr: "gelmek → geliş", why: "يَفْعَلُ → مَفْعَل." },
       { q: "أَخَذَ – يَأْخُذُ ← ___", o: ["مَأْخِذٌ", "مَأْخَذٌ", "مَأْخُوذٌ"], a: 1, tr: "almak → alış, kaynak", why: "يَفْعُلُ → مَفْعَل. مَأْخُوذٌ ism-i mef’ûldür." },
       { q: "طَلَعَ – يَطْلُعُ ← ___", o: ["مَطْلَعٌ", "مَطْلُوعٌ", "مَطْلِعٌ"], a: 0, tr: "doğmak → doğuş", why: "يَفْعُلُ → مَفْعَل. (مَطْلِعٌ da işitilmiştir; Kadr 5’te bir kıraat.)" },
@@ -768,8 +769,8 @@ var UNITS = [
     { tr: "a) Muzâride aynü’l-fiil <b>esreli</b> ise (<span class=\"ar\">يَفْعِلُ</span>):", ex: ["رَجَعَ – يَرْجِعُ – مَرْجِعٌ", "جَلَسَ – يَجْلِسُ – مَجْلِسٌ", "عَرَضَ – يَعْرِضُ – مَعْرِضٌ"] },
     { tr: "b) Fiil <b>misâl</b> ya da <b>ecvef yâî</b> ise:", ex: ["وَقَفَ – يَقِفُ – مَوْقِفٌ", "وَلَدَ – يَلِدُ – مَوْلِدٌ", "وَقَعَ – يَقَعُ – مَوْقِعٌ", "صَارَ – يَصِيرُ – مَصِيرٌ"] },
     { tr: "Tâ’lı şekli (<span class=\"ar\">مَفْعِلَةٌ</span>) <b>semâîdir</b>:", ex: ["نَزَلَ – يَنْزِلُ – مَنْزِلَةٌ", "غَفَرَ – يَغْفِرُ – مَغْفِرَةٌ", "عَرَفَ – يَعْرِفُ – مَعْرِفَةٌ"] },
-    { tr: "Not: يَفْعِلُ kalıbındaki sahih fiilin kıyâsî mimli masdarı مَفْعَل olur (<span class=\"ar\">مَجْلَسٌ</span> = oturuş). <span class=\"ar\">مَرْجِعٌ، مَصِيرٌ، مَحِيصٌ</span> gibi kelimeler masdar olarak da kullanılır; bunlar semâîdir. Misâlin mimli masdarı da مَفْعِل gelir: <span class=\"ar\">مَوْعِدٌ</span>." },
-    { tr: "<b>Mezîd</b> fiilden (üç harften fazla) zaman, mekân ve mimli masdar <b>ism-i mef’ûl kalıbında</b> gelir: muzâri harfi yerine ötreli <span class=\"ar\">مُـ</span>, sondan önceki harf üstünlü.", ex: ["اِنْتَصَفَ – يَنْتَصِفُ – مُنْتَصَفٌ", "اِسْتَشْفَى – مُسْتَشْفًى", "صَلَّى – مُصَلًّى", "اِجْتَمَعَ – مُجْتَمَعٌ"] }
+    { tr: "Not: يَفْعِلُ kalıbındaki sahih fiilin kıyâsî mim’li masdarı مَفْعَل olur (<span class=\"ar\">مَجْلَسٌ</span> = oturuş). <span class=\"ar\">مَرْجِعٌ، مَصِيرٌ، مَحِيصٌ</span> gibi kelimeler masdar olarak da kullanılır; bunlar semâîdir. Misâlin mim’li masdarı da مَفْعِل gelir: <span class=\"ar\">مَوْعِدٌ</span>." },
+    { tr: "<b>Mezîd</b> fiilden (üç harften fazla) zaman, mekân ve mim’li masdar <b>ism-i mef’ûl kalıbında</b> gelir: muzâri harfi yerine ötreli <span class=\"ar\">مُـ</span>, sondan önceki harf üstünlü.", ex: ["اِنْتَصَفَ – يَنْتَصِفُ – مُنْتَصَفٌ", "اِسْتَشْفَى – مُسْتَشْفًى", "صَلَّى – مُصَلًّى", "اِجْتَمَعَ – مُجْتَمَعٌ"] }
   ],
   kaide: [
     "٢ ـ مَفْعِلٌ: يَأْتِي اسْمَا الزَّمَانِ وَالمَكَانِ عَلَى هَذَا الوَزْنِ فِي حَالَتَيْنِ، وَهَذِهِ قِيَاسِيَّةٌ:",
@@ -780,7 +781,7 @@ var UNITS = [
   ],
   ex: [
     { type: "classify", extra: true, opts: VZ, ar: "عَلَى أَيِّ وَزْنٍ يَأْتِي؟", tr: "Bu fiilden zaman-mekân ismi hangi vezinde gelir? Önce fiilin türüne, sonra muzârinin aynına bak.", items: vzItems(["جَلَسَ", "كَتَبَ", "وَقَفَ", "قَامَ", "بَنَى", "صَارَ", "شَرِبَ", "عَرَضَ", "فَرَّ", "وَلَدَ", "اِسْتَشْفَى", "نَزَلَ", "أَوَى", "صَلَّى"]) },
-    { type: "pick", fill: true, num: "٢", ar: "هَاتِ المَصْدَرَ المِيمِيَّ السَّمَاعِيَّ مِنَ الأَفْعَالِ التَّالِيَةِ", tr: "Semâî (tâ’lı) mimli masdarı seç. Muzârinin aynı üstünlü/ötreli ise مَفْعَلَة, esreli ise مَفْعِلَة.", items: [
+    { type: "pick", fill: true, num: "٢", ar: "هَاتِ المَصْدَرَ المِيمِيَّ السَّمَاعِيَّ مِنَ الأَفْعَالِ التَّالِيَةِ", tr: "Semâî (tâ’lı) mim’li masdarı seç. Muzârinin aynı üstünlü/ötreli ise مَفْعَلَة, esreli ise مَفْعِلَة.", items: [
       { q: "سَأَلَ – يَسْأَلُ ← ___", o: ["مَسْأَلَةٌ", "مَسْئِلَةٌ", "مَسْؤُولَةٌ"], a: 0, tr: "sormak → soru, mesele", why: "يَفْعَلُ → مَفْعَلَةٌ." },
       { q: "رَحِمَ – يَرْحَمُ ← ___", o: ["مَرْحُومَةٌ", "مَرْحَمَةٌ", "مَرْحِمَةٌ"], a: 1, tr: "merhamet etmek → merhamet", why: "يَفْعَلُ → مَفْعَلَةٌ." },
       { q: "نَفَعَ – يَنْفَعُ ← ___", o: ["مَنْفِعَةٌ", "مَنْفُوعَةٌ", "مَنْفَعَةٌ"], a: 2, tr: "fayda vermek → menfaat", why: "يَفْعَلُ → مَفْعَلَةٌ." },
@@ -802,7 +803,7 @@ var UNITS = [
 // ---------------------------------------------------------------- 4 · ÂYET VE CÜMLE
 {
   id: "u4", no: 4, ar: "فِي الآيَاتِ وَالجُمَلِ", tr: "Âyetlerde ve Cümlelerde", short: "Âyet · cümle", col: "ref", legend: ["nasb", "cerr", "mi"],
-  goals: ["Âyetlerde zaman, mekân ve mimli masdarı bulmak", "Kelimenin veznini (sîgasını) söylemek: مَفْعَلٌ، مَفْعِلٌ، مَفْعَلَةٌ", "Boşluğa anlama uygun zaman-mekân ismini koymak"],
+  goals: ["Âyetlerde zaman, mekân ve mim’li masdarı bulmak", "Kelimenin veznini (sîgasını) söylemek: مَفْعَلٌ، مَفْعِلٌ، مَفْعَلَةٌ", "Boşluğa anlama uygun zaman-mekân ismini koymak"],
   examples: [
     { s: "سَلَامٌ هِيَ حَتَّى:- / مَطْلَعِ:nasb / الفَجْرِ:-", tr: "O gece, fecrin doğuşuna kadar bir selamettir. (Kadr 5)" },
     { s: "إِلَى اللهِ:- / مَرْجِعُكُمْ:mi / جَمِيعًا:-", tr: "Hepinizin dönüşü Allah’adır. (Mâide 48)" },
@@ -816,7 +817,7 @@ var UNITS = [
   ],
   kaide: ["ضَعْ خَطًّا تَحْتَ اسْمِ الزَّمَانِ وَاسْمِ المَكَانِ وَالمَصْدَرِ المِيمِيِّ ثُمَّ اذْكُرْ صِيغَتَهَا.", "امْلَأِ الفَرَاغَ مِمَّا بَيْنَ القَوْسَيْنِ: (مَدْخَل – مَوْعِدَه – مَرْجِعنا – مَوْقِف – مَطْلَع – مَنَازِل – مَهْبِط – المَغْرِب)."],
   ex: [
-    { type: "find", target: "y", num: "٣", ar: "ضَعْ خَطًّا تَحْتَ اسْمِ الزَّمَانِ وَاسْمِ المَكَانِ وَالمَصْدَرِ المِيمِيِّ", tr: "Âyette zaman, mekân ya da mimli masdar olan kelimeye dokun. Dördüncü âyette iki tane var.", items: [
+    { type: "find", target: "y", num: "٣", ar: "ضَعْ خَطًّا تَحْتَ اسْمِ الزَّمَانِ وَاسْمِ المَكَانِ وَالمَصْدَرِ المِيمِيِّ", tr: "Âyette zaman, mekân ya da mim’li masdar olan kelimeye dokun. Dördüncü âyette iki tane var.", items: [
       W("سَلَامٌ هِيَ حَتَّى [مَطْلَعِ] الفَجْرِ", "O gece, fecrin doğuşuna kadar bir selamettir. (Kadr 5)", "مَطْلَعِ: doğuş vakti."),
       W("وَمَنْ يَتَّقِ اللهَ يَجْعَلْ لَهُ [مَخْرَجًا]", "Kim Allah’tan korkarsa Allah ona bir çıkış yolu açar. (Talâk 2)", "مَخْرَجًا."),
       W("إِلَى اللهِ [مَرْجِعُكُمْ] جَمِيعًا", "Hepinizin dönüşü Allah’adır. (Mâide 48)", "مَرْجِعُكُمْ."),
@@ -826,13 +827,13 @@ var UNITS = [
       W("إِنَّ المُتَّقِينَ فِي [مَقَامٍ] أَمِينٍ", "Takva sahipleri güvenli bir makamdadır. (Duhân 51)", "مَقَامٍ. المُتَّقِينَ ism-i fâil."),
       W("الدُّنْيَا [مَزْرَعَةُ] الآخِرَةِ", "Dünya, âhiretin tarlasıdır.", "مَزْرَعَةُ.")
     ]},
-    { type: "classify", num: "٣", opts: TUR, ar: "مَا نَوْعُهَا؟", tr: "Koyu kelime zaman mı, mekân mı, mimli masdar mı? İki anlamı da olan kelimelerde iki cevap da kabul.", items: [
+    { type: "classify", num: "٣", opts: TUR, ar: "مَا نَوْعُهَا؟", tr: "Koyu kelime zaman mı, mekân mı, mim’li masdar mı? İki anlamı da olan kelimelerde iki cevap da kabul.", items: [
       { s: HL("حَتَّى مَطْلَعِ الفَجْرِ", "مَطْلَعِ") + SUR("Kadr 5"), a: "z", why: "Fecrin doğduğu vakit." },
-      { s: HL("يَجْعَلْ لَهُ مَخْرَجًا", "مَخْرَجًا") + SUR("Talâk 2"), a: "d", alt: ["m"], why: "Çıkış (خُرُوجٌ): mimli masdar. \"Çıkış yolu\" diye mekân da anlaşılır." },
-      { s: HL("إِلَى اللهِ مَرْجِعُكُمْ جَمِيعًا", "مَرْجِعُكُمْ") + SUR("Mâide 48"), a: "d", alt: ["m"], why: "Dönüşünüz (رُجُوعُكُمْ): mimli masdar. مَفْعِل kalıbında olduğu halde masdar: semâî." },
+      { s: HL("يَجْعَلْ لَهُ مَخْرَجًا", "مَخْرَجًا") + SUR("Talâk 2"), a: "d", alt: ["m"], why: "Çıkış (خُرُوجٌ): mim’li masdar. \"Çıkış yolu\" diye mekân da anlaşılır." },
+      { s: HL("إِلَى اللهِ مَرْجِعُكُمْ جَمِيعًا", "مَرْجِعُكُمْ") + SUR("Mâide 48"), a: "d", alt: ["m"], why: "Dönüşünüz (رُجُوعُكُمْ): mim’li masdar. مَفْعِل kalıbında olduğu halde masdar: semâî." },
       { s: HL("أُولَئِكَ مَأْوَاهُمْ جَهَنَّمُ", "مَأْوَاهُمْ") + SUR("Nisâ 121"), a: "m", why: "Barınakları: yer." },
       { s: HL("وَلَا يَجِدُونَ عَنْهَا مَحِيصًا", "مَحِيصًا"), a: "m", alt: ["d"], why: "Kaçacak yer: mekân. \"Kaçış\" diye masdar da anlaşılır." },
-      { s: HL("وَإِلَيْكَ المَصِيرُ", "المَصِيرُ") + SUR("Bakara 285"), a: "d", alt: ["m"], why: "Dönüş: mimli masdar; varılacak yer diye mekân da anlaşılır." },
+      { s: HL("وَإِلَيْكَ المَصِيرُ", "المَصِيرُ") + SUR("Bakara 285"), a: "d", alt: ["m"], why: "Dönüş: mim’li masdar; varılacak yer diye mekân da anlaşılır." },
       { s: HL("وَجَعَلَ بَيْنَكُمْ مَوَدَّةً", "مَوَدَّةً") + SUR("Rûm 21"), a: "d", why: "Sevgi: işin kendisi." },
       { s: HL("إِنَّ المُتَّقِينَ فِي مَقَامٍ أَمِينٍ", "مَقَامٍ") + SUR("Duhân 51"), a: "m", why: "Durulan yer: makam." },
       { s: HL("الدُّنْيَا مَزْرَعَةُ الآخِرَةِ", "مَزْرَعَةُ"), a: "m", why: "Ekin yeri: tarla." }
@@ -864,14 +865,14 @@ var UNITS = [
 // ---------------------------------------------------------------- 5 · OKUMA
 {
   id: "u5", no: 5, ar: "قِرَاءَةٌ: مَوْعِدٌ مَعَ الأُسْتَاذِ", tr: "Okuma: Hocamla Randevu", short: "Okuma", col: "muz", legend: ["nasb", "cerr", "mi"],
-  goals: ["Bir metinde zaman, mekân ve mimli masdarı bulmak", "Aynı kelimenin (مَوْعِدٌ) bir yerde masdar, bir yerde zaman olabileceğini görmek", "Mîmle başlayan ism-i mef’ûlü (مَغْبُونٌ، المُحَدَّدِ) bu üçünden ayırmak"],
+  goals: ["Bir metinde zaman, mekân ve mim’li masdarı bulmak", "Aynı kelimenin (مَوْعِدٌ) bir yerde masdar, bir yerde zaman olabileceğini görmek", "Mîmle başlayan ism-i mef’ûlü (مَغْبُونٌ، المُحَدَّدِ) bu üçünden ayırmak"],
   examples: [
     { s: "ذَهَبْتُ إِلَى:- / مَنْزِلِهِ:cerr / فِي:- / المَوْعِدِ:nasb / المُحَدَّدِ.:-", tr: "Belirlenen vakitte onun evine gittim." },
     { s: "إِنَّ قَتْلَهُ:- / مَفْسَدَةٌ:mi / لِلْمَرْءِ،:- / وَمَهْلَكَةٌ:mi / لِلْمَالِ.:-", tr: "Onu öldürmek kişiyi bozar, malı helâk eder." }
   ],
   rules: [
     { tr: "Metinde ism-i zaman: <span class=\"ar\">المَوْعِدِ المُحَدَّدِ</span>. İsm-i mekân: <span class=\"ar\">مَنْزِلِهِ</span>." },
-    { tr: "Mimli masdar: <span class=\"ar\">مَوْعِدٍ، مَرْآهُ، مَفْسَدَةٌ، مَهْلَكَةٌ، مَهَابَةِ، مَحَبَّةَ، مَضَرَّةٌ</span>." },
+    { tr: "Mim’li masdar: <span class=\"ar\">مَوْعِدٍ، مَرْآهُ، مَفْسَدَةٌ، مَهْلَكَةٌ، مَهَابَةِ، مَحَبَّةَ، مَضَرَّةٌ</span>." },
     { tr: "İsm-i mef’ûl: <span class=\"ar\">المُحَدَّدِ، مَغْبُونٌ</span>. Sıfat-ı müşebbehe: <span class=\"ar\">كَثِيرٌ</span>." },
     { tr: "<span class=\"ar\">مَرْآهُ = مَرْأَى + هُ</span>: رَأَى nâkıs olduğu için مَفْعَل (onu görmek)." }
   ],
@@ -886,24 +887,24 @@ var UNITS = [
         { q: "مَا النِّعْمَتَانِ اللَّتَانِ يُغْبَنُ فِيهِمَا كَثِيرٌ مِنَ النَّاسِ؟", a: "الصِّحَّةُ وَالفَرَاغُ.", tr: "İnsanların çoğunun aldandığı iki nimet nedir? Sağlık ve boş vakit." },
         { q: "لِمَاذَا نَهَاهُ عَنِ المِزَاحِ؟", a: "لِأَنَّهُ يَذْهَبُ بِمَهَابَةِ المَرْءِ.", tr: "Onu şakadan neden sakındırdı? Kişinin heybetini giderdiği için." }
       ],
-      cls: { opts: [["z", "İsm-i zaman", "اسْمُ زَمَانٍ", "nasb"], ["m", "İsm-i mekân", "اسْمُ مَكَانٍ", "cerr"], ["d", "Mimli masdar", "مَصْدَرٌ مِيمِيٌّ", "mi"], ["f", "İsm-i mef’ûl", "اسْمُ مَفْعُولٍ", "mz"], ["s", "Sıfat-ı müşebbehe", "صِفَةٌ مُشَبَّهَةٌ", "mun"], ["x", "Hiçbiri", "لَيْسَ مِنْهَا", "x"]], ar: "اسْتَخْرِجْ مِنَ النَّصِّ", tr: "Koyu kelime ne?", items: [
-        { s: HL("كُنْتُ عَلَى مَوْعِدٍ مَعَ أُسْتَاذِي", "مَوْعِدٍ"), a: "d", alt: ["z"], why: "Randevu (söz verme): mimli masdar; misâlden olduğu için مَفْعِل. Randevu vakti diye zaman da anlaşılabilir." },
+      cls: { opts: [["z", "İsm-i zaman", "اسْمُ زَمَانٍ", "nasb"], ["m", "İsm-i mekân", "اسْمُ مَكَانٍ", "cerr"], ["d", "Mim’li masdar", "مَصْدَرٌ مِيمِيٌّ", "mi"], ["f", "İsm-i mef’ûl", "اسْمُ مَفْعُولٍ", "mz"], ["s", "Sıfat-ı müşebbehe", "صِفَةٌ مُشَبَّهَةٌ", "mun"], ["x", "Hiçbiri", "لَيْسَ مِنْهَا", "x"]], ar: "اسْتَخْرِجْ مِنَ النَّصِّ", tr: "Koyu kelime ne?", items: [
+        { s: HL("كُنْتُ عَلَى مَوْعِدٍ مَعَ أُسْتَاذِي", "مَوْعِدٍ"), a: "d", alt: ["z"], why: "Randevu (söz verme): mim’li masdar; misâlden olduğu için مَفْعِل. Randevu vakti diye zaman da anlaşılabilir." },
         { s: HL("اشْتَاقَتْ نَفْسِي إِلَى مَرْآهُ", "مَرْآهُ"), a: "d", why: "مَرْأَى + هُ: onu görmek. رَأَى nâkıs: مَفْعَل." },
         { s: HL("ذَهَبْتُ إِلَى مَنْزِلِهِ", "مَنْزِلِهِ"), a: "m", why: "Ev: yer. نَزَلَ – يَنْزِلُ: مَفْعِل." },
         { s: HL("فِي المَوْعِدِ المُحَدَّدِ", "المَوْعِدِ"), a: "z", why: "Belirlenen vakit: zaman." },
         { s: HL("فِي المَوْعِدِ المُحَدَّدِ", "المُحَدَّدِ"), a: "f", why: "حَدَّدَ → مُحَدَّدٌ: belirlenmiş." },
-        { s: HL("فَإِنَّ قَتْلَهُ مَفْسَدَةٌ لِلْمَرْءِ", "مَفْسَدَةٌ"), a: "d", why: "Bozulma: mimli masdar (semâî)." },
+        { s: HL("فَإِنَّ قَتْلَهُ مَفْسَدَةٌ لِلْمَرْءِ", "مَفْسَدَةٌ"), a: "d", why: "Bozulma: mim’li masdar (semâî)." },
         { s: HL("فَإِنَّ قَتْلَهُ مَفْسَدَةٌ لِلْمَرْءِ", "المَرْءِ"), a: "x", why: "Mîmi aslî harf (kök م ر ء): türemiş isim değil." },
         { s: HL("وَمَهْلَكَةٌ لِلْمَالِ", "مَهْلَكَةٌ"), a: "d", why: "هَلَكَ → مَهْلَكَةٌ: helâk (semâî)." },
         { s: HL("نِعْمَتَانِ مَغْبُونٌ فِيهِمَا", "مَغْبُونٌ"), a: "f", why: "غَبَنَ → مَغْبُونٌ: aldatılmış." },
         { s: HL("مَغْبُونٌ فِيهِمَا كَثِيرٌ مِنَ النَّاسِ", "كَثِيرٌ"), a: "s", why: "كَثُرَ → كَثِيرٌ: فَعِيلٌ." },
         { s: HL("الصِّحَّةُ وَالفَرَاغُ", "الصِّحَّةُ"), a: "x", why: "Mîmsiz asıl masdar." },
-        { s: HL("فَإِنَّهُ يَذْهَبُ بِمَهَابَةِ المَرْءِ", "بِمَهَابَةِ"), a: "d", why: "هَابَ → مَهَابَةٌ: heybet (mimli masdar, tâ’lı)." },
+        { s: HL("فَإِنَّهُ يَذْهَبُ بِمَهَابَةِ المَرْءِ", "بِمَهَابَةِ"), a: "d", why: "هَابَ → مَهَابَةٌ: heybet (mim’li masdar, tâ’lı)." },
         { s: HL("وَاعْلَمْ أَنَّ مَحَبَّةَ المَالِ", "مَحَبَّةَ"), a: "d", why: "حَبَّ → مَحَبَّةٌ: sevgi (muzâaf, tâ’lı)." },
         { s: HL("بِشِدَّةٍ مَضَرَّةٌ لِلْإِنْسَانِ", "مَضَرَّةٌ"), a: "d", why: "ضَرَّ → مَضَرَّةٌ: zarar." },
         { s: HL("أَكْبَرَ مِنْهَا", "أَكْبَرَ"), a: "x", why: "İsm-i tafdîl (أَفْعَلُ)." }
       ]},
-      cls2: { opts: [["k", "Kıyâsî", "قِيَاسِيٌّ", "mz"], ["s", "Semâî", "سَمَاعِيٌّ", "mun"]], ar: "قِيَاسِيٌّ أَمْ سَمَاعِيٌّ؟", tr: "Metindeki zaman-mekân ve mimli masdarlar kıyâsî mi, semâî mi? Tâ’lı olanlar semâîdir.", items: [
+      cls2: { opts: [["k", "Kıyâsî", "قِيَاسِيٌّ", "mz"], ["s", "Semâî", "سَمَاعِيٌّ", "mun"]], ar: "قِيَاسِيٌّ أَمْ سَمَاعِيٌّ؟", tr: "Metindeki zaman-mekân ve mim’li masdarlar kıyâsî mi, semâî mi? Tâ’lı olanlar semâîdir.", items: [
         { s: "مَوْعِدٌ", a: "k", why: "Misâl → مَفْعِل: kıyâsî." },
         { s: "مَرْأَى", a: "k", why: "Nâkıs → مَفْعَل: kıyâsî." },
         { s: "مَنْزِلٌ", a: "k", why: "يَنْزِلُ → مَفْعِل: kıyâsî." },
@@ -970,7 +971,7 @@ var HAFIZA = {
 var KARTLAR = [
   ["İsm-i zaman nedir?", "İşin vaktini bildiren türemiş isim: مَطْلَعَ الشَّمْسِ (güneşin doğduğu vakit)."],
   ["İsm-i mekân nedir?", "İşin yerini bildiren türemiş isim: المَنْزِلُ، المَكْتَبَةُ"],
-  ["Mimli masdar nedir?", "Başına fazladan mîm gelen masdar: مَخْرَجٌ = خُرُوجٌ"],
+  ["Mim’li masdar nedir?", "Başına fazladan mîm gelen masdar: مَخْرَجٌ = خُرُوجٌ"],
   ["Üçünü ne ayırır?", "Kalıpları aynı; aralarını cümle (siyak) ayırır."],
   ["مَفْعَل ne zaman?", "Muzâride ayn ötreli/üstünlü: مَكْتَبٌ، مَشْرَبٌ; muzâaf, ecvef vâvî, nâkıs, lefîf: مَفَرٌّ، مَقَامٌ، مَبْنًى"],
   ["مَفْعِل ne zaman?", "Muzâride ayn esreli: مَجْلِسٌ; misâl: مَوْقِفٌ; ecvef yâî: مَصِيرٌ"],
@@ -978,7 +979,7 @@ var KARTLAR = [
   ["Mezîd fiilden?", "İsm-i mef’ûl kalıbında: مُنْتَصَفٌ، مُسْتَشْفًى، مُصَلًّى"],
   ["مَكْتَبٌ'un müsennâ ve cemisi?", "مَكْتَبَانِ – مَكَاتِبُ"],
   ["مَبْنًى ile مَبْنِيٌّ farkı?", "مَبْنًى: bina (mekân). مَبْنِيٌّ: inşa edilmiş (ism-i mef’ûl)."],
-  ["مَجْلِسٌ ile مَجْلَسٌ?", "مَجْلِسٌ: oturma yeri/vakti. مَجْلَسٌ: oturuş (mimli masdar)."],
+  ["مَجْلِسٌ ile مَجْلَسٌ?", "مَجْلِسٌ: oturma yeri/vakti. مَجْلَسٌ: oturuş (mim’li masdar)."],
   ["مَوْعِدٌ hep masdar mı?", "Hayır: عَلَى مَوْعِدٍ (randevu, masdar), فِي المَوْعِدِ (vakit, zaman)."]
 ];
 
@@ -1067,7 +1068,7 @@ function ucKart() {
   return '<div class="gorev ucg">' +
     '<div style="--role:var(--cerr)"><b>İsm-i mekân · nerede?</b><span class="ar hlb">' + HL("مَخْرَجُ المَحَطَّةِ قَرِيبٌ", "مَخْرَجُ") + '</span><small class="muted">İstasyonun çıkışı yakın.</small></div>' +
     '<div style="--role:var(--nasb)"><b>İsm-i zaman · ne zaman?</b><span class="ar hlb">' + HL("مَخْرَجُ القِطَارِ السَّاعَةَ الخَامِسَةَ", "مَخْرَجُ") + '</span><small class="muted">Trenin çıkış vakti saat beş.</small></div>' +
-    '<div style="--role:var(--mi)"><b>Mimli masdar · ne?</b><span class="ar hlb">' + HL("أُرِيدُ مَخْرَجًا مِنَ المُشْكِلَةِ", "مَخْرَجًا") + '</span><small class="muted">Sorundan bir çıkış istiyorum.</small></div></div>';
+    '<div style="--role:var(--mi)"><b>Mim’li masdar · ne?</b><span class="ar hlb">' + HL("أُرِيدُ مَخْرَجًا مِنَ المُشْكِلَةِ", "مَخْرَجًا") + '</span><small class="muted">Sorundan bir çıkış istiyorum.</small></div></div>';
 }
 // Vezin ağacı
 function vezinAgaci(hi) {
@@ -1084,7 +1085,7 @@ function tesrif() {
 // Vezin makinesi
 function vezinMakine() {
   var vi = LIVE.zv || 0, V = VERBS[vi], K = KEY[V[2]], vz = VZ.filter(function (x) { return x[0] === K[0]; })[0];
-  var note = V[2] === "i" ? KEY_NOTE.i + V[4] + "." : (KEY_NOTE[V[2]] || "Zaman, mekân ve mimli masdar aynı kalıpta; anlamı cümle belirler.");
+  var note = V[2] === "i" ? KEY_NOTE.i + V[4] + "." : (KEY_NOTE[V[2]] || "Zaman, mekân ve mim’li masdar aynı kalıpta; anlamı cümle belirler.");
   return '<div id="makine" class="makine">' +
     '<div class="lbl">Fiili seç</div><div class="mk-row">' + VERBS.map(function (x, i) { return '<button class="mk' + (i === vi ? " on" : "") + '" data-zv="' + i + '"><span class="ar">' + x[0] + '</span></button>'; }).join("") + '</div>' +
     '<div class="zsteps">' +
@@ -1186,7 +1187,7 @@ function render() {
 
 // ---------- özet ----------
 var CHECK = [
-  "İsm-i zamanın vakti, ism-i mekânın yeri, mimli masdarın işin kendisini bildirdiğini biliyorum.",
+  "İsm-i zamanın vakti, ism-i mekânın yeri, mim’li masdarın işin kendisini bildirdiğini biliyorum.",
   "Üçünün aynı kalıpta geldiğini ve aralarını cümlenin ayırdığını biliyorum.",
   "Muzâride aynı ötreli ya da üstünlü fiilden مَفْعَل yapıyorum: مَكْتَبٌ، مَشْرَبٌ.",
   "Muzâaf, ecvef vâvî, nâkıs ve lefîften مَفْعَل geldiğini biliyorum: مَفَرٌّ، مَقَامٌ، مَبْنًى.",
@@ -1207,7 +1208,7 @@ function renderOzet() {
     '<div class="card stack"><div class="lbl">Bütün konu tek bakışta</div><h2>Üç anlam, iki vezin</h2><div class="viz">' + ucKart() + vezinAgaci() + '<p class="cap">Kıyâsî olanlar tâsız; tâ’lı şekiller (<span class="ar">مَدْرَسَةٌ، مَغْفِرَةٌ</span>) semâî.</p></div></div>' +
     '<div class="card stack"><div class="lbl">Etkinlik</div><h2>Vezin makinesi</h2><p class="muted">Bir fiil seç: muzârisine ve türüne göre hangi vezne girdiğini, oluşan ismi ve anlamını gör; ağaçta kolonu yanar.</p><div class="viz">' + vezinMakine() + '</div></div>' +
     '<div class="sumgrid">' +
-      card(UNITS[0], ['Zaman: ne zaman? · Mekân: nerede?', 'Mimli masdar: <span class="ar">مَخْرَجٌ = خُرُوجٌ</span>', 'Aralarını cümle ayırır']) +
+      card(UNITS[0], ['Zaman: ne zaman? · Mekân: nerede?', 'Mim’li masdar: <span class="ar">مَخْرَجٌ = خُرُوجٌ</span>', 'Aralarını cümle ayırır']) +
       card(UNITS[1], ['<span class="ar">يَفْعُلُ · يَفْعَلُ ← مَفْعَلٌ</span>', 'Muzâaf, ecvef vâvî, nâkıs, lefîf', 'Çoğul: <span class="ar">مَكَاتِبُ</span>']) +
       card(UNITS[2], ['<span class="ar">يَفْعِلُ ← مَفْعِلٌ</span>', 'Misâl, ecvef yâî', 'Mezîd: <span class="ar">مُنْتَصَفٌ</span>']) +
       card(UNITS[3], ['Sekiz âyet', 'Sîga: <span class="ar">مَفْعَلٌ، مَفْعِلٌ، مَفْعَلَةٌ</span>', 'Boşluk doldurma']) +
@@ -1239,7 +1240,7 @@ function renderUnit(u) {
       '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> alıştırma maddesi doğru</div>' +
     '</div></div>' +
     '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Kitaptaki örnekler</div><h2>Önce gör</h2></div><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button></div>' +
-      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Renkler: zaman, mekân, mimli masdar.", u2: "Mâzi, muzâri, isim.", u3: "Mâzi, muzâri, isim.", u4: "Kitaptaki âyetlerden.", u5: "Metinden örnekler." })[u.id] + '</p>' + '</div>' +
+      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Renkler: zaman, mekân, mim’li masdar.", u2: "Mâzi, muzâri, isim.", u3: "Mâzi, muzâri, isim.", u4: "Kitaptaki âyetlerden.", u5: "Metinden örnekler." })[u.id] + '</p>' + '</div>' +
     '<div class="card viz"><div class="lbl">Görsel</div>' + viz + '</div>' +
     '<div class="card stack"><div class="lbl">القَاعِدَةُ · Kaide</div><h2>Kural</h2>' +
       '<ol class="rules">' + u.rules.map(function (r) { return '<li><div class="stack" style="gap:4px"><div>' + arWrap(r.tr) + '</div>' + (r.ex ? '<div class="exs">' + r.ex.map(function (x) { return '<span>' + x + '</span>'; }).join("") + '</div>' : '') + '</div></li>'; }).join("") + '</ol>' +
@@ -1502,7 +1503,7 @@ function donItem() {
 var GAMES = {
   avci: { name: "Doğru Kalıp", ico: "مَجْلِسٌ · مَجْلَسٌ", col: "mi", d: "12 cümle. Boşluğa doğru vezindeki kelimeyi seç: مَفْعَل mı, مَفْعِل mi, ism-i mef’ûl mü?" },
   don: { name: "Vezin Avı", ico: "وَقَفَ ← مَوْقِفٌ", col: "cerr", d: "12 soru. Fiil verildi: ondan yapılan zaman-mekân ismini seç." },
-  zm: { name: "Zaman mı Mekân mı?", ico: "مَطْلَعٌ · مَدْخَلٌ", col: "nasb", d: "60 saniye. Koyu kelime zaman mı, mekân mı, mimli masdar mı? Ne zaman? Nerede? Ne?" },
+  zm: { name: "Zaman mı Mekân mı?", ico: "مَطْلَعٌ · مَدْخَلٌ", col: "nasb", d: "60 saniye. Koyu kelime zaman mı, mekân mı, mim’li masdar mı? Ne zaman? Nerede? Ne?" },
   vz: { name: "Vezin Yarışı", ico: "مَفْعَلٌ · مَفْعِلٌ", col: "mz", d: "60 saniye. Fiili gör: zaman-mekân ismi مَفْعَل mı, مَفْعِل mi, mezîd kalıbı mı?" },
   hafiza: { name: "Hafıza Kartları", ico: "كَتَبَ ↔ مَكْتَبٌ", col: "muz", d: "Kartları çevir, eşleri bul: fiil ile isim, müfred ile cemi ya da Arapça ile Türkçe." }
 };
@@ -1511,7 +1512,7 @@ function stopGame() { if (GT) { clearInterval(GT); GT = null; } G = null; }
 function renderGames() {
   if (G) return '<section class="panel">' + gameBody() + '</section>';
   var best = store.get("gbest", {});
-  return '<section class="panel"><div class="card stack"><div class="lbl">Oyunlar</div><h2>Oynayarak pekiştir</h2><p class="muted">Her oyun zaman, mekân ve mimli masdarın bir kuralını çalıştırır ve rütbe puanı kazandırır.</p><div class="row-btns"><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+  return '<section class="panel"><div class="card stack"><div class="lbl">Oyunlar</div><h2>Oynayarak pekiştir</h2><p class="muted">Her oyun zaman, mekân ve mim’li masdarın bir kuralını çalıştırır ve rütbe puanı kazandırır.</p><div class="row-btns"><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
     '<div class="game-menu">' + Object.keys(GAMES).map(function (k) {
       var g = GAMES[k];
       return '<div class="card game-card" style="--role:var(--' + g.col + ')"><div class="ico">' + g.ico + '</div><h3>' + g.name + '</h3><p class="muted">' + g.d + '</p><p class="muted" style="margin-top:auto">' + (best[k] != null ? 'En iyi: <b class="tabular">' + best[k] + '</b>' : 'Henüz oynanmadı') + '</p>' +

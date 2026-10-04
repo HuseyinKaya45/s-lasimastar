@@ -304,3 +304,4 @@
 .zs.big { background: color-mix(in srgb, var(--role) 12%, var(--card)); }
 .zs.big .ar { font-size: 2.1rem; color: var(--role); }
 @media (max-width: 600px) { .vtree { grid-template-columns: 1fr; } }
+.nw { white-space: nowrap; }

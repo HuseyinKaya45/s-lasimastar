@@ -14,7 +14,7 @@ function donItem() {
 var GAMES = {
   avci: { name: "Doğru Kalıp", ico: "مَجْلِسٌ · مَجْلَسٌ", col: "mi", d: "12 cümle. Boşluğa doğru vezindeki kelimeyi seç: مَفْعَل mı, مَفْعِل mi, ism-i mef’ûl mü?" },
   don: { name: "Vezin Avı", ico: "وَقَفَ ← مَوْقِفٌ", col: "cerr", d: "12 soru. Fiil verildi: ondan yapılan zaman-mekân ismini seç." },
-  zm: { name: "Zaman mı Mekân mı?", ico: "مَطْلَعٌ · مَدْخَلٌ", col: "nasb", d: "60 saniye. Koyu kelime zaman mı, mekân mı, mimli masdar mı? Ne zaman? Nerede? Ne?" },
+  zm: { name: "Zaman mı Mekân mı?", ico: "مَطْلَعٌ · مَدْخَلٌ", col: "nasb", d: "60 saniye. Koyu kelime zaman mı, mekân mı, mim’li masdar mı? Ne zaman? Nerede? Ne?" },
   vz: { name: "Vezin Yarışı", ico: "مَفْعَلٌ · مَفْعِلٌ", col: "mz", d: "60 saniye. Fiili gör: zaman-mekân ismi مَفْعَل mı, مَفْعِل mi, mezîd kalıbı mı?" },
   hafiza: { name: "Hafıza Kartları", ico: "كَتَبَ ↔ مَكْتَبٌ", col: "muz", d: "Kartları çevir, eşleri bul: fiil ile isim, müfred ile cemi ya da Arapça ile Türkçe." }
 };
@@ -23,7 +23,7 @@ function stopGame() { if (GT) { clearInterval(GT); GT = null; } G = null; }
 function renderGames() {
   if (G) return '<section class="panel">' + gameBody() + '</section>';
   var best = store.get("gbest", {});
-  return '<section class="panel"><div class="card stack"><div class="lbl">Oyunlar</div><h2>Oynayarak pekiştir</h2><p class="muted">Her oyun zaman, mekân ve mimli masdarın bir kuralını çalıştırır ve rütbe puanı kazandırır.</p><div class="row-btns"><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+  return '<section class="panel"><div class="card stack"><div class="lbl">Oyunlar</div><h2>Oynayarak pekiştir</h2><p class="muted">Her oyun zaman, mekân ve mim’li masdarın bir kuralını çalıştırır ve rütbe puanı kazandırır.</p><div class="row-btns"><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
     '<div class="game-menu">' + Object.keys(GAMES).map(function (k) {
       var g = GAMES[k];
       return '<div class="card game-card" style="--role:var(--' + g.col + ')"><div class="ico">' + g.ico + '</div><h3>' + g.name + '</h3><p class="muted">' + g.d + '</p><p class="muted" style="margin-top:auto">' + (best[k] != null ? 'En iyi: <b class="tabular">' + best[k] + '</b>' : 'Henüz oynanmadı') + '</p>' +

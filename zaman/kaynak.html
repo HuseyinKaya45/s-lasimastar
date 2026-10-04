@@ -1,4 +1,4 @@
-<title>Zaman, Mekân ve Masdar</title>
+<title>İsm-i Zaman, İsm-i Mekân ve Mim’li Masdar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Amiri:wght@400;700&display=swap">
@@ -11,7 +11,7 @@
   <header class="top">
     <div>
       <div class="lbl">Kitaptaki ders · beş konu</div>
-      <h1>Zaman, Mekân ve Mimli Masdar</h1>
+      <h1><span class="nw">İsm-i Zaman,</span> <span class="nw">İsm-i Mekân</span> ve <span class="nw">Mim’li Masdar</span></h1>
       <div class="h1ar">اسْمَا الزَّمَانِ وَالمَكَانِ وَالمَصْدَرُ المِيمِيُّ</div>
       <p>"Giriş", "giriş yeri", "giriş vakti": Arapçada üçü de <span class="ar" style="color:var(--cerr)">مَدْخَلٌ</span>. Fiilden başına mîm alarak türeyen bu isimler <b>مَفْعَل</b> ya da <b>مَفْعِل</b> veznine girer; hangisinin kastedildiğini cümle söyler. Vezin makinesiyle dene, alıştırmaları çöz, oyunlarla pekiştir.</p>
     </div>
@@ -109,7 +109,7 @@ function ucKart() {
   return '<div class="gorev ucg">' +
     '<div style="--role:var(--cerr)"><b>İsm-i mekân · nerede?</b><span class="ar hlb">' + HL("مَخْرَجُ المَحَطَّةِ قَرِيبٌ", "مَخْرَجُ") + '</span><small class="muted">İstasyonun çıkışı yakın.</small></div>' +
     '<div style="--role:var(--nasb)"><b>İsm-i zaman · ne zaman?</b><span class="ar hlb">' + HL("مَخْرَجُ القِطَارِ السَّاعَةَ الخَامِسَةَ", "مَخْرَجُ") + '</span><small class="muted">Trenin çıkış vakti saat beş.</small></div>' +
-    '<div style="--role:var(--mi)"><b>Mimli masdar · ne?</b><span class="ar hlb">' + HL("أُرِيدُ مَخْرَجًا مِنَ المُشْكِلَةِ", "مَخْرَجًا") + '</span><small class="muted">Sorundan bir çıkış istiyorum.</small></div></div>';
+    '<div style="--role:var(--mi)"><b>Mim’li masdar · ne?</b><span class="ar hlb">' + HL("أُرِيدُ مَخْرَجًا مِنَ المُشْكِلَةِ", "مَخْرَجًا") + '</span><small class="muted">Sorundan bir çıkış istiyorum.</small></div></div>';
 }
 // Vezin ağacı
 function vezinAgaci(hi) {
@@ -126,7 +126,7 @@ function tesrif() {
 // Vezin makinesi
 function vezinMakine() {
   var vi = LIVE.zv || 0, V = VERBS[vi], K = KEY[V[2]], vz = VZ.filter(function (x) { return x[0] === K[0]; })[0];
-  var note = V[2] === "i" ? KEY_NOTE.i + V[4] + "." : (KEY_NOTE[V[2]] || "Zaman, mekân ve mimli masdar aynı kalıpta; anlamı cümle belirler.");
+  var note = V[2] === "i" ? KEY_NOTE.i + V[4] + "." : (KEY_NOTE[V[2]] || "Zaman, mekân ve mim’li masdar aynı kalıpta; anlamı cümle belirler.");
   return '<div id="makine" class="makine">' +
     '<div class="lbl">Fiili seç</div><div class="mk-row">' + VERBS.map(function (x, i) { return '<button class="mk' + (i === vi ? " on" : "") + '" data-zv="' + i + '"><span class="ar">' + x[0] + '</span></button>'; }).join("") + '</div>' +
     '<div class="zsteps">' +
@@ -228,7 +228,7 @@ function render() {
 
 // ---------- özet ----------
 var CHECK = [
-  "İsm-i zamanın vakti, ism-i mekânın yeri, mimli masdarın işin kendisini bildirdiğini biliyorum.",
+  "İsm-i zamanın vakti, ism-i mekânın yeri, mim’li masdarın işin kendisini bildirdiğini biliyorum.",
   "Üçünün aynı kalıpta geldiğini ve aralarını cümlenin ayırdığını biliyorum.",
   "Muzâride aynı ötreli ya da üstünlü fiilden مَفْعَل yapıyorum: مَكْتَبٌ، مَشْرَبٌ.",
   "Muzâaf, ecvef vâvî, nâkıs ve lefîften مَفْعَل geldiğini biliyorum: مَفَرٌّ، مَقَامٌ، مَبْنًى.",
@@ -249,7 +249,7 @@ function renderOzet() {
     '<div class="card stack"><div class="lbl">Bütün konu tek bakışta</div><h2>Üç anlam, iki vezin</h2><div class="viz">' + ucKart() + vezinAgaci() + '<p class="cap">Kıyâsî olanlar tâsız; tâ’lı şekiller (<span class="ar">مَدْرَسَةٌ، مَغْفِرَةٌ</span>) semâî.</p></div></div>' +
     '<div class="card stack"><div class="lbl">Etkinlik</div><h2>Vezin makinesi</h2><p class="muted">Bir fiil seç: muzârisine ve türüne göre hangi vezne girdiğini, oluşan ismi ve anlamını gör; ağaçta kolonu yanar.</p><div class="viz">' + vezinMakine() + '</div></div>' +
     '<div class="sumgrid">' +
-      card(UNITS[0], ['Zaman: ne zaman? · Mekân: nerede?', 'Mimli masdar: <span class="ar">مَخْرَجٌ = خُرُوجٌ</span>', 'Aralarını cümle ayırır']) +
+      card(UNITS[0], ['Zaman: ne zaman? · Mekân: nerede?', 'Mim’li masdar: <span class="ar">مَخْرَجٌ = خُرُوجٌ</span>', 'Aralarını cümle ayırır']) +
       card(UNITS[1], ['<span class="ar">يَفْعُلُ · يَفْعَلُ ← مَفْعَلٌ</span>', 'Muzâaf, ecvef vâvî, nâkıs, lefîf', 'Çoğul: <span class="ar">مَكَاتِبُ</span>']) +
       card(UNITS[2], ['<span class="ar">يَفْعِلُ ← مَفْعِلٌ</span>', 'Misâl, ecvef yâî', 'Mezîd: <span class="ar">مُنْتَصَفٌ</span>']) +
       card(UNITS[3], ['Sekiz âyet', 'Sîga: <span class="ar">مَفْعَلٌ، مَفْعِلٌ، مَفْعَلَةٌ</span>', 'Boşluk doldurma']) +
@@ -281,7 +281,7 @@ function renderUnit(u) {
       '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> alıştırma maddesi doğru</div>' +
     '</div></div>' +
     '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Kitaptaki örnekler</div><h2>Önce gör</h2></div><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button></div>' +
-      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Renkler: zaman, mekân, mimli masdar.", u2: "Mâzi, muzâri, isim.", u3: "Mâzi, muzâri, isim.", u4: "Kitaptaki âyetlerden.", u5: "Metinden örnekler." })[u.id] + '</p>' + '</div>' +
+      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Renkler: zaman, mekân, mim’li masdar.", u2: "Mâzi, muzâri, isim.", u3: "Mâzi, muzâri, isim.", u4: "Kitaptaki âyetlerden.", u5: "Metinden örnekler." })[u.id] + '</p>' + '</div>' +
     '<div class="card viz"><div class="lbl">Görsel</div>' + viz + '</div>' +
     '<div class="card stack"><div class="lbl">القَاعِدَةُ · Kaide</div><h2>Kural</h2>' +
       '<ol class="rules">' + u.rules.map(function (r) { return '<li><div class="stack" style="gap:4px"><div>' + arWrap(r.tr) + '</div>' + (r.ex ? '<div class="exs">' + r.ex.map(function (x) { return '<span>' + x + '</span>'; }).join("") + '</div>' : '') + '</div></li>'; }).join("") + '</ol>' +
