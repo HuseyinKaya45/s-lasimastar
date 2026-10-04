@@ -616,7 +616,7 @@ function bigAyn(w, tr) { return '<span class="ar" style="font-size:1.9rem">' + a
 // Mâzi → muzâri + bâb (kombine)
 function MB(m, keys) {
   var v = vb(m), ki = ORD.indexOf(BAB[v.b].u);
-  return CB(v.m + ' <span class="muted" style="font-size:.8em">(' + v.tr + ')</span>', [muzOpts(v), "←", keys.map(function (k) { return BAB[k].ex + " بَابُ"; })], [ki, keys.indexOf(v.b)], v.m + " " + v.u + " (" + v.tr + ")", babWhy(v));
+  return CB(v.m + ' <span class="muted" style="font-size:.8em">(' + v.tr + ')</span>', [muzOpts(v), "←", keys.map(function (k) { return "بَابُ " + BAB[k].ex; })], [ki, keys.indexOf(v.b)], v.m + " " + v.u + " (" + v.tr + ")", babWhy(v));
 }
 // Mâzi → muzâri → emir
 function ME(m, k) {
@@ -680,7 +680,7 @@ var UNITS = [
     "لَا يَأْتِي بَابُ فَتَحَ يَفْتَحُ إِلَّا إِذَا كَانَتْ عَيْنُهُ أَوْ لَامُهُ حَرْفًا مِنْ حُرُوفِ الحَلْقِ، وَهِيَ: الهَمْزَةُ، وَالهَاءُ، وَالعَيْنُ، وَالحَاءُ، وَالغَيْنُ، وَالخَاءُ."
   ],
   ex: [
-    { type: "combo", ar: "اخْتَرِ المُضَارِعَ ثُمَّ البَابَ", tr: "Kutulara dokun: önce muzâriyi, sonra bâbı seç.", exHtml: "<span class=\"ar\">كَتَبَ ← يَكْتُبُ ← نَصَرَ بَابُ</span>", items: ["نَظَرَ", "نَزَلَ", "جَعَلَ", "دَخَلَ", "رَجَعَ", "سَأَلَ", "شَكَرَ", "غَسَلَ", "زَرَعَ"].map(function (m) { return MB(m, ["n", "d", "f"]); }) },
+    { type: "combo", ar: "اخْتَرِ المُضَارِعَ ثُمَّ البَابَ", tr: "Kutulara dokun: önce muzâriyi, sonra bâbı seç.", exHtml: "<span class=\"ar\">كَتَبَ ← يَكْتُبُ ← بَابُ نَصَرَ</span>", items: ["نَظَرَ", "نَزَلَ", "جَعَلَ", "دَخَلَ", "رَجَعَ", "سَأَلَ", "شَكَرَ", "غَسَلَ", "زَرَعَ"].map(function (m) { return MB(m, ["n", "d", "f"]); }) },
     { type: "pick", ar: "أَيُّ الأَفْعَالِ لَا يَكُونُ مِنْ بَابِ فَتَحَ؟", tr: "Hangisi Fetaha bâbından olamaz? Ayn ve lâm harflerinde boğaz harfi (ء ه ع ح غ خ) ara.", items: [
       { q: "", o: ["ذَهَبَ", "نَصَرَ", "فَتَحَ"], a: 1, why: "نَصَرَ: ص ve ر boğaz harfi değil. ذَهَبَ'de ه, فَتَحَ'de ح var.", tr: "" },
       { q: "", o: ["كَتَبَ", "سَأَلَ", "مَنَعَ"], a: 0, why: "كَتَبَ: ت ve ب boğaz harfi değil.", tr: "" },
@@ -724,7 +724,7 @@ var UNITS = [
     "وَيَكُونُ عَيْنُ المَاضِي مَضْمُومًا فِي بَابٍ وَاحِدٍ: فَعُلَ يَفْعُلُ (حَسُنَ يَحْسُنُ)، وَهُوَ لِلصِّفَاتِ وَالطَّبَائِعِ، وَلَا يَكُونُ إِلَّا لَازِمًا."
   ],
   ex: [
-    { type: "combo", ar: "اخْتَرِ المُضَارِعَ ثُمَّ البَابَ", tr: "Kutulara dokun: önce muzâriyi, sonra bâbı seç.", exHtml: "<span class=\"ar\">عَلِمَ ← يَعْلَمُ ← عَلِمَ بَابُ</span>", items: ["شَرِبَ", "فَرِحَ", "حَفِظَ", "حَسُنَ", "كَثُرَ", "قَرُبَ", "حَسِبَ", "وَرِثَ", "وَثِقَ"].map(function (m) { return MB(m, ["a", "h", "hs"]); }) },
+    { type: "combo", ar: "اخْتَرِ المُضَارِعَ ثُمَّ البَابَ", tr: "Kutulara dokun: önce muzâriyi, sonra bâbı seç.", exHtml: "<span class=\"ar\">عَلِمَ ← يَعْلَمُ ← بَابُ عَلِمَ</span>", items: ["شَرِبَ", "فَرِحَ", "حَفِظَ", "حَسُنَ", "كَثُرَ", "قَرُبَ", "حَسِبَ", "وَرِثَ", "وَثِقَ"].map(function (m) { return MB(m, ["a", "h", "hs"]); }) },
     { type: "classify", opts: bOpts(["a", "h", "hs"]), ar: "مِنْ أَيِّ بَابٍ الفِعْلُ؟", tr: "Koyu fiil Alime mi, Hasune mi, Hasibe mi?", items: [
       { s: HL("يَفْرَحُ الطِّفْلُ بِالهَدِيَّةِ.", "يَفْرَحُ"), a: "a", why: "فَرِحَ يَفْرَحُ: esre · üstün.", tr: "Çocuk hediyeye seviniyor." },
       { s: HL("حَسُنَ خُلُقُ الوَلَدِ.", "حَسُنَ"), a: "h", why: "حَسُنَ يَحْسُنُ: ötre · ötre.", tr: "Çocuğun ahlâkı güzelleşti." },
