@@ -122,7 +122,7 @@ var UNITS = [
     { tr: "Dört kıyâsî vezni vardır:", ex: ["مِفْعَلٌ: مِصْعَدٌ، مِضْرَبٌ، مِبْرَدٌ", "مِفْعَالٌ: مِفْتَاحٌ، مِسْمَارٌ، مِذْيَاعٌ", "مِفْعَلَةٌ: مِكْنَسَةٌ، مِسْطَرَةٌ، مِرْوَحَةٌ", "فَعَّالَةٌ: غَسَّالَةٌ، سَيَّارَةٌ، طَيَّارَةٌ"] },
     { tr: "Bazı âlet isimleri <b>semâîdir</b> (kalıba girmez): <span class=\"ar\">فَأْسٌ، جَرَسٌ، سِكِّينٌ</span>." },
     { tr: "Dikkat: Mîmi <b>esreli</b> (<span class=\"ar\">مِـ</span>) olan âlettir; mîmi <b>üstünlü</b> olan (<span class=\"ar\">مَصْعَدٌ، مَنْظَرٌ</span>) ism-i mekân ya da mim’li masdardır." },
-    { tr: "Tesrif: müsennâsı düzenli, cemisi çoğunlukla <span class=\"ar\">مَفَاعِلُ / مَفَاعِيلُ</span>; فَعَّالَةٌ ise <span class=\"ar\">ـَاتٌ</span> ile toplanır.", ex: ["مِصْعَدٌ – مِصْعَدَانِ – مَصَاعِدُ", "مِكْنَسَةٌ – مِكْنَسَتَانِ – مَكَانِسُ", "مِفْتَاحٌ – مِفْتَاحَانِ – مَفَاتِيحُ", "نَظَّارَةٌ – نَظَّارَتَانِ – نَظَّارَاتٌ"] },
+    { tr: "Tasrif: müsennâsı düzenli, cemisi çoğunlukla <span class=\"ar\">مَفَاعِلُ / مَفَاعِيلُ</span>; فَعَّالَةٌ ise <span class=\"ar\">ـَاتٌ</span> ile toplanır.", ex: ["مِصْعَدٌ – مِصْعَدَانِ – مَصَاعِدُ", "مِكْنَسَةٌ – مِكْنَسَتَانِ – مَكَانِسُ", "مِفْتَاحٌ – مِفْتَاحَانِ – مَفَاتِيحُ", "نَظَّارَةٌ – نَظَّارَتَانِ – نَظَّارَاتٌ"] },
     { tr: "Vâvla başlayan fiilde mîmin esresinden dolayı vâv yâya döner: <span class=\"ar\">وَزَنَ ← مِوْزَانٌ ← مِيزَانٌ</span>." }
   ],
   kaide: [

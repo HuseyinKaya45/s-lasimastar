@@ -714,7 +714,7 @@ var UNITS = [
     { tr: "Dört kıyâsî vezni vardır:", ex: ["مِفْعَلٌ: مِصْعَدٌ، مِضْرَبٌ، مِبْرَدٌ", "مِفْعَالٌ: مِفْتَاحٌ، مِسْمَارٌ، مِذْيَاعٌ", "مِفْعَلَةٌ: مِكْنَسَةٌ، مِسْطَرَةٌ، مِرْوَحَةٌ", "فَعَّالَةٌ: غَسَّالَةٌ، سَيَّارَةٌ، طَيَّارَةٌ"] },
     { tr: "Bazı âlet isimleri <b>semâîdir</b> (kalıba girmez): <span class=\"ar\">فَأْسٌ، جَرَسٌ، سِكِّينٌ</span>." },
     { tr: "Dikkat: Mîmi <b>esreli</b> (<span class=\"ar\">مِـ</span>) olan âlettir; mîmi <b>üstünlü</b> olan (<span class=\"ar\">مَصْعَدٌ، مَنْظَرٌ</span>) ism-i mekân ya da mim’li masdardır." },
-    { tr: "Tesrif: müsennâsı düzenli, cemisi çoğunlukla <span class=\"ar\">مَفَاعِلُ / مَفَاعِيلُ</span>; فَعَّالَةٌ ise <span class=\"ar\">ـَاتٌ</span> ile toplanır.", ex: ["مِصْعَدٌ – مِصْعَدَانِ – مَصَاعِدُ", "مِكْنَسَةٌ – مِكْنَسَتَانِ – مَكَانِسُ", "مِفْتَاحٌ – مِفْتَاحَانِ – مَفَاتِيحُ", "نَظَّارَةٌ – نَظَّارَتَانِ – نَظَّارَاتٌ"] },
+    { tr: "Tasrif: müsennâsı düzenli, cemisi çoğunlukla <span class=\"ar\">مَفَاعِلُ / مَفَاعِيلُ</span>; فَعَّالَةٌ ise <span class=\"ar\">ـَاتٌ</span> ile toplanır.", ex: ["مِصْعَدٌ – مِصْعَدَانِ – مَصَاعِدُ", "مِكْنَسَةٌ – مِكْنَسَتَانِ – مَكَانِسُ", "مِفْتَاحٌ – مِفْتَاحَانِ – مَفَاتِيحُ", "نَظَّارَةٌ – نَظَّارَتَانِ – نَظَّارَاتٌ"] },
     { tr: "Vâvla başlayan fiilde mîmin esresinden dolayı vâv yâya döner: <span class=\"ar\">وَزَنَ ← مِوْزَانٌ ← مِيزَانٌ</span>." }
   ],
   kaide: [
@@ -1301,7 +1301,7 @@ function renderOzet() {
     '<div class="card stack"><div class="lbl">Etkinlik</div><h2>Tasğir makinesi</h2><p class="muted">Bir isim seç: hangi vezinle ve hangi adımlarla küçüldüğünü gör.</p><div class="viz">' + tasgirMakine() + '</div></div>' +
     '<div class="card stack"><div class="lbl">Etkinlik</div><h2>Nisbe makinesi</h2><p class="muted">Bir yer ya da kelime seç: müzekker ve müennes mensûbu ile uygulanan kuralı gör.</p><div class="viz">' + nisbeMakine() + '</div></div>' +
     '<div class="sumgrid">' +
-      card(UNITS[0], ['Dört vezin + semâî', '<span class="ar">مِفْعَلٌ، مِفْعَالٌ، مِفْعَلَةٌ، فَعَّالَةٌ</span>', 'Tesrif: <span class="ar">مَفَاتِيحُ</span>']) +
+      card(UNITS[0], ['Dört vezin + semâî', '<span class="ar">مِفْعَلٌ، مِفْعَالٌ، مِفْعَلَةٌ، فَعَّالَةٌ</span>', 'Tasrif: <span class="ar">مَفَاتِيحُ</span>']) +
       card(UNITS[1], ['<span class="ar">فُعَيْلٌ، فُعَيْعِلٌ، فُعَيْعِيلٌ</span>', 'Altı amaç', '<span class="ar">قُبَيْلَ، بُعَيْدَ</span>']) +
       card(UNITS[2], ['Kelime + <span class="ar">ـِيٌّ</span>', 'Tâ ve 4. elif düşer', 'Mensûbun ileyhe dönüş']) +
       card(UNITS[3], ['İstanbul’da bir turist', 'Mevsufa uyum', 'Boşluğa mensûb']) +

@@ -136,7 +136,7 @@ var UNITS = [
 },
 // ---------------------------------------------------------------- 3 · YARDIMCI VE TESRİF
 {
-  id: "u3", no: 3, ar: "التَّفْضِيلُ المُسَاعِدُ وَالتَّصْرِيفُ", tr: "Yardımcı Tafdîl ve Tesrif", short: "Yardımcı · tesrif", col: "nasb", legend: ["mi", "nasb"],
+  id: "u3", no: 3, ar: "التَّفْضِيلُ المُسَاعِدُ وَالتَّصْرِيفُ", tr: "Yardımcı Tafdîl ve Tasrif", short: "Yardımcı · tasrif", col: "nasb", legend: ["mi", "nasb"],
   goals: ["Mezîd fiilde ve renk-ayıp sıfatında tafdîli yardımcı kelimeyle kurmak: أَكْثَرُ، أَشَدُّ، أَعْظَمُ + mansûb masdar", "Tafdîlin müennes, müsennâ ve cemisini söylemek: أَكْبَرُ – كُبْرَى – أَكَابِرُ – كُبَرُ"],
   examples: [
     { s: "المُؤْمِنُ:- / أَكْثَرُ:mi / إِنْفَاقًا.:nasb", tr: "Mümin daha çok infak eder. (أَنْفَقَ mezîd: أَنْفَقُ denmez)", pair: "السَّمَاءُ:- / أَشَدُّ:mi / زُرْقَةً:nasb / اليَوْمَ.:-", pairTr: "Gökyüzü bugün daha mavi. (renk: أَزْرَقُ tafdîl olmaz)" },
@@ -145,7 +145,7 @@ var UNITS = [
   rules: [
     { tr: "Fiil <b>sülâsî değilse</b> ya da sıfat <b>renk</b> bildiriyorsa (bazı kitaplarda ayıp da) tafdîl doğrudan yapılmaz; <b>yardımcı tafdîl</b> kullanılır: <span class=\"ar\">أَكْثَرُ، أَشَدُّ، أَعْظَمُ، أَحْسَنُ…</span>" },
     { tr: "Yardımcı tafdîlden sonra fiilin <b>masdarı mansûb</b> gelir (temyiz):", ex: ["المُؤْمِنُ أَكْثَرُ إِنْفَاقًا", "السَّمَاءُ أَشَدُّ زُرْقَةً", "هُوَ أَكْثَرُ مِنْكَ مَالًا", "أَكْثَرُكُمْ عَلَيَّ صَلَاةً"] },
-    { tr: "Tesrif:", ex: ["müzekker: أَكْبَرُ – أَكْبَرَانِ – أَكْبَرُونَ / أَكَابِرُ", "müennes: كُبْرَى – كُبْرَيَانِ – كُبْرَيَاتٌ / كُبَرُ"] },
+    { tr: "Tasrif:", ex: ["müzekker: أَكْبَرُ – أَكْبَرَانِ – أَكْبَرُونَ / أَكَابِرُ", "müennes: كُبْرَى – كُبْرَيَانِ – كُبْرَيَاتٌ / كُبَرُ"] },
     { tr: "Müennes kalıbı <b class=\"ar\">فُعْلَى</b>: <span class=\"ar\">أَفْضَلُ – فُضْلَى، أَصْغَرُ – صُغْرَى، أَحْسَنُ – حُسْنَى، أَعْلَى – عُلْيَا</span>." }
   ],
   kaide: [
@@ -334,7 +334,7 @@ var KARTLAR = [
   ["3. kullanım: marifeye muzâf", "İKİ YOL: هُنَّ أَفْضَلُ / فُضْلَيَاتُ النِّسَاءِ"],
   ["4. kullanım: elif-lâmlı", "UYUM ŞART: الطَّالِبَةُ الفُضْلَى"],
   ["Mezîd fiil ve renkte?", "Yardımcı tafdîl + mansûb masdar: أَكْثَرُ إِنْفَاقًا، أَشَدُّ زُرْقَةً"],
-  ["أَكْبَرُ'ün tesrifi?", "أَكْبَرُ – أَكْبَرَانِ – أَكْبَرُونَ / أَكَابِرُ"],
-  ["كُبْرَى'nın tesrifi?", "كُبْرَى – كُبْرَيَانِ – كُبْرَيَاتٌ / كُبَرُ"],
+  ["أَكْبَرُ'ün tasrifi?", "أَكْبَرُ – أَكْبَرَانِ – أَكْبَرُونَ / أَكَابِرُ"],
+  ["كُبْرَى'nın tasrifi?", "كُبْرَى – كُبْرَيَانِ – كُبْرَيَاتٌ / كُبَرُ"],
   ["أَحْمَرُ tafdîl mi?", "Hayır: renk sıfatı (أَحْمَرُ – حَمْرَاءُ). \"Daha kırmızı\": أَشَدُّ حُمْرَةً"]
 ];

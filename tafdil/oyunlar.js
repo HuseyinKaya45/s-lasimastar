@@ -144,7 +144,7 @@ function flip(i) {
 }
 
 // ---------- QUIZ PROVASI ----------
-var TOPIC = { u1: "Nedir?", u2: "Dört kullanım", u3: "Yardımcı · tesrif", u4: "Âyet · hadis", u5: "Okuma" };
+var TOPIC = { u1: "Nedir?", u2: "Dört kullanım", u3: "Yardımcı · tasrif", u4: "Âyet · hadis", u5: "Okuma" };
 var TK = ["u1", "u2", "u3", "u4", "u5"];
 var Q = null, QT = null;
 function stopQuiz() { if (QT) { clearInterval(QT); QT = null; } if (Q && !Q.done) Q = null; }
@@ -181,7 +181,7 @@ function startQuiz() {
 function renderQuiz() {
   var best = store.get("qbest", null);
   if (!Q) return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası</div><h2>Gerçek quiz gibi: 20 soru</h2>' +
-    '<p class="muted" style="max-width:60ch">Beş konudan dörder soru gelir: tafdîl nedir, dört kullanım, yardımcı tafdîl ve tesrif, âyet ve hadisler, okuma. Cevaplar sonda gösterilir. Sonunda konu konu puanını ve yanlışlarının açıklamasını görürsün. Her denemede sorular değişir.</p>' +
+    '<p class="muted" style="max-width:60ch">Beş konudan dörder soru gelir: tafdîl nedir, dört kullanım, yardımcı tafdîl ve tasrif, âyet ve hadisler, okuma. Cevaplar sonda gösterilir. Sonunda konu konu puanını ve yanlışlarının açıklamasını görürsün. Her denemede sorular değişir.</p>' +
     (best != null ? '<p>En iyi sonucun: <b class="tabular">' + best + ' / 20</b></p>' : '') + '<button class="btn solid" data-qstart="1">Provayı başlat</button></div></section>';
   if (Q.done) {
     var by = {}; Q.qs.forEach(function (q, i) { by[q.topic] = by[q.topic] || [0, 0]; by[q.topic][1]++; if (Q.ans[i] === q.a) by[q.topic][0]++; });

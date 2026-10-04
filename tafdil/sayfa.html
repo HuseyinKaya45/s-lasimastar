@@ -734,7 +734,7 @@ var UNITS = [
 },
 // ---------------------------------------------------------------- 3 · YARDIMCI VE TESRİF
 {
-  id: "u3", no: 3, ar: "التَّفْضِيلُ المُسَاعِدُ وَالتَّصْرِيفُ", tr: "Yardımcı Tafdîl ve Tesrif", short: "Yardımcı · tesrif", col: "nasb", legend: ["mi", "nasb"],
+  id: "u3", no: 3, ar: "التَّفْضِيلُ المُسَاعِدُ وَالتَّصْرِيفُ", tr: "Yardımcı Tafdîl ve Tasrif", short: "Yardımcı · tasrif", col: "nasb", legend: ["mi", "nasb"],
   goals: ["Mezîd fiilde ve renk-ayıp sıfatında tafdîli yardımcı kelimeyle kurmak: أَكْثَرُ، أَشَدُّ، أَعْظَمُ + mansûb masdar", "Tafdîlin müennes, müsennâ ve cemisini söylemek: أَكْبَرُ – كُبْرَى – أَكَابِرُ – كُبَرُ"],
   examples: [
     { s: "المُؤْمِنُ:- / أَكْثَرُ:mi / إِنْفَاقًا.:nasb", tr: "Mümin daha çok infak eder. (أَنْفَقَ mezîd: أَنْفَقُ denmez)", pair: "السَّمَاءُ:- / أَشَدُّ:mi / زُرْقَةً:nasb / اليَوْمَ.:-", pairTr: "Gökyüzü bugün daha mavi. (renk: أَزْرَقُ tafdîl olmaz)" },
@@ -743,7 +743,7 @@ var UNITS = [
   rules: [
     { tr: "Fiil <b>sülâsî değilse</b> ya da sıfat <b>renk</b> bildiriyorsa (bazı kitaplarda ayıp da) tafdîl doğrudan yapılmaz; <b>yardımcı tafdîl</b> kullanılır: <span class=\"ar\">أَكْثَرُ، أَشَدُّ، أَعْظَمُ، أَحْسَنُ…</span>" },
     { tr: "Yardımcı tafdîlden sonra fiilin <b>masdarı mansûb</b> gelir (temyiz):", ex: ["المُؤْمِنُ أَكْثَرُ إِنْفَاقًا", "السَّمَاءُ أَشَدُّ زُرْقَةً", "هُوَ أَكْثَرُ مِنْكَ مَالًا", "أَكْثَرُكُمْ عَلَيَّ صَلَاةً"] },
-    { tr: "Tesrif:", ex: ["müzekker: أَكْبَرُ – أَكْبَرَانِ – أَكْبَرُونَ / أَكَابِرُ", "müennes: كُبْرَى – كُبْرَيَانِ – كُبْرَيَاتٌ / كُبَرُ"] },
+    { tr: "Tasrif:", ex: ["müzekker: أَكْبَرُ – أَكْبَرَانِ – أَكْبَرُونَ / أَكَابِرُ", "müennes: كُبْرَى – كُبْرَيَانِ – كُبْرَيَاتٌ / كُبَرُ"] },
     { tr: "Müennes kalıbı <b class=\"ar\">فُعْلَى</b>: <span class=\"ar\">أَفْضَلُ – فُضْلَى، أَصْغَرُ – صُغْرَى، أَحْسَنُ – حُسْنَى، أَعْلَى – عُلْيَا</span>." }
   ],
   kaide: [
@@ -932,8 +932,8 @@ var KARTLAR = [
   ["3. kullanım: marifeye muzâf", "İKİ YOL: هُنَّ أَفْضَلُ / فُضْلَيَاتُ النِّسَاءِ"],
   ["4. kullanım: elif-lâmlı", "UYUM ŞART: الطَّالِبَةُ الفُضْلَى"],
   ["Mezîd fiil ve renkte?", "Yardımcı tafdîl + mansûb masdar: أَكْثَرُ إِنْفَاقًا، أَشَدُّ زُرْقَةً"],
-  ["أَكْبَرُ'ün tesrifi?", "أَكْبَرُ – أَكْبَرَانِ – أَكْبَرُونَ / أَكَابِرُ"],
-  ["كُبْرَى'nın tesrifi?", "كُبْرَى – كُبْرَيَانِ – كُبْرَيَاتٌ / كُبَرُ"],
+  ["أَكْبَرُ'ün tasrifi?", "أَكْبَرُ – أَكْبَرَانِ – أَكْبَرُونَ / أَكَابِرُ"],
+  ["كُبْرَى'nın tasrifi?", "كُبْرَى – كُبْرَيَانِ – كُبْرَيَاتٌ / كُبَرُ"],
   ["أَحْمَرُ tafdîl mi?", "Hayır: renk sıfatı (أَحْمَرُ – حَمْرَاءُ). \"Daha kırmızı\": أَشَدُّ حُمْرَةً"]
 ];
 
@@ -1053,7 +1053,7 @@ function vizU1() {
 function vizU2() { return tafdilMakine(); }
 function vizU3() {
   return '<div class="vs"><div class="fcard" style="--role:var(--mi)"><span class="ar">المُؤْمِنُ <b>أَكْثَرُ</b> إِنْفَاقًا</span><b class="t">mezîd fiil → yardımcı + masdar</b></div><div class="fcard" style="--role:var(--nasb)"><span class="ar">السَّمَاءُ <b>أَشَدُّ</b> زُرْقَةً</span><b class="t">renk → yardımcı + masdar</b></div></div>' +
-    '<div class="lbl">Tesrif · تَصْرِيفُهُ</div><div class="ttab"><div class="th">Müfred</div><div class="th">Müsennâ</div><div class="th">Cemi</div>' +
+    '<div class="lbl">Tasrif · تَصْرِيفُهُ</div><div class="ttab"><div class="th">Müfred</div><div class="th">Müsennâ</div><div class="th">Cemi</div>' +
     ["أَكْبَرُ", "أَكْبَرَانِ", "أَكْبَرُونَ / أَكَابِرُ", "كُبْرَى", "كُبْرَيَانِ", "كُبْرَيَاتٌ / كُبَرُ"].map(function (w) { return '<div class="tc"><span class="ar">' + w + '</span></div>'; }).join("") + '</div><p class="cap">Üst satır müzekker, alt satır müennes (فُعْلَى).</p>';
 }
 function vizU4() {
@@ -1152,7 +1152,7 @@ var CHECK = [
   "3. kullanım: marifeye muzâf → İKİ YOL: أَفْضَلُ / فُضْلَيَاتُ النِّسَاءِ.",
   "4. kullanım: elif-lâmlı → UYUM ŞART: الطَّالِبَةُ الفُضْلَى.",
   "Mezîd fiil ve renkte yardımcı tafdîl kullanıyorum: أَكْثَرُ إِنْفَاقًا، أَشَدُّ زُرْقَةً.",
-  "Tesrifi biliyorum: أَكْبَرُ – كُبْرَى – أَكَابِرُ – كُبَرُ."
+  "Tasrifi biliyorum: أَكْبَرُ – كُبْرَى – أَكَابِرُ – كُبَرُ."
 ];
 function arWrap(t) { return t.replace(/([؀-ۿ][؀-ۿً-ْ\s،/←…]*[؀-ۿً-ْ])/g, '<span class="ar">$1</span>'); }
 function renderOzet() {
@@ -1589,7 +1589,7 @@ function flip(i) {
 }
 
 // ---------- QUIZ PROVASI ----------
-var TOPIC = { u1: "Nedir?", u2: "Dört kullanım", u3: "Yardımcı · tesrif", u4: "Âyet · hadis", u5: "Okuma" };
+var TOPIC = { u1: "Nedir?", u2: "Dört kullanım", u3: "Yardımcı · tasrif", u4: "Âyet · hadis", u5: "Okuma" };
 var TK = ["u1", "u2", "u3", "u4", "u5"];
 var Q = null, QT = null;
 function stopQuiz() { if (QT) { clearInterval(QT); QT = null; } if (Q && !Q.done) Q = null; }
@@ -1626,7 +1626,7 @@ function startQuiz() {
 function renderQuiz() {
   var best = store.get("qbest", null);
   if (!Q) return '<section class="panel"><div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Quiz provası</div><h2>Gerçek quiz gibi: 20 soru</h2>' +
-    '<p class="muted" style="max-width:60ch">Beş konudan dörder soru gelir: tafdîl nedir, dört kullanım, yardımcı tafdîl ve tesrif, âyet ve hadisler, okuma. Cevaplar sonda gösterilir. Sonunda konu konu puanını ve yanlışlarının açıklamasını görürsün. Her denemede sorular değişir.</p>' +
+    '<p class="muted" style="max-width:60ch">Beş konudan dörder soru gelir: tafdîl nedir, dört kullanım, yardımcı tafdîl ve tasrif, âyet ve hadisler, okuma. Cevaplar sonda gösterilir. Sonunda konu konu puanını ve yanlışlarının açıklamasını görürsün. Her denemede sorular değişir.</p>' +
     (best != null ? '<p>En iyi sonucun: <b class="tabular">' + best + ' / 20</b></p>' : '') + '<button class="btn solid" data-qstart="1">Provayı başlat</button></div></section>';
   if (Q.done) {
     var by = {}; Q.qs.forEach(function (q, i) { by[q.topic] = by[q.topic] || [0, 0]; by[q.topic][1]++; if (Q.ans[i] === q.a) by[q.topic][0]++; });

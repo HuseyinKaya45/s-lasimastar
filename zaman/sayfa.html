@@ -1078,7 +1078,7 @@ function vezinAgaci(hi) {
     col("i", "ref", ["مَفْعِلٌ", "Mef’il · zaman, mekân"], ['<span class="ar">يَفْعِلُ</span>: <span class="ar">مَجْلِسٌ</span>', 'misâl: <span class="ar">مَوْقِفٌ</span>', 'ecvef yâî: <span class="ar">مَصِيرٌ</span>', 'semâî: <span class="ar">مَغْفِرَةٌ</span>']) +
     col("z", "mun", ["مُفْعَلٌ", "Mezîd · ism-i mef’ûl kalıbı"], ['<span class="ar">اِنْتَصَفَ ← مُنْتَصَفٌ</span>', '<span class="ar">اِسْتَشْفَى ← مُسْتَشْفًى</span>', '<span class="ar">صَلَّى ← مُصَلًّى</span>']) + '</div>';
 }
-function tesrif() {
+function tasrif() {
   return '<div class="ttab"><div class="th">Müfred</div><div class="th">Müsennâ</div><div class="th">Cemi</div>' +
     [["مَكْتَبٌ", "مَكْتَبَانِ", "مَكَاتِبُ"], ["مَدْرَسَةٌ", "مَدْرَسَتَانِ", "مَدَارِسُ"], ["مَنْزِلٌ", "مَنْزِلَانِ", "مَنَازِلُ"]].map(function (r) { return r.map(function (w) { return '<div class="tc"><span class="ar">' + w + '</span></div>'; }).join(""); }).join("") + '</div>';
 }
@@ -1097,7 +1097,7 @@ function vezinMakine() {
     vezinAgaci(K[0]) + '</div>';
 }
 function vizU1() { return ucKart() + '<p class="cap">Aynı kelime, üç cümle, üç anlam. Soruyu sor: <b>nerede?</b> mekân, <b>ne zaman?</b> zaman, <b>ne?</b> masdar.</p>'; }
-function vizU2() { return vezinAgaci("a") + '<div class="lbl">Tesrif · تَصْرِيفُهَا</div>' + tesrif(); }
+function vizU2() { return vezinAgaci("a") + '<div class="lbl">Tasrif · تَصْرِيفُهَا</div>' + tasrif(); }
 function vizU3() { return vezinMakine(); }
 function vizU4() {
   return badges([["مَطْلَعِ الفَجْرِ", "zaman · مَفْعَل", "nasb"], ["مَخْرَجًا", "masdar · مَفْعَل", "mi"], ["مَرْجِعُكُمْ", "masdar · مَفْعِل", "mi"], ["مَأْوَاهُمْ", "mekân · مَفْعَل", "cerr"], ["مَحِيصًا", "mekân · مَفْعِل", "cerr"], ["المَصِيرُ", "masdar · مَفْعِل", "mi"], ["مَوَدَّةً", "masdar · مَفْعَلَة", "mi"], ["مَقَامٍ", "mekân · مَفْعَل", "cerr"]]) +
