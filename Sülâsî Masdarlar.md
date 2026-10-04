@@ -271,3 +271,12 @@ muzârinin çekimi, emir ve mezîd lefîf, "İnnemâ’l-a’mâlü bi’n-niyy�
 alıştırmalar, "Tablo doldur" etkinliği, beş oyun (Doğru Çekim, Zamir Avı, Mekrûn mu Mefrûk mu?, Hangi Tür?, Hafıza
 Kartları) ve 20 soruluk quiz provasıyla öğretir. Fiiller ve çekim motoru `lefif/veri.js` içindedir; sonra
 `python3 lefif/yap.py`.
+
+## Uygulama: Rubâî Mücerred Fiil ve Mezîdi
+
+`rubai/index.html` dosyasını tarayıcıda aç. Kitaptaki dersi beş konu olarak (rubâî mücerred, mücerredin çekimi,
+rubâî mezîd ve vezinleri, mezîdin çekimi, âyetlerde rubâî fiil) harf kutuları (asıl ve ziyade harfler renkli), vezin
+kartları (فَعْلَلَ، تَفَعْلَلَ، اِفْعَنْلَلَ، اِفْعَلَلَّ), kitaptaki çekim tablosu, çekim makinesi (24 fiil × mâzi / muzâri
+/ emir; اِفْعَلَلَّ'de şeddenin çözülmesi dahil), kaide, örnek, bütün alıştırmalar, "Tablo doldur" etkinliği, beş oyun
+(Doğru Çekim, Zamir Avı, Hangi Vezin?, Rubâî mi Sülâsî mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
+Fiiller ve çekim motoru `rubai/veri.js` içindedir; sonra `python3 rubai/yap.py`.
