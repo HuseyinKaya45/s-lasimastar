@@ -253,3 +253,12 @@ alâmetler (müsennâ, cemiler, ef’âl-i hamse, cezm), bir metnin kelime kelim
 yaz" (terimleri harf düğmeleriyle yazma; أ/ا، ة/ه، ض/ظ gibi karışan harflerde uyarır). İ’rab makinesi, terim sözlüğü,
 beş oyun (Eksik Parça, Doğru Yazım, Görevi Ne?, Alâmeti Ne?, Hafıza Kartları) ve 20 soruluk quiz provası da vardır.
 Cümleler ve terimler `irabnasil/veri.js` içindeki `SENT` ve `SPELL` listelerindedir; sonra `python3 irabnasil/yap.py`.
+
+## Uygulama: Nâkıs Fiil ve Çekimi
+
+`nakis/index.html` dosyasını tarayıcıda aç. Kitaptaki dersi beş konu olarak (nâkıs fiil ve bâbları, mâzinin çekimi,
+muzârinin çekimi, emir ve mezîd nâkıs, "Abdullah b. Mes’ûd" okuması) bâb kartları, çekim makinesi (32 fiil × mâzi /
+muzâri / emir, 14 şahıs tablosu), mezîd nâkıs tablosu, kaide, örnek, bütün alıştırmalar, yeni "Tablo doldur"
+etkinliği (biçimleri seçip çekim tablosuna yerleştirme), beş oyun (Doğru Çekim, Zamir Avı, Hangi Bâb?, Vâv mı Yâ mı?,
+Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Fiiller ve çekim motoru `nakis/veri.js` içindedir; sonra
+`python3 nakis/yap.py`.
