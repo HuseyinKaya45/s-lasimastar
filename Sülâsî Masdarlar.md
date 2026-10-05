@@ -308,3 +308,12 @@ temyizin sayısı · i’rabı), sayı makinesi (6 isim × 1–99 ve hazır say�
 kaide, örnek, bütün alıştırmalar, beş oyun (Doğru Sayı, Doğru Temyiz, Uyumlu mu Zıt mı?, Temyiz Nasıl?, Hafıza
 Kartları) ve 20 soruluk quiz provasıyla öğretir. Sayı motoru `temyiz/veri.js` içindeki `SAY()` işlevidir; sonra
 `python3 temyiz/yap.py`.
+
+## Uygulama: Muzâaf Fiil ve Çekimi
+
+`muzaaf/index.html` (yayın sürümü `muzaaf/sayfa.html`) muzâaf fiili beş konuda (muzâaf fiil ve bâbları, mâzinin
+çekimi, muzârinin çekimi, emir ve mezîd muzâaf, okumalar: Hudeybiye barışı, ahmak avcı) kök kartı (م د د / şedde ≠
+muzâaf), idğam–fekk kuralı, bâb kartları (مَدَّ يَمُدُّ، فَرَّ يَفِرُّ، وَدَّ يَوَدُّ), 30 fiillik çekim makinesi (değişen
+kısım renkli, altında kural), mezîd muzâaf tablosu, kaide, örnek, kitaptaki bütün alıştırmalar, beş oyun (Doğru Çekim,
+Zamir Avı, Hangi Bâb?, İdğam mı Fekk mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Çekim motoru
+`muzaaf/veri.js` içindeki `SB()` / `NV()` işlevleridir; sonra `python3 muzaaf/yap.py`.
