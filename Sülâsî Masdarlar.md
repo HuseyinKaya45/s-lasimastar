@@ -326,3 +326,12 @@ muzârinin çekimi, emir ve mezîd misâl, okumalar: Saîd b. Âmir, açgözlü 
 altında kural), mezîd misâl tablosu, ifti’âlde و → ت kuralı, kaide, örnek, kitaptaki bütün alıştırmalar, beş oyun (Doğru
 Çekim, Zamir Avı, Vâvî mi Yâî mi?, Vâv Düşer mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Çekim motoru
 `misal/veri.js` içindeki `SD()` / `NV()` işlevleridir; sonra `python3 misal/yap.py`.
+
+## Uygulama: Haber Çeşitleri
+
+`haber/index.html` (yayın sürümü `haber/sayfa.html`) haberin türlerini beş konuda (mübtedâ, haber ve haberin türleri,
+müfred haber, cümle haber, şibh-i cümle haber, âyetler ve okumalar: Uyku, Elma bahçesi) mübtedâ + haber zinciri, üç
+türün kartları, haber makinesi (6 mübtedâ × 5 haber türü; i’rab, alâmet ve râbıt zamir), kaide, örnek, kitaptaki bütün
+alıştırmalar, ek alıştırmalar (alâmet-i ref’, râbıt, câr-mecrûr / zarf, lafzan / mahallen), beş oyun (Doğru Haber,
+Haberi Dönüştür, Haberin Türü?, Lafzan mı Mahallen mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
+Veriler `haber/veri.js` içindedir; sonra `python3 haber/yap.py`.
