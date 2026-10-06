@@ -317,3 +317,12 @@ muzâaf), idğam–fekk kuralı, bâb kartları (مَدَّ يَمُدُّ، ف�
 kısım renkli, altında kural), mezîd muzâaf tablosu, kaide, örnek, kitaptaki bütün alıştırmalar, beş oyun (Doğru Çekim,
 Zamir Avı, Hangi Bâb?, İdğam mı Fekk mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Çekim motoru
 `muzaaf/veri.js` içindeki `SB()` / `NV()` işlevleridir; sonra `python3 muzaaf/yap.py`.
+
+## Uygulama: Misâl Fiil ve Çekimi
+
+`misal/index.html` (yayın sürümü `misal/sayfa.html`) misâl fiili beş konuda (misâl fiil: vâvî / yâî, mâzinin çekimi,
+muzârinin çekimi, emir ve mezîd misâl, okumalar: Saîd b. Âmir, açgözlü Eş’ab) kök kartı (و ق ف / ي ء س), bâb kartları
+(وَقَفَ يَقِفُ، وَضَعَ يَضَعُ، وَجِلَ يَوْجَلُ، يَئِسَ يَيْأَسُ), 30 fiillik çekim makinesi (vâv / yâ ya da düştüğü yer renkli,
+altında kural), mezîd misâl tablosu, ifti’âlde و → ت kuralı, kaide, örnek, kitaptaki bütün alıştırmalar, beş oyun (Doğru
+Çekim, Zamir Avı, Vâvî mi Yâî mi?, Vâv Düşer mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Çekim motoru
+`misal/veri.js` içindeki `SD()` / `NV()` işlevleridir; sonra `python3 misal/yap.py`.
