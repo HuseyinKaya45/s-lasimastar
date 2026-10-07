@@ -362,3 +362,11 @@ mevsûf + sıfat zinciri, üç tür kartı, sıfat makinesi (6 mevsûf × 5 sıf
 kitaptaki bütün alıştırmalar, ek alıştırmalar (uyum, sıfat mı hâl mi, câr-mecrûr / zarf, sıfat mı haber mi), beş oyun
 (Doğru Sıfat, Sıfatı Dönüştür, Sıfatın Türü?, Sıfat mı Değil mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
 Veriler `sifatcesit/veri.js` içindedir; sonra `python3 sifatcesit/yap.py`.
+
+## Uygulama: Esmâ-i Hamse
+
+`esmahamse/index.html` (yayın sürümü `esmahamse/sayfa.html`) الأَسْمَاءُ الخَمْسَةُ konusunu beş konuda (beş isim ve
+şartları, merfû: vâv, mansûb: elif, mecrûr: yâ, i’rab ve okuma) beş isim × üç hal tablosu, esmâ makinesi (isim × hal ×
+muzâfun ileyh: isim / zamir / yâ-i mütekellim), kaide, örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar (harfle mi
+harekeyle mi, görev bulma), beş oyun (Doğru Biçim, Hali Değiştir, Hangi Hal?, Harfle mi?, Hafıza Kartları) ve 20 soruluk
+quiz provasıyla öğretir. Veriler `esmahamse/veri.js` içindedir; sonra `python3 esmahamse/yap.py`.
