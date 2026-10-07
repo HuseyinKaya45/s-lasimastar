@@ -353,3 +353,12 @@ kalabalık yol, Çoban ve kurt) altı harf kartı, nâsih makinesi (6 cümle × 
 i’rab), kaide, örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Hareke, Cümleyi Dönüştür, Hangi
 Anlam?, İnne mi Kâne mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `inne/veri.js` içindedir;
 sonra `python3 inne/yap.py`.
+
+## Uygulama: Sıfat Çeşitleri
+
+`sifatcesit/index.html` (yayın sürümü `sifatcesit/sayfa.html`) sıfatın (na’t) türlerini beş konuda (sıfat ve türleri,
+müfred sıfat ve uyum, cümle sıfat, şibh-i cümle sıfat, âyetler ve okumalar: Binbir Gece, Sinnimâr’ın mükâfatı)
+mevsûf + sıfat zinciri, üç tür kartı, sıfat makinesi (6 mevsûf × 5 sıfat türü × 3 hal; râbıt ve i’rab), kaide, örnek,
+kitaptaki bütün alıştırmalar, ek alıştırmalar (uyum, sıfat mı hâl mi, câr-mecrûr / zarf, sıfat mı haber mi), beş oyun
+(Doğru Sıfat, Sıfatı Dönüştür, Sıfatın Türü?, Sıfat mı Değil mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
+Veriler `sifatcesit/veri.js` içindedir; sonra `python3 sifatcesit/yap.py`.
