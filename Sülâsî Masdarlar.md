@@ -423,3 +423,12 @@ edat kartı, atıf makinesi (3 i’rab × 9 edat × 3 kelime çifti, Türkçe ka
 alıştırmalar, ek alıştırmalar (atfın yeri, fiil ve cümle uyumu, edat anlamları, uygun edat), beş oyun (Doğru Ma’tûf,
 Dönüştür, Neyin Arasında?, Ma’tûfun İ’rabı, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `atif/veri.js`
 içindedir; sonra `python3 atif/yap.py`.
+
+## Uygulama: Olumsuzluk (Nefy)
+
+`nefy/index.html` (yayın sürümü `nefy/sayfa.html`) النَّفْيُ konusunu beş konuda (nefy edatları ve isim cümlesi: لَيْسَ / مَا,
+zâid bâ, لَيْسَ çekimi; fiilin nefyi ve i’rabı: merfû / meczûm / mansûb; zamana göre edat seçimi; olumlu ⇄ olumsuz; metinde
+nefy ve nefy olmayan مَا / لَمَّا / لَا) nefy makinesi (6 cümle × 6 edat × zâid bâ; uymayan edatta nedenini söyler), kaide,
+örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Biçim, Olumsuzla · Olumla, Hangi Zaman?, Nefy mi
+Değil mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `nefy/veri.js` içindedir; sonra
+`python3 nefy/yap.py`.
