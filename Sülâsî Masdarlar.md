@@ -397,3 +397,12 @@ ve zamân, zarf-ı mekân, zarf-ı zamân, harf-i cerle zarf ve dönüşüm, cü
 örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar (mekân mı zamân mı, harekeleme, mansûb mu mecrûr mu), beş oyun
 (Doğru Zarf, Dönüştür, Mekân mı Zamân mı?, Zarf mı Değil mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
 Veriler `zarf/veri.js` içindedir; sonra `python3 zarf/yap.py`.
+
+## Uygulama: Hâl ve Hâl Çeşitleri
+
+`hal/index.html` (yayın sürümü `hal/sayfa.html`) الحَالُ وَأَنْوَاعُهُ konusunu (kitaptaki iki ders) beş konuda (hâl nedir ve
+sâhibu’l-hâl, uyum ve sıfat ⇄ hâl, hâlin çeşitleri: müfred / cümle / şibh-i cümle, râbıt-uyum zinciri ve i’rab, âyetler ve
+okumalar: Neclâ’nın başarısı, dünden bugüne evlilik, obur misafir) hâl makinesi (6 sâhib × 5 durum × 3 tür), kaide, örnek,
+kitaptaki bütün alıştırmalar (أ-١…أ-٨, ب-١…ب-١١), ek alıştırmalar, beş oyun (Doğru Hâl, Dönüştür, Hâl Türü?, Hâl mi
+Sıfat mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `hal/veri.js` içindedir; sonra
+`python3 hal/yap.py`.
