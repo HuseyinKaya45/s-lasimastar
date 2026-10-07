@@ -432,3 +432,12 @@ nefy ve nefy olmayan مَا / لَمَّا / لَا) nefy makinesi (6 cümle × 
 örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Biçim, Olumsuzla · Olumla, Hangi Zaman?, Nefy mi
 Değil mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `nefy/veri.js` içindedir; sonra
 `python3 nefy/yap.py`.
+
+## Uygulama: Lâzım ve Müteaddî Fiil
+
+`lazim/index.html` (yayın sürümü `lazim/sayfa.html`) الفِعْلُ اللَّازِمُ وَالمُتَعَدِّي konusunu beş konuda (lâzım ve müteaddî
+fiil, cümleye uygun fiil, lâzımı hemze / tad’îf ile müteaddî yapmak, müteaddîyi mutâvaa ile lâzım yapmak, cümle kurma ve
+okuma: Ebü’d-Derdâ) fiil makinesi (8 fiil × 4 yol; uymayan yolda nedenini söyler), kaide, örnek, kitaptaki bütün
+alıştırmalar, ek alıştırmalar (lâzım mı müteaddî mi, hangi yol, mutâvaa biçimi), beş oyun (Doğru Fiil, Dönüştür, Lâzım mı
+Müteaddî mi?, Hangi Yol?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `lazim/veri.js` içindedir; sonra
+`python3 lazim/yap.py`.
