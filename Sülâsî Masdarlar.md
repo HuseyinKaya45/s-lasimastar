@@ -414,3 +414,12 @@ Sıfat mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Verile
 Eş’ab ve yemek, okul ziyareti) istisnâ makinesi (4 cümle × 5 edat × 3 üslup), kaide, örnek, kitaptaki bütün alıştırmalar
 (أ-١…أ-٨, ب-١…ب-٩), ek alıştırmalar, beş oyun (Doğru Müstesnâ, Dönüştür, Hangi Üslup?, Hangi Hüküm?, Hafıza Kartları) ve
 20 soruluk quiz provasıyla öğretir. Veriler `mustesna/veri.js` içindedir; sonra `python3 mustesna/yap.py`.
+
+## Uygulama: Atıf ve Atıf Edatları
+
+`atif/index.html` (yayın sürümü `atif/sayfa.html`) العَطْفُ وَحُرُوفُهُ konusunu beş konuda (atıf ve üç unsuru, ma’tûfun
+i’rabda tâbi olması, fiil kipi ve cümle türünde uyum, dokuz edatın anlamları, âyetler ve okuma: İstanbul’a ziyaret) dokuz
+edat kartı, atıf makinesi (3 i’rab × 9 edat × 3 kelime çifti, Türkçe karşılığıyla), kaide, örnek, kitaptaki bütün
+alıştırmalar, ek alıştırmalar (atfın yeri, fiil ve cümle uyumu, edat anlamları, uygun edat), beş oyun (Doğru Ma’tûf,
+Dönüştür, Neyin Arasında?, Ma’tûfun İ’rabı, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `atif/veri.js`
+içindedir; sonra `python3 atif/yap.py`.
