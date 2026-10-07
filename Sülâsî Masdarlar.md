@@ -379,3 +379,12 @@ melhûz, melfûz temyîzin üç biçimi, melhûz temyîz ve fâil ⇄ temyîz d�
 alıştırmalar, beş oyun (Doğru Temyîz, Dönüştür, Melfûz mu Melhûz mu?, Hangi Biçim?, Hafıza Kartları) ve 20 soruluk quiz
 provasıyla öğretir. (Sayıların temyîzi ayrı programdır: `temyiz/`.) Veriler `temyizgenel/veri.js` içindedir; sonra
 `python3 temyizgenel/yap.py`.
+
+## Uygulama: Kâne ve Kardeşleri
+
+`kane/index.html` (yayın sürümü `kane/sayfa.html`) كَانَ وَأَخَوَاتُهَا konusunu beş konuda (dokuz nâsih fiil ve anlamları,
+ismi merfû · haberi mansûb ve zamirle çekim, haberin türleri ve i’rab, kâne’nin mâzî / muzâri / emir çekimi ve zincirleme
+dönüşüm, âyetler ve okumalar: Hz. Ömer ve kadın, Cuhâ’nın hikâyeleri) dokuz fiil kartı, kâne makinesi (cümle × nâsih ×
+kip; câmid fiiller), kaide, örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar (anlam, zamirle çekim, haber türü,
+kâne mi inne mi), beş oyun (Doğru Hareke, Cümleyi Dönüştür, Haber Türü?, Kâne mi İnne mi?, Hafıza Kartları) ve 20 soruluk
+quiz provasıyla öğretir. Veriler `kane/veri.js` içindedir; sonra `python3 kane/yap.py`.
