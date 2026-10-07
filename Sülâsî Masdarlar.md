@@ -370,3 +370,12 @@ Veriler `sifatcesit/veri.js` içindedir; sonra `python3 sifatcesit/yap.py`.
 muzâfun ileyh: isim / zamir / yâ-i mütekellim), kaide, örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar (harfle mi
 harekeyle mi, görev bulma), beş oyun (Doğru Biçim, Hali Değiştir, Hangi Hal?, Harfle mi?, Hafıza Kartları) ve 20 soruluk
 quiz provasıyla öğretir. Veriler `esmahamse/veri.js` içindedir; sonra `python3 esmahamse/yap.py`.
+
+## Uygulama: Temyîz
+
+`temyizgenel/index.html` (yayın sürümü `temyizgenel/sayfa.html`) التَّمْيِيزُ konusunu beş konuda (temyîz nedir: melfûz ve
+melhûz, melfûz temyîzin üç biçimi, melhûz temyîz ve fâil ⇄ temyîz dönüşümü, cümlede temyîz, âyetler ve okuma:
+İstanbul’da turistler) temyîz makinesi (ölçü × madde × biçim), kaide, örnek, kitaptaki bütün alıştırmalar, ek
+alıştırmalar, beş oyun (Doğru Temyîz, Dönüştür, Melfûz mu Melhûz mu?, Hangi Biçim?, Hafıza Kartları) ve 20 soruluk quiz
+provasıyla öğretir. (Sayıların temyîzi ayrı programdır: `temyiz/`.) Veriler `temyizgenel/veri.js` içindedir; sonra
+`python3 temyizgenel/yap.py`.
