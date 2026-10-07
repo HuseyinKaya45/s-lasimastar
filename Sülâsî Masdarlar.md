@@ -344,3 +344,12 @@ et-Tâî) üç sebep kartı, sıralama makinesi (10 cümle × iki sıra; doğru 
 alıştırmalar, ek alıştırmalar (soru ismi seçme, dizilim doğru mu, nekra / marife, zamir uyumu), beş oyun (Doğru Kelime,
 Cümleyi Diz, Neden Öne Geçti?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler
 `takdim/veri.js` içindedir; sonra `python3 takdim/yap.py`.
+
+## Uygulama: İnne ve Kardeşleri
+
+`inne/index.html` (yayın sürümü `inne/sayfa.html`) إِنَّ وَأَخَوَاتُهَا konusunu beş konuda (altı harf ve anlamları, ismi
+mansûb / haberi merfû ve zamirle kullanım, haberin türleri ve lâm-ı müzahleka, inne mi kâne mi?, okumalar: Ahmed ve
+kalabalık yol, Çoban ve kurt) altı harf kartı, nâsih makinesi (6 cümle × yok / inne grubu / kâne grubu; harekeler ve
+i’rab), kaide, örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Hareke, Cümleyi Dönüştür, Hangi
+Anlam?, İnne mi Kâne mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `inne/veri.js` içindedir;
+sonra `python3 inne/yap.py`.
