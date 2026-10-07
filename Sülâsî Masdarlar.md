@@ -388,3 +388,12 @@ dönüşüm, âyetler ve okumalar: Hz. Ömer ve kadın, Cuhâ’nın hikâyeleri
 kip; câmid fiiller), kaide, örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar (anlam, zamirle çekim, haber türü,
 kâne mi inne mi), beş oyun (Doğru Hareke, Cümleyi Dönüştür, Haber Türü?, Kâne mi İnne mi?, Hafıza Kartları) ve 20 soruluk
 quiz provasıyla öğretir. Veriler `kane/veri.js` içindedir; sonra `python3 kane/yap.py`.
+
+## Uygulama: Zarf-ı Zamân ve Zarf-ı Mekân
+
+`zarf/index.html` (yayın sürümü `zarf/sayfa.html`) ظَرْفُ الزَّمَانِ وَظَرْفُ المَكَانِ konusunu beş konuda (zarf nedir: mekân
+ve zamân, zarf-ı mekân, zarf-ı zamân, harf-i cerle zarf ve dönüşüm, cümle kurma ve okumalar: fakültemizin kütüphanesi,
+İslam kütüphanelerinin tarihi) zarf kartları, yön kutuları, zarf makinesi (12 zarf × mansûb / harf-i cerli), kaide,
+örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar (mekân mı zamân mı, harekeleme, mansûb mu mecrûr mu), beş oyun
+(Doğru Zarf, Dönüştür, Mekân mı Zamân mı?, Zarf mı Değil mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
+Veriler `zarf/veri.js` içindedir; sonra `python3 zarf/yap.py`.
