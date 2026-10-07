@@ -335,3 +335,12 @@ türün kartları, haber makinesi (6 mübtedâ × 5 haber türü; i’rab, alâm
 alıştırmalar, ek alıştırmalar (alâmet-i ref’, râbıt, câr-mecrûr / zarf, lafzan / mahallen), beş oyun (Doğru Haber,
 Haberi Dönüştür, Haberin Türü?, Lafzan mı Mahallen mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
 Veriler `haber/veri.js` içindedir; sonra `python3 haber/yap.py`.
+
+## Uygulama: Haberin Öne Geçmesi
+
+`takdim/index.html` (yayın sürümü `takdim/sayfa.html`) haberin mübtedâdan önce geldiği durumları beş konuda (asıl sıra
+ve üç sebep, soru ismi, nekra mübtedâ + şibh-i cümle haber, mübtedâda habere dönen zamir, âyetler-atasözleri-okuma: Hâtim
+et-Tâî) üç sebep kartı, sıralama makinesi (10 cümle × iki sıra; doğru / yanlış ve sebebi), kaide, örnek, kitaptaki bütün
+alıştırmalar, ek alıştırmalar (soru ismi seçme, dizilim doğru mu, nekra / marife, zamir uyumu), beş oyun (Doğru Kelime,
+Cümleyi Diz, Neden Öne Geçti?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler
+`takdim/veri.js` içindedir; sonra `python3 takdim/yap.py`.
