@@ -406,3 +406,11 @@ okumalar: Neclâ’nın başarısı, dünden bugüne evlilik, obur misafir) hâl
 kitaptaki bütün alıştırmalar (أ-١…أ-٨, ب-١…ب-١١), ek alıştırmalar, beş oyun (Doğru Hâl, Dönüştür, Hâl Türü?, Hâl mi
 Sıfat mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `hal/veri.js` içindedir; sonra
 `python3 hal/yap.py`.
+
+## Uygulama: Müstesnâ
+
+`mustesna/index.html` (yayın sürümü `mustesna/sayfa.html`) المُسْتَثْنَى konusunu (kitaptaki iki ders) beş konuda (istisnâ ve
+üç rüknü, إِلَّا ile üç üslup: tâmm müsbet / tâmm menfî / nâkıs, غَيْرُ ve سِوَى, خَلَا / عَدَا / حَاشَا, hadisler ve okumalar:
+Eş’ab ve yemek, okul ziyareti) istisnâ makinesi (4 cümle × 5 edat × 3 üslup), kaide, örnek, kitaptaki bütün alıştırmalar
+(أ-١…أ-٨, ب-١…ب-٩), ek alıştırmalar, beş oyun (Doğru Müstesnâ, Dönüştür, Hangi Üslup?, Hangi Hüküm?, Hafıza Kartları) ve
+20 soruluk quiz provasıyla öğretir. Veriler `mustesna/veri.js` içindedir; sonra `python3 mustesna/yap.py`.
