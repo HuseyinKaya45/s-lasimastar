@@ -459,3 +459,12 @@ Mef’ûl, Dönüştür, Hangi Grup?, Aslı Mübtedâ-Haber mi?, Hafıza Kartlar
 örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar (lieclih / hâl / mutlak / bih, sebep bildiren harf-i cer, nekre /
 elif-lâmlı / muzâf, öne alma), beş oyun (Doğru Sebep, Dönüştür, Ne O?, Sebep mi?, Hafıza Kartları) ve 20 soruluk quiz
 provasıyla öğretir. Veriler `mefullieclih/veri.js` içindedir; sonra `python3 mefullieclih/yap.py`.
+
+## Uygulama: Mef’ûl-i Mutlak
+
+`mefulmutlak/index.html` (yayın sürümü `mefulmutlak/sayfa.html`) المَفْعُولُ المُطْلَقُ konusunu beş konuda (tanım ve âyet-hadis
+örnekleri, te’kîd / nevi / sayı, uygun masdar ve fiil, masdarın yerine geçenler: eş anlamlısı, sıfatı, كُلّ / بَعْض, sayı;
+okuma: مِنَ البُطُولَاتِ الخَالِدَةِ) masdar makinesi (6 fiil × 6 görev), kaide, örnek, kitaptaki bütün alıştırmalar, ek
+alıştırmalar (mutlak / lieclih / hâl / bih, türü, nâib türü, masdarı atıp nâib koyma, metinde mutlak), beş oyun (Doğru Masdar,
+Dönüştür, Ne O?, Hangi Görev?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `mefulmutlak/veri.js`
+içindedir; sonra `python3 mefulmutlak/yap.py`.
