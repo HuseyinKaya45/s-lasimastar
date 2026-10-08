@@ -450,3 +450,12 @@ okumalar: إِسْطَنْبُولُ ve ذَكَاءُ طِفْلٍ) cümle maki
 örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar (aslı mübtedâ-haber mi, hangi grup, 2. mef’ûlün türü), beş oyun (Doğru
 Mef’ûl, Dönüştür, Hangi Grup?, Aslı Mübtedâ-Haber mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler
 `ikimeful/veri.js` içindedir; sonra `python3 ikimeful/yap.py`.
+
+## Uygulama: Mef’ûlün Lieclih
+
+`mefullieclih/index.html` (yayın sürümü `mefullieclih/sayfa.html`) المَفْعُولُ لَهُ (المَفْعُولُ لِأَجْلِهِ) konusunu beş konuda
+(tanım ve لِمَ؟ sorusu, mansûb / lâm ile mecrûr / مِنْ، بِـ، فِي ile gelişi ve öne alınması, uygun mef’ûlün lieclihi seçmek,
+لِمَاذَا؟ sorusuna cevap ve i’rab, âyet-hadis ve “الأُمُّ: سِرُّ الحَيَاةِ” okuması) sebep makinesi (6 cümle × 4 biçim), kaide,
+örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar (lieclih / hâl / mutlak / bih, sebep bildiren harf-i cer, nekre /
+elif-lâmlı / muzâf, öne alma), beş oyun (Doğru Sebep, Dönüştür, Ne O?, Sebep mi?, Hafıza Kartları) ve 20 soruluk quiz
+provasıyla öğretir. Veriler `mefullieclih/veri.js` içindedir; sonra `python3 mefullieclih/yap.py`.
