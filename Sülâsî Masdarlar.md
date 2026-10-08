@@ -484,3 +484,11 @@ takdîrî; menkûs: merfû ve mecrûrda takdîrî, mansûbda zâhir, nekrede yâ
 olanlar; i’rab alâmeti ve cümle kurma; okuma: Molla Fenârî ve Sultan Bâyezid) isim makinesi (6 isim × 6 hâl), kaide, örnek,
 kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Biçim, Dönüştür, Hangi Tür?, Zâhir mi Takdîrî mi?, Hafıza
 Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `maksur/veri.js` içindedir; sonra `python3 maksur/yap.py`.
+
+## Uygulama: Mukârabe, Recâ ve Şurû’ Fiilleri
+
+`mukarabe/index.html` (yayın sürümü `mukarabe/sayfa.html`) أَفْعَالُ المُقَارَبَةِ وَالرَّجَاءِ وَالشُّرُوعِ konusunu beş konuda (كَانَ gibi
+amel ve muzâri haber, mukârabe: كَادَ / أَوْشَكَ ve أَنْ, recâ: عَسَى ve tam kullanımı, şurû’ fiilleri ve tam fiil, cümle kurma ve
+okuma: Ebû Bekir es-Sıddîk) fiil makinesi (8 fiil × 6 isim; cinsiyet uyumu, haber uyumu ve أَنْ kuralı), kaide, örnek, kitaptaki
+bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Biçim, Dönüştür, Hangi Grup?, Tam mı Nâkıs mı?, Hafıza Kartları) ve 20
+soruluk quiz provasıyla öğretir. Veriler `mukarabe/veri.js` içindedir; sonra `python3 mukarabe/yap.py`.
