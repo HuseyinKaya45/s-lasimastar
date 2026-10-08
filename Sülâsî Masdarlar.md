@@ -492,3 +492,11 @@ amel ve muzâri haber, mukârabe: كَادَ / أَوْشَكَ ve أَنْ, rec
 okuma: Ebû Bekir es-Sıddîk) fiil makinesi (8 fiil × 6 isim; cinsiyet uyumu, haber uyumu ve أَنْ kuralı), kaide, örnek, kitaptaki
 bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Biçim, Dönüştür, Hangi Grup?, Tam mı Nâkıs mı?, Hafıza Kartları) ve 20
 soruluk quiz provasıyla öğretir. Veriler `mukarabe/veri.js` içindedir; sonra `python3 mukarabe/yap.py`.
+
+## Uygulama: Şart ve Şart Edatları
+
+`sart/index.html` (yayın sürümü `sart/sayfa.html`) الشَّرْطُ وَأَدَوَاتُهُ konusunu beş konuda (şart üslubunun öğeleri, câzim edatlar
+ve cezm alâmeti, câzim olmayan إِذَا / لَوْ ve mâzî ile şart, şart cümlesi kurma ve talep cevabı, âyetler ve okumalar: ذَكَاءُ فَتَاةٍ،
+الحِيلَةُ) şart makinesi (8 edat × 6 fiil çifti; cezm alâmetini söyler), kaide, örnek, kitaptaki bütün alıştırmalar, ek
+alıştırmalar, beş oyun (Doğru Cezm, Şarta Çevir, Edat Ne Bildirir?, Câzim mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla
+öğretir. Veriler `sart/veri.js` içindedir; sonra `python3 sart/yap.py`.
