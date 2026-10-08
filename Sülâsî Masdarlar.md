@@ -500,3 +500,11 @@ ve cezm alâmeti, câzim olmayan إِذَا / لَوْ ve mâzî ile şart, şar
 الحِيلَةُ) şart makinesi (8 edat × 6 fiil çifti; cezm alâmetini söyler), kaide, örnek, kitaptaki bütün alıştırmalar, ek
 alıştırmalar, beş oyun (Doğru Cezm, Şarta Çevir, Edat Ne Bildirir?, Câzim mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla
 öğretir. Veriler `sart/veri.js` içindedir; sonra `python3 sart/yap.py`.
+
+## Uygulama: Cinsini Nefy Eden Lâ
+
+`lacins/index.html` (yayın sürümü `lacins/sayfa.html`) لَا النَّافِيَةُ لِلْجِنْسِ konusunu beş konuda (tanım ve ameli, isminin i’rabı:
+mebnî / mansûb, ismi ve haberi, amel şartları, iptal ve haberin hazfı, âyetler ve okuma: مَدِينَتِي المُفَضَّلَةُ) lâ makinesi
+(6 isim × 4 durum), kaide, örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Hareke, Lâ Ekle, İsmin Hükmü,
+Niçin Amelsiz?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `lacins/veri.js` içindedir; sonra
+`python3 lacins/yap.py`.
