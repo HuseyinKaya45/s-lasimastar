@@ -441,3 +441,12 @@ okuma: Ebü’d-Derdâ) fiil makinesi (8 fiil × 4 yol; uymayan yolda nedenini s
 alıştırmalar, ek alıştırmalar (lâzım mı müteaddî mi, hangi yol, mutâvaa biçimi), beş oyun (Doğru Fiil, Dönüştür, Lâzım mı
 Müteaddî mi?, Hangi Yol?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `lazim/veri.js` içindedir; sonra
 `python3 lazim/yap.py`.
+
+## Uygulama: İki Mef’ûl Alan Fiiller
+
+`ikimeful/index.html` (yayın sürümü `ikimeful/sayfa.html`) الأَفْعَالُ المُتَعَدِّيَةُ إِلَى مَفْعُولَيْنِ konusunu beş konuda (iki
+mef’ûl alan fiiller ve iki kısmı, zan / yakîn / tahvîl fiilleri, mef’ûllerin mübtedâ-haberden dönüşümü, cümle kurma,
+okumalar: إِسْطَنْبُولُ ve ذَكَاءُ طِفْلٍ) cümle makinesi (6 isim cümlesi × 8 fiil; أَعْطَى grubunda nedenini söyler), kaide,
+örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar (aslı mübtedâ-haber mi, hangi grup, 2. mef’ûlün türü), beş oyun (Doğru
+Mef’ûl, Dönüştür, Hangi Grup?, Aslı Mübtedâ-Haber mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler
+`ikimeful/veri.js` içindedir; sonra `python3 ikimeful/yap.py`.
