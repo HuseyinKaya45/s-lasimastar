@@ -508,3 +508,11 @@ mebnî / mansûb, ismi ve haberi, amel şartları, iptal ve haberin hazfı, âye
 (6 isim × 4 durum), kaide, örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Hareke, Lâ Ekle, İsmin Hükmü,
 Niçin Amelsiz?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `lacins/veri.js` içindedir; sonra
 `python3 lacins/yap.py`.
+
+## Uygulama: Şartın Cevabının Fâ ile Birlikte Gelmesi
+
+`sartfa/index.html` (yayın sürümü `sartfa/sayfa.html`) اقْتِرَانُ جَوَابِ الشَّرْطِ بِالفَاءِ konusunu beş konuda (kural, isim cümlesi ve
+câmid fiil, talep ve nefy, قَدْ / سَـ / سَوْفَ ve beyitler, fâ’lı muzârinin i’rabı ve fâ’lı cevap kurma, âyet, hadis ve okuma:
+اِرْضَ بِمَا لَدَيْكَ!) fâ makinesi (5 şart × 6 cevap türü), kaide, örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun
+(Fâ’lı Cevap, Fâ Ekle, Neden Fâ?, Fâ Gerekli mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler
+`sartfa/veri.js` içindedir; sonra `python3 sartfa/yap.py`.
