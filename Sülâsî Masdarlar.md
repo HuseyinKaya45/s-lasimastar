@@ -532,3 +532,11 @@ mahsûs; fâil–mahsûs uyumu ve te’nîs tâsı; حَبَّذَا ve لَا �
 medih-zemm makinesi (4 fiil × 6 mahsûs), kaide, örnek, kitaptaki 7 alıştırmanın hepsi, ek alıştırmalar, beş oyun (Doğru
 Biçim, Medih-Zemm Kur, Hangi Fiil?, Övgü mü Yergi mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler
 `medih/veri.js` içindedir; sonra `python3 medih/yap.py`.
+
+## Uygulama: Te’kîd
+
+`tekid/index.html` (yayın sürümü `tekid/sayfa.html`) التَّأْكِيدُ konusunu beş konuda (tanım, lafzî ve ma’nevî te’kîd; ma’nevî te’kîd
+kelimeleri ve كِلَا / كِلْتَا; i’rab ve zamir uyumu, hata düzeltme; te’kîd üslubuna çevirme; âyet, hadis ve okuma:
+النَّظَافَةُ فِي الإِسْلَامِ) te’kîd makinesi (6 müekked × 4 i’rab), kaide, örnek, kitaptaki 10 alıştırmanın hepsi, ek alıştırmalar,
+beş oyun (Doğru Biçim, Te’kîd Et, Hangi Kelime?, Lafzî mi Ma’nevî mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla
+öğretir. Veriler `tekid/veri.js` içindedir; sonra `python3 tekid/yap.py`.
