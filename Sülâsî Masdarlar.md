@@ -468,3 +468,11 @@ okuma: مِنَ البُطُولَاتِ الخَالِدَةِ) masdar makinesi
 alıştırmalar (mutlak / lieclih / hâl / bih, türü, nâib türü, masdarı atıp nâib koyma, metinde mutlak), beş oyun (Doğru Masdar,
 Dönüştür, Ne O?, Hangi Görev?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `mefulmutlak/veri.js`
 içindedir; sonra `python3 mefulmutlak/yap.py`.
+
+## Uygulama: Mef’ûlün Maah
+
+`mefulmaah/index.html` (yayın sürümü `mefulmaah/sayfa.html`) المَفْعُولُ مَعَهُ konusunu beş konuda (tanım ve vâvın türü: maiyyet /
+atıf / hâl, şartlar, vâvdan sonraki ismin hükümleri: maah vâcib / atıf vâcib / ikisi câiz, nâsıb türleri ve مَا / كَيْفَ,
+okuma: مَبْدَأُ الشُّورَى فِي الإِسْلَامِ) vâv makinesi (6 cümle × 2 okuyuş; olmayan okuyuşta nedenini söyler), kaide, örnek,
+kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Hareke, Dönüştür, Hangi Vâv?, Nâsıb Ne?, Hafıza Kartları) ve
+20 soruluk quiz provasıyla öğretir. Veriler `mefulmaah/veri.js` içindedir; sonra `python3 mefulmaah/yap.py`.
