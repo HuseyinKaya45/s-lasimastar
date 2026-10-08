@@ -524,3 +524,11 @@ sîgası ve iki sîga, şartlar ve dolaylı taaccüp, sarîh / müevvel masdar v
 makinesi (8 fiil × 4 sîga), kaide, örnek, kitaptaki 13 alıştırmanın hepsi, ek alıştırmalar, beş oyun (Doğru Biçim, Taaccübe
 Çevir, Neden Dolaylı?, Doğrudan mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `taaccub/veri.js`
 içindedir; sonra `python3 taaccub/yap.py`.
+
+## Uygulama: Medih ve Zemm Fiilleri
+
+`medih/index.html` (yayın sürümü `medih/sayfa.html`) أَفْعَالُ المَدْحِ وَالذَّمِّ konusunu beş konuda (نِعْمَ ve بِئْسَ: fiil, fâil ve
+mahsûs; fâil–mahsûs uyumu ve te’nîs tâsı; حَبَّذَا ve لَا حَبَّذَا; mahsûsu ve fâili tamamlama; âyetler ve okuma: الصِّدْقُ)
+medih-zemm makinesi (4 fiil × 6 mahsûs), kaide, örnek, kitaptaki 7 alıştırmanın hepsi, ek alıştırmalar, beş oyun (Doğru
+Biçim, Medih-Zemm Kur, Hangi Fiil?, Övgü mü Yergi mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler
+`medih/veri.js` içindedir; sonra `python3 medih/yap.py`.
