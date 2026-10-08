@@ -516,3 +516,11 @@ câmid fiil, talep ve nefy, قَدْ / سَـ / سَوْفَ ve beyitler, fâ’
 اِرْضَ بِمَا لَدَيْكَ!) fâ makinesi (5 şart × 6 cevap türü), kaide, örnek, kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun
 (Fâ’lı Cevap, Fâ Ekle, Neden Fâ?, Fâ Gerekli mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler
 `sartfa/veri.js` içindedir; sonra `python3 sartfa/yap.py`.
+
+## Uygulama: Taaccüp Üslubu
+
+`taaccub/index.html` (yayın sürümü `taaccub/sayfa.html`) أُسْلُوبُ التَّعَجُّبِ konusunu beş konuda (مَا أَفْعَلَهُ sîgası, أَفْعِلْ بِهِ
+sîgası ve iki sîga, şartlar ve dolaylı taaccüp, sarîh / müevvel masdar ve مَا / مَنْ, semâî sîgalar ve okuma: العَوْلَمَةُ) taaccüp
+makinesi (8 fiil × 4 sîga), kaide, örnek, kitaptaki 13 alıştırmanın hepsi, ek alıştırmalar, beş oyun (Doğru Biçim, Taaccübe
+Çevir, Neden Dolaylı?, Doğrudan mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `taaccub/veri.js`
+içindedir; sonra `python3 taaccub/yap.py`.
