@@ -476,3 +476,11 @@ atıf / hâl, şartlar, vâvdan sonraki ismin hükümleri: maah vâcib / atıf v
 okuma: مَبْدَأُ الشُّورَى فِي الإِسْلَامِ) vâv makinesi (6 cümle × 2 okuyuş; olmayan okuyuşta nedenini söyler), kaide, örnek,
 kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Hareke, Dönüştür, Hangi Vâv?, Nâsıb Ne?, Hafıza Kartları) ve
 20 soruluk quiz provasıyla öğretir. Veriler `mefulmaah/veri.js` içindedir; sonra `python3 mefulmaah/yap.py`.
+
+## Uygulama: Maksûr, Menkûs ve Memdûd İsimler
+
+`maksur/index.html` (yayın sürümü `maksur/sayfa.html`) المَقْصُورُ وَالمَنْقُوصُ وَالمَمْدُودُ konusunu beş konuda (maksûr: üç hâlde
+takdîrî; menkûs: merfû ve mecrûrda takdîrî, mansûbda zâhir, nekrede yânın düşmesi; memdûd: hep zâhir, gayr-i munsarif
+olanlar; i’rab alâmeti ve cümle kurma; okuma: Molla Fenârî ve Sultan Bâyezid) isim makinesi (6 isim × 6 hâl), kaide, örnek,
+kitaptaki bütün alıştırmalar, ek alıştırmalar, beş oyun (Doğru Biçim, Dönüştür, Hangi Tür?, Zâhir mi Takdîrî mi?, Hafıza
+Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `maksur/veri.js` içindedir; sonra `python3 maksur/yap.py`.
