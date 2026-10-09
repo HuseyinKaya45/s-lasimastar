@@ -604,3 +604,11 @@ en / mâ ile takdir ve zaman farkı; fiilinin yerine geçen masdar; amel etmeyen
 âyetlerde: التَّعَاوُنُ) masdar makinesi (4 masdar × 8 kullanım), kaide, örnek, kitaptaki 6 alıştırmanın hepsi, ek alıştırmalar,
 beş oyun (Doğru Hareke, Dönüştür, Amel Ediyor mu?, Fâiline mi Mef’ûlüne mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
 Veriler `masamel/veri.js` içindedir; sonra `python3 masamel/yap.py`.
+
+## Uygulama: Mehmûz Fiil ve Çekimi
+
+`mehmuz/index.html` (yayın sürümü `mehmuz/sayfa.html`) الفِعْلُ المَهْمُوزُ وَتَصْرِيفُهُ konusunu beş konuda (mehmûz fiil ve hemzenin yeri:
+fâ / ayn / lâm; mâzi ve muzâri çekimi; emir ve hemzesi düşen emirler: كُلْ، خُذْ، مُرْ، سَلْ; mezîd mehmûz; okuma: هُدُوءُ الغَابَةِ)
+çekim makinesi (23 fiil × 3 zaman; hemzenin yazılışı kurallardan otomatik üretilir), kaide, örnek, kitaptaki 30 alıştırmanın
+hepsi (çekim tabloları dokun-yerleştir biçiminde), ek alıştırmalar, beş oyun (Doğru Çekim, Zamir Avı, Hemze Nerede?, Mehmûz mu?,
+Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `mehmuz/veri.js` içindedir; sonra `python3 mehmuz/yap.py`.
