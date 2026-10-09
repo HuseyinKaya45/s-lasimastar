@@ -540,3 +540,11 @@ kelimeleri ve كِلَا / كِلْتَا; i’rab ve zamir uyumu, hata düzeltm
 النَّظَافَةُ فِي الإِسْلَامِ) te’kîd makinesi (6 müekked × 4 i’rab), kaide, örnek, kitaptaki 10 alıştırmanın hepsi, ek alıştırmalar,
 beş oyun (Doğru Biçim, Te’kîd Et, Hangi Kelime?, Lafzî mi Ma’nevî mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla
 öğretir. Veriler `tekid/veri.js` içindedir; sonra `python3 tekid/yap.py`.
+
+## Uygulama: Kıraat 20 — Köy ile Şehir Arasında
+
+`kiraat20/index.html` (yayın sürümü `kiraat20/sayfa.html`) okuma-anlama dersinin 20. konusu بَيْنَ الرِّيفِ وَالمَدِينَةِ’yi beş
+bölümde (okumaya hazırlık ve tam harekeli metin, sesli okuma ve sözlükle; metni anlama ve olay sıralama; zıt, eş anlam ve
+çoğul; köy–şehir karşılaştırması ve resimler; görüş yazısı) köy–şehir karşılaştırıcısı (6 konu × 4 bakış), kitaptaki 9
+etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Çevir, Köy mü Şehir mi?, Doğru mu Yanlış mı?, Hafıza
+Kartları) ve 20 soruluk quiz provasıyla işler. Veriler `kiraat20/veri.js` içindedir; sonra `python3 kiraat20/yap.py`.
