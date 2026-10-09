@@ -659,3 +659,12 @@ muzâri fiil ve zamirler) aile ağacı, akrabalık şeması, çekim makinesi (6 
 ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Kim Kimdir?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk
 quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 35 kelimesini çalıştırır. Veriler `kiraat02/veri.js` içindedir;
 sonra `python3 kiraat02/yap.py`.
+
+## Uygulama: Kıraat 3 — Abdurrahman’ın Evi
+
+`kiraat03/index.html` (yayın sürümü `kiraat03/sayfa.html`) okuma-anlama dersinin 3. konusu بَيْتُ عَبْدِ الرَّحْمَنِ’i beş bölümde
+(okumaya hazırlık ve metin; metni anlama, ✓/✗ ve düzeltme; ev, eşya ve sofra kelimeleri; harf-i cer, zarflar ve cümle kurma;
+şemsî–kamerî lâm ve işaret isimleri) ev planı, işaret makinesi, zarf–harf-i cer tablosu, kitaptaki 9 etkinlik ve 3 tedrîbin
+hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Hangi Odada?, Doğru mu Yanlış mı?, Hafıza Kartları) ve
+20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 35 kelimesini çalıştırır. Veriler `kiraat03/veri.js`
+içindedir; sonra `python3 kiraat03/yap.py`.
