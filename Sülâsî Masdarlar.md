@@ -588,3 +588,11 @@ yedi yeri; cümle tamamlama ve metinde zabt: إِسْطَنْبُولُ; mâ-i k
 makinesi (3 cümle × 9 yer), kaide, örnek, kitaptaki 10 alıştırmanın hepsi, ek alıştırmalar, beş oyun (Doğru Biçim, Dönüştür,
 Neden Kesre?, İnne mi Enne mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
 Veriler `kaffe/veri.js` içindedir; sonra `python3 kaffe/yap.py`.
+
+## Uygulama: İsm-i Fâil ve İsm-i Mef’ûlün Ameli
+
+`famel/index.html` (yayın sürümü `famel/sayfa.html`) عَمَلُ اسْمِ الفَاعِلِ وَاسْمِ المَفْعُولِ konusunu beş konuda (ism-i fâilin ameli;
+ism-i mef’ûlün ameli; amelin altı şartı; ma’mûlün harekesi ve fiilden isme; izafet, âyetler ve okuma: فِي المُسْتَشْفَى) amel
+makinesi (4 âmil × 7 kullanım), kaide, örnek, kitaptaki 7 alıştırmanın hepsi, ek alıştırmalar, beş oyun (Doğru Hareke, Dönüştür,
+Neden Amel Ediyor?, Fâil mi Mef’ûl mü?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
+Veriler `famel/veri.js` içindedir; sonra `python3 famel/yap.py`.
