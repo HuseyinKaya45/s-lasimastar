@@ -564,3 +564,11 @@ münâdânın beş türü; münâdânın i’rabı: mebnî / mansûb; يَا أ�
 okuma: فِي سَبِيلِ اللهِ) nidâ makinesi (6 tür × 4 sayı / cinsiyet), kaide, örnek, kitaptaki 8 alıştırmanın hepsi, ek alıştırmalar,
 beş oyun (Doğru Hareke, Seslen, Hangi Münâdâ?, Yakın mı Uzak mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
 Veriler `nida/veri.js` içindedir; sonra `python3 nida/yap.py`.
+
+## Uygulama: Gayr-i Munsarif
+
+`munsarif/index.html` (yayın sürümü `munsarif/sayfa.html`) المَمْنُوعُ مِنَ الصَّرْفِ konusunu beş konuda (tanım ve alemin altı men sebebi;
+vasıf, elif-i te’nîs ve müntehe’l-cumû‘; doğru ismi seçme ve yerleştirme; cer hâli: fetha / kesre ve çevirme; âyetlerde i’rab ve
+okuma: سُورِيَّةُ) cer makinesi (6 kelime × 4 i’rab hâli), kaide, örnek, kitaptaki 11 alıştırmanın hepsi, ek alıştırmalar, beş oyun
+(Doğru Hareke, Çevir, Hangi Kısım?, Fetha mı Kesre mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
+Veriler `munsarif/veri.js` içindedir; sonra `python3 munsarif/yap.py`.
