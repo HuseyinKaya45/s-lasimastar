@@ -650,3 +650,12 @@ Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” 
 dersin 30 kelimesini aralıklı tekrar, kelime kartları, çoğul kalıpları, zayıf kelimeler ve altı kelime oyunuyla çalıştırır;
 modül sonraki okuma derslerine de eklenir (veri: `KH_KELIMELER`). Veriler `kiraat01/veri.js` içindedir; sonra
 `python3 kiraat01/yap.py`.
+
+## Uygulama: Kıraat 2 — Peygamberimizin Ailesi
+
+`kiraat02/index.html` (yayın sürümü `kiraat02/sayfa.html`) okuma-anlama dersinin 2. konusu عَائِلَةُ النَّبِيِّ مُحَمَّدٍ ﷺ’i beş
+bölümde (okumaya hazırlık ve metin; metni anlama ve aile ağacı; boşluk, zıt ve eş anlam; akrabalık adları ve cümle kurma;
+muzâri fiil ve zamirler) aile ağacı, akrabalık şeması, çekim makinesi (6 fiil × 6 zamir), kitaptaki 10 etkinliğin hepsi,
+ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Kim Kimdir?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk
+quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 35 kelimesini çalıştırır. Veriler `kiraat02/veri.js` içindedir;
+sonra `python3 kiraat02/yap.py`.
