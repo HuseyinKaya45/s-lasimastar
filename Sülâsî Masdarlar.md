@@ -580,3 +580,11 @@ ve harf-i cerli soru; kem-i haberiyye ve temyizin dört biçimi; temyiz ve i’r
 makinesi (6 isim × 5 kullanım), kaide, örnek, kitaptaki 8 alıştırmanın hepsi, ek alıştırmalar, beş oyun (Doğru Temyiz, Çevir,
 Temyizin Biçimi, Soru mu Çokluk mu?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
 Veriler `kem/veri.js` içindedir; sonra `python3 kem/yap.py`.
+
+## Uygulama: İnne mi, Enne mi? Mâ-i Kâffe
+
+`kaffe/index.html` (yayın sürümü `kaffe/sayfa.html`) كَسْرُ هَمْزَةِ «إِنَّ» وَ«مَا» الكَافَّةُ konusunu beş konuda (inne mi enne mi?; kesrenin
+yedi yeri; cümle tamamlama ve metinde zabt: إِسْطَنْبُولُ; mâ-i kâffe ve leytemâ; mâ’nın etkisi ve okuma: جَوْلَةٌ فِي السُّوقِ) inne
+makinesi (3 cümle × 9 yer), kaide, örnek, kitaptaki 10 alıştırmanın hepsi, ek alıştırmalar, beş oyun (Doğru Biçim, Dönüştür,
+Neden Kesre?, İnne mi Enne mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
+Veriler `kaffe/veri.js` içindedir; sonra `python3 kaffe/yap.py`.
