@@ -572,3 +572,11 @@ vasıf, elif-i te’nîs ve müntehe’l-cumû‘; doğru ismi seçme ve yerleş
 okuma: سُورِيَّةُ) cer makinesi (6 kelime × 4 i’rab hâli), kaide, örnek, kitaptaki 11 alıştırmanın hepsi, ek alıştırmalar, beş oyun
 (Doğru Hareke, Çevir, Hangi Kısım?, Fetha mı Kesre mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
 Veriler `munsarif/veri.js` içindedir; sonra `python3 munsarif/yap.py`.
+
+## Uygulama: Kem-i İstifhâmiyye ve Kem-i Haberiyye
+
+`kem/index.html` (yayın sürümü `kem/sayfa.html`) كَمِ الاسْتِفْهَامِيَّةُ وَالخَبَرِيَّةُ konusunu beş konuda (kem’in iki türü; kem-i istifhâmiyye
+ve harf-i cerli soru; kem-i haberiyye ve temyizin dört biçimi; temyiz ve i’rabı; âyetlerde kem ve okuma: فِي سُوقِ الكُتُبِ) kem
+makinesi (6 isim × 5 kullanım), kaide, örnek, kitaptaki 8 alıştırmanın hepsi, ek alıştırmalar, beş oyun (Doğru Temyiz, Çevir,
+Temyizin Biçimi, Soru mu Çokluk mu?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
+Veriler `kem/veri.js` içindedir; sonra `python3 kem/yap.py`.
