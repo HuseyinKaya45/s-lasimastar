@@ -612,3 +612,11 @@ fâ / ayn / lâm; mâzi ve muzâri çekimi; emir ve hemzesi düşen emirler: ك�
 çekim makinesi (23 fiil × 3 zaman; hemzenin yazılışı kurallardan otomatik üretilir), kaide, örnek, kitaptaki 30 alıştırmanın
 hepsi (çekim tabloları dokun-yerleştir biçiminde), ek alıştırmalar, beş oyun (Doğru Çekim, Zamir Avı, Hemze Nerede?, Mehmûz mu?,
 Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler `mehmuz/veri.js` içindedir; sonra `python3 mehmuz/yap.py`.
+
+## Uygulama: Hemze ve Yazılışı
+
+`hemze/index.html` (yayın sürümü `hemze/sayfa.html`) الهَمْزَةُ وَكِتَابَتُهَا konusunu beş konuda (hemze-i kat’ ve hemze-i vasl;
+kelime başında hemze; ortadaki hemze ve harekelerin gücü; sondaki hemze; okuma: لَا تُفْشِ أَسْرَارَ عَائِلَتِكَ) hemze makinesi
+(yer × önceki harf × kendi harekesi → elif, vav, nebre ya da tek başına), kaide, örnek, kitaptaki üç alıştırmanın hepsi, ek
+alıştırmalar, beş oyun (Doğru Yazılış, Dönüştür, Neyin Üzerinde?, Kat’ mı Vasl mı?, Hafıza Kartları) ve 20 soruluk quiz
+provasıyla öğretir. Veriler `hemze/veri.js` içindedir; sonra `python3 hemze/yap.py`.
