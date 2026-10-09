@@ -639,3 +639,14 @@ derse göre listelenir ve aranabilir, çoğullar kalıplarına göre toplanır, 
 Altı oyun vardır: Kalıp Fabrikası, Mıknatıs, Hafıza, Düşen Kelimeler, Cümlede Değiştir, Hız Turu. Okuma-anlama dersleri
 (Kıraat 20, 23) dahil değildir. Kelimeler `kelimehazinesi/kelimeler.json` içindedir; yeni ders eklemek için oraya yazıp
 `python3 kelimehazinesi/yap.py` çalıştırılır.
+
+## Uygulama: Kıraat 1 — Selamlaşma ve Tanışma
+
+`kiraat01/index.html` (yayın sürümü `kiraat01/sayfa.html`) okuma-anlama dersinin 1. konusu التَّحِيَّاتُ وَالتَّعَارُفُ’yu beş
+bölümde (okumaya hazırlık ve dört tanışma metni; metni anlama, bilgi tablosu ve soru sorma; boşluk, eş ve zıt anlam;
+cümle kurma ve bitişik zamirler; selamlaşma ve kimlik kartı) tanışma makinesi (4 kişi × 8 soru), kitaptaki 9 etkinliğin ve
+“لَاحِظْ” bölümünün hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Kim Söyledi?, Doğru mu Yanlış mı?,
+Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi (modül: `kiraat01/kelime.js`, `kelime.css`)
+dersin 30 kelimesini aralıklı tekrar, kelime kartları, çoğul kalıpları, zayıf kelimeler ve altı kelime oyunuyla çalıştırır;
+modül sonraki okuma derslerine de eklenir (veri: `KH_KELIMELER`). Veriler `kiraat01/veri.js` içindedir; sonra
+`python3 kiraat01/yap.py`.
