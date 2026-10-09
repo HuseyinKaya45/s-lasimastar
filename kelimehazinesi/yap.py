@@ -11,6 +11,7 @@ for d in K["dersler"]:
         x = {"id": d["id"] + "-" + str(i), "d": d["id"]}
         for f in ("w", "t", "tr", "c", "k", "e", "z", "s", "sw", "st"):
             x[f] = w.get(f, "")
+        x["dl"] = w.get("dl", [d["id"]])
         words.append(x)
 dersler = [{"id": d["id"], "tr": d["tr"], "ar": d["ar"], "cat": d["cat"]} for d in K["dersler"]]
 js = ("// Bu dosya yap.py tarafından kelimeler.json'dan üretilir; elle değiştirme.\n"

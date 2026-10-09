@@ -62,7 +62,8 @@ function save() { store.set("scope", ST.scope); store.set("lt", ST.lt); store.se
 var DAYS = { 1: 0, 2: 1, 3: 3, 4: 7, 5: 14 };
 var RANKS = [[0, "Mübtedî"], [150, "Talebe"], [400, "Kâtip"], [900, "Edîb"], [1800, "Âlim"], [3500, "Allâme"]];
 
-function inScope(w) { var d = DBY[w.d]; return (ST.scope.cat === "all" || d.cat === ST.scope.cat) && !ST.scope.off[w.d]; }
+function lessonOn(id) { var d = DBY[id]; return (ST.scope.cat === "all" || d.cat === ST.scope.cat) && !ST.scope.off[id]; }
+function inScope(w) { return w.dl.some(lessonOn); }
 function scopeWords() { var s = W.filter(inScope); return s.length ? s : W.slice(); }
 function typesOf(w) { var r = ["a"]; if (w.c) r.push("c"); if (w.e) r.push("e"); if (w.z) r.push("z"); if (w.c) r.push("t"); return r; }
 function key(w, t) { return w.id + ":" + t; }
@@ -97,13 +98,12 @@ function dots(w) {
 }
 function aile(w, opt) {
   opt = opt || {};
-  var d = DBY[w.d];
   function cell(lbl, col, val, sub) { return '<div class="fam-cell r-' + col + '"><span class="lbl">' + lbl + '</span>' + (val ? '<span class="ar v">' + val + '</span>' + (sub ? '<small>' + sub + '</small>' : '') : '<span class="muted v0">—</span>') + '</div>'; }
   return '<div class="fam">' +
     '<div class="fam-head"><button class="say" data-say="' + esc(w.w) + '" aria-label="Dinle">🔊</button><div class="fam-main"><span class="ar fam-w">' + w.w + '</span><span class="fam-tr"><b>' + esc(w.tr) + '</b> <span class="muted">· ' + TUR[w.t] + '</span></span></div></div>' +
     '<div class="fam-grid">' + cell("Çoğulu", "nasb", w.c, w.k && KALIPLAR[w.k] ? kalipAd(w.k) : "") + cell("Eş anlamlısı =", "mz", w.e) + cell("Zıt anlamlısı ≠", "ref", w.z) + '</div>' +
     (w.s ? '<div class="fam-s"><button class="say small" data-say="' + esc(w.s) + '" aria-label="Cümleyi dinle">🔊</button><div><div class="ar">' + hlSent(w) + '</div><small class="muted">' + esc(w.st) + '</small></div></div>' : '') +
-    '<div class="fam-foot"><span class="muted">' + CAT[d.cat] + ' · ' + esc(d.tr) + '</span>' + (opt.dots === false ? '' : dots(w)) + '</div></div>';
+    '<div class="fam-foot"><span class="muted">' + w.dl.map(function (id) { return CAT[DBY[id].cat] + ' · ' + esc(DBY[id].tr); }).join('<br>') + '</span>' + (opt.dots === false ? '' : dots(w)) + '</div></div>';
 }
 function openFam(id) {
   var w = WBY[id]; if (!w) return;
@@ -159,7 +159,7 @@ function startSession(mode, arg) {
   } else if (mode === "weak") {
     q = shuffle(weakList().slice(0, 12).reduce(function (a, x) { return a.concat(x.keys); }, [])).slice(0, 24);
   } else if (mode === "ders") {
-    W.filter(function (w) { return w.d === arg; }).forEach(function (w) { if (!seenWord(w)) intro[w.id] = true; typesOf(w).forEach(function (t) { if (eligible(w, t)) q.push(key(w, t)); }); });
+    W.filter(function (w) { return w.dl.indexOf(arg) >= 0; }).forEach(function (w) { if (!seenWord(w)) intro[w.id] = true; typesOf(w).forEach(function (t) { if (eligible(w, t)) q.push(key(w, t)); }); });
     q = shuffle(q);
   }
   if (!q.length) { S = { mode: mode, empty: true }; return go("tekrar"); }
@@ -271,7 +271,7 @@ function renderKelime() {
   function match(w) { if (!q) return true; return [w.w, w.c, w.e, w.z].some(function (x) { return x && bare(x).indexOf(q) >= 0; }) || w.tr.toLowerCase().indexOf(q) >= 0; }
   var groups = ["s", "n"].map(function (cat) {
     var ls = DERSLER.filter(function (d) { return d.cat === cat; }).map(function (d) {
-      var ws = W.filter(function (w) { return w.d === d.id && match(w); });
+      var ws = W.filter(function (w) { return w.dl.indexOf(d.id) >= 0 && match(w); });
       if (!ws.length) return "";
       var lw = ws.filter(learned).length;
       return '<details class="lesson"' + (q ? " open" : "") + '><summary><span class="lname">' + esc(d.tr) + '</span><span class="ar lar">' + d.ar + '</span><span class="muted small">' + lw + '/' + ws.length + '</span></summary><div class="chips">' +
@@ -338,7 +338,7 @@ var GR = {
         var cl = "kopt"; if (G.ans) { if (k === w.k) cl += " sel-ok"; else if (k === G.ans) cl += " sel-no"; }
         return '<button class="' + cl + '" data-fab="' + i + '"' + (G.ans ? " disabled" : "") + '><span class="ar">' + KALIPLAR[k][0] + '</span><small>' + KALIPLAR[k][1] + '</small></button>';
       }).join("") + '</div>' +
-      (G.ans ? '<p class="fb">' + (G.ans === w.k ? '<span class="ok">Doğru!</span> ' : '<span class="no">Yanlış.</span> ') + ar(w.w) + ' → ' + ar(w.c) + ' · ' + KALIPLAR[w.k][1] + ' kalıbı.</p><div class="row-btns"><button class="btn solid" data-gnext="1">' + (G.r >= 9 ? "Bitir" : "Sonraki") + '</button></div>' : '');
+      (G.ans ? '<p class="fb">' + (G.ans === w.k ? '<span class="ok">Doğru!</span> ' : '<span class="no">Yanlış.</span> ') + ar(w.w + ' ← ' + w.c) + ' · ' + KALIPLAR[w.k][1] + ' kalıbı.</p><div class="row-btns"><button class="btn solid" data-gnext="1">' + (G.r >= 9 ? "Bitir" : "Sonraki") + '</button></div>' : '');
   },
   mik: function () { return pairBoard(false); },
   haf: function () { return pairBoard(true); },
@@ -354,7 +354,7 @@ var GR = {
       '<div class="sentcard"><div class="ar">' + hlSent(w) + '</div><small class="muted">' + esc(w.st) + '</small></div>' +
       '<p class="qask">Koyu kelimenin sözlük biçimi ' + ar(w.w) + ' <span class="muted">(' + esc(w.tr) + ')</span>. Yerine <b class="r-' + TYPES[c.t].col + '">' + (c.t === "e" ? "eş anlamlısını (anlam aynı kalsın)" : "zıt anlamlısını (anlam tersine dönsün)") + '</b> koy:</p>' +
       optBtns(c, "data-cum", G.ans) +
-      (G.ans !== null ? '<p class="fb">' + (G.ans === c.ok ? '<span class="ok">Doğru!</span> ' : '<span class="no">Yanlış.</span> ') + ar(w.w) + ' ' + (c.t === "e" ? "=" : "≠") + ' ' + ar(c.ok) + '</p><div class="row-btns"><button class="btn solid" data-gnext="1">' + (G.r >= 9 ? "Bitir" : "Sonraki") + '</button></div>' : '');
+      (G.ans !== null ? '<p class="fb">' + (G.ans === c.ok ? '<span class="ok">Doğru!</span> ' : '<span class="no">Yanlış.</span> ') + ar(w.w + ' ' + (c.t === "e" ? "=" : "≠") + ' ' + c.ok) + '</p><div class="row-btns"><button class="btn solid" data-gnext="1">' + (G.r >= 9 ? "Bitir" : "Sonraki") + '</button></div>' : '');
   },
   hiz: function () {
     var c = G.cur;

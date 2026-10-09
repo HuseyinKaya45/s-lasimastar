@@ -430,9 +430,370 @@ details.lesson[open] > summary::before { transform: rotate(90deg); }
 
 <script>
 // Bu dosya yap.py tarafından kelimeler.json'dan üretilir; elle değiştirme.
-var KALIPLAR = {"fuul": ["فُعُولٌ", "fuûl", "قُلُوبٌ، دُرُوسٌ"], "efal": ["أَفْعَالٌ", "ef’âl", "أَقْلَامٌ، أَبْوَابٌ"], "efile": ["أَفْعِلَةٌ", "ef’ile", "أَطْعِمَةٌ، أَدْوِيَةٌ"], "eful": ["أَفْعُلٌ", "ef’ul", "أَشْهُرٌ، أَنْفُسٌ"], "fial": ["فِعَالٌ", "fiâl", "جِبَالٌ، رِجَالٌ"], "fuul_k": ["فُعُلٌ", "fu’ul", "كُتُبٌ، سُفُنٌ"], "fial_f": ["فِعَلٌ", "fi’al", "حِكَمٌ، قِطَعٌ"], "fual_f": ["فُعَلٌ", "fu’al", "غُرَفٌ، صُوَرٌ"], "fuala": ["فُعَلَاءُ", "fu’alâ", "وُزَرَاءُ، فُقَرَاءُ"], "efila": ["أَفْعِلَاءُ", "ef’ilâ", "أَصْدِقَاءُ، أَغْنِيَاءُ"], "fevail": ["فَوَاعِلُ", "fevâil", "شَوَارِعُ، نَوَافِذُ"], "feail": ["فَعَائِلُ", "feâil", "حَدَائِقُ، رَسَائِلُ"], "mefail": ["مَفَاعِلُ", "mefâil", "مَسَاجِدُ، مَكَاتِبُ"], "mefail_y": ["مَفَاعِيلُ", "mefâîl", "مَفَاتِيحُ، مَصَابِيحُ"], "fealil": ["فَعَالِيلُ / فَعَالِلُ", "feâlîl · feâlil", "عَصَافِيرُ، فَنَادِقُ"], "efail": ["أَفَاعِلُ", "efâil", "أَرَانِبُ، أَصَابِعُ"], "fulan": ["فُعْلَانٌ / فِعْلَانٌ", "fu’lân · fi’lân", "شُجْعَانٌ، فِتْيَانٌ"], "feale": ["فَعَلَةٌ", "fe’ale", "مَهَرَةٌ، طَلَبَةٌ"], "fual": ["فُعَّالٌ", "fu’’âl", "تُجَّارٌ، عُمَّالٌ"], "fella": ["فَعْلَى", "fe’lâ", "مَرْضَى، جَرْحَى"], "feala": ["فَعَالَى / فَعَالِي", "feâlâ · feâlî", "كُسَالَى، هَدَايَا"], "un": ["ـُونَ / ـِينَ", "cem-i müzekker sâlim", "مُعَلِّمُونَ، مُسَافِرُونَ"], "at": ["ـَاتٌ", "cem-i müennes sâlim", "سَيَّارَاتٌ، لُغَاتٌ"], "diger": ["…", "başka kalıplar", "قُضَاةٌ، أَرَاضٍ"]};
-var DERSLER = [{"id": "masdar", "tr": "Sülâsî Masdarlar", "ar": "مَصَادِرُ الأَفْعَالِ الثُّلَاثِيَّةِ", "cat": "s"}, {"id": "mubalaga", "tr": "Mübalağa Sîgası", "ar": "صِيغَةُ المُبَالَغَةِ", "cat": "s"}, {"id": "merre", "tr": "Masdar-ı Merre, Hey’e ve Sınâî", "ar": "مَصْدَرُ المَرَّةِ وَالهَيْئَةِ وَالمَصْدَرُ الصِّنَاعِيُّ", "cat": "s"}, {"id": "maksur", "tr": "Maksûr, Menkûs, Memdûd", "ar": "المَقْصُورُ وَالمَنْقُوصُ وَالمَمْدُودُ", "cat": "s"}, {"id": "mehmuz", "tr": "Mehmûz Fiil ve Çekimi", "ar": "الفِعْلُ المَهْمُوزُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "muzaaf", "tr": "Muzâaf Fiil ve Çekimi", "ar": "الفِعْلُ المُضَعَّفُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "misal", "tr": "Misâl Fiil ve Çekimi", "ar": "الفِعْلُ المِثَالُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "nakis", "tr": "Nâkıs Fiil ve Çekimi", "ar": "الفِعْلُ النَّاقِصُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "lefif", "tr": "Lefîf Fiil ve Çekimi", "ar": "الفِعْلُ اللَّفِيفُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "mechul", "tr": "Meçhul Fiil ve Nâibu’l-Fâil", "ar": "المَبْنِيُّ لِلْمَجْهُولِ وَنَائِبُ الفَاعِلِ", "cat": "s"}, {"id": "cumle", "tr": "Arapçada Cümle Yapıları", "ar": "تَرَاكِيبُ الجُمْلَةِ فِي اللُّغَةِ العَرَبِيَّةِ", "cat": "n"}, {"id": "irab", "tr": "İsimlerin İ'rabı", "ar": "إِعْرَابُ المُثَنَّى وَالجَمْعِ", "cat": "n"}, {"id": "sifat", "tr": "Sıfat Tamlaması", "ar": "الصِّفَةُ وَالمَوْصُوفُ", "cat": "n"}, {"id": "sifatcesit", "tr": "Sıfat Çeşitleri", "ar": "أَنْوَاعُ الصِّفَةِ", "cat": "n"}, {"id": "harfcer", "tr": "Harf-i Cerler", "ar": "حُرُوفُ الجَرِّ", "cat": "n"}, {"id": "haber", "tr": "Haber Çeşitleri", "ar": "أَنْوَاعُ الخَبَرِ", "cat": "n"}, {"id": "takdim", "tr": "Haberin Öne Geçmesi", "ar": "تَقَدُّمُ الخَبَرِ عَلَى المُبْتَدَإِ", "cat": "n"}, {"id": "cezm", "tr": "Muzâri Fiilin Cezmi", "ar": "جَزْمُ الفِعْلِ المُضَارِعِ", "cat": "n"}, {"id": "esmahamse", "tr": "Esmâ-i Hamse", "ar": "الأَسْمَاءُ الخَمْسَةُ", "cat": "n"}, {"id": "inne", "tr": "İnne ve Kardeşleri", "ar": "إِنَّ وَأَخَوَاتُهَا", "cat": "n"}, {"id": "zarf", "tr": "Zarf-ı Zamân ve Mekân", "ar": "ظَرْفُ الزَّمَانِ وَظَرْفُ المَكَانِ", "cat": "n"}, {"id": "hal", "tr": "Hâl ve Çeşitleri", "ar": "الحَالُ وَأَنْوَاعُهُ", "cat": "n"}, {"id": "temyiz", "tr": "Sayıların Temyizi", "ar": "العَدَدُ وَتَمْيِيزُهُ", "cat": "n"}, {"id": "temyizgenel", "tr": "Temyîz", "ar": "التَّمْيِيزُ", "cat": "n"}, {"id": "tekid", "tr": "Te’kîd", "ar": "التَّأْكِيدُ", "cat": "n"}, {"id": "ikimeful", "tr": "İki Mef’ûl Alan Fiiller", "ar": "الأَفْعَالُ المُتَعَدِّيَةُ إِلَى مَفْعُولَيْنِ", "cat": "n"}, {"id": "famel", "tr": "Fâil ve Mef’ûlün Ameli", "ar": "عَمَلُ اسْمِ الفَاعِلِ وَاسْمِ المَفْعُولِ", "cat": "n"}, {"id": "taaccub", "tr": "Taaccüp Üslubu", "ar": "أُسْلُوبُ التَّعَجُّبِ", "cat": "n"}, {"id": "sart", "tr": "Şart ve Şart Edatları", "ar": "الشَّرْطُ وَأَدَوَاتُهُ", "cat": "n"}, {"id": "sartfa", "tr": "Şartın Cevabının Fâ ile Birlikte Gelmesi", "ar": "اقْتِرَانُ جَوَابِ الشَّرْطِ بِالفَاءِ", "cat": "n"}];
+var KALIPLAR = {"fuul": ["فُعُولٌ", "fuûl", "قُلُوبٌ، دُرُوسٌ"], "efal": ["أَفْعَالٌ", "ef’âl", "أَقْلَامٌ، أَبْوَابٌ"], "efile": ["أَفْعِلَةٌ", "ef’ile", "أَطْعِمَةٌ، أَدْوِيَةٌ"], "eful": ["أَفْعُلٌ", "ef’ul", "أَشْهُرٌ، أَنْفُسٌ"], "fial": ["فِعَالٌ", "fiâl", "جِبَالٌ، رِجَالٌ"], "fuul_k": ["فُعُلٌ", "fu’ul", "كُتُبٌ، سُفُنٌ"], "fial_f": ["فِعَلٌ", "fi’al", "حِكَمٌ، قِطَعٌ"], "fual_f": ["فُعَلٌ", "fu’al", "غُرَفٌ، صُوَرٌ"], "fuala": ["فُعَلَاءُ", "fu’alâ", "وُزَرَاءُ، فُقَرَاءُ"], "efila": ["أَفْعِلَاءُ", "ef’ilâ", "أَصْدِقَاءُ، أَغْنِيَاءُ"], "fevail": ["فَوَاعِلُ", "fevâil", "شَوَارِعُ، نَوَافِذُ"], "feail": ["فَعَائِلُ", "feâil", "حَدَائِقُ، رَسَائِلُ"], "mefail": ["مَفَاعِلُ", "mefâil", "مَسَاجِدُ، مَكَاتِبُ"], "mefail_y": ["مَفَاعِيلُ", "mefâîl", "مَفَاتِيحُ، مَصَابِيحُ"], "fealil": ["فَعَالِيلُ / فَعَالِلُ", "feâlîl · feâlil", "عَصَافِيرُ، فَنَادِقُ"], "efail": ["أَفَاعِلُ", "efâil", "أَرَانِبُ، أَصَابِعُ"], "fulan": ["فُعْلَانٌ / فِعْلَانٌ", "fu’lân · fi’lân", "شُجْعَانٌ، فِتْيَانٌ"], "feale": ["فَعَلَةٌ", "fe’ale", "مَهَرَةٌ، طَلَبَةٌ"], "fual": ["فُعَّالٌ", "fu’’âl", "تُجَّارٌ، عُمَّالٌ"], "fella": ["فَعْلَى", "fe’lâ", "مَرْضَى، جَرْحَى"], "feala": ["فَعَالَى / فَعَالِي", "feâlâ · feâlî", "كُسَالَى، هَدَايَا"], "un": ["ـُونَ / ـِينَ", "cem-i müzekker sâlim", "مُعَلِّمُونَ، مُسَافِرُونَ"], "at": ["ـَاتٌ", "cem-i müennes sâlim", "سَيَّارَاتٌ، لُغَاتٌ"], "ful": ["فُعْلٌ", "fu’l", "حُمْرٌ، بِيضٌ"], "diger": ["…", "başka kalıplar", "قُضَاةٌ، أَرَاضٍ"]};
+var DERSLER = [{"id": "kelime", "tr": "Kelime ve İsim Bilgisi", "ar": "الكَلِمَةُ وَأَحْوَالُ الاسْمِ", "cat": "s"}, {"id": "fiil", "tr": "Fiil Çeşitleri", "ar": "أَقْسَامُ الفِعْلِ", "cat": "s"}, {"id": "salim", "tr": "Sâlim Fiil", "ar": "الفِعْلُ السَّالِمُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "sahih", "tr": "Sahih ve Mu’tel Fiil", "ar": "الفِعْلُ الصَّحِيحُ وَالمُعْتَلُّ", "cat": "s"}, {"id": "masdar", "tr": "Sülâsî Masdarlar", "ar": "مَصَادِرُ الأَفْعَالِ الثُّلَاثِيَّةِ", "cat": "s"}, {"id": "ebvab", "tr": "Ebvâb-ı Sitte", "ar": "أَبْوَابُ الثُّلَاثِيِّ المُجَرَّدِ", "cat": "s"}, {"id": "lazim", "tr": "Lâzım ve Müteaddî Fiil", "ar": "الفِعْلُ اللَّازِمُ وَالمُتَعَدِّي", "cat": "s"}, {"id": "emir", "tr": "Emir ve Nehiy", "ar": "الأَمْرُ وَالنَّهْيُ", "cat": "s"}, {"id": "hamse", "tr": "Ef’âl-i Hamse", "ar": "الأَفْعَالُ الخَمْسَةُ", "cat": "s"}, {"id": "refzamir", "tr": "Merfû Zamirler", "ar": "ضَمَائِرُ الرَّفْعِ المُتَّصِلَةُ بِالأَفْعَالِ", "cat": "s"}, {"id": "zamir", "tr": "Zamirler", "ar": "الضَّمَائِرُ", "cat": "s"}, {"id": "failmef", "tr": "İsm-i Fâil ve Mef'ûl", "ar": "اسْمُ الفَاعِلِ وَاسْمُ المَفْعُولِ", "cat": "s"}, {"id": "mubalaga", "tr": "Mübalağa Sîgası", "ar": "صِيغَةُ المُبَالَغَةِ", "cat": "s"}, {"id": "sifatmus", "tr": "Sıfat-ı Müşebbehe", "ar": "الصِّفَةُ المُشَبَّهَةُ", "cat": "s"}, {"id": "tafdil", "tr": "İsm-i Tafdîl", "ar": "اسْمُ التَّفْضِيلِ", "cat": "s"}, {"id": "zaman", "tr": "İsm-i Zaman, İsm-i Mekân ve Mim’li Masdar", "ar": "اسْمَا الزَّمَانِ وَالمَكَانِ وَالمَصْدَرُ المِيمِيُّ", "cat": "s"}, {"id": "merre", "tr": "Masdar-ı Merre, Hey’e ve Sınâî", "ar": "مَصْدَرُ المَرَّةِ وَالهَيْئَةِ وَالمَصْدَرُ الصِّنَاعِيُّ", "cat": "s"}, {"id": "alet", "tr": "İsm-i Âlet, Tasğir ve Mensûb", "ar": "اسْمُ الآلَةِ وَاسْمُ التَّصْغِيرِ وَالاسْمُ المَنْسُوبُ", "cat": "s"}, {"id": "maksur", "tr": "Maksûr, Menkûs, Memdûd", "ar": "المَقْصُورُ وَالمَنْقُوصُ وَالمَمْدُودُ", "cat": "s"}, {"id": "hemze", "tr": "Hemze ve Yazılışı", "ar": "الهَمْزَةُ وَكِتَابَتُهَا", "cat": "s"}, {"id": "mehmuz", "tr": "Mehmûz Fiil ve Çekimi", "ar": "الفِعْلُ المَهْمُوزُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "muzaaf", "tr": "Muzâaf Fiil ve Çekimi", "ar": "الفِعْلُ المُضَعَّفُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "misal", "tr": "Misâl Fiil ve Çekimi", "ar": "الفِعْلُ المِثَالُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "ecvef", "tr": "Ecvef Fiil ve Çekimi", "ar": "الفِعْلُ الأَجْوَفُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "nakis", "tr": "Nâkıs Fiil ve Çekimi", "ar": "الفِعْلُ النَّاقِصُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "lefif", "tr": "Lefîf Fiil ve Çekimi", "ar": "الفِعْلُ اللَّفِيفُ وَتَصْرِيفُهُ", "cat": "s"}, {"id": "rubai", "tr": "Rubâî Fiil ve Mezîdi", "ar": "الفِعْلُ الرُّبَاعِيُّ المُجَرَّدُ وَمَزِيدُهُ", "cat": "s"}, {"id": "mechul", "tr": "Meçhul Fiil ve Nâibu’l-Fâil", "ar": "المَبْنِيُّ لِلْمَجْهُولِ وَنَائِبُ الفَاعِلِ", "cat": "s"}, {"id": "cumle", "tr": "Arapçada Cümle Yapıları", "ar": "تَرَاكِيبُ الجُمْلَةِ فِي اللُّغَةِ العَرَبِيَّةِ", "cat": "n"}, {"id": "irab", "tr": "İsimlerin İ'rabı", "ar": "إِعْرَابُ المُثَنَّى وَالجَمْعِ", "cat": "n"}, {"id": "irabnasil", "tr": "İ’râb Nasıl Yapılır?", "ar": "كَيْفَ نُعْرِبُ؟", "cat": "n"}, {"id": "izafet", "tr": "İzafet ve İ'rabı", "ar": "الإِضَافَةُ وَإِعْرَابُهَا", "cat": "n"}, {"id": "sifat", "tr": "Sıfat Tamlaması", "ar": "الصِّفَةُ وَالمَوْصُوفُ", "cat": "n"}, {"id": "sifatcesit", "tr": "Sıfat Çeşitleri", "ar": "أَنْوَاعُ الصِّفَةِ", "cat": "n"}, {"id": "harfcer", "tr": "Harf-i Cerler", "ar": "حُرُوفُ الجَرِّ", "cat": "n"}, {"id": "haber", "tr": "Haber Çeşitleri", "ar": "أَنْوَاعُ الخَبَرِ", "cat": "n"}, {"id": "takdim", "tr": "Haberin Öne Geçmesi", "ar": "تَقَدُّمُ الخَبَرِ عَلَى المُبْتَدَإِ", "cat": "n"}, {"id": "isaret", "tr": "İsm-i İşaret", "ar": "أَسْمَاءُ الإِشَارَةِ", "cat": "n"}, {"id": "mevsul", "tr": "İsm-i Mevsul", "ar": "الأَسْمَاءُ المَوْصُولَةُ", "cat": "n"}, {"id": "istifham", "tr": "İstifham Edatları", "ar": "أَدَوَاتُ الاسْتِفْهَامِ", "cat": "n"}, {"id": "nefy", "tr": "Olumsuzluk (Nefy)", "ar": "النَّفْيُ", "cat": "n"}, {"id": "cezm", "tr": "Muzâri Fiilin Cezmi", "ar": "جَزْمُ الفِعْلِ المُضَارِعِ", "cat": "n"}, {"id": "nasb", "tr": "Muzâri Fiilin Nasbı", "ar": "نَصْبُ الفِعْلِ المُضَارِعِ", "cat": "n"}, {"id": "esmahamse", "tr": "Esmâ-i Hamse", "ar": "الأَسْمَاءُ الخَمْسَةُ", "cat": "n"}, {"id": "inne", "tr": "İnne ve Kardeşleri", "ar": "إِنَّ وَأَخَوَاتُهَا", "cat": "n"}, {"id": "kaffe", "tr": "İnne, Enne ve Mâ-i Kâffe", "ar": "كَسْرُ هَمْزَةِ «إِنَّ» · «مَا» الكَافَّةُ", "cat": "n"}, {"id": "kane", "tr": "Kâne ve Kardeşleri", "ar": "كَانَ وَأَخَوَاتُهَا", "cat": "n"}, {"id": "mukarabe", "tr": "Mukârabe, Recâ, Şurû’", "ar": "أَفْعَالُ المُقَارَبَةِ وَالرَّجَاءِ وَالشُّرُوعِ", "cat": "n"}, {"id": "lacins", "tr": "Cinsini Nefy Eden Lâ", "ar": "لَا النَّافِيَةُ لِلْجِنْسِ", "cat": "n"}, {"id": "zarf", "tr": "Zarf-ı Zamân ve Mekân", "ar": "ظَرْفُ الزَّمَانِ وَظَرْفُ المَكَانِ", "cat": "n"}, {"id": "hal", "tr": "Hâl ve Çeşitleri", "ar": "الحَالُ وَأَنْوَاعُهُ", "cat": "n"}, {"id": "temyiz", "tr": "Sayıların Temyizi", "ar": "العَدَدُ وَتَمْيِيزُهُ", "cat": "n"}, {"id": "temyizgenel", "tr": "Temyîz", "ar": "التَّمْيِيزُ", "cat": "n"}, {"id": "mustesna", "tr": "Müstesnâ", "ar": "المُسْتَثْنَى", "cat": "n"}, {"id": "atif", "tr": "Atıf ve Edatları", "ar": "العَطْفُ وَحُرُوفُهُ", "cat": "n"}, {"id": "bedel", "tr": "Bedel", "ar": "البَدَلُ", "cat": "n"}, {"id": "tekid", "tr": "Te’kîd", "ar": "التَّأْكِيدُ", "cat": "n"}, {"id": "ikimeful", "tr": "İki Mef’ûl Alan Fiiller", "ar": "الأَفْعَالُ المُتَعَدِّيَةُ إِلَى مَفْعُولَيْنِ", "cat": "n"}, {"id": "famel", "tr": "Fâil ve Mef’ûlün Ameli", "ar": "عَمَلُ اسْمِ الفَاعِلِ وَاسْمِ المَفْعُولِ", "cat": "n"}, {"id": "masamel", "tr": "Masdarın Ameli", "ar": "عَمَلُ المَصْدَرِ", "cat": "n"}, {"id": "mefullieclih", "tr": "Mef’ûlün Lieclih", "ar": "المَفْعُولُ لَهُ (المَفْعُولُ لِأَجْلِهِ)", "cat": "n"}, {"id": "mefulmutlak", "tr": "Mef’ûl-i Mutlak", "ar": "المَفْعُولُ المُطْلَقُ", "cat": "n"}, {"id": "mefulmaah", "tr": "Mef’ûlün Maah", "ar": "المَفْعُولُ مَعَهُ", "cat": "n"}, {"id": "munsarif", "tr": "Gayr-i Munsarif", "ar": "المَمْنُوعُ مِنَ الصَّرْفِ", "cat": "n"}, {"id": "medih", "tr": "Medih ve Zemm Fiilleri", "ar": "أَفْعَالُ المَدْحِ وَالذَّمِّ", "cat": "n"}, {"id": "taaccub", "tr": "Taaccüp Üslubu", "ar": "أُسْلُوبُ التَّعَجُّبِ", "cat": "n"}, {"id": "nida", "tr": "Nidâ Üslubu", "ar": "أُسْلُوبُ النِّدَاءِ", "cat": "n"}, {"id": "sart", "tr": "Şart ve Şart Edatları", "ar": "الشَّرْطُ وَأَدَوَاتُهُ", "cat": "n"}, {"id": "sartfa", "tr": "Şartın Cevabının Fâ ile Birlikte Gelmesi", "ar": "اقْتِرَانُ جَوَابِ الشَّرْطِ بِالفَاءِ", "cat": "n"}, {"id": "kem", "tr": "Kem: Soru ve Çokluk", "ar": "كَمِ الاسْتِفْهَامِيَّةُ وَكَمِ الخَبَرِيَّةُ", "cat": "n"}];
 var KELIMELER = [
+{
+"id": "kelime-0",
+"d": "kelime",
+"w": "لُغَةٌ",
+"t": "i",
+"tr": "dil",
+"c": "لُغَاتٌ",
+"k": "at",
+"e": "لِسَانٌ",
+"z": "",
+"s": "هَذِهِ السَّنَةَ سَيَتَعَلَّمُ اللُّغَةَ العَرَبِيَّةَ فِي الكُلِّيَّةِ.",
+"sw": "اللُّغَةَ",
+"st": "Bu yıl fakültede Arapça öğrenecek.",
+"dl": [
+"kelime",
+"cezm"
+]
+},
+{
+"id": "kelime-1",
+"d": "kelime",
+"w": "مِنْطَقَةٌ",
+"t": "i",
+"tr": "bölge",
+"c": "مَنَاطِقُ",
+"k": "mefail",
+"e": "",
+"z": "",
+"s": "يَقَعُ السَّكَنُ فِي مِنْطَقَةٍ هَادِئَةٍ وَخَضْرَاءَ، اسْمُهَا تشَامْلِيجَا، وَيَتَكَوَّنُ مِنْ بِنَاءَيْنِ تَارِيخِيَّيْنِ.",
+"sw": "مِنْطَقَةٍ",
+"st": "Yurt, Çamlıca adlı sakin ve yeşil bir bölgededir ve iki tarihî binadan oluşur.",
+"dl": [
+"kelime"
+]
+},
+{
+"id": "kelime-2",
+"d": "kelime",
+"w": "سَعِيدٌ",
+"t": "s",
+"tr": "mutlu",
+"c": "سُعَدَاءُ",
+"k": "fuala",
+"e": "مَسْرُورٌ",
+"z": "حَزِينٌ",
+"s": "وَأَنَا سَعِيدٌ لِأَنَّنِي أَدْرُسُ مَعَ زُمَلَائِي الَّذِينَ حَضَرُوا مِنْ مُدُنٍ مُخْتَلِفَةٍ.",
+"sw": "سَعِيدٌ",
+"st": "Farklı şehirlerden gelen arkadaşlarımla okuduğum için mutluyum.",
+"dl": [
+"kelime",
+"kane",
+"hal"
+]
+},
+{
+"id": "kelime-3",
+"d": "kelime",
+"w": "وَاسِعٌ",
+"t": "s",
+"tr": "geniş",
+"c": "",
+"k": "",
+"e": "فَسِيحٌ",
+"z": "ضَيِّقٌ",
+"s": "أَعْجَبَتْنِي الكُلِّيَّةُ، فَهِيَ فِي سَاحَةٍ وَاسِعَةٍ وَخَضْرَاءَ، وَالمُدَرِّسُونَ فِيهَا مَاهِرُونَ، وَالكُتُبُ المُقَرَّرَةُ مُفِيدَةٌ جِدًّا.",
+"sw": "وَاسِعَةٍ",
+"st": "Fakülte hoşuma gitti; geniş ve yeşil bir alanda, hocaları mahir, okutulan kitaplar çok faydalı.",
+"dl": [
+"kelime"
+]
+},
+{
+"id": "kelime-4",
+"d": "kelime",
+"w": "زَمِيلٌ",
+"t": "i",
+"tr": "arkadaş (iş/okul)",
+"c": "زُمَلَاءُ",
+"k": "fuala",
+"e": "",
+"z": "",
+"s": "أَدْرُسُ مَعَ زُمَلَائِي الَّذِينَ حَضَرُوا مِنْ مُدُنٍ مُخْتَلِفَةٍ",
+"sw": "زُمَلَائِي",
+"st": "Farklı şehirlerden gelen arkadaşlarımla okuyorum.",
+"dl": [
+"kelime"
+]
+},
+{
+"id": "fiil-0",
+"d": "fiil",
+"w": "حَدِيقَةٌ",
+"t": "i",
+"tr": "bahçe",
+"c": "حَدَائِقُ",
+"k": "feail",
+"e": "بُسْتَانٌ",
+"z": "",
+"s": "يَجْلِسُ المُدِيرُ فِي الحَدِيقَةِ.",
+"sw": "الحَدِيقَةِ",
+"st": "Müdür bahçede oturuyor.",
+"dl": [
+"fiil",
+"tafdil",
+"sifat",
+"mefullieclih"
+]
+},
+{
+"id": "fiil-1",
+"d": "fiil",
+"w": "مِعْطَفٌ",
+"t": "i",
+"tr": "palto",
+"c": "مَعَاطِفُ",
+"k": "mefail",
+"e": "",
+"z": "",
+"s": "مَا وَجَدَ المِعْطَفَ، وَرَأَى مَكَانَهُ وَرَقَةً.",
+"sw": "المِعْطَفَ",
+"st": "Paltoyu bulamadı, yerinde bir kâğıt gördü.",
+"dl": [
+"fiil",
+"misal"
+]
+},
+{
+"id": "fiil-2",
+"d": "fiil",
+"w": "نَجْمٌ",
+"t": "i",
+"tr": "yıldız",
+"c": "نُجُومٌ",
+"k": "fuul",
+"e": "كَوْكَبٌ",
+"z": "",
+"s": "لَمَعَتِ النُّجُومُ فِي السَّمَاءِ.",
+"sw": "النُّجُومُ",
+"st": "Yıldızlar gökte parladı.",
+"dl": [
+"fiil"
+]
+},
+{
+"id": "fiil-3",
+"d": "fiil",
+"w": "خَرَجَ",
+"t": "f",
+"tr": "çıktı",
+"c": "",
+"k": "",
+"e": "",
+"z": "دَخَلَ",
+"s": "خَرَجَ الأُسْتَاذُ مِنَ الصَّفِّ أَمْسِ.",
+"sw": "خَرَجَ",
+"st": "Hoca dün sınıftan çıktı.",
+"dl": [
+"fiil"
+]
+},
+{
+"id": "fiil-4",
+"d": "fiil",
+"w": "جَمَعَ",
+"t": "f",
+"tr": "topladı",
+"c": "",
+"k": "",
+"e": "",
+"z": "فَرَّقَ",
+"s": "جَمَعَ المُدِيرُ العُمَّالَ أَمَامَ الشَّرِكَةِ.",
+"sw": "جَمَعَ",
+"st": "Müdür işçileri şirketin önünde topladı.",
+"dl": [
+"fiil"
+]
+},
+{
+"id": "salim-0",
+"d": "salim",
+"w": "صَدِيقٌ",
+"t": "i",
+"tr": "arkadaş",
+"c": "أَصْدِقَاءُ",
+"k": "efila",
+"e": "رَفِيقٌ",
+"z": "عَدُوٌّ",
+"s": "الأَصْدِقَاءُ رَجَعُوا مِنَ المَدِينَةِ المُنَوَّرَةِ.",
+"sw": "الأَصْدِقَاءُ",
+"st": "Arkadaşlar Medine'den döndü.",
+"dl": [
+"salim",
+"failmef",
+"lefif",
+"esmahamse",
+"tekid",
+"kem"
+]
+},
+{
+"id": "salim-1",
+"d": "salim",
+"w": "امْرَأَةٌ",
+"t": "i",
+"tr": "kadın",
+"c": "نِسَاءٌ",
+"k": "diger",
+"e": "",
+"z": "رَجُلٌ",
+"s": "النِّسَاءُ يَذْهَبْنَ إِلَى السُّوقِ.",
+"sw": "النِّسَاءُ",
+"st": "Kadınlar çarşıya gidiyor.",
+"dl": [
+"salim"
+]
+},
+{
+"id": "salim-2",
+"d": "salim",
+"w": "أَلَمٌ",
+"t": "i",
+"tr": "ağrı, acı",
+"c": "آلَامٌ",
+"k": "efal",
+"e": "وَجَعٌ",
+"z": "",
+"s": "المَرْأَةُ شَعَرَتْ بِأَلَمٍ فِي بَطْنِهَا.",
+"sw": "بِأَلَمٍ",
+"st": "Kadın karnında bir ağrı hissetti.",
+"dl": [
+"salim"
+]
+},
+{
+"id": "salim-3",
+"d": "salim",
+"w": "مَصْنَعٌ",
+"t": "i",
+"tr": "fabrika",
+"c": "مَصَانِعُ",
+"k": "mefail",
+"e": "مَعْمَلٌ",
+"z": "",
+"s": "الرِّجَالُ يَعْمَلُونَ فِي المَصْنَعِ.",
+"sw": "المَصْنَعِ",
+"st": "Adamlar fabrikada çalışıyor.",
+"dl": [
+"salim",
+"mubalaga",
+"ecvef",
+"izafet",
+"mevsul"
+]
+},
+{
+"id": "salim-4",
+"d": "salim",
+"w": "مُسْتَشْفًى",
+"t": "i",
+"tr": "hastane",
+"c": "مُسْتَشْفَيَاتٌ",
+"k": "at",
+"e": "",
+"z": "",
+"s": "الطَّبِيبَتَانِ خَرَجَتَا مِنَ المُسْتَشْفَى.",
+"sw": "المُسْتَشْفَى",
+"st": "İki kadın doktor hastaneden çıktı.",
+"dl": [
+"salim",
+"esmahamse"
+]
+},
+{
+"id": "sahih-0",
+"d": "sahih",
+"w": "غَنِيٌّ",
+"t": "s",
+"tr": "zengin",
+"c": "أَغْنِيَاءُ",
+"k": "efila",
+"e": "ثَرِيٌّ",
+"z": "فَقِيرٌ",
+"s": "مَدَّ الغَنِيُّ يَدَ العَوْنِ إِلَى الفُقَرَاءِ.",
+"sw": "الغَنِيُّ",
+"st": "Zengin, fakirlere yardım elini uzattı.",
+"dl": [
+"sahih",
+"misal",
+"mefullieclih"
+]
+},
+{
+"id": "sahih-1",
+"d": "sahih",
+"w": "بَخِيلٌ",
+"t": "s",
+"tr": "cimri",
+"c": "بُخَلَاءُ",
+"k": "fuala",
+"e": "",
+"z": "كَرِيمٌ",
+"s": "كَانَ هُنَاكَ رَجُلٌ بَخِيلٌ",
+"sw": "بَخِيلٌ",
+"st": "Cimri bir adam vardı.",
+"dl": [
+"sahih",
+"nida"
+]
+},
+{
+"id": "sahih-2",
+"d": "sahih",
+"w": "أَحْمَقُ",
+"t": "s",
+"tr": "ahmak",
+"c": "حَمْقَى / حُمْقٌ",
+"k": "fella",
+"e": "",
+"z": "عَاقِلٌ",
+"s": "مَاذَا تَفْعَلُ أَيُّهَا الأَحْمَقُ؟",
+"sw": "الأَحْمَقُ",
+"st": "Ne yapıyorsun ey ahmak?",
+"dl": [
+"sahih"
+]
+},
+{
+"id": "sahih-3",
+"d": "sahih",
+"w": "خَادِمٌ",
+"t": "i",
+"tr": "hizmetçi",
+"c": "خُدَّامٌ / خَدَمٌ",
+"k": "fual",
+"e": "",
+"z": "",
+"s": "رَدَّ الخَادِمُ عَلَى سَيِّدِهِ.",
+"sw": "الخَادِمُ",
+"st": "Hizmetçi efendisine cevap verdi.",
+"dl": [
+"sahih"
+]
+},
+{
+"id": "sahih-4",
+"d": "sahih",
+"w": "قَاضٍ",
+"t": "i",
+"tr": "hâkim, kadı",
+"c": "قُضَاةٌ",
+"k": "diger",
+"e": "حَاكِمٌ",
+"z": "",
+"s": "حَكَمَ القَاضِي بَيْنَ النَّاسِ بِالعَدْلِ.",
+"sw": "القَاضِي",
+"st": "Hâkim insanlar arasında adaletle hükmetti.",
+"dl": [
+"sahih",
+"maksur"
+]
+},
 {
 "id": "masdar-0",
 "d": "masdar",
@@ -445,7 +806,10 @@ var KELIMELER = [
 "z": "",
 "s": "كَلَامُ المُؤْمِنِ حِكْمَةٌ وَسُكُوتُهُ تَفَكُّرٌ.",
 "sw": "حِكْمَةٌ",
-"st": "Müminin sözü hikmet, susması tefekkürdür."
+"st": "Müminin sözü hikmet, susması tefekkürdür.",
+"dl": [
+"masdar"
+]
 },
 {
 "id": "masdar-1",
@@ -459,7 +823,10 @@ var KELIMELER = [
 "z": "كَلَامٌ",
 "s": "كَلَامُ المُؤْمِنِ حِكْمَةٌ وَسُكُوتُهُ تَفَكُّرٌ.",
 "sw": "وَسُكُوتُهُ",
-"st": "Müminin sözü hikmet, susması tefekkürdür."
+"st": "Müminin sözü hikmet, susması tefekkürdür.",
+"dl": [
+"masdar"
+]
 },
 {
 "id": "masdar-2",
@@ -473,7 +840,10 @@ var KELIMELER = [
 "z": "",
 "s": "سَلَامَةُ الإِنْسَانِ فِي حِفْظِ اللِّسَانِ.",
 "sw": "اللِّسَانِ",
-"st": "İnsanın selâmeti dilini korumasındadır."
+"st": "İnsanın selâmeti dilini korumasındadır.",
+"dl": [
+"masdar"
+]
 },
 {
 "id": "masdar-3",
@@ -487,7 +857,10 @@ var KELIMELER = [
 "z": "",
 "s": "الرُّكُوعُ رُكْنٌ مِنْ أَرْكَانِ الصَّلَاةِ.",
 "sw": "رُكْنٌ",
-"st": "Rükû namazın rükünlerindendir."
+"st": "Rükû namazın rükünlerindendir.",
+"dl": [
+"masdar"
+]
 },
 {
 "id": "masdar-4",
@@ -501,11 +874,329 @@ var KELIMELER = [
 "z": "فَشَلٌ",
 "s": "النَّجَاحُ يَحْتَاجُ إِلَى صَبْرٍ.",
 "sw": "النَّجَاحُ",
-"st": "Başarı sabır ister."
+"st": "Başarı sabır ister.",
+"dl": [
+"masdar"
+]
 },
 {
-"id": "mubalaga-0",
-"d": "mubalaga",
+"id": "ebvab-0",
+"d": "ebvab",
+"w": "عَمَلٌ",
+"t": "i",
+"tr": "iş",
+"c": "أَعْمَالٌ",
+"k": "efal",
+"e": "شُغْلٌ",
+"z": "",
+"s": "يَرْجِعُ الأَبُ مِنَ العَمَلِ.",
+"sw": "العَمَلِ",
+"st": "Baba işten dönüyor.",
+"dl": [
+"ebvab"
+]
+},
+{
+"id": "ebvab-1",
+"d": "ebvab",
+"w": "مَطَرٌ",
+"t": "i",
+"tr": "yağmur",
+"c": "أَمْطَارٌ",
+"k": "efal",
+"e": "غَيْثٌ",
+"z": "",
+"s": "كَثُرَ المَطَرُ فِي الشِّتَاءِ.",
+"sw": "المَطَرُ",
+"st": "Kışın yağmur çoğaldı.",
+"dl": [
+"ebvab",
+"mefulmaah",
+"sart"
+]
+},
+{
+"id": "ebvab-2",
+"d": "ebvab",
+"w": "دَرْسٌ",
+"t": "i",
+"tr": "ders",
+"c": "دُرُوسٌ",
+"k": "fuul",
+"e": "",
+"z": "",
+"s": "جَلَسَ، وَفَتَحَ كِتَابَهُ، وَكَتَبَ الدَّرْسَ.",
+"sw": "الدَّرْسَ",
+"st": "Oturdu, kitabını açtı, dersi yazdı.",
+"dl": [
+"ebvab",
+"irabnasil"
+]
+},
+{
+"id": "ebvab-3",
+"d": "ebvab",
+"w": "طَيِّبٌ",
+"t": "s",
+"tr": "iyi, hoş",
+"c": "طَيِّبُونَ",
+"k": "un",
+"e": "",
+"z": "خَبِيثٌ",
+"s": "عَلِيٌّ وَلَدٌ طَيِّبٌ؛ حَسُنَ خَطُّهُ، وَكَرُمَ خُلُقُهُ.",
+"sw": "طَيِّبٌ",
+"st": "Ali iyi bir çocuktur; yazısı güzel, ahlâkı da güzeldir.",
+"dl": [
+"ebvab"
+]
+},
+{
+"id": "ebvab-4",
+"d": "ebvab",
+"w": "فَرِحَ",
+"t": "f",
+"tr": "sevindi",
+"c": "",
+"k": "",
+"e": "",
+"z": "حَزِنَ",
+"s": "فَهِمَ عَلِيٌّ الدَّرْسَ وَفَرِحَ كَثِيرًا.",
+"sw": "وَفَرِحَ",
+"st": "Ali dersi anladı ve çok sevindi.",
+"dl": [
+"ebvab"
+]
+},
+{
+"id": "lazim-0",
+"d": "lazim",
+"w": "حَرِيقٌ",
+"t": "i",
+"tr": "yangın",
+"c": "حَرَائِقُ",
+"k": "feail",
+"e": "",
+"z": "",
+"s": "ابْتَعَدَ الأَطْفَالُ عَنِ الحَرِيقِ.",
+"sw": "الحَرِيقِ",
+"st": "Çocuklar yangından uzaklaştı.",
+"dl": [
+"lazim"
+]
+},
+{
+"id": "lazim-1",
+"d": "lazim",
+"w": "سَاعَةٌ",
+"t": "i",
+"tr": "saat",
+"c": "سَاعَاتٌ",
+"k": "at",
+"e": "",
+"z": "",
+"s": "أَضَاعَ الطَّبِيبُ السَّاعَةَ فِي السُّوقِ.",
+"sw": "السَّاعَةَ",
+"st": "Doktor saati çarşıda kaybetti.",
+"dl": [
+"lazim"
+]
+},
+{
+"id": "lazim-2",
+"d": "lazim",
+"w": "خَبَرٌ",
+"t": "i",
+"tr": "haber",
+"c": "أَخْبَارٌ",
+"k": "efal",
+"e": "نَبَأٌ",
+"z": "",
+"s": "أَشَاعَ المُدِيرُ الخَبَرَ العَاجِلَ بَيْنَ المُوَظَّفِينَ.",
+"sw": "الخَبَرَ",
+"st": "Müdür acil haberi memurlar arasında yaydı.",
+"dl": [
+"lazim"
+]
+},
+{
+"id": "lazim-3",
+"d": "lazim",
+"w": "جَلَسَ",
+"t": "f",
+"tr": "oturdu",
+"c": "",
+"k": "",
+"e": "قَعَدَ",
+"z": "قَامَ",
+"s": "جَلَسَ العَمِيدُ عَلَى الكُرْسِيِّ.",
+"sw": "جَلَسَ",
+"st": "Dekan sandalyeye oturdu.",
+"dl": [
+"lazim",
+"irabnasil"
+]
+},
+{
+"id": "lazim-4",
+"d": "lazim",
+"w": "مُظْلِمٌ",
+"t": "s",
+"tr": "karanlık",
+"c": "",
+"k": "",
+"e": "",
+"z": "مُضِيءٌ",
+"s": "كَانَ مُظْلِمًا لَا ضَوْءَ فِيهِ؛ وِسَادُهُ بَرْذَعَةٌ، وَفِرَاشُهُ حَصًى، وَدِثَارُهُ كِسَاءٌ رَقِيقٌ.",
+"sw": "مُظْلِمًا",
+"st": "Karanlıktı, içinde ışık yoktu; yastığı keçe, yatağı çakıl, örtüsü ince bir kumaştı.",
+"dl": [
+"lazim"
+]
+},
+{
+"id": "emir-0",
+"d": "emir",
+"w": "بَحْرٌ",
+"t": "i",
+"tr": "deniz",
+"c": "بِحَارٌ / أَبْحُرٌ",
+"k": "fial",
+"e": "يَمٌّ",
+"z": "بَرٌّ",
+"s": "يَسْبَحُ الأَطْفَالُ فِي البَحْرِ الأَسْوَدِ.",
+"sw": "البَحْرِ",
+"st": "Çocuklar Karadeniz'de yüzüyor.",
+"dl": [
+"emir"
+]
+},
+{
+"id": "emir-1",
+"d": "emir",
+"w": "صَوْتٌ",
+"t": "i",
+"tr": "ses",
+"c": "أَصْوَاتٌ",
+"k": "efal",
+"e": "",
+"z": "",
+"s": "يَسْمَعُ صَالِحٌ صَوْتَ الأُسْتَاذِ.",
+"sw": "صَوْتَ",
+"st": "Sâlih hocanın sesini dinliyor.",
+"dl": [
+"emir",
+"famel",
+"masamel"
+]
+},
+{
+"id": "emir-2",
+"d": "emir",
+"w": "جِدَارٌ",
+"t": "i",
+"tr": "duvar",
+"c": "جُدْرَانٌ",
+"k": "fulan",
+"e": "حَائِطٌ",
+"z": "",
+"s": "نَامَ جَالِسًا تَعْظِيمًا لِلْمُصْحَفِ المُعَلَّقِ عَلَى الجِدَارِ.",
+"sw": "الجِدَارِ",
+"st": "Duvarda asılı mushafa saygıdan oturarak uyudu.",
+"dl": [
+"emir"
+]
+},
+{
+"id": "emir-3",
+"d": "emir",
+"w": "طَعَامٌ",
+"t": "i",
+"tr": "yemek",
+"c": "أَطْعِمَةٌ",
+"k": "efile",
+"e": "",
+"z": "",
+"s": "يَا زَيْنَبُ وَفَاطِمَةُ، اُطْبُخَا الطَّعَامَ.",
+"sw": "الطَّعَامَ",
+"st": "Zeynep ve Fâtıma, yemeği pişirin.",
+"dl": [
+"emir",
+"taaccub"
+]
+},
+{
+"id": "emir-4",
+"d": "emir",
+"w": "حَرَامٌ",
+"t": "s",
+"tr": "haram, yasak",
+"c": "",
+"k": "",
+"e": "",
+"z": "حَلَالٌ",
+"s": "لَا تَأْكُلِ الحَرَامَ يَا جَمِيلُ.",
+"sw": "الحَرَامَ",
+"st": "Haram yeme ey Cemîl.",
+"dl": [
+"emir"
+]
+},
+{
+"id": "hamse-0",
+"d": "hamse",
+"w": "صَادِقٌ",
+"t": "s",
+"tr": "doğru sözlü",
+"c": "صَادِقُونَ",
+"k": "un",
+"e": "",
+"z": "كَاذِبٌ",
+"s": "وَالصَّادِقُونَ لَنْ يَنْدَمُوا أَبَدًا.",
+"sw": "وَالصَّادِقُونَ",
+"st": "Doğrular asla pişman olmaz.",
+"dl": [
+"hamse",
+"kaffe"
+]
+},
+{
+"id": "hamse-1",
+"d": "hamse",
+"w": "شَيْخٌ",
+"t": "i",
+"tr": "yaşlı",
+"c": "شُيُوخٌ",
+"k": "fuul",
+"e": "",
+"z": "شَابٌّ",
+"s": "أَنْتُمْ تَعْرِفُونَ أَنَّنِي أَصْبَحْتُ شَيْخًا كَبِيرًا.",
+"sw": "شَيْخًا",
+"st": "Benim yaşlı biri olduğumu biliyorsunuz.",
+"dl": [
+"hamse"
+]
+},
+{
+"id": "hamse-2",
+"d": "hamse",
+"w": "بَلَدٌ",
+"t": "i",
+"tr": "memleket, ülke",
+"c": "بِلَادٌ / بُلْدَانٌ",
+"k": "fial",
+"e": "وَطَنٌ",
+"z": "",
+"s": "المُسَافِرُ لَنْ يَرْجِعَ إِلَى بَلَدِهِ هَذَا الأُسْبُوعَ.",
+"sw": "بَلَدِهِ",
+"st": "Yolcu bu hafta memleketine dönmeyecek.",
+"dl": [
+"hamse",
+"refzamir"
+]
+},
+{
+"id": "hamse-3",
+"d": "hamse",
 "w": "تَاجِرٌ",
 "t": "i",
 "tr": "tüccar",
@@ -513,12 +1204,259 @@ var KELIMELER = [
 "k": "fual",
 "e": "",
 "z": "",
-"s": "التَّاجِرُ الصَّدُوقُ مَحْبُوبٌ مِنَ النَّاسِ.",
+"s": "التَّاجِرُ لَنْ يَخْسَرَ فِي التِّجَارَةِ.",
 "sw": "التَّاجِرُ",
-"st": "Doğru sözlü tüccar insanlarca sevilir."
+"st": "Tüccar ticarette zarar etmeyecek.",
+"dl": [
+"hamse",
+"zamir",
+"mubalaga",
+"izafet",
+"tekid",
+"ikimeful",
+"nida"
+]
 },
 {
-"id": "mubalaga-1",
+"id": "hamse-4",
+"d": "hamse",
+"w": "حَقْلٌ",
+"t": "i",
+"tr": "tarla",
+"c": "حُقُولٌ",
+"k": "fuul",
+"e": "مَزْرَعَةٌ",
+"z": "",
+"s": "حَسَنٌ وَحُسَيْنٌ يَذْهَبَانِ إِلَى الحَقْلِ",
+"sw": "الحَقْلِ",
+"st": "Hasan ve Hüseyin tarlaya gidiyor.",
+"dl": [
+"hamse"
+]
+},
+{
+"id": "refzamir-0",
+"d": "refzamir",
+"w": "مَرِيضٌ",
+"t": "s",
+"tr": "hasta",
+"c": "مَرْضَى",
+"k": "fella",
+"e": "عَلِيلٌ",
+"z": "سَلِيمٌ",
+"s": "أَيْنَ يَجِدُ الإِنْسَانُ اللهَ إِذَا عَادَ المَرِيضَ؟",
+"sw": "المَرِيضَ",
+"st": "İnsan hastayı ziyaret edince Allah'ı nerede bulur?",
+"dl": [
+"refzamir",
+"merre",
+"sifatcesit",
+"istifham",
+"mustesna"
+]
+},
+{
+"id": "refzamir-1",
+"d": "refzamir",
+"w": "جَائِعٌ",
+"t": "s",
+"tr": "aç",
+"c": "جِيَاعٌ",
+"k": "fial",
+"e": "",
+"z": "شَبْعَانُ",
+"s": "عِيَادَةُ المَرِيضِ، وَإِطْعَامُ الجَائِعِ، وَسَقْيُ العَطْشَانِ.",
+"sw": "الجَائِعِ",
+"st": "Hastayı ziyaret, açı doyurmak, susuza su vermek.",
+"dl": [
+"refzamir",
+"kane"
+]
+},
+{
+"id": "refzamir-2",
+"d": "refzamir",
+"w": "جَدِيدٌ",
+"t": "s",
+"tr": "yeni",
+"c": "جُدُدٌ",
+"k": "fuul_k",
+"e": "حَدِيثٌ",
+"z": "قَدِيمٌ",
+"s": "قَرَأْتُ كِتَابًا جَدِيدًا اليَوْمَ.",
+"sw": "جَدِيدًا",
+"st": "Bugün yeni bir kitap okudum.",
+"dl": [
+"refzamir",
+"maksur",
+"cumle",
+"mefullieclih"
+]
+},
+{
+"id": "refzamir-3",
+"d": "refzamir",
+"w": "رَجَعَ",
+"t": "f",
+"tr": "dönmek",
+"c": "",
+"k": "",
+"e": "عَادَ",
+"z": "",
+"s": "الحُجَّاجُ رَجَعُوا إِلَى بِلَادِهِمْ.",
+"sw": "رَجَعُوا",
+"st": "Hacılar memleketlerine döndü.",
+"dl": [
+"refzamir"
+]
+},
+{
+"id": "zamir-0",
+"d": "zamir",
+"w": "مَاهِرٌ",
+"t": "s",
+"tr": "usta, becerikli",
+"c": "مَهَرَةٌ",
+"k": "feale",
+"e": "حَاذِقٌ",
+"z": "",
+"s": "هِيَ مَاهِرَةٌ فِي السِّبَاحَةِ.",
+"sw": "مَاهِرَةٌ",
+"st": "O (kadın) yüzmede ustadır.",
+"dl": [
+"zamir",
+"sifat"
+]
+},
+{
+"id": "zamir-1",
+"d": "zamir",
+"w": "شَارِعٌ",
+"t": "i",
+"tr": "cadde",
+"c": "شَوَارِعُ",
+"k": "fevail",
+"e": "طَرِيقٌ",
+"z": "",
+"s": "أَنْتِ سَاكِنَةٌ فِي شَارِعٍ وَاسِعٍ.",
+"sw": "شَارِعٍ",
+"st": "Sen (kadın) geniş bir caddede oturuyorsun.",
+"dl": [
+"zamir",
+"kaffe"
+]
+},
+{
+"id": "zamir-2",
+"d": "zamir",
+"w": "نَاجِحٌ",
+"t": "s",
+"tr": "başarılı",
+"c": "نَاجِحُونَ",
+"k": "un",
+"e": "",
+"z": "رَاسِبٌ",
+"s": "أَنْتُنَّ نَاجِحَاتٌ فِي الدُّرُوسِ.",
+"sw": "نَاجِحَاتٌ",
+"st": "Siz (kadınlar) derslerde başarılısınız.",
+"dl": [
+"zamir"
+]
+},
+{
+"id": "zamir-3",
+"d": "zamir",
+"w": "عَجُوزٌ",
+"t": "s",
+"tr": "yaşlı",
+"c": "عَجَائِزُ",
+"k": "feail",
+"e": "",
+"z": "شَابٌّ",
+"s": "لَقَدْ كَانَتْ سُمَيَّةُ عَجُوزًا ضَعِيفَةً.",
+"sw": "عَجُوزًا",
+"st": "Sümeyye zayıf, yaşlı bir kadındı.",
+"dl": [
+"zamir"
+]
+},
+{
+"id": "failmef-0",
+"d": "failmef",
+"w": "لِصٌّ",
+"t": "i",
+"tr": "hırsız",
+"c": "لُصُوصٌ",
+"k": "fuul",
+"e": "سَارِقٌ",
+"z": "",
+"s": "سَرَقَ اللِّصُّ أَمْوَالَ النَّاسِ.",
+"sw": "اللِّصُّ",
+"st": "Hırsız insanların mallarını çaldı.",
+"dl": [
+"failmef",
+"mechul",
+"zarf",
+"mefullieclih"
+]
+},
+{
+"id": "failmef-1",
+"d": "failmef",
+"w": "مِهْنَةٌ",
+"t": "i",
+"tr": "meslek",
+"c": "مِهَنٌ",
+"k": "fial_f",
+"e": "حِرْفَةٌ",
+"z": "",
+"s": "نَعَمْ، المِهَنُ مُخْتَلِفَةٌ وَمُتَنَوِّعَةٌ، وَكُلُّهَا مُحْتَرَمَةٌ.",
+"sw": "المِهَنُ",
+"st": "Evet, meslekler farklı ve çeşitlidir; hepsi saygındır.",
+"dl": [
+"failmef"
+]
+},
+{
+"id": "failmef-2",
+"d": "failmef",
+"w": "قَرِيبٌ",
+"t": "s",
+"tr": "yakın",
+"c": "",
+"k": "",
+"e": "",
+"z": "بَعِيدٌ",
+"s": "ثُمَّ ذَهَبُوا إِلَى مَطْعَمٍ قَرِيبٍ لِيَتَنَاوَلُوا مَعًا طَعَامَ الغَدَاءِ.",
+"sw": "قَرِيبٍ",
+"st": "Sonra öğle yemeği için yakın bir lokantaya gittiler.",
+"dl": [
+"failmef",
+"cumle"
+]
+},
+{
+"id": "failmef-3",
+"d": "failmef",
+"w": "ضَيْفٌ",
+"t": "i",
+"tr": "misafir",
+"c": "ضُيُوفٌ",
+"k": "fuul",
+"e": "",
+"z": "",
+"s": "الضَّيْفُ مُكْرَمٌ فِي بَيْتِنَا.",
+"sw": "الضَّيْفُ",
+"st": "Misafir evimizde ağırlanır.",
+"dl": [
+"failmef",
+"nakis",
+"mukarabe",
+"masamel"
+]
+},
+{
+"id": "mubalaga-0",
 "d": "mubalaga",
 "w": "صَدُوقٌ",
 "t": "s",
@@ -529,24 +1467,13 @@ var KELIMELER = [
 "z": "كَذُوبٌ",
 "s": "التَّاجِرُ الصَّدُوقُ مَحْبُوبٌ مِنَ النَّاسِ.",
 "sw": "الصَّدُوقُ",
-"st": "Doğru sözlü tüccar insanlarca sevilir."
+"st": "Doğru sözlü tüccar insanlarca sevilir.",
+"dl": [
+"mubalaga"
+]
 },
 {
-"id": "mubalaga-2",
-"d": "mubalaga",
-"w": "مَصْنَعٌ",
-"t": "i",
-"tr": "fabrika",
-"c": "مَصَانِعُ",
-"k": "mefail",
-"e": "مَعْمَلٌ",
-"z": "",
-"s": "حَارِسُ المَصْنَعِ رَجُلٌ حَذِرٌ.",
-"sw": "المَصْنَعِ",
-"st": "Fabrikanın bekçisi çok dikkatli bir adamdır."
-},
-{
-"id": "mubalaga-3",
+"id": "mubalaga-1",
 "d": "mubalaga",
 "w": "فَطِنٌ",
 "t": "s",
@@ -557,10 +1484,13 @@ var KELIMELER = [
 "z": "غَبِيٌّ",
 "s": "أَحْمَدُ رَجُلٌ فَطِنٌ وَمِعْطَاءٌ.",
 "sw": "فَطِنٌ",
-"st": "Ahmed çok zeki ve çok cömert bir adamdır."
+"st": "Ahmed çok zeki ve çok cömert bir adamdır.",
+"dl": [
+"mubalaga"
+]
 },
 {
-"id": "mubalaga-4",
+"id": "mubalaga-2",
 "d": "mubalaga",
 "w": "نِعْمَةٌ",
 "t": "i",
@@ -571,24 +1501,257 @@ var KELIMELER = [
 "z": "",
 "s": "المُؤْمِنُ شَكُورٌ عِنْدَ النِّعْمَةِ وَصَبُورٌ عِنْدَ البَلَاءِ.",
 "sw": "النِّعْمَةِ",
-"st": "Mümin nimette çok şükreder, belada çok sabreder."
+"st": "Mümin nimette çok şükreder, belada çok sabreder.",
+"dl": [
+"mubalaga"
+]
+},
+{
+"id": "sifatmus-0",
+"d": "sifatmus",
+"w": "قَمِيصٌ",
+"t": "i",
+"tr": "gömlek",
+"c": "قُمْصَانٌ",
+"k": "fulan",
+"e": "",
+"z": "",
+"s": "لَبِسَ عَلِيٌّ قَمِيصًا أَبْيَضَ.",
+"sw": "قَمِيصًا",
+"st": "Ali beyaz bir gömlek giydi.",
+"dl": [
+"sifatmus"
+]
+},
+{
+"id": "sifatmus-1",
+"d": "sifatmus",
+"w": "أَبْيَضُ",
+"t": "s",
+"tr": "beyaz",
+"c": "بِيضٌ",
+"k": "ful",
+"e": "",
+"z": "أَسْوَدُ",
+"s": "يَلْبَسُ عَلِيٌّ قُمْصَانًا بَيْضَاءَ",
+"sw": "بَيْضَاءَ",
+"st": "Ali beyaz gömlekler giyiyor.",
+"dl": [
+"sifatmus",
+"mevsul"
+]
+},
+{
+"id": "sifatmus-2",
+"d": "sifatmus",
+"w": "ضَعِيفٌ",
+"t": "s",
+"tr": "zayıf",
+"c": "ضُعَفَاءُ",
+"k": "fuala",
+"e": "",
+"z": "قَوِيٌّ",
+"s": "وَهُوَ ضَعِيفٌ وَحْدَهُ قَوِيٌّ بِأَصْدِقَائِهِ",
+"sw": "ضَعِيفٌ",
+"st": "O tek başına zayıf, dostlarıyla güçlüdür.",
+"dl": [
+"sifatmus",
+"muzaaf",
+"taaccub"
+]
+},
+{
+"id": "sifatmus-3",
+"d": "sifatmus",
+"w": "قَوِيٌّ",
+"t": "s",
+"tr": "güçlü",
+"c": "أَقْوِيَاءُ",
+"k": "efila",
+"e": "شَدِيدٌ",
+"z": "ضَعِيفٌ",
+"s": "مَتَى يَكُونُ المَرْءُ قَوِيًّا؟",
+"sw": "قَوِيًّا",
+"st": "Kişi ne zaman güçlüdür?",
+"dl": [
+"sifatmus"
+]
+},
+{
+"id": "sifatmus-4",
+"d": "sifatmus",
+"w": "وَفِيٌّ",
+"t": "s",
+"tr": "vefalı",
+"c": "أَوْفِيَاءُ",
+"k": "efila",
+"e": "مُخْلِصٌ",
+"z": "خَائِنٌ",
+"s": "وَالصَّدِيقُ الوَفِيُّ يُسَاعِدُ صَدِيقَهُ.",
+"sw": "الوَفِيُّ",
+"st": "Vefalı dost dostuna yardım eder.",
+"dl": [
+"sifatmus"
+]
+},
+{
+"id": "tafdil-0",
+"d": "tafdil",
+"w": "قَرْيَةٌ",
+"t": "i",
+"tr": "köy",
+"c": "قُرًى",
+"k": "fual_f",
+"e": "",
+"z": "مَدِينَةٌ",
+"s": "جَوُّ القَرْيَةِ أَجْمَلُ مِنْ جَوِّ المَدِينَةِ.",
+"sw": "القَرْيَةِ",
+"st": "Köyün havası şehrin havasından daha güzeldir.",
+"dl": [
+"tafdil",
+"istifham",
+"hal"
+]
+},
+{
+"id": "tafdil-1",
+"d": "tafdil",
+"w": "مَنْزِلٌ",
+"t": "i",
+"tr": "ev",
+"c": "مَنَازِلُ",
+"k": "mefail",
+"e": "بَيْتٌ",
+"z": "",
+"s": "هُوَ مِنْ أَكْبَرِ المَنَازِلِ.",
+"sw": "المَنَازِلِ",
+"st": "O, en büyük evlerdendir.",
+"dl": [
+"tafdil"
+]
+},
+{
+"id": "tafdil-2",
+"d": "tafdil",
+"w": "عُطْلَةٌ",
+"t": "i",
+"tr": "tatil",
+"c": "عُطَلٌ",
+"k": "fual_f",
+"e": "إِجَازَةٌ",
+"z": "",
+"s": "فِي كُلِّ عُطْلَةٍ صَيْفِيَّةٍ أُسَافِرُ مَعَ أُسْرَتِي إِلَى مَنْزِلِ جَدِّي فِي القَرْيَةِ",
+"sw": "عُطْلَةٍ",
+"st": "Her yaz tatilinde ailemle köydeki dedemin evine giderim.",
+"dl": [
+"tafdil"
+]
+},
+{
+"id": "tafdil-3",
+"d": "tafdil",
+"w": "بَعِيدٌ",
+"t": "s",
+"tr": "uzak",
+"c": "",
+"k": "",
+"e": "",
+"z": "قَرِيبٌ",
+"s": "الإِنْسَانُ يَعِيشُ فِي القَرْيَةِ بَعِيدًا عَنْ ضَوْضَاءِ المَدِينَةِ وَضَجِيجِ مَصَانِعِهَا",
+"sw": "بَعِيدًا",
+"st": "İnsan köyde şehrin gürültüsünden ve fabrikalarının patırtısından uzak yaşar.",
+"dl": [
+"tafdil",
+"mevsul"
+]
+},
+{
+"id": "zaman-0",
+"d": "zaman",
+"w": "مَوْعِدٌ",
+"t": "i",
+"tr": "randevu, vakit",
+"c": "مَوَاعِيدُ",
+"k": "mefail_y",
+"e": "مِيعَادٌ",
+"z": "",
+"s": "كُنْتُ عَلَى مَوْعِدٍ مَعَ أُسْتَاذِي.",
+"sw": "مَوْعِدٍ",
+"st": "Hocamla randevum vardı.",
+"dl": [
+"zaman"
+]
+},
+{
+"id": "zaman-1",
+"d": "zaman",
+"w": "مَطْبَخٌ",
+"t": "i",
+"tr": "mutfak",
+"c": "مَطَابِخُ",
+"k": "mefail",
+"e": "",
+"z": "",
+"s": "تَطْبُخُ أُمِّي فِي المَطْبَخِ.",
+"sw": "المَطْبَخِ",
+"st": "Annem mutfakta yemek pişiriyor.",
+"dl": [
+"zaman"
+]
+},
+{
+"id": "zaman-2",
+"d": "zaman",
+"w": "مَخْرَجٌ",
+"t": "i",
+"tr": "çıkış",
+"c": "مَخَارِجُ",
+"k": "mefail",
+"e": "",
+"z": "مَدْخَلٌ",
+"s": "أُرِيدُ مَخْرَجًا مِنَ المُشْكِلَةِ.",
+"sw": "مَخْرَجًا",
+"st": "Sorundan bir çıkış istiyorum.",
+"dl": [
+"zaman"
+]
+},
+{
+"id": "zaman-3",
+"d": "zaman",
+"w": "صِحَّةٌ",
+"t": "i",
+"tr": "sağlık",
+"c": "",
+"k": "",
+"e": "عَافِيَةٌ",
+"z": "مَرَضٌ",
+"s": "نِعْمَتَانِ مَغْبُونٌ فِيهِمَا كَثِيرٌ مِنَ النَّاسِ: الصِّحَّةُ وَالفَرَاغُ",
+"sw": "الصِّحَّةُ",
+"st": "İnsanların çoğunun aldandığı iki nimet vardır: sağlık ve boş vakit.",
+"dl": [
+"zaman"
+]
+},
+{
+"id": "zaman-4",
+"d": "zaman",
+"w": "مَطْعَمٌ",
+"t": "i",
+"tr": "lokanta",
+"c": "مَطَاعِمُ",
+"k": "mefail",
+"e": "",
+"z": "",
+"s": "بَعْضُ المَطَاعِمِ مَفْتُوحَةٌ حَتَّى الصَّبَاحِ.",
+"sw": "المَطَاعِمِ",
+"st": "Bazı lokantalar sabaha kadar açıktır.",
+"dl": [
+"zaman"
+]
 },
 {
 "id": "merre-0",
-"d": "merre",
-"w": "مَرِيضٌ",
-"t": "i",
-"tr": "hasta",
-"c": "مَرْضَى",
-"k": "fella",
-"e": "عَلِيلٌ",
-"z": "سَلِيمٌ",
-"s": "أَكَلَ المَرِيضُ مِنَ الطَّعَامِ أَكْلَةً.",
-"sw": "المَرِيضُ",
-"st": "Hasta yemekten bir kez yedi."
-},
-{
-"id": "merre-1",
 "d": "merre",
 "w": "دَوَاءٌ",
 "t": "i",
@@ -599,10 +1762,16 @@ var KELIMELER = [
 "z": "",
 "s": "شَرِبَ المَرِيضُ مِنَ الدَّوَاءِ شَرْبَةً.",
 "sw": "الدَّوَاءِ",
-"st": "Hasta ilaçtan bir kez içti."
+"st": "Hasta ilaçtan bir kez içti.",
+"dl": [
+"merre",
+"sifatcesit",
+"istifham",
+"bedel"
+]
 },
 {
-"id": "merre-2",
+"id": "merre-1",
 "d": "merre",
 "w": "خَصْمٌ",
 "t": "i",
@@ -613,10 +1782,13 @@ var KELIMELER = [
 "z": "",
 "s": "نَظَرَ الرَّجُلُ إِلَيْهِ نِظْرَةَ الخَصْمِ.",
 "sw": "الخَصْمِ",
-"st": "Adam ona düşman gibi baktı."
+"st": "Adam ona düşman gibi baktı.",
+"dl": [
+"merre"
+]
 },
 {
-"id": "merre-3",
+"id": "merre-2",
 "d": "merre",
 "w": "شُجَاعٌ",
 "t": "s",
@@ -627,10 +1799,13 @@ var KELIMELER = [
 "z": "جَبَانٌ",
 "s": "وَثَبَ الشُّجَاعُ وِثْبَةَ الأَسَدِ.",
 "sw": "الشُّجَاعُ",
-"st": "Yiğit aslan gibi atıldı."
+"st": "Yiğit aslan gibi atıldı.",
+"dl": [
+"merre"
+]
 },
 {
-"id": "merre-4",
+"id": "merre-3",
 "d": "merre",
 "w": "جُنْدِيٌّ",
 "t": "i",
@@ -641,7 +1816,98 @@ var KELIMELER = [
 "z": "",
 "s": "وَقَفَ الجُنْدِيُّ وِقْفَةَ الأَبْطَالِ.",
 "sw": "الجُنْدِيُّ",
-"st": "Asker kahramanlar gibi durdu."
+"st": "Asker kahramanlar gibi durdu.",
+"dl": [
+"merre",
+"hal"
+]
+},
+{
+"id": "alet-0",
+"d": "alet",
+"w": "مِفْتَاحٌ",
+"t": "i",
+"tr": "anahtar",
+"c": "مَفَاتِيحُ",
+"k": "mefail_y",
+"e": "",
+"z": "",
+"s": "ضَاعَ المِفْتَاحُ فِي السُّوقِ.",
+"sw": "المِفْتَاحُ",
+"st": "Anahtar çarşıda kayboldu.",
+"dl": [
+"alet"
+]
+},
+{
+"id": "alet-1",
+"d": "alet",
+"w": "مِصْعَدٌ",
+"t": "i",
+"tr": "asansör",
+"c": "مَصَاعِدُ",
+"k": "mefail",
+"e": "",
+"z": "",
+"s": "رَكِبْنَا المِصْعَدَ فِي المُسْتَشْفَى.",
+"sw": "المِصْعَدَ",
+"st": "Hastanede asansöre bindik.",
+"dl": [
+"alet"
+]
+},
+{
+"id": "alet-2",
+"d": "alet",
+"w": "خَشَبٌ",
+"t": "i",
+"tr": "tahta, odun",
+"c": "أَخْشَابٌ",
+"k": "efal",
+"e": "",
+"z": "",
+"s": "يَقْطَعُ الخَشَبَ بِالمِنْشَارِ، ثُمَّ يَبْرُدُهُ بِالمِبْرَدِ.",
+"sw": "الخَشَبَ",
+"st": "Tahtayı testereyle keser, sonra eğeyle törpüler.",
+"dl": [
+"alet"
+]
+},
+{
+"id": "alet-3",
+"d": "alet",
+"w": "جَمِيلٌ",
+"t": "s",
+"tr": "güzel",
+"c": "جِمَالٌ",
+"k": "fial",
+"e": "حَسَنٌ",
+"z": "قَبِيحٌ",
+"s": "قَطَفَ العَامِلُ زُهَيْرَةً جَمِيلَةً مِنَ الحَدِيقَةِ.",
+"sw": "جَمِيلَةً",
+"st": "İşçi bahçeden güzel bir çiçekçik kopardı.",
+"dl": [
+"alet"
+]
+},
+{
+"id": "alet-4",
+"d": "alet",
+"w": "قَدِيمٌ",
+"t": "s",
+"tr": "eski",
+"c": "قُدَمَاءُ",
+"k": "fuala",
+"e": "عَتِيقٌ",
+"z": "جَدِيدٌ",
+"s": "وَفِي هَذِهِ المَدِينَةِ التَّارِيخِيَّةِ آثَارٌ قَدِيمَةٌ مِنْ عَهْدِ البِيزَنْطِيِّينَ وَالعُثْمَانِيِّينَ.",
+"sw": "قَدِيمَةٌ",
+"st": "Bu tarihî şehirde Bizans ve Osmanlı döneminden eski eserler var.",
+"dl": [
+"alet",
+"sifat",
+"kaffe"
+]
 },
 {
 "id": "maksur-0",
@@ -655,24 +1921,13 @@ var KELIMELER = [
 "z": "شَيْخٌ",
 "s": "رَأَيْتُ فَتًى فِي الحَدِيقَةِ.",
 "sw": "فَتًى",
-"st": "Bahçede bir genç gördüm."
+"st": "Bahçede bir genç gördüm.",
+"dl": [
+"maksur"
+]
 },
 {
 "id": "maksur-1",
-"d": "maksur",
-"w": "قَاضٍ",
-"t": "i",
-"tr": "hâkim, kadı",
-"c": "قُضَاةٌ",
-"k": "diger",
-"e": "حَاكِمٌ",
-"z": "",
-"s": "رَأَيْتُ القَاضِيَ فِي المَحْكَمَةِ.",
-"sw": "القَاضِيَ",
-"st": "Hâkimi mahkemede gördüm."
-},
-{
-"id": "maksur-2",
 "d": "maksur",
 "w": "وَادٍ",
 "t": "i",
@@ -683,24 +1938,13 @@ var KELIMELER = [
 "z": "",
 "s": "تَجَوَّلَ السُّيَّاحُ فِي الوَادِي العَمِيقِ.",
 "sw": "الوَادِي",
-"st": "Turistler derin vadide dolaştı."
+"st": "Turistler derin vadide dolaştı.",
+"dl": [
+"maksur"
+]
 },
 {
-"id": "maksur-3",
-"d": "maksur",
-"w": "جَدِيدٌ",
-"t": "s",
-"tr": "yeni",
-"c": "جُدُدٌ",
-"k": "fuul_k",
-"e": "حَدِيثٌ",
-"z": "قَدِيمٌ",
-"s": "لَبِسْتُ اليَوْمَ كِسَاءً جَدِيدًا.",
-"sw": "جَدِيدًا",
-"st": "Bugün yeni bir elbise giydim."
-},
-{
-"id": "maksur-4",
+"id": "maksur-2",
 "d": "maksur",
 "w": "عَالٍ",
 "t": "s",
@@ -711,7 +1955,98 @@ var KELIMELER = [
 "z": "مُنْخَفِضٌ",
 "s": "يُعْطِي اللهُ صَاحِبَ العِلْمِ مَقَامًا عَالِيًا.",
 "sw": "عَالِيًا",
-"st": "Allah ilim sahibine yüce bir makam verir."
+"st": "Allah ilim sahibine yüce bir makam verir.",
+"dl": [
+"maksur"
+]
+},
+{
+"id": "hemze-0",
+"d": "hemze",
+"w": "سِرٌّ",
+"t": "i",
+"tr": "sır",
+"c": "أَسْرَارٌ",
+"k": "efal",
+"e": "",
+"z": "",
+"s": "لَا تُفْشِ أَسْرَارَ عَائِلَتِكَ.",
+"sw": "أَسْرَارَ",
+"st": "Ailenin sırlarını yayma.",
+"dl": [
+"hemze",
+"sartfa"
+]
+},
+{
+"id": "hemze-1",
+"d": "hemze",
+"w": "عَائِلَةٌ",
+"t": "i",
+"tr": "aile",
+"c": "عَائِلَاتٌ / عَوَائِلُ",
+"k": "at",
+"e": "أُسْرَةٌ",
+"z": "",
+"s": "قَرَّرَتْ أَنْ تَلْتَزِمَ الصَّمْتَ خَارِجَ المَنْزِلِ وَأَنْ تَحْفَظَ أَسْرَارَ عَائِلَتِهَا.",
+"sw": "عَائِلَتِهَا",
+"st": "Ev dışında susmaya ve ailesinin sırlarını korumaya karar verdi.",
+"dl": [
+"hemze"
+]
+},
+{
+"id": "hemze-2",
+"d": "hemze",
+"w": "خَطَأٌ",
+"t": "i",
+"tr": "hata, yanlış",
+"c": "أَخْطَاءٌ",
+"k": "efal",
+"e": "",
+"z": "صَوَابٌ",
+"s": "قَرَأَ القَارِئُ كَلِمَةَ اللُّؤْلُؤِ خَطَأً.",
+"sw": "خَطَأً",
+"st": "Okuyucu “lü’lü’” kelimesini yanlış okudu.",
+"dl": [
+"hemze"
+]
+},
+{
+"id": "hemze-3",
+"d": "hemze",
+"w": "صَعْبٌ",
+"t": "s",
+"tr": "zor",
+"c": "صِعَابٌ",
+"k": "fial",
+"e": "عَسِيرٌ",
+"z": "سَهْلٌ",
+"s": "سَأَلَنِي المَأْمُورُ بِالاسْتِنْطَاقِ مَسْأَلَةً صَعْبَةً.",
+"sw": "صَعْبَةً",
+"st": "Sorgu memuru bana zor bir soru sordu.",
+"dl": [
+"hemze",
+"mechul",
+"inne"
+]
+},
+{
+"id": "hemze-4",
+"d": "hemze",
+"w": "مِئْذَنَةٌ",
+"t": "i",
+"tr": "minare",
+"c": "مَآذِنُ",
+"k": "mefail",
+"e": "مَنَارَةٌ",
+"z": "",
+"s": "اسْتَمَعْنَا إِلَى الأَذَانِ مُتَّكِئِينَ عَلَى المِئْذَنَةِ.",
+"sw": "المِئْذَنَةِ",
+"st": "Minareye yaslanarak ezanı dinledik.",
+"dl": [
+"hemze"
+]
 },
 {
 "id": "mehmuz-0",
@@ -725,7 +2060,11 @@ var KELIMELER = [
 "z": "مُقِيمٌ",
 "s": "مَلَأَ المُسَافِرُ حَقِيبَتَهُ بِالمَلَابِسِ.",
 "sw": "المُسَافِرُ",
-"st": "Yolcu çantasını giysilerle doldurdu."
+"st": "Yolcu çantasını giysilerle doldurdu.",
+"dl": [
+"mehmuz",
+"mukarabe"
+]
 },
 {
 "id": "mehmuz-1",
@@ -739,7 +2078,11 @@ var KELIMELER = [
 "z": "",
 "s": "وَالطُّيُورُ تُغَرِّدُ عَلَى الأَغْصَانِ",
 "sw": "الأَغْصَانِ",
-"st": "Kuşlar da dallarda ötüyor."
+"st": "Kuşlar da dallarda ötüyor.",
+"dl": [
+"mehmuz",
+"sifatcesit"
+]
 },
 {
 "id": "mehmuz-2",
@@ -753,7 +2096,10 @@ var KELIMELER = [
 "z": "",
 "s": "هَلْ أَصَابَ عَلِيٌّ شَيْئًا مِنَ الطُّيُورِ وَالأَرَانِبِ؟",
 "sw": "وَالأَرَانِبِ",
-"st": "Ali kuş ya da tavşan vurabildi mi?"
+"st": "Ali kuş ya da tavşan vurabildi mi?",
+"dl": [
+"mehmuz"
+]
 },
 {
 "id": "mehmuz-3",
@@ -767,7 +2113,10 @@ var KELIMELER = [
 "z": "قَدَّمَ",
 "s": "أَخَّرَتِ المَدْرَسَةُ وَقْتَ الامْتِحَانِ.",
 "sw": "أَخَّرَتِ",
-"st": "Okul sınav vaktini erteledi."
+"st": "Okul sınav vaktini erteledi.",
+"dl": [
+"mehmuz"
+]
 },
 {
 "id": "mehmuz-4",
@@ -781,7 +2130,10 @@ var KELIMELER = [
 "z": "",
 "s": "سَئِمَ عَلِيٌّ مِنْ كَثْرَةِ الأَعْمَالِ",
 "sw": "سَئِمَ",
-"st": "Ali işlerin çokluğundan bıktı."
+"st": "Ali işlerin çokluğundan bıktı.",
+"dl": [
+"mehmuz"
+]
 },
 {
 "id": "muzaaf-0",
@@ -795,7 +2147,10 @@ var KELIMELER = [
 "z": "",
 "s": "شَدَدْتُمُ الحَبْلَ عَلَى الشَّجَرَةِ بِقُوَّةٍ",
 "sw": "الحَبْلَ",
-"st": "İpi ağaca sıkıca bağladınız."
+"st": "İpi ağaca sıkıca bağladınız.",
+"dl": [
+"muzaaf"
+]
 },
 {
 "id": "muzaaf-1",
@@ -809,24 +2164,15 @@ var KELIMELER = [
 "z": "",
 "s": "أَنْتَ دَلَلْتَ السَّائِحَ عَلَى طَرِيقِ المَسْجِدِ",
 "sw": "السَّائِحَ",
-"st": "Turiste caminin yolunu gösterdin."
+"st": "Turiste caminin yolunu gösterdin.",
+"dl": [
+"muzaaf",
+"temyizgenel",
+"atif"
+]
 },
 {
 "id": "muzaaf-2",
-"d": "muzaaf",
-"w": "ضَعِيفٌ",
-"t": "s",
-"tr": "zayıf",
-"c": "ضُعَفَاءُ",
-"k": "fuala",
-"e": "",
-"z": "قَوِيٌّ",
-"s": "يَرُدُّ الظُّلْمَ عَنِ الضُّعَفَاءِ.",
-"sw": "الضُّعَفَاءِ",
-"st": "Zayıflardan zulmü uzaklaştırır."
-},
-{
-"id": "muzaaf-3",
 "d": "muzaaf",
 "w": "فَرَّ",
 "t": "f",
@@ -837,10 +2183,13 @@ var KELIMELER = [
 "z": "",
 "s": "اللُّصُوصُ يَفِرُّونَ مِنَ الشُّرْطِيِّ بِسُرْعَةٍ",
 "sw": "يَفِرُّونَ",
-"st": "Hırsızlar polisten hızla kaçıyor."
+"st": "Hırsızlar polisten hızla kaçıyor.",
+"dl": [
+"muzaaf"
+]
 },
 {
-"id": "muzaaf-4",
+"id": "muzaaf-3",
 "d": "muzaaf",
 "w": "قَلَّ",
 "t": "f",
@@ -851,24 +2200,13 @@ var KELIMELER = [
 "z": "كَثُرَ",
 "s": "تَقِلُّ نِسْبَةُ البَطَالَةِ فِي بِلَادِنَا.",
 "sw": "تَقِلُّ",
-"st": "Ülkemizde işsizlik oranı azalıyor."
+"st": "Ülkemizde işsizlik oranı azalıyor.",
+"dl": [
+"muzaaf"
+]
 },
 {
 "id": "misal-0",
-"d": "misal",
-"w": "غَنِيٌّ",
-"t": "s",
-"tr": "zengin",
-"c": "أَغْنِيَاءُ",
-"k": "efila",
-"e": "ثَرِيٌّ",
-"z": "فَقِيرٌ",
-"s": "وَزَّعَ الأَغْنِيَاءُ النُّقُودَ عَلَى الفُقَرَاءِ.",
-"sw": "الأَغْنِيَاءُ",
-"st": "Zenginler paraları fakirlere dağıttı."
-},
-{
-"id": "misal-1",
 "d": "misal",
 "w": "مِحْفَظَةٌ",
 "t": "i",
@@ -879,24 +2217,13 @@ var KELIMELER = [
 "z": "",
 "s": "وَضَعْتُ النُّقُودَ فِي مِحْفَظَتِي.",
 "sw": "مِحْفَظَتِي",
-"st": "Paraları cüzdanıma koydum."
+"st": "Paraları cüzdanıma koydum.",
+"dl": [
+"misal"
+]
 },
 {
-"id": "misal-2",
-"d": "misal",
-"w": "مِعْطَفٌ",
-"t": "i",
-"tr": "palto",
-"c": "مَعَاطِفُ",
-"k": "mefail",
-"e": "",
-"z": "",
-"s": "وَهَبْتُ لِلرَّجُلِ الفَقِيرِ مِعْطَفًا.",
-"sw": "مِعْطَفًا",
-"st": "Fakir adama bir palto bağışladım."
-},
-{
-"id": "misal-3",
+"id": "misal-1",
 "d": "misal",
 "w": "هَدِيَّةٌ",
 "t": "i",
@@ -907,10 +2234,13 @@ var KELIMELER = [
 "z": "",
 "s": "وَزَّعَ الهَدَايَا بَيْنَ العُمَّالِ.",
 "sw": "الهَدَايَا",
-"st": "Hediyeleri işçiler arasında dağıttı."
+"st": "Hediyeleri işçiler arasında dağıttı.",
+"dl": [
+"misal"
+]
 },
 {
-"id": "misal-4",
+"id": "misal-2",
 "d": "misal",
 "w": "وَضَعَ",
 "t": "f",
@@ -921,24 +2251,82 @@ var KELIMELER = [
 "z": "رَفَعَ",
 "s": "وَضَعَ الأَدْوِيَةَ أَمَامَ المَرِيضِ.",
 "sw": "وَضَعَ",
-"st": "İlaçları hastanın önüne koydu."
+"st": "İlaçları hastanın önüne koydu.",
+"dl": [
+"misal"
+]
+},
+{
+"id": "ecvef-0",
+"d": "ecvef",
+"w": "قَامَ",
+"t": "f",
+"tr": "kalktı",
+"c": "",
+"k": "",
+"e": "نَهَضَ",
+"z": "قَعَدَ",
+"s": "قَامَ الرَّجُلُ مِنَ النَّوْمِ مُبَكِّرًا.",
+"sw": "قَامَ",
+"st": "Adam uykudan erken kalktı.",
+"dl": [
+"ecvef"
+]
+},
+{
+"id": "ecvef-1",
+"d": "ecvef",
+"w": "حَقِيبَةٌ",
+"t": "i",
+"tr": "çanta",
+"c": "حَقَائِبُ",
+"k": "feail",
+"e": "",
+"z": "",
+"s": "أَثْنَاءَ انْتِظَارِي تَذَكَّرْتُ أَنَّنِي لَمْ آخُذْ حَقِيبَتِي، فَفِي الحَالِ عُدْتُ إِلَى البَيْتِ.",
+"sw": "حَقِيبَتِي",
+"st": "Beklerken çantamı almadığımı hatırladım, hemen eve döndüm.",
+"dl": [
+"ecvef"
+]
+},
+{
+"id": "ecvef-2",
+"d": "ecvef",
+"w": "طَائِرَةٌ",
+"t": "i",
+"tr": "uçak",
+"c": "طَائِرَاتٌ",
+"k": "at",
+"e": "",
+"z": "",
+"s": "وَبَعْدَ أُسْبُوعٍ رَكِبَ الطَّائِرَةَ إِلَى جُدَّةَ لِلذَّهَابِ إِلَى مَكَّةَ المُكَرَّمَةِ.",
+"sw": "الطَّائِرَةَ",
+"st": "Bir hafta sonra Mekke-i Mükerreme'ye gitmek için Cidde'ye uçağa bindi.",
+"dl": [
+"ecvef",
+"mefulmutlak"
+]
+},
+{
+"id": "ecvef-3",
+"d": "ecvef",
+"w": "مُتَأَخِّرٌ",
+"t": "s",
+"tr": "geç kalmış",
+"c": "مُتَأَخِّرُونَ",
+"k": "un",
+"e": "",
+"z": "مُبَكِّرٌ",
+"s": "خَرَجْتُ هَذَا الصَّبَاحَ مُسْتَعْجِلًا؛ لِأَنَّنِي اسْتَيْقَظْتُ مُتَأَخِّرًا.",
+"sw": "مُتَأَخِّرًا",
+"st": "Bu sabah aceleyle çıktım; çünkü geç uyandım.",
+"dl": [
+"ecvef"
+]
 },
 {
 "id": "nakis-0",
-"d": "nakis",
-"w": "ضَيْفٌ",
-"t": "i",
-"tr": "misafir",
-"c": "ضُيُوفٌ",
-"k": "fuul",
-"e": "",
-"z": "",
-"s": "سَقَى الرَّجُلُ الضُّيُوفَ شَايًا.",
-"sw": "الضُّيُوفَ",
-"st": "Adam misafirlere çay ikram etti."
-},
-{
-"id": "nakis-1",
 "d": "nakis",
 "w": "طَبِيبٌ",
 "t": "i",
@@ -949,10 +2337,17 @@ var KELIMELER = [
 "z": "",
 "s": "قَضَى الطَّبِيبُ اليَوْمَ فِي المُسْتَشْفَى.",
 "sw": "الطَّبِيبُ",
-"st": "Doktor günü hastanede geçirdi."
+"st": "Doktor günü hastanede geçirdi.",
+"dl": [
+"nakis",
+"kane",
+"hal",
+"bedel",
+"munsarif"
+]
 },
 {
-"id": "nakis-2",
+"id": "nakis-1",
 "d": "nakis",
 "w": "شَابٌّ",
 "t": "i",
@@ -963,10 +2358,13 @@ var KELIMELER = [
 "z": "شَيْخٌ",
 "s": "يَسْعَى الشَّابُّ بَيْنَ النَّاسِ بِالخَيْرِ.",
 "sw": "الشَّابُّ",
-"st": "Genç insanlar arasında iyilik için çalışır."
+"st": "Genç insanlar arasında iyilik için çalışır.",
+"dl": [
+"nakis"
+]
 },
 {
-"id": "nakis-3",
+"id": "nakis-2",
 "d": "nakis",
 "w": "نَسِيَ",
 "t": "f",
@@ -977,10 +2375,13 @@ var KELIMELER = [
 "z": "تَذَكَّرَ",
 "s": "يَنْسَى الطَّالِبُ الكِتَابَ فِي الكُلِّيَّةِ.",
 "sw": "يَنْسَى",
-"st": "Öğrenci kitabı fakültede unutur."
+"st": "Öğrenci kitabı fakültede unutur.",
+"dl": [
+"nakis"
+]
 },
 {
-"id": "nakis-4",
+"id": "nakis-3",
 "d": "nakis",
 "w": "خَشِيَ",
 "t": "f",
@@ -991,24 +2392,13 @@ var KELIMELER = [
 "z": "",
 "s": "لِمَاذَا لَمْ يَخْشَ عَلَى بَنَاتِهِ الفَقْرَ؟",
 "sw": "يَخْشَ",
-"st": "Kızları için fakirlikten neden korkmadı?"
+"st": "Kızları için fakirlikten neden korkmadı?",
+"dl": [
+"nakis"
+]
 },
 {
 "id": "lefif-0",
-"d": "lefif",
-"w": "صَدِيقٌ",
-"t": "i",
-"tr": "arkadaş, dost",
-"c": "أَصْدِقَاءُ",
-"k": "efila",
-"e": "رَفِيقٌ",
-"z": "عَدُوٌّ",
-"s": "شَوَيْنَا مَعَ الأَصْدِقَاءِ سَمَكًا طَرِيًّا.",
-"sw": "الأَصْدِقَاءِ",
-"st": "Arkadaşlarla taze balık kızarttık."
-},
-{
-"id": "lefif-1",
 "d": "lefif",
 "w": "وَعْدٌ",
 "t": "i",
@@ -1019,10 +2409,14 @@ var KELIMELER = [
 "z": "",
 "s": "هَلْ كَانَتْ نَجْلَاءُ تَفِي بِوَعْدِهَا؟",
 "sw": "بِوَعْدِهَا",
-"st": "Neclâ sözünü tutuyor muydu?"
+"st": "Neclâ sözünü tutuyor muydu?",
+"dl": [
+"lefif",
+"sartfa"
+]
 },
 {
-"id": "lefif-2",
+"id": "lefif-1",
 "d": "lefif",
 "w": "نَصِيحَةٌ",
 "t": "i",
@@ -1033,10 +2427,13 @@ var KELIMELER = [
 "z": "",
 "s": "وَعَى الطُّلَّابُ نَصِيحَةَ أَسَاتِذَتِهِمْ.",
 "sw": "نَصِيحَةَ",
-"st": "Öğrenciler hocalarının nasihatini kavradı."
+"st": "Öğrenciler hocalarının nasihatini kavradı.",
+"dl": [
+"lefif"
+]
 },
 {
-"id": "lefif-3",
+"id": "lefif-2",
 "d": "lefif",
 "w": "ذِئْبٌ",
 "t": "i",
@@ -1047,10 +2444,13 @@ var KELIMELER = [
 "z": "",
 "s": "سَمِعْتُ ذِئْبًا يَعْوِي فِي الغَابَةِ.",
 "sw": "ذِئْبًا",
-"st": "Ormanda uluyan bir kurt işittim."
+"st": "Ormanda uluyan bir kurt işittim.",
+"dl": [
+"lefif"
+]
 },
 {
-"id": "lefif-4",
+"id": "lefif-3",
 "d": "lefif",
 "w": "كَثِيرٌ",
 "t": "s",
@@ -1061,24 +2461,100 @@ var KELIMELER = [
 "z": "قَلِيلٌ",
 "s": "أَبُو هُرَيْرَةَ رَوَى أَحَادِيثَ كَثِيرَةً.",
 "sw": "كَثِيرَةً",
-"st": "Ebû Hüreyre pek çok hadis rivayet etti."
+"st": "Ebû Hüreyre pek çok hadis rivayet etti.",
+"dl": [
+"lefif"
+]
+},
+{
+"id": "rubai-0",
+"d": "rubai",
+"w": "قَلْبٌ",
+"t": "i",
+"tr": "kalp",
+"c": "قُلُوبٌ",
+"k": "fuul",
+"e": "فُؤَادٌ",
+"z": "",
+"s": "تَطْمَئِنُّ القُلُوبُ بِذِكْرِ اللهِ.",
+"sw": "القُلُوبُ",
+"st": "Kalpler Allah'ı anmakla huzur bulur.",
+"dl": [
+"rubai"
+]
+},
+{
+"id": "rubai-1",
+"d": "rubai",
+"w": "تِلْمِيذٌ",
+"t": "i",
+"tr": "öğrenci",
+"c": "تَلَامِيذُ",
+"k": "fealil",
+"e": "طَالِبٌ",
+"z": "",
+"s": "حَرْجَمَ المُدِيرُ التَّلَامِيذَ فِي فِنَاءِ المَدْرَسَةِ.",
+"sw": "التَّلَامِيذَ",
+"st": "Müdür öğrencileri okul bahçesinde topladı.",
+"dl": [
+"rubai"
+]
+},
+{
+"id": "rubai-2",
+"d": "rubai",
+"w": "بِنَاءٌ",
+"t": "i",
+"tr": "bina",
+"c": "أَبْنِيَةٌ",
+"k": "efile",
+"e": "مَبْنًى",
+"z": "",
+"s": "تَزَلْزَلَتِ الأَرْضُ وَانْهَارَتْ أَبْنِيَةٌ كَثِيرَةٌ.",
+"sw": "أَبْنِيَةٌ",
+"st": "Yer sarsıldı ve birçok bina çöktü.",
+"dl": [
+"rubai"
+]
+},
+{
+"id": "rubai-3",
+"d": "rubai",
+"w": "أَرْضٌ",
+"t": "i",
+"tr": "yer, toprak",
+"c": "أَرَاضٍ",
+"k": "diger",
+"e": "",
+"z": "سَمَاءٌ",
+"s": "تَزَلْزَلَتِ الأَرْضُ وَانْهَارَتْ أَبْنِيَةٌ كَثِيرَةٌ.",
+"sw": "الأَرْضُ",
+"st": "Yer sarsıldı ve birçok bina çöktü.",
+"dl": [
+"rubai",
+"cezm"
+]
+},
+{
+"id": "rubai-4",
+"d": "rubai",
+"w": "بَرْدٌ",
+"t": "i",
+"tr": "soğuk",
+"c": "",
+"k": "",
+"e": "",
+"z": "حَرٌّ",
+"s": "اِقْشَعَرَّ الوَلَدُ مِنَ البَرْدِ.",
+"sw": "البَرْدِ",
+"st": "Çocuk soğuktan ürperdi.",
+"dl": [
+"rubai",
+"temyizgenel"
+]
 },
 {
 "id": "mechul-0",
-"d": "mechul",
-"w": "لِصٌّ",
-"t": "i",
-"tr": "hırsız",
-"c": "لُصُوصٌ",
-"k": "fuul",
-"e": "سَارِقٌ",
-"z": "",
-"s": "شُوهِدَ اللِّصُّ فِي الحَدِيقَةِ.",
-"sw": "اللِّصُّ",
-"st": "Hırsız bahçede görüldü."
-},
-{
-"id": "mechul-1",
 "d": "mechul",
 "w": "فَقِيرٌ",
 "t": "s",
@@ -1089,10 +2565,15 @@ var KELIMELER = [
 "z": "غَنِيٌّ",
 "s": "الفُقَرَاءُ أُعْطُوا ثِيَابًا جَدِيدَةً.",
 "sw": "الفُقَرَاءُ",
-"st": "Fakirlere yeni elbiseler verildi."
+"st": "Fakirlere yeni elbiseler verildi.",
+"dl": [
+"mechul",
+"izafet",
+"sifatcesit"
+]
 },
 {
-"id": "mechul-2",
+"id": "mechul-1",
 "d": "mechul",
 "w": "كَسْلَانُ",
 "t": "s",
@@ -1103,10 +2584,13 @@ var KELIMELER = [
 "z": "نَشِيطٌ",
 "s": "الطُّلَّابُ الكُسَالَى نُبِّهُوا عَلَى تَقْصِيرِهِمْ.",
 "sw": "الكُسَالَى",
-"st": "Tembel öğrenciler kusurlarından dolayı uyarıldı."
+"st": "Tembel öğrenciler kusurlarından dolayı uyarıldı.",
+"dl": [
+"mechul"
+]
 },
 {
-"id": "mechul-3",
+"id": "mechul-2",
 "d": "mechul",
 "w": "جَائِزَةٌ",
 "t": "i",
@@ -1117,21 +2601,11 @@ var KELIMELER = [
 "z": "",
 "s": "أَعْطَتِ المُدِيرَةُ الطَّالِبَةَ جَائِزَةً.",
 "sw": "جَائِزَةً",
-"st": "Müdire kız öğrenciye bir ödül verdi."
-},
-{
-"id": "mechul-4",
-"d": "mechul",
-"w": "صَعْبٌ",
-"t": "s",
-"tr": "zor",
-"c": "صِعَابٌ",
-"k": "fial",
-"e": "عَسِيرٌ",
-"z": "سَهْلٌ",
-"s": "قَالُوا: إِنَّ الحَقِيقَةَ صَعْبَةٌ.",
-"sw": "صَعْبَةٌ",
-"st": "Gerçeğin zor olduğunu söylediler."
+"st": "Müdire kız öğrenciye bir ödül verdi.",
+"dl": [
+"mechul",
+"famel"
+]
 },
 {
 "id": "cumle-0",
@@ -1145,24 +2619,14 @@ var KELIMELER = [
 "z": "",
 "s": "الفَنَادِقُ كَثِيرَةٌ فِي إِسْطَنْبُولَ",
 "sw": "الفَنَادِقُ",
-"st": "İstanbul'da oteller çoktur."
+"st": "İstanbul'da oteller çoktur.",
+"dl": [
+"cumle",
+"istifham"
+]
 },
 {
 "id": "cumle-1",
-"d": "cumle",
-"w": "قَرِيبٌ",
-"t": "s",
-"tr": "yakın",
-"c": "قَرِيبُونَ",
-"k": "un",
-"e": "",
-"z": "بَعِيدٌ",
-"s": "بَعْضُ الفَنَادِقِ قَرِيبَةٌ مِنَ المَطَارِ",
-"sw": "قَرِيبَةٌ",
-"st": "Otellerin bir kısmı havalimanına yakındır."
-},
-{
-"id": "cumle-2",
 "d": "cumle",
 "w": "مَشْهُورٌ",
 "t": "s",
@@ -1173,10 +2637,13 @@ var KELIMELER = [
 "z": "مَجْهُولٌ",
 "s": "الطَّعَامُ التُّرْكِيُّ مَشْهُورٌ فِي هَذِهِ الفَنَادِقِ",
 "sw": "مَشْهُورٌ",
-"st": "Türk yemeği bu otellerde meşhurdur."
+"st": "Türk yemeği bu otellerde meşhurdur.",
+"dl": [
+"cumle"
+]
 },
 {
-"id": "cumle-3",
+"id": "cumle-2",
 "d": "cumle",
 "w": "سَفِينَةٌ",
 "t": "i",
@@ -1187,7 +2654,12 @@ var KELIMELER = [
 "z": "",
 "s": "شَاهَدَ حَسَنٌ سَفِينَةً كَبِيرَةً فِي البَحْرِ",
 "sw": "سَفِينَةً",
-"st": "Hasan denizde büyük bir gemi gördü."
+"st": "Hasan denizde büyük bir gemi gördü.",
+"dl": [
+"cumle",
+"takdim",
+"mustesna"
+]
 },
 {
 "id": "irab-0",
@@ -1201,7 +2673,11 @@ var KELIMELER = [
 "z": "",
 "s": "جَلَسَ الطُّلَّابُ تَحْتَ الأَشْجَارِ وَأَكَلُوا الأَطْعِمَةَ اللَّذِيذَةَ.",
 "sw": "الأَشْجَارِ",
-"st": "Öğrenciler ağaçların altına oturup lezzetli yiyecekler yedi."
+"st": "Öğrenciler ağaçların altına oturup lezzetli yiyecekler yedi.",
+"dl": [
+"irab",
+"taaccub"
+]
 },
 {
 "id": "irab-1",
@@ -1215,7 +2691,10 @@ var KELIMELER = [
 "z": "",
 "s": "ذَهَبَتِ المُدَرِّسَاتُ إِلَى السَّاحِلِ بِالسَّيَّارَاتِ.",
 "sw": "السَّاحِلِ",
-"st": "Kadın öğretmenler sahile arabalarla gitti."
+"st": "Kadın öğretmenler sahile arabalarla gitti.",
+"dl": [
+"irab"
+]
 },
 {
 "id": "irab-2",
@@ -1229,7 +2708,11 @@ var KELIMELER = [
 "z": "كَبِيرٌ",
 "s": "شَاهَدُوا الأَزْهَارَ وَالأَرَانِبَ الصَّغِيرَةَ.",
 "sw": "الصَّغِيرَةَ",
-"st": "Çiçekleri ve küçük tavşanları seyrettiler."
+"st": "Çiçekleri ve küçük tavşanları seyrettiler.",
+"dl": [
+"irab",
+"sart"
+]
 },
 {
 "id": "irab-3",
@@ -1243,7 +2726,10 @@ var KELIMELER = [
 "z": "قَصِيرٌ",
 "s": "شَاهَدُوا هُنَاكَ الأَزْهَارَ اللَّطِيفَةَ وَالأَشْجَارَ الطَّوِيلَةَ وَالنَّبَاتَاتِ المُخْتَلِفَةَ وَالأَرَانِبَ الصَّغِيرَةَ.",
 "sw": "الطَّوِيلَةَ",
-"st": "Orada güzel çiçekleri, uzun ağaçları, çeşitli bitkileri ve küçük tavşanları seyrettiler."
+"st": "Orada güzel çiçekleri, uzun ağaçları, çeşitli bitkileri ve küçük tavşanları seyrettiler.",
+"dl": [
+"irab"
+]
 },
 {
 "id": "irab-4",
@@ -1257,25 +2743,82 @@ var KELIMELER = [
 "z": "",
 "s": "جَهَّزَتِ الطَّالِبَاتُ الأَطْعِمَةَ المُخْتَلِفَةَ.",
 "sw": "المُخْتَلِفَةَ",
-"st": "Kız öğrenciler çeşitli yiyecekler hazırladı."
+"st": "Kız öğrenciler çeşitli yiyecekler hazırladı.",
+"dl": [
+"irab"
+]
 },
 {
-"id": "sifat-0",
-"d": "sifat",
-"w": "قَدِيمٌ",
-"t": "s",
-"tr": "eski",
-"c": "قُدَمَاءُ",
-"k": "fuala",
-"e": "عَتِيقٌ",
-"z": "حَدِيثٌ",
-"s": "يَرَى الإِنْسَانُ المَبَانِيَ القَدِيمَةَ.",
-"sw": "القَدِيمَةَ",
-"st": "İnsan eski binaları görür."
+"id": "irabnasil-0",
+"d": "irabnasil",
+"w": "وَلَدٌ",
+"t": "i",
+"tr": "çocuk, oğlan",
+"c": "أَوْلَادٌ",
+"k": "efal",
+"e": "طِفْلٌ",
+"z": "بِنْتٌ",
+"s": "جَلَسَ الوَلَدُ فِي البَيْتِ.",
+"sw": "الوَلَدُ",
+"st": "Çocuk evde oturdu.",
+"dl": [
+"irabnasil"
+]
 },
 {
-"id": "sifat-1",
-"d": "sifat",
+"id": "irabnasil-1",
+"d": "irabnasil",
+"w": "سَبُّورَةٌ",
+"t": "i",
+"tr": "yazı tahtası",
+"c": "سَبُّورَاتٌ",
+"k": "at",
+"e": "",
+"z": "",
+"s": "كَتَبَ المُعَلِّمُ الدَّرْسَ عَلَى السَّبُّورَةِ.",
+"sw": "السَّبُّورَةِ",
+"st": "Öğretmen dersi tahtaya yazdı.",
+"dl": [
+"irabnasil"
+]
+},
+{
+"id": "irabnasil-2",
+"d": "irabnasil",
+"w": "ذَهَبَ",
+"t": "f",
+"tr": "gitti",
+"c": "",
+"k": "",
+"e": "مَضَى",
+"z": "جَاءَ",
+"s": "ذَهَبَ أَحْمَدُ إِلَى المَدْرَسَةِ.",
+"sw": "ذَهَبَ",
+"st": "Ahmed okula gitti.",
+"dl": [
+"irabnasil"
+]
+},
+{
+"id": "izafet-0",
+"d": "izafet",
+"w": "فَلَّاحٌ",
+"t": "i",
+"tr": "çiftçi",
+"c": "فَلَّاحُونَ",
+"k": "un",
+"e": "مُزَارِعٌ",
+"z": "",
+"s": "سَاعَدَ فَلَّاحُ القَرْيَةِ الفُقَرَاءَ.",
+"sw": "فَلَّاحُ",
+"st": "Köyün çiftçisi fakirlere yardım etti.",
+"dl": [
+"izafet"
+]
+},
+{
+"id": "izafet-1",
+"d": "izafet",
 "w": "سَرِيعٌ",
 "t": "s",
 "tr": "hızlı",
@@ -1283,26 +2826,18 @@ var KELIMELER = [
 "k": "fial",
 "e": "",
 "z": "بَطِيءٌ",
-"s": "السَّيَّارَاتُ السَّرِيعَةُ خَطَرٌ فِي إِسْطَنْبُولَ",
-"sw": "السَّرِيعَةُ",
-"st": "Hızlı arabalar İstanbul'da tehlikedir."
+"s": "لَاعِبُ الفَرِيقِ سَرِيعٌ جِدًّا.",
+"sw": "سَرِيعٌ",
+"st": "Takımın oyuncusu çok hızlıdır.",
+"dl": [
+"izafet",
+"sifat",
+"famel",
+"mefulmaah"
+]
 },
 {
-"id": "sifat-2",
-"d": "sifat",
-"w": "مَاهِرٌ",
-"t": "s",
-"tr": "usta, becerikli",
-"c": "مَهَرَةٌ",
-"k": "feale",
-"e": "حَاذِقٌ",
-"z": "",
-"s": "كَتَبَ الطَّبِيبُ المَاهِرُ عِلَاجًا قَوِيًّا.",
-"sw": "المَاهِرُ",
-"st": "Usta doktor güçlü bir ilaç yazdı."
-},
-{
-"id": "sifat-3",
+"id": "sifat-0",
 "d": "sifat",
 "w": "بَارِدٌ",
 "t": "s",
@@ -1313,21 +2848,11 @@ var KELIMELER = [
 "z": "حَارٌّ",
 "s": "شَرِبَ الطِّفْلُ مَاءً بَارِدًا.",
 "sw": "بَارِدًا",
-"st": "Çocuk soğuk su içti."
-},
-{
-"id": "sifat-4",
-"d": "sifat",
-"w": "حَدِيقَةٌ",
-"t": "i",
-"tr": "bahçe",
-"c": "حَدَائِقُ",
-"k": "feail",
-"e": "بُسْتَانٌ",
-"z": "",
-"s": "نَسْكُنُ فِي حَدِيقَةٍ وَاسِعَةٍ.",
-"sw": "حَدِيقَةٍ",
-"st": "Geniş bir bahçede oturuyoruz."
+"st": "Çocuk soğuk su içti.",
+"dl": [
+"sifat",
+"kane"
+]
 },
 {
 "id": "sifatcesit-0",
@@ -1341,7 +2866,10 @@ var KELIMELER = [
 "z": "كَثِيرٌ",
 "s": "شَرِبْتُ مَعَ بِنْتِي قَهْوَةً سُكَّرُهَا قَلِيلٌ.",
 "sw": "قَلِيلٌ",
-"st": "Kızımla şekeri az bir kahve içtim."
+"st": "Kızımla şekeri az bir kahve içtim.",
+"dl": [
+"sifatcesit"
+]
 },
 {
 "id": "harfcer-0",
@@ -1355,7 +2883,12 @@ var KELIMELER = [
 "z": "",
 "s": "نَظَرَتْ زَيْنَبُ مِنَ النَّافِذَةِ.",
 "sw": "النَّافِذَةِ",
-"st": "Zeynep pencereden baktı."
+"st": "Zeynep pencereden baktı.",
+"dl": [
+"harfcer",
+"isaret",
+"nasb"
+]
 },
 {
 "id": "harfcer-1",
@@ -1369,7 +2902,11 @@ var KELIMELER = [
 "z": "",
 "s": "زَادَتْ أَسْعَارُ النِّفْطِ عَنِ العَامِ المَاضِي",
 "sw": "أَسْعَارُ",
-"st": "Petrol fiyatları geçen yıla göre arttı."
+"st": "Petrol fiyatları geçen yıla göre arttı.",
+"dl": [
+"harfcer",
+"tekid"
+]
 },
 {
 "id": "harfcer-2",
@@ -1383,7 +2920,10 @@ var KELIMELER = [
 "z": "قَادِمٌ",
 "s": "زَادَتْ أَسْعَارُ النِّفْطِ عَنِ العَامِ المَاضِي",
 "sw": "المَاضِي",
-"st": "Petrol fiyatları geçen yıla göre arttı."
+"st": "Petrol fiyatları geçen yıla göre arttı.",
+"dl": [
+"harfcer"
+]
 },
 {
 "id": "harfcer-3",
@@ -1397,7 +2937,10 @@ var KELIMELER = [
 "z": "مَسَاءٌ",
 "s": "يَبْكِي الطِّفْلُ مُنْذُ الصَّبَاحِ",
 "sw": "الصَّبَاحِ",
-"st": "Çocuk sabahtan beri ağlıyor."
+"st": "Çocuk sabahtan beri ağlıyor.",
+"dl": [
+"harfcer"
+]
 },
 {
 "id": "harfcer-4",
@@ -1411,7 +2954,10 @@ var KELIMELER = [
 "z": "",
 "s": "جَلَسَ مُرَادٌ عَلَى الكُرْسِيِّ",
 "sw": "الكُرْسِيِّ",
-"st": "Murâd sandalyeye oturdu."
+"st": "Murâd sandalyeye oturdu.",
+"dl": [
+"harfcer"
+]
 },
 {
 "id": "haber-0",
@@ -1425,7 +2971,10 @@ var KELIMELER = [
 "z": "",
 "s": "المَوْزُ فَاكِهَةٌ طَعْمُهَا لَذِيذٌ.",
 "sw": "فَاكِهَةٌ",
-"st": "Muz, tadı lezzetli bir meyvedir."
+"st": "Muz, tadı lezzetli bir meyvedir.",
+"dl": [
+"haber"
+]
 },
 {
 "id": "haber-1",
@@ -1439,7 +2988,10 @@ var KELIMELER = [
 "z": "",
 "s": "المَوْزُ فَاكِهَةٌ طَعْمُهَا لَذِيذٌ.",
 "sw": "لَذِيذٌ",
-"st": "Muz, tadı lezzetli bir meyvedir."
+"st": "Muz, tadı lezzetli bir meyvedir.",
+"dl": [
+"haber"
+]
 },
 {
 "id": "haber-2",
@@ -1453,7 +3005,10 @@ var KELIMELER = [
 "z": "كَسُولٌ",
 "s": "الطُّلَّابُ نَشِيطُونَ فِي الجَامِعَةِ.",
 "sw": "نَشِيطُونَ",
-"st": "Öğrenciler üniversitede çalışkandır."
+"st": "Öğrenciler üniversitede çalışkandır.",
+"dl": [
+"haber"
+]
 },
 {
 "id": "haber-3",
@@ -1467,7 +3022,10 @@ var KELIMELER = [
 "z": "",
 "s": "النَّوْمُ ضَرُورَةٌ لِكُلِّ الكَائِنَاتِ الحَيَّةِ",
 "sw": "ضَرُورَةٌ",
-"st": "Uyku bütün canlılar için zorunluluktur."
+"st": "Uyku bütün canlılar için zorunluluktur.",
+"dl": [
+"haber"
+]
 },
 {
 "id": "haber-4",
@@ -1481,7 +3039,10 @@ var KELIMELER = [
 "z": "يَقَظَةٌ",
 "s": "النَّوْمُ ضَرُورَةٌ لِكُلِّ الكَائِنَاتِ الحَيَّةِ",
 "sw": "النَّوْمُ",
-"st": "Uyku bütün canlılar için zorunluluktur."
+"st": "Uyku bütün canlılar için zorunluluktur.",
+"dl": [
+"haber"
+]
 },
 {
 "id": "takdim-0",
@@ -1495,7 +3056,10 @@ var KELIMELER = [
 "z": "",
 "s": "فِي السُّوقِ مَحَلَّاتٌ كَثِيرَةٌ.",
 "sw": "مَحَلَّاتٌ",
-"st": "Çarşıda çok dükkân var."
+"st": "Çarşıda çok dükkân var.",
+"dl": [
+"takdim"
+]
 },
 {
 "id": "takdim-1",
@@ -1509,7 +3073,10 @@ var KELIMELER = [
 "z": "",
 "s": "أَمَامَ عِمَارَتِنَا سَيَّارَاتٌ كَثِيرَةٌ.",
 "sw": "عِمَارَتِنَا",
-"st": "Apartmanımızın önünde çok araba var."
+"st": "Apartmanımızın önünde çok araba var.",
+"dl": [
+"takdim"
+]
 },
 {
 "id": "takdim-2",
@@ -1523,7 +3090,10 @@ var KELIMELER = [
 "z": "عَبْدٌ",
 "s": "الحُرُّ عَبْدٌ إِذَا طَمِعَ.",
 "sw": "الحُرُّ",
-"st": "Hür, tamah edince köle olur."
+"st": "Hür, tamah edince köle olur.",
+"dl": [
+"takdim"
+]
 },
 {
 "id": "takdim-3",
@@ -1537,24 +3107,218 @@ var KELIMELER = [
 "z": "بَخِيلٌ",
 "s": "لِكُلِّ كَرِيمٍ عَادَةٌ يَسْتَعِيدُهَا",
 "sw": "كَرِيمٍ",
-"st": "Her cömerdin tekrar tekrar yaptığı bir âdeti vardır."
+"st": "Her cömerdin tekrar tekrar yaptığı bir âdeti vardır.",
+"dl": [
+"takdim"
+]
+},
+{
+"id": "isaret-0",
+"d": "isaret",
+"w": "أَسَدٌ",
+"t": "i",
+"tr": "aslan",
+"c": "أُسُودٌ",
+"k": "fuul",
+"e": "لَيْثٌ",
+"z": "",
+"s": "وَكَانَ فِي هَذِهِ الغَابَةِ أَسَدٌ.",
+"sw": "أَسَدٌ",
+"st": "Bu ormanda bir aslan vardı.",
+"dl": [
+"isaret"
+]
+},
+{
+"id": "isaret-1",
+"d": "isaret",
+"w": "قَصْرٌ",
+"t": "i",
+"tr": "saray, köşk",
+"c": "قُصُورٌ",
+"k": "fuul",
+"e": "",
+"z": "",
+"s": "زَارَ يَحْيَى تِلْكَ القُصُورَ.",
+"sw": "القُصُورَ",
+"st": "Yahyâ şu sarayları ziyaret etti.",
+"dl": [
+"isaret"
+]
+},
+{
+"id": "isaret-2",
+"d": "isaret",
+"w": "عَذْبٌ",
+"t": "s",
+"tr": "tatlı (su)",
+"c": "عِذَابٌ",
+"k": "fial",
+"e": "",
+"z": "مَالِحٌ",
+"s": "يَا أَحْمَدُ اشْرَبْ هَذَا المَاءَ العَذْبَ.",
+"sw": "العَذْبَ",
+"st": "Ey Ahmed, bu tatlı suyu iç.",
+"dl": [
+"isaret"
+]
+},
+{
+"id": "isaret-3",
+"d": "isaret",
+"w": "رَفَضَ",
+"t": "f",
+"tr": "reddetti",
+"c": "",
+"k": "",
+"e": "أَبَى",
+"z": "قَبِلَ",
+"s": "رَفَضَ الأَبُ ذَلِكَ الطَّلَبَ بِأَدَبٍ.",
+"sw": "رَفَضَ",
+"st": "Baba o isteği nezaketle reddetti.",
+"dl": [
+"isaret"
+]
+},
+{
+"id": "mevsul-0",
+"d": "mevsul",
+"w": "عَامِلٌ",
+"t": "i",
+"tr": "işçi",
+"c": "عُمَّالٌ",
+"k": "fual",
+"e": "",
+"z": "",
+"s": "سَلَّمْتُ عَلَى العُمَّالِ الَّذِينَ يَعْمَلُونَ فِي المَصْنَعِ.",
+"sw": "العُمَّالِ",
+"st": "Fabrikada çalışan işçilere selâm verdim.",
+"dl": [
+"mevsul",
+"hal"
+]
+},
+{
+"id": "mevsul-1",
+"d": "mevsul",
+"w": "زَهْرَةٌ",
+"t": "i",
+"tr": "çiçek",
+"c": "أَزْهَارٌ / زُهُورٌ",
+"k": "efal",
+"e": "",
+"z": "",
+"s": "قَطَفْتُ الزَّهْرَتَيْنِ اللَّتَيْنِ فِي الحَدِيقَةِ.",
+"sw": "الزَّهْرَتَيْنِ",
+"st": "Bahçedeki iki çiçeği kopardım.",
+"dl": [
+"mevsul"
+]
+},
+{
+"id": "istifham-0",
+"d": "istifham",
+"w": "مُهَنْدِسٌ",
+"t": "i",
+"tr": "mühendis",
+"c": "مُهَنْدِسُونَ",
+"k": "un",
+"e": "",
+"z": "",
+"s": "أَأَنْتَ مُدَرِّسٌ أَمْ مُهَنْدِسٌ؟",
+"sw": "مُهَنْدِسٌ",
+"st": "Öğretmen misin, mühendis mi?",
+"dl": [
+"istifham"
+]
+},
+{
+"id": "nefy-0",
+"d": "nefy",
+"w": "لَحْمٌ",
+"t": "i",
+"tr": "et",
+"c": "لُحُومٌ",
+"k": "fuul",
+"e": "",
+"z": "",
+"s": "لَمْ يَأْكُلِ الرَّجُلُ اللَّحْمَ.",
+"sw": "اللَّحْمَ",
+"st": "Adam et yemedi.",
+"dl": [
+"nefy"
+]
+},
+{
+"id": "nefy-1",
+"d": "nefy",
+"w": "رِسَالَةٌ",
+"t": "i",
+"tr": "mektup",
+"c": "رَسَائِلُ",
+"k": "feail",
+"e": "خِطَابٌ",
+"z": "",
+"s": "لِمَاذَا أَخَذَتِ المَرْأَةُ الرِّسَالَةَ إِلَى المُعَلِّمِ؟",
+"sw": "الرِّسَالَةَ",
+"st": "Kadın mektubu niçin öğretmene götürdü?",
+"dl": [
+"nefy"
+]
+},
+{
+"id": "nefy-2",
+"d": "nefy",
+"w": "هَادِئٌ",
+"t": "s",
+"tr": "sakin",
+"c": "",
+"k": "",
+"e": "سَاكِنٌ",
+"z": "صَاخِبٌ",
+"s": "لَيْسَتِ الحَيَاةُ فِي المَدِينَةِ هَادِئَةً.",
+"sw": "هَادِئَةً",
+"st": "Şehirde hayat sakin değil.",
+"dl": [
+"nefy"
+]
+},
+{
+"id": "nefy-3",
+"d": "nefy",
+"w": "مُدِيرٌ",
+"t": "i",
+"tr": "müdür",
+"c": "مُدِيرُونَ",
+"k": "un",
+"e": "",
+"z": "",
+"s": "لَيْسَ المُدِيرُ مَوْجُودًا فِي مَكْتَبِهِ.",
+"sw": "المُدِيرُ",
+"st": "Müdür odasında değil.",
+"dl": [
+"nefy"
+]
+},
+{
+"id": "nefy-4",
+"d": "nefy",
+"w": "سَمِينٌ",
+"t": "s",
+"tr": "şişman",
+"c": "سِمَانٌ",
+"k": "fial",
+"e": "بَدِينٌ",
+"z": "نَحِيفٌ",
+"s": "يَجِبُ أَنْ يَتَّبِعَ الرَّجُلُ السَّمِينُ الحِمْيَةَ كَمَا يَنْصَحُهُ الطَّبِيبُ.",
+"sw": "السَّمِينُ",
+"st": "Şişman adamın, doktorun tavsiye ettiği gibi diyete uyması gerekir.",
+"dl": [
+"nefy"
+]
 },
 {
 "id": "cezm-0",
-"d": "cezm",
-"w": "أَرْضٌ",
-"t": "i",
-"tr": "yer, toprak",
-"c": "أَرَاضٍ",
-"k": "diger",
-"e": "",
-"z": "سَمَاءٌ",
-"s": "لَا تَجْلِسْ عَلَى الأَرْضِ",
-"sw": "الأَرْضِ",
-"st": "Yere oturma!"
-},
-{
-"id": "cezm-1",
 "d": "cezm",
 "w": "صِدْقٌ",
 "t": "i",
@@ -1565,10 +3329,14 @@ var KELIMELER = [
 "z": "كَذِبٌ",
 "s": "لَا تَتَكَلَّمْ إِلَّا الصِّدْقَ",
 "sw": "الصِّدْقَ",
-"st": "Doğrudan başkasını konuşma!"
+"st": "Doğrudan başkasını konuşma!",
+"dl": [
+"cezm",
+"nasb"
+]
 },
 {
-"id": "cezm-2",
+"id": "cezm-1",
 "d": "cezm",
 "w": "قَوْمٌ",
 "t": "i",
@@ -1579,24 +3347,13 @@ var KELIMELER = [
 "z": "",
 "s": "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسَى أَنْ يَكُونُوا خَيْرًا مِنْهُمْ",
 "sw": "قَوْمٌ",
-"st": "Ey iman edenler! Bir topluluk diğerini alaya almasın; belki onlar kendilerinden daha hayırlıdır. (Hucurât 11)"
+"st": "Ey iman edenler! Bir topluluk diğerini alaya almasın; belki onlar kendilerinden daha hayırlıdır. (Hucurât 11)",
+"dl": [
+"cezm"
+]
 },
 {
-"id": "cezm-3",
-"d": "cezm",
-"w": "لُغَةٌ",
-"t": "i",
-"tr": "dil",
-"c": "لُغَاتٌ",
-"k": "at",
-"e": "لِسَانٌ",
-"z": "",
-"s": "يُرِيدُ مَحْمُودٌ أَنْ يَتَعَلَّمَ اللُّغَةَ العَرَبِيَّةَ جَيِّدًا حَتَّى يَفْهَمَ القُرْآنَ.",
-"sw": "اللُّغَةَ",
-"st": "Mahmud Kur'an'ı anlamak için Arapçayı iyi öğrenmek istiyor."
-},
-{
-"id": "cezm-4",
+"id": "cezm-2",
 "d": "cezm",
 "w": "جَيِّدٌ",
 "t": "s",
@@ -1607,7 +3364,61 @@ var KELIMELER = [
 "z": "رَدِيءٌ",
 "s": "مَاذَا يَجِبُ عَلَيَّ أَنْ أَفْعَلَ كَيْ أَتَحَدَّثَ العَرَبِيَّةَ جَيِّدًا؟",
 "sw": "جَيِّدًا",
-"st": "Arapçayı iyi konuşmak için ne yapmam gerekir?"
+"st": "Arapçayı iyi konuşmak için ne yapmam gerekir?",
+"dl": [
+"cezm"
+]
+},
+{
+"id": "nasb-0",
+"d": "nasb",
+"w": "مَالٌ",
+"t": "i",
+"tr": "mal, servet",
+"c": "أَمْوَالٌ",
+"k": "efal",
+"e": "ثَرْوَةٌ",
+"z": "",
+"s": "أَخَافُ أَنْ يَقْضِيَ حُمْقِي عَلَى مَالِي",
+"sw": "مَالِي",
+"st": "Ahmaklığımın malımı tüketmesinden korkarım.",
+"dl": [
+"nasb"
+]
+},
+{
+"id": "nasb-1",
+"d": "nasb",
+"w": "رَطْبٌ",
+"t": "s",
+"tr": "yaş, yumuşak",
+"c": "",
+"k": "",
+"e": "لَيِّنٌ",
+"z": "يَابِسٌ",
+"s": "لَا تَكُنْ رَطْبًا فَتُعْصَرَ وَلَا يَابِسًا فَتُكْسَرَ",
+"sw": "رَطْبًا",
+"st": "Yaş olma ki sıkılasın, kuru da olma ki kırılasın.",
+"dl": [
+"nasb"
+]
+},
+{
+"id": "nasb-2",
+"d": "nasb",
+"w": "خَلِيفَةٌ",
+"t": "i",
+"tr": "halife",
+"c": "خُلَفَاءُ",
+"k": "fuala",
+"e": "",
+"z": "",
+"s": "كَانَ الخَلِيفَةُ يَمْشِي فِي طَرِيقٍ، فَمَرَّ بِأَطْفَالٍ يَلْعَبُونَ.",
+"sw": "الخَلِيفَةُ",
+"st": "Halife bir yolda yürüyordu, oynayan çocukların yanından geçti.",
+"dl": [
+"nasb"
+]
 },
 {
 "id": "esmahamse-0",
@@ -1621,7 +3432,10 @@ var KELIMELER = [
 "z": "",
 "s": "اتَّخِذْ دَائِمًا صَدِيقًا ذَا خُلُقٍ حَسَنٍ.",
 "sw": "خُلُقٍ",
-"st": "Daima güzel ahlak sahibi bir dost edin."
+"st": "Daima güzel ahlak sahibi bir dost edin.",
+"dl": [
+"esmahamse"
+]
 },
 {
 "id": "esmahamse-1",
@@ -1635,7 +3449,10 @@ var KELIMELER = [
 "z": "",
 "s": "لَا تُخْرِجْ مِنْ فِيكَ قَوْلًا سَيِّئًا.",
 "sw": "قَوْلًا",
-"st": "Ağzından kötü bir söz çıkarma."
+"st": "Ağzından kötü bir söz çıkarma.",
+"dl": [
+"esmahamse"
+]
 },
 {
 "id": "esmahamse-2",
@@ -1649,21 +3466,10 @@ var KELIMELER = [
 "z": "حَيَاةٌ",
 "s": "كَانَ يَشْتَغِلُ بِالعِلْمِ فَقَطْ قَبْلَ مَوْتِ أَبِيهِ.",
 "sw": "مَوْتِ",
-"st": "Babasının ölümünden önce yalnız ilimle uğraşıyordu."
-},
-{
-"id": "esmahamse-3",
-"d": "esmahamse",
-"w": "مُسْتَشْفًى",
-"t": "i",
-"tr": "hastane",
-"c": "مُسْتَشْفَيَاتٌ",
-"k": "at",
-"e": "",
-"z": "",
-"s": "زَارَتِ المَرْأَةُ حَمَاهَا المَرِيضَ فِي المُسْتَشْفَى.",
-"sw": "المُسْتَشْفَى",
-"st": "Kadın hasta kayınpederini hastanede ziyaret etti."
+"st": "Babasının ölümünden önce yalnız ilimle uğraşıyordu.",
+"dl": [
+"esmahamse"
+]
 },
 {
 "id": "inne-0",
@@ -1677,7 +3483,10 @@ var KELIMELER = [
 "z": "مَوْتٌ",
 "s": "كَأَنَّ هَذَا الوَلَدَ سَيَنْجَحُ فِي الحَيَاةِ.",
 "sw": "الحَيَاةِ",
-"st": "Bu çocuk sanki hayatta başarılı olacak."
+"st": "Bu çocuk sanki hayatta başarılı olacak.",
+"dl": [
+"inne"
+]
 },
 {
 "id": "inne-1",
@@ -1691,7 +3500,10 @@ var KELIMELER = [
 "z": "",
 "s": "إِنَّ اللهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا",
 "sw": "الذُّنُوبَ",
-"st": "Şüphesiz Allah bütün günahları bağışlar. (Zümer 53)"
+"st": "Şüphesiz Allah bütün günahları bağışlar. (Zümer 53)",
+"dl": [
+"inne"
+]
 },
 {
 "id": "inne-2",
@@ -1705,7 +3517,10 @@ var KELIMELER = [
 "z": "",
 "s": "كَأَنَّ المُسْلِمِينَ جَسَدٌ وَاحِدٌ",
 "sw": "جَسَدٌ",
-"st": "Müslümanlar sanki tek beden."
+"st": "Müslümanlar sanki tek beden.",
+"dl": [
+"inne"
+]
 },
 {
 "id": "inne-3",
@@ -1719,7 +3534,201 @@ var KELIMELER = [
 "z": "",
 "s": "يَا لَيْتَنِي كُنْتُ تُرَابًا",
 "sw": "تُرَابًا",
-"st": "Keşke toprak olsaydım!"
+"st": "Keşke toprak olsaydım!",
+"dl": [
+"inne"
+]
+},
+{
+"id": "kaffe-0",
+"d": "kaffe",
+"w": "سُوقٌ",
+"t": "i",
+"tr": "çarşı, pazar",
+"c": "أَسْوَاقٌ",
+"k": "efal",
+"e": "",
+"z": "",
+"s": "لِمَاذَا زَارَ الكَاتِبُ السُّوقَ؟",
+"sw": "السُّوقَ",
+"st": "Yazar çarşıyı niçin ziyaret etti?",
+"dl": [
+"kaffe"
+]
+},
+{
+"id": "kaffe-1",
+"d": "kaffe",
+"w": "نَهْرٌ",
+"t": "i",
+"tr": "nehir",
+"c": "أَنْهَارٌ",
+"k": "efal",
+"e": "",
+"z": "",
+"s": "شَبَّهَهَا بِأَنْهَارٍ تَزْخَرُ بِالنَّاسِ.",
+"sw": "بِأَنْهَارٍ",
+"st": "Onları insanlarla dolup taşan nehirlere benzetti.",
+"dl": [
+"kaffe"
+]
+},
+{
+"id": "kane-0",
+"d": "kane",
+"w": "ثَوْبٌ",
+"t": "i",
+"tr": "elbise, gömlek",
+"c": "ثِيَابٌ",
+"k": "fial",
+"e": "لِبَاسٌ",
+"z": "",
+"s": "لِأَنَّ ثَوْبَهُ سَقَطَ مِنَ السَّطْحِ، فَخَافَ: لَوْ كَانَ فِي الثَّوْبِ لَوَقَعَ وَمَاتَ.",
+"sw": "ثَوْبَهُ",
+"st": "Çünkü gömleği damdan düştü; korktu: Gömleğin içinde olsaydı düşüp ölürdü.",
+"dl": [
+"kane",
+"ikimeful"
+]
+},
+{
+"id": "mukarabe-0",
+"d": "mukarabe",
+"w": "مُسَابَقَةٌ",
+"t": "i",
+"tr": "yarışma",
+"c": "مُسَابَقَاتٌ",
+"k": "at",
+"e": "",
+"z": "",
+"s": "كَادَ أَحْمَدُ يَفُوزُ فِي المُسَابَقَةِ.",
+"sw": "المُسَابَقَةِ",
+"st": "Ahmed neredeyse yarışmayı kazanıyordu.",
+"dl": [
+"mukarabe"
+]
+},
+{
+"id": "mukarabe-1",
+"d": "mukarabe",
+"w": "طِفْلٌ",
+"t": "i",
+"tr": "çocuk",
+"c": "أَطْفَالٌ",
+"k": "efal",
+"e": "صَبِيٌّ",
+"z": "",
+"s": "يَكَادُ الطِّفْلُ يَسْقُطُ مِنَ الشُّرْفَةِ.",
+"sw": "الطِّفْلُ",
+"st": "Çocuk neredeyse balkondan düşecek.",
+"dl": [
+"mukarabe"
+]
+},
+{
+"id": "mukarabe-2",
+"d": "mukarabe",
+"w": "سَهْلٌ",
+"t": "s",
+"tr": "kolay",
+"c": "",
+"k": "",
+"e": "يَسِيرٌ",
+"z": "صَعْبٌ",
+"s": "عَسَى أَسْئِلَةُ الِاخْتِبَارِ أَنْ تَكُونَ سَهْلَةً.",
+"sw": "سَهْلَةً",
+"st": "Umulur ki sınav soruları kolay olur.",
+"dl": [
+"mukarabe",
+"masamel"
+]
+},
+{
+"id": "lacins-0",
+"d": "lacins",
+"w": "ظَالِمٌ",
+"t": "s",
+"tr": "zalim",
+"c": "ظَالِمُونَ / ظَلَمَةٌ",
+"k": "un",
+"e": "",
+"z": "عَادِلٌ",
+"s": "لَا خَيْرَ فِي الحَاكِمِ الظَّالِمِ.",
+"sw": "الظَّالِمِ",
+"st": "Zalim yöneticide hiç hayır yoktur.",
+"dl": [
+"lacins",
+"mefulmutlak",
+"taaccub"
+]
+},
+{
+"id": "lacins-1",
+"d": "lacins",
+"w": "حَاكِمٌ",
+"t": "i",
+"tr": "yönetici, hâkim",
+"c": "حُكَّامٌ",
+"k": "fual",
+"e": "",
+"z": "",
+"s": "لَا خَيْرَ فِي الحَاكِمِ الظَّالِمِ.",
+"sw": "الحَاكِمِ",
+"st": "Zalim yöneticide hiç hayır yoktur.",
+"dl": [
+"lacins"
+]
+},
+{
+"id": "lacins-2",
+"d": "lacins",
+"w": "سَارِقٌ",
+"t": "i",
+"tr": "hırsız",
+"c": "سَارِقُونَ / سُرَّاقٌ",
+"k": "un",
+"e": "لِصٌّ",
+"z": "",
+"s": "لَا الكَاذِبُ مَمْدُوحٌ وَلَا السَّارِقُ مَقْبُولٌ.",
+"sw": "السَّارِقُ",
+"st": "Ne yalancı övülür ne hırsız kabul görür.",
+"dl": [
+"lacins"
+]
+},
+{
+"id": "lacins-3",
+"d": "lacins",
+"w": "خَوْفٌ",
+"t": "i",
+"tr": "korku",
+"c": "",
+"k": "",
+"e": "خَشْيَةٌ",
+"z": "أَمْنٌ",
+"s": "يَعِيشُونَ فِي أَمْنٍ وَسِلْمٍ بِلَا خَوْفٍ وَلَا قَلَقٍ.",
+"sw": "خَوْفٍ",
+"st": "Korkusuz ve kaygısız, güven ve barış içinde yaşıyorlar.",
+"dl": [
+"lacins"
+]
+},
+{
+"id": "lacins-4",
+"d": "lacins",
+"w": "كَبِيرٌ",
+"t": "s",
+"tr": "büyük",
+"c": "كِبَارٌ",
+"k": "fial",
+"e": "",
+"z": "صَغِيرٌ",
+"s": "هِيَ مَدِينَةٌ لَا كَبِيرَةٌ وَلَا صَغِيرَةٌ.",
+"sw": "كَبِيرَةٌ",
+"st": "O, ne büyük ne küçük bir şehirdir.",
+"dl": [
+"lacins"
+]
 },
 {
 "id": "zarf-0",
@@ -1733,7 +3742,10 @@ var KELIMELER = [
 "z": "سَهْلٌ",
 "s": "تَجْرِي الأَنْهَارُ بَيْنَ الجِبَالِ.",
 "sw": "الجِبَالِ",
-"st": "Irmaklar dağların arasında akar."
+"st": "Irmaklar dağların arasında akar.",
+"dl": [
+"zarf"
+]
 },
 {
 "id": "zarf-1",
@@ -1747,7 +3759,10 @@ var KELIMELER = [
 "z": "",
 "s": "انْتَشَرَتِ الجَرِيمَةُ فِي المُدُنِ خِلَالَ عَشْرِ سِنِينَ.",
 "sw": "الجَرِيمَةُ",
-"st": "Suç on yıl içinde şehirlerde yayıldı."
+"st": "Suç on yıl içinde şehirlerde yayıldı.",
+"dl": [
+"zarf"
+]
 },
 {
 "id": "zarf-2",
@@ -1761,7 +3776,10 @@ var KELIMELER = [
 "z": "جَنُوبٌ",
 "s": "يَقَعُ البَحْرُ الأَسْوَدُ شَمَالَ تُرْكِيَا.",
 "sw": "شَمَالَ",
-"st": "Karadeniz Türkiye'nin kuzeyindedir."
+"st": "Karadeniz Türkiye'nin kuzeyindedir.",
+"dl": [
+"zarf"
+]
 },
 {
 "id": "zarf-3",
@@ -1775,49 +3793,11 @@ var KELIMELER = [
 "z": "",
 "s": "تَتَنَقَّلُ العَصَافِيرُ بَيْنَ الأَشْجَارِ فِي الصَّبَاحِ.",
 "sw": "العَصَافِيرُ",
-"st": "Serçeler sabah ağaçların arasında dolaşır."
-},
-{
-"id": "hal-0",
-"d": "hal",
-"w": "سَعِيدٌ",
-"t": "s",
-"tr": "mutlu",
-"c": "سُعَدَاءُ",
-"k": "fuala",
-"e": "مَسْرُورٌ",
-"z": "حَزِينٌ",
-"s": "انْصَرَفَ الطُّلَّابُ إِلَى المَدْرَسَةِ سُعَدَاءَ.",
-"sw": "سُعَدَاءَ",
-"st": "Öğrenciler okula mutlu gitti."
-},
-{
-"id": "hal-1",
-"d": "hal",
-"w": "قَرْيَةٌ",
-"t": "i",
-"tr": "köy",
-"c": "قُرًى",
-"k": "fual_f",
-"e": "",
-"z": "مَدِينَةٌ",
-"s": "أَقْبَلَتِ السَّيَّارَةُ مُسْرِعَةً نَحْوَ القَرْيَةِ.",
-"sw": "القَرْيَةِ",
-"st": "Araba köye doğru hızla geldi."
-},
-{
-"id": "hal-2",
-"d": "hal",
-"w": "عَامِلٌ",
-"t": "i",
-"tr": "işçi",
-"c": "عُمَّالٌ",
-"k": "fual",
-"e": "",
-"z": "",
-"s": "رَأَيْتُ العُمَّالَ وَاقِفِينَ تَحْتَ الشَّمْسِ.",
-"sw": "العُمَّالَ",
-"st": "İşçileri güneşin altında ayakta gördüm."
+"st": "Serçeler sabah ağaçların arasında dolaşır.",
+"dl": [
+"zarf",
+"mustesna"
+]
 },
 {
 "id": "temyiz-0",
@@ -1831,7 +3811,10 @@ var KELIMELER = [
 "z": "",
 "s": "إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا",
 "sw": "كَوْكَبًا",
-"st": "Ben on bir yıldız gördüm."
+"st": "Ben on bir yıldız gördüm.",
+"dl": [
+"temyiz"
+]
 },
 {
 "id": "temyiz-1",
@@ -1845,7 +3828,10 @@ var KELIMELER = [
 "z": "",
 "s": "فِي السَّنَةِ اِثْنَا عَشَرَ شَهْرًا.",
 "sw": "شَهْرًا",
-"st": "Yılda on iki ay vardır."
+"st": "Yılda on iki ay vardır.",
+"dl": [
+"temyiz"
+]
 },
 {
 "id": "temyiz-2",
@@ -1859,7 +3845,10 @@ var KELIMELER = [
 "z": "",
 "s": "لِلْقَصْرِ ثَلَاثَ عَشْرَةَ غُرْفَةً.",
 "sw": "غُرْفَةً",
-"st": "Sarayın on üç odası var."
+"st": "Sarayın on üç odası var.",
+"dl": [
+"temyiz"
+]
 },
 {
 "id": "temyiz-3",
@@ -1873,7 +3862,10 @@ var KELIMELER = [
 "z": "لَيْلَةٌ",
 "s": "فِي الأُسْبُوعِ سَبْعَةُ أَيَّامٍ.",
 "sw": "أَيَّامٍ",
-"st": "Haftada yedi gün vardır."
+"st": "Haftada yedi gün vardır.",
+"dl": [
+"temyiz"
+]
 },
 {
 "id": "temyiz-4",
@@ -1887,7 +3879,10 @@ var KELIMELER = [
 "z": "امْرَأَةٌ",
 "s": "قُتِلَ أَلْفُ رَجُلٍ فِي الاشْتِبَاكَاتِ.",
 "sw": "رَجُلٍ",
-"st": "Çatışmalarda bin erkek öldürüldü."
+"st": "Çatışmalarda bin erkek öldürüldü.",
+"dl": [
+"temyiz"
+]
 },
 {
 "id": "temyizgenel-0",
@@ -1901,7 +3896,11 @@ var KELIMELER = [
 "z": "",
 "s": "كَبُرَ الرَّجُلُ حُبًّا لِوَطَنِهِ فِي الغُرْبَةِ.",
 "sw": "لِوَطَنِهِ",
-"st": "Gurbette adamın vatan sevgisi büyüdü."
+"st": "Gurbette adamın vatan sevgisi büyüdü.",
+"dl": [
+"temyizgenel",
+"masamel"
+]
 },
 {
 "id": "temyizgenel-1",
@@ -1915,7 +3914,10 @@ var KELIMELER = [
 "z": "",
 "s": "يَزْدَادُ ازْدِحَامُ الطُّرُقِ صَبَاحًا.",
 "sw": "الطُّرُقِ",
-"st": "Sabahları yolların kalabalığı artar."
+"st": "Sabahları yolların kalabalığı artar.",
+"dl": [
+"temyizgenel"
+]
 },
 {
 "id": "temyizgenel-2",
@@ -1929,21 +3931,163 @@ var KELIMELER = [
 "z": "سَيِّئٌ",
 "s": "عَلَى المُسْلِمِ أَنْ يَكُونَ خُلُقُهُ حَسَنًا.",
 "sw": "حَسَنًا",
-"st": "Müslümanın ahlakı güzel olmalı."
+"st": "Müslümanın ahlakı güzel olmalı.",
+"dl": [
+"temyizgenel"
+]
 },
 {
-"id": "temyizgenel-3",
-"d": "temyizgenel",
-"w": "بَرْدٌ",
+"id": "mustesna-0",
+"d": "mustesna",
+"w": "طَائِرٌ",
 "t": "i",
-"tr": "soğuk",
+"tr": "kuş",
+"c": "طُيُورٌ",
+"k": "fuul",
+"e": "",
+"z": "",
+"s": "هَاجَرَتِ الطُّيُورُ إِلَّا العَصَافِيرَ.",
+"sw": "الطُّيُورُ",
+"st": "Kuşlar göç etti, serçeler hariç.",
+"dl": [
+"mustesna"
+]
+},
+{
+"id": "mustesna-1",
+"d": "mustesna",
+"w": "كَاذِبٌ",
+"t": "s",
+"tr": "yalancı",
+"c": "كَاذِبُونَ",
+"k": "un",
+"e": "",
+"z": "صَادِقٌ",
+"s": "أُحِبُّ النَّاسَ إِلَّا الكَاذِبِينَ.",
+"sw": "الكَاذِبِينَ",
+"st": "Yalancılar dışında insanları severim.",
+"dl": [
+"mustesna"
+]
+},
+{
+"id": "atif-0",
+"d": "atif",
+"w": "نُورٌ",
+"t": "i",
+"tr": "ışık, nur",
+"c": "أَنْوَارٌ",
+"k": "efal",
+"e": "ضِيَاءٌ",
+"z": "ظُلْمَةٌ",
+"s": "العِلْمُ نُورٌ وَالجَهْلُ ظُلْمَةٌ.",
+"sw": "نُورٌ",
+"st": "İlim nurdur, cehalet karanlıktır.",
+"dl": [
+"atif"
+]
+},
+{
+"id": "atif-1",
+"d": "atif",
+"w": "عَدْلٌ",
+"t": "i",
+"tr": "adalet",
 "c": "",
 "k": "",
+"e": "قِسْطٌ",
+"z": "ظُلْمٌ",
+"s": "جَاءَ العَدْلُ وَزَالَ الظُّلْمُ.",
+"sw": "العَدْلُ",
+"st": "Adalet geldi ve zulüm yok oldu.",
+"dl": [
+"atif"
+]
+},
+{
+"id": "atif-2",
+"d": "atif",
+"w": "أَثَرٌ",
+"t": "i",
+"tr": "eser, iz",
+"c": "آثَارٌ",
+"k": "efal",
 "e": "",
-"z": "حَرٌّ",
-"s": "اشْتَدَّ بَرْدُ إِسْطَنْبُولَ هَذِهِ الأَيَّامَ.",
-"sw": "بَرْدُ",
-"st": "Bu günlerde İstanbul'un soğuğu şiddetlendi."
+"z": "",
+"s": "اذْكُرْ أَثَرًا مِنَ العَهْدِ الرُّومَانِيِّ.",
+"sw": "أَثَرًا",
+"st": "Roma döneminden bir eser say.",
+"dl": [
+"atif"
+]
+},
+{
+"id": "atif-3",
+"d": "atif",
+"w": "قِصَّةٌ",
+"t": "i",
+"tr": "hikâye",
+"c": "قِصَصٌ",
+"k": "fial_f",
+"e": "حِكَايَةٌ",
+"z": "",
+"s": "لَا أُفَضِّلُ القِصَصَ بَلِ الرِّوَايَاتِ",
+"sw": "القِصَصَ",
+"st": "Hikâyeleri değil, romanları tercih ederim.",
+"dl": [
+"atif"
+]
+},
+{
+"id": "bedel-0",
+"d": "bedel",
+"w": "عَالِمٌ",
+"t": "i",
+"tr": "âlim",
+"c": "عُلَمَاءُ",
+"k": "fuala",
+"e": "",
+"z": "جَاهِلٌ",
+"s": "كَانَ السُّلْطَانُ مُحَمَّدٌ الفَاتِحُ يَحْتَرِمُ العُلَمَاءَ.",
+"sw": "العُلَمَاءَ",
+"st": "Sultan Fâtih Mehmed âlimlere saygı gösterirdi.",
+"dl": [
+"bedel"
+]
+},
+{
+"id": "bedel-1",
+"d": "bedel",
+"w": "أَسِيرٌ",
+"t": "i",
+"tr": "esir",
+"c": "أَسْرَى",
+"k": "fella",
+"e": "",
+"z": "",
+"s": "مَنْ أُخِذَ ضِمْنَ أَسْرَى المُشْرِكِينَ فِي بَدْرٍ؟",
+"sw": "أَسْرَى",
+"st": "Bedir'de müşrik esirleri arasında kim yakalandı?",
+"dl": [
+"bedel"
+]
+},
+{
+"id": "bedel-2",
+"d": "bedel",
+"w": "رِوَايَةٌ",
+"t": "i",
+"tr": "roman",
+"c": "رِوَايَاتٌ",
+"k": "at",
+"e": "قِصَّةٌ",
+"z": "",
+"s": "قَرَأْتُ الرِّوَايَةَ ثُلُثَهَا فِي لَيْلَةٍ وَاحِدَةٍ.",
+"sw": "الرِّوَايَةَ",
+"st": "Romanın üçte birini bir gecede okudum.",
+"dl": [
+"bedel"
+]
 },
 {
 "id": "tekid-0",
@@ -1957,7 +4101,10 @@ var KELIMELER = [
 "z": "",
 "s": "حَضَرَ الوَزِيرُ نَفْسُهُ لِاسْتِقْبَالِ الضَّيْفِ.",
 "sw": "الوَزِيرُ",
-"st": "Misafiri karşılamaya bakanın bizzat kendisi geldi."
+"st": "Misafiri karşılamaya bakanın bizzat kendisi geldi.",
+"dl": [
+"tekid"
+]
 },
 {
 "id": "tekid-1",
@@ -1971,24 +4118,13 @@ var KELIMELER = [
 "z": "خَوْفٌ",
 "s": "يَعِيشُ النَّاسُ كُلُّهُمْ فِي هَذِهِ البِلَادِ فِي أَمْنٍ.",
 "sw": "أَمْنٍ",
-"st": "Bu ülkede insanların hepsi güven içinde yaşar."
+"st": "Bu ülkede insanların hepsi güven içinde yaşar.",
+"dl": [
+"tekid"
+]
 },
 {
 "id": "ikimeful-0",
-"d": "ikimeful",
-"w": "ثَوْبٌ",
-"t": "i",
-"tr": "elbise",
-"c": "ثِيَابٌ / أَثْوَابٌ",
-"k": "fial",
-"e": "لِبَاسٌ",
-"z": "",
-"s": "أَلْبَسَتِ الأُمُّ بِنْتَهَا فِي العِيدِ ثَوْبًا جَدِيدًا.",
-"sw": "ثَوْبًا",
-"st": "Anne bayramda kızına yeni bir elbise giydirdi."
-},
-{
-"id": "ikimeful-1",
 "d": "ikimeful",
 "w": "رَبِيعٌ",
 "t": "i",
@@ -1999,10 +4135,13 @@ var KELIMELER = [
 "z": "خَرِيفٌ",
 "s": "كَسَا الرَّبِيعُ الأَرْضَ أَزْهَارًا جَمِيلَةً.",
 "sw": "الرَّبِيعُ",
-"st": "Bahar yeryüzüne güzel çiçekler giydirdi."
+"st": "Bahar yeryüzüne güzel çiçekler giydirdi.",
+"dl": [
+"ikimeful"
+]
 },
 {
-"id": "ikimeful-2",
+"id": "ikimeful-1",
 "d": "ikimeful",
 "w": "رَبِحَ",
 "t": "f",
@@ -2013,10 +4152,13 @@ var KELIMELER = [
 "z": "خَسِرَ",
 "s": "ظَنَنْتُ التَّاجِرَ يَرْبَحُ فِي تِجَارَتِهِ.",
 "sw": "يَرْبَحُ",
-"st": "Tüccarın ticaretinde kazandığını sandım."
+"st": "Tüccarın ticaretinde kazandığını sandım.",
+"dl": [
+"ikimeful"
+]
 },
 {
-"id": "ikimeful-3",
+"id": "ikimeful-2",
 "d": "ikimeful",
 "w": "غَائِبٌ",
 "t": "s",
@@ -2027,7 +4169,10 @@ var KELIMELER = [
 "z": "حَاضِرٌ",
 "s": "حَسِبَ الأُسْتَاذُ زَيْنَبَ غَائِبَةً.",
 "sw": "غَائِبَةً",
-"st": "Hoca Zeyneb’i yok sandı."
+"st": "Hoca Zeyneb’i yok sandı.",
+"dl": [
+"ikimeful"
+]
 },
 {
 "id": "famel-0",
@@ -2041,24 +4186,13 @@ var KELIMELER = [
 "z": "نَشِيطٌ",
 "s": "مَا مَمْنُوحٌ الكَسُولُ جَائِزَةً.",
 "sw": "الكَسُولُ",
-"st": "Tembele ödül verilmez."
+"st": "Tembele ödül verilmez.",
+"dl": [
+"famel"
+]
 },
 {
 "id": "famel-1",
-"d": "famel",
-"w": "صَوْتٌ",
-"t": "i",
-"tr": "ses",
-"c": "أَصْوَاتٌ",
-"k": "efal",
-"e": "",
-"z": "",
-"s": "هَذَا وَلَدٌ قَارِئٌ القُرْآنَ بِصَوْتٍ جَمِيلٍ.",
-"sw": "بِصَوْتٍ",
-"st": "Bu, Kur’an’ı güzel sesle okuyan bir çocuk."
-},
-{
-"id": "famel-2",
 "d": "famel",
 "w": "مَكَانٌ",
 "t": "i",
@@ -2069,7 +4203,300 @@ var KELIMELER = [
 "z": "",
 "s": "هَذَا مَكَانٌ مَمْنُوعٌ التَّدْخِينُ فِيهِ.",
 "sw": "مَكَانٌ",
-"st": "Burası sigara içmenin yasak olduğu bir yer."
+"st": "Burası sigara içmenin yasak olduğu bir yer.",
+"dl": [
+"famel"
+]
+},
+{
+"id": "masamel-0",
+"d": "masamel",
+"w": "مِسْكِينٌ",
+"t": "s",
+"tr": "yoksul, miskin",
+"c": "مَسَاكِينُ",
+"k": "mefail_y",
+"e": "فَقِيرٌ",
+"z": "غَنِيٌّ",
+"s": "سَرَّنِي أَنْ أَطْعَمْتَ المَسَاكِينَ.",
+"sw": "المَسَاكِينَ",
+"st": "Yoksulları doyurmuş olman beni sevindirdi.",
+"dl": [
+"masamel"
+]
+},
+{
+"id": "mefullieclih-0",
+"d": "mefullieclih",
+"w": "شَاعِرٌ",
+"t": "i",
+"tr": "şair",
+"c": "شُعَرَاءُ",
+"k": "fuala",
+"e": "",
+"z": "",
+"s": "نَظَمَ الشَّاعِرُ قَصِيدَتَهُ مَدْحًا لِلْأَمِيرِ.",
+"sw": "الشَّاعِرُ",
+"st": "Şair kasidesini emîri övmek için yazdı.",
+"dl": [
+"mefullieclih"
+]
+},
+{
+"id": "mefulmutlak-0",
+"d": "mefulmutlak",
+"w": "جَيْشٌ",
+"t": "i",
+"tr": "ordu",
+"c": "جُيُوشٌ",
+"k": "fuul",
+"e": "جُنْدٌ",
+"z": "",
+"s": "انْتَصَرَ الجَيْشُ انْتِصَارًا عَظِيمًا.",
+"sw": "الجَيْشُ",
+"st": "Ordu büyük bir zafer kazandı.",
+"dl": [
+"mefulmutlak"
+]
+},
+{
+"id": "mefulmutlak-1",
+"d": "mefulmutlak",
+"w": "مَلْعَبٌ",
+"t": "i",
+"tr": "oyun sahası, stadyum",
+"c": "مَلَاعِبُ",
+"k": "mefail",
+"e": "",
+"z": "",
+"s": "دَارَ اللَّاعِبُ حَوْلَ المَلْعَبِ ثَلَاثَ دَوْرَاتٍ.",
+"sw": "المَلْعَبِ",
+"st": "Oyuncu sahanın etrafında üç tur attı.",
+"dl": [
+"mefulmutlak"
+]
+},
+{
+"id": "mefulmutlak-2",
+"d": "mefulmutlak",
+"w": "عَظِيمٌ",
+"t": "s",
+"tr": "büyük, yüce",
+"c": "عُظَمَاءُ",
+"k": "fuala",
+"e": "جَلِيلٌ",
+"z": "حَقِيرٌ",
+"s": "فَازَ أَحْمَدُ فَوْزًا عَظِيمًا.",
+"sw": "عَظِيمًا",
+"st": "Ahmed büyük bir başarı kazandı.",
+"dl": [
+"mefulmutlak"
+]
+},
+{
+"id": "mefulmaah-0",
+"d": "mefulmaah",
+"w": "قِطَارٌ",
+"t": "i",
+"tr": "tren",
+"c": "قِطَارَاتٌ / قُطُرٌ",
+"k": "at",
+"e": "",
+"z": "",
+"s": "سَافَرَ أَحْمَدُ وَأَبُوهُ بِالقِطَارِ",
+"sw": "بِالقِطَارِ",
+"st": "Ahmed ile babası trenle yolculuk etti.",
+"dl": [
+"mefulmaah"
+]
+},
+{
+"id": "mefulmaah-1",
+"d": "mefulmaah",
+"w": "لَيْلٌ",
+"t": "i",
+"tr": "gece",
+"c": "لَيَالٍ",
+"k": "feala",
+"e": "",
+"z": "نَهَارٌ",
+"s": "عَادَ المُسَافِرُ وَاللَّيْلُ مُظْلِمٌ.",
+"sw": "وَاللَّيْلُ",
+"st": "Yolcu, gece karanlıkken döndü.",
+"dl": [
+"mefulmaah"
+]
+},
+{
+"id": "mefulmaah-2",
+"d": "mefulmaah",
+"w": "دَارٌ",
+"t": "i",
+"tr": "ev, yurt",
+"c": "دُورٌ / دِيَارٌ",
+"k": "fuul",
+"e": "مَنْزِلٌ",
+"z": "",
+"s": "أَعْطَى دَارَهُ لِيُزَادَ بِهَا مَسْجِدُ رَسُولِ اللهِ.",
+"sw": "دَارَهُ",
+"st": "Resûlullah’ın mescidi genişletilsin diye evini verdi.",
+"dl": [
+"mefulmaah"
+]
+},
+{
+"id": "munsarif-0",
+"d": "munsarif",
+"w": "صَحْرَاءُ",
+"t": "i",
+"tr": "çöl",
+"c": "صَحَارَى / صَحْرَاوَاتٌ",
+"k": "feala",
+"e": "بَادِيَةٌ",
+"z": "",
+"s": "قَضَيْنَا اللَّيْلَةَ فِي الصَّحْرَاءِ الوَاسِعَةِ.",
+"sw": "الصَّحْرَاءِ",
+"st": "Geceyi geniş çölde geçirdik.",
+"dl": [
+"munsarif"
+]
+},
+{
+"id": "munsarif-1",
+"d": "munsarif",
+"w": "جَوْعَانُ",
+"t": "s",
+"tr": "aç",
+"c": "جِيَاعٌ",
+"k": "fial",
+"e": "جَائِعٌ",
+"z": "شَبْعَانُ",
+"s": "إِطْعَامُ شَخْصٍ جَوْعَانَ مِنَ العَمَلِ الصَّالِحِ.",
+"sw": "جَوْعَانَ",
+"st": "Aç bir kimseyi doyurmak salih amellerdendir.",
+"dl": [
+"munsarif"
+]
+},
+{
+"id": "munsarif-2",
+"d": "munsarif",
+"w": "رَخِيصٌ",
+"t": "s",
+"tr": "ucuz",
+"c": "رِخَاصٌ",
+"k": "fial",
+"e": "",
+"z": "غَالٍ",
+"s": "وَجَدْتُ السَّمَكَ رَخِيصًا فِي السُّوقِ اليَوْمَ.",
+"sw": "رَخِيصًا",
+"st": "Bugün çarşıda balığı ucuz buldum.",
+"dl": [
+"munsarif"
+]
+},
+{
+"id": "munsarif-3",
+"d": "munsarif",
+"w": "مِصْبَاحٌ",
+"t": "i",
+"tr": "lamba",
+"c": "مَصَابِيحُ",
+"k": "mefail_y",
+"e": "سِرَاجٌ",
+"z": "",
+"s": "أَطْفَأَ رَاشِدٌ المَصَابِيحَ قَبْلَ النَّوْمِ.",
+"sw": "المَصَابِيحَ",
+"st": "Râşid uyumadan önce lambaları söndürdü.",
+"dl": [
+"munsarif"
+]
+},
+{
+"id": "medih-0",
+"d": "medih",
+"w": "قَائِدٌ",
+"t": "i",
+"tr": "komutan, lider",
+"c": "قَادَةٌ / قُوَّادٌ",
+"k": "feale",
+"e": "زَعِيمٌ",
+"z": "",
+"s": "نِعْمَ القَادَةُ خَالِدٌ وَصَلَاحُ الدِّينِ وَالفَاتِحُ.",
+"sw": "القَادَةُ",
+"st": "Hâlid, Selâhaddin ve Fâtih ne güzel komutanlar!",
+"dl": [
+"medih",
+"nida"
+]
+},
+{
+"id": "medih-1",
+"d": "medih",
+"w": "نَصِيرٌ",
+"t": "i",
+"tr": "yardımcı",
+"c": "أَنْصَارٌ",
+"k": "efal",
+"e": "مُعِينٌ",
+"z": "",
+"s": "هُوَ مَوْلَاكُمْ فَنِعْمَ المَوْلَى وَنِعْمَ النَّصِيرُ",
+"sw": "النَّصِيرُ",
+"st": "O sizin mevlânızdır; ne güzel mevlâ, ne güzel yardımcı!",
+"dl": [
+"medih"
+]
+},
+{
+"id": "medih-2",
+"d": "medih",
+"w": "جَنَّةٌ",
+"t": "i",
+"tr": "cennet, bahçe",
+"c": "جَنَّاتٌ",
+"k": "at",
+"e": "",
+"z": "نَارٌ",
+"s": "يَهْدِي البِرُّ إِلَى الجَنَّةِ.",
+"sw": "الجَنَّةِ",
+"st": "İyilik cennete götürür.",
+"dl": [
+"medih"
+]
+},
+{
+"id": "medih-3",
+"d": "medih",
+"w": "كَذِبٌ",
+"t": "i",
+"tr": "yalan",
+"c": "",
+"k": "",
+"e": "",
+"z": "صِدْقٌ",
+"s": "مَاذَا يَفْعَلُ الكَذِبُ بَيْنَ النَّاسِ؟",
+"sw": "الكَذِبُ",
+"st": "Yalan insanlar arasında ne yapar?",
+"dl": [
+"medih"
+]
+},
+{
+"id": "medih-4",
+"d": "medih",
+"w": "حَبِيبٌ",
+"t": "i",
+"tr": "sevgili, dost",
+"c": "أَحْبَابٌ / أَحِبَّاءُ",
+"k": "efal",
+"e": "",
+"z": "عَدُوٌّ",
+"s": "يُفَرِّقُ الأَصْدِقَاءَ وَيُبَاعِدُ بَيْنَ الأَحْبَابِ.",
+"sw": "الأَحْبَابِ",
+"st": "Dostları ayırır, sevenleri birbirinden uzaklaştırır.",
+"dl": [
+"medih"
+]
 },
 {
 "id": "taaccub-0",
@@ -2083,35 +4510,44 @@ var KELIMELER = [
 "z": "خَفِيفٌ",
 "s": "الحَقِيبَةُ الَّتِي حَمَلْتُهَا ثَقِيلَةٌ.",
 "sw": "ثَقِيلَةٌ",
-"st": "Taşıdığım çanta ağırdır."
+"st": "Taşıdığım çanta ağırdır.",
+"dl": [
+"taaccub"
+]
 },
 {
-"id": "taaccub-1",
-"d": "taaccub",
-"w": "طَعَامٌ",
+"id": "nida-0",
+"d": "nida",
+"w": "جَمَلٌ",
 "t": "i",
-"tr": "yemek",
-"c": "أَطْعِمَةٌ",
-"k": "efile",
-"e": "غِذَاءٌ",
+"tr": "deve",
+"c": "جِمَالٌ",
+"k": "fial",
+"e": "بَعِيرٌ",
 "z": "",
-"s": "مَا أَلَذَّ الطَّعَامَ الَّذِي أَكَلْنَاهُ!",
-"sw": "الطَّعَامَ",
-"st": "Yediğimiz yemek ne lezzetli!"
+"s": "كَانَ فِيهَا أَلْفُ جَمَلٍ، وَكَانَتِ البِضَاعَةُ لِعُثْمَانَ بْنِ عَفَّانَ.",
+"sw": "جَمَلٍ",
+"st": "Kervanda bin deve vardı; mal Osman b. Affân’ındı.",
+"dl": [
+"nida"
+]
 },
 {
-"id": "taaccub-2",
-"d": "taaccub",
-"w": "ظَالِمٌ",
-"t": "s",
-"tr": "zalim",
-"c": "ظَالِمُونَ / ظَلَمَةٌ",
-"k": "un",
-"e": "جَائِرٌ",
-"z": "عَادِلٌ",
-"s": "مَا أَقْسَى اعْتِدَاءَ الظَّالِمِ!",
-"sw": "الظَّالِمِ",
-"st": "Zalimin saldırısı ne acımasız!"
+"id": "nida-1",
+"d": "nida",
+"w": "كَسَلٌ",
+"t": "i",
+"tr": "tembellik",
+"c": "",
+"k": "",
+"e": "",
+"z": "نَشَاطٌ",
+"s": "أَمُهْمِلًا، إِنَّ الكَسَلَ مَرَضٌ لَا دَوَاءَ لَهُ!",
+"sw": "الكَسَلَ",
+"st": "Ey ihmalkâr, tembellik devası olmayan bir hastalıktır!",
+"dl": [
+"nida"
+]
 },
 {
 "id": "sart-0",
@@ -2125,24 +4561,13 @@ var KELIMELER = [
 "z": "صَدِيقٌ",
 "s": "إِنْ تُوَاصِلُوا كِفَاحَكُمْ تَغْلِبُوا أَعْدَاءَكُمْ.",
 "sw": "أَعْدَاءَكُمْ",
-"st": "Mücadelenizi sürdürürseniz düşmanlarınızı yenersiniz."
+"st": "Mücadelenizi sürdürürseniz düşmanlarınızı yenersiniz.",
+"dl": [
+"sart"
+]
 },
 {
 "id": "sart-1",
-"d": "sart",
-"w": "مَطَرٌ",
-"t": "i",
-"tr": "yağmur",
-"c": "أَمْطَارٌ",
-"k": "efal",
-"e": "غَيْثٌ",
-"z": "",
-"s": "إِذَا نَزَلَ المَطَرُ عَمَّ الرَّخَاءُ.",
-"sw": "المَطَرُ",
-"st": "Yağmur yağdığında bolluk her yeri kaplar."
-},
-{
-"id": "sart-2",
 "d": "sart",
 "w": "شَمْسٌ",
 "t": "i",
@@ -2153,10 +4578,13 @@ var KELIMELER = [
 "z": "",
 "s": "إِذَا أَشْرَقَتِ الشَّمْسُ انْتَشَرَ الدِّفْءُ.",
 "sw": "الشَّمْسُ",
-"st": "Güneş doğduğunda sıcaklık yayılır."
+"st": "Güneş doğduğunda sıcaklık yayılır.",
+"dl": [
+"sart"
+]
 },
 {
-"id": "sart-3",
+"id": "sart-2",
 "d": "sart",
 "w": "نَجَحَ",
 "t": "f",
@@ -2167,7 +4595,10 @@ var KELIMELER = [
 "z": "فَشِلَ",
 "s": "إِذَا نَجَحَ ابْنُهُ فِي الِامْتِحَانِ امْتَلَأَ قَلْبُهُ سُرُورًا.",
 "sw": "نَجَحَ",
-"st": "Oğlu sınavı kazandığında kalbi sevinçle dolar."
+"st": "Oğlu sınavı kazandığında kalbi sevinçle dolar.",
+"dl": [
+"sart"
+]
 },
 {
 "id": "sartfa-0",
@@ -2181,7 +4612,10 @@ var KELIMELER = [
 "z": "صِحَّةٌ",
 "s": "إِذَا أُصِبْتَ بِمَرَضٍ فَاتَّبِعْ نَصِيحَةَ الطَّبِيبِ.",
 "sw": "بِمَرَضٍ",
-"st": "Hastalanırsan doktorun tavsiyesine uy."
+"st": "Hastalanırsan doktorun tavsiyesine uy.",
+"dl": [
+"sartfa"
+]
 },
 {
 "id": "sartfa-1",
@@ -2195,24 +4629,13 @@ var KELIMELER = [
 "z": "",
 "s": "إِنْ تَقْرَأْ لِكُتَّابٍ مُحَايِدِينَ فَسَتَفْهَمُ الحَقِيقَةَ.",
 "sw": "لِكُتَّابٍ",
-"st": "Tarafsız yazarları okursan gerçeği anlayacaksın."
+"st": "Tarafsız yazarları okursan gerçeği anlayacaksın.",
+"dl": [
+"sartfa"
+]
 },
 {
 "id": "sartfa-2",
-"d": "sartfa",
-"w": "سِرٌّ",
-"t": "i",
-"tr": "sır",
-"c": "أَسْرَارٌ",
-"k": "efal",
-"e": "",
-"z": "",
-"s": "إِذَا أَطْلَعْتُكَ عَلَى سِرٍّ فَهَلْ تَحْفَظُهُ؟",
-"sw": "سِرٍّ",
-"st": "Sana bir sır açarsam onu saklar mısın?"
-},
-{
-"id": "sartfa-3",
 "d": "sartfa",
 "w": "عَسِيرٌ",
 "t": "s",
@@ -2223,7 +4646,78 @@ var KELIMELER = [
 "z": "يَسِيرٌ",
 "s": "إِذَا فَكَّرْتَ حَقَّ التَّفْكِيرِ فَسَيَسْهُلُ عَلَيْكَ كُلُّ عَسِيرٍ.",
 "sw": "عَسِيرٍ",
-"st": "Gereği gibi düşünürsen her zor iş sana kolaylaşacak."
+"st": "Gereği gibi düşünürsen her zor iş sana kolaylaşacak.",
+"dl": [
+"sartfa"
+]
+},
+{
+"id": "kem-0",
+"d": "kem",
+"w": "سَنَةٌ",
+"t": "i",
+"tr": "yıl",
+"c": "سَنَوَاتٌ / سِنُونَ",
+"k": "at",
+"e": "عَامٌ",
+"z": "",
+"s": "كَمْ سَنَةً عِشْتَ فِي إِسْطَنْبُولَ؟",
+"sw": "سَنَةً",
+"st": "İstanbul’da kaç yıl yaşadın?",
+"dl": [
+"kem"
+]
+},
+{
+"id": "kem-1",
+"d": "kem",
+"w": "دُكَّانٌ",
+"t": "i",
+"tr": "dükkân",
+"c": "دَكَاكِينُ",
+"k": "fealil",
+"e": "حَانُوتٌ",
+"z": "",
+"s": "كَمْ دُكَّانًا فِي سُوقِ الكُتُبِ؟",
+"sw": "دُكَّانًا",
+"st": "Kitap çarşısında kaç dükkân var?",
+"dl": [
+"kem"
+]
+},
+{
+"id": "kem-2",
+"d": "kem",
+"w": "بَائِعٌ",
+"t": "i",
+"tr": "satıcı",
+"c": "بَاعَةٌ / بَائِعُونَ",
+"k": "feale",
+"e": "",
+"z": "مُشْتَرٍ",
+"s": "كَمْ سَنَةً يَعْمَلُ البَائِعُ فِي السُّوقِ؟",
+"sw": "البَائِعُ",
+"st": "Satıcı kaç yıldır çarşıda çalışıyor?",
+"dl": [
+"kem"
+]
+},
+{
+"id": "kem-3",
+"d": "kem",
+"w": "قَلَمٌ",
+"t": "i",
+"tr": "kalem",
+"c": "أَقْلَامٌ",
+"k": "efal",
+"e": "",
+"z": "",
+"s": "بِكَمْ لِيرَةٍ اشْتَرَيْتَ هَذَا القَلَمَ؟",
+"sw": "القَلَمَ",
+"st": "Bu kalemi kaç liraya aldın?",
+"dl": [
+"kem"
+]
 }
 ];
 
@@ -2293,7 +4787,8 @@ function save() { store.set("scope", ST.scope); store.set("lt", ST.lt); store.se
 var DAYS = { 1: 0, 2: 1, 3: 3, 4: 7, 5: 14 };
 var RANKS = [[0, "Mübtedî"], [150, "Talebe"], [400, "Kâtip"], [900, "Edîb"], [1800, "Âlim"], [3500, "Allâme"]];
 
-function inScope(w) { var d = DBY[w.d]; return (ST.scope.cat === "all" || d.cat === ST.scope.cat) && !ST.scope.off[w.d]; }
+function lessonOn(id) { var d = DBY[id]; return (ST.scope.cat === "all" || d.cat === ST.scope.cat) && !ST.scope.off[id]; }
+function inScope(w) { return w.dl.some(lessonOn); }
 function scopeWords() { var s = W.filter(inScope); return s.length ? s : W.slice(); }
 function typesOf(w) { var r = ["a"]; if (w.c) r.push("c"); if (w.e) r.push("e"); if (w.z) r.push("z"); if (w.c) r.push("t"); return r; }
 function key(w, t) { return w.id + ":" + t; }
@@ -2328,13 +4823,12 @@ function dots(w) {
 }
 function aile(w, opt) {
   opt = opt || {};
-  var d = DBY[w.d];
   function cell(lbl, col, val, sub) { return '<div class="fam-cell r-' + col + '"><span class="lbl">' + lbl + '</span>' + (val ? '<span class="ar v">' + val + '</span>' + (sub ? '<small>' + sub + '</small>' : '') : '<span class="muted v0">—</span>') + '</div>'; }
   return '<div class="fam">' +
     '<div class="fam-head"><button class="say" data-say="' + esc(w.w) + '" aria-label="Dinle">🔊</button><div class="fam-main"><span class="ar fam-w">' + w.w + '</span><span class="fam-tr"><b>' + esc(w.tr) + '</b> <span class="muted">· ' + TUR[w.t] + '</span></span></div></div>' +
     '<div class="fam-grid">' + cell("Çoğulu", "nasb", w.c, w.k && KALIPLAR[w.k] ? kalipAd(w.k) : "") + cell("Eş anlamlısı =", "mz", w.e) + cell("Zıt anlamlısı ≠", "ref", w.z) + '</div>' +
     (w.s ? '<div class="fam-s"><button class="say small" data-say="' + esc(w.s) + '" aria-label="Cümleyi dinle">🔊</button><div><div class="ar">' + hlSent(w) + '</div><small class="muted">' + esc(w.st) + '</small></div></div>' : '') +
-    '<div class="fam-foot"><span class="muted">' + CAT[d.cat] + ' · ' + esc(d.tr) + '</span>' + (opt.dots === false ? '' : dots(w)) + '</div></div>';
+    '<div class="fam-foot"><span class="muted">' + w.dl.map(function (id) { return CAT[DBY[id].cat] + ' · ' + esc(DBY[id].tr); }).join('<br>') + '</span>' + (opt.dots === false ? '' : dots(w)) + '</div></div>';
 }
 function openFam(id) {
   var w = WBY[id]; if (!w) return;
@@ -2390,7 +4884,7 @@ function startSession(mode, arg) {
   } else if (mode === "weak") {
     q = shuffle(weakList().slice(0, 12).reduce(function (a, x) { return a.concat(x.keys); }, [])).slice(0, 24);
   } else if (mode === "ders") {
-    W.filter(function (w) { return w.d === arg; }).forEach(function (w) { if (!seenWord(w)) intro[w.id] = true; typesOf(w).forEach(function (t) { if (eligible(w, t)) q.push(key(w, t)); }); });
+    W.filter(function (w) { return w.dl.indexOf(arg) >= 0; }).forEach(function (w) { if (!seenWord(w)) intro[w.id] = true; typesOf(w).forEach(function (t) { if (eligible(w, t)) q.push(key(w, t)); }); });
     q = shuffle(q);
   }
   if (!q.length) { S = { mode: mode, empty: true }; return go("tekrar"); }
@@ -2502,7 +4996,7 @@ function renderKelime() {
   function match(w) { if (!q) return true; return [w.w, w.c, w.e, w.z].some(function (x) { return x && bare(x).indexOf(q) >= 0; }) || w.tr.toLowerCase().indexOf(q) >= 0; }
   var groups = ["s", "n"].map(function (cat) {
     var ls = DERSLER.filter(function (d) { return d.cat === cat; }).map(function (d) {
-      var ws = W.filter(function (w) { return w.d === d.id && match(w); });
+      var ws = W.filter(function (w) { return w.dl.indexOf(d.id) >= 0 && match(w); });
       if (!ws.length) return "";
       var lw = ws.filter(learned).length;
       return '<details class="lesson"' + (q ? " open" : "") + '><summary><span class="lname">' + esc(d.tr) + '</span><span class="ar lar">' + d.ar + '</span><span class="muted small">' + lw + '/' + ws.length + '</span></summary><div class="chips">' +
@@ -2569,7 +5063,7 @@ var GR = {
         var cl = "kopt"; if (G.ans) { if (k === w.k) cl += " sel-ok"; else if (k === G.ans) cl += " sel-no"; }
         return '<button class="' + cl + '" data-fab="' + i + '"' + (G.ans ? " disabled" : "") + '><span class="ar">' + KALIPLAR[k][0] + '</span><small>' + KALIPLAR[k][1] + '</small></button>';
       }).join("") + '</div>' +
-      (G.ans ? '<p class="fb">' + (G.ans === w.k ? '<span class="ok">Doğru!</span> ' : '<span class="no">Yanlış.</span> ') + ar(w.w) + ' → ' + ar(w.c) + ' · ' + KALIPLAR[w.k][1] + ' kalıbı.</p><div class="row-btns"><button class="btn solid" data-gnext="1">' + (G.r >= 9 ? "Bitir" : "Sonraki") + '</button></div>' : '');
+      (G.ans ? '<p class="fb">' + (G.ans === w.k ? '<span class="ok">Doğru!</span> ' : '<span class="no">Yanlış.</span> ') + ar(w.w + ' ← ' + w.c) + ' · ' + KALIPLAR[w.k][1] + ' kalıbı.</p><div class="row-btns"><button class="btn solid" data-gnext="1">' + (G.r >= 9 ? "Bitir" : "Sonraki") + '</button></div>' : '');
   },
   mik: function () { return pairBoard(false); },
   haf: function () { return pairBoard(true); },
@@ -2585,7 +5079,7 @@ var GR = {
       '<div class="sentcard"><div class="ar">' + hlSent(w) + '</div><small class="muted">' + esc(w.st) + '</small></div>' +
       '<p class="qask">Koyu kelimenin sözlük biçimi ' + ar(w.w) + ' <span class="muted">(' + esc(w.tr) + ')</span>. Yerine <b class="r-' + TYPES[c.t].col + '">' + (c.t === "e" ? "eş anlamlısını (anlam aynı kalsın)" : "zıt anlamlısını (anlam tersine dönsün)") + '</b> koy:</p>' +
       optBtns(c, "data-cum", G.ans) +
-      (G.ans !== null ? '<p class="fb">' + (G.ans === c.ok ? '<span class="ok">Doğru!</span> ' : '<span class="no">Yanlış.</span> ') + ar(w.w) + ' ' + (c.t === "e" ? "=" : "≠") + ' ' + ar(c.ok) + '</p><div class="row-btns"><button class="btn solid" data-gnext="1">' + (G.r >= 9 ? "Bitir" : "Sonraki") + '</button></div>' : '');
+      (G.ans !== null ? '<p class="fb">' + (G.ans === c.ok ? '<span class="ok">Doğru!</span> ' : '<span class="no">Yanlış.</span> ') + ar(w.w + ' ' + (c.t === "e" ? "=" : "≠") + ' ' + c.ok) + '</p><div class="row-btns"><button class="btn solid" data-gnext="1">' + (G.r >= 9 ? "Bitir" : "Sonraki") + '</button></div>' : '');
   },
   hiz: function () {
     var c = G.cur;

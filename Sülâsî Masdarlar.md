@@ -629,3 +629,13 @@ eş anlam; çoğul ve tekil; harf-i cer, üslup, vezin ve eşleştirme) cihad ge
 düşünme sorusu), kitaptaki bütün etkinlikler, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Zıt mı Eş mi?,
 Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. Veriler `kiraat23/veri.js` içindedir; sonra
 `python3 kiraat23/yap.py`.
+
+## Uygulama: Kelime Hazinesi
+
+`kelimehazinesi/index.html` (yayın sürümü `kelimehazinesi/sayfa.html`) 70 Sarf ve Nahiv dersinde geçen 246 temel kelimeyi
+anlamı, çoğulu (ve çoğul kalıbı), eş ve zıt anlamlısı ve dersteki örnek cümlesiyle öğretir. Günlük tekrar beş kutulu
+aralıklı tekrar (Leitner) ile çalışır: bilinen kart daha seyrek, yanlış bilinen kart ertesi gün yeniden sorulur. Kelimeler
+derse göre listelenir ve aranabilir, çoğullar kalıplarına göre toplanır, yanlış yapılan kelimeler "Zayıf kelimeler"de birikir.
+Altı oyun vardır: Kalıp Fabrikası, Mıknatıs, Hafıza, Düşen Kelimeler, Cümlede Değiştir, Hız Turu. Okuma-anlama dersleri
+(Kıraat 20, 23) dahil değildir. Kelimeler `kelimehazinesi/kelimeler.json` içindedir; yeni ders eklemek için oraya yazıp
+`python3 kelimehazinesi/yap.py` çalıştırılır.
