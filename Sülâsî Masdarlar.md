@@ -556,3 +556,11 @@ bedel-i küll, ba’z ve iştimâl; zamir ve i’rab uyumu; bedelli ve bedelsiz 
 عَدْلُ الرَّسُولِ ﷺ) bedel makinesi (6 isim × 4 söyleyiş), kaide, örnek, kitaptaki 9 alıştırmanın hepsi, ek alıştırmalar, beş oyun
 (Doğru Biçim, Bedel Kur, Hangi Bedel?, Bedel mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler
 `bedel/veri.js` içindedir; sonra `python3 bedel/yap.py`.
+
+## Uygulama: Nidâ Üslubu
+
+`nida/index.html` (yayın sürümü `nida/sayfa.html`) أُسْلُوبُ النِّدَاءِ konusunu beş konuda (nidâ edatları: yakın, uzak, her ikisi;
+münâdânın beş türü; münâdânın i’rabı: mebnî / mansûb; يَا أَيُّهَا / يَا أَيَّتُهَا, اللَّهُمَّ ve edatın hazfı; muzâftan şibh-i muzâfa ve
+okuma: فِي سَبِيلِ اللهِ) nidâ makinesi (6 tür × 4 sayı / cinsiyet), kaide, örnek, kitaptaki 8 alıştırmanın hepsi, ek alıştırmalar,
+beş oyun (Doğru Hareke, Seslen, Hangi Münâdâ?, Yakın mı Uzak mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
+Veriler `nida/veri.js` içindedir; sonra `python3 nida/yap.py`.
