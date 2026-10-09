@@ -548,3 +548,11 @@ bölümde (okumaya hazırlık ve tam harekeli metin, sesli okuma ve sözlükle; 
 çoğul; köy–şehir karşılaştırması ve resimler; görüş yazısı) köy–şehir karşılaştırıcısı (6 konu × 4 bakış), kitaptaki 9
 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Çevir, Köy mü Şehir mi?, Doğru mu Yanlış mı?, Hafıza
 Kartları) ve 20 soruluk quiz provasıyla işler. Veriler `kiraat20/veri.js` içindedir; sonra `python3 kiraat20/yap.py`.
+
+## Uygulama: Bedel
+
+`bedel/index.html` (yayın sürümü `bedel/sayfa.html`) البَدَلُ konusunu beş konuda (tanım, mübdel minh ve bedel, na’t / te’kîd farkı;
+bedel-i küll, ba’z ve iştimâl; zamir ve i’rab uyumu; bedelli ve bedelsiz cümle, sıralama; âyet, hadis ve okuma:
+عَدْلُ الرَّسُولِ ﷺ) bedel makinesi (6 isim × 4 söyleyiş), kaide, örnek, kitaptaki 9 alıştırmanın hepsi, ek alıştırmalar, beş oyun
+(Doğru Biçim, Bedel Kur, Hangi Bedel?, Bedel mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir. Veriler
+`bedel/veri.js` içindedir; sonra `python3 bedel/yap.py`.
