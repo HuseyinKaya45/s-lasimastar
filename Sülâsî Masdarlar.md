@@ -596,3 +596,11 @@ ism-i mef’ûlün ameli; amelin altı şartı; ma’mûlün harekesi ve fiilden
 makinesi (4 âmil × 7 kullanım), kaide, örnek, kitaptaki 7 alıştırmanın hepsi, ek alıştırmalar, beş oyun (Doğru Hareke, Dönüştür,
 Neden Amel Ediyor?, Fâil mi Mef’ûl mü?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
 Veriler `famel/veri.js` içindedir; sonra `python3 famel/yap.py`.
+
+## Uygulama: Masdarın Ameli
+
+`masamel/index.html` (yayın sürümü `masamel/sayfa.html`) عَمَلُ المَصْدَرِ konusunu beş konuda (masdarın ameli ve üç biçimi;
+en / mâ ile takdir ve zaman farkı; fiilinin yerine geçen masdar; amel etmeyen masdar: te’kîd, aded, teşbih; metinde ve
+âyetlerde: التَّعَاوُنُ) masdar makinesi (4 masdar × 8 kullanım), kaide, örnek, kitaptaki 6 alıştırmanın hepsi, ek alıştırmalar,
+beş oyun (Doğru Hareke, Dönüştür, Amel Ediyor mu?, Fâiline mi Mef’ûlüne mi?, Hafıza Kartları) ve 20 soruluk quiz provasıyla öğretir.
+Veriler `masamel/veri.js` içindedir; sonra `python3 masamel/yap.py`.
