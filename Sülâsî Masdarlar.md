@@ -805,3 +805,12 @@ cümle dizme, uygun olmayanı bulma ve أَنْ / لِـ + mansûb) iki bayram k
 kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Ramazan mı Kurban mı?, Doğru mu
 Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 37 kelimesini çalıştırır.
 Veriler `kiraat17/veri.js` içindedir; sonra `python3 kiraat17/yap.py`.
+
+## Uygulama: Kıraat 18 — İstanbul
+
+`kiraat18/sayfa.html` (aynısı `kiraat18/index.html`) إِسْطَنْبُولُ okuma-anlama dersini beş bölümde (okumaya hazırlık ve metin;
+metni anlama, ✓/✗, A–B eşleştirme ve eser türlerini ayırma; boşluk doldurma, cümle tamamlama ve ism-i tafdîl; eş, zıt anlam ve
+çoğul; kelime tanımı, cümle dizme ve مِنْ حَيْثُ، مِنْ قِبَلِ، تَجْمَعُ بَيْنَ kalıpları) iki kıta kartları, tarih çizgisi, tafdîl makinesi
+(6 sıfat × 4 kalıp), kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Cami mi Saray mı
+Kule mi?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 38
+kelimesini çalıştırır. Veriler `kiraat18/veri.js` içindedir; sonra `python3 kiraat18/yap.py`.
