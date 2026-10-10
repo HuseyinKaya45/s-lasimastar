@@ -751,3 +751,12 @@ doktorun işleri; يَشْعُرُ بِـ، عَلَيْكَ أَنْ، كَثِ
 şikâyet ve tavsiye makinesi (6 şikâyet × 4 kişi), kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve
 Dönüştür, Kim Yapar?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin
 38 kelimesini çalıştırır. Veriler `kiraat11/veri.js` içindedir; sonra `python3 kiraat11/yap.py`.
+
+## Uygulama: Kıraat 12 — Hobiler
+
+`kiraat12/sayfa.html` (aynısı `kiraat12/index.html`) الهِوَايَاتُ okuma-anlama dersini beş bölümde (okumaya hazırlık ve metin;
+metni anlama, ✓/✗, sultanlar ve hobileri; eş, zıt anlam ve çoğul; cümle tamamlama, cümle kurma, kelime kullanma; resimdeki hobi,
+hobi türleri, harf-i cerli fiiller ve يُمْكِنُ أَنْ) hobi türleri ağacı, tarihte hobiler kartları, hobi makinesi (16 hobi × 5 kalıp),
+kitaptaki 9 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Hangi Tür?, Doğru mu Yanlış mı?, Hafıza
+Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 36 kelimesini çalıştırır. Veriler
+`kiraat12/veri.js` içindedir; sonra `python3 kiraat12/yap.py`.
