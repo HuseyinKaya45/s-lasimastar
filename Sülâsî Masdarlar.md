@@ -760,3 +760,12 @@ hobi türleri, harf-i cerli fiiller ve يُمْكِنُ أَنْ) hobi türleri 
 kitaptaki 9 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Hangi Tür?, Doğru mu Yanlış mı?, Hafıza
 Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 36 kelimesini çalıştırır. Veriler
 `kiraat12/veri.js` içindedir; sonra `python3 kiraat12/yap.py`.
+
+## Uygulama: Kıraat 13 — Yaz Tatili
+
+`kiraat13/sayfa.html` (aynısı `kiraat13/index.html`) الإِجَازَةُ الصَّيْفِيَّةُ okuma-anlama dersini beş bölümde (okumaya hazırlık
+ve metin; metni anlama, ✓/✗ ve soru kurma; boşluk doldurma, eş–zıt anlam, çoğul; sıfat uyumu, harf-i cer, cümle kurma;
+تُعْتَبَرُ مِنْ أَكْبَرِ، أَكْثَرُ شَيْءٍ أَعْجَبَنِي، تَشْتَهِرُ بِـ kalıpları ve ism-i tafdîl) Trabzon–Karaca Mağarası kartları, şehir
+tanıtma makinesi (6 şehir × 4 kalıp), kitaptaki 11 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür,
+Şehir mi Mağara mı?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin
+37 kelimesini çalıştırır. Veriler `kiraat13/veri.js` içindedir; sonra `python3 kiraat13/yap.py`.
