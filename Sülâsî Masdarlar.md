@@ -852,3 +852,12 @@ mastar), icatlar zinciri, kitaptaki 9 etkinliğin hepsi, ek etkinlikler, beş oy
 mi?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 38 kelimesini
 çalıştırır. Veriler `kiraat23b/veri.js` içindedir; sonra `python3 kiraat23b/yap.py`. (`kiraat23/` klasöründeki “İslâm’da Cihad
 Kavramı” ayrı bir derstir.)
+
+## Uygulama: Kıraat 24 — Emevî Camii
+
+`kiraat24/sayfa.html` (aynısı `kiraat24/index.html`) المَسْجِدُ الأُمَوِيُّ okuma-anlama dersini beş bölümde (okumaya hazırlık ve metin;
+metni anlama, ✓/✗ ve düzeltme, sayıların anlamı, Emevî–Sultanahmet ayırma; Sultanahmet paragrafı ve boşluk doldurma; eş, zıt anlam
+ve tekil–çoğul; harf-i cerler, kelime kullanma ve sayı–sayılan uyumu) yer–bölüm kartları, sayı makinesi (9 bilgi × soru / rakam /
+yazı), mabetten mescide tarih çizgisi, kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür,
+Emevî mi Sultanahmet mi?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi
+dersin 37 kelimesini çalıştırır. Veriler `kiraat24/veri.js` içindedir; sonra `python3 kiraat24/yap.py`.
