@@ -628,7 +628,7 @@ provasıyla öğretir. Veriler `hemze/veri.js` içindedir; sonra `python3 hemze/
 bölümde (okumaya hazırlık ve tam harekeli metin, sesli okuma ve sözlükle; metni anlama, cihadın dört gayesi ve delilleri; zıt ve
 eş anlam; çoğul ve tekil; harf-i cer, üslup, vezin ve eşleştirme) cihad gezgini (6 konu × 4 bakış: fikir, delil, kelimeler,
 düşünme sorusu), kitaptaki bütün etkinlikler, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Zıt mı Eş mi?,
-Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. Veriler `kiraat23/veri.js` içindedir; sonra
+Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 42 kelimesini çalıştırır. Veriler `kiraat23/veri.js` içindedir; sonra
 `python3 kiraat23/yap.py`.
 
 ## Uygulama: Kelime Hazinesi
