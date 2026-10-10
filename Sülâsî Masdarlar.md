@@ -903,9 +903,9 @@ uyum alıştırmaları, Türkçeden Arapçaya, takım yarışması, üretim) sü
 üstteki sayaç çalışır ve süre dolunca zil çalar. **Kelimeler**: 48 kelime kartı (çoğul ve zıt anlamlıyla), rastgele kart.
 **Metin**: tam harekeli metin, kelimeye dokununca anlam, cümle seçince çeviri ve not, mübtedâ–haber renkleri, yalnız Türkçe
 (geri çeviri), sesli okuma. **Çeviri**: her cümle için kelime kelime, doğal çeviri ve çeviri notu adım adım; Türkçeden Arapçaya
-ve 12 yeni cümle. **İsim Cümlesi**: dokuz kaide kartı (akılsız çoğul, haberin türleri, fasl zamiri…), 15 cümlenin mübtedâ, haber
-ve tümleç analizi tablosuyla; “Sınıf işaretlesin” modunda öğrenciler parçaları işaretler, program kontrol eder.
-**Alıştırmalar**: uyum makinesi (16 mübtedâ × sıfat × 6 biçim), haberi seç, dönüştür, cümle mi terkip mi, haberin türü,
+ve 12 yeni cümle. **İsim Cümlesi**: yedi kaide kartı (merfûluk, marife–nekre, uyum, akılsız çoğul…; haberin çeşitleri ikinci kitaba
+bırakıldı), 15 cümlenin mübtedâ, haber ve tümleç analizi tablosuyla; “Sınıf işaretlesin” modunda öğrenciler parçaları işaretler, program kontrol eder.
+**Alıştırmalar**: uyum makinesi (16 mübtedâ × sıfat × 6 biçim), haberi seç, dönüştür, cümle mi terkip mi,
 doğru–yanlış, sözlü soru–cevap. **Yarışma**: 2–4 takım, karışık sorular. **Üretim**: cümle kurucu (haberi uydurur, Türkçesini
 yazar), yazma görevi, örnek paragraf ve yazdırılabilir ödev. Düzenleme: `istanbulotel/veri.js`, `istanbulotel/uygulama.js`,
 `istanbulotel/ders.css`; sonra `python3 istanbulotel/yap.py`.

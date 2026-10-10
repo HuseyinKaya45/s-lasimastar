@@ -165,7 +165,7 @@ nav.tabs { display: grid; gap: 6px; overflow: visible; }
   .spot-ar { font-size: calc(3rem * var(--z)); }
   .ctab { font-size: .82rem; }
   .ctab td.ar { white-space: normal; font-size: 1.1rem; }
-  .ctab th:nth-child(2), .ctab td:nth-child(2), .ctab th:nth-child(4), .ctab td:nth-child(4) { display: none; }
+  .ctab th:nth-child(2), .ctab td:nth-child(2) { display: none; }
 }
 @media print {
   .noprint, nav.tabs, .toast, header.top, main > section > :not(.sheet) { display: none !important; }

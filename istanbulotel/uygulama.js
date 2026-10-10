@@ -195,18 +195,17 @@ function renderIsim() {
     '<div class="board card analiz" style="--z:' + ST.zoom + '"><div class="lbl">' + (I.i + 1) + '. cümle</div><div class="ar anl">' +
       (I.quiz ? sentHtml(s, { mark: I.mark, check: I.check }) : sentHtml(s, { color: I.color.length ? I.color : null, label: true })) + '</div>' +
       '<div class="muted">' + esc(s.tr) + '</div>' +
-      ((!I.quiz && I.color.length >= 2) || I.check ? '<table class="ctab"><thead><tr><th>Mübtedâ</th><th>Türü</th><th>Haber</th><th>Türü</th><th>Uyum</th></tr></thead><tbody>' + s.c.map(function (c) { return '<tr><td class="ar c-mb">' + c[0] + '</td><td>' + c[1] + '</td><td class="ar c-hb">' + c[2] + '</td><td>' + c[3] + '</td><td>' + arr(c[4]) + '</td></tr>'; }).join("") + '</tbody></table>' : '') +
-      '<div class="legend"><span><i class="c-mb"></i>Mübtedâ</span><span><i class="c-hb"></i>Haber</span><span><i class="c-tm"></i>Tümleç (câr-mecrûr, zarf)</span><span><i class="c-fs"></i>Fasl zamiri</span></div>' +
+      ((!I.quiz && I.color.length >= 2) || I.check ? '<table class="ctab"><thead><tr><th>Mübtedâ</th><th>Türü</th><th>Haber</th><th>Açıklama</th></tr></thead><tbody>' + s.c.map(function (c) { return '<tr><td class="ar c-mb">' + c[0] + '</td><td>' + c[1] + '</td><td class="ar c-hb">' + c[2] + '</td><td>' + arr(c[4]) + '</td></tr>'; }).join("") + '</tbody></table>' : '') +
+      '<div class="legend"><span><i class="c-mb"></i>Mübtedâ</span><span><i class="c-hb"></i>Haber</span><span><i class="c-tm"></i>Tümleç (câr-mecrûr, zarf)</span><span><i class="c-fs"></i>Ara zamir (هُوَ)</span></div>' +
       '<div class="row-btns center"><button class="btn ghost" data-imove="-1">◀ Önceki</button><button class="btn" data-imove="1">Sonraki ▶</button></div></div></section>';
 }
 
 // ---------- 5 · ALIŞTIRMALAR ----------
-var SETS = [["makine", "Uyum makinesi"], ["uyum", "Haberi seç"], ["donustur", "Dönüştür"], ["terkip", "Cümle mi, terkip mi?"], ["htur", "Haberin türü"], ["dy", "Doğru mu, yanlış mı?"], ["soru", "Soru–cevap (sözlü)"]];
+var SETS = [["makine", "Uyum makinesi"], ["uyum", "Haberi seç"], ["donustur", "Dönüştür"], ["terkip", "Cümle mi, terkip mi?"], ["dy", "Doğru mu, yanlış mı?"], ["soru", "Soru–cevap (sözlü)"]];
 function setItems(k) {
   if (k === "uyum") return UYUM.map(function (x) { return { q: '<span class="ar">' + x[0].replace("___", '<span class="gap">___</span>') + '</span>', o: [x[1], x[2], x[3]], a: x[1], why: x[4], ar: true }; });
   if (k === "donustur") return DONUSTUR.map(function (x) { var p = x[0].split(" ← "); return { q: '<span class="ar">' + p[0] + '</span> <span class="tchip">' + p[1] + '</span>', o: [x[1], x[2], x[3]], a: x[1], why: x[4], ar: true }; });
   if (k === "terkip") return TERKIP.map(function (x) { return { q: '<span class="ar">' + x[0] + '</span>', o: TERKIP_OPTS.map(function (o) { return o[1]; }), a: TERKIP_OPTS.filter(function (o) { return o[0] === x[1]; })[0][1], why: x[2], fixed: true }; });
-  if (k === "htur") return HTUR.map(function (x) { return { q: '<span class="ar">' + x[0] + '</span>', o: HTUR_OPTS.map(function (o) { return o[1]; }), a: HTUR_OPTS.filter(function (o) { return o[0] === x[1]; })[0][1], why: x[2], fixed: true }; });
   if (k === "dy") return DY.map(function (x) { return { q: '<span class="ar">' + x[0] + '</span>', o: ["Doğru ✓", "Yanlış ✗"], a: x[1] ? "Doğru ✓" : "Yanlış ✗", why: x[1] ? x[2] : "Metne göre: " + x[2], fixed: true }; });
   return [];
 }

@@ -1,9 +1,9 @@
 // ================= VERİ: فَنَادِقُ إِسْطَنْبُولَ · çeviri ve isim cümlesi sınıf dersi =================
-// Kelime yazımı: "Arapça|Türkçe|rol" · " · " ile ayrılır. Roller: mb mübtedâ, hb haber, tm tümleç (câr-mecrûr, zarf), x bağlaç, fs fasl zamiri.
+// Kelime yazımı: "Arapça|Türkçe|rol" · " · " ile ayrılır. Roller: mb mübtedâ, hb haber, tm tümleç (câr-mecrûr, zarf), x bağlaç, fs ara zamir (هُوَ).
 // "وَ" tek başına yazılırsa sonraki kelimeye bitişik gösterilir.
 var ROLLER = {
   mb: { tr: "Mübtedâ", ar: "مُبْتَدَأٌ", col: "cerr" }, hb: { tr: "Haber", ar: "خَبَرٌ", col: "ref" },
-  tm: { tr: "Tümleç", ar: "مُتَعَلِّقٌ", col: "mz" }, x: { tr: "Bağlaç", ar: "حَرْفُ عَطْفٍ", col: "x" }, fs: { tr: "Fasl zamiri", ar: "ضَمِيرُ الفَصْلِ", col: "nasb" }
+  tm: { tr: "Tümleç", ar: "مُتَعَلِّقٌ", col: "mz" }, x: { tr: "Bağlaç", ar: "حَرْفُ عَطْفٍ", col: "x" }, fs: { tr: "Ara zamir", ar: "ضَمِيرٌ", col: "nasb" }
 };
 var BASLIK = "فَنَادِقُ إِسْطَنْبُولَ";
 // Cümleler: p paragraf, k kelimeler, tr çeviri, y yanlış (çeldirici) çeviri, c cümlecikler [mübtedâ, türü, haber, türü, uyum], n çeviri notu
@@ -18,8 +18,8 @@ var CUMLE = [
     n: "قَرِيبٌ مِنْ = …e yakın · بَعِيدٌ عَنْ = …den uzak. Arapçada “yakın” مِنْ ile kurulur, Türkçeye “-e” diye çevrilir. عَنْهُ’daki ـهُ havalimanını gösterir." },
   { p: 1, k: "مُعْظَمُ|çoğu|mb · الفَنَادِقِ|otellerin|mb · فِي|-de|hb · مِنْطَقَةِ|bölgesi|hb · تَقْسِيمَ|Taksim|hb · وَسُلْطَانِ أَحْمَدَ|ve Sultanahmet|hb",
     tr: "Otellerin çoğu Taksim ve Sultanahmet bölgesindedir.", y: "Otellerin hepsi Taksim’dedir.",
-    c: [["مُعْظَمُ الفَنَادِقِ", "İzafet terkibi", "فِي مِنْطَقَةِ تَقْسِيمَ…", "Şibh-i cümle (câr-mecrûr)", "Haber câr-mecrûrdur; gizli “bulunur” (مَوْجُودَةٌ) anlamı taşır."]],
-    n: "مُعْظَمُ = çoğu, büyük kısmı. Câr-mecrûr haberi Türkçeye “-dedir / -de bulunur” diye çevir." },
+    c: [["مُعْظَمُ الفَنَادِقِ", "İzafet terkibi", "فِي مِنْطَقَةِ تَقْسِيمَ…", "Yer bildiren ifade", "Haber burada yer bildiriyor: “Taksim ve Sultanahmet bölgesinde(dir)”. Haber tek kelime olmak zorunda değildir."]],
+    n: "مُعْظَمُ = çoğu, büyük kısmı. Haber yer bildirince Türkçeye “-dedir / -de bulunur” diye çevrilir." },
   { p: 1, k: "بَعْضُ|bazısı|mb · الفَنَادِقِ|otellerin|mb · أَرْبَعَةُ|dört|hb · نُجُومٍ|yıldız|hb · وَ|ve|x · بَعْضُهَا|bazısı|mb · خَمْسَةُ|beş|hb · نُجُومٍ|yıldız|hb",
     tr: "Otellerin bazısı dört yıldızlı, bazısı beş yıldızlıdır.", y: "Otellerin bazısı dört katlı, bazısı beş katlıdır.",
     c: [["بَعْضُ الفَنَادِقِ", "İzafet terkibi", "أَرْبَعَةُ نُجُومٍ", "Müfred (sayı terkibi)", "Haber bir sayı terkibidir; “dört yıldız(lı)”."], ["بَعْضُهَا", "İzafet (zamirle)", "خَمْسَةُ نُجُومٍ", "Müfred (sayı terkibi)", "Aynı yapı."]],
@@ -66,7 +66,7 @@ var CUMLE = [
     n: "الزِّيَارَةُ إِلَى إِسْطَنْبُولَ “İstanbul’a ziyaret” → “İstanbul’u ziyaret etmek”. Arapça “-e” (إِلَى), Türkçe “-i”." },
   { p: 4, k: "وَ|ve|x · أَجْمَلُ|en güzel|mb · فَصْلٍ|mevsim|mb · لِزِيَارَةِ|ziyareti için|mb · إِسْطَنْبُولَ|İstanbul|mb · هُوَ|(o)|fs · فَصْلُ|mevsimi|hb · الرَّبِيعِ|ilkbahar|hb",
     tr: "İstanbul’u ziyaret için en güzel mevsim ilkbahardır.", y: "İstanbul’u ziyaret için en güzel mevsim kıştır.",
-    c: [["أَجْمَلُ فَصْلٍ لِزِيَارَةِ إِسْطَنْبُولَ", "İsm-i tafdîl izafeti", "فَصْلُ الرَّبِيعِ", "Müfred (izafet terkibi)", "هُوَ fasl zamiridir: mübtedâ ile haberi ayırır, vurgu katar; çevrilmez."]],
+    c: [["أَجْمَلُ فَصْلٍ لِزِيَارَةِ إِسْطَنْبُولَ", "İzafet terkibi (أَجْمَلُ: en güzel)", "فَصْلُ الرَّبِيعِ", "Müfred (izafet terkibi)", "Aradaki هُوَ mübtedâ ile haberi ayırır ve vurgu katar; Türkçeye çevrilmez."]],
     n: "أَجْمَلُ فَصْلٍ “mevsimin en güzeli” → “en güzel mevsim”. فَصْلُ الرَّبِيعِ “ilkbahar mevsimi” → kısaca “ilkbahar”." }
 ];
 // Kelime kartları: [Arapça, Türkçe, çoğul / tekil, zıt anlamlı]
@@ -91,9 +91,7 @@ var KAIDE = [
   ["Mübtedâ marife, haber nekre", "Mübtedâ çoğunlukla belirli (ال’li, özel isim, zamir ya da izafet), haber belirsizdir. <span class=\"ar\">الفُنْدُقُ جَمِيلٌ</span> cümledir; <span class=\"ar\">الفُنْدُقُ الجَمِيلُ</span> ise “güzel otel” sıfat terkibidir, cümle değildir."],
   ["Uyum (mutâbakat)", "Haber, mübtedâya cinsiyette ve sayıda uyar: <span class=\"ar\">المُوَظَّفُ نَشِيطٌ · المُوَظَّفَةُ نَشِيطَةٌ · المُوَظَّفَانِ نَشِيطَانِ · المُوَظَّفُونَ نَشِيطُونَ · المُوَظَّفَاتُ نَشِيطَاتٌ</span>."],
   ["Akılsız çoğul → dişil tekil", "İnsan dışındaki varlıkların çoğulu tekil dişil gibi muamele görür: <span class=\"ar\">الفَنَادِقُ كَثِيرَةٌ · الغُرَفُ وَاسِعَةٌ · الصَّالَاتُ مَلِيئَةٌ · المَشْرُوبَاتُ كَثِيرَةٌ</span>. Metnin en önemli uyum dersi budur."],
-  ["Haberin türleri", "<b>Müfred</b> (tek kelime ya da terkip): <span class=\"ar\">الخِدْمَةُ مُمْتَازَةٌ · إِسْطَنْبُولُ مَدِينَةُ التَّارِيخِ</span>. <b>Şibh-i cümle</b> (câr-mecrûr / zarf): <span class=\"ar\">مُعْظَمُ الفَنَادِقِ فِي تَقْسِيمَ</span>. <b>Cümle</b>: <span class=\"ar\">الفُنْدُقُ غُرَفُهُ وَاسِعَةٌ · المُوَظَّفُونَ يَعْمَلُونَ</span>."],
   ["Bir mübtedâ, birden çok haber", "<span class=\"ar\">هُوَ رَخِيصٌ وَلَذِيذٌ · القَهْوَةُ مَشْهُورَةٌ وَلَذِيذَةٌ</span>: haberler و ile sıralanır."],
-  ["Fasl zamiri", "Mübtedâ ile haber arasındaki <span class=\"ar\">هُوَ / هِيَ</span>, haberi sıfattan ayırır ve vurgu katar: <span class=\"ar\">أَجْمَلُ فَصْلٍ <b class=\"c-fs\">هُوَ</b> فَصْلُ الرَّبِيعِ</span>. Türkçeye çevrilmez."],
   ["Çeviri ipucu", "Türkçede yüklem sona gelir ve “-dır” eki alır: <span class=\"ar\">الغُرَفُ وَاسِعَةٌ</span> → “Odalar geniştir.” Yer bildiren tümleç çoğu zaman başa alınır: “İstanbul’da oteller çoktur.”"]
 ];
 // Alıştırmalar: [soru (___ boşluk), doğru, yanlış1, yanlış2, açıklama]
@@ -134,14 +132,6 @@ var TERKIP = [
   ["الخِدْمَةُ مُمْتَازَةٌ", "c", "“Hizmet mükemmeldir.”"], ["المُوَظَّفُونَ النَّشِيطُونَ", "t", "“çalışkan çalışanlar”."], ["المُوَظَّفُونَ نَشِيطُونَ", "c", "“Çalışanlar çalışkandır.”"]
 ];
 var TERKIP_OPTS = [["c", "İsim cümlesi", "جُمْلَةٌ اسْمِيَّةٌ", "ref"], ["t", "Sıfat terkibi", "صِفَةٌ وَمَوْصُوفٌ", "mz"]];
-var HTUR = [
-  ["الفَنَادِقُ كَثِيرَةٌ فِي إِسْطَنْبُولَ.", "m", "كَثِيرَةٌ tek kelime."], ["مُعْظَمُ الفَنَادِقِ فِي مِنْطَقَةِ تَقْسِيمَ.", "s", "Câr-mecrûr."],
-  ["الضُّيُوفُ فِي الصَّالَةِ.", "s", "Câr-mecrûr."], ["الفُنْدُقُ أَمَامَ البَحْرِ.", "s", "Zarf (أَمَامَ)."],
-  ["الفُنْدُقُ غُرَفُهُ وَاسِعَةٌ.", "c", "Haber bir isim cümlesi: غُرَفُهُ وَاسِعَةٌ."], ["إِسْطَنْبُولُ جَوُّهَا مُعْتَدِلٌ.", "c", "Haber isim cümlesi: جَوُّهَا مُعْتَدِلٌ."],
-  ["المُوَظَّفُونَ يَعْمَلُونَ كَثِيرًا.", "c", "Haber fiil cümlesi: يَعْمَلُونَ."], ["السُّيَّاحُ يَزُورُونَ إِسْطَنْبُولَ فِي الرَّبِيعِ.", "c", "Haber fiil cümlesi."],
-  ["إِسْطَنْبُولُ مَدِينَةُ التَّارِيخِ.", "m", "İzafet terkibi de müfred sayılır."], ["القَهْوَةُ مَوْجُودَةٌ دَائِمًا.", "m", "مَوْجُودَةٌ tek kelime."]
-];
-var HTUR_OPTS = [["m", "Müfred", "مُفْرَدٌ", "ref"], ["s", "Şibh-i cümle", "شِبْهُ جُمْلَةٍ", "mz"], ["c", "Cümle", "جُمْلَةٌ", "mi"]];
 var DY = [
   ["الفَنَادِقُ قَلِيلَةٌ فِي إِسْطَنْبُولَ.", false, "كَثِيرَةٌ"], ["كُلُّ الفَنَادِقِ قَرِيبَةٌ مِنَ المَطَارِ.", false, "بَعْضُهَا قَرِيبَةٌ وَبَعْضُهَا بَعِيدَةٌ"],
   ["مُعْظَمُ الفَنَادِقِ فِي تَقْسِيمَ وَسُلْطَانِ أَحْمَدَ.", true, "Metinde aynen geçer."], ["أَسْعَارُ الفَنَادِقِ غَالِيَةٌ جِدًّا.", false, "مُعْتَدِلَةٌ"],
@@ -170,10 +160,10 @@ var TRANSFER = [
   ["Kahve sıcaktır ve lezzetlidir.", "القَهْوَةُ سَاخِنَةٌ وَلَذِيذَةٌ.", "سَاخِنٌ: sıcak"],
   ["Ankara güzel bir şehirdir.", "أَنْقَرَةُ مَدِينَةٌ جَمِيلَةٌ.", "Haber sıfat terkibi"],
   ["Fiyatlar ucuzdur.", "الأَسْعَارُ رَخِيصَةٌ.", "Akılsız çoğul"],
-  ["Misafirler salondadır.", "الضُّيُوفُ فِي الصَّالَةِ.", "Şibh-i cümle haber"],
+  ["Misafirler salondadır.", "الضُّيُوفُ فِي الصَّالَةِ.", "Haber yer bildiriyor: فِي"],
   ["Otel denizden uzaktır.", "الفُنْدُقُ بَعِيدٌ عَنِ البَحْرِ.", "بَعِيدٌ عَنْ"],
   ["Erkek çalışanlar çoktur.", "المُوَظَّفُونَ كَثِيرُونَ.", "Akıllı çoğul"],
-  ["En güzel mevsim yazdır.", "أَجْمَلُ فَصْلٍ هُوَ فَصْلُ الصَّيْفِ.", "Fasl zamiri هُوَ"],
+  ["En güzel mevsim yazdır.", "أَجْمَلُ فَصْلٍ هُوَ فَصْلُ الصَّيْفِ.", "Vurgu için araya هُوَ"],
   ["İki oda geniştir.", "الغُرْفَتَانِ وَاسِعَتَانِ.", "İkil"],
   ["Türk yemeği meşhurdur.", "الطَّعَامُ التُّرْكِيُّ مَشْهُورٌ.", "Sıfat terkibi mübtedâ"]
 ];
@@ -200,7 +190,7 @@ var AKIS = [
   ["metin", "Metni dinle ve oku", 8, "Önce dinlet, sonra sesli okut. Bilinmeyen kelimeye dokunup anlamını göster."],
   ["ceviri", "Cümle cümle çeviri", 15, "Her cümlede önce öğrenciler çevirsin; sonra kelime kelime ve doğal çeviriyi aç, nottaki tuzağı konuş."],
   ["isim", "İsim cümlesi: kaide ve analiz", 12, "Kaide kartlarını anlat; metnin cümlelerinde mübtedâ ve haberi sınıfla birlikte işaretle."],
-  ["alistirma", "Uyum alıştırmaları", 12, "Uyum makinesi ve alıştırmalar: haber seç, dönüştür, cümle mi terkip mi, haberin türü."],
+  ["alistirma", "Uyum alıştırmaları", 12, "Uyum makinesi ve alıştırmalar: haber seç, dönüştür, cümle mi terkip mi, doğru–yanlış."],
   ["ceviri", "Türkçeden Arapçaya", 8, "Çeviri sekmesinde “Türkçe → Arapça” ve “Yeni cümleler” modlarını kullan."],
   ["yaris", "Takım yarışması", 10, "Takımlar sırayla cevaplasın: çeviri, haber seç, mübtedâ bul, doğru–yanlış."],
   ["uret", "Üretim: kendi otelini anlat", 7, "Cümle kurucu ile cümle kurdur; sonra her öğrenci 5 isim cümlesi yazsın."]
