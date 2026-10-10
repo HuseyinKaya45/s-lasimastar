@@ -742,3 +742,12 @@ Günlük tekrar beş kutulu aralıklı tekrarla (Leitner) çalışır. Kelimeler
 listelenir ve aranır; “Eş ve Zıt” sekmesi kitaptaki = ve × çiftlerini derse göre toplar. Sekiz oyun vardır: Kalıp Fabrikası,
 Mıknatıs, Hafıza, Düşen Kelimeler, Cümlede Değiştir, Hız Turu, Terkip Tamamla, Türkçeden Arapçaya. Kelimeler
 `okumakelime/kelimeler.json` içindedir; değiştirdikten sonra `python3 okumakelime/yap.py` çalıştırılır.
+
+## Uygulama: Kıraat 11 — Doktorda
+
+`kiraat11/sayfa.html` (aynısı `kiraat11/index.html`) عِنْدَ الطَّبِيبِ okuma-anlama dersini beş bölümde (okumaya hazırlık ve
+metin; metni anlama, olay sıralama ve düzeltme; boşluk doldurma, eş anlam, tekil–çoğul, zıt anlam; kim ne yapar, doğru kelime ve
+doktorun işleri; يَشْعُرُ بِـ، عَلَيْكَ أَنْ، كَثِيرًا مِنْ، يَتَأَلَّفُ مِنْ، عِنْدَمَا kalıpları) hasta–doktor kartları, olay şeridi,
+şikâyet ve tavsiye makinesi (6 şikâyet × 4 kişi), kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve
+Dönüştür, Kim Yapar?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin
+38 kelimesini çalıştırır. Veriler `kiraat11/veri.js` içindedir; sonra `python3 kiraat11/yap.py`.
