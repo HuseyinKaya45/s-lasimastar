@@ -722,3 +722,12 @@ paragraf ve cümle kurma, أَمَّا… فَـ ve كَثِيرًا مِنَ ka
 olumsuzluk makinesi (5 cümle × 5 edat), edatlar tablosu, kitaptaki 11 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime,
 Düzelt ve Dönüştür, Hangi Mevsim?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi”
 sekmesi dersin 34 kelimesini çalıştırır. Veriler `kiraat09/veri.js` içindedir; sonra `python3 kiraat09/yap.py`.
+
+## Uygulama: Kıraat 10 — Alışveriş Günü
+
+`kiraat10/sayfa.html` (aynısı `kiraat10/index.html`) يَوْمُ التَّسَوُّقِ okuma-anlama dersini beş
+bölümde (okumaya hazırlık ve metin; metni anlama, haftalık ihtiyaç tablosu ve ✓/✗; boşluk doldurma, eş–zıt anlam, tekil–çoğul;
+soru kurma, cümle kurma ve kelime kullanma; لَكِنْ، لِأَنَّ، مِنْ… إِلَى kalıpları, pazar reyonları ve miktar) Çarşamba Pazarı kartları,
+alışveriş makinesi (9 ürün × 4 miktar), haftalık liste tablosu, kitaptaki 12 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime,
+Düzelt ve Dönüştür, Hangi Reyon?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi”
+sekmesi dersin 35 kelimesini çalıştırır. Veriler `kiraat10/veri.js` içindedir; sonra `python3 kiraat10/yap.py`.
