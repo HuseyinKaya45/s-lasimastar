@@ -1,0 +1,192 @@
+<title>Kelime Hazinesi Rehberi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:wght@400;500;700&family=Amiri:wght@400;700&display=swap">
+<style>
+/* Düzen: tek sütunlu öğrenci rehberi; Arapça örnekler sayfanın içinde gerçek kelime kartı olarak durur. */
+:root {
+  --bg: #F2F5F1; --card: #FFFFFF; --ink: #1B2420; --muted: #5D6B64; --line: #D7DFD9;
+  --green: #1F5C46; --ochre: #A86A12; --red: #A63A2B; --soft: #E6EEE8;
+  --f-display: "Alegreya", Georgia, serif; --f-body: "Alegreya Sans", "Segoe UI", system-ui, sans-serif; --f-ar: "Amiri", "Traditional Arabic", serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111614; --card: #19201D; --ink: #E6ECE8; --muted: #9FACA5; --line: #2C3632;
+  --green: #6CC3A0; --ochre: #E0A548; --red: #EE8A78; --soft: #202925; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111614; --card: #19201D; --ink: #E6ECE8; --muted: #9FACA5; --line: #2C3632;
+  --green: #6CC3A0; --ochre: #E0A548; --red: #EE8A78; --soft: #202925; color-scheme: dark }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 1.08rem/1.6 var(--f-body); padding: 0 16px; }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 40px 64px; display: grid; gap: 40px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2.2rem, 7vw, 3.4rem); font-weight: 800; }
+h2 { font-size: 1.6rem; font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0; max-width: 65ch; }
+.ar { font-family: var(--f-ar); direction: rtl; unicode-bidi: isolate; }
+.lbl { font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+section { display: grid; gap: 14px; }
+.muted { color: var(--muted); }
+
+.hero { display: grid; gap: 14px; }
+.hero .ar.big { font-size: clamp(1.7rem, 5vw, 2.3rem); color: var(--green); }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 6px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font: 700 1rem var(--f-body); text-decoration: none; border: 2px solid var(--green); cursor: pointer; }
+.btn.solid { background: var(--green); color: var(--bg); }
+.btn.ghost { background: transparent; color: var(--green); }
+.btn:focus-visible { outline: 3px solid var(--ochre); outline-offset: 2px; }
+.url { font-size: .9rem; color: var(--muted); word-break: break-all; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: grid; gap: 2px; }
+.stat b { font: 800 1.7rem var(--f-display); font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: .92rem; }
+
+.wcard { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: grid; gap: 14px; box-shadow: 0 6px 24px -18px rgba(0,0,0,.4); }
+.whead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.whead .ar { font-size: 2.4rem; line-height: 1.2; }
+.wgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.cell { background: var(--soft); border-radius: 10px; padding: 8px 10px; display: grid; gap: 2px; min-width: 0; }
+.cell .ar { font-size: 1.35rem; }
+.cell.c1 .ar { color: var(--ochre); } .cell.c2 .ar { color: var(--green); } .cell.c3 .ar { color: var(--red); }
+.sent { border-top: 1px dashed var(--line); padding-top: 12px; display: grid; gap: 2px; }
+.sent .ar { font-size: 1.3rem; }
+.sent b { color: var(--ochre); }
+@media (max-width: 480px) { .wgrid { grid-template-columns: 1fr; } }
+
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: s; }
+ol.steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; }
+ol.steps li::before { content: counter(s); width: 40px; height: 40px; border-radius: 50%; background: var(--green); color: var(--bg); display: grid; place-items: center; font: 800 1.2rem var(--f-display); }
+ol.steps li div { min-width: 0; padding-top: 6px; }
+
+.boxes { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.box { border: 1px solid var(--line); background: var(--card); border-radius: 10px; padding: 10px 6px; text-align: center; display: grid; gap: 2px; }
+.box b { font: 800 1.2rem var(--f-display); color: var(--green); }
+.box small { color: var(--muted); font-size: .8rem; line-height: 1.25; }
+@media (max-width: 480px) { .boxes { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+dl.tabs { margin: 0; display: grid; gap: 10px; }
+dl.tabs div { display: grid; grid-template-columns: 170px 1fr; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+dl.tabs dt { font-weight: 700; }
+dl.tabs dd { margin: 0; min-width: 0; }
+@media (max-width: 520px) { dl.tabs div { grid-template-columns: 1fr; gap: 2px; } }
+
+.games { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.game { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: grid; gap: 4px; }
+.game .ar { color: var(--ochre); font-size: 1.15rem; }
+.game p { font-size: .95rem; color: var(--muted); }
+
+.ranks { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.rank { padding: 6px 12px; border-radius: 999px; background: var(--soft); font-weight: 700; font-size: .95rem; }
+.rank:last-child { background: var(--green); color: var(--bg); }
+.arrow { color: var(--muted); }
+
+.notes { background: var(--soft); border-radius: 14px; padding: 18px; display: grid; gap: 10px; }
+.notes ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+.end { font-family: var(--f-display); font-size: 1.3rem; }
+@media (prefers-reduced-motion: no-preference) { .btn { transition: transform .15s; } .btn:hover { transform: translateY(-1px); } }
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="lbl">Okuma-Anlama · 1–10. dersler</div>
+    <h1>Okuma Kelime Hazinesi</h1>
+    <div class="ar big">مُفْرَدَاتُ دُرُوسِ القِرَاءَةِ</div>
+    <p>Sevgili öğrencilerim, Okuma-Anlama dersinde işlediğimiz ilk on konunun kelimelerini çalışabileceğiniz bir program hazırladım. Kurulum ve üyelik gerekmez; telefonda da bilgisayarda da açılır.</p>
+    <div class="cta">
+      <a class="btn solid" href="https://claude.ai/artifact/15zMquL9DemsiGgF5RR8xz" target="_blank" rel="noopener">Programı aç</a>
+      <button class="btn ghost" id="copy" type="button">Bağlantıyı kopyala</button>
+    </div>
+    <div class="url" id="url">https://claude.ai/artifact/15zMquL9DemsiGgF5RR8xz</div>
+  </header>
+
+  <section>
+    <div class="lbl">İçinde neler var?</div>
+    <h2>Kitabımızın kelime listesinin tamamı</h2>
+    <p>Liste, ders kitabımızın sonundaki kelime listesine göre hazırlandı ve derslerimizde geçen kelimelerle birleştirildi.</p>
+    <div class="stats">
+      <div class="stat"><b>514</b><span>kelime ve terkip</span></div>
+      <div class="stat"><b>99</b><span>terkip</span></div>
+      <div class="stat"><b>125</b><span>eş anlamlı</span></div>
+      <div class="stat"><b>132</b><span>zıt anlamlı</span></div>
+    </div>
+    <p>Her kelimenin bir kartı var. Örneğin 10. dersten:</p>
+    <div class="wcard" aria-label="Örnek kelime kartı">
+      <div class="whead"><span class="ar">رَخِيصٌ</span><span><b>ucuz</b> <span class="muted">· sıfat · 🔊 sesli okunuşu</span></span></div>
+      <div class="wgrid">
+        <div class="cell c1"><span class="lbl">Çoğulu</span><span class="ar">رِخَاصٌ</span><small class="muted">فِعَالٌ kalıbı</small></div>
+        <div class="cell c2"><span class="lbl">Eş anlamlısı =</span><span class="muted">—</span></div>
+        <div class="cell c3"><span class="lbl">Zıt anlamlısı ≠</span><span class="ar">غَالٍ</span></div>
+      </div>
+      <div class="sent"><span class="ar">فَأَسْعَارُهُ <b>رَخِيصَةٌ</b> جِدًّا.</span><small class="muted">Fiyatları çok ucuz. (Dersteki cümle)</small></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="lbl">Nasıl çalışacaksınız?</div>
+    <h2>Her gün 10 dakika</h2>
+    <ol class="steps">
+      <li><div><b>Çalışma alanını seçin.</b> Ana Sayfa’da hangi derslerin kelimelerini çalışacağınızı seçin: hepsini, 1–5. dersleri, 6–10. dersleri ya da istediğiniz dersleri tek tek.</div></li>
+      <li><div><b>Günlük Tekrar’a girin.</b> Program size birkaç yeni kelime ve tekrar zamanı gelen kelimeleri getirir. Yeni kelimeyle önce tanışırsınız, sonra sorular gelir.</div></li>
+      <li><div><b>Her gün devam edin.</b> Doğru bildiğiniz kelime bir üst kutuya çıkar ve daha seyrek sorulur. Yanlış bildiğiniz kelime birinci kutuya döner ve ertesi gün yeniden karşınıza çıkar.</div></li>
+    </ol>
+    <div class="boxes" aria-label="Tekrar kutuları">
+      <div class="box"><b>1</b><small>her gün</small></div>
+      <div class="box"><b>2</b><small>1 gün sonra</small></div>
+      <div class="box"><b>3</b><small>3 gün sonra</small></div>
+      <div class="box"><b>4</b><small>1 hafta sonra · öğrenildi</small></div>
+      <div class="box"><b>5</b><small>2 haftada bir</small></div>
+    </div>
+    <p class="muted">Böylece kelimeyi unutmadan hemen önce tekrar etmiş olursunuz. Bir kelimenin anlamını, çoğulunu, eş ve zıt anlamlısını ve Türkçeden Arapçasını ayrı ayrı çalışırsınız.</p>
+  </section>
+
+  <section>
+    <div class="lbl">Bölümler</div>
+    <h2>Programda nereye bakmalı?</h2>
+    <dl class="tabs">
+      <div><dt>Kelimeler ve Terkipler</dt><dd>Bütün kelimeler derslere göre listelenir. Arapça ya da Türkçe arayabilir, yalnızca isimleri, fiilleri ya da terkipleri görebilirsiniz.</dd></div>
+      <div><dt>Eş ve Zıt</dt><dd>Kitaptaki = ve × işaretli kelime çiftleri derse göre bir arada: <span class="ar">بَاعَ ≠ اشْتَرَى · سِعْرٌ = ثَمَنٌ</span></dd></div>
+      <div><dt>Çoğul Kalıpları</dt><dd>Aynı kalıptaki çoğullar bir arada: <span class="ar">فُعُولٌ، أَفْعَالٌ، مَفَاعِلُ</span>…</dd></div>
+      <div><dt>Zayıf Kelimeler</dt><dd>Yanlış yaptığınız kelimeler burada birikir. Sınavdan önce mutlaka buraya bakın!</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <div class="lbl">Oyunlar</div>
+    <h2>Oynayarak ezberleyin</h2>
+    <div class="games">
+      <div class="game"><h3>Kalıp Fabrikası</h3><span class="ar">طَالِبٌ ← فُعَّالٌ</span><p>Kelimenin hangi çoğul kalıbına girdiğini bulun.</p></div>
+      <div class="game"><h3>Mıknatıs</h3><span class="ar">كَبِيرٌ ≠ صَغِيرٌ</span><p>Eş, zıt ya da tekil–çoğul çiftlerini birleştirin.</p></div>
+      <div class="game"><h3>Hafıza</h3><span class="ar">؟ ↔ ؟</span><p>Kapalı kartları ikişer çevirip eşleri bulun.</p></div>
+      <div class="game"><h3>Düşen Kelimeler</h3><span class="ar">⇣ سُوقٌ</span><p>Kelime yere düşmeden doğru sepete dokunun.</p></div>
+      <div class="game"><h3>Cümlede Değiştir</h3><span class="ar">قَدِيمٌ ← جَدِيدٌ</span><p>Dersteki cümlede kelimenin yerine eşini ya da zıddını koyun.</p></div>
+      <div class="game"><h3>Hız Turu</h3><span class="ar">صَحِيحٌ · خَطَأٌ</span><p>60 saniyede ilişki doğru mu yanlış mı?</p></div>
+      <div class="game"><h3>Terkip Tamamla</h3><span class="ar">وَجْبَةُ … ← الفَطُورِ</span><p>Terkipteki eksik kelimeyi bulun.</p></div>
+      <div class="game"><h3>Türkçeden Arapçaya</h3><span class="ar">pazar ← سُوقٌ</span><p>Türkçesi verilen kelimenin Arapçasını seçin.</p></div>
+    </div>
+    <p>Oynadıkça puan toplar, rütbe atlarsınız. Kim Allâme olacak?</p>
+    <div class="ranks" aria-label="Rütbeler">
+      <span class="rank">Mübtedî</span><span class="arrow">→</span><span class="rank">Talebe</span><span class="arrow">→</span><span class="rank">Kâtip</span><span class="arrow">→</span><span class="rank">Edîb</span><span class="arrow">→</span><span class="rank">Âlim</span><span class="arrow">→</span><span class="rank">Allâme</span>
+    </div>
+  </section>
+
+  <section class="notes">
+    <h3>Bilmeniz gerekenler</h3>
+    <ul>
+      <li>İlerlemeniz kullandığınız cihazın tarayıcısında saklanır. Başka bir cihazdan açarsanız sıfırdan başlarsınız, o yüzden hep aynı cihazdan çalışın.</li>
+      <li>Gizli (özel) sekmede çalışırsanız sekme kapanınca ilerlemeniz silinir.</li>
+      <li>Seri tutmaya çalışın: her gün biraz çalışmak, haftada bir uzun çalışmaktan çok daha etkilidir.</li>
+    </ul>
+  </section>
+
+  <p class="end">Kolay gelsin, başarılar!</p>
+</div>
+
+<script>
+document.getElementById("copy").addEventListener("click", function () {
+  var b = this, u = document.getElementById("url").textContent;
+  function done() { b.textContent = "Kopyalandı"; setTimeout(function () { b.textContent = "Bağlantıyı kopyala"; }, 1800); }
+  function sel() { var r = document.createRange(); r.selectNodeContents(document.getElementById("url")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Seçildi, kopyalayın"; }
+  try { navigator.clipboard.writeText(u).then(done, sel); } catch (x) { sel(); }
+});
+</script>
