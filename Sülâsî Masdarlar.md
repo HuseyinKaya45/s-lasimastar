@@ -668,3 +668,12 @@ sonra `python3 kiraat02/yap.py`.
 hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Hangi Odada?, Doğru mu Yanlış mı?, Hafıza Kartları) ve
 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 35 kelimesini çalıştırır. Veriler `kiraat03/veri.js`
 içindedir; sonra `python3 kiraat03/yap.py`.
+
+## Uygulama: Kıraat 4 — Sofra Başında
+
+`kiraat04/index.html` (yayın sürümü `kiraat04/sayfa.html`) okuma-anlama dersinin 4. konusu حَوْلَ مَائِدَةِ الطَّعَامِ’ı beş bölümde
+(okumaya hazırlık ve metin; metni anlama, ✓/✗ ve soru yazma; kelime ilişkileri ve cümle kurma; öğünler, meyveler, sebzeler ve
+lokanta menüsü; bitişik zamirler ve eril–dişil) öğün çizelgesi, zamir makinesi (5 isim × 8 zamir), kitaptaki 11 etkinliğin
+hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Meyve mi Sebze mi?, Doğru mu Yanlış mı?, Hafıza Kartları)
+ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 33 kelimesini çalıştırır. Veriler `kiraat04/veri.js`
+içindedir; sonra `python3 kiraat04/yap.py`.
