@@ -731,3 +731,14 @@ soru kurma, cümle kurma ve kelime kullanma; لَكِنْ، لِأَنَّ، م�
 alışveriş makinesi (9 ürün × 4 miktar), haftalık liste tablosu, kitaptaki 12 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime,
 Düzelt ve Dönüştür, Hangi Reyon?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi”
 sekmesi dersin 35 kelimesini çalıştırır. Veriler `kiraat10/veri.js` içindedir; sonra `python3 kiraat10/yap.py`.
+
+## Uygulama: Okuma Kelime Hazinesi (Okuma-anlama 1–10)
+
+`okumakelime/index.html` (yayın sürümü `okumakelime/sayfa.html`) okuma-anlama dersinin ilk on konusunda geçen 514 kaydı
+(240 isim, 90 fiil, 74 sıfat, 11 zarf, 99 terkip) anlamı, Arapçası, çoğulu (ve çoğul kalıbı), eş ve zıt anlamlısı ve dersteki
+örnek cümlesiyle öğretir. Liste, derslerin “Kelime Hazinesi” verileriyle ders kitabının sonundaki kelime listesinin
+(مَسْرَدُ أَهَمِّ مُفْرَدَاتِ دُرُوسِ كِتَابِ القِرَاءَةِ) birleşimidir; birden çok derste geçen kelime her dersinde görünür.
+Günlük tekrar beş kutulu aralıklı tekrarla (Leitner) çalışır. Kelimeler derse ve türe (isim, sıfat, fiil, zarf, terkip) göre
+listelenir ve aranır; “Eş ve Zıt” sekmesi kitaptaki = ve × çiftlerini derse göre toplar. Sekiz oyun vardır: Kalıp Fabrikası,
+Mıknatıs, Hafıza, Düşen Kelimeler, Cümlede Değiştir, Hız Turu, Terkip Tamamla, Türkçeden Arapçaya. Kelimeler
+`okumakelime/kelimeler.json` içindedir; değiştirdikten sonra `python3 okumakelime/yap.py` çalıştırılır.
