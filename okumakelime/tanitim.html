@@ -95,9 +95,7 @@ dl.tabs dd { margin: 0; min-width: 0; }
     <p>Sevgili öğrencilerim, Okuma-Anlama dersinde işlediğimiz ilk on konunun kelimelerini çalışabileceğiniz bir program hazırladım. Kurulum ve üyelik gerekmez; telefonda da bilgisayarda da açılır.</p>
     <div class="cta">
       <a class="btn solid" href="https://claude.ai/artifact/15zMquL9DemsiGgF5RR8xz" target="_blank" rel="noopener">Programı aç</a>
-      <button class="btn ghost" id="copy" type="button">Bağlantıyı kopyala</button>
     </div>
-    <div class="url" id="url">https://claude.ai/artifact/15zMquL9DemsiGgF5RR8xz</div>
   </header>
 
   <section>
@@ -170,10 +168,21 @@ dl.tabs dd { margin: 0; min-width: 0; }
     </div>
   </section>
 
+  <section>
+    <div class="lbl">iPhone</div>
+    <h2>iPhone’da nasıl açılır?</h2>
+    <ol class="steps">
+      <li><div><b>Safari’de açın.</b> Bağlantı WhatsApp ya da Instagram içinde açılırsa sağ üstteki menüden (⋯ ya da pusula simgesi) <b>“Safari’de Aç”</b>ı seçin. Uygulamaların kendi tarayıcısında ilerlemeniz kaydedilmeyebilir.</div></li>
+      <li><div><b>Ana ekrana ekleyin.</b> Safari’nin alt çubuğundaki <b>Paylaş</b> düğmesine (yukarı ok çıkan kare) dokunun, listeyi kaydırıp <b>“Ana Ekrana Ekle”</b>yi seçin ve <b>“Ekle”</b>ye basın. Program artık ana ekranınızda bir uygulama gibi durur.</div></li>
+      <li><div><b>Hep aynı yerden açın.</b> Ana ekrandaki simgeden açtığınız program ile Safari’den açtığınız program ilerlemeyi ayrı ayrı saklar. Birini seçin ve her gün ondan çalışın. Ana ekran simgesi daha güvenlidir: Safari, 7 günden uzun süre açılmayan sitelerin kayıtlarını silebilir.</div></li>
+      <li><div><b>Sesli okuma için:</b> Telefonun yan tarafındaki sessiz düğmesi kapalı ve ses açık olsun. Arapça okunuş Türkçe aksanlı geliyorsa <b>Ayarlar → Erişilebilirlik → Sesli İçerik → Sesler → Arapça</b> yolundan bir Arapça ses indirin.</div></li>
+    </ol>
+  </section>
+
   <section class="notes">
     <h3>Bilmeniz gerekenler</h3>
     <ul>
-      <li>İlerlemeniz kullandığınız cihazın tarayıcısında saklanır. Başka bir cihazdan açarsanız sıfırdan başlarsınız, o yüzden hep aynı cihazdan çalışın.</li>
+      <li>İlerlemeniz kullandığınız cihazda saklanır. Başka bir cihazdan ya da başka bir tarayıcıdan açarsanız sıfırdan başlarsınız, o yüzden hep aynı cihazdan ve aynı yerden çalışın.</li>
       <li>Gizli (özel) sekmede çalışırsanız sekme kapanınca ilerlemeniz silinir.</li>
       <li>Seri tutmaya çalışın: her gün biraz çalışmak, haftada bir uzun çalışmaktan çok daha etkilidir.</li>
     </ul>
@@ -182,11 +191,3 @@ dl.tabs dd { margin: 0; min-width: 0; }
   <p class="end">Kolay gelsin, başarılar!</p>
 </div>
 
-<script>
-document.getElementById("copy").addEventListener("click", function () {
-  var b = this, u = document.getElementById("url").textContent;
-  function done() { b.textContent = "Kopyalandı"; setTimeout(function () { b.textContent = "Bağlantıyı kopyala"; }, 1800); }
-  function sel() { var r = document.createRange(); r.selectNodeContents(document.getElementById("url")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Seçildi, kopyalayın"; }
-  try { navigator.clipboard.writeText(u).then(done, sel); } catch (x) { sel(); }
-});
-</script>
