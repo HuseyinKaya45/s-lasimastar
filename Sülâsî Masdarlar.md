@@ -787,3 +787,12 @@ kullanma; تُعْتَبَرُ مِنْ أَهَمِّ، خَاصَّةً، بِ
 tablosu, zaman makinesi (8 fiil × 4 zaman), kitaptaki 11 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve
 Dönüştür, Kara mı Deniz mi Hava mı?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi”
 sekmesi dersin 37 kelimesini çalıştırır. Veriler `kiraat15/veri.js` içindedir; sonra `python3 kiraat15/yap.py`.
+
+## Uygulama: Kıraat 16 — Şeyh Muhammed Mütevellî eş-Şa‘râvî
+
+`kiraat16/sayfa.html` (aynısı `kiraat16/index.html`) الشَّيْخُ مُحَمَّد مُتَوَلِّي الشَّعْرَاوِيُّ okuma-anlama dersini beş bölümde
+(okumaya hazırlık ve metin; metni anlama, yıl–olay eşleştirme, ✓/✗ ve olay sıralama; boşluk doldurma ve tekil–çoğul; eş ve zıt
+anlam, فِي، مِنْ، إِلَى harf-i cerleri; cümle dizme, يُعَدُّ مِنْ أَشْهَرِ، حَوَالَيْ، عَدَدٌ مِنْ kalıpları ve mâzî çekimi) hayat çizgisi,
+harf-i cer tablosu, çekim makinesi (9 fiil × 7 kişi), kitaptaki 11 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime,
+Düzelt ve Dönüştür, فِي mi مِنْ mi إِلَى mı?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime
+Hazinesi” sekmesi dersin 37 kelimesini çalıştırır. Veriler `kiraat16/veri.js` içindedir; sonra `python3 kiraat16/yap.py`.
