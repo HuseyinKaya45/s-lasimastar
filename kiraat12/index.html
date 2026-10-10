@@ -1682,7 +1682,7 @@ function agac() {
   HOBI.forEach(function (h) { g[h[4]].push(h); });
   function kol(k, alt) { var t = TURLER.filter(function (x) { return x[0] === k; })[0]; return '<div class="ev-oda kisi" style="--role:var(--' + t[3] + ')"><b>' + t[1] + (alt ? ' · ' + alt : '') + '</b><span class="ar hlb">' + t[2] + '</span>' + g[k].map(function (h) { return '<div class="ks"><small>' + h[3] + ' ' + h[2] + '</small><span class="ar">' + h[1] + '</span></div>'; }).join("") + '</div>'; }
   return '<div class="ev"><div class="ev-cati">الهِوَايَاتُ · <span>metindeki türler</span></div><div class="kisiler">' +
-    kol("fn") + kol("mn") + kol("fk", "en önemlisi: spor") + kol("cs", "en önemlisi: spor") + '</div></div>';
+    kol("fn") + kol("mn") + kol("fk", "spor hobisi") + kol("cs", "spor hobisi") + '</div></div>';
 }
 function sultanlar() {
   var a = [["🕌", "مُحَمَّدٌ الفَاتِحُ", "جَمْعُ الكُتُبِ القَدِيمَةِ وَالقِرَاءَةُ", "Fatih Sultan Mehmed", "mz"], ["💍", "سُلَيْمَانُ القَانُونِيُّ", "صِيَاغَةُ الذَّهَبِ وَصِنَاعَةُ الأَشْكَالِ", "Kanuni · 10. sultan", "nasb"], ["🪚", "عَبْدُ الحَمِيدِ الثَّانِي", "النِّجَارَةُ وَالمُجَسَّمَاتُ الخَشَبِيَّةُ", "II. Abdülhamid · 34. sultan", "ref"], ["🏹", "عُمَرُ بْنُ الخَطَّابِ", "الرِّمَايَةُ وَالسِّبَاحَةُ وَرُكُوبُ الخَيْلِ", "Hz. Ömer’in tavsiyesi", "cerr"]];
@@ -1699,7 +1699,7 @@ function fcMakine() {
       '<span class="ar" style="font-size:clamp(1.5rem,5.5vw,2.2rem)">' + c + '</span><b>' + tr + '</b>' +
       '<div class="row-btns" style="justify-content:center"><button class="btn small" data-act="say" data-txt="' + c + '">🔊 Dinle</button></div></div>' +
     '<table class="ctab"><thead><tr><th>Kalıp</th><th>' + H[3] + ' ' + H[2] + '</th></tr></thead><tbody>' +
-      KALIP.map(function (x, r) { return '<tr' + (r === ki ? ' class="on"' : '') + '><td><small>' + x[1].replace("X", "…") + '</small></td><td class="' + (r === ki ? "hit" : "") + '">' + x[0] + H[0] + '</td></tr>'; }).join("") + '</tbody></table>' +
+      KALIP.map(function (x, r) { return '<tr' + (r === ki ? ' class="on"' : '') + '><td><small dir="ltr">' + x[1].replace("X", "…") + '</small></td><td class="' + (r === ki ? "hit" : "") + '">' + x[0] + H[0] + '</td></tr>'; }).join("") + '</tbody></table>' +
     '<p class="cap">İzâfette (هِوَايَةَ …) ve harf-i cerden sonra (فِي، بِـ، عَلَى) hobinin adı mecrûr olur: ' + H[1] + ' ← ' + H[0] + '.</p></div>';
 }
 function vizU1() { return agac(); }
