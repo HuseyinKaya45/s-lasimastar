@@ -824,3 +824,12 @@ hicret şiiri; cümle dizme, مِنْ أَهَمِّ مَعَالِمِ…، أ�
 makinesi (6 konu × 3 kalıp), طَلَعَ البَدْرُ عَلَيْنَا şiiri, kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime,
 Düzelt ve Dönüştür, Mekke mi Medine mi?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime
 Hazinesi” sekmesi dersin 37 kelimesini çalıştırır. Veriler `kiraat19/veri.js` içindedir; sonra `python3 kiraat19/yap.py`.
+
+## Uygulama: Kıraat 21 — Ramazan Âdetleri
+
+`kiraat21/sayfa.html` (aynısı `kiraat21/index.html`) العَادَاتُ الرَّمَضَانِيَّةُ okuma-anlama dersini beş bölümde (okumaya hazırlık ve
+metin; metni anlama, ✓/✗ ve Şam atasözü; eş ve zıt anlam; çoğul, birlikte gelen kelimeler ve kelime kullanma; cümle dizme,
+harf-i cerler, ramazan âdetleri ve لِـ / حَتَّى ile amaç) ramazan kartları, amaç makinesi (6 cümle × 3 kalıp), “üç on” atasözü,
+kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Hangi Harf-i Cer?, Doğru mu Yanlış
+mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 38 kelimesini çalıştırır. Veriler
+`kiraat21/veri.js` içindedir; sonra `python3 kiraat21/yap.py`.
