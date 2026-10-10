@@ -704,3 +704,12 @@ uygun fiil, cümle kurma ve لِـ + mansûb; mâzî–muzâri çekim) günün a
 kitaptaki 8 etkinliğin ve genel alıştırmanın hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Mâzî mi Muzâri mi?,
 Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 33 kelimesini
 çalıştırır. Veriler `kiraat07/veri.js` içindedir; sonra `python3 kiraat07/yap.py`.
+
+## Uygulama: Kıraat 8 — Hayatımdaki En İyi İnsanlar
+
+`kiraat08/index.html` (yayın sürümü `kiraat08/sayfa.html`) okuma-anlama dersinin 8. konusu مِنْ أَفْضَلِ الأَشْخَاصِ فِي حَيَاتِي’yi beş
+bölümde (okumaya hazırlık ve metin; metni anlama, ✓/✗ ve (أ)–(ب) eşleştirme; sıfatlar, eş–zıt anlam, dış görünüş–ahlak; renklerin
+eril–dişil biçimleri; soru edatları ve kalıplar) Rağad–Murâd kartları, renk makinesi (13 renk × eril/dişil), soru edatları tablosu,
+kitaptaki 9 etkinliğin ve tedrîbin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Rağad mı Murâd mı?, Doğru mu
+Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 35 kelimesini çalıştırır.
+Veriler `kiraat08/veri.js` içindedir; sonra `python3 kiraat08/yap.py`.
