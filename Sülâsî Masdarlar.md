@@ -814,3 +814,12 @@ metni anlama, ✓/✗, A–B eşleştirme ve eser türlerini ayırma; boşluk do
 (6 sıfat × 4 kalıp), kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Cami mi Saray mı
 Kule mi?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 38
 kelimesini çalıştırır. Veriler `kiraat18/veri.js` içindedir; sonra `python3 kiraat18/yap.py`.
+
+## Uygulama: Kıraat 19 — İki Kutsal Şehir
+
+`kiraat19/sayfa.html` (aynısı `kiraat19/index.html`) مَدِينَتَانِ مُقَدَّسَتَانِ okuma-anlama dersini beş bölümde (okumaya hazırlık ve
+metin; metni anlama, ✓/✗, A–B eşleştirme ve Mekke–Medine ayırma; boşluk doldurma, eş ve zıt anlam; çoğul, cümle tamamlama ve
+hicret şiiri; cümle dizme, مِنْ أَهَمِّ مَعَالِمِ…، أَمَّا… فَـ…، مُنْذُ ذَلِكَ الوَقْتِ ve كَانَ / أَصْبَحَ) Mekke–Medine kartları, karşılaştırma
+makinesi (6 konu × 3 kalıp), طَلَعَ البَدْرُ عَلَيْنَا şiiri, kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime,
+Düzelt ve Dönüştür, Mekke mi Medine mi?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime
+Hazinesi” sekmesi dersin 37 kelimesini çalıştırır. Veriler `kiraat19/veri.js` içindedir; sonra `python3 kiraat19/yap.py`.
