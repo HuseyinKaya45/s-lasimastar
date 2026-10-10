@@ -547,7 +547,8 @@ beş oyun (Doğru Biçim, Te’kîd Et, Hangi Kelime?, Lafzî mi Ma’nevî mi?,
 bölümde (okumaya hazırlık ve tam harekeli metin, sesli okuma ve sözlükle; metni anlama ve olay sıralama; zıt, eş anlam ve
 çoğul; köy–şehir karşılaştırması ve resimler; görüş yazısı) köy–şehir karşılaştırıcısı (6 konu × 4 bakış), kitaptaki 9
 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Çevir, Köy mü Şehir mi?, Doğru mu Yanlış mı?, Hafıza
-Kartları) ve 20 soruluk quiz provasıyla işler. Veriler `kiraat20/veri.js` içindedir; sonra `python3 kiraat20/yap.py`.
+Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 40 kelimesini çalıştırır. Veriler
+`kiraat20/veri.js` içindedir; sonra `python3 kiraat20/yap.py`.
 
 ## Uygulama: Bedel
 

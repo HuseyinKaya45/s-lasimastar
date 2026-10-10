@@ -1,8 +1,8 @@
-"""Kıraat 20 — Köy ile Şehir Arasında: kaynak.html + ortak.css + ozel.css + veri.js + oyunlar.js -> sayfa.html (artifact) ve index.html (tam sayfa)."""
+"""Kıraat 20 — Köy ile Şehir Arasında: kaynak.html + ortak.css + ozel.css + veri.js + kelime.js + oyunlar.js -> sayfa.html (artifact) ve index.html (tam sayfa)."""
 import os
 here = os.path.dirname(os.path.abspath(__file__))
 rd = lambda n: open(os.path.join(here, n), encoding="utf-8").read()
-src = rd("kaynak.html").replace("/*CSS*/", rd("ortak.css")).replace("/*OZEL*/", rd("ozel.css")).replace("/*VERI*/", rd("veri.js")).replace("/*OYUNLAR*/", rd("oyunlar.js"))
+src = rd("kaynak.html").replace("/*CSS*/", rd("ortak.css")).replace("/*OZEL*/", rd("ozel.css") + "\n" + rd("kelime.css")).replace("/*VERI*/", rd("veri.js")).replace("/*KELIME*/", rd("kelime.js")).replace("/*OYUNLAR*/", rd("oyunlar.js"))
 open(os.path.join(here, "sayfa.html"), "w", encoding="utf-8").write(src)
 head, rest = src.split("</style>", 1)
 open(os.path.join(here, "index.html"), "w", encoding="utf-8").write(
