@@ -796,3 +796,12 @@ anlam, فِي، مِنْ، إِلَى harf-i cerleri; cümle dizme, يُعَدُ
 harf-i cer tablosu, çekim makinesi (9 fiil × 7 kişi), kitaptaki 11 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime,
 Düzelt ve Dönüştür, فِي mi مِنْ mi إِلَى mı?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime
 Hazinesi” sekmesi dersin 37 kelimesini çalıştırır. Veriler `kiraat16/veri.js` içindedir; sonra `python3 kiraat16/yap.py`.
+
+## Uygulama: Kıraat 17 — Müslümanların Bayramları
+
+`kiraat17/sayfa.html` (aynısı `kiraat17/index.html`) أَعْيَادُ المُسْلِمِينَ okuma-anlama dersini beş bölümde (okumaya hazırlık ve
+metin; metni anlama, ✓/✗, A–B eşleştirme ve Ramazan–Kurban ayırma; boşluk doldurma, eş ve zıt anlam; çoğul ve soru kurma;
+cümle dizme, uygun olmayanı bulma ve أَنْ / لِـ + mansûb) iki bayram kartları, bayram günü sırası, karar makinesi (9 fiil × 6 kişi),
+kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Ramazan mı Kurban mı?, Doğru mu
+Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 37 kelimesini çalıştırır.
+Veriler `kiraat17/veri.js` içindedir; sonra `python3 kiraat17/yap.py`.
