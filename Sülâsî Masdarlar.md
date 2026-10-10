@@ -695,3 +695,12 @@ cem-i müzekker sâlim, iş yeri, cümle kurma, مَتَى ve harf-i cer; ek oku
 şeması, meslek makinesi (13 meslek × 5 soru), kitaptaki 14 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime,
 Düzelt ve Dönüştür, Erkek mi Kadın mı?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler.
 “Kelime Hazinesi” sekmesi dersin 34 kelimesini çalıştırır. Veriler `kiraat06/veri.js` içindedir; sonra `python3 kiraat06/yap.py`.
+
+## Uygulama: Kıraat 7 — Müslümanın Bir Günü
+
+`kiraat07/index.html` (yayın sürümü `kiraat07/sayfa.html`) okuma-anlama dersinin 7. konusu اليَوْمُ فِي حَيَاةِ المُسْلِمِ’i beş bölümde
+(okumaya hazırlık ve metin; metni anlama, fiil–tümleç eşleştirme ve günlük işleri sıralama; eş–zıt anlam ve vakitler; resme
+uygun fiil, cümle kurma ve لِـ + mansûb; mâzî–muzâri çekim) günün akışı şeması, çekim makinesi (6 fiil × 6 zamir × 2 zaman),
+kitaptaki 8 etkinliğin ve genel alıştırmanın hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Mâzî mi Muzâri mi?,
+Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 33 kelimesini
+çalıştırır. Veriler `kiraat07/veri.js` içindedir; sonra `python3 kiraat07/yap.py`.
