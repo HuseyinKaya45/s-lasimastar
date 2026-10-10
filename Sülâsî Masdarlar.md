@@ -833,3 +833,12 @@ harf-i cerler, ramazan âdetleri ve لِـ / حَتَّى ile amaç) ramazan kar
 kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Hangi Harf-i Cer?, Doğru mu Yanlış
 mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 38 kelimesini çalıştırır. Veriler
 `kiraat21/veri.js` içindedir; sonra `python3 kiraat21/yap.py`.
+
+## Uygulama: Kıraat 22 — Hac İbadeti
+
+`kiraat22/sayfa.html` (aynısı `kiraat22/index.html`) عِبَادَةُ الحَجِّ okuma-anlama dersini beş bölümde (okumaya hazırlık ve metin;
+metni anlama, ✓/✗, A–B eşleştirme ve haccın şartları; aşamaları sıralama ve menâsikin yeri; çoğul, eş ve zıt anlam; cümle
+dizme, يَقُومُ بِـ، يَجِبُ عَلَى، اسْتَطَاعَ kalıpları ve hadisler) şart–fazilet kartları, hac rehberi makinesi (8 aşama × ne / nerede /
+ne zaman), adım adım hac yolu, kitaptaki 9 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür,
+Nerede Yapılır?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin
+37 kelimesini çalıştırır. Veriler `kiraat22/veri.js` içindedir; sonra `python3 kiraat22/yap.py`.
