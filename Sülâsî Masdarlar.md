@@ -713,3 +713,12 @@ eril–dişil biçimleri; soru edatları ve kalıplar) Rağad–Murâd kartları
 kitaptaki 9 etkinliğin ve tedrîbin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Rağad mı Murâd mı?, Doğru mu
 Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 35 kelimesini çalıştırır.
 Veriler `kiraat08/veri.js` içindedir; sonra `python3 kiraat08/yap.py`.
+
+## Uygulama: Kıraat 9 — Yılın Mevsimleri
+
+`kiraat09/sayfa.html` (aynısı `kiraat09/index.html`) فُصُولُ السَّنَةِ okuma-anlama dersini beş
+bölümde (okumaya hazırlık ve metin; metni anlama, ✓/✗ ve “hangi mevsim?”; boşluk doldurma, eş–zıt anlam, çoğul→tekil;
+paragraf ve cümle kurma, أَمَّا… فَـ ve كَثِيرًا مِنَ kalıpları; olumsuzluk edatları مَا، لَمْ، لَا، لَنْ، لَيْسَ) dört mevsim kartları,
+olumsuzluk makinesi (5 cümle × 5 edat), edatlar tablosu, kitaptaki 11 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime,
+Düzelt ve Dönüştür, Hangi Mevsim?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi”
+sekmesi dersin 34 kelimesini çalıştırır. Veriler `kiraat09/veri.js` içindedir; sonra `python3 kiraat09/yap.py`.
