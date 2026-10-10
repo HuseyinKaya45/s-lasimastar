@@ -861,3 +861,13 @@ ve tekil–çoğul; harf-i cerler, kelime kullanma ve sayı–sayılan uyumu) ye
 yazı), mabetten mescide tarih çizgisi, kitaptaki 10 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür,
 Emevî mi Sultanahmet mi?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi
 dersin 37 kelimesini çalıştırır. Veriler `kiraat24/veri.js` içindedir; sonra `python3 kiraat24/yap.py`.
+
+## Uygulama: Kıraat 25 — Orta Doğu: Konumu ve Önemi
+
+`kiraat25/sayfa.html` (aynısı `kiraat25/index.html`) الشَّرْقُ الأَوْسَطُ: مَوْقِعُهُ وَأَهَمِّيَّتُهُ okuma-anlama dersini (kitabın son
+dersi) beş bölümde (okumaya hazırlık ve metin; metni anlama, ✓/✗ ve düzeltme, önem türü ve boğazlar; Suriye paragrafı ve boşluk
+doldurma; eş, zıt anlam ve çoğul; kelimeleri sıralama, kelime kullanma ve harf-i cerler) dinî–coğrafî–iktisadî önem kartları, su
+yolları makinesi (5 boğaz/kanal × soru / nerede / neyi bağlar), metnin beş paragraf çizgisi, kitaptaki 8 etkinliğin hepsi, ek
+etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Dinî mi Coğrafî mi İktisadî mi?, Doğru mu Yanlış mı?, Hafıza Kartları) ve
+20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 46 kelimesini çalıştırır. Veriler `kiraat25/veri.js` içindedir;
+sonra `python3 kiraat25/yap.py`.
