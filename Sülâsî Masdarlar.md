@@ -769,3 +769,12 @@ ve metin; metni anlama, ✓/✗ ve soru kurma; boşluk doldurma, eş–zıt anla
 tanıtma makinesi (6 şehir × 4 kalıp), kitaptaki 11 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür,
 Şehir mi Mağara mı?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin
 37 kelimesini çalıştırır. Veriler `kiraat13/veri.js` içindedir; sonra `python3 kiraat13/yap.py`.
+
+## Uygulama: Kıraat 14 — Boş Vakitler
+
+`kiraat14/sayfa.html` (aynısı `kiraat14/index.html`) أَوْقَاتُ الفَرَاغِ okuma-anlama dersini beş bölümde (okumaya hazırlık ve
+metin; metni anlama, ✓/✗ ve faydalı–zararlı ayırma; tekil, eş ve zıt anlam; cümle eşleştirme, boşluk doldurma, kelime kullanma;
+etkinlik türleri ve قَدْ، حَتَّى، يَحْتَاجُ إِلَى، بِشَكْلٍ عَامٍّ kalıpları) faydalı–zararlı kartları, boş vakit makinesi
+(17 etkinlik × 4 kişi), kitaptaki 8 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Faydalı mı
+Zararlı mı?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin
+37 kelimesini çalıştırır. Veriler `kiraat14/veri.js` içindedir; sonra `python3 kiraat14/yap.py`.
