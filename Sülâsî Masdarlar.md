@@ -881,3 +881,16 @@ kitaptaki “İletişim Araçları”, `kiraat23b`) ders kitabının sonundaki k
 terkipler) birleşimidir; birden çok derste geçen kelime her dersinde görünür. Dersler üç gruptadır (11–15, 16–20, 21–25).
 Günlük tekrar, sekmeler ve sekiz oyun 1–10 programıyla aynıdır; ilerleme ayrı saklanır. Kelimeler
 `okumakelime2/kelimeler.json` içindedir; değiştirdikten sonra `python3 okumakelime2/yap.py` çalıştırılır.
+
+## Uygulama: Ebvâb-ı Sitte Çekim Sınıfı (zamirlerle mâzi ve muzâri)
+
+`cekimsinif/index.html` (yayın sürümü `cekimsinif/sayfa.html`) Sâlim Fiil programının çekim motorundan türetilmiş, tahtaya
+yansıtılarak sınıfta kullanılacak bir programdır. Altı bâbın 77 sâlim fiilini on dört zamirle mâzi ve muzâride çeker. Beş bölümü
+vardır: **Tahta** (bâb ve fiil seç; mâzi, muzâri ya da ikisi yan yana; çekimi gizle, öğrenciler söylesin, “Sıradaki” ya da boşluk
+tuşuyla aç; rastgele zamir; sesli okuma; yazı büyütme), **Altı Bâb** (bâb kartları, aynı zamirin altı bâbda koro karşılaştırması,
+mâzi ve muzâri kaideleri), **Soru Kartı** (zamir → çekim ya da çekim → zamir, bâb ve zaman; 10/20/30 saniyelik süre; 2–4 takım
+puanı), **Takım Yarışması** (çekimi, zamiri, bâbı ya da muzâriyi bul; 1–4 tuşlarıyla çoktan seçmeli, sırayla takımlar) ve
+**Çalışma Kâğıdı** (her bâbdan bir fiil, boş tablo ya da cevap anahtarı, yazdırılabilir). Renkler her yerde aynıdır: ayn harekesi
+bâb renginde, muzâri harfi mavi, ref zamiri kırmızı, te'nîs tâsı hardal, i'râb nûnu gri. ن ile biten fiillerde idğam yapılır
+(حَسُنَّ، حَسُنَّا). Düzenleme: `cekimsinif/veri.js`, `cekimsinif/uygulama.js`, `cekimsinif/sinif.css`; sonra
+`python3 cekimsinif/yap.py`.
