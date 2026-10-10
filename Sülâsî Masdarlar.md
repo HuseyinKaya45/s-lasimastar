@@ -686,3 +686,12 @@ ve أُرِيدُ أَنْ…; ders programı, günler ve aylar) Hâlid’in yı
 12 etkinliğin ve ek ödevin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Gün mü Ay mı?, Doğru mu Yanlış mı?,
 Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 33 kelimesini çalıştırır. Veriler
 `kiraat05/veri.js` içindedir; sonra `python3 kiraat05/yap.py`.
+
+## Uygulama: Kıraat 6 — Meslekler ve İşler
+
+`kiraat06/index.html` (yayın sürümü `kiraat06/sayfa.html`) okuma-anlama dersinin 6. konusu المِهَنُ وَالأَعْمَالُ’i beş bölümde
+(okumaya hazırlık ve metin; metni anlama ve apartmandaki meslekler; meslek kelimeleri, eş–zıt anlam, uymayan kelime ve tanım;
+cem-i müzekker sâlim, iş yeri, cümle kurma, مَتَى ve harf-i cer; ek okuma metinleri ve peygamberlerin meslekleri) apartman
+şeması, meslek makinesi (13 meslek × 5 soru), kitaptaki 14 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime,
+Düzelt ve Dönüştür, Erkek mi Kadın mı?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler.
+“Kelime Hazinesi” sekmesi dersin 34 kelimesini çalıştırır. Veriler `kiraat06/veri.js` içindedir; sonra `python3 kiraat06/yap.py`.
