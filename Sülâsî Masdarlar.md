@@ -677,3 +677,12 @@ lokanta menüsü; bitişik zamirler ve eril–dişil) öğün çizelgesi, zamir 
 hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Meyve mi Sebze mi?, Doğru mu Yanlış mı?, Hafıza Kartları)
 ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 33 kelimesini çalıştırır. Veriler `kiraat04/veri.js`
 içindedir; sonra `python3 kiraat04/yap.py`.
+
+## Uygulama: Kıraat 5 — Üniversitede Okumak
+
+`kiraat05/index.html` (yayın sürümü `kiraat05/sayfa.html`) okuma-anlama dersinin 5. konusu الدِّرَاسَةُ فِي الجَامِعَةِ’yi beş bölümde
+(okumaya hazırlık ve metin; metni anlama, ✓/✗, eşleştirme ve soru yazma; zaman sözleri, eş–zıt–çoğul; harf-i cer, cümle kurma
+ve أُرِيدُ أَنْ…; ders programı, günler ve aylar) Hâlid’in yıl–hafta–gün şeması, program makinesi (örnek program), kitaptaki
+12 etkinliğin ve ek ödevin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Gün mü Ay mı?, Doğru mu Yanlış mı?,
+Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 33 kelimesini çalıştırır. Veriler
+`kiraat05/veri.js` içindedir; sonra `python3 kiraat05/yap.py`.
