@@ -842,3 +842,13 @@ dizme, يَقُومُ بِـ، يَجِبُ عَلَى، اسْتَطَاعَ ka
 ne zaman), adım adım hac yolu, kitaptaki 9 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür,
 Nerede Yapılır?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin
 37 kelimesini çalıştırır. Veriler `kiraat22/veri.js` içindedir; sonra `python3 kiraat22/yap.py`.
+
+## Uygulama: Kıraat 23 (kitap) — İletişim Araçları
+
+`kiraat23b/sayfa.html` (aynısı `kiraat23b/index.html`) ders kitabının 23. konusu وَسَائِلُ الاتِّصَالِ’yi beş bölümde (okumaya
+hazırlık ve metin; metni anlama, ✓/✗ ve eski–yeni ayırma; eş ve zıt anlam; tekil–çoğul, tanımlar ve soru kurma; kelime kullanma,
+olumlu–olumsuz yönler, kitaptaki tavsiyeler ve etken–edilgen fiil) eski–yeni kartları, icat makinesi (8 icat × etken / edilgen /
+mastar), icatlar zinciri, kitaptaki 9 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Eski mi Yeni
+mi?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 38 kelimesini
+çalıştırır. Veriler `kiraat23b/veri.js` içindedir; sonra `python3 kiraat23b/yap.py`. (`kiraat23/` klasöründeki “İslâm’da Cihad
+Kavramı” ayrı bir derstir.)
