@@ -778,3 +778,12 @@ etkinlik türleri ve قَدْ، حَتَّى، يَحْتَاجُ إِلَى، �
 (17 etkinlik × 4 kişi), kitaptaki 8 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Faydalı mı
 Zararlı mı?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin
 37 kelimesini çalıştırır. Veriler `kiraat14/veri.js` içindedir; sonra `python3 kiraat14/yap.py`.
+
+## Uygulama: Kıraat 15 — İnsan ve Ulaşım Araçları
+
+`kiraat15/sayfa.html` (aynısı `kiraat15/index.html`) الإِنْسَانُ وَوَسَائِلُ النَّقْلِ okuma-anlama dersini beş bölümde (okumaya
+hazırlık ve metin; metni anlama, ✓/✗ ve eski–yeni araç ayırma; boşluk doldurma, eş ve zıt anlam; tekil, soru kurma, kelime
+kullanma; تُعْتَبَرُ مِنْ أَهَمِّ، خَاصَّةً، بِسَبَبِ kalıpları ve muzâriden mâzîye dönüştürme) eski–yeni araç kartları, kara–deniz–hava
+tablosu, zaman makinesi (8 fiil × 4 zaman), kitaptaki 11 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve
+Dönüştür, Kara mı Deniz mi Hava mı?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi”
+sekmesi dersin 37 kelimesini çalıştırır. Veriler `kiraat15/veri.js` içindedir; sonra `python3 kiraat15/yap.py`.
