@@ -871,3 +871,13 @@ yolları makinesi (5 boğaz/kanal × soru / nerede / neyi bağlar), metnin beş 
 etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Dinî mi Coğrafî mi İktisadî mi?, Doğru mu Yanlış mı?, Hafıza Kartları) ve
 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 46 kelimesini çalıştırır. Veriler `kiraat25/veri.js` içindedir;
 sonra `python3 kiraat25/yap.py`.
+
+## Uygulama: Okuma Kelime Hazinesi 2 (Okuma-anlama 11–25)
+
+`okumakelime2/index.html` (yayın sürümü `okumakelime2/sayfa.html`) okuma-anlama dersinin 11–25. konularında geçen 844 kaydı
+(745 ayrı kelime ve terkip: 353 isim, 95 sıfat, 165 fiil, 5 zarf, 127 terkip) anlamı, Arapçası, çoğulu (ve çoğul kalıbı), eş
+ve zıt anlamlısı ve dersteki örnek cümlesiyle öğretir. Liste, 11–25. derslerin “Kelime Hazinesi” verileriyle (23. ders için
+kitaptaki “İletişim Araçları”, `kiraat23b`) ders kitabının sonundaki kelime cetvelinin (isimler–sıfatlar–zarflar, fiiller,
+terkipler) birleşimidir; birden çok derste geçen kelime her dersinde görünür. Dersler üç gruptadır (11–15, 16–20, 21–25).
+Günlük tekrar, sekmeler ve sekiz oyun 1–10 programıyla aynıdır; ilerleme ayrı saklanır. Kelimeler
+`okumakelime2/kelimeler.json` içindedir; değiştirdikten sonra `python3 okumakelime2/yap.py` çalıştırılır.
