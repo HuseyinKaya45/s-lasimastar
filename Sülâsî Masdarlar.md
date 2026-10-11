@@ -934,3 +934,18 @@ mansûbun esresi, özet tablo…), gizlenip sınıfa doldurtulan 3 × 3 i’rab 
 analizini içerir. **Alıştırmalar**: i’rab makinesi (kelime × sayı × hâl, çerçeve cümle ve Türkçesiyle), doğru biçimi seç,
 türünü bul, hâlini bul, dönüştür, doğru–yanlış, sözlü soru–cevap. **Üretim**: cümle kurucu (“yeni” sıfatı uyumuyla).
 Düzenleme: `tesniyecemi/veri.js`, `tesniyecemi/uygulama.js`, `tesniyecemi/ders.css`; sonra `python3 tesniyecemi/yap.py`.
+
+## Uygulama: Hasta Çocuk ve İstanbul (harf-i cer ve sıfat tamlaması sınıf dersi)
+
+`cersifat/index.html` (yayın sürümü `cersifat/sayfa.html`) iki metinle (الطِّفْلُ المَرِيضُ ve إِسْطَنْبُولُ: المَدِينَةُ القَدِيمَةُ وَالحَدِيثَةُ)
+yaklaşık 90 dakikalık bir sınıf dersidir; önceki derslerle aynı sekiz adımlı akışı, zamanlayıcıyı, takım puanını ve yazdırılabilir
+ödevi kullanır. 21 cümle tam harekelidir; her kelimede iki katman vardır: harf-i cer, mecrûr ve و ile bağlı mecrûr; mevsuf ve
+sıfat. Bitişik harfler (بِـ, لِـ) ayrı işaretlenir ama bitişik yazılır. **Metin** sekmesinde iki metin birlikte ya da ayrı gösterilir,
+“Harf-i cer renkli” ve “Sıfat tamlaması renkli” katmanları açılır. **Kaide ve Analiz**: on iki kaide kartı (bitişik harfler ve لِلْ,
+مِنَ / عَنِ, fiil + harf kalıpları, izafetten gelen esre, dört uyum, akılsız çoğulun dişil tekil sıfatı, tamlama mı cümle mi izafet mi,
+izafetin sıfatı…), anlamları gizlenebilen sekiz harf kartı, gizlenip sınıfa doldurtulan sıfat tablosu (3 hâl × belirsiz / belirli,
+10 isim × uygun sıfatlar), her cümlenin harf–mecrûr ve mevsuf–sıfat tabloları ve “Sınıf işaretlesin” modları. **Alıştırmalar**:
+sıfat makinesi (isim × sıfat × hâl × belirlilik, cinsiyet / hâl / belirlilik tuzaklarıyla), harfi seç, mecrûr biçimi, sıfatın biçimi,
+tamlama mı cümle mi izafet mi, dönüştür, doğru–yanlış, sözlü soru–cevap. **Üretim**: harf + isim + sıfat kurucu (çerçeve fiili,
+mecrûr biçimi, uyumu ve Türkçesini kendisi yapar). كَانَ, أَصْبَحَ, لَيْسَ, أَنَّ ve gayr-i munsarif yalnızca “ileride” notuyla geçer.
+Düzenleme: `cersifat/veri.js`, `cersifat/uygulama.js`, `cersifat/ders.css`; sonra `python3 cersifat/yap.py`.
