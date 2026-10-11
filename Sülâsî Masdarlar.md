@@ -949,3 +949,17 @@ sıfat makinesi (isim × sıfat × hâl × belirlilik, cinsiyet / hâl / belirli
 tamlama mı cümle mi izafet mi, dönüştür, doğru–yanlış, sözlü soru–cevap. **Üretim**: harf + isim + sıfat kurucu (çerçeve fiili,
 mecrûr biçimi, uyumu ve Türkçesini kendisi yapar). كَانَ, أَصْبَحَ, لَيْسَ, أَنَّ ve gayr-i munsarif yalnızca “ileride” notuyla geçer.
 Düzenleme: `cersifat/veri.js`, `cersifat/uygulama.js`, `cersifat/ders.css`; sonra `python3 cersifat/yap.py`.
+
+## Uygulama: Çocukların Zekâsı (muzâri fiilin i’rabı sınıf dersi)
+
+`muzarirab/index.html` (yayın sürümü `muzarirab/sayfa.html`) ذَكَاءُ الأَطْفَالِ metniyle (İbnü’l-Cevzî’nin *el-Ezkiyâ*’sından üç kıssa:
+Abdullah b. Zübeyr ve Hz. Ömer, sıcak yemek, Asmaî ve ahmaklık) yaklaşık 90 dakikalık bir sınıf dersidir; önceki derslerle aynı sekiz
+adımlı akışı, zamanlayıcıyı, takım puanını ve yazdırılabilir ödevi kullanır. 19 cümle tam harekelidir; muzâri fiiller hâllerine göre
+(merfû, mansûb, meczûm), edatlar görevine göre (nasb edatı, cezm edatı, etkilemeyen edat: لَمَّا + mâzi, إِذَا, olumsuzluk ve cevap
+لَا’sı) ve emir fiil renkle ayrılır; her fiilin sebebi ve alameti tabloda verilir. **Kaide ve Analiz**: on iki kaide kartı (nasb ve cezm
+edatları, sahih / sonu ي-و / sonu elif fiiller, ef’âl-i hamse, zamirle alamet, tuzaklar, bağlanan fiil, özet), gizlenip sınıfa
+doldurtulan fiil tablosu (11 fiil × 9 şahıs × 3 hâl) ve “hâlini işaretlesin / edatları bulsun” analizi. **Alıştırmalar**: muzâri makinesi
+(fiil × şahıs × edat, tuzak şıklar ve Türkçe çekimiyle), hâlini bul, edatı seç, doğru biçim, bu edat ne yapar, dönüştür, doğru–yanlış,
+sözlü soru–cevap. **Üretim**: cümle kurucu (Arapça biçimi ve Türkçe çekimi kendisi yapar: “yazmadım, yazmayacaksınız, yazma!…”).
+كَانَ, لَيْسَ, إِنَّ, أَصْبَحَ ve istisna yalnızca “ileride” notuyla geçer. Düzenleme: `muzarirab/veri.js`, `muzarirab/uygulama.js`,
+`muzarirab/ders.css`; sonra `python3 muzarirab/yap.py`.
