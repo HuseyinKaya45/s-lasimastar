@@ -909,3 +909,16 @@ bırakıldı), 15 cümlenin mübtedâ, haber ve tümleç analizi tablosuyla; “
 doğru–yanlış, sözlü soru–cevap. **Yarışma**: 2–4 takım, karışık sorular. **Üretim**: cümle kurucu (haberi uydurur, Türkçesini
 yazar), yazma görevi, örnek paragraf ve yazdırılabilir ödev. Düzenleme: `istanbulotel/veri.js`, `istanbulotel/uygulama.js`,
 `istanbulotel/ders.css`; sonra `python3 istanbulotel/yap.py`.
+
+## Uygulama: Hasan’ın Yolculuğu (çeviri ve fiil cümlesi sınıf dersi)
+
+`hasanyolculuk/index.html` (yayın sürümü `hasanyolculuk/sayfa.html`) رِحْلَةُ حَسَنٍ metniyle (Hasan’ın Ankara’dan İstanbul’a, annesine
+yolculuğu) yaklaşık 80 dakikalık bir sınıf dersidir; “İstanbul Otelleri” dersinin fiil cümlesi eşidir ve aynı sekiz adımlı ders
+akışını, zamanlayıcıyı, takım puanını ve yazdırılabilir ödevi kullanır. 17 cümle tam harekelidir; her cümlede fiil, fâil, mef’ûl
+bih ve tümleç ayrılmıştır, gizli fâil (هُوَ / هِيَ) kesik çizgiyle gösterilir. İlk iki cümle isim cümlesidir (karşılaştırma
+için). **Fiil Cümlesi** sekmesi on kaide kartı (fâil merfû, mef’ûl mansûb, gizli ve bitişik fâil, dişil fâilde تْ / تَـ, fiil
+başta tekil, تْ + ال → تِ…) ve “Sınıf işaretlesin” analizini içerir. **Alıştırmalar**: fiil–fâil makinesi (8 fâil × 8 fiil, mâzi
+ve muzâri, 5 biçim), fiilin biçimi, harekeyi seç, fâili bul, mef’ûlü bul, isim mi fiil cümlesi mi, dönüştür, doğru–yanlış,
+sözlü soru–cevap. **Üretim**: fiil, fâil, mef’ûl / tümleç, zaman seçilerek cümle kurucu (uyumu ve okunuşu kendisi yapar,
+Türkçesini yazar). كَانَ yapısı ve haberin çeşitleri ileriye bırakılmıştır. Düzenleme: `hasanyolculuk/veri.js`,
+`hasanyolculuk/uygulama.js`, `hasanyolculuk/ders.css`; sonra `python3 hasanyolculuk/yap.py`.
