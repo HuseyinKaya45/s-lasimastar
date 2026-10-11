@@ -922,3 +922,15 @@ ve muzâri, 5 biçim), fiilin biçimi, harekeyi seç, fâili bul, mef’ûlü bu
 sözlü soru–cevap. **Üretim**: fiil, fâil, mef’ûl / tümleç, zaman seçilerek cümle kurucu (uyumu ve okunuşu kendisi yapar,
 Türkçesini yazar). كَانَ yapısı ve haberin çeşitleri ileriye bırakılmıştır. Düzenleme: `hasanyolculuk/veri.js`,
 `hasanyolculuk/uygulama.js`, `hasanyolculuk/ders.css`; sonra `python3 hasanyolculuk/yap.py`.
+
+## Uygulama: İki Yeni Öğrenci (tesniye ve cemi çeşitlerinin i’rabı sınıf dersi)
+
+`tesniyecemi/index.html` (yayın sürümü `tesniyecemi/sayfa.html`) طَالِبَتَانِ جَدِيدَتَانِ metniyle (Almanya’dan gelen Yasemin ve
+Merve) yaklaşık 80 dakikalık bir sınıf dersidir; “İstanbul Otelleri” ve “Hasan’ın Yolculuğu” dersleriyle aynı sekiz adımlı akışı,
+zamanlayıcıyı, takım puanını ve yazdırılabilir ödevi kullanır. Metnin 10 cümlesi tam harekelidir; müsennâ, cem-i müzekker sâlim,
+cem-i müennes sâlim, cem-i teksîr, müfred, özel isim (يَاسَمِينُ: çoğul değil) ve sayı (ثَلَاثِينَ) renkle ayrılır; her kelimenin hâli,
+alameti ve görevi tabloda verilir. **İ’rab** sekmesi on kaide kartı (izafette nûnun düşmesi, sıfat uyumu, cem-i müennes sâlimde
+mansûbun esresi, özet tablo…), gizlenip sınıfa doldurtulan 3 × 3 i’rab tablosu (8 kelime) ve “türünü / hâlini işaretlesin”
+analizini içerir. **Alıştırmalar**: i’rab makinesi (kelime × sayı × hâl, çerçeve cümle ve Türkçesiyle), doğru biçimi seç,
+türünü bul, hâlini bul, dönüştür, doğru–yanlış, sözlü soru–cevap. **Üretim**: cümle kurucu (“yeni” sıfatı uyumuyla).
+Düzenleme: `tesniyecemi/veri.js`, `tesniyecemi/uygulama.js`, `tesniyecemi/ders.css`; sonra `python3 tesniyecemi/yap.py`.
