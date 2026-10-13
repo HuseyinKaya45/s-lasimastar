@@ -325,3 +325,14 @@
 .ev-bahce .ar { font-size: 1.15rem; color: var(--ink); }
 .ctab tbody th { background: var(--soft); color: var(--ink); font-weight: 700; }
 @media (max-width: 640px) { .ev-plan { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ev-oda.genis { grid-row: auto; } }
+
+/* hareke ve Türkçe ayarları */
+.ayarlar { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+.ayar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ayar .lbl { margin: 0; }
+.hkk { cursor: pointer; border-bottom: 1px dotted var(--muted); }
+.hkk.acik { color: var(--accent); border-bottom-style: solid; }
+.tr-gizli { display: grid; gap: 4px; justify-items: start; }
+.tr-gizli .trac { font-size: .78rem; padding: 2px 10px; }
+.kendi-ceviri { display: grid; gap: 6px; }
+.kendi-ceviri textarea { width: 100%; font: inherit; font-size: .98rem; line-height: 1.6; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); resize: vertical; }
