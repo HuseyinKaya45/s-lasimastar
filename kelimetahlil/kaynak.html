@@ -143,15 +143,21 @@ var ANALIZ = [
     asama: [
       { tur: "mufred", ad: "Müfred (tekil)", renk: "--k1", acik: "Metindeki <b>müfred (tekil)</b> isimleri bulup tıkla." },
       { tur: "musenna", ad: "Müsennâ (ikil)", renk: "--k2", acik: "Metindeki <b>müsennâ (ikil)</b> isimleri bulup tıkla." },
-      { tur: "cem-muzekker", ad: "Cem-i müzekker sâlim", renk: "--k3", acik: "Metindeki <b>cem-i müzekker sâlim</b> (düzenli eril çoğul) kelimeleri bulup tıkla." },
+      { tur: "cem-muzekker", kabul: ["cem-muzekker-z"], ad: "Cem-i müzekker", renk: "--k3", acik: "Metindeki <b>cem-i müzekker</b> kelimeleri bulup tıkla: cem-i müzekker sâlim (düzenli eril çoğul) isimler ve çoğul zamirler (كُمْ, الَّذِينَ gibi)." },
       { tur: "cem-muennes", ad: "Cem-i müennes sâlim", renk: "--k4", acik: "Metindeki <b>cem-i müennes sâlim</b> (düzenli dişil çoğul) kelimeleri bulup tıkla." },
       { tur: "cem-teksir", ad: "Cem-i teksîr", renk: "--k5", acik: "Metindeki <b>cem-i teksîr</b> (kırık çoğul) kelimeleri bulup tıkla." } ] }
 ];
+var ADLAR = { "cem-muzekker": "Cem-i müzekker sâlim", "cem-muzekker-z": "Cem-i müzekker (zamir / mevsul)" };
+// Cevap anahtarı güncellemeleri: [satır, alan, eski değer]. Tarayıcıda kayıtlı anahtar eski değeri taşıyorsa yenisi kullanılır.
+var GUNCELLEME = [[7, 3, "mufred"], [171, 3, "mufred"], [179, 3, "mufred"], [117, 3, "cem-teksir"], [24, 3, "mufred"]];
 var DIGER = { 2: "İsim değil (fiil / harf)", 3: "İsim değil (fiil / harf)" };
 
 var varsayilan = VERI.map(function (r) { return r.slice(); });
 var veri = varsayilan.map(function (r) { return r.slice(); });
-try { var kay = JSON.parse(localStorage.getItem(ANAHTAR_KAYIT) || "null"); if (kay && kay.length === veri.length) veri = kay; } catch (e) {}
+try { var kay = JSON.parse(localStorage.getItem(ANAHTAR_KAYIT) || "null"); if (kay && kay.length === veri.length) {
+  veri = kay.map(function (r, i) { var y = r.slice(); y[0] = varsayilan[i][0]; return y; });
+  GUNCELLEME.forEach(function (g) { if (veri[g[0]][g[1]] === g[2]) veri[g[0]][g[1]] = varsayilan[g[0]][g[1]]; });
+} } catch (e) {}
 
 var durum = ANALIZ.map(function () { return { asama: 0, sec: {}, bitti: false }; });
 var aktif = 0;
@@ -160,8 +166,9 @@ var gorunum = "oyun";
 function $(id) { return document.getElementById(id); }
 function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 function renk(v) { return "var(" + v + ")"; }
-function asamaBul(a, tur) { for (var i = 0; i < a.asama.length; i++) if (a.asama[i].tur === tur) return a.asama[i]; return null; }
-function turAd(ai, tur) { var s = asamaBul(ANALIZ[ai], tur); return s ? s.ad : (DIGER[ANALIZ[ai].alan] || tur); }
+function asamaBul(a, tur) { for (var i = 0; i < a.asama.length; i++) if (a.asama[i].tur === tur || (a.asama[i].kabul || []).indexOf(tur) >= 0) return a.asama[i]; return null; }
+function grup(a, tur) { var s = asamaBul(a, tur); return s ? s.tur : tur; }
+function turAd(ai, tur) { if (ANALIZ[ai].alan === 3 && ADLAR[tur]) return ADLAR[tur]; var s = asamaBul(ANALIZ[ai], tur); return s ? s.ad : (DIGER[ANALIZ[ai].alan] || tur); }
 function turRenk(ai, tur) { var s = asamaBul(ANALIZ[ai], tur); return s ? renk(s.renk) : "var(--soluk)"; }
 
 function sekmeleriCiz() {
@@ -191,7 +198,7 @@ function oyunCiz() {
   var metin = paragraflar(function (i) {
     var sel = d.sec[i], cls = "k", st = "";
     if (sel) { cls += " sec"; st = ' style="--renk:' + turRenk(aktif, sel) + '"'; if (sel !== s.tur) cls += " kilit"; }
-    return '<button type="button" class="' + cls + '"' + st + ' data-k="' + i + '" aria-pressed="' + (sel === s.tur) + '"' + (sel && sel !== s.tur ? ' title="Bu kelimeyi ' + esc(turAd(aktif, sel)) + ' olarak işaretledin"' : "") + ">" + esc(veri[i][0]) + "</button>";
+    return '<button type="button" class="' + cls + '"' + st + ' data-k="' + i + '" aria-pressed="' + (sel === s.tur) + '"' + (sel && sel !== s.tur ? ' title="Bu kelimeyi ' + esc(asamaBul(a, sel).ad) + ' olarak işaretledin"' : "") + ">" + esc(veri[i][0]) + "</button>";
   });
   var sonAsama = d.asama === a.asama.length - 1;
   $("oyun").style.setProperty("--renk", renk(s.renk));
@@ -210,9 +217,10 @@ function hesapla(ai) {
   a.asama.forEach(function (s) { top[s.tur] = 0; dog[s.tur] = 0; });
   veri.forEach(function (r, i) {
     var cev = r[alan], sel = d.sec[i];
-    if (top[cev] !== undefined) top[cev]++;
-    if (sel) { if (sel === cev) dog[sel]++; else yanlis.push({ i: i, sen: sel, dogru: cev }); }
-    else if (top[cev] !== undefined) eksik.push({ i: i, dogru: cev });
+    var g = grup(a, cev);
+    if (top[g] !== undefined) top[g]++;
+    if (sel) { if (sel === g) dog[sel]++; else yanlis.push({ i: i, sen: sel, dogru: cev }); }
+    else if (top[g] !== undefined) eksik.push({ i: i, dogru: cev });
   });
   var hedef = 0, dogru = 0;
   a.asama.forEach(function (s) { hedef += top[s.tur]; dogru += dog[s.tur]; });
@@ -227,7 +235,7 @@ function baglam(i) {
   for (var j = bas; j <= son; j++) h += j === i ? "<mark>" + esc(veri[j][0]) + "</mark> " : '<span class="baglam">' + esc(veri[j][0]) + "</span> ";
   return h;
 }
-function etiket(ai, tur, sen) { return '<span class="etk' + (sen ? " sen" : "") + '"><span class="nokta" style="--renk:' + turRenk(ai, tur) + '"></span>' + esc(turAd(ai, tur)) + "</span>"; }
+function etiket(ai, tur, sen) { return '<span class="etk' + (sen ? " sen" : "") + '"><span class="nokta" style="--renk:' + turRenk(ai, tur) + '"></span>' + esc(sen ? asamaBul(ANALIZ[ai], tur).ad : turAd(ai, tur)) + "</span>"; }
 
 function sonucCiz() {
   var ai = aktif, a = ANALIZ[ai], d = durum[ai], h = hesapla(ai);
@@ -244,7 +252,7 @@ function sonucCiz() {
   }).join("") + "</div>" : '<p class="bos">Atladığın kelime yok.</p>';
   var metin = paragraflar(function (i) {
     var sel = d.sec[i], cev = veri[i][a.alan], hedef = !!asamaBul(a, cev), cls = "k", not = "", st = ' style="--renk:' + turRenk(ai, cev) + '"';
-    if (sel && sel === cev) cls += " d-ok";
+    if (sel && sel === grup(a, cev)) cls += " d-ok";
     else if (sel) { cls += " d-yanlis"; not = '<span class="not">' + esc(turAd(ai, cev)) + "</span>"; }
     else if (hedef) { cls += " d-eksik"; not = '<span class="not">' + esc(turAd(ai, cev)) + "</span>"; }
     else cls += " d-yok";
@@ -267,7 +275,8 @@ function sonucCiz() {
 var sifirOnay = false;
 function editorCiz() {
   var sec = function (i, ai) {
-    var a = ANALIZ[ai], ops = a.asama.map(function (s) { return s.tur; });
+    var a = ANALIZ[ai], ops = [];
+    a.asama.forEach(function (s) { ops.push(s.tur); ops.push.apply(ops, s.kabul || []); });
     if (DIGER[a.alan]) ops.push("diger");
     return '<label>' + a.ad + '<select id="ak' + i + "_" + a.alan + '" data-i="' + i + '" data-alan="' + a.alan + '">' + ops.map(function (o) {
       return '<option value="' + o + '"' + (veri[i][a.alan] === o ? " selected" : "") + ">" + esc(turAd(ai, o)) + "</option>";

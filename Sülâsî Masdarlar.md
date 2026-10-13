@@ -968,7 +968,8 @@ sözlü soru–cevap. **Üretim**: cümle kurucu (Arapça biçimi ve Türkçe ç
 
 `kelimetahlil/index.html` (yayın sürümü `kelimetahlil/sayfa.html`) أَبِي العَزِيزُ mektubu üzerinde üç işaretleme alıştırmasını tek
 programda toplar: **1. Kelime çeşitleri** (isim / fiil / harf), **2. Müzekker – müennes** isimler, **3. Sayı** (müfred, müsennâ,
-cem-i müzekker sâlim, cem-i müennes sâlim, cem-i teksîr). 181 parça aynıdır; bitişik ekler (هُ, نِي, كُمْ, و, بِـ, لِـ, فَـ, سَـ) ayrı
+cem-i müzekker, cem-i müennes sâlim, cem-i teksîr). Sayı analizinde “Cem-i müzekker” aşaması hem cem-i müzekker sâlim isimleri
+hem de çoğul zamir ve mevsulleri (كُمْ, الَّذِينَ) kapsar; cevap anahtarında bunlar ayrı seçenektir (“Cem-i müzekker (zamir / mevsul)”). 181 parça aynıdır; bitişik ekler (هُ, نِي, كُمْ, و, بِـ, لِـ, فَـ, سَـ) ayrı
 işaretlenir. Her analiz kendi aşamalarıyla ayrı yürür; sekmeler arasında geçince ilerleme kaybolmaz, önceki aşamaya dönülebilir.
 Sonuç ekranında puan (eski programlardaki hesapla aynı), tür başına doğru / yanlış / atlanan tablosu, **yanlış işaretlenen her kelime**
 bağlamıyla birlikte “senin işaretin → doğrusu” olarak, metnin üzerinde doğru (renkli), yanlış (kırmızı) ve atlanan (kesik çizgili)
