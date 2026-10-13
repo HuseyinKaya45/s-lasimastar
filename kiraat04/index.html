@@ -1994,21 +1994,25 @@ function hkSade(w, mod) {
   var sonda = new RegExp("[" + HK_ISARET + "]+$"), elifli = new RegExp("([" + HK_ISARET + "]*\u064B[" + HK_ISARET + "]*)([\u0627\u0649])$");
   var sedde = function (r) { return r.indexOf("\u0651") >= 0 ? "\u0651" : ""; };
   // bitişik zamirli kelime: i'rab harekesi zamirden önceki harfte (بَيْتُهُ → بَيْته)
-  var zamirli = new RegExp("^(.*[" + HK_HARF + "][" + HK_ISARET + "]*?)[\\u064E\\u064F\\u0650]((?:[\\u0647\\u0643]|\\u0646[" + HK_ISARET + "]*(?=\\u0627))[" + HK_ISARET + "]*(?:[\\u0645\\u0627][" + HK_ISARET + "]*){0,2})$");
+  var zamirli = new RegExp("^(.*[" + HK_HARF + "][" + HK_ISARET + "]*?)[\\u064E\\u064F\\u0650](\\u0651?)((?:[\\u0647\\u0643]|\\u0646[" + HK_ISARET + "]*(?=\\u0627))[" + HK_ISARET + "]*(?:[\\u0645\\u0627][" + HK_ISARET + "]*){0,2})$");
   var z = w.match(zamirli);
-  if (z && z[1].replace(new RegExp("[" + HK_ISARET + "]", "g"), "").replace(/^[\u0648\u0641]/, "").length >= 2) return z[1] + z[2].replace(sonda, "");
+  if (z && z[1].replace(new RegExp("[" + HK_ISARET + "]", "g"), "").replace(/^[\u0648\u0641]/, "").length >= 2) return z[1] + z[2] + z[3].replace(sonda, "");
   if (elifli.test(w)) return w.replace(elifli, function (m, r, e) { return sedde(r) + e; });
   return w.replace(sonda, function (r) { return sedde(r); });
 }
 function harekeUygula(kok) {
   if (ST.hk === "tam") return;
   kok.querySelectorAll(".passage, .ex-list .sent, .qa > .ar").forEach(function (el) {
-    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), dugumler = [];
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), dugumler = [], ayet = 0;
     while (w.nextNode()) { var n = w.currentNode; if (n.parentNode.closest(".t, .hkk")) continue; dugumler.push(n); }
     dugumler.forEach(function (n) {
-      var t = n.nodeValue; if (!/[\u0621-\u064A]/.test(t)) return;
+      var t = n.nodeValue, bas = ayet;
+      for (var q = 0; q < t.length; q++) { if (t[q] === "\uFD3F") ayet++; else if (t[q] === "\uFD3E") ayet = Math.max(0, ayet - 1); }
+      if (!/[\u0621-\u064A]/.test(t)) return;
       var frag = document.createDocumentFragment(), son = 0;
       t.replace(HK_KELIME, function (k, i) {
+        var once = t.slice(0, i), ic = bas + (once.split("\uFD3F").length - 1) - (once.split("\uFD3E").length - 1);
+        if (ic > 0) return k;
         var sade = hkSade(k, ST.hk);
         if (sade === k) return k;
         if (i > son) frag.appendChild(document.createTextNode(t.slice(son, i)));

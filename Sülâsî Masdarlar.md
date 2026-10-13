@@ -673,7 +673,7 @@ içindedir; sonra `python3 kiraat03/yap.py`.
 **Hareke ve Türkçe ayarları (deneme dersi):** Özet sayfasında, “Metinden cümleler” kartında ve okuma metninin üstünde iki ayar vardır.
 *Hareke:* Harekeli / Son harekeler gizli / Harekesiz. Son harekeler gizliyken i‘rab harekesi (tenvinli eliften önceki tenvin ve bitişik
 zamirden önceki hareke dahil) kaldırılır, şedde kalır; harekesizde bütün harekeler kalkar. Gizlenen kelimeye tıklayınca harekeli hâli
-görünür. Ayar yalnız okuma metnine, örnek cümlelere ve okuma sorularına uygulanır; alıştırma şıkları harekeli kalır. *Türkçe:* Açık ya da
+görünür; ﴿ ﴾ içindeki âyetler her zaman harekeli kalır. Ayar yalnız okuma metnine, örnek cümlelere ve okuma sorularına uygulanır; alıştırma şıkları harekeli kalır. *Türkçe:* Açık ya da
 Tıklayınca (varsayılan). Tıklayınca modunda her cümlenin altında “Türkçesi” düğmesi olur; okuma metninin altında öğrenci önce kendi
 çevirisini yazar (cihazda saklanır), sonra “Çevirimi kitaptakiyle karşılaştır” ile kitaptaki çeviriyi açar. Seçimler tarayıcıda hatırlanır.
 
@@ -712,6 +712,11 @@ cem-i müzekker sâlim, iş yeri, cümle kurma, مَتَى ve harf-i cer; ek oku
 Düzelt ve Dönüştür, Erkek mi Kadın mı?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler.
 “Kelime Hazinesi” sekmesi dersin 34 kelimesini çalıştırır. Veriler `kiraat06/veri.js` içindedir; sonra `python3 kiraat06/yap.py`.
 
+**Hareke ve Türkçe ayarları:** Kıraat 3’teki gibi okuma metni, örnek cümleler ve okuma soruları Harekeli / Son harekeler gizli /
+Harekesiz gösterilebilir (gizlenen kelimeye tıklayınca harekesi görünür; ﴿ ﴾ içindeki âyetler her zaman harekeli kalır); Türkçe Açık ya
+da Tıklayınca (varsayılan) olur ve okuma metninin altında öğrencinin kendi çevirisini yazacağı alan, ardından “Çevirimi kitaptakiyle
+karşılaştır” bulunur.
+
 ## Uygulama: Kıraat 7 — Müslümanın Bir Günü
 
 `kiraat07/index.html` (yayın sürümü `kiraat07/sayfa.html`) okuma-anlama dersinin 7. konusu اليَوْمُ فِي حَيَاةِ المُسْلِمِ’i beş bölümde
@@ -720,6 +725,11 @@ uygun fiil, cümle kurma ve لِـ + mansûb; mâzî–muzâri çekim) günün a
 kitaptaki 8 etkinliğin ve genel alıştırmanın hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Mâzî mi Muzâri mi?,
 Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 33 kelimesini
 çalıştırır. Veriler `kiraat07/veri.js` içindedir; sonra `python3 kiraat07/yap.py`.
+
+**Hareke ve Türkçe ayarları:** Kıraat 3’teki gibi okuma metni, örnek cümleler ve okuma soruları Harekeli / Son harekeler gizli /
+Harekesiz gösterilebilir (gizlenen kelimeye tıklayınca harekesi görünür; ﴿ ﴾ içindeki âyetler her zaman harekeli kalır); Türkçe Açık ya
+da Tıklayınca (varsayılan) olur ve okuma metninin altında öğrencinin kendi çevirisini yazacağı alan, ardından “Çevirimi kitaptakiyle
+karşılaştır” bulunur.
 
 ## Uygulama: Kıraat 8 — Hayatımdaki En İyi İnsanlar
 
@@ -730,6 +740,11 @@ kitaptaki 9 etkinliğin ve tedrîbin hepsi, ek etkinlikler, beş oyun (Eksik Kel
 Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 35 kelimesini çalıştırır.
 Veriler `kiraat08/veri.js` içindedir; sonra `python3 kiraat08/yap.py`.
 
+**Hareke ve Türkçe ayarları:** Kıraat 3’teki gibi okuma metni, örnek cümleler ve okuma soruları Harekeli / Son harekeler gizli /
+Harekesiz gösterilebilir (gizlenen kelimeye tıklayınca harekesi görünür; ﴿ ﴾ içindeki âyetler her zaman harekeli kalır); Türkçe Açık ya
+da Tıklayınca (varsayılan) olur ve okuma metninin altında öğrencinin kendi çevirisini yazacağı alan, ardından “Çevirimi kitaptakiyle
+karşılaştır” bulunur.
+
 ## Uygulama: Kıraat 9 — Yılın Mevsimleri
 
 `kiraat09/sayfa.html` (aynısı `kiraat09/index.html`) فُصُولُ السَّنَةِ okuma-anlama dersini beş
@@ -738,6 +753,11 @@ paragraf ve cümle kurma, أَمَّا… فَـ ve كَثِيرًا مِنَ ka
 olumsuzluk makinesi (5 cümle × 5 edat), edatlar tablosu, kitaptaki 11 etkinliğin hepsi, ek etkinlikler, beş oyun (Eksik Kelime,
 Düzelt ve Dönüştür, Hangi Mevsim?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk quiz provasıyla işler. “Kelime Hazinesi”
 sekmesi dersin 34 kelimesini çalıştırır. Veriler `kiraat09/veri.js` içindedir; sonra `python3 kiraat09/yap.py`.
+
+**Hareke ve Türkçe ayarları:** Kıraat 3’teki gibi okuma metni, örnek cümleler ve okuma soruları Harekeli / Son harekeler gizli /
+Harekesiz gösterilebilir (gizlenen kelimeye tıklayınca harekesi görünür; ﴿ ﴾ içindeki âyetler her zaman harekeli kalır); Türkçe Açık ya
+da Tıklayınca (varsayılan) olur ve okuma metninin altında öğrencinin kendi çevirisini yazacağı alan, ardından “Çevirimi kitaptakiyle
+karşılaştır” bulunur.
 
 ## Uygulama: Kıraat 10 — Alışveriş Günü
 

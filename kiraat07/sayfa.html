@@ -582,6 +582,17 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
 .ev-oda.kat b { grid-row: span 2; }
 @media (max-width: 640px) { .ev-oda.kat { grid-template-columns: 1fr; justify-items: center; text-align: center; } .ev-oda.kat b { grid-row: auto; } }
 
+/* hareke ve Türkçe ayarları */
+.ayarlar { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+.ayar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ayar .lbl { margin: 0; }
+.hkk { cursor: pointer; border-bottom: 1px dotted var(--muted); }
+.hkk.acik { color: var(--accent); border-bottom-style: solid; }
+.tr-gizli { display: grid; gap: 4px; justify-items: start; }
+.tr-gizli .trac { font-size: .78rem; padding: 2px 10px; }
+.kendi-ceviri { display: grid; gap: 6px; }
+.kendi-ceviri textarea { width: 100%; font: inherit; font-size: .98rem; line-height: 1.6; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); resize: vertical; }
+
 /* Kelime hazinesi modülü (kelime.js): kelime kartı, Leitner kutuları, kalıplar, kelime oyunları */
 .center { text-align: center; justify-items: center; }
 .row-btns.center { justify-content: center; }
@@ -1679,7 +1690,7 @@ function vizU5() { return fcMakine(); }
 var VIZ = { u1: vizU1, u2: vizU2, u3: vizU3, u4: vizU4, u5: vizU5 };
 
 // ---------- durum ----------
-var ST = { tab: "ozet", tr: store.get("tr", true), items: store.get("items", {}) };
+var ST = { tab: "ozet", tr: store.get("tr2", false), hk: store.get("hk", "tam"), items: store.get("items", {}) };
 var TABS = ["ozet", "u1", "u2", "u3", "u4", "u5", "kelime", "oyun", "quiz"];
 var hashT = location.hash.replace("#", "");
 ST.tab = TABS.indexOf(hashT) >= 0 ? hashT : store.get("tab", "ozet");
@@ -1754,6 +1765,7 @@ function render() {
   else if (ST.tab === "quiz") main.innerHTML = renderQuiz();
   else if (ST.tab === "kelime") { main.innerHTML = '<section class="panel"><div id="khroot"></div></section>'; KHMOD.mount(document.getElementById("khroot")); }
   else main.innerHTML = renderUnit(unitById(ST.tab));
+  harekeUygula(main);
   updateProgress();
 }
 
@@ -1801,9 +1813,10 @@ function renderOzet() {
     '<div class="card stack"><div class="lbl">Hatırlatma kartları</div><h2>Kartı çevir, cevabı hatırla</h2>' +
       '<div class="flash-wrap"><button class="flash' + (fu ? " up" : "") + '" data-flip="1" aria-label="Kartı çevir"><div class="in"><div class="face front">' + arWrap(KARTLAR[fi][0]) + '</div><div class="face back">' + arWrap(KARTLAR[fi][1]) + '</div></div></button>' +
       '<div class="row-btns"><button class="btn small" data-fprev="1">Önceki</button><span class="muted tabular" style="align-self:center">' + (fi + 1) + ' / ' + KARTLAR.length + '</span><button class="btn small solid" data-fnext="1">Sonraki</button><button class="btn small" data-fshuf="1">Karıştır</button></div></div></div>' +
+    '<div class="card stack"><div class="lbl">Okuma ayarları</div><h2>Hareke ve Türkçe</h2><p class="muted">Metin ve örnek cümlelerde harekeyi azaltarak öğrenciyi kendi okumaya, Türkçeyi kapatarak kendi çevirmeye yönlendir. Gizlenen bir kelimenin harekesini görmek için üstüne tıkla.</p>' + ayarHtml() + '</div>' +
     '<div class="card stack"><div class="lbl">Kontrol listesi</div><h2>Konuyu kavradın mı?</h2><p class="muted">Bildiğin maddeleri işaretle. İşaretleyemediğin maddenin konusuna dön.</p>' +
       '<ul class="checklist">' + CHECK.map(function (c, i) { return '<li><label><input type="checkbox" id="chk-' + i + '" data-chk="' + i + '"' + (ch[i] ? " checked" : "") + '><span>' + arWrap(c) + '</span></label></li>'; }).join("") + '</ul>' +
-      '<div class="row-btns"><button class="btn solid" data-go="u1">1. konudan başla</button><button class="btn" data-go="oyun">Oyunlar</button><button class="btn" data-go="quiz">Quiz provası</button><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+      '<div class="row-btns"><button class="btn solid" data-go="u1">1. konudan başla</button><button class="btn" data-go="oyun">Oyunlar</button><button class="btn" data-go="quiz">Quiz provası</button><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
   '</section>';
 }
 
@@ -1814,8 +1827,8 @@ function renderUnit(u) {
   var viz = VIZ[u.id]();
   var rolesUsed = u.legend;
   var exHtml = u.examples.map(function (e) {
-    if (e.pair) return '<div class="pairgrid"><div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + '</div><div class="ex-item">' + sentHtml(e.pair) + (ST.tr ? '<div class="trline">' + e.pairTr + '</div>' : '') + '</div></div>';
-    return '<div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + (e.why ? '<div class="trline">' + e.why + '</div>' : '') + '</div>';
+    if (e.pair) return '<div class="pairgrid"><div class="ex-item">' + sentHtml(e.s) + trSatir(e.tr) + '</div><div class="ex-item">' + sentHtml(e.pair) + trSatir(e.pairTr) + '</div></div>';
+    return '<div class="ex-item">' + sentHtml(e.s) + trSatir(e.tr) + (e.why ? '<div class="trline">' + e.why + '</div>' : '') + '</div>';
   }).join("");
   return '<section class="panel" style="--role:var(--' + u.col + ')">' +
     '<div class="card unit-hero"><div class="unit-no">' + u.no + '</div><div class="stack">' +
@@ -1823,8 +1836,8 @@ function renderUnit(u) {
       '<ul class="goals">' + u.goals.map(function (g) { return '<li>' + arWrap(g) + '</li>'; }).join("") + '</ul>' +
       '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> alıştırma maddesi doğru</div>' +
     '</div></div>' +
-    '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Metinden cümleler</div><h2>Önce gör</h2></div><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button></div>' +
-      legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Renkler: zaman, iş, yer.", u2: "Fiil ve zaman.", u3: "Kelime ilişkileri.", u4: "Fiil, özne, zaman.", u5: "Zamir ve fiil." })[u.id] + '</p>' + '</div>' +
+    '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Metinden cümleler</div><h2>Önce gör</h2></div></div>' +
+      ayarHtml() + legendHtml(rolesUsed) + '<div class="ex-list">' + exHtml + '</div>' + '<p class="muted">' + ({ u1: "Renkler: zaman, iş, yer.", u2: "Fiil ve zaman.", u3: "Kelime ilişkileri.", u4: "Fiil, özne, zaman.", u5: "Zamir ve fiil." })[u.id] + '</p>' + '</div>' +
     '<div class="card viz"><div class="lbl">Görsel</div>' + viz + '</div>' +
     '<div class="card stack"><div class="lbl">مَعْلُومَاتٌ · Bilgi</div><h2>Bilmen gerekenler</h2>' +
       '<ol class="rules">' + u.rules.map(function (r) { return '<li><div class="stack" style="gap:4px"><div>' + arWrap(r.tr) + '</div>' + (r.ex ? '<div class="exs">' + r.ex.map(function (x) { return '<span>' + x + '</span>'; }).join("") + '</div>' : '') + '</div></li>'; }).join("") + '</ol>' +
@@ -1849,10 +1862,69 @@ function renderExercise(u, ex, ei) {
 function statusCls(k) { return ""; }
 function readingText(ex, sk) {
   var body = ex.dialog ? '<div class="stack" style="gap:4px">' + ex.dialog.map(function (d) { return '<p class="passage" style="text-align:right"><b class="' + (d[0] === "مَرْيَمُ" ? "r-mun" : "r-muz") + '">' + d[0] + ':</b> ' + d[1] + '</p>'; }).join("") + '</div>' : '<p class="passage">' + ex.text + '</p>';
-  return '<div class="card stack" style="background:var(--soft);border:0"><h3 class="ar" style="font-size:1.6rem;color:var(--accent)">' + ex.title + '</h3>' + body +
-    (sk && ex.speak ? '<div class="row-btns"><button class="btn small solid" data-act="speak" data-key="' + sk + '">🔊 Metni dinle</button><button class="btn small" data-act="hush" data-key="' + sk + '">■ Durdur</button></div>' : '') + (ex.gloss ? '<details><summary class="muted" style="cursor:pointer">Sözlük: yeni kelimeler</summary><div style="margin-top:6px">' + badges(ex.gloss.map(function (g) { return [g[0], g[1], "mi"]; })) + '</div></details>' : '') + '<details><summary class="muted" style="cursor:pointer">Türkçesini göster</summary><p class="passage-tr" style="margin-top:6px">' + ex.textTr + '</p></details></div>';
+  var cvk = "cv:" + (sk || ex.title);
+  return '<div class="card stack" style="background:var(--soft);border:0">' + ayarHtml() + '<h3 class="ar" style="font-size:1.6rem;color:var(--accent)">' + ex.title + '</h3>' + body +
+    (sk && ex.speak ? '<div class="row-btns"><button class="btn small solid" data-act="speak" data-key="' + sk + '">🔊 Metni dinle</button><button class="btn small" data-act="hush" data-key="' + sk + '">■ Durdur</button></div>' : '') + (ex.gloss ? '<details><summary class="muted" style="cursor:pointer">Sözlük: yeni kelimeler</summary><div style="margin-top:6px">' + badges(ex.gloss.map(function (g) { return [g[0], g[1], "mi"]; })) + '</div></details>' : '') + (ST.tr ? '<p class="passage-tr">' + ex.textTr + '</p>' :
+      '<div class="kendi-ceviri"><label for="' + esc(cvk) + '"><b>Önce kendin çevir</b> <span class="muted">(isteğe bağlı; yazdığın bu cihazda saklanır)</span></label><textarea id="' + esc(cvk) + '" data-cevir="' + esc(cvk) + '" rows="5" placeholder="Metnin Türkçesini kendi cümlelerinle yaz…">' + esc(store.get(cvk, "")) + '</textarea></div>' +
+      '<details><summary class="muted" style="cursor:pointer">Çevirimi kitaptakiyle karşılaştır</summary><p class="passage-tr" style="margin-top:6px">' + ex.textTr + '</p></details>') + '</div>';
 }
-function trAfter(it) { return it.tr && typeof it.tr === "string" ? '<div class="trline">' + it.tr + '</div>' : ''; }
+// ---------- hareke ve Türkçe ayarları ----------
+function ayarHtml() {
+  var hk = [["tam", "Harekeli"], ["son", "Son harekeler gizli"], ["yok", "Harekesiz"]], tr = [[1, "Açık"], [0, "Tıklayınca"]];
+  return '<div class="ayarlar"><div class="ayar"><span class="lbl">Hareke</span><div class="seg" role="group" aria-label="Hareke">' + hk.map(function (h) { return '<button type="button" data-hk="' + h[0] + '" aria-pressed="' + (ST.hk === h[0]) + '">' + h[1] + '</button>'; }).join("") + '</div></div>' +
+    '<div class="ayar"><span class="lbl">Türkçe</span><div class="seg" role="group" aria-label="Türkçe">' + tr.map(function (t) { return '<button type="button" data-trm="' + t[0] + '" aria-pressed="' + (ST.tr === !!t[0]) + '">' + t[1] + '</button>'; }).join("") + '</div></div></div>';
+}
+function trSatir(t, tag) {
+  if (!t) return "";
+  tag = tag || "div";
+  if (ST.tr) return '<' + tag + ' class="trline">' + t + '</' + tag + '>';
+  return '<div class="tr-gizli"><button type="button" class="btn small trac" data-trac="1">Türkçesi</button><' + tag + ' class="trline" hidden>' + t + '</' + tag + '></div>';
+}
+var HK_HARF = "\u0621-\u064A\u0671-\u06D3\u0640", HK_ISARET = "\u064B-\u0652\u0670";
+var HK_KELIME = new RegExp("[" + HK_HARF + HK_ISARET + "]+", "g");
+function hkSade(w, mod) {
+  if (mod === "yok") return w.replace(new RegExp("[" + HK_ISARET + "]", "g"), "");
+  // son hareke: kelimenin sonundaki hareke ya da tenvin (şedde kalır); tenvinli eliften önceki tenvin de gider
+  var sonda = new RegExp("[" + HK_ISARET + "]+$"), elifli = new RegExp("([" + HK_ISARET + "]*\u064B[" + HK_ISARET + "]*)([\u0627\u0649])$");
+  var sedde = function (r) { return r.indexOf("\u0651") >= 0 ? "\u0651" : ""; };
+  // bitişik zamirli kelime: i'rab harekesi zamirden önceki harfte (بَيْتُهُ → بَيْته)
+  var zamirli = new RegExp("^(.*[" + HK_HARF + "][" + HK_ISARET + "]*?)[\\u064E\\u064F\\u0650](\\u0651?)((?:[\\u0647\\u0643]|\\u0646[" + HK_ISARET + "]*(?=\\u0627))[" + HK_ISARET + "]*(?:[\\u0645\\u0627][" + HK_ISARET + "]*){0,2})$");
+  var z = w.match(zamirli);
+  if (z && z[1].replace(new RegExp("[" + HK_ISARET + "]", "g"), "").replace(/^[\u0648\u0641]/, "").length >= 2) return z[1] + z[2] + z[3].replace(sonda, "");
+  if (elifli.test(w)) return w.replace(elifli, function (m, r, e) { return sedde(r) + e; });
+  return w.replace(sonda, function (r) { return sedde(r); });
+}
+function harekeUygula(kok) {
+  if (ST.hk === "tam") return;
+  kok.querySelectorAll(".passage, .ex-list .sent, .qa > .ar").forEach(function (el) {
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), dugumler = [], ayet = 0;
+    while (w.nextNode()) { var n = w.currentNode; if (n.parentNode.closest(".t, .hkk")) continue; dugumler.push(n); }
+    dugumler.forEach(function (n) {
+      var t = n.nodeValue, bas = ayet;
+      for (var q = 0; q < t.length; q++) { if (t[q] === "\uFD3F") ayet++; else if (t[q] === "\uFD3E") ayet = Math.max(0, ayet - 1); }
+      if (!/[\u0621-\u064A]/.test(t)) return;
+      var frag = document.createDocumentFragment(), son = 0;
+      t.replace(HK_KELIME, function (k, i) {
+        var once = t.slice(0, i), ic = bas + (once.split("\uFD3F").length - 1) - (once.split("\uFD3E").length - 1);
+        if (ic > 0) return k;
+        var sade = hkSade(k, ST.hk);
+        if (sade === k) return k;
+        if (i > son) frag.appendChild(document.createTextNode(t.slice(son, i)));
+        var sp = document.createElement("span"); sp.className = "hkk"; sp.textContent = sade; sp.dataset.o = k; sp.dataset.s = sade; sp.title = "Harekesini görmek için tıkla";
+        frag.appendChild(sp); son = i + k.length; return k;
+      });
+      if (son === 0) return;
+      if (son < t.length) frag.appendChild(document.createTextNode(t.slice(son)));
+      n.parentNode.replaceChild(frag, n);
+    });
+  });
+}
+document.addEventListener("click", function (e) {
+  var h = e.target.closest(".hkk"); if (!h) return;
+  var acik = h.classList.toggle("acik"); h.textContent = acik ? h.dataset.o : h.dataset.s;
+});
+document.addEventListener("input", function (e) { var c = e.target.dataset && e.target.dataset.cevir; if (c) store.set(c, e.target.value); });
+function trAfter(it) { return it.tr && typeof it.tr === "string" ? trSatir(it.tr) : ''; }
 function retryBtn(key) { return '<div><button class="btn small" data-act="retry" data-key="' + key + '">Tekrar dene</button></div>'; }
 function optsFor(it, ex) { return it.opts || ex.opts || [["i", "İsim cümlesi", "اسْمِيَّةٌ", "x"], ["f", "Fiil cümlesi", "فِعْلِيَّةٌ", "x"]]; }
 
@@ -1952,7 +2024,7 @@ function renderBank(u, ex, ei) {
   if (ex.parts) {
     var si = -1;
     body = '<p class="story" style="line-height:2.4">' + ex.parts.map(function (p) { if (typeof p === "string") return ' ' + p + ' '; si++; return slotBtn(si); }).join("") + '</p>' +
-      (L.res && L.res.every(Boolean) && ST.tr ? '<p class="trline">' + (ex.tr2 || ex.tr) + '</p>' : '');
+      (L.res && L.res.every(Boolean) ? trSatir(ex.tr2 || ex.tr, "p") : '');
   } else {
     body = '<div class="items">' + ex.items.map(function (it, ii) {
       var res = L.res ? L.res[ii] : null;
@@ -1987,7 +2059,10 @@ main.addEventListener("click", function (ev) {
   var b = ev.target.closest("button"); if (!b || ev.target.closest("#khroot")) return;
   var d = b.dataset, key = d.key;
   if (d.go) { setTab(d.go); window.scrollTo({ top: 0 }); return; }
-  if (d.trtoggle) { ST.tr = !ST.tr; store.set("tr", ST.tr); var y = window.scrollY; render(); window.scrollTo({ top: y }); return; }
+  if (d.trtoggle) { ST.tr = !ST.tr; store.set("tr2", ST.tr); var y = window.scrollY; render(); window.scrollTo({ top: y }); return; }
+  if (d.trm != null) { ST.tr = d.trm === "1"; store.set("tr2", ST.tr); var y2 = window.scrollY; render(); window.scrollTo({ top: y2 }); return; }
+  if (d.hk) { ST.hk = d.hk; store.set("hk", ST.hk); var y3 = window.scrollY; render(); window.scrollTo({ top: y3 }); return; }
+  if (d.trac) { var tl = b.nextElementSibling; if (tl) { tl.hidden = !tl.hidden; b.classList.toggle("solid", !tl.hidden); } return; }
   if (d.snd) { SND.on = !SND.on; store.set("snd", SND.on); render(); if (SND.on) beep("ok"); return; }
   if (d.mn != null || d.mh != null || d.mf != null) { if (d.mn != null) LIVE.mn = +d.mn; if (d.mh != null) LIVE.mh = +d.mh; if (d.mf != null) LIVE.mf = +d.mf; var mk = document.getElementById("makine"); if (mk) mk.outerHTML = fcMakine(); beep("tick"); return; }
   if (d.flip) { LIVE.fu = !LIVE.fu; b.classList.toggle("up", LIVE.fu); return; }
