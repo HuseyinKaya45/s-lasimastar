@@ -670,6 +670,13 @@ hepsi, ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Hangi O
 20 soruluk quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 35 kelimesini çalıştırır. Veriler `kiraat03/veri.js`
 içindedir; sonra `python3 kiraat03/yap.py`.
 
+**Hareke ve Türkçe ayarları (deneme dersi):** Özet sayfasında, “Metinden cümleler” kartında ve okuma metninin üstünde iki ayar vardır.
+*Hareke:* Harekeli / Son harekeler gizli / Harekesiz. Son harekeler gizliyken i‘rab harekesi (tenvinli eliften önceki tenvin ve bitişik
+zamirden önceki hareke dahil) kaldırılır, şedde kalır; harekesizde bütün harekeler kalkar. Gizlenen kelimeye tıklayınca harekeli hâli
+görünür. Ayar yalnız okuma metnine, örnek cümlelere ve okuma sorularına uygulanır; alıştırma şıkları harekeli kalır. *Türkçe:* Açık ya da
+Tıklayınca (varsayılan). Tıklayınca modunda her cümlenin altında “Türkçesi” düğmesi olur; okuma metninin altında öğrenci önce kendi
+çevirisini yazar (cihazda saklanır), sonra “Çevirimi kitaptakiyle karşılaştır” ile kitaptaki çeviriyi açar. Seçimler tarayıcıda hatırlanır.
+
 ## Uygulama: Kıraat 4 — Sofra Başında
 
 `kiraat04/index.html` (yayın sürümü `kiraat04/sayfa.html`) okuma-anlama dersinin 4. konusu حَوْلَ مَائِدَةِ الطَّعَامِ’ı beş bölümde
