@@ -652,6 +652,11 @@ dersin 30 kelimesini aralıklı tekrar, kelime kartları, çoğul kalıpları, z
 modül sonraki okuma derslerine de eklenir (veri: `KH_KELIMELER`). Veriler `kiraat01/veri.js` içindedir; sonra
 `python3 kiraat01/yap.py`.
 
+**Hareke ve Türkçe ayarları:** Kıraat 3’teki gibi okuma metni, örnek cümleler ve okuma soruları Harekeli / Son harekeler gizli /
+Harekesiz gösterilebilir (gizlenen kelimeye tıklayınca harekesi görünür; ﴿ ﴾ içindeki âyetler her zaman harekeli kalır); Türkçe Açık ya
+da Tıklayınca (varsayılan) olur ve okuma metninin altında öğrencinin kendi çevirisini yazacağı alan, ardından “Çevirimi kitaptakiyle
+karşılaştır” bulunur.
+
 ## Uygulama: Kıraat 2 — Peygamberimizin Ailesi
 
 `kiraat02/index.html` (yayın sürümü `kiraat02/sayfa.html`) okuma-anlama dersinin 2. konusu عَائِلَةُ النَّبِيِّ مُحَمَّدٍ ﷺ’i beş
@@ -660,6 +665,11 @@ muzâri fiil ve zamirler) aile ağacı, akrabalık şeması, çekim makinesi (6 
 ek etkinlikler, beş oyun (Eksik Kelime, Düzelt ve Dönüştür, Kim Kimdir?, Doğru mu Yanlış mı?, Hafıza Kartları) ve 20 soruluk
 quiz provasıyla işler. “Kelime Hazinesi” sekmesi dersin 35 kelimesini çalıştırır. Veriler `kiraat02/veri.js` içindedir;
 sonra `python3 kiraat02/yap.py`.
+
+**Hareke ve Türkçe ayarları:** Kıraat 3’teki gibi okuma metni, örnek cümleler ve okuma soruları Harekeli / Son harekeler gizli /
+Harekesiz gösterilebilir (gizlenen kelimeye tıklayınca harekesi görünür; ﴿ ﴾ içindeki âyetler her zaman harekeli kalır); Türkçe Açık ya
+da Tıklayınca (varsayılan) olur ve okuma metninin altında öğrencinin kendi çevirisini yazacağı alan, ardından “Çevirimi kitaptakiyle
+karşılaştır” bulunur.
 
 ## Uygulama: Kıraat 3 — Abdurrahman’ın Evi
 
