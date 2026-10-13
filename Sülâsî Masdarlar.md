@@ -964,15 +964,18 @@ sözlü soru–cevap. **Üretim**: cümle kurucu (Arapça biçimi ve Türkçe ç
 كَانَ, لَيْسَ, إِنَّ, أَصْبَحَ ve istisna yalnızca “ileride” notuyla geçer. Düzenleme: `muzarirab/veri.js`, `muzarirab/uygulama.js`,
 `muzarirab/ders.css`; sonra `python3 muzarirab/yap.py`.
 
-## Uygulama: Ebî’l-Azîz metin tahlili (Giriş 1–3 birleşik)
+## Uygulama: Ebî’l-Azîz metin tahlili (Giriş 1–4 birleşik)
 
-`kelimetahlil/index.html` (yayın sürümü `kelimetahlil/sayfa.html`) أَبِي العَزِيزُ mektubu üzerinde üç işaretleme alıştırmasını tek
+`kelimetahlil/index.html` (yayın sürümü `kelimetahlil/sayfa.html`) أَبِي العَزِيزُ mektubu üzerinde dört işaretleme alıştırmasını tek
 programda toplar: **1. Kelime çeşitleri** (isim / fiil / harf), **2. Müzekker – müennes** isimler, **3. Sayı** (müfred, müsennâ,
 cem-i müzekker, cem-i müennes sâlim, cem-i teksîr). Sayı analizinde “Cem-i müzekker” aşaması hem cem-i müzekker sâlim isimleri
-hem de çoğul zamir ve mevsulleri (كُمْ, الَّذِينَ) kapsar; cevap anahtarında bunlar ayrı seçenektir (“Cem-i müzekker (zamir / mevsul)”). 181 parça aynıdır; bitişik ekler (هُ, نِي, كُمْ, و, بِـ, لِـ, فَـ, سَـ) ayrı
+hem de çoğul zamir ve mevsulleri (كُمْ, الَّذِينَ) kapsar; cevap anahtarında bunlar ayrı seçenektir (“Cem-i müzekker (zamir / mevsul)”). **4. Marife – nekra**: “Marife” aşamasında zamirler, özel isimler
+(tenvinli مُرَادٌ ve مَلِيحٌ dahil), ism-i mevsul, الـ almış isimler ve marifeye muzaf isimler (أَبِي, رَحْمَةُ اللهِ, سَكَنُ الطُّلَّابِ…) işaretlenir;
+“Nekra” aşamasında tenvinli ve tenvinsiz nekralar (صَدِيقَانِ, بِنَاءَيْنِ, خَضْرَاءَ, أَسْرَعِ وَقْتٍ). Sonuç ekranında doğrusu marifenin çeşidiyle
+yazılır (zamir, özel isim, mevsul, ال ile, marifeye muzaf). 181 parça aynıdır; bitişik ekler (هُ, نِي, كُمْ, و, بِـ, لِـ, فَـ, سَـ) ayrı
 işaretlenir. Her analiz kendi aşamalarıyla ayrı yürür; sekmeler arasında geçince ilerleme kaybolmaz, önceki aşamaya dönülebilir.
 Sonuç ekranında puan (eski programlardaki hesapla aynı), tür başına doğru / yanlış / atlanan tablosu, **yanlış işaretlenen her kelime**
 bağlamıyla birlikte “senin işaretin → doğrusu” olarak, metnin üzerinde doğru (renkli), yanlış (kırmızı) ve atlanan (kesik çizgili)
 kelimeler altlarında doğru cevapla ve açılır listede atlananlar görünür. Cevap anahtarı Ctrl+Shift+E ya da alttaki bağlantıyla açılır;
 üç analizin cevapları tek ekrandan değiştirilir ve tarayıcıda saklanır. Düzenleme: `kelimetahlil/kaynak.html`, `kelimetahlil/veri.json`
-(her satır: kelime, kelime çeşidi, cinsiyet, sayı); sonra `python3 kelimetahlil/yap.py`.
+(her satır: kelime, kelime çeşidi, cinsiyet, sayı, marife–nekra); sonra `python3 kelimetahlil/yap.py`.

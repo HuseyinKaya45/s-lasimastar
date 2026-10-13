@@ -24,7 +24,7 @@ header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content:
 h1 { margin: 0; font-size: 1.45rem; font-weight: 700; text-wrap: balance; }
 h1 .arb { font-family: var(--ar); font-size: 1.9rem; color: var(--vurgu); margin-inline-start: 6px; }
 .alt { color: var(--soluk); font-size: .9rem; }
-.sekmeler { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.sekmeler { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
 .sekme { border: 1px solid var(--cizgi); background: var(--kagit); color: var(--fg); border-radius: 10px; padding: 10px 12px; text-align: start; cursor: pointer; font: inherit; display: grid; gap: 2px; }
 .sekme b { font-size: .95rem; }
 .sekme small { color: var(--soluk); font-size: .8rem; }
@@ -105,6 +105,7 @@ h2 .adet { font-size: .8rem; font-weight: 600; padding: 1px 8px; border-radius: 
 footer { display: flex; justify-content: flex-end; }
 footer button { font: inherit; font-size: .8rem; background: none; border: none; color: var(--soluk); cursor: pointer; text-decoration: underline; }
 @media (max-width: 600px) {
+  .sekmeler { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sekme { padding: 8px; } .sekme small { display: none; } .sekme b { font-size: .85rem; } .sekme .durum { font-size: .7rem; }
   th, td { padding: 6px; }
   .metin { font-size: 1.3rem; }
@@ -115,7 +116,7 @@ footer button { font: inherit; font-size: .8rem; background: none; border: none;
 <div class="sar">
   <header>
     <h1>Metin Tahlili <span class="arb" lang="ar">أَبِي العَزِيزُ</span></h1>
-    <span class="alt">Giriş 1–3: kelime çeşitleri, müzekker–müennes, sayı</span>
+    <span class="alt">Giriş 1–4: kelime çeşitleri, müzekker–müennes, sayı, marife–nekra</span>
   </header>
   <div class="sekmeler" role="tablist" id="sekmeler"></div>
   <section class="kart" id="oyun"></section>
@@ -140,22 +141,29 @@ var ANALIZ = [
       { tur: "muzekker-isim", ad: "Müzekker isim", renk: "--k1", acik: "Metindeki <b>müzekker</b> isimleri (ekler dahil) bulup tıkla." },
       { tur: "muennes-isim", ad: "Müennes isim", renk: "--k6", acik: "Metindeki <b>müennes</b> isimleri (ekler dahil) bulup tıkla." } ] },
   { ad: "Sayı", kisa: "Giriş 3 · müfred, müsennâ, cemi", alan: 3, puanPay: "hedef", ceza: 3,
+    adlar: { "cem-muzekker": "Cem-i müzekker sâlim", "cem-muzekker-z": "Cem-i müzekker (zamir / mevsul)" },
     asama: [
       { tur: "mufred", ad: "Müfred (tekil)", renk: "--k1", acik: "Metindeki <b>müfred (tekil)</b> isimleri bulup tıkla." },
       { tur: "musenna", ad: "Müsennâ (ikil)", renk: "--k2", acik: "Metindeki <b>müsennâ (ikil)</b> isimleri bulup tıkla." },
       { tur: "cem-muzekker", kabul: ["cem-muzekker-z"], ad: "Cem-i müzekker", renk: "--k3", acik: "Metindeki <b>cem-i müzekker</b> kelimeleri bulup tıkla: cem-i müzekker sâlim (düzenli eril çoğul) isimler ve çoğul zamirler (كُمْ, الَّذِينَ gibi)." },
       { tur: "cem-muennes", ad: "Cem-i müennes sâlim", renk: "--k4", acik: "Metindeki <b>cem-i müennes sâlim</b> (düzenli dişil çoğul) kelimeleri bulup tıkla." },
-      { tur: "cem-teksir", ad: "Cem-i teksîr", renk: "--k5", acik: "Metindeki <b>cem-i teksîr</b> (kırık çoğul) kelimeleri bulup tıkla." } ] }
+      { tur: "cem-teksir", ad: "Cem-i teksîr", renk: "--k5", acik: "Metindeki <b>cem-i teksîr</b> (kırık çoğul) kelimeleri bulup tıkla." } ] },
+  { ad: "Marife – Nekra", kisa: "Giriş 4 · belirli, belirsiz", alan: 4, puanPay: "hedef", ceza: 3,
+    adlar: { "marife-zamir": "Marife (zamir)", "marife-alem": "Marife (özel isim)", "marife-isaret": "Marife (işaret ismi)",
+      "marife-mevsul": "Marife (ism-i mevsul)", "marife-el": "Marife (ال ile)", "marife-izafet": "Marife (marifeye muzaf)", "nekra": "Nekra" },
+    asama: [
+      { tur: "marife", kabul: ["marife-zamir", "marife-alem", "marife-isaret", "marife-mevsul", "marife-el", "marife-izafet"], ad: "Marife", grupAdi: true, renk: "--k4",
+        acik: "Metindeki <b>marife</b> (belirli) isimleri bulup tıkla: zamirler, özel isimler, işaret isimleri, ism-i mevsuller, <span lang=\"ar\">الـ</span> almış isimler ve bunlardan birine muzaf olan isimler." },
+      { tur: "nekra", ad: "Nekra", renk: "--k2", acik: "Metindeki <b>nekra</b> (belirsiz) isimleri bulup tıkla. Dikkat: tenvin her zaman nekra demek değildir; özel isimler de tenvin alabilir." } ] }
 ];
-var ADLAR = { "cem-muzekker": "Cem-i müzekker sâlim", "cem-muzekker-z": "Cem-i müzekker (zamir / mevsul)" };
 // Cevap anahtarı güncellemeleri: [satır, alan, eski değer]. Tarayıcıda kayıtlı anahtar eski değeri taşıyorsa yenisi kullanılır.
 var GUNCELLEME = [[7, 3, "mufred"], [171, 3, "mufred"], [179, 3, "mufred"], [117, 3, "cem-teksir"], [24, 3, "mufred"]];
-var DIGER = { 2: "İsim değil (fiil / harf)", 3: "İsim değil (fiil / harf)" };
+var DIGER = { 2: "İsim değil (fiil / harf)", 3: "İsim değil (fiil / harf)", 4: "İsim değil (fiil / harf)" };
 
 var varsayilan = VERI.map(function (r) { return r.slice(); });
 var veri = varsayilan.map(function (r) { return r.slice(); });
 try { var kay = JSON.parse(localStorage.getItem(ANAHTAR_KAYIT) || "null"); if (kay && kay.length === veri.length) {
-  veri = kay.map(function (r, i) { var y = r.slice(); y[0] = varsayilan[i][0]; return y; });
+  veri = kay.map(function (r, i) { var y = varsayilan[i].slice(); for (var j = 1; j < r.length && j < y.length; j++) y[j] = r[j]; return y; });
   GUNCELLEME.forEach(function (g) { if (veri[g[0]][g[1]] === g[2]) veri[g[0]][g[1]] = varsayilan[g[0]][g[1]]; });
 } } catch (e) {}
 
@@ -168,7 +176,7 @@ function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&
 function renk(v) { return "var(" + v + ")"; }
 function asamaBul(a, tur) { for (var i = 0; i < a.asama.length; i++) if (a.asama[i].tur === tur || (a.asama[i].kabul || []).indexOf(tur) >= 0) return a.asama[i]; return null; }
 function grup(a, tur) { var s = asamaBul(a, tur); return s ? s.tur : tur; }
-function turAd(ai, tur) { if (ANALIZ[ai].alan === 3 && ADLAR[tur]) return ADLAR[tur]; var s = asamaBul(ANALIZ[ai], tur); return s ? s.ad : (DIGER[ANALIZ[ai].alan] || tur); }
+function turAd(ai, tur) { var ad = ANALIZ[ai].adlar; if (ad && ad[tur]) return ad[tur]; var s = asamaBul(ANALIZ[ai], tur); return s ? s.ad : (DIGER[ANALIZ[ai].alan] || tur); }
 function turRenk(ai, tur) { var s = asamaBul(ANALIZ[ai], tur); return s ? renk(s.renk) : "var(--soluk)"; }
 
 function sekmeleriCiz() {
@@ -276,7 +284,7 @@ var sifirOnay = false;
 function editorCiz() {
   var sec = function (i, ai) {
     var a = ANALIZ[ai], ops = [];
-    a.asama.forEach(function (s) { ops.push(s.tur); ops.push.apply(ops, s.kabul || []); });
+    a.asama.forEach(function (s) { if (!s.grupAdi) ops.push(s.tur); ops.push.apply(ops, s.kabul || []); });
     if (DIGER[a.alan]) ops.push("diger");
     return '<label>' + a.ad + '<select id="ak' + i + "_" + a.alan + '" data-i="' + i + '" data-alan="' + a.alan + '">' + ops.map(function (o) {
       return '<option value="' + o + '"' + (veri[i][a.alan] === o ? " selected" : "") + ">" + esc(turAd(ai, o)) + "</option>";
@@ -284,7 +292,7 @@ function editorCiz() {
   };
   var kutular = veri.map(function (r, i) {
     var deg = r.some(function (v, j) { return v !== varsayilan[i][j]; });
-    return '<div class="ak' + (deg ? " degisik" : "") + '"><div class="ark" lang="ar">' + esc(r[0]) + "</div>" + sec(i, 0) + sec(i, 1) + sec(i, 2) + "</div>";
+    return '<div class="ak' + (deg ? " degisik" : "") + '"><div class="ark" lang="ar">' + esc(r[0]) + "</div>" + sec(i, 0) + sec(i, 1) + sec(i, 2) + sec(i, 3) + "</div>";
   }).join("");
   $("editor").innerHTML =
     "<h2>Cevap anahtarı</h2><p class=\"bos\">Üç analizin cevaplarını buradan değiştirebilirsin. Değişiklik bu tarayıcıda saklanır; değiştirilen kelimeler turuncu çerçeveli görünür.</p>" +
