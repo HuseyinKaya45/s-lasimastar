@@ -1,0 +1,337 @@
+<title>Ebî’l-Azîz Tahlili</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Düzen: tek sütun; üstte üç analiz sekmesi, altında aşama şeridi, metin ve sonuç kartı */
+:root {
+  --bg: #eef2f1; --kagit: #ffffff; --fg: #1d2a2b; --soluk: #5b6b6c; --cizgi: #d3dcdb; --vurgu: #145c5a; --vurgu-acik: #e1efed;
+  --dogru: #1f7a3c; --dogru-z: #e3f3e7; --yanlis: #b4232a; --yanlis-z: #fbe5e5; --eksik: #a35c00; --eksik-z: #fdf0dc;
+  --k1: #2457c5; --k2: #c26a00; --k3: #0e7f74; --k4: #6d3fc4; --k5: #c0262d; --k6: #c02a72;
+  --ar: "Amiri", "Traditional Arabic", "Noto Naskh Arabic", serif;
+  --ui: "Figtree", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121a1b; --kagit: #1a2526; --fg: #e4ecec; --soluk: #9db0b0; --cizgi: #2f3f40; --vurgu: #5fc4bd; --vurgu-acik: #1e3534;
+  --dogru: #5fcf83; --dogru-z: #173323; --yanlis: #ff7f84; --yanlis-z: #3a1c1e; --eksik: #f1ad55; --eksik-z: #3a2b14;
+  --k1: #6f9cff; --k2: #f0a03c; --k3: #3fc7b8; --k4: #a988ff; --k5: #ff6f74; --k6: #f37ab3; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121a1b; --kagit: #1a2526; --fg: #e4ecec; --soluk: #9db0b0; --cizgi: #2f3f40; --vurgu: #5fc4bd; --vurgu-acik: #1e3534;
+  --dogru: #5fcf83; --dogru-z: #173323; --yanlis: #ff7f84; --yanlis-z: #3a1c1e; --eksik: #f1ad55; --eksik-z: #3a2b14;
+  --k1: #6f9cff; --k2: #f0a03c; --k3: #3fc7b8; --k4: #a988ff; --k5: #ff6f74; --k6: #f37ab3; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--ui); font-size: 15px; line-height: 1.5; padding: 0 16px; }
+.sar { max-width: 980px; margin: 0 auto; padding-block: 22px 40px; display: grid; gap: 16px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+h1 { margin: 0; font-size: 1.45rem; font-weight: 700; text-wrap: balance; }
+h1 .arb { font-family: var(--ar); font-size: 1.9rem; color: var(--vurgu); margin-inline-start: 6px; }
+.alt { color: var(--soluk); font-size: .9rem; }
+.sekmeler { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.sekme { border: 1px solid var(--cizgi); background: var(--kagit); color: var(--fg); border-radius: 10px; padding: 10px 12px; text-align: start; cursor: pointer; font: inherit; display: grid; gap: 2px; }
+.sekme b { font-size: .95rem; }
+.sekme small { color: var(--soluk); font-size: .8rem; }
+.sekme[aria-selected="true"] { border-color: var(--vurgu); background: var(--vurgu-acik); box-shadow: inset 0 -3px 0 var(--vurgu); }
+.sekme .durum { font-size: .75rem; font-weight: 600; color: var(--vurgu); }
+.kart { background: var(--kagit); border: 1px solid var(--cizgi); border-radius: 12px; padding: 18px; display: grid; gap: 14px; min-width: 0; }
+.asamalar { display: flex; flex-wrap: wrap; gap: 6px; }
+.asama { font-size: .8rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--cizgi); color: var(--soluk); display: inline-flex; align-items: center; gap: 6px; }
+.asama i { width: 10px; height: 10px; border-radius: 50%; background: var(--renk); display: inline-block; }
+.asama.simdi { border-color: var(--renk); color: var(--fg); font-weight: 600; background: var(--vurgu-acik); }
+.asama.gecti { color: var(--fg); }
+.yonerge { margin: 0; font-size: 1rem; }
+.yonerge b { color: var(--renk); }
+.metin { direction: rtl; text-align: right; font-family: var(--ar); font-size: 1.45rem; line-height: 2.3; display: grid; gap: 10px; }
+.metin p { margin: 0; }
+.k { display: inline-block; padding: 0 7px; margin: 3px 2px; border-radius: 6px; border: 1px solid var(--cizgi); background: var(--kagit); color: var(--fg); cursor: pointer; user-select: none; font: inherit; line-height: 1.7; }
+.k:hover { border-color: var(--soluk); }
+.k:focus-visible, .sekme:focus-visible, button:focus-visible { outline: 2px solid var(--vurgu); outline-offset: 2px; }
+.k.sec { background: var(--renk); border-color: var(--renk); color: #fff; }
+.k.kilit { opacity: .55; cursor: not-allowed; }
+.dugmeler { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; }
+.dugmeler .sag { display: flex; gap: 8px; flex-wrap: wrap; }
+button.d { font: inherit; font-weight: 600; border-radius: 8px; padding: 9px 16px; cursor: pointer; border: 1px solid var(--vurgu); background: var(--vurgu); color: var(--kagit); }
+button.d.ikincil { background: transparent; color: var(--vurgu); }
+button.d.tehlike { border-color: var(--yanlis); color: var(--yanlis); background: transparent; }
+button.d:disabled { opacity: .4; cursor: default; }
+.sayac { color: var(--soluk); font-size: .85rem; font-variant-numeric: tabular-nums; }
+
+/* Sonuç */
+.ozet { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+.puan { font-size: 2.6rem; font-weight: 700; color: var(--vurgu); font-variant-numeric: tabular-nums; line-height: 1; }
+.puan small { font-size: 1rem; color: var(--soluk); font-weight: 500; }
+.formul { color: var(--soluk); font-size: .85rem; max-width: 46ch; }
+.tablo-kap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { text-align: start; padding: 7px 10px; border-bottom: 1px solid var(--cizgi); font-size: .9rem; }
+th { color: var(--soluk); font-weight: 600; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; }
+td.n, th.n { text-align: end; white-space: nowrap; }
+td:first-child { white-space: nowrap; }
+.nokta { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--renk); margin-inline-end: 6px; }
+h2 { margin: 0; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
+h2 .adet { font-size: .8rem; font-weight: 600; padding: 1px 8px; border-radius: 999px; }
+.h-yanlis .adet { background: var(--yanlis-z); color: var(--yanlis); }
+.h-eksik .adet { background: var(--eksik-z); color: var(--eksik); }
+.liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; }
+.hata { border: 1px solid var(--cizgi); border-radius: 8px; padding: 8px 10px; display: grid; gap: 4px; min-width: 0; }
+.hata.yanlis { border-inline-start: 4px solid var(--yanlis); }
+.hata.eksik { border-inline-start: 4px solid var(--eksik); }
+.hata .ark { font-family: var(--ar); font-size: 1.35rem; direction: rtl; text-align: right; line-height: 1.6; }
+.hata .ark .baglam { color: var(--soluk); }
+.hata .ark mark { background: var(--yanlis-z); color: var(--fg); border-radius: 4px; padding: 0 3px; }
+.hata.eksik .ark mark { background: var(--eksik-z); }
+.hata .sat { font-size: .85rem; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+.etk { display: inline-flex; align-items: center; gap: 5px; font-weight: 600; }
+.etk.sen { color: var(--yanlis); text-decoration: line-through; }
+.eksikler summary { cursor: pointer; list-style-position: outside; margin-bottom: 10px; }
+.eksikler summary h2 { display: inline-flex; }
+.bos { color: var(--soluk); font-size: .9rem; margin: 0; }
+.aciklama { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .82rem; color: var(--soluk); }
+.aciklama span { display: inline-flex; align-items: center; gap: 6px; }
+.ornek { display: inline-block; width: 22px; height: 14px; border-radius: 4px; }
+.metin.sonuc .k { cursor: default; position: relative; }
+.metin.sonuc .k.d-ok { background: var(--renk); border-color: var(--renk); color: #fff; }
+.metin.sonuc .k.d-yanlis { background: var(--yanlis-z); border: 2px solid var(--yanlis); color: var(--fg); }
+.metin.sonuc .k.d-eksik { background: var(--eksik-z); border: 2px dashed var(--eksik); color: var(--fg); }
+.metin.sonuc .k.d-yok { opacity: .55; }
+.metin.sonuc .k .not { display: block; font-family: var(--ui); font-size: .62rem; line-height: 1.2; text-align: center; padding-bottom: 3px; direction: ltr; }
+.metin.sonuc .k.d-yanlis .not { color: var(--yanlis); }
+.metin.sonuc .k.d-eksik .not { color: var(--eksik); }
+
+/* Cevap anahtarı */
+.anahtar { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; max-height: 60vh; overflow-y: auto; padding: 2px; }
+.ak { border: 1px solid var(--cizgi); border-radius: 8px; padding: 6px 8px; display: grid; gap: 4px; }
+.ak .ark { font-family: var(--ar); font-size: 1.3rem; text-align: center; direction: rtl; }
+.ak label { font-size: .72rem; color: var(--soluk); display: grid; gap: 2px; }
+.ak select { font: inherit; font-size: .82rem; color: var(--fg); background: var(--kagit); border: 1px solid var(--cizgi); border-radius: 5px; padding: 2px; }
+.ak.degisik { border-color: var(--k2); }
+footer { display: flex; justify-content: flex-end; }
+footer button { font: inherit; font-size: .8rem; background: none; border: none; color: var(--soluk); cursor: pointer; text-decoration: underline; }
+@media (max-width: 600px) {
+  .sekme { padding: 8px; } .sekme small { display: none; } .sekme b { font-size: .85rem; } .sekme .durum { font-size: .7rem; }
+  th, td { padding: 6px; }
+  .metin { font-size: 1.3rem; }
+}
+@media (prefers-reduced-motion: no-preference) { .k, .sekme { transition: background-color .15s, border-color .15s; } }
+</style>
+
+<div class="sar">
+  <header>
+    <h1>Metin Tahlili <span class="arb" lang="ar">أَبِي العَزِيزُ</span></h1>
+    <span class="alt">Giriş 1–3: kelime çeşitleri, müzekker–müennes, sayı</span>
+  </header>
+  <div class="sekmeler" role="tablist" id="sekmeler"></div>
+  <section class="kart" id="oyun"></section>
+  <section class="kart" id="sonuc" hidden></section>
+  <section class="kart" id="editor" hidden></section>
+  <footer><button type="button" id="anahtarAc">Cevap anahtarı (öğretmen) · Ctrl+Shift+E</button></footer>
+</div>
+
+<script>
+var VERI = __VERI__;
+var PARAGRAF = [0, 34, 61, 122, 151];
+var ANAHTAR_KAYIT = "ebi_aziz_tahlil_anahtar_v1";
+
+var ANALIZ = [
+  { ad: "Kelime Çeşitleri", kisa: "Giriş 1 · isim, fiil, harf", alan: 1, puanPay: "hepsi", ceza: 2,
+    asama: [
+      { tur: "isim", ad: "İsim", renk: "--k1", acik: "Metindeki <b>isim</b> olan kelime ve parçaları bulup tıkla." },
+      { tur: "fiil", ad: "Fiil", renk: "--k2", acik: "Metindeki <b>fiil</b> olan kelime ve parçaları bulup tıkla." },
+      { tur: "harf", ad: "Harf", renk: "--k3", acik: "Metindeki <b>harf</b> olan kelime ve parçaları bulup tıkla." } ] },
+  { ad: "Müzekker – Müennes", kisa: "Giriş 2 · ismin cinsiyeti", alan: 2, puanPay: "hedef", ceza: 3,
+    asama: [
+      { tur: "muzekker-isim", ad: "Müzekker isim", renk: "--k1", acik: "Metindeki <b>müzekker</b> isimleri (ekler dahil) bulup tıkla." },
+      { tur: "muennes-isim", ad: "Müennes isim", renk: "--k6", acik: "Metindeki <b>müennes</b> isimleri (ekler dahil) bulup tıkla." } ] },
+  { ad: "Sayı", kisa: "Giriş 3 · müfred, müsennâ, cemi", alan: 3, puanPay: "hedef", ceza: 3,
+    asama: [
+      { tur: "mufred", ad: "Müfred (tekil)", renk: "--k1", acik: "Metindeki <b>müfred (tekil)</b> isimleri bulup tıkla." },
+      { tur: "musenna", ad: "Müsennâ (ikil)", renk: "--k2", acik: "Metindeki <b>müsennâ (ikil)</b> isimleri bulup tıkla." },
+      { tur: "cem-muzekker", ad: "Cem-i müzekker sâlim", renk: "--k3", acik: "Metindeki <b>cem-i müzekker sâlim</b> (düzenli eril çoğul) kelimeleri bulup tıkla." },
+      { tur: "cem-muennes", ad: "Cem-i müennes sâlim", renk: "--k4", acik: "Metindeki <b>cem-i müennes sâlim</b> (düzenli dişil çoğul) kelimeleri bulup tıkla." },
+      { tur: "cem-teksir", ad: "Cem-i teksîr", renk: "--k5", acik: "Metindeki <b>cem-i teksîr</b> (kırık çoğul) kelimeleri bulup tıkla." } ] }
+];
+var DIGER = { 2: "İsim değil (fiil / harf)", 3: "İsim değil (fiil / harf)" };
+
+var varsayilan = VERI.map(function (r) { return r.slice(); });
+var veri = varsayilan.map(function (r) { return r.slice(); });
+try { var kay = JSON.parse(localStorage.getItem(ANAHTAR_KAYIT) || "null"); if (kay && kay.length === veri.length) veri = kay; } catch (e) {}
+
+var durum = ANALIZ.map(function () { return { asama: 0, sec: {}, bitti: false }; });
+var aktif = 0;
+var gorunum = "oyun";
+
+function $(id) { return document.getElementById(id); }
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function renk(v) { return "var(" + v + ")"; }
+function asamaBul(a, tur) { for (var i = 0; i < a.asama.length; i++) if (a.asama[i].tur === tur) return a.asama[i]; return null; }
+function turAd(ai, tur) { var s = asamaBul(ANALIZ[ai], tur); return s ? s.ad : (DIGER[ANALIZ[ai].alan] || tur); }
+function turRenk(ai, tur) { var s = asamaBul(ANALIZ[ai], tur); return s ? renk(s.renk) : "var(--soluk)"; }
+
+function sekmeleriCiz() {
+  $("sekmeler").innerHTML = ANALIZ.map(function (a, i) {
+    var d = durum[i], yazi = d.bitti ? "Tamamlandı · " + hesapla(i).puan + " puan" : (Object.keys(d.sec).length ? d.asama + 1 + ". aşamada" : "Başlanmadı");
+    return '<button class="sekme" role="tab" type="button" id="sekme' + i + '" aria-selected="' + (i === aktif && gorunum !== "editor") + '" data-i="' + i + '">' +
+      "<b>" + (i + 1) + ". " + a.ad + "</b><small>" + a.kisa + '</small><span class="durum">' + yazi + "</span></button>";
+  }).join("");
+}
+
+function paragraflar(fn) {
+  var html = "";
+  for (var p = 0; p < PARAGRAF.length; p++) {
+    var son = p + 1 < PARAGRAF.length ? PARAGRAF[p + 1] : veri.length, ic = "";
+    for (var i = PARAGRAF[p]; i < son; i++) ic += fn(i);
+    html += '<p lang="ar">' + ic + "</p>";
+  }
+  return html;
+}
+
+function oyunCiz() {
+  var a = ANALIZ[aktif], d = durum[aktif], s = a.asama[d.asama];
+  var adet = Object.keys(d.sec).filter(function (k) { return d.sec[k] === s.tur; }).length;
+  var asamalar = a.asama.map(function (x, j) {
+    return '<span class="asama' + (j === d.asama ? " simdi" : j < d.asama ? " gecti" : "") + '" style="--renk:' + renk(x.renk) + '"><i></i>' + (j + 1) + ". " + x.ad + "</span>";
+  }).join("");
+  var metin = paragraflar(function (i) {
+    var sel = d.sec[i], cls = "k", st = "";
+    if (sel) { cls += " sec"; st = ' style="--renk:' + turRenk(aktif, sel) + '"'; if (sel !== s.tur) cls += " kilit"; }
+    return '<button type="button" class="' + cls + '"' + st + ' data-k="' + i + '" aria-pressed="' + (sel === s.tur) + '"' + (sel && sel !== s.tur ? ' title="Bu kelimeyi ' + esc(turAd(aktif, sel)) + ' olarak işaretledin"' : "") + ">" + esc(veri[i][0]) + "</button>";
+  });
+  var sonAsama = d.asama === a.asama.length - 1;
+  $("oyun").style.setProperty("--renk", renk(s.renk));
+  $("oyun").innerHTML =
+    '<div class="asamalar">' + asamalar + "</div>" +
+    '<p class="yonerge"><strong>' + (d.asama + 1) + ". aşama:</strong> " + s.acik + " Seçtiklerin renklenir; tekrar tıklayınca seçim kalkar. Önceki aşamalarda işaretlediklerin soluk görünür.</p>" +
+    '<div class="metin" id="metin">' + metin + "</div>" +
+    '<div class="dugmeler"><span class="sayac">Bu aşamada seçilen: ' + adet + "</span>" +
+    '<div class="sag"><button type="button" class="d ikincil" id="geri"' + (d.asama === 0 ? " disabled" : "") + ">Önceki aşama</button>" +
+    '<button type="button" class="d" id="ileri">' + (sonAsama ? "Sonucu gör" : "Onayla, sonraki aşama") + "</button></div></div>";
+}
+
+function hesapla(ai) {
+  var a = ANALIZ[ai], d = durum[ai], alan = a.alan;
+  var top = {}, dog = {}, yanlis = [], eksik = [];
+  a.asama.forEach(function (s) { top[s.tur] = 0; dog[s.tur] = 0; });
+  veri.forEach(function (r, i) {
+    var cev = r[alan], sel = d.sec[i];
+    if (top[cev] !== undefined) top[cev]++;
+    if (sel) { if (sel === cev) dog[sel]++; else yanlis.push({ i: i, sen: sel, dogru: cev }); }
+    else if (top[cev] !== undefined) eksik.push({ i: i, dogru: cev });
+  });
+  var hedef = 0, dogru = 0;
+  a.asama.forEach(function (s) { hedef += top[s.tur]; dogru += dog[s.tur]; });
+  var payda = a.puanPay === "hepsi" ? veri.length : hedef;
+  var puan = Math.round(dogru / payda * 100 - yanlis.length * a.ceza);
+  puan = Math.max(0, Math.min(100, puan));
+  return { top: top, dog: dog, yanlis: yanlis, eksik: eksik, puan: puan, dogru: dogru, payda: payda };
+}
+
+function baglam(i) {
+  var bas = Math.max(0, i - 2), son = Math.min(veri.length - 1, i + 2), h = "";
+  for (var j = bas; j <= son; j++) h += j === i ? "<mark>" + esc(veri[j][0]) + "</mark> " : '<span class="baglam">' + esc(veri[j][0]) + "</span> ";
+  return h;
+}
+function etiket(ai, tur, sen) { return '<span class="etk' + (sen ? " sen" : "") + '"><span class="nokta" style="--renk:' + turRenk(ai, tur) + '"></span>' + esc(turAd(ai, tur)) + "</span>"; }
+
+function sonucCiz() {
+  var ai = aktif, a = ANALIZ[ai], d = durum[ai], h = hesapla(ai);
+  var satirlar = a.asama.map(function (s) {
+    var y = h.yanlis.filter(function (x) { return x.sen === s.tur; }).length;
+    return '<tr><td><span class="nokta" style="--renk:' + renk(s.renk) + '"></span>' + s.ad + '</td><td class="n">' + h.dog[s.tur] + " / " + h.top[s.tur] + '</td><td class="n">' + y + '</td><td class="n">' + (h.top[s.tur] - h.dog[s.tur]) + "</td></tr>";
+  }).join("");
+  var yanlisH = h.yanlis.length ? '<div class="liste">' + h.yanlis.map(function (x) {
+    return '<div class="hata yanlis"><div class="ark" lang="ar">' + baglam(x.i) + '</div><div class="sat">Senin işaretin: ' + etiket(ai, x.sen, true) + "</div>" +
+      '<div class="sat">Doğrusu: ' + etiket(ai, x.dogru) + "</div></div>";
+  }).join("") + "</div>" : '<p class="bos">Yanlış işaretlediğin kelime yok.</p>';
+  var eksikH = h.eksik.length ? '<div class="liste">' + h.eksik.map(function (x) {
+    return '<div class="hata eksik"><div class="ark" lang="ar">' + baglam(x.i) + '</div><div class="sat">Hiç işaretlemedin. Doğrusu: ' + etiket(ai, x.dogru) + "</div></div>";
+  }).join("") + "</div>" : '<p class="bos">Atladığın kelime yok.</p>';
+  var metin = paragraflar(function (i) {
+    var sel = d.sec[i], cev = veri[i][a.alan], hedef = !!asamaBul(a, cev), cls = "k", not = "", st = ' style="--renk:' + turRenk(ai, cev) + '"';
+    if (sel && sel === cev) cls += " d-ok";
+    else if (sel) { cls += " d-yanlis"; not = '<span class="not">' + esc(turAd(ai, cev)) + "</span>"; }
+    else if (hedef) { cls += " d-eksik"; not = '<span class="not">' + esc(turAd(ai, cev)) + "</span>"; }
+    else cls += " d-yok";
+    return '<span class="' + cls + '"' + st + ">" + esc(veri[i][0]) + not + "</span>";
+  });
+  var sonraki = ai < ANALIZ.length - 1 ? '<button type="button" class="d" id="sonrakiAnaliz">' + (ai + 2) + ". analize geç: " + ANALIZ[ai + 1].ad + "</button>" : "";
+  $("sonuc").innerHTML =
+    '<div class="ozet"><div class="puan">' + h.puan + " <small>/ 100</small></div>" +
+    '<div class="formul">' + a.ad + " analizi bitti. " + h.dogru + " doğru işaret (" + (a.puanPay === "hepsi" ? "bütün parçalar" : "hedef isimler") + ": " + h.payda + "), " +
+    h.yanlis.length + " yanlış işaret; her yanlış " + a.ceza + " puan düşürür.</div></div>" +
+    '<div class="tablo-kap"><table><thead><tr><th>Tür</th><th class="n">Doğru</th><th class="n">Yanlış işaret</th><th class="n">Atlanan</th></tr></thead><tbody>' + satirlar + "</tbody></table></div>" +
+    '<h2 class="h-yanlis">Yanlış işaretlediklerin <span class="adet">' + h.yanlis.length + "</span></h2>" + yanlisH +
+    "<h2>Metin üzerinde</h2>" +
+    '<div class="aciklama"><span><i class="ornek" style="background:var(--k1)"></i>Doğru işaret</span><span><i class="ornek" style="background:var(--yanlis-z);border:2px solid var(--yanlis)"></i>Yanlış işaret (altında doğrusu)</span><span><i class="ornek" style="background:var(--eksik-z);border:2px dashed var(--eksik)"></i>Atlanan (altında doğrusu)</span></div>' +
+    '<div class="metin sonuc">' + metin + "</div>" +
+    '<details class="eksikler"' + (h.eksik.length <= 30 ? " open" : "") + '><summary><h2 class="h-eksik">Atladıkların <span class="adet">' + h.eksik.length + "</span></h2></summary>" + eksikH + "</details>" +
+    '<div class="dugmeler"><button type="button" class="d ikincil" id="duzelt">İşaretlerime dön</button><div class="sag"><button type="button" class="d ikincil" id="bastan">Bu analizi baştan başlat</button>' + sonraki + "</div></div>";
+}
+
+var sifirOnay = false;
+function editorCiz() {
+  var sec = function (i, ai) {
+    var a = ANALIZ[ai], ops = a.asama.map(function (s) { return s.tur; });
+    if (DIGER[a.alan]) ops.push("diger");
+    return '<label>' + a.ad + '<select id="ak' + i + "_" + a.alan + '" data-i="' + i + '" data-alan="' + a.alan + '">' + ops.map(function (o) {
+      return '<option value="' + o + '"' + (veri[i][a.alan] === o ? " selected" : "") + ">" + esc(turAd(ai, o)) + "</option>";
+    }).join("") + "</select></label>";
+  };
+  var kutular = veri.map(function (r, i) {
+    var deg = r.some(function (v, j) { return v !== varsayilan[i][j]; });
+    return '<div class="ak' + (deg ? " degisik" : "") + '"><div class="ark" lang="ar">' + esc(r[0]) + "</div>" + sec(i, 0) + sec(i, 1) + sec(i, 2) + "</div>";
+  }).join("");
+  $("editor").innerHTML =
+    "<h2>Cevap anahtarı</h2><p class=\"bos\">Üç analizin cevaplarını buradan değiştirebilirsin. Değişiklik bu tarayıcıda saklanır; değiştirilen kelimeler turuncu çerçeveli görünür.</p>" +
+    '<div class="anahtar">' + kutular + "</div>" +
+    '<div class="dugmeler"><button type="button" class="d tehlike" id="sifirla">' + (sifirOnay ? "Emin misin? Tekrar bas" : "Varsayılana döndür") + '</button><button type="button" class="d" id="editorKapat">Kaydet ve dön</button></div>';
+}
+
+function goster() {
+  sekmeleriCiz();
+  $("oyun").hidden = gorunum !== "oyun";
+  $("sonuc").hidden = gorunum !== "sonuc";
+  $("editor").hidden = gorunum !== "editor";
+  if (gorunum === "oyun") oyunCiz();
+  else if (gorunum === "sonuc") sonucCiz();
+  else editorCiz();
+}
+
+function kaydet() { try { localStorage.setItem(ANAHTAR_KAYIT, JSON.stringify(veri)); } catch (e) {} }
+function editorAcKapa() {
+  if (gorunum === "editor") { kaydet(); gorunum = durum[aktif].bitti ? "sonuc" : "oyun"; }
+  else { sifirOnay = false; gorunum = "editor"; }
+  goster();
+}
+
+document.addEventListener("click", function (e) {
+  var t = e.target.closest("button"); if (!t) return;
+  if (t.classList.contains("sekme")) { if (gorunum === "editor") kaydet(); aktif = +t.dataset.i; gorunum = durum[aktif].bitti ? "sonuc" : "oyun"; goster(); return; }
+  if (t.dataset.k != null && gorunum === "oyun") {
+    var d = durum[aktif], tur = ANALIZ[aktif].asama[d.asama].tur, i = t.dataset.k;
+    if (d.sec[i] && d.sec[i] !== tur) return;
+    if (d.sec[i] === tur) delete d.sec[i]; else d.sec[i] = tur;
+    oyunCiz(); sekmeleriCiz();
+    var yeni = document.querySelector('[data-k="' + i + '"]'); if (yeni) yeni.focus();
+    return;
+  }
+  switch (t.id) {
+    case "ileri": var d1 = durum[aktif]; if (d1.asama < ANALIZ[aktif].asama.length - 1) { d1.asama++; } else { d1.bitti = true; gorunum = "sonuc"; } goster(); window.scrollTo(0, 0); break;
+    case "geri": durum[aktif].asama--; goster(); break;
+    case "duzelt": durum[aktif].bitti = false; gorunum = "oyun"; goster(); break;
+    case "bastan": durum[aktif] = { asama: 0, sec: {}, bitti: false }; gorunum = "oyun"; goster(); window.scrollTo(0, 0); break;
+    case "sonrakiAnaliz": aktif++; gorunum = durum[aktif].bitti ? "sonuc" : "oyun"; goster(); window.scrollTo(0, 0); break;
+    case "anahtarAc": case "editorKapat": editorAcKapa(); break;
+    case "sifirla":
+      if (!sifirOnay) { sifirOnay = true; editorCiz(); break; }
+      veri = varsayilan.map(function (r) { return r.slice(); }); try { localStorage.removeItem(ANAHTAR_KAYIT); } catch (e2) {}
+      sifirOnay = false; editorCiz(); break;
+  }
+});
+document.addEventListener("change", function (e) {
+  var s = e.target; if (s.tagName !== "SELECT" || s.dataset.alan == null) return;
+  veri[+s.dataset.i][+s.dataset.alan] = s.value; kaydet();
+  var kutu = s.closest(".ak"), i = +s.dataset.i;
+  kutu.classList.toggle("degisik", veri[i].some(function (v, j) { return v !== varsayilan[i][j]; }));
+});
+document.addEventListener("keydown", function (e) {
+  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "e") { e.preventDefault(); editorAcKapa(); }
+});
+goster();
+</script>

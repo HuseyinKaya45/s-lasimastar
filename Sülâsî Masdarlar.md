@@ -963,3 +963,15 @@ doldurtulan fiil tablosu (11 fiil × 9 şahıs × 3 hâl) ve “hâlini işaretl
 sözlü soru–cevap. **Üretim**: cümle kurucu (Arapça biçimi ve Türkçe çekimi kendisi yapar: “yazmadım, yazmayacaksınız, yazma!…”).
 كَانَ, لَيْسَ, إِنَّ, أَصْبَحَ ve istisna yalnızca “ileride” notuyla geçer. Düzenleme: `muzarirab/veri.js`, `muzarirab/uygulama.js`,
 `muzarirab/ders.css`; sonra `python3 muzarirab/yap.py`.
+
+## Uygulama: Ebî’l-Azîz metin tahlili (Giriş 1–3 birleşik)
+
+`kelimetahlil/index.html` (yayın sürümü `kelimetahlil/sayfa.html`) أَبِي العَزِيزُ mektubu üzerinde üç işaretleme alıştırmasını tek
+programda toplar: **1. Kelime çeşitleri** (isim / fiil / harf), **2. Müzekker – müennes** isimler, **3. Sayı** (müfred, müsennâ,
+cem-i müzekker sâlim, cem-i müennes sâlim, cem-i teksîr). 181 parça aynıdır; bitişik ekler (هُ, نِي, كُمْ, و, بِـ, لِـ, فَـ, سَـ) ayrı
+işaretlenir. Her analiz kendi aşamalarıyla ayrı yürür; sekmeler arasında geçince ilerleme kaybolmaz, önceki aşamaya dönülebilir.
+Sonuç ekranında puan (eski programlardaki hesapla aynı), tür başına doğru / yanlış / atlanan tablosu, **yanlış işaretlenen her kelime**
+bağlamıyla birlikte “senin işaretin → doğrusu” olarak, metnin üzerinde doğru (renkli), yanlış (kırmızı) ve atlanan (kesik çizgili)
+kelimeler altlarında doğru cevapla ve açılır listede atlananlar görünür. Cevap anahtarı Ctrl+Shift+E ya da alttaki bağlantıyla açılır;
+üç analizin cevapları tek ekrandan değiştirilir ve tarayıcıda saklanır. Düzenleme: `kelimetahlil/kaynak.html`, `kelimetahlil/veri.json`
+(her satır: kelime, kelime çeşidi, cinsiyet, sayı); sonra `python3 kelimetahlil/yap.py`.
