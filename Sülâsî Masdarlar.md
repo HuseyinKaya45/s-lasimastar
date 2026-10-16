@@ -24,6 +24,12 @@ Kalıp Ustası, Bab Kovaları) öğretir. Oyunlar ve sınav rütbe puanı kazand
 alıştırma ve oyunlarla öğretir. Düzenleme için `cumle/kaynak.html`, `cumle/veri.js`
 ve `cumle/oyunlar.js` değiştirilir, sonra `python3 cumle/yap.py` çalıştırılır.
 
+**İngilizce sürüm:** `cumle_en/index.html` (yayın sürümü `cumle_en/sayfa.html`) aynı dersin İngilizcesidir: bütün açıklamalar,
+kaideler, örnek çevirileri, alıştırma geri bildirimleri, okuma metinleri ve oyunlar İngilizcedir; Arapça metinler aynıdır. Terimler
+İngilizce karşılığı ve Arapça adıyla verilir (mubtada’, khabar, fā‘il, maf‘ūl bihi, nominative / accusative…). İlerleme Türkçe sürümden
+ayrı saklanır. Düzenleme: `cumle_en/kaynak.html`, `cumle_en/veri_a.js` + `cumle_en/veri_b.js` (veri iki parçadır), `cumle_en/oyunlar.js`;
+sonra `python3 cumle_en/yap.py`.
+
 ## Uygulama: Kelime ve İsim Bilgisi (quiz hazırlığı)
 
 `kelime/index.html` dosyasını tarayıcıda aç. Kitaptaki dört dersi (أقسام الكلمة،
