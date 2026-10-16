@@ -1,4 +1,4 @@
-// ---------- oyun havuzları ----------
+// ---------- game pools ----------
 function buildPools() {
   var P = { sent: [], order: [], agree: [], irab: [] };
   function addSent(chs, tr) {
@@ -26,11 +26,11 @@ function buildPools() {
 }
 var POOLS = null;
 var GAMES = {
-  hiz: { name: "İsim mi, Fiil mi?", ico: "اسْمِيَّةٌ ؟ فِعْلِيَّةٌ", col: "mub", d: "60 saniye. Ekrana gelen cümlenin türünü hızla seç. Üst üste doğrular çarpanı büyütür, yanlış 3 saniye yer." },
-  tren: { name: "Cümle Treni", ico: "فِعْلٌ ← فَاعِلٌ ← مَفْعُولٌ", col: "fiil", d: "8 cümle. Karışık vagonları doğru sıraya diz. Bazı trenlerde fazladan bir vagon var: fiil fâile uymuyorsa onu kullanma." },
-  uyum: { name: "Uyum Ustası", ico: "طَوِيلٌ · طَوِيلَةٌ · طَوِيلُونَ", col: "hab", d: "10 soru, her biri için 12 saniye. Haberi mübtedâya, fiili fâile uydur." },
-  irab: { name: "Hareke Avcısı", ico: "ـُ ـَ ـِ", col: "mef", d: "12 soru. Kelimenin son harekesi kayboldu: ötre mi, üstün mü, esre mi? Rolünü düşün, harekeyi yakala." },
-  kita: { name: "Kıta Avı", ico: "آسِيَا · إِفْرِيقِيَا", col: "fail", d: "Serbest okumadan: 12 ülke. Arapça adını oku; Asya mı, Afrika mı?" }
+  hiz: { name: "Nominal or Verbal?", ico: "اسْمِيَّةٌ ؟ فِعْلِيَّةٌ", col: "mub", d: "60 seconds. Quickly choose the type of each sentence that appears. A streak of correct answers raises your multiplier; a wrong answer costs 3 seconds." },
+  tren: { name: "Sentence Train", ico: "فِعْلٌ ← فَاعِلٌ ← مَفْعُولٌ", col: "fiil", d: "8 sentences. Put the mixed-up wagons in the right order. Some trains have an extra wagon: if the verb does not agree with the fā‘il, leave it out." },
+  uyum: { name: "Agreement Master", ico: "طَوِيلٌ · طَوِيلَةٌ · طَوِيلُونَ", col: "hab", d: "10 questions, 12 seconds each. Make the khabar agree with the mubtada’ and the verb with the fā‘il." },
+  irab: { name: "Vowel Hunter", ico: "ـُ ـَ ـِ", col: "mef", d: "12 questions. The last vowel of a word is missing: ḍamma, fatḥa or kasra? Think about its role and catch the vowel." },
+  kita: { name: "Continent Hunt", ico: "آسِيَا · إِفْرِيقِيَا", col: "fail", d: "From the free reading: 12 countries. Read the Arabic name: Asia or Africa?" }
 };
 var G = null, GT = null;
 function stopGame() { if (GT) { clearInterval(GT); GT = null; } G = null; }
@@ -38,14 +38,14 @@ function renderGames() {
   if (G) return '<section class="panel">' + gameBody() + '</section>';
   var best = store.get("gbest", {});
   return '<section class="panel">' +
-    '<div class="card stack"><div class="lbl">Oyunlar</div><h2>Oynayarak pekiştir</h2><p class="muted">Oyunlar dört dersin kitaptaki cümlelerinden üretilir. Her oyun rütbe puanı kazandırır.</p>' +
-      '<div class="row-btns"><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+    '<div class="card stack"><div class="lbl">Games</div><h2>Practise by playing</h2><p class="muted">The games are built from the book’s sentences in all four lessons. Every game earns you rank points.</p>' +
+      '<div class="row-btns"><button class="btn small" data-snd="1">Sound: ' + (SND.on ? "on" : "off") + '</button></div></div>' +
     '<div class="game-menu">' + Object.keys(GAMES).map(function (k) {
       var g = GAMES[k];
-      return '<div class="card game-card" style="--role:var(--' + g.col + ')"><div class="ico">' + g.ico + '</div><h3>' + g.name + '</h3><p class="muted">' + g.d + '</p><p class="muted" style="margin-top:auto">' + (best[k] != null ? 'En iyi: <b class="tabular">' + best[k] + '</b>' : 'Henüz oynanmadı') + '</p><button class="btn solid" data-gstart="' + k + '" style="--accent:var(--' + g.col + ')">Oyna</button></div>';
+      return '<div class="card game-card" style="--role:var(--' + g.col + ')"><div class="ico">' + g.ico + '</div><h3>' + g.name + '</h3><p class="muted">' + g.d + '</p><p class="muted" style="margin-top:auto">' + (best[k] != null ? 'Best: <b class="tabular">' + best[k] + '</b>' : 'Not played yet') + '</p><button class="btn solid" data-gstart="' + k + '" style="--accent:var(--' + g.col + ')">Play</button></div>';
     }).join("") + '</div></section>';
 }
-function gameHead(title) { return '<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Oyun</div><h2>' + title + '</h2></div><button class="btn small" data-gmenu="1">Oyunlara dön</button></div>'; }
+function gameHead(title) { return '<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Game</div><h2>' + title + '</h2></div><button class="btn small" data-gmenu="1">Back to games</button></div>'; }
 function startGame(k) {
   stopGame(); POOLS = POOLS || buildPools();
   G = { id: k, score: 0, n: 0, ok: 0, over: false, start: Date.now() };
@@ -86,9 +86,9 @@ function endGame(score) {
   if (G.record || G.stars === 3) confetti();
 }
 function gameOver(title, lines) {
-  return '<div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">' + title + ' bitti</div>' + (G.stars != null ? starsHtml(G.stars) : '') +
-    '<div class="score-big tabular">' + G.final + '</div>' + (G.record ? '<p><b>Yeni rekor!</b></p>' : '') + lines.map(function (l) { return '<p>' + l + '</p>'; }).join("") +
-    '<p class="muted">Kazandığın: +' + G.xp + ' rütbe puanı</p><div class="row-btns" style="justify-content:center"><button class="btn solid" data-gstart="' + G.id + '">Tekrar oyna</button><button class="btn" data-gmenu="1">Başka oyun</button></div></div>';
+  return '<div class="card stack" style="text-align:center;justify-items:center"><div class="lbl">Game over: ' + title + '</div>' + (G.stars != null ? starsHtml(G.stars) : '') +
+    '<div class="score-big tabular">' + G.final + '</div>' + (G.record ? '<p><b>New record!</b></p>' : '') + lines.map(function (l) { return '<p>' + l + '</p>'; }).join("") +
+    '<p class="muted">You earned: +' + G.xp + ' rank points</p><div class="row-btns" style="justify-content:center"><button class="btn solid" data-gstart="' + G.id + '">Play again</button><button class="btn" data-gmenu="1">Another game</button></div></div>';
 }
 function gameBody() {
   if (G.id === "hiz") return bodyHiz();
@@ -99,15 +99,15 @@ function gameBody() {
   return "";
 }
 
-// 1. İsim mi, fiil mi?
+// 1. Nominal or verbal?
 function nextHiz() { var it, g = 0; do { it = pick(POOLS.sent); g++; } while (G.cur && it.s === G.cur.s && g < 10); G.cur = it; }
 function bodyHiz() {
-  if (G.over) return gameOver("İsim mi, Fiil mi?", ['Doğru: <b class="tabular">' + G.ok + ' / ' + G.n + '</b> · en uzun seri: <b class="tabular">' + G.maxCombo + '</b>', G.ok >= 20 ? "Cümleyi ilk kelimesinden tanıyorsun." : "İpucu: yalnız ilk kelimeye bak. İsim mi, fiil mi?"]);
-  return '<div class="card stack">' + gameHead("İsim mi, Fiil mi?") +
-    '<div class="hud"><span>Süre <b id="g-time">' + G.t + '</b></span><span>Puan <b id="g-score">' + G.score + '</b></span><span>Çarpan <b id="g-combo">x' + Math.min(5, 1 + Math.floor(G.combo / 3)) + '</b></span></div>' +
+  if (G.over) return gameOver("Nominal or Verbal?", ['Correct: <b class="tabular">' + G.ok + ' / ' + G.n + '</b> · longest streak: <b class="tabular">' + G.maxCombo + '</b>', G.ok >= 20 ? "You can tell a sentence by its first word." : "Tip: look only at the first word. Is it a noun or a verb?"]);
+  return '<div class="card stack">' + gameHead("Nominal or Verbal?") +
+    '<div class="hud"><span>Time <b id="g-time">' + G.t + '</b></span><span>Score <b id="g-score">' + G.score + '</b></span><span>Multiplier <b id="g-combo">x' + Math.min(5, 1 + Math.floor(G.combo / 3)) + '</b></span></div>' +
     '<div class="time-bar' + (G.t <= 10 ? " low" : "") + '" id="g-tbar"><div style="width:' + (G.t / 60 * 100) + '%"></div></div>' +
-    '<div class="target" id="g-target">' + G.cur.s + '</div><div class="gfb" id="g-fb"><span class="muted">Klavye: 1 isim cümlesi, 2 fiil cümlesi</span></div>' +
-    '<div class="big2"><button style="--role:var(--mub)" data-gp="i"><span class="ar">جُمْلَةٌ اسْمِيَّةٌ</span>İsim cümlesi<small>1</small></button><button style="--role:var(--fiil)" data-gp="f"><span class="ar">جُمْلَةٌ فِعْلِيَّةٌ</span>Fiil cümlesi<small>2</small></button></div></div>';
+    '<div class="target" id="g-target">' + G.cur.s + '</div><div class="gfb" id="g-fb"><span class="muted">Keyboard: 1 nominal sentence, 2 verbal sentence</span></div>' +
+    '<div class="big2"><button style="--role:var(--mub)" data-gp="i"><span class="ar">جُمْلَةٌ اسْمِيَّةٌ</span>Nominal sentence<small>1</small></button><button style="--role:var(--fiil)" data-gp="f"><span class="ar">جُمْلَةٌ فِعْلِيَّةٌ</span>Verbal sentence<small>2</small></button></div></div>';
 }
 function hizPick(v) {
   if (!G || G.over || G.lock) return;
@@ -116,58 +116,58 @@ function hizPick(v) {
   if (ok) {
     G.ok++; G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo);
     var m = Math.min(5, 1 + Math.floor((G.combo - 1) / 3)); G.score += 10 * m; beep("ok");
-    fb.innerHTML = '<b style="color:var(--good)">Doğru +' + 10 * m + '</b> · önceki cümle: <span class="ar">' + c.s + '</span>' + (c.tr ? ' = ' + c.tr : '');
+    fb.innerHTML = '<b style="color:var(--good)">Correct +' + 10 * m + '</b> · previous sentence: <span class="ar">' + c.s + '</span>' + (c.tr ? ' = ' + c.tr : '');
     tg.classList.remove("flash-no"); tg.classList.add("flash-ok"); nextHiz(); tg.textContent = G.cur.s;
     setTimeout(function () { tg.classList.remove("flash-ok"); }, 180);
   } else {
     G.combo = 0; G.t = Math.max(0, G.t - 3); beep("no"); G.lock = true;
-    fb.innerHTML = '<b style="color:var(--bad)">Yanlış, −3 sn.</b> ' + (c.why || (c.a === "i" ? "İlk kelime bir isim." : "İlk kelime bir fiil.")) + (c.tr ? ' · ' + c.tr : '');
+    fb.innerHTML = '<b style="color:var(--bad)">Wrong, −3 s.</b> ' + (c.why || (c.a === "i" ? "The first word is a noun." : "The first word is a verb.")) + (c.tr ? ' · ' + c.tr : '');
     void tg.offsetWidth; tg.classList.add("flash-no");
     setTimeout(function () { if (!G || G.id !== "hiz" || G.over) return; G.lock = false; tg.classList.remove("flash-no"); nextHiz(); tg.textContent = G.cur.s; if (G.t <= 0) endGame(G.score); }, 1200);
   }
   hud();
 }
 
-// 2. Cümle treni
+// 2. Sentence train
 function setupTren() { var it = G.list[G.i]; G.pool = shuffle(it.t.concat(it.extra || []).map(function (t, i) { return { t: t, id: i }; })); G.line = []; G.res = null; G.tries = 0; }
 function bodyTren() {
-  if (G.over) return gameOver("Cümle Treni", ['<b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> treni ilk denemede doğru dizdin, <b class="tabular">' + G.secs + '</b> saniyede.']);
+  if (G.over) return gameOver("Sentence Train", ['You built <b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> trains correctly on the first try, in <b class="tabular">' + G.secs + '</b> seconds.']);
   var it = G.list[G.i], used = {}; G.line.forEach(function (id) { used[id] = 1; });
   var txt = function (id) { return G.pool.filter(function (p) { return p.id === id; })[0].t; };
-  return '<div class="card stack">' + gameHead("Cümle Treni") +
-    '<div class="hud"><span>Tren <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Puan <b>' + G.score + '</b></span></div>' +
-    (it.from ? '<p class="muted">İsim cümlesine çevir: <span class="ar" style="font-size:1.3rem;color:var(--ink)">' + it.from + '</span></p>' : '<p class="muted">Vagonları doğru sıraya diz.' + (ST.tr && it.tr ? ' İpucu: ' + it.tr : '') + '</p>') +
+  return '<div class="card stack">' + gameHead("Sentence Train") +
+    '<div class="hud"><span>Train <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Score <b>' + G.score + '</b></span></div>' +
+    (it.from ? '<p class="muted">Turn it into a nominal sentence: <span class="ar" style="font-size:1.3rem;color:var(--ink)">' + it.from + '</span></p>' : '<p class="muted">Put the wagons in the right order.' + (ST.tr && it.tr ? ' Hint: ' + it.tr : '') + '</p>') +
     '<div class="svg-scroll"><svg viewBox="0 0 640 46" aria-hidden="true"><rect x="560" y="8" width="70" height="30" rx="8" class="s-fiil"/><rect x="590" y="0" width="22" height="14" rx="3" class="s-fiil"/><circle cx="578" cy="40" r="5" class="s-ink"/><circle cx="612" cy="40" r="5" class="s-ink"/><path d="M10 40 L555 40" class="k-line" stroke-width="3"/></svg></div>' +
-    '<div class="tile-line' + (G.res === "ok" ? " okk" : G.res === "no" ? " nok" : "") + '">' + (G.line.length ? G.line.map(function (id, pos) { return '<button class="tile inl" data-gun="' + pos + '">' + txt(id) + '</button>'; }).join("") : '<span class="muted" style="font-size:.9rem;direction:ltr">Lokomotif sağda: ilk vagon onun arkasına gelir.</span>') + '</div>' +
+    '<div class="tile-line' + (G.res === "ok" ? " okk" : G.res === "no" ? " nok" : "") + '">' + (G.line.length ? G.line.map(function (id, pos) { return '<button class="tile inl" data-gun="' + pos + '">' + txt(id) + '</button>'; }).join("") : '<span class="muted" style="font-size:.9rem;direction:ltr">The engine is on the right: the first wagon goes right behind it.</span>') + '</div>' +
     '<div class="tiles">' + G.pool.map(function (p) { return '<button class="tile" data-gpl="' + p.id + '"' + (used[p.id] ? " disabled" : "") + '>' + p.t + '</button>'; }).join("") + '</div>' +
-    '<div class="row-btns"><button class="btn solid" data-gtc="1">Treni gönder</button><button class="btn" data-gts="1">Geç</button></div>' +
-    (G.res === "no" ? '<div class="fb"><span class="no">Raydan çıktı.</span> Sırayı ya da fiilin fâile uyumunu kontrol et.</div>' : '') + '</div>';
+    '<div class="row-btns"><button class="btn solid" data-gtc="1">Send the train</button><button class="btn" data-gts="1">Skip</button></div>' +
+    (G.res === "no" ? '<div class="fb"><span class="no">Derailed!</span> Check the order, or whether the verb agrees with the fā‘il.</div>' : '') + '</div>';
 }
 function trenCheck(skip) {
   var it = G.list[G.i];
   var txt = norm(G.line.map(function (id) { return G.pool.filter(function (p) { return p.id === id; })[0].t; }).join(" "));
   var ok = !skip && [it.t.join(" ")].concat(it.alt || []).map(norm).indexOf(txt) >= 0;
   if (ok) { G.score += G.tries === 0 ? 15 : 8; if (G.tries === 0) G.ok++; beep("ok"); G.i++; }
-  else if (skip) { G.i++; beep("no"); toast("Doğrusu: " + it.t.join(" ")); }
+  else if (skip) { G.i++; beep("no"); toast("Correct answer: " + it.t.join(" ")); }
   else { G.tries++; G.miss++; G.res = "no"; beep("no"); redraw(); return; }
   if (G.i >= G.list.length) { G.secs = Math.floor((Date.now() - G.start) / 1000); G.stars = G.ok >= 7 ? 3 : G.ok >= 5 ? 2 : 1; endGame(G.score); return; }
   setupTren(); redraw();
 }
 
-// 3. Uyum ustası
+// 3. Agreement master
 function bodyUyum() {
-  if (G.over) return gameOver("Uyum Ustası", ['<b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> doğru.']);
+  if (G.over) return gameOver("Agreement Master", ['<b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> correct.']);
   var e = G.list[G.i], it = e.it, ai = typeof it.a === "number" ? it.a : it.o.indexOf(it.a);
-  var q = it.q ? (e.fill ? it.q.replace("___", '<span class="q-end">؟</span>') : it.q) : "Hangisi doğru?";
-  return '<div class="card stack">' + gameHead("Uyum Ustası") +
-    '<div class="hud"><span>Soru <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Puan <b id="g-score">' + G.score + '</b></span><span>Süre <b id="g-time">' + G.t + '</b></span></div>' +
+  var q = it.q ? (e.fill ? it.q.replace("___", '<span class="q-end">؟</span>') : it.q) : "Which one is correct?";
+  return '<div class="card stack">' + gameHead("Agreement Master") +
+    '<div class="hud"><span>Question <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Score <b id="g-score">' + G.score + '</b></span><span>Time <b id="g-time">' + G.t + '</b></span></div>' +
     '<div class="time-bar" id="g-tbar"><div style="width:' + (G.t / 12 * 100) + '%"></div></div>' +
     '<div class="target" style="font-size:1.8rem">' + q + '</div>' +
     '<div class="opts">' + it.o.map(function (o, oi) {
       var cl = G.ans != null ? (oi === ai ? " sel-ok" : (oi === G.ans ? " sel-no" : "")) : "";
       return '<button class="opt block' + cl + '" data-gu="' + oi + '"' + (G.ans != null ? " disabled" : "") + '>' + o + '</button>';
     }).join("") + '</div>' +
-    (G.ans != null ? '<div class="fb">' + (G.ans === ai ? '<span class="ok">Doğru.</span> ' : G.ans === -1 ? '<span class="no">Süre doldu.</span> ' : '<span class="no">Yanlış.</span> ') + (it.why || "") + (it.tr ? ' · ' + it.tr : '') + '</div><div><button class="btn solid" data-gnext="1" id="g-next">' + (G.i + 1 < G.list.length ? "Sonraki" : "Sonucu gör") + '</button></div>' : '') + '</div>';
+    (G.ans != null ? '<div class="fb">' + (G.ans === ai ? '<span class="ok">Correct.</span> ' : G.ans === -1 ? '<span class="no">Time’s up.</span> ' : '<span class="no">Wrong.</span> ') + (it.why || "") + (it.tr ? ' · ' + it.tr : '') + '</div><div><button class="btn solid" data-gnext="1" id="g-next">' + (G.i + 1 < G.list.length ? "Next" : "See result") + '</button></div>' : '') + '</div>';
 }
 function uyumPick(oi) {
   if (!G || G.ans != null) return;
@@ -182,14 +182,14 @@ function uyumNext() {
   redraw();
 }
 
-// 4. Hareke avcısı
+// 4. Vowel hunter
 function irabOpts(e) {
   var b = e.base, tanwin = /[ًٌٍ]/.test(e.end), alif = e.end === "ًا";
   var list = tanwin ? [b + "ٌ", b + (alif ? "ًا" : "ً"), b + "ٍ"] : [b + "ُ", b + "َ", b + "ِ"];
   return list;
 }
 function bodyIrab() {
-  if (G.over) return gameOver("Hareke Avcısı", ['<b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> harekeyi yakaladın.']);
+  if (G.over) return gameOver("Vowel Hunter", ['You caught <b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> vowels.']);
   var e = G.list[G.i], opts = irabOpts(e), correct = e.base + e.end;
   var sent = e.chs.map(function (c, ci) {
     if (ci !== e.ci) return c.t;
@@ -197,15 +197,15 @@ function bodyIrab() {
     if (G.ans != null) return '<span class="r-' + e.role + '" style="font-weight:700">' + correct + '</span>' + (rest ? " " + rest : "");
     return e.base + '<span class="q-end">؟</span>' + (rest ? " " + rest : "");
   }).join(" ");
-  var labels = ["ötre", "üstün", "esre"];
-  return '<div class="card stack">' + gameHead("Hareke Avcısı") +
-    '<div class="hud"><span>Soru <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Puan <b>' + G.score + '</b></span></div>' +
-    '<div class="target">' + sent + '</div><p class="muted" style="text-align:center">Soru işaretli kelimenin sonu hangi harekeyle biter?</p>' +
+  var labels = ["ḍamma", "fatḥa", "kasra"];
+  return '<div class="card stack">' + gameHead("Vowel Hunter") +
+    '<div class="hud"><span>Question <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Score <b>' + G.score + '</b></span></div>' +
+    '<div class="target">' + sent + '</div><p class="muted" style="text-align:center">Which vowel ends the word marked with a question mark?</p>' +
     '<div class="big3">' + opts.map(function (o, oi) {
       var cl = G.ans != null ? (o === correct ? ' style="--role:var(--good)"' : (oi === G.ans ? ' style="--role:var(--bad)"' : ' style="opacity:.5"')) : '';
       return '<button data-gi="' + oi + '"' + cl + (G.ans != null ? " disabled" : "") + '>' + o + '<small style="font-family:var(--f-body);font-size:.75rem">' + labels[oi] + '</small></button>';
     }).join("") + '</div>' +
-    (G.ans != null ? '<div class="fb">' + (opts[G.ans] === correct ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> ') + 'Bu kelime <b class="r-' + e.role + '">' + ROLES[e.role].tr + '</b>: ' + (e.role === "mef" ? "mansûb, tekil isimde üstün alır." : "merfû, tekil isimde ötre alır.") + (e.tr ? ' · ' + e.tr : '') + '</div><div><button class="btn solid" data-gin="1" id="g-next">' + (G.i + 1 < G.list.length ? "Sonraki" : "Sonucu gör") + '</button></div>' : '') + '</div>';
+    (G.ans != null ? '<div class="fb">' + (opts[G.ans] === correct ? '<span class="ok">Correct.</span> ' : '<span class="no">Wrong.</span> ') + 'This word is the <b class="r-' + e.role + '">' + ROLES[e.role].tr + '</b>: ' + (e.role === "mef" ? "accusative (manṣūb); a singular noun takes fatḥa." : "nominative (marfū‘); a singular noun takes ḍamma.") + (e.tr ? ' · ' + e.tr : '') + '</div><div><button class="btn solid" data-gin="1" id="g-next">' + (G.i + 1 < G.list.length ? "Next" : "See result") + '</button></div>' : '') + '</div>';
 }
 function irabPick(oi) {
   if (!G || G.ans != null) return;
@@ -215,15 +215,15 @@ function irabPick(oi) {
 }
 function irabNext() { G.i++; G.ans = null; if (G.i >= G.list.length) { G.stars = G.ok >= 11 ? 3 : G.ok >= 8 ? 2 : 1; endGame(G.score); return; } redraw(); }
 
-// 5. Kıta avı
+// 5. Continent hunt
 function bodyKita() {
-  if (G.over) return gameOver("Kıta Avı", ['<b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> ülkeyi doğru kıtaya yerleştirdin.']);
+  if (G.over) return gameOver("Continent Hunt", ['You placed <b class="tabular">' + G.ok + ' / ' + G.list.length + '</b> countries on the right continent.']);
   var c = G.list[G.i];
-  return '<div class="card stack">' + gameHead("Kıta Avı") +
-    '<div class="hud"><span>Ülke <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Puan <b>' + G.score + '</b></span></div>' +
+  return '<div class="card stack">' + gameHead("Continent Hunt") +
+    '<div class="hud"><span>Country <b>' + (G.i + 1) + '/' + G.list.length + '</b></span><span>Score <b>' + G.score + '</b></span></div>' +
     '<div class="target" style="font-size:2.6rem">' + c[0] + '</div>' +
-    (G.ans != null ? '<div class="fb" style="text-align:center">' + (G.ans === c[2] ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> ') + '<b>' + c[1] + '</b> ' + (c[2] === "as" ? "Asya'dadır." : "Afrika'dadır.") + '</div><div style="text-align:center"><button class="btn solid" data-gkn="1" id="g-next">' + (G.i + 1 < G.list.length ? "Sonraki" : "Sonucu gör") + '</button></div>' :
-      '<div class="big2"><button style="--role:var(--mub)" data-gk="as"><span class="ar">آسِيَا</span>Asya</button><button style="--role:var(--fail)" data-gk="af"><span class="ar">إِفْرِيقِيَا</span>Afrika</button></div>') + '</div>';
+    (G.ans != null ? '<div class="fb" style="text-align:center">' + (G.ans === c[2] ? '<span class="ok">Correct.</span> ' : '<span class="no">Wrong.</span> ') + '<b>' + c[1] + '</b> ' + (c[2] === "as" ? "is in Asia." : "is in Africa.") + '</div><div style="text-align:center"><button class="btn solid" data-gkn="1" id="g-next">' + (G.i + 1 < G.list.length ? "Next" : "See result") + '</button></div>' :
+      '<div class="big2"><button style="--role:var(--mub)" data-gk="as"><span class="ar">آسِيَا</span>Asia</button><button style="--role:var(--fail)" data-gk="af"><span class="ar">إِفْرِيقِيَا</span>Africa</button></div>') + '</div>';
 }
 function kitaPick(v) { if (!G || G.ans != null) return; G.ans = v; if (v === G.list[G.i][2]) { G.ok++; G.score += 10; beep("ok"); } else beep("no"); redraw(); var nb = document.getElementById("g-next"); if (nb) nb.focus({ preventScroll: true }); }
 function kitaNext() { G.i++; G.ans = null; if (G.i >= G.list.length) { G.stars = G.ok >= 11 ? 3 : G.ok >= 8 ? 2 : 1; endGame(G.score); return; } redraw(); }
