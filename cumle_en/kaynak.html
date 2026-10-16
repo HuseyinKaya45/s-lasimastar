@@ -1,9 +1,9 @@
-<title>Arapçada Cümle Yapıları</title>
+<title>Arabic Sentence Structures</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Amiri:wght@400;700&display=swap">
 <style>
-/* Düzen: sabit sekme şeridi altında her ders aynı sırayla akar: hedefler, örnekler, görsel, kaide, alıştırmalar. Cümle öğeleri her yerde aynı rengi taşır. */
+/* Layout: under a sticky tab bar, every lesson flows in the same order: goals, examples, visual, rule, exercises. Each sentence part keeps the same color everywhere. */
 :root {
   --paper: #F4F6F2;
   --card: #FFFFFF;
@@ -55,7 +55,7 @@ p { margin: 0; }
 button { font: inherit; color: inherit; }
 button:focus-visible, select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 
-/* üst */
+/* header */
 header.top { padding-block: 26px 14px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: end; }
 header.top h1 { font-size: clamp(2rem, 5.4vw, 3.2rem); font-weight: 800; letter-spacing: -.01em; }
 header.top .h1ar { font-family: var(--f-ar); font-size: clamp(1.5rem, 4vw, 2.1rem); color: var(--accent); direction: rtl; line-height: 1.5; }
@@ -85,7 +85,7 @@ section.panel { display: grid; gap: 22px; padding-top: 24px; }
 .btn:hover { filter: brightness(1.08); }
 .row-btns { display: flex; flex-wrap: wrap; gap: 8px; }
 
-/* cümle parçaları */
+/* sentence parts */
 .sent { display: flex; flex-wrap: wrap; gap: 6px; direction: rtl; align-items: flex-end; }
 .chunk { display: inline-grid; justify-items: center; gap: 0; }
 .chunk .w { font-family: var(--f-ar); font-size: 1.7rem; line-height: 1.6; padding: 0 10px; border-radius: 10px; background: color-mix(in srgb, var(--role) 13%, transparent); color: var(--ink); border-bottom: 3px solid var(--role); }
@@ -100,7 +100,7 @@ section.panel { display: grid; gap: 22px; padding-top: 24px; }
 .ex-item:last-child { border-bottom: 0; padding-bottom: 0; }
 .pairgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px 18px; }
 
-/* ders başlığı */
+/* lesson header */
 .unit-hero { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; border-top: 5px solid var(--role); }
 .unit-no { font-family: var(--f-display); font-weight: 800; font-size: 3.4rem; color: var(--role); line-height: 1; }
 .unit-hero .ar.big { font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.5; }
@@ -108,7 +108,7 @@ section.panel { display: grid; gap: 22px; padding-top: 24px; }
 .prog { height: 8px; border-radius: 99px; background: var(--soft); overflow: hidden; }
 .prog div { height: 100%; background: var(--role); width: 0; transition: width .4s; }
 
-/* kaide */
+/* rule */
 .rules { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: k; }
 .rules li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
 .rules li::before { counter-increment: k; content: counter(k); font-family: var(--f-display); font-weight: 800; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--paper); }
@@ -117,7 +117,7 @@ details.kaide { border: 1px dashed var(--line); border-radius: 12px; padding: 10
 details.kaide summary { cursor: pointer; font-weight: 700; }
 details.kaide .ar { font-size: 1.3rem; }
 
-/* görseller */
+/* visuals */
 .viz { display: grid; gap: 10px; justify-items: center; }
 .viz svg { width: 100%; max-width: 640px; height: auto; display: block; }
 .viz .cap { font-size: .9rem; color: var(--muted); text-align: center; max-width: 60ch; }
@@ -128,7 +128,7 @@ svg text { font-family: var(--f-body); }
 svg text.a { font-family: var(--f-ar); }
 .svg-scroll { overflow-x: auto; width: 100%; }
 
-/* harita (giriş) */
+/* map (intro) */
 .tree { display: grid; gap: 18px; justify-items: center; }
 .node { border-radius: 14px; padding: 10px 16px; text-align: center; background: var(--card); border: 2px solid var(--role); display: grid; gap: 0; }
 .node .ar { font-size: 1.5rem; line-height: 1.6; color: var(--role); }
@@ -145,7 +145,7 @@ svg text.a { font-family: var(--f-ar); }
 .map-units .card { display: grid; gap: 6px; align-content: start; border-top: 5px solid var(--role); }
 .map-units .card .ar { font-size: 1.5rem; color: var(--role); }
 
-/* alıştırmalar */
+/* exercises */
 .exer { display: grid; gap: 14px; }
 .exer-head { display: grid; gap: 4px; }
 .exer-head .ar { font-size: 1.35rem; color: var(--accent); }
@@ -203,7 +203,7 @@ svg text.a { font-family: var(--f-ar); }
 .qa { display: grid; gap: 6px; padding: 10px 12px; border-radius: 10px; background: var(--soft); }
 .qa .ar { font-size: 1.35rem; }
 
-/* oyunlar */
+/* games */
 .game-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
 .game-card { display: grid; gap: 8px; align-content: start; border-top: 5px solid var(--role); }
 .game-card .ico { font-family: var(--f-ar); font-size: 1.9rem; color: var(--role); direction: rtl; line-height: 1.4; }
@@ -247,7 +247,7 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
   .item .q { font-size: 1.35rem; }
 }
 
-/* görsel bileşenleri (HTML) */
+/* visual components (HTML) */
 .icons { display: inline-flex; gap: 2px; }
 .icons .ico { width: 22px; height: 22px; }
 .icons.xl .ico { width: 56px; height: 56px; }
@@ -294,14 +294,14 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
 <div class="wrap">
   <header class="top">
     <div>
-      <div class="lbl">Kitaptaki dört ders · kaide, örnek ve alıştırmalarla</div>
-      <h1>Arapçada Cümle Yapıları</h1>
+      <div class="lbl">The four lessons from the book · with rules, examples and exercises</div>
+      <h1>Sentence Structures in Arabic</h1>
       <div class="h1ar">تَرَاكِيبُ الجُمْلَةِ فِي اللُّغَةِ العَرَبِيَّةِ</div>
-      <p>Anlamlı cümleden başlayıp isim cümlesine, fiil cümlesine ve mef'ûlün bihe ilerle. Her öğe hep aynı renkte: <b class="r-mub">mübtedâ</b>, <b class="r-hab">haber</b>, <b class="r-fiil">fiil</b>, <b class="r-fail">fâil</b>, <b class="r-mef">mef'ûlün bih</b>.</p>
+      <p>Start with the complete sentence, then move on to the nominal sentence, the verbal sentence and the direct object. Each part always has the same color: <b class="r-mub">mubtada’</b>, <b class="r-hab">khabar</b>, <b class="r-fiil">verb</b>, <b class="r-fail">fā‘il</b>, <b class="r-mef">maf‘ūl bihi</b>.</p>
     </div>
     <div class="xpbox" id="xpbox" aria-live="polite"></div>
   </header>
-  <nav class="tabs" role="tablist" aria-label="Bölümler" id="tabs"></nav>
+  <nav class="tabs" role="tablist" aria-label="Sections" id="tabs"></nav>
   <main id="main"></main>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -312,7 +312,7 @@ canvas.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; 
 <script>
 (function () {
 "use strict";
-// ---------- yardımcılar ----------
+// ---------- helpers ----------
 function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 function plain(h) { return String(h).replace(/<[^>]+>/g, ""); }
 function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
@@ -327,18 +327,18 @@ function sentHtml(str, opts) {
 }
 function legendHtml(roles) { return '<div class="legend">' + roles.map(function (r) { return '<span class="r-' + r + '"><i></i>' + ROLES[r].tr + ' <span class="ar" style="color:var(--muted)">' + ROLES[r].ar + '</span></span>'; }).join("") + '</div>'; }
 var store = {
-  get: function (k, d) { try { var v = localStorage.getItem("cumle:" + k); return v === null ? d : JSON.parse(v); } catch (x) { return d; } },
-  set: function (k, v) { try { localStorage.setItem("cumle:" + k, JSON.stringify(v)); } catch (x) {} }
+  get: function (k, d) { try { var v = localStorage.getItem("cumle_en:" + k); return v === null ? d : JSON.parse(v); } catch (x) { return d; } },
+  set: function (k, v) { try { localStorage.setItem("cumle_en:" + k, JSON.stringify(v)); } catch (x) {} }
 };
 
-// ---------- rütbe, ses, konfeti ----------
-var LEVELS = [[0, "Mübtedî", "yeni başlayan"], [100, "Talebe", "öğrenci"], [300, "Kâtip", "yazan"], [600, "Edîb", "dil ustası"], [1000, "Nahvî", "dil bilgini"], [1600, "Allâme", "çok bilen"]];
+// ---------- rank, sound, confetti ----------
+var LEVELS = [[0, "Mubtadi’", "beginner"], [100, "Ṭālib", "student"], [300, "Kātib", "scribe"], [600, "Adīb", "master of language"], [1000, "Naḥwī", "grammarian"], [1600, "‘Allāma", "great scholar"]];
 function getXP() { return store.get("xp", 0); }
 function levelOf(x) { var i = 0; for (var k = 0; k < LEVELS.length; k++) if (x >= LEVELS[k][0]) i = k; return i; }
 function renderXP() {
   var box = document.getElementById("xpbox"), x = getXP(), i = levelOf(x), cur = LEVELS[i], nx = LEVELS[i + 1];
   var pct = nx ? (x - cur[0]) / (nx[0] - cur[0]) * 100 : 100;
-  box.innerHTML = '<div class="row"><span class="lbl">Rütben</span><span class="tabular muted">' + x + ' puan</span></div><div class="row"><b class="rank">' + cur[1] + '</b><span class="muted">' + (nx ? "sonra: " + nx[1] : "en yüksek rütbe") + '</span></div><div class="xpbar"><div style="width:' + pct + '%"></div></div>';
+  box.innerHTML = '<div class="row"><span class="lbl">Your rank</span><span class="tabular muted">' + x + ' points</span></div><div class="row"><b class="rank">' + cur[1] + '</b><span class="muted">' + (nx ? "next: " + nx[1] : "highest rank") + '</span></div><div class="xpbar"><div style="width:' + pct + '%"></div></div>';
 }
 var toastT;
 function toast(m) { var t = document.getElementById("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("show"); }, 2000); }
@@ -346,8 +346,8 @@ function addXP(n, quiet) {
   n = Math.max(0, Math.round(n)); if (!n) return;
   var b = levelOf(getXP()), v = getXP() + n; store.set("xp", v); renderXP();
   var a = levelOf(v);
-  if (a > b) { toast("Yeni rütbe: " + LEVELS[a][1] + " (" + LEVELS[a][2] + ")"); confetti(); beep("win"); }
-  else if (!quiet) toast("+" + n + " puan");
+  if (a > b) { toast("New rank: " + LEVELS[a][1] + " (" + LEVELS[a][2] + ")"); confetti(); beep("win"); }
+  else if (!quiet) toast("+" + n + " points");
 }
 var SND = { on: store.get("snd", true), ctx: null };
 function beep(type) {
@@ -372,10 +372,10 @@ function confetti() {
   var t0 = performance.now();
   (function step(t) { ctx.clearRect(0, 0, W, H); ps.forEach(function (p) { p.vy += .33; p.x += p.vx; p.y += p.vy; p.a += .2; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.fillStyle = p.c; ctx.fillRect(-p.r / 2, -p.r / 4, p.r, p.r / 2); ctx.restore(); }); if (t - t0 < 2000) requestAnimationFrame(step); else cv.remove(); })(t0);
 }
-function starsHtml(n) { var s = ""; for (var i = 1; i <= 3; i++) s += i <= n ? "★" : '<span class="off">★</span>'; return '<div class="stars" aria-label="' + n + ' yıldız">' + s + '</div>'; }
+function starsHtml(n) { var s = ""; for (var i = 1; i <= 3; i++) s += i <= n ? "★" : '<span class="off">★</span>'; return '<div class="stars" aria-label="' + n + ' stars">' + s + '</div>'; }
 
-// ---------- görseller (SVG) ----------
-// Simgeler yalnız çizimdir; Arapça yazılar HTML'de kalır (harekeler her tarayıcıda doğru dursun diye)
+// ---------- visuals (SVG) ----------
+// Icons are drawings only; Arabic text stays in HTML (so the vowel marks render correctly in every browser)
 function icon(kind, cls, n) {
   var one = {
     person: '<circle cx="12" cy="7" r="5" class="' + cls + '"/><path d="M3 24 Q3 13 12 13 Q21 13 21 24 Z" class="' + cls + '"/>',
@@ -389,76 +389,76 @@ function icon(kind, cls, n) {
 function chip(txt, role, big) { return '<span class="vchip' + (big ? " big" : "") + '" style="--role:var(--' + role + ')">' + txt + '</span>'; }
 function vizMufide() {
   return '<div class="vz-mufide">' +
-    '<div class="vz-col"><div class="lbl">Karışık: anlam yok</div><div class="vz-jumble">' +
+    '<div class="vz-col"><div class="lbl">Jumbled: no meaning</div><div class="vz-jumble">' +
       '<span style="transform:rotate(-8deg)">مِنْ</span><span style="transform:rotate(6deg)">أَحْمَدُ</span><span style="transform:rotate(-3deg)">مُتَأَخِّرًا</span><span style="transform:rotate(9deg)">رَجَعَ</span>' +
     '</div></div>' +
     '<div class="vz-arrow" aria-hidden="true">→</div>' +
-    '<div class="vz-col"><div class="lbl" style="color:var(--good)">Cümle-i müfîde: anlam tam</div>' +
+    '<div class="vz-col"><div class="lbl" style="color:var(--good)">Al-jumla al-mufīda: complete meaning</div>' +
       sentHtml("رَجَعَ:fiil / أَحْمَدُ:fail / مِنَ العَمَلِ:x / مُتَأَخِّرًا:x") +
-      '<p class="muted" style="font-size:.88rem">Arapça sağdan sola okunur: önce fiil (رَجَعَ), sonra fâil (أَحْمَدُ).</p></div>' +
+      '<p class="muted" style="font-size:.88rem">Arabic is read right to left: first the verb (رَجَعَ), then the fā‘il (أَحْمَدُ).</p></div>' +
   '</div>';
 }
 function vizUyum() {
   var rows = [
-    ["person", "mub", 1, "tekil", "المُعَلِّمُ", "رَحِيمٌ", "uyar"],
-    ["person", "mub", 2, "ikil", "الطَّالِبَانِ", "طَوِيلَانِ", "uyar"],
-    ["person", "mub", 3, "çoğul", "المُهَنْدِسُونَ", "نَشِيطُونَ", "uyar"],
-    ["tree", "hab", 3, "akılsız çoğul", "الأَشْجَارُ", "طَوِيلَةٌ", "tekil müennes!"]
+    ["person", "mub", 1, "singular", "المُعَلِّمُ", "رَحِيمٌ", "uyar"],
+    ["person", "mub", 2, "dual", "الطَّالِبَانِ", "طَوِيلَانِ", "uyar"],
+    ["person", "mub", 3, "plural", "المُهَنْدِسُونَ", "نَشِيطُونَ", "uyar"],
+    ["tree", "hab", 3, "non-human plural", "الأَشْجَارُ", "طَوِيلَةٌ", "feminine singular!"]
   ];
   return '<div class="vz-table">' + rows.map(function (r) {
     return '<div class="vz-row">' + icon(r[0], "s-" + r[1], r[2]) + '<span class="muted vz-lab">' + r[3] + '</span>' +
       '<span class="vz-pair">' + chip(r[4], "mub") + chip(r[5], "hab") + '</span>' +
-      '<span class="vz-note' + (r[6] !== "uyar" ? " warn" : "") + '">' + (r[6] === "uyar" ? "haber uyar" : r[6]) + '</span></div>';
-  }).join("") + '<div class="vz-row vz-head"><span></span><span></span><span class="vz-pair"><b class="r-mub">mübtedâ</b><b class="r-hab">haber</b></span><span></span></div></div>';
+      '<span class="vz-note' + (r[6] !== "uyar" ? " warn" : "") + '">' + (r[6] === "uyar" ? "khabar agrees" : r[6]) + '</span></div>';
+  }).join("") + '<div class="vz-row vz-head"><span></span><span></span><span class="vz-pair"><b class="r-mub">mubtada’</b><b class="r-hab">khabar</b></span><span></span></div></div>';
 }
 function vizFiil() {
   var rows = [["الطَّالِبُ", 1], ["الطَّالِبَانِ", 2], ["الطُّلَّابُ", 4]];
   return '<div class="vz-fiil">' +
-    '<div class="vz-verb">' + chip("وَقَفَ", "fiil", true) + '<b class="r-fiil" style="font-size:.8rem;letter-spacing:.06em">HEP TEKİL</b></div>' +
+    '<div class="vz-verb">' + chip("وَقَفَ", "fiil", true) + '<b class="r-fiil" style="font-size:.8rem;letter-spacing:.06em">ALWAYS SINGULAR</b></div>' +
     '<div class="vz-brace" aria-hidden="true"></div>' +
     '<div class="vz-fails">' + rows.map(function (r) { return '<div class="vz-row2">' + chip(r[0], "fail") + icon("person", "s-fail", r[1]) + '</div>'; }).join("") + '</div>' +
   '</div>' +
   '<div class="vz-tani">' +
-    '<div class="vz-box"><div class="lbl">Mâzî: sona tâ</div><div class="ar vz-big">شَرِبَ<span class="r-fiil hl">تْ</span> فَاطِمَةُ</div></div>' +
-    '<div class="vz-box"><div class="lbl">Muzâri: başa tâ</div><div class="ar vz-big"><span class="r-fiil hl">تَ</span>شْرَبُ فَاطِمَةُ</div></div>' +
+    '<div class="vz-box"><div class="lbl">Past: tā’ at the end</div><div class="ar vz-big">شَرِبَ<span class="r-fiil hl">تْ</span> فَاطِمَةُ</div></div>' +
+    '<div class="vz-box"><div class="lbl">Present: tā’ at the start</div><div class="ar vz-big"><span class="r-fiil hl">تَ</span>شْرَبُ فَاطِمَةُ</div></div>' +
   '</div>' +
-  '<p class="muted" style="text-align:center;font-size:.9rem">Akılsız çoğul fâil de böyle: <span class="ar" style="font-size:1.2rem">لَمَعَتِ النُّجُومُ ، تَلْمَعُ النُّجُومُ</span></p>';
+  '<p class="muted" style="text-align:center;font-size:.9rem">A non-human plural fā‘il works the same way: <span class="ar" style="font-size:1.2rem">لَمَعَتِ النُّجُومُ ، تَلْمَعُ النُّجُومُ</span></p>';
 }
 function vizMef() {
   return '<div class="vz-mef">' +
-    '<div class="vz-actor">' + icon("person", "s-fail", 1).replace('class="icons"', 'class="icons xl"') + chip("فَاطِمَةُ", "fail") + '<b class="r-fail vz-tag">FÂİL · ÖTRE (ـُ)</b></div>' +
+    '<div class="vz-actor">' + icon("person", "s-fail", 1).replace('class="icons"', 'class="icons xl"') + chip("فَاطِمَةُ", "fail") + '<b class="r-fail vz-tag">FĀ‘IL · ḌAMMA (ـُ)</b></div>' +
     '<div class="vz-act">' + chip("قَرَأَتْ", "fiil") + '<div class="vz-arr" aria-hidden="true">←</div></div>' +
-    '<div class="vz-actor">' + icon("book", "s-mef", 1).replace('class="icons"', 'class="icons xl"') + chip("الكِتَابَ", "mef") + '<b class="r-mef vz-tag">MEF\'ÛL · ÜSTÜN (ـَ)</b></div>' +
+    '<div class="vz-actor">' + icon("book", "s-mef", 1).replace('class="icons"', 'class="icons xl"') + chip("الكِتَابَ", "mef") + '<b class="r-mef vz-tag">OBJECT · FATḤA (ـَ)</b></div>' +
   '</div>' +
-  '<p class="muted" style="text-align:center;font-size:.9rem">İş fâilden çıkar, mef\'ûle ulaşır. Sağdan sola oku: <span class="ar" style="font-size:1.2rem">قَرَأَتْ فَاطِمَةُ الكِتَابَ</span></p>';
+  '<p class="muted" style="text-align:center;font-size:.9rem">The action comes from the fā‘il and reaches the object. Read right to left: <span class="ar" style="font-size:1.2rem">قَرَأَتْ فَاطِمَةُ الكِتَابَ</span></p>';
 }
 
-// ---------- durum ----------
+// ---------- state ----------
 var ST = { tab: "harita", tr: store.get("tr", true), items: store.get("items", {}) };
 var hashT = location.hash.replace("#", "");
 var TABS = ["harita", "u1", "u2", "u3", "u4", "okuma", "oyun"];
 ST.tab = TABS.indexOf(hashT) >= 0 ? hashT : store.get("tab", "harita");
 if (TABS.indexOf(ST.tab) < 0) ST.tab = "harita";
 var main = document.getElementById("main");
-var LIVE = {}; // ekranda süren alıştırma durumları (sıralama, etiket…)
+var LIVE = {}; // state of exercises in progress on screen (ordering, tagging…)
 function saveItems() { store.set("items", ST.items); }
 function unitById(id) { return UNITS.filter(function (u) { return u.id === id; })[0]; }
 
-// Alıştırmaları maddelere aç (agree / number türleri birer seçmeliye dönüşür)
+// Expand exercises into items (agree / number types each become multiple choice)
 function expand(ex) {
   if (ex._items) return ex._items;
   var out = [];
   if (ex.type === "agree") {
     ex.rows.forEach(function (r) {
-      out.push({ kind: "pick", q: r[0] + " ← (ikil)", o: shuffle([r[1] + " " + r[2], r[1] + " " + r[5][0], r[1] + " " + r[5][1]]), a: r[1] + " " + r[2], tr: r[7][1], why: ex.akil ? "Akıl sahibi: haber ikilde de uyar." : "İkilde haber de ikil olur." });
-      out.push({ kind: "pick", q: r[0] + " ← (çoğul)", o: shuffle([r[3] + " " + r[4], r[3] + " " + r[6][0], r[3] + " " + r[6][1]]), a: r[3] + " " + r[4], tr: r[7][2], why: ex.akil ? "Akıl sahibi çoğul: haber de çoğul olur." : "Akıl sahibi olmayan çoğul: haber tekil müennes olur." });
+      out.push({ kind: "pick", q: r[0] + " ← (dual)", o: shuffle([r[1] + " " + r[2], r[1] + " " + r[5][0], r[1] + " " + r[5][1]]), a: r[1] + " " + r[2], tr: r[7][1], why: ex.akil ? "Human subject: the khabar agrees in the dual too." : "In the dual, the khabar is dual too." });
+      out.push({ kind: "pick", q: r[0] + " ← (plural)", o: shuffle([r[3] + " " + r[4], r[3] + " " + r[6][0], r[3] + " " + r[6][1]]), a: r[3] + " " + r[4], tr: r[7][2], why: ex.akil ? "Human plural: the khabar is plural too." : "Non-human plural: the khabar is feminine singular." });
     });
   } else if (ex.type === "number") {
     ex.rows.forEach(function (r) {
       [1, 2].forEach(function (n) {
         var rest = r.r[n] || r.r[0];
         var ok = r.v[0] + " " + r.f[n] + " " + rest + ".";
-        out.push({ kind: "pick", q: r.v[0] + " " + r.f[0] + " " + (r.r[0]) + ". ← (" + (n === 1 ? "ikil" : "çoğul") + ")", o: shuffle([ok, r.v[1] + " " + r.f[n] + " " + rest + ".", r.v[2] + " " + r.f[n] + " " + rest + "."]), a: ok, tr: r.tr[n], why: "Fiil cümlenin başında olduğu için tekil kalır: <span class=\"ar\">" + r.v[0] + "</span>." });
+        out.push({ kind: "pick", q: r.v[0] + " " + r.f[0] + " " + (r.r[0]) + ". ← (" + (n === 1 ? "dual" : "plural") + ")", o: shuffle([ok, r.v[1] + " " + r.f[n] + " " + rest + ".", r.v[2] + " " + r.f[n] + " " + rest + "."]), a: ok, tr: r.tr[n], why: "The verb comes first in the sentence, so it stays singular: <span class=\"ar\">" + r.v[0] + "</span>." });
       });
     });
   } else if (ex.type === "story") {
@@ -495,12 +495,12 @@ function updateProgress() {
   });
 }
 
-// ---------- sekmeler ----------
+// ---------- tabs ----------
 function renderTabs() {
   var nav = document.getElementById("tabs");
-  nav.innerHTML = '<button role="tab" data-tab="harita">Harita</button>' +
+  nav.innerHTML = '<button role="tab" data-tab="harita">Map</button>' +
     UNITS.map(function (u) { return '<button role="tab" data-tab="' + u.id + '"><span class="num">' + u.no + '</span>' + u.short + ' <span class="pc">0%</span></button>'; }).join("") +
-    '<button role="tab" data-tab="okuma">Serbest Okuma</button><button role="tab" data-tab="oyun">Oyunlar</button>';
+    '<button role="tab" data-tab="okuma">Free Reading</button><button role="tab" data-tab="oyun">Games</button>';
 }
 function setTab(t) {
   if (t !== "oyun") stopGame();
@@ -519,49 +519,49 @@ function render() {
   updateProgress();
 }
 
-// ---------- harita ----------
+// ---------- map ----------
 function renderMap() {
   return '<section class="panel">' +
     '<div class="card stack">' +
-      '<div class="lbl">Cümle haritası</div><h2>Bir cümle iki yoldan kurulur</h2>' +
-      '<p class="muted">Cümlenin türünü ilk kelimesi belirler. İsimle başlarsa isim cümlesi, fiille başlarsa fiil cümlesidir. Bir kutuya dokununca o dersin sayfası açılır.</p>' +
+      '<div class="lbl">Sentence map</div><h2>There are two ways to build a sentence</h2>' +
+      '<p class="muted">The first word decides the type of sentence. If it starts with a noun, it is a nominal sentence; if it starts with a verb, it is a verbal sentence. Tap a box to open that lesson.</p>' +
       '<div class="tree">' +
-        '<div class="node root"><span class="ar">الجُمْلَةُ المُفِيدَةُ</span><small>Anlamlı cümle · Ders 1</small></div>' +
+        '<div class="node root"><span class="ar">الجُمْلَةُ المُفِيدَةُ</span><small>Complete sentence · Lesson 1</small></div>' +
         '<div class="tree-row">' +
-          '<div class="branch"><div class="node" style="--role:var(--mub)"><span class="ar">الجُمْلَةُ الاسْمِيَّةُ</span><small>İsimle başlar · Ders 2</small></div>' +
-            '<div class="kids"><div class="node r-mub"><span class="ar">مُبْتَدَأٌ</span><small>Mübtedâ</small></div><div class="node r-hab"><span class="ar">خَبَرٌ</span><small>Haber</small></div></div>' +
+          '<div class="branch"><div class="node" style="--role:var(--mub)"><span class="ar">الجُمْلَةُ الاسْمِيَّةُ</span><small>Starts with a noun · Lesson 2</small></div>' +
+            '<div class="kids"><div class="node r-mub"><span class="ar">مُبْتَدَأٌ</span><small>Mubtada’</small></div><div class="node r-hab"><span class="ar">خَبَرٌ</span><small>Khabar</small></div></div>' +
             sentHtml("المُعَلِّمُ:mub / رَحِيمٌ:hab") +
-            '<button class="btn small" data-go="u2">İsim cümlesine git</button></div>' +
-          '<div class="branch"><div class="node" style="--role:var(--fiil)"><span class="ar">الجُمْلَةُ الفِعْلِيَّةُ</span><small>Fiille başlar · Ders 3–4</small></div>' +
-            '<div class="kids"><div class="node r-fiil"><span class="ar">فِعْلٌ</span><small>Fiil</small></div><div class="node r-fail"><span class="ar">فَاعِلٌ</span><small>Fâil</small></div><div class="node r-mef"><span class="ar">مَفْعُولٌ بِهِ</span><small>Mef\'ûl</small></div></div>' +
+            '<button class="btn small" data-go="u2">Go to the nominal sentence</button></div>' +
+          '<div class="branch"><div class="node" style="--role:var(--fiil)"><span class="ar">الجُمْلَةُ الفِعْلِيَّةُ</span><small>Starts with a verb · Lessons 3–4</small></div>' +
+            '<div class="kids"><div class="node r-fiil"><span class="ar">فِعْلٌ</span><small>Verb</small></div><div class="node r-fail"><span class="ar">فَاعِلٌ</span><small>Fā‘il</small></div><div class="node r-mef"><span class="ar">مَفْعُولٌ بِهِ</span><small>Object</small></div></div>' +
             sentHtml("قَرَأَتْ:fiil / فَاطِمَةُ:fail / الكِتَابَ:mef") +
-            '<div class="row-btns" style="justify-content:center"><button class="btn small" data-go="u3">Fâil</button><button class="btn small" data-go="u4">Mef\'ûlün bih</button></div></div>' +
+            '<div class="row-btns" style="justify-content:center"><button class="btn small" data-go="u3">Fā‘il</button><button class="btn small" data-go="u4">Direct object</button></div></div>' +
         '</div>' +
       '</div>' +
     '</div>' +
     '<div class="map-units">' +
       UNITS.map(function (u) {
         var p = allScorable(u);
-        return '<div class="card" style="--role:var(--' + u.col + ')"><div class="lbl">Ders ' + u.no + '</div><div class="ar">' + u.ar + (u.sub ? ' <span style="font-size:1.1rem">(' + u.sub + ')</span>' : '') + '</div><h3 style="color:var(--ink)">' + u.tr + '</h3>' +
-          '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> alıştırma maddesi doğru</div>' +
-          '<button class="btn small" data-go="' + u.id + '" style="--accent:var(--' + u.col + ')">Derse başla</button></div>';
+        return '<div class="card" style="--role:var(--' + u.col + ')"><div class="lbl">Lesson ' + u.no + '</div><div class="ar">' + u.ar + (u.sub ? ' <span style="font-size:1.1rem">(' + u.sub + ')</span>' : '') + '</div><h3 style="color:var(--ink)">' + u.tr + '</h3>' +
+          '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> exercise items correct</div>' +
+          '<button class="btn small" data-go="' + u.id + '" style="--accent:var(--' + u.col + ')">Start the lesson</button></div>';
       }).join("") +
     '</div>' +
-    '<div class="card stack"><div class="lbl">Renk anahtarı</div>' + legendHtml(["mub", "hab", "fiil", "fail", "mef"]) +
-      '<p class="muted">Programın her yerinde bu renkler kullanılır. Rütbe puanını alıştırmaları doğru çözerek ve oyun oynayarak kazanırsın.</p>' +
-      '<div class="row-btns"><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button><button class="btn small" data-snd="1">Ses: ' + (SND.on ? "açık" : "kapalı") + '</button></div></div>' +
+    '<div class="card stack"><div class="lbl">Color key</div>' + legendHtml(["mub", "hab", "fiil", "fail", "mef"]) +
+      '<p class="muted">These colors are used everywhere in the app. You earn rank points by solving exercises correctly and playing games.</p>' +
+      '<div class="row-btns"><button class="btn small" data-trtoggle="1">English meanings: ' + (ST.tr ? "on" : "off") + '</button><button class="btn small" data-snd="1">Sound: ' + (SND.on ? "on" : "off") + '</button></div></div>' +
   '</section>';
 }
 
-// ---------- ders sayfası ----------
+// ---------- lesson page ----------
 function renderUnit(u) {
   var p = allScorable(u);
   var viz = { u1: vizMufide, u2: vizUyum, u3: vizFiil, u4: vizMef }[u.id]();
   var vizCap = {
-    u1: "Kelimeler rastgele dizilince anlam çıkmaz. Doğru sıraya girince cümle tam bir anlam verir.",
-    u2: "Akıl sahibi mübtedâda haber sayıda ve cinsiyette uyar. Akıl sahibi olmayan çoğulda haber tekil müennes olur.",
-    u3: "Fiil cümlenin başındaysa fâil kaç kişi olursa olsun tekil kalır. Fâil müennes ise fiil tâ alır.",
-    u4: "Fiil, fâil ve mef'ûl bir arada: işi yapan merfû, işten etkilenen mansûb."
+    u1: "Words in random order make no sense. In the right order, the sentence gives a complete meaning.",
+    u2: "With a human mubtada’, the khabar agrees in number and gender. With a non-human plural, the khabar is feminine singular.",
+    u3: "When the verb comes first, it stays singular no matter how many do the action. If the fā‘il is feminine, the verb takes a tā’.",
+    u4: "Verb, fā‘il and object together: the doer is nominative (marfū‘), the one affected is accusative (manṣūb)."
   }[u.id];
   var rolesUsed = { u1: ["mub", "hab", "fiil", "fail"], u2: ["mub", "hab"], u3: ["fiil", "fail"], u4: ["fiil", "fail", "mef"] }[u.id];
   return '<section class="panel" style="--role:var(--' + u.col + ')">' +
@@ -569,28 +569,28 @@ function renderUnit(u) {
       '<div class="ar big" style="color:var(--role)">' + u.ar + (u.sub ? ' <span style="font-size:.65em">(' + u.sub + ')</span>' : '') + '</div>' +
       '<h2>' + u.tr + '</h2>' +
       '<ul class="goals">' + u.goals.map(function (g) { return '<li>' + g + '</li>'; }).join("") + '</ul>' +
-      '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> alıştırma maddesi doğru</div>' +
+      '<div class="prog"><div id="prog-' + u.id + '"></div></div><div class="muted tabular" style="font-size:.85rem"><span id="progt-' + u.id + '">' + p.ok + ' / ' + p.n + '</span> exercise items correct</div>' +
     '</div></div>' +
 
-    '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Kitaptaki örnekler</div><h2>Önce gör</h2></div><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button></div>' +
+    '<div class="card stack"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><div class="lbl">Examples from the book</div><h2>See it first</h2></div><button class="btn small" data-trtoggle="1">English meanings: ' + (ST.tr ? "on" : "off") + '</button></div>' +
       legendHtml(rolesUsed) +
       (u.id === "u3" ?
         '<div class="ex-list">' + u.examples.map(function (e) { return '<div class="pairgrid"><div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + '</div><div class="ex-item">' + sentHtml(e.pair) + (ST.tr ? '<div class="trline">' + e.pairTr + '</div>' : '') + '</div></div>'; }).join("") + '</div>' +
-        '<p class="muted">Soldaki sütunda fâil müzekker, sağdakinde müennes. Fiilin nasıl değiştiğine bak.</p>'
+        '<p class="muted">In the left column the fā‘il is masculine; in the right, feminine. Watch how the verb changes.</p>'
       : '<div class="ex-list">' + u.examples.map(function (e) { return '<div class="ex-item">' + sentHtml(e.s) + (ST.tr ? '<div class="trline">' + e.tr + '</div>' : '') + '</div>'; }).join("") + '</div>') +
     '</div>' +
 
-    '<div class="card viz"><div class="lbl">Görsel</div>' + viz + '<p class="cap">' + vizCap + '</p></div>' +
+    '<div class="card viz"><div class="lbl">Visual</div>' + viz + '<p class="cap">' + vizCap + '</p></div>' +
 
-    '<div class="card stack"><div class="lbl">القَاعِدَةُ · Kaide</div><h2>Kural</h2>' +
+    '<div class="card stack"><div class="lbl">القَاعِدَةُ · Rule</div><h2>The rule</h2>' +
       '<ol class="rules">' + u.rules.map(function (r) { return '<li><div class="stack" style="gap:4px"><div>' + r.tr + '</div>' + (r.ex ? '<div class="exs">' + r.ex.map(function (x) { return '<span>' + x + '</span>'; }).join("") + '</div>' : '') + '</div></li>'; }).join("") + '</ol>' +
-      '<details class="kaide"><summary>Kitaptaki kaide metni (Arapça)</summary><div class="stack" style="margin-top:8px">' + u.kaide.map(function (k) { return '<p class="ar">' + k + '</p>'; }).join("") + '</div></details>' +
+      '<details class="kaide"><summary>The rule as written in the book (Arabic)</summary><div class="stack" style="margin-top:8px">' + u.kaide.map(function (k) { return '<p class="ar">' + k + '</p>'; }).join("") + '</div></details>' +
     '</div>' +
 
-    '<div class="stack"><div><div class="lbl">التَّدْرِيبَاتُ · Alıştırmalar</div><h2>Şimdi sen yap</h2></div>' +
+    '<div class="stack"><div><div class="lbl">التَّدْرِيبَاتُ · Exercises</div><h2>Now you try</h2></div>' +
       u.ex.map(function (ex, ei) { return renderExercise(u, ex, ei); }).join("") +
     '</div>' +
-    '<div class="card stack" style="text-align:center;justify-items:center"><h2>Pekiştirmek için oyna</h2><p class="muted">Oyunlar dört dersin bütün cümlelerini karıştırarak sorar.</p><button class="btn solid" data-go="oyun">Oyunlara git</button></div>' +
+    '<div class="card stack" style="text-align:center;justify-items:center"><h2>Play to practice</h2><p class="muted">The games mix sentences from all four lessons.</p><button class="btn solid" data-go="oyun">Go to the games</button></div>' +
   '</section>';
 }
 var AR_NUM = ["١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
@@ -606,11 +606,11 @@ function renderExercise(u, ex, ei) {
     body += '<div class="items">' + its.map(function (it, ii) { return '<div class="item" id="it-' + u.id + '-' + ei + '-' + ii + '">' + itemInner(u, ei, ii, it, ex) + '</div>'; }).join("") + '</div>';
   }
   return '<div class="card exer" id="ex-' + u.id + '-' + ei + '"><div class="exer-head"><div class="ar">' + AR_NUM[ei] + ' ـ ' + ex.ar + '</div><div><b>' + ex.tr + '</b></div></div>' +
-    (ex.exHtml ? '<div class="exbox"><span class="lbl">مِثَالٌ · Örnek</span><div>' + ex.exHtml + '</div></div>' : '') + body + '</div>';
+    (ex.exHtml ? '<div class="exbox"><span class="lbl">مِثَالٌ · Example</span><div>' + ex.exHtml + '</div></div>' : '') + body + '</div>';
 }
 function readingText(ex) {
   return '<div class="card stack" style="background:var(--soft);border:0"><h3 class="ar" style="font-size:1.6rem;color:var(--accent)">' + ex.title + '</h3><p class="passage">' + ex.text + '</p>' +
-    '<details><summary class="muted" style="cursor:pointer">Türkçesini göster</summary><p class="passage-tr" style="margin-top:6px">' + ex.textTr + '</p></details></div>';
+    '<details><summary class="muted" style="cursor:pointer">Show the English</summary><p class="passage-tr" style="margin-top:6px">' + ex.textTr + '</p></details></div>';
 }
 function keyOf(u, ei, ii) { return u.id + "-" + ei + "-" + ii; }
 function statusCls(key) { var s = ST.items[key]; return s === 1 ? "ok" : s === 2 ? "no" : ""; }
@@ -632,16 +632,16 @@ function itemInner(u, ei, ii, it, ex) {
         if (chosen != null) { if (oi === ansIdx) cls = " sel-ok"; else if (oi === chosen) cls = " sel-no"; }
         return '<button class="opt' + (block && !ex.fill ? " block" : "") + cls + '" data-act="pick" data-key="' + key + '" data-i="' + oi + '"' + (chosen != null ? " disabled" : "") + '>' + o + '</button>';
       }).join("") + '</div>' +
-      (chosen != null ? '<div class="fb">' + (chosen === ansIdx ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> Doğrusu: <span class="ar">' + it.o[ansIdx] + '</span> ') + (it.why ? it.why : '') + '</div>' + trAfter(it, true) + '<div><button class="btn small" data-act="retry" data-key="' + key + '">Tekrar dene</button></div>' : '');
+      (chosen != null ? '<div class="fb">' + (chosen === ansIdx ? '<span class="ok">Correct.</span> ' : '<span class="no">Not quite.</span> Correct answer: <span class="ar">' + it.o[ansIdx] + '</span> ') + (it.why ? it.why : '') + '</div>' + trAfter(it, true) + '<div><button class="btn small" data-act="retry" data-key="' + key + '">Try again</button></div>' : '');
   }
   if (it.kind === "classify") {
     var c = L.ch;
     return num + '<div class="q">' + it.s + '</div><div class="cls-btns">' +
-      [["i", "İsim cümlesi", "اسْمِيَّةٌ", "mub"], ["f", "Fiil cümlesi", "فِعْلِيَّةٌ", "fiil"]].map(function (b) {
+      [["i", "Nominal sentence", "اسْمِيَّةٌ", "mub"], ["f", "Verbal sentence", "فِعْلِيَّةٌ", "fiil"]].map(function (b) {
         var cls = c ? (b[0] === it.a ? " sel-ok" : (b[0] === c ? " sel-no" : "")) : "";
         return '<button class="opt lat' + cls + '" data-act="cls" data-key="' + key + '" data-v="' + b[0] + '"' + (c ? " disabled" : "") + '>' + b[1] + ' <span class="ar" style="font-weight:400">' + b[2] + '</span></button>';
       }).join("") + '</div>' +
-      (c ? '<div class="fb">' + (c === it.a ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> ') + (it.why || (it.a === "i" ? "Cümle bir <b>isimle</b> başlıyor." : "Cümle bir <b>fiille</b> başlıyor.")) + '</div>' + trAfter(it, true) + '<div><button class="btn small" data-act="retry" data-key="' + key + '">Tekrar dene</button></div>' : '');
+      (c ? '<div class="fb">' + (c === it.a ? '<span class="ok">Correct.</span> ' : '<span class="no">Not quite.</span> ') + (it.why || (it.a === "i" ? "The sentence starts with a <b>noun</b>." : "The sentence starts with a <b>verb</b>.")) + '</div>' + trAfter(it, true) + '<div><button class="btn small" data-act="retry" data-key="' + key + '">Try again</button></div>' : '');
   }
   if (it.kind === "order") {
     if (!L.pool) { var tl = it.t.concat(it.extra || []); L.pool = shuffle(tl.map(function (t, i) { return { t: t, id: i }; })); L.line = []; }
@@ -649,12 +649,12 @@ function itemInner(u, ei, ii, it, ex) {
     var ans = [it.t.join(" ")].concat(it.alt || []).map(norm);
     var lineTxt = L.line.map(function (id) { return L.pool.filter(function (p) { return p.id === id; })[0].t; }).join(" ");
     var res = L.res;
-    return num + (it.from ? '<div class="q" style="font-size:1.3rem"><span class="muted" style="font-family:var(--f-body);font-size:.85rem">Fiil cümlesi:</span> ' + it.from + '</div>' : '') +
-      '<div class="tile-line' + (res === "ok" ? " okk" : res === "no" ? " nok" : "") + '">' + (L.line.length ? L.line.map(function (id, pos) { var p = L.pool.filter(function (x) { return x.id === id; })[0]; return '<button class="tile inl" data-act="unplace" data-key="' + key + '" data-pos="' + pos + '"' + (res === "ok" ? " disabled" : "") + '>' + p.t + '</button>'; }).join("") : '<span class="muted" style="font-size:.9rem;direction:ltr">Kelimelere sırayla dokun; cümle sağdan sola dizilir.</span>') + '</div>' +
+    return num + (it.from ? '<div class="q" style="font-size:1.3rem"><span class="muted" style="font-family:var(--f-body);font-size:.85rem">Verbal sentence:</span> ' + it.from + '</div>' : '') +
+      '<div class="tile-line' + (res === "ok" ? " okk" : res === "no" ? " nok" : "") + '">' + (L.line.length ? L.line.map(function (id, pos) { var p = L.pool.filter(function (x) { return x.id === id; })[0]; return '<button class="tile inl" data-act="unplace" data-key="' + key + '" data-pos="' + pos + '"' + (res === "ok" ? " disabled" : "") + '>' + p.t + '</button>'; }).join("") : '<span class="muted" style="font-size:.9rem;direction:ltr">Tap the words in order; the sentence builds from right to left.</span>') + '</div>' +
       (res === "ok" ? '' : '<div class="tiles">' + L.pool.map(function (p) { return '<button class="tile" data-act="place" data-key="' + key + '" data-id="' + p.id + '"' + (used[p.id] ? " disabled" : "") + '>' + p.t + '</button>'; }).join("") + '</div>') +
-      (res === "ok" ? '<div class="fb"><span class="ok">Doğru.</span></div>' + trAfter(it, true) :
-        '<div class="row-btns"><button class="btn small solid" data-act="ocheck" data-key="' + key + '">Kontrol et</button><button class="btn small" data-act="oreset" data-key="' + key + '">Sıfırla</button>' + (res === "no" ? '<button class="btn small" data-act="oshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
-        (res === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> ' + (it.extra ? 'Fiilin fâile uyup uymadığına bak.' : 'Cümle anlamlı mı, sıra doğru mu?') + (L.show ? ' Doğrusu: <span class="ar">' + it.t.join(" ") + '</span>' : '') + '</div>' : ''));
+      (res === "ok" ? '<div class="fb"><span class="ok">Correct.</span></div>' + trAfter(it, true) :
+        '<div class="row-btns"><button class="btn small solid" data-act="ocheck" data-key="' + key + '">Check</button><button class="btn small" data-act="oreset" data-key="' + key + '">Reset</button>' + (res === "no" ? '<button class="btn small" data-act="oshow" data-key="' + key + '">Show the answer</button>' : '') + '</div>' +
+        (res === "no" ? '<div class="fb"><span class="no">Not yet.</span> ' + (it.extra ? 'Check whether the verb agrees with the fā‘il.' : 'Does the sentence make sense? Is the order right?') + (L.show ? ' Answer: <span class="ar">' + it.t.join(" ") + '</span>' : '') + '</div>' : ''));
   }
   if (it.kind === "tag") {
     var cs = chunks(it.c);
@@ -663,11 +663,11 @@ function itemInner(u, ei, ii, it, ex) {
     return num + '<div class="sent" style="gap:8px">' + cs.map(function (c, ci) {
       var r = res2 === "ok" ? c.r : L.tags[ci];
       var wrong = res2 === "no" && L.tags[ci] !== c.r;
-      return '<button class="tagbtn' + (r ? " has r-" + r : "") + (wrong ? " wrong" : "") + '" data-act="tag" data-key="' + key + '" data-ci="' + ci + '"' + (res2 === "ok" ? " disabled" : "") + '><span class="w">' + c.t + '</span><span class="t">' + (r ? ROLES[r].tr : "dokun") + '</span></button>';
+      return '<button class="tagbtn' + (r ? " has r-" + r : "") + (wrong ? " wrong" : "") + '" data-act="tag" data-key="' + key + '" data-ci="' + ci + '"' + (res2 === "ok" ? " disabled" : "") + '><span class="w">' + c.t + '</span><span class="t">' + (r ? ROLES[r].tr : "tap") + '</span></button>';
     }).join("") + '</div>' +
-      (res2 === "ok" ? '<div class="fb"><span class="ok">Doğru.</span> ' + endingNote(cs) + (it.why ? ' ' + it.why : '') + '</div>' + trAfter(it, true) :
-        '<div class="row-btns"><button class="btn small solid" data-act="tcheck" data-key="' + key + '">Kontrol et</button>' + (res2 === "no" ? '<button class="btn small" data-act="tshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
-        (res2 === "no" ? '<div class="fb"><span class="no">Kırmızı çerçeveli parçaları yeniden düşün.</span> Roller: ' + roles.map(function (r) { return ROLES[r].tr; }).join(", ") + '.</div>' : ''));
+      (res2 === "ok" ? '<div class="fb"><span class="ok">Correct.</span> ' + endingNote(cs) + (it.why ? ' ' + it.why : '') + '</div>' + trAfter(it, true) :
+        '<div class="row-btns"><button class="btn small solid" data-act="tcheck" data-key="' + key + '">Check</button>' + (res2 === "no" ? '<button class="btn small" data-act="tshow" data-key="' + key + '">Show the answer</button>' : '') + '</div>' +
+        (res2 === "no" ? '<div class="fb"><span class="no">Rethink the parts with a red frame.</span> Roles: ' + roles.map(function (r) { return ROLES[r].tr; }).join(", ") + '.</div>' : ''));
   }
   if (it.kind === "combo") {
     var slots = it.p.filter(function (x) { return typeof x !== "string"; });
@@ -680,19 +680,19 @@ function itemInner(u, ei, ii, it, ex) {
       return '<button class="slot' + (v < 0 ? " empty" : "") + (okSlot ? " right" : "") + (res3 === "no" ? " wrong" : "") + '" data-act="cycle" data-key="' + key + '" data-si="' + si + '"' + (okSlot ? " disabled" : "") + '>' + (v < 0 ? "؟" : part.o[v]) + '</button>';
     }).join("");
     return num + (it.q ? '<div class="q" style="font-size:1.3rem">' + it.q + '</div>' : '') + '<div class="combo-line">' + line + '</div>' +
-      (res3 === "ok" ? '<div class="fb"><span class="ok">Doğru.</span></div>' + (Array.isArray(it.tr) ? '<div class="trline">' + it.tr[Math.max(0, it.ok.findIndex(function (c) { return c.every(function (v, i) { return L.sel[i] === v; }); }))] + '</div>' : trAfter(it, true)) :
-        '<div class="row-btns"><button class="btn small solid" data-act="ccheck" data-key="' + key + '">Kontrol et</button>' + (res3 === "no" ? '<button class="btn small" data-act="cshow" data-key="' + key + '">Doğrusunu göster</button>' : '') + '</div>' +
-        (res3 === "no" ? '<div class="fb"><span class="no">Henüz olmadı.</span> Kutulara dokunarak seçenekleri değiştir. Fâil ve mübtedâ ötre, mef\'ûl üstün alır; fiil fâile uyar.</div>' : ''));
+      (res3 === "ok" ? '<div class="fb"><span class="ok">Correct.</span></div>' + (Array.isArray(it.tr) ? '<div class="trline">' + it.tr[Math.max(0, it.ok.findIndex(function (c) { return c.every(function (v, i) { return L.sel[i] === v; }); }))] + '</div>' : trAfter(it, true)) :
+        '<div class="row-btns"><button class="btn small solid" data-act="ccheck" data-key="' + key + '">Check</button>' + (res3 === "no" ? '<button class="btn small" data-act="cshow" data-key="' + key + '">Show the answer</button>' : '') + '</div>' +
+        (res3 === "no" ? '<div class="fb"><span class="no">Not yet.</span> Tap the boxes to change the options. The fā‘il and mubtada’ take ḍamma, the object takes fatḥa; the verb agrees with the fā‘il.</div>' : ''));
   }
   return "";
 }
 function endingNote(cs) {
   var parts = [];
   cs.forEach(function (c) {
-    if (c.r === "mub" || c.r === "hab" || c.r === "fail") parts.push('<span class="ar r-' + c.r + '">' + c.t.split(" ")[0] + '</span> merfû');
-    if (c.r === "mef") parts.push('<span class="ar r-mef">' + c.t.split(" ")[0] + '</span> mansûb');
+    if (c.r === "mub" || c.r === "hab" || c.r === "fail") parts.push('<span class="ar r-' + c.r + '">' + c.t.split(" ")[0] + '</span> nominative');
+    if (c.r === "mef") parts.push('<span class="ar r-mef">' + c.t.split(" ")[0] + '</span> accusative');
   });
-  return parts.length ? "Son harekeler: " + parts.join(" · ") + "." : "";
+  return parts.length ? "Final vowels: " + parts.join(" · ") + "." : "";
 }
 function rerenderItem(key) {
   var p = key.split("-"), u = unitById(p[0]), ei = +p[1], ii = +p[2], ex = u.ex[ei];
@@ -702,7 +702,7 @@ function rerenderItem(key) {
 }
 function itemFromKey(key) { var p = key.split("-"), u = unitById(p[0]), ex = u.ex[+p[1]]; return { u: u, ex: ex, it: expand(ex)[+p[2]] }; }
 
-// sözcük bankası
+// word bank
 function renderBank(u, ex, ei) {
   var key = u.id + "-" + ei + "-bank";
   var L = LIVE[key] || (LIVE[key] = { fill: ex.items.map(function () { return -1; }), sel: -1 });
@@ -712,10 +712,10 @@ function renderBank(u, ex, ei) {
       var f = L.fill[ii], k2 = keyOf(u, ei, ii), res = L.res ? L.res[ii] : null;
       return '<div class="item' + (res === true ? " ok" : res === false ? " no" : "") + '"><span class="qn tabular">' + (ii + 1) + '</span><div class="combo-line"><button class="slot' + (f < 0 ? " empty" : "") + (res === true ? " right" : res === false ? " wrong" : "") + '" data-act="bput" data-key="' + key + '" data-ii="' + ii + '"' + (res === true ? " disabled" : "") + '>' + (f < 0 ? "؟" : ex.bank[f]) + '</button><span>' + it.h + '</span></div>' + (res === true ? trAfter(it, true) : '') + '</div>';
     }).join("") + '</div>' +
-    '<div class="row-btns"><button class="btn small solid" data-act="bcheck" data-key="' + key + '">Kontrol et</button><button class="btn small" data-act="breset" data-key="' + key + '">Sıfırla</button></div>' +
+    '<div class="row-btns"><button class="btn small solid" data-act="bcheck" data-key="' + key + '">Check</button><button class="btn small" data-act="breset" data-key="' + key + '">Reset</button></div>' +
     (L.msg ? '<div class="fb">' + L.msg + '</div>' : '');
 }
-// hikâye
+// story
 function renderStory(u, ex, ei) {
   var key = u.id + "-" + ei + "-0";
   var L = LIVE[key] || (LIVE[key] = { on: ex.parts.map(function () { return 0; }) });
@@ -727,17 +727,17 @@ function renderStory(u, ex, ei) {
     return '<button class="vb' + (L.on[pi] ? " on" : "") + (wrong ? " wrong" : "") + '" data-act="sv" data-key="' + key + '" data-pi="' + pi + '"' + (res === "ok" ? " disabled" : "") + '>' + p.v[L.on[pi]] + '</button>';
   }).join("");
   return '<div class="card stack" style="background:var(--soft);border:0"><h3 class="ar" style="font-size:1.5rem;color:var(--accent)">' + ex.title.replace("عَلِيٍّ", "لَيْلَى") + '</h3><p class="story">' + html + '</p></div>' +
-    (res === "ok" ? '<div class="fb"><span class="ok">Aferin!</span> Bütün fiiller Leylâ\'ya uydu. <span class="ar">وَصَلَتِ الحَافِلَةُ</span> ise değişmedi, çünkü onun fâili otobüs.</div><p class="trline">' + ex.tr2 + '</p>' :
-      '<div class="row-btns"><button class="btn small solid" data-act="scheck" data-key="' + key + '">Kontrol et</button></div>' +
-      (res === "no" ? '<div class="fb"><span class="no">Kırmızı çerçeveli fiillere bak.</span> Fâili Leylâ olan fiiller müennes olmalı; fâili başka biri olan fiil değişmez.</div>' : ''));
+    (res === "ok" ? '<div class="fb"><span class="ok">Well done!</span> All the verbs now agree with Layla. <span class="ar">وَصَلَتِ الحَافِلَةُ</span> did not change, because its fā‘il is the bus.</div><p class="trline">' + ex.tr2 + '</p>' :
+      '<div class="row-btns"><button class="btn small solid" data-act="scheck" data-key="' + key + '">Check</button></div>' +
+      (res === "no" ? '<div class="fb"><span class="no">Look at the verbs with a red frame.</span> Verbs whose fā‘il is Layla must be feminine; a verb with a different fā‘il does not change.</div>' : ''));
 }
-// okuma parçası (ders 1)
+// reading passage (lesson 1)
 function renderReading(u, ex, ei) {
   var cls = ex.cls;
   return readingText(ex) +
     '<div class="stack">' + ex.qa.map(function (q, qi) {
       var k = u.id + "-" + ei + "-q" + qi, open = LIVE[k] && LIVE[k].open;
-      return '<div class="qa"><div class="ar">' + (qi + 1) + ' ـ ' + q.q + '</div>' + (open ? '<div class="ar" style="color:var(--accent)">' + q.a + '</div><div class="trline">' + q.tr + '</div>' : '<div><button class="btn small" data-act="qa" data-key="' + k + '">Örnek cevabı göster</button></div>') + '</div>';
+      return '<div class="qa"><div class="ar">' + (qi + 1) + ' ـ ' + q.q + '</div>' + (open ? '<div class="ar" style="color:var(--accent)">' + q.a + '</div><div class="trline">' + q.tr + '</div>' : '<div><button class="btn small" data-act="qa" data-key="' + k + '">Show a sample answer</button></div>') + '</div>';
     }).join("") + '</div>' +
     '<div class="exer-head"><div class="ar">٤ ـ ' + cls.ar + '</div><div><b>' + cls.tr + '</b></div></div>' +
     '<div class="items">' + cls.items.map(function (it, ii) {
@@ -748,26 +748,26 @@ function renderReading(u, ex, ei) {
 function clsInner(key, it, ii) {
   var L = LIVE[key] || (LIVE[key] = {}), c = L.ch;
   return '<span class="qn tabular">' + (ii + 1) + '</span><div class="q">' + it.s + '</div><div class="cls-btns">' +
-    [["i", "İsim cümlesi", "اسْمِيَّةٌ"], ["f", "Fiil cümlesi", "فِعْلِيَّةٌ"]].map(function (b) {
+    [["i", "Nominal sentence", "اسْمِيَّةٌ"], ["f", "Verbal sentence", "فِعْلِيَّةٌ"]].map(function (b) {
       var cl = c ? (b[0] === it.a ? " sel-ok" : (b[0] === c ? " sel-no" : "")) : "";
       return '<button class="opt lat' + cl + '" data-act="rcls" data-key="' + key + '" data-ii="' + ii + '" data-v="' + b[0] + '"' + (c ? " disabled" : "") + '>' + b[1] + ' <span class="ar" style="font-weight:400">' + b[2] + '</span></button>';
-    }).join("") + '</div>' + (c ? '<div class="fb">' + (c === it.a ? '<span class="ok">Doğru.</span> ' : '<span class="no">Yanlış.</span> ') + (it.why || (it.a === "i" ? "İsimle başlıyor." : "Fiille başlıyor.")) + '</div>' : '');
+    }).join("") + '</div>' + (c ? '<div class="fb">' + (c === it.a ? '<span class="ok">Correct.</span> ' : '<span class="no">Not quite.</span> ') + (it.why || (it.a === "i" ? "It starts with a noun." : "It starts with a verb.")) + '</div>' : '');
 }
 
-// ---------- serbest okuma ----------
+// ---------- free reading ----------
 function renderOkuma() {
   var K = KIRAAT, asia = K.countries.filter(function (c) { return c[2] === "as"; }), afr = K.countries.filter(function (c) { return c[2] === "af"; });
   return '<section class="panel">' +
-    '<div class="card stack"><div class="lbl">قِرَاءَةٌ حُرَّةٌ · Serbest okuma</div><h2 class="ar" style="font-size:2rem;color:var(--accent)">' + K.title + '</h2>' +
+    '<div class="card stack"><div class="lbl">قِرَاءَةٌ حُرَّةٌ · Free reading</div><h2 class="ar" style="font-size:2rem;color:var(--accent)">' + K.title + '</h2>' +
       K.paras.map(function (p, i) { return '<p class="passage">' + p + '</p>' + (ST.tr ? '<p class="passage-tr">' + K.parasTr[i] + '</p>' : ''); }).join("") +
-      '<div><button class="btn small" data-trtoggle="1">Türkçe anlamlar: ' + (ST.tr ? "açık" : "kapalı") + '</button></div></div>' +
-    '<div class="card stack"><div class="lbl">Görsel</div><h2>İslâm dünyası iki kıtada</h2>' +
-      '<div class="continents"><div class="cont" style="--role:var(--mub)"><h3>آسِيَا · Asya</h3><div class="chips">' + asia.map(function (c) { return '<span title="' + c[1] + '">' + c[0] + '</span>'; }).join("") + '</div></div>' +
-      '<div class="cont" style="--role:var(--fail)"><h3>إِفْرِيقِيَا · Afrika</h3><div class="chips">' + afr.map(function (c) { return '<span title="' + c[1] + '">' + c[0] + '</span>'; }).join("") + '<span class="flag" title="Maldivler">مَالْدِيف</span></div></div></div>' +
-      '<p class="muted" style="font-size:.9rem">Not: Kitap Maldivleri Afrika listesinde sayıyor; Maldivler coğrafî olarak Güney Asya\'dadır. Bu yüzden Kıta Avı oyununa alınmadı. Yukarı Volta bugünkü Burkina Faso\'dur.</p></div>' +
-    '<div class="card stack"><div class="lbl">Anladın mı?</div><h2>Parçayla ilgili sorular</h2><div class="items">' +
+      '<div><button class="btn small" data-trtoggle="1">English meanings: ' + (ST.tr ? "on" : "off") + '</button></div></div>' +
+    '<div class="card stack"><div class="lbl">Visual</div><h2>The Islamic world on two continents</h2>' +
+      '<div class="continents"><div class="cont" style="--role:var(--mub)"><h3>آسِيَا · Asia</h3><div class="chips">' + asia.map(function (c) { return '<span title="' + c[1] + '">' + c[0] + '</span>'; }).join("") + '</div></div>' +
+      '<div class="cont" style="--role:var(--fail)"><h3>إِفْرِيقِيَا · Africa</h3><div class="chips">' + afr.map(function (c) { return '<span title="' + c[1] + '">' + c[0] + '</span>'; }).join("") + '<span class="flag" title="Maldives">مَالْدِيف</span></div></div></div>' +
+      '<p class="muted" style="font-size:.9rem">Note: The book lists the Maldives under Africa, but geographically the Maldives are in South Asia, so they are left out of the Continent Hunt game. Upper Volta is today’s Burkina Faso.</p></div>' +
+    '<div class="card stack"><div class="lbl">Did you understand?</div><h2>Questions about the passage</h2><div class="items">' +
       K.quiz.map(function (q, qi) { var key = "ok-" + qi; return '<div class="item" id="it-' + key + '">' + kqInner(key, q, qi) + '</div>'; }).join("") + '</div></div>' +
-    '<div class="card stack" style="text-align:center;justify-items:center"><h2>Kıta Avı</h2><p class="muted">Ülkeyi Arapça adından tanı: Asya mı, Afrika mı? Oyunlar sekmesinde.</p><button class="btn solid" data-gstart="kita">Kıta Avı\'nı oyna</button></div>' +
+    '<div class="card stack" style="text-align:center;justify-items:center"><h2>Continent Hunt</h2><p class="muted">Recognize each country from its Arabic name: Asia or Africa? In the Games tab.</p><button class="btn solid" data-gstart="kita">Play Continent Hunt</button></div>' +
   '</section>';
 }
 function kqInner(key, q, qi) {
@@ -778,7 +778,7 @@ function kqInner(key, q, qi) {
   }).join("") + '</div>' + (c != null ? '<div class="trline">' + q.tr + '</div>' : '');
 }
 
-// ---------- olaylar: alıştırmalar ----------
+// ---------- events: exercises ----------
 main.addEventListener("click", function (ev) {
   var b = ev.target.closest("button"); if (!b) return;
   var d = b.dataset, key = d.key;
@@ -834,7 +834,7 @@ main.addEventListener("click", function (ev) {
       L.res = exb.items.map(function (it, i) { return L.fill[i] >= 0 && it.a.indexOf(L.fill[i]) >= 0; });
       L.res.forEach(function (r, i) { if (L.fill[i] >= 0) mark(ub.id + "-" + pb[1] + "-" + i, r); });
       var nOk = L.res.filter(Boolean).length;
-      L.msg = nOk === exb.items.length ? '<span class="ok">Hepsi doğru!</span> Haber ikil ise mübtedâ da ikil; akıl sahibi olmayan çoğulun haberi tekil müennes.' : '<span class="no">' + nOk + ' / ' + exb.items.length + ' doğru.</span> Kırmızı kutuları değiştir.';
+      L.msg = nOk === exb.items.length ? '<span class="ok">All correct!</span> If the khabar is dual, the mubtada’ is dual too; a non-human plural takes a feminine singular khabar.' : '<span class="no">' + nOk + ' / ' + exb.items.length + ' correct.</span> Change the red boxes.';
       rerenderBank(key); break;
     case "sv": L.on[+d.pi] = L.on[+d.pi] ? 0 : 1; L.res = null; rerenderStory(key); break;
     case "scheck":
