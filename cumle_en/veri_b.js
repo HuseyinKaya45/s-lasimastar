@@ -3,21 +3,21 @@
 },
 // ---------------------------------------------------------------- 3
 {
-  id: "u3", short: "Fâil", no: 3, ar: "الجُمْلَةُ الفِعْلِيَّةُ", sub: "الفَاعِلُ وَتَأْنِيثُ الفِعْلِ مَعَهُ", tr: "Fiil Cümlesi: Fâil ve Fiilin Müennes Olması", col: "fail",
-  goals: ["Fiil ile fâili bulmak", "Fiilin başta hep tekil kaldığını görmek", "Fâil müennes olunca fiili müennes yapmak (ـتْ / تـ)", "Akıl sahibi olmayan çoğulda fiili tekil müennes yapmak"],
+  id: "u3", short: "Fā‘il", no: 3, ar: "الجُمْلَةُ الفِعْلِيَّةُ", sub: "الفَاعِلُ وَتَأْنِيثُ الفِعْلِ مَعَهُ", tr: "Verbal Sentence: The Fā‘il and Verb Gender", col: "fail",
+  goals: ["Finding the verb and its fā‘il (doer)", "Seeing that a verb at the start always stays singular", "Making the verb feminine when the fā‘il is feminine (ـتْ / تـ)", "Using a feminine singular verb with a non-human plural"],
   examples: [
-    { s: "غَسَلَ:fiil / أَحْمَدُ:fail / وَجْهَهُ:x / فِي الحَمَّامِ:x", tr: "Ahmed banyoda yüzünü yıkadı.", pair: "غَسَلَتْ:fiil / زَيْنَبُ:fail / وَجْهَهَا:x / فِي الحَمَّامِ:x", pairTr: "Zeyneb banyoda yüzünü yıkadı." },
-    { s: "يَخْرُجُ:fiil / سُلَيْمَانُ:fail / مِنَ البَيْتِ:x", tr: "Süleyman evden çıkıyor.", pair: "تَخْرُجُ:fiil / عَائِشَةُ:fail / مِنَ البَيْتِ:x", pairTr: "Âişe evden çıkıyor." },
-    { s: "تَنَاوَلَ:fiil / خَالِدٌ:fail / الفَطُورَ:x", tr: "Hâlid kahvaltı yaptı.", pair: "تَنَاوَلَتْ:fiil / لَيْلَى:fail / الفَطُورَ:x", pairTr: "Leylâ kahvaltı yaptı." },
-    { s: "دَخَلَ:fiil / الصَّدِيقَانِ:fail / المَطْعَمَ:x", tr: "İki arkadaş lokantaya girdi.", pair: "دَخَلَتِ:fiil / الصَّدِيقَتَانِ:fail / المَطْعَمَ:x", pairTr: "İki kız arkadaş lokantaya girdi." },
-    { s: "يَذْهَبُ:fiil / الأَوْلَادُ:fail / إِلَى النُّزْهَةِ:x", tr: "Çocuklar gezintiye gidiyor.", pair: "تَذْهَبُ:fiil / البَنَاتُ:fail / إِلَى النُّزْهَةِ:x", pairTr: "Kızlar gezintiye gidiyor." }
+    { s: "غَسَلَ:fiil / أَحْمَدُ:fail / وَجْهَهُ:x / فِي الحَمَّامِ:x", tr: "Ahmad washed his face in the bathroom.", pair: "غَسَلَتْ:fiil / زَيْنَبُ:fail / وَجْهَهَا:x / فِي الحَمَّامِ:x", pairTr: "Zaynab washed her face in the bathroom." },
+    { s: "يَخْرُجُ:fiil / سُلَيْمَانُ:fail / مِنَ البَيْتِ:x", tr: "Sulayman is leaving the house.", pair: "تَخْرُجُ:fiil / عَائِشَةُ:fail / مِنَ البَيْتِ:x", pairTr: "Aisha is leaving the house." },
+    { s: "تَنَاوَلَ:fiil / خَالِدٌ:fail / الفَطُورَ:x", tr: "Khalid had breakfast.", pair: "تَنَاوَلَتْ:fiil / لَيْلَى:fail / الفَطُورَ:x", pairTr: "Layla had breakfast." },
+    { s: "دَخَلَ:fiil / الصَّدِيقَانِ:fail / المَطْعَمَ:x", tr: "The two friends entered the restaurant.", pair: "دَخَلَتِ:fiil / الصَّدِيقَتَانِ:fail / المَطْعَمَ:x", pairTr: "The two (female) friends entered the restaurant." },
+    { s: "يَذْهَبُ:fiil / الأَوْلَادُ:fail / إِلَى النُّزْهَةِ:x", tr: "The boys are going on an outing.", pair: "تَذْهَبُ:fiil / البَنَاتُ:fail / إِلَى النُّزْهَةِ:x", pairTr: "The girls are going on an outing." }
   ],
   rules: [
-    { tr: "Fiil cümlesi bir fiille başlar.", ex: ["خَرَجَ مُحَمَّدٌ مِنَ الفَصْلِ.", "نَجَحَتْ سُعَادُ فِي الامْتِحَانِ."] },
-    { tr: "Her fiilin bir <b class=\"r-fail\">fâili</b> vardır: işi yapan odur. Fâil, fiilden sonra gelen <b>merfû</b> bir isimdir.", ex: ["يَدْرُسُ خَالِدٌ فِي جَامِعَةِ مَرْمَرَةَ."] },
-    { tr: "Fiil cümlenin başındaysa <b>daima tekil</b> kalır; fâil tekil, ikil ya da çoğul olabilir.", ex: ["وَقَفَ الطَّالِبُ أَمَامَ السَّبُّورَةِ.", "وَقَفَ الطَّالِبَانِ أَمَامَ السَّبُّورَةِ.", "وَقَفَ الطُّلَّابُ أَمَامَ السَّبُّورَةِ."] },
-    { tr: "Fâil müennes ise fiil de müennes olur: mâzîde sona <b>ـتْ</b>, muzâride başa <b>تـ</b> gelir.", ex: ["شَرِبَتْ فَاطِمَةُ قَهْوَةً.", "تَشْرَبُ فَاطِمَةُ قَهْوَةً."] },
-    { tr: "Fâil <b>akıl sahibi olmayan bir çoğul</b> ise fiil <b>tekil müennes</b> gelir.", ex: ["لَمَعَتِ النُّجُومُ.", "تَلْمَعُ النُّجُومُ."] }
+    { tr: "A verbal sentence (jumla fi‘liyya) begins with a verb.", ex: ["خَرَجَ مُحَمَّدٌ مِنَ الفَصْلِ.", "نَجَحَتْ سُعَادُ فِي الامْتِحَانِ."] },
+    { tr: "Every verb has a <b class=\"r-fail\">fā‘il</b> (doer): the one who does the action. The fā‘il is a <b>nominative</b> (marfū‘) noun that comes after the verb.", ex: ["يَدْرُسُ خَالِدٌ فِي جَامِعَةِ مَرْمَرَةَ."] },
+    { tr: "When the verb comes at the start of the sentence, it <b>always stays singular</b>; the fā‘il can be singular, dual or plural.", ex: ["وَقَفَ الطَّالِبُ أَمَامَ السَّبُّورَةِ.", "وَقَفَ الطَّالِبَانِ أَمَامَ السَّبُّورَةِ.", "وَقَفَ الطُّلَّابُ أَمَامَ السَّبُّورَةِ."] },
+    { tr: "If the fā‘il is feminine, the verb is feminine too: the past (māḍī) adds <b>ـتْ</b> at the end, the present (muḍāri‘) adds <b>تـ</b> at the beginning.", ex: ["شَرِبَتْ فَاطِمَةُ قَهْوَةً.", "تَشْرَبُ فَاطِمَةُ قَهْوَةً."] },
+    { tr: "If the fā‘il is a <b>non-human plural</b>, the verb is <b>feminine singular</b>.", ex: ["لَمَعَتِ النُّجُومُ.", "تَلْمَعُ النُّجُومُ."] }
   ],
   kaide: [
     "١ـ الجُمْلَةُ الفِعْلِيَّةُ تَبْدَأُ بِفِعْلٍ، مِثْلُ: خَرَجَ مُحَمَّدٌ مِنَ الفَصْلِ، نَجَحَتْ سُعَادُ فِي الامْتِحَانِ.",
@@ -27,92 +27,92 @@
     "٥ـ إِذَا كَانَ الفَاعِلُ جَمْعًا وَغَيْرَ عَاقِلٍ يَكُونُ الفِعْلُ مُفْرَدًا مُؤَنَّثًا: لَمَعَتِ النُّجُومُ، تَلْمَعُ النُّجُومُ."
   ],
   ex: [
-    { type: "tag", roles: ["fiil", "fail", "x"], ar: "عَيِّنِ الفِعْلَ وَالفَاعِلَ فِي الجُمَلِ الآتِيَةِ", tr: "Fiil ve fâili belirle: parçalara dokunarak rolünü seç.", items: [
-      { c: "سَافَرَ:fiil / عُمَرُ:fail / إِلَى مَكَّةَ:x", tr: "Ömer Mekke'ye yolculuk etti." },
-      { c: "تَوَجَّهَ:fiil / المَرِيضُ:fail / إِلَى البَابِ:x", tr: "Hasta kapıya yöneldi." },
-      { c: "يُغَادِرُ:fiil / الوَزِيرُ:fail / إِسْطَنْبُولَ:x / عَائِدًا إِلَى بَلَدِهِ:x", tr: "Bakan ülkesine dönmek üzere İstanbul'dan ayrılıyor." },
-      { c: "يَنْتَخِبُ:fiil / الشَّعْبُ:fail / أَعْضَاءَ البَرْلَمَانِ:x / يَوْمَ الأَحَدِ:x", tr: "Halk pazar günü milletvekillerini seçiyor." },
-      { c: "سَاعَدَتْ:fiil / خَدِيجَةُ:fail / أُمَّهَا:x / فِي المَطْبَخِ:x", tr: "Hadîce mutfakta annesine yardım etti." },
-      { c: "شَاهَدَتْ:fiil / سَارَةُ:fail / بَرْنَامَجًا مُهِمًّا:x / فِي التِّلْفَازِ:x", tr: "Sâre televizyonda önemli bir program izledi." },
-      { c: "تَعْمَلُ:fiil / زَيْنَبُ:fail / طَبِيبَةً:x / فِي المُسْتَشْفَى:x", tr: "Zeyneb hastanede doktor olarak çalışıyor." },
-      { c: "تَقْضِي:fiil / فَاطِمَةُ:fail / العُطْلَةَ:x / فِي القَرْيَةِ:x", tr: "Fâtıma tatili köyde geçiriyor." }
+    { type: "tag", roles: ["fiil", "fail", "x"], ar: "عَيِّنِ الفِعْلَ وَالفَاعِلَ فِي الجُمَلِ الآتِيَةِ", tr: "Identify the verb and the fā‘il: tap each part to choose its role.", items: [
+      { c: "سَافَرَ:fiil / عُمَرُ:fail / إِلَى مَكَّةَ:x", tr: "Umar travelled to Makkah." },
+      { c: "تَوَجَّهَ:fiil / المَرِيضُ:fail / إِلَى البَابِ:x", tr: "The patient headed for the door." },
+      { c: "يُغَادِرُ:fiil / الوَزِيرُ:fail / إِسْطَنْبُولَ:x / عَائِدًا إِلَى بَلَدِهِ:x", tr: "The minister is leaving Istanbul to return to his country." },
+      { c: "يَنْتَخِبُ:fiil / الشَّعْبُ:fail / أَعْضَاءَ البَرْلَمَانِ:x / يَوْمَ الأَحَدِ:x", tr: "The people elect the members of parliament on Sunday." },
+      { c: "سَاعَدَتْ:fiil / خَدِيجَةُ:fail / أُمَّهَا:x / فِي المَطْبَخِ:x", tr: "Khadija helped her mother in the kitchen." },
+      { c: "شَاهَدَتْ:fiil / سَارَةُ:fail / بَرْنَامَجًا مُهِمًّا:x / فِي التِّلْفَازِ:x", tr: "Sarah watched an important programme on television." },
+      { c: "تَعْمَلُ:fiil / زَيْنَبُ:fail / طَبِيبَةً:x / فِي المُسْتَشْفَى:x", tr: "Zaynab works as a doctor at the hospital." },
+      { c: "تَقْضِي:fiil / فَاطِمَةُ:fail / العُطْلَةَ:x / فِي القَرْيَةِ:x", tr: "Fatima is spending the holiday in the village." }
     ]},
-    { type: "pick", agree: true, ar: "حَوِّلِ الفَاعِلَ إِلَى المُؤَنَّثِ مُغَيِّرًا مَا يَلْزَمُ", tr: "Fâili müennes yap; fiili de ona uydur. Doğru cümleyi seç.",
+    { type: "pick", agree: true, ar: "حَوِّلِ الفَاعِلَ إِلَى المُؤَنَّثِ مُغَيِّرًا مَا يَلْزَمُ", tr: "Make the fā‘il feminine and make the verb agree with it. Choose the correct sentence.",
       exHtml: "<span class=\"ar\">وَصَلَ السَّائِحُ إِلَى بَلَدِهِ ← وَصَلَتِ السَّائِحَةُ إِلَى بَلَدِهَا</span><br><span class=\"ar\">يَبْدَأُ المُعَلِّمُ الدَّرْسَ ← تَبْدَأُ المُعَلِّمَةُ الدَّرْسَ</span>", items: [
-      { q: "يُحِبُّ الطِّفْلُ اللَّعِبَ.", o: ["يُحِبُّ الطِّفْلَةُ اللَّعِبَ.", "تُحِبُّ الطِّفْلَةُ اللَّعِبَ.", "تُحِبُّ الطِّفْلُ اللَّعِبَ."], a: 1, tr: "Kız çocuğu oyunu sever." },
-      { q: "نَظَّفَ الوَلَدُ الغُرْفَةَ.", o: ["نَظَّفَتِ البِنْتُ الغُرْفَةَ.", "نَظَّفَ البِنْتُ الغُرْفَةَ.", "نَظَّفَتِ الوَلَدُ الغُرْفَةَ."], a: 0, tr: "Kız odayı temizledi." },
-      { q: "أَحْسَنَ الغَنِيُّ إِلَى المِسْكِينِ.", o: ["أَحْسَنَ الغَنِيَّةُ إِلَى المِسْكِينِ.", "أَحْسَنَتِ الغَنِيُّ إِلَى المِسْكِينِ.", "أَحْسَنَتِ الغَنِيَّةُ إِلَى المِسْكِينِ."], a: 2, tr: "Zengin kadın yoksula iyilik etti." },
-      { q: "يُنَظِّمُ التِّلْمِيذُ الكُتُبَ.", o: ["تُنَظِّمُ التِّلْمِيذَةُ الكُتُبَ.", "يُنَظِّمُ التِّلْمِيذَةُ الكُتُبَ.", "تُنَظِّمُ التِّلْمِيذُ الكُتُبَ."], a: 0, tr: "Kız talebe kitapları düzenliyor." },
-      { q: "يُسَافِرُ التَّاجِرُ إِلَى المَدِينَةِ.", o: ["يُسَافِرُ التَّاجِرَةُ إِلَى المَدِينَةِ.", "تُسَافِرُ التَّاجِرَةُ إِلَى المَدِينَةِ.", "تُسَافِرُ التَّاجِرُ إِلَى المَدِينَةِ."], a: 1, tr: "Tüccar kadın şehre yolculuk ediyor." },
-      { q: "يَبْنِي المُهَنْدِسُ بَيْتًا جَدِيدًا.", o: ["تَبْنِي المُهَنْدِسُ بَيْتًا جَدِيدًا.", "يَبْنِي المُهَنْدِسَةُ بَيْتًا جَدِيدًا.", "تَبْنِي المُهَنْدِسَةُ بَيْتًا جَدِيدًا."], a: 2, tr: "Kadın mühendis yeni bir ev yapıyor." },
-      { q: "بَاعَ التَّاجِرُ سَيَّارَةً.", o: ["بَاعَتِ التَّاجِرَةُ سَيَّارَةً.", "بَاعَ التَّاجِرَةُ سَيَّارَةً.", "بَاعَتِ التَّاجِرُ سَيَّارَةً."], a: 0, tr: "Tüccar kadın bir araba sattı." },
-      { q: "يَقْرَأُ الطَّالِبُ كِتَابًا جَدِيدًا.", o: ["يَقْرَأُ الطَّالِبَةُ كِتَابًا جَدِيدًا.", "تَقْرَأُ الطَّالِبُ كِتَابًا جَدِيدًا.", "تَقْرَأُ الطَّالِبَةُ كِتَابًا جَدِيدًا."], a: 2, tr: "Kız öğrenci yeni bir kitap okuyor." }
+      { q: "يُحِبُّ الطِّفْلُ اللَّعِبَ.", o: ["يُحِبُّ الطِّفْلَةُ اللَّعِبَ.", "تُحِبُّ الطِّفْلَةُ اللَّعِبَ.", "تُحِبُّ الطِّفْلُ اللَّعِبَ."], a: 1, tr: "The little girl loves playing." },
+      { q: "نَظَّفَ الوَلَدُ الغُرْفَةَ.", o: ["نَظَّفَتِ البِنْتُ الغُرْفَةَ.", "نَظَّفَ البِنْتُ الغُرْفَةَ.", "نَظَّفَتِ الوَلَدُ الغُرْفَةَ."], a: 0, tr: "The girl cleaned the room." },
+      { q: "أَحْسَنَ الغَنِيُّ إِلَى المِسْكِينِ.", o: ["أَحْسَنَ الغَنِيَّةُ إِلَى المِسْكِينِ.", "أَحْسَنَتِ الغَنِيُّ إِلَى المِسْكِينِ.", "أَحْسَنَتِ الغَنِيَّةُ إِلَى المِسْكِينِ."], a: 2, tr: "The rich woman was kind to the poor man." },
+      { q: "يُنَظِّمُ التِّلْمِيذُ الكُتُبَ.", o: ["تُنَظِّمُ التِّلْمِيذَةُ الكُتُبَ.", "يُنَظِّمُ التِّلْمِيذَةُ الكُتُبَ.", "تُنَظِّمُ التِّلْمِيذُ الكُتُبَ."], a: 0, tr: "The schoolgirl is arranging the books." },
+      { q: "يُسَافِرُ التَّاجِرُ إِلَى المَدِينَةِ.", o: ["يُسَافِرُ التَّاجِرَةُ إِلَى المَدِينَةِ.", "تُسَافِرُ التَّاجِرَةُ إِلَى المَدِينَةِ.", "تُسَافِرُ التَّاجِرُ إِلَى المَدِينَةِ."], a: 1, tr: "The businesswoman is travelling to the city." },
+      { q: "يَبْنِي المُهَنْدِسُ بَيْتًا جَدِيدًا.", o: ["تَبْنِي المُهَنْدِسُ بَيْتًا جَدِيدًا.", "يَبْنِي المُهَنْدِسَةُ بَيْتًا جَدِيدًا.", "تَبْنِي المُهَنْدِسَةُ بَيْتًا جَدِيدًا."], a: 2, tr: "The (female) engineer is building a new house." },
+      { q: "بَاعَ التَّاجِرُ سَيَّارَةً.", o: ["بَاعَتِ التَّاجِرَةُ سَيَّارَةً.", "بَاعَ التَّاجِرَةُ سَيَّارَةً.", "بَاعَتِ التَّاجِرُ سَيَّارَةً."], a: 0, tr: "The businesswoman sold a car." },
+      { q: "يَقْرَأُ الطَّالِبُ كِتَابًا جَدِيدًا.", o: ["يَقْرَأُ الطَّالِبَةُ كِتَابًا جَدِيدًا.", "تَقْرَأُ الطَّالِبُ كِتَابًا جَدِيدًا.", "تَقْرَأُ الطَّالِبَةُ كِتَابًا جَدِيدًا."], a: 2, tr: "The female student is reading a new book." }
     ]},
-    { type: "pick", fill: true, agree: true, ar: "امْلَأِ الفَرَاغَ بِالفِعْلِ المُنَاسِبِ مِمَّا بَيْنَ القَوْسَيْنِ", tr: "Boşluğa uygun fiili koy.",
+    { type: "pick", fill: true, agree: true, ar: "امْلَأِ الفَرَاغَ بِالفِعْلِ المُنَاسِبِ مِمَّا بَيْنَ القَوْسَيْنِ", tr: "Fill in the blank with the right verb.",
       exHtml: "<span class=\"ar\"><u>سَأَلَ</u> الوَالِدُ ابْنَهُ عَنِ العَمَلِ.</span> <span class=\"muted\">(سَأَلَ ، سَأَلَتْ)</span>", items: [
-      { q: "___ الجَيْشُ عَلَى سِلَاحٍ جَدِيدٍ.", o: ["حَصَلَ", "حَصَلَتْ"], a: 0, tr: "Ordu yeni bir silah edindi." },
-      { q: "___ الحُكُومَةُ حَلَّ مُشْكِلَةِ الإِسْكَانِ.", o: ["يُحَاوِلُ", "تُحَاوِلُ"], a: 1, tr: "Hükûmet konut sorununu çözmeye çalışıyor." },
-      { q: "___ الفَتَاةُ إِلَى مَكَّةَ لِطَلَبِ العِلْمِ.", o: ["رَحَلَ", "رَحَلَتْ"], a: 1, tr: "Genç kız ilim tahsili için Mekke'ye gitti." },
-      { q: "___ الوَلَدُ يَدَيْهِ.", o: ["يُنَظِّفُ", "تُنَظِّفُ"], a: 0, tr: "Çocuk ellerini temizliyor." },
-      { q: "___ المَرِيضُ الدَّوَاءَ.", o: ["شَرِبَ", "شَرِبَتْ"], a: 0, tr: "Hasta ilacı içti." },
-      { q: "___ السَّائِحُ بِلَادَنَا.", o: ["يَزُورُ", "تَزُورُ"], a: 0, tr: "Turist ülkemizi ziyaret ediyor." },
-      { q: "___ المُسْلِمَةُ فِي المَسْجِدِ.", o: ["جَلَسَ", "جَلَسَتْ"], a: 1, tr: "Müslüman hanım mescitte oturdu." },
-      { q: "___ المَرِيضُ مِنَ المُسْتَشْفَى.", o: ["يَخْرُجُ", "تَخْرُجُ"], a: 0, tr: "Hasta hastaneden çıkıyor." }
+      { q: "___ الجَيْشُ عَلَى سِلَاحٍ جَدِيدٍ.", o: ["حَصَلَ", "حَصَلَتْ"], a: 0, tr: "The army obtained a new weapon." },
+      { q: "___ الحُكُومَةُ حَلَّ مُشْكِلَةِ الإِسْكَانِ.", o: ["يُحَاوِلُ", "تُحَاوِلُ"], a: 1, tr: "The government is trying to solve the housing problem." },
+      { q: "___ الفَتَاةُ إِلَى مَكَّةَ لِطَلَبِ العِلْمِ.", o: ["رَحَلَ", "رَحَلَتْ"], a: 1, tr: "The young woman travelled to Makkah to seek knowledge." },
+      { q: "___ الوَلَدُ يَدَيْهِ.", o: ["يُنَظِّفُ", "تُنَظِّفُ"], a: 0, tr: "The boy is cleaning his hands." },
+      { q: "___ المَرِيضُ الدَّوَاءَ.", o: ["شَرِبَ", "شَرِبَتْ"], a: 0, tr: "The patient took the medicine." },
+      { q: "___ السَّائِحُ بِلَادَنَا.", o: ["يَزُورُ", "تَزُورُ"], a: 0, tr: "The tourist is visiting our country." },
+      { q: "___ المُسْلِمَةُ فِي المَسْجِدِ.", o: ["جَلَسَ", "جَلَسَتْ"], a: 1, tr: "The Muslim woman sat in the mosque." },
+      { q: "___ المَرِيضُ مِنَ المُسْتَشْفَى.", o: ["يَخْرُجُ", "تَخْرُجُ"], a: 0, tr: "The patient is leaving the hospital." }
     ]},
-    { type: "order", ar: "كَوِّنْ جُمَلًا فِعْلِيَّةً بِاخْتِيَارِ الفِعْلِ المُنَاسِبِ", tr: "Uygun fiili seçerek fiil cümlesi kur. Bir fiil fazladır, onu kullanma.",
+    { type: "order", ar: "كَوِّنْ جُمَلًا فِعْلِيَّةً بِاخْتِيَارِ الفِعْلِ المُنَاسِبِ", tr: "Build a verbal sentence by choosing the right verb. One verb is extra: don't use it.",
       exHtml: "<span class=\"ar\">(البِنْتُ – مِنْ – رَجَعَتْ – رَجَعَ – السُّوقِ) ← رَجَعَتِ البِنْتُ مِنَ السُّوقِ.</span>", items: [
-      { t: ["ذَهَبَ", "الوَلَدُ", "لِزِيَارَةِ", "جَدِّهِ"], extra: ["ذَهَبَتْ"], tr: "Çocuk dedesini ziyarete gitti." },
-      { t: ["تَحَرَّكَتِ", "الطَّائِرَةُ", "مِنْ", "أَرْضِ", "المَطَارِ"], extra: ["تَحَرَّكَ"], tr: "Uçak havalimanı pistinden hareket etti." },
-      { t: ["يَشْتَدُّ", "الحَرُّ", "فِي", "السُّودَانِ"], extra: ["تَشْتَدُّ"], tr: "Sudan'da sıcak şiddetlenir." },
-      { t: ["يَسْعَى", "الطَّالِبُ", "لِلْحُصُولِ", "عَلَى", "الشَّهَادَةِ"], extra: ["تَسْعَى"], tr: "Öğrenci diploma almaya çalışıyor." },
-      { t: ["قَرَأَتِ", "التِّلْمِيذَةُ", "القِصَّةَ"], extra: ["قَرَأَ"], tr: "Kız talebe hikâyeyi okudu." },
-      { t: ["سَقَطَ", "الرَّجُلُ", "فِي", "النَّهْرِ"], extra: ["سَقَطَتْ"], tr: "Adam nehre düştü." },
-      { t: ["انْتَظَرَتِ", "الفَتَاةُ", "خَالَتَهَا", "سَاعَةً"], extra: ["انْتَظَرَ"], tr: "Genç kız teyzesini bir saat bekledi." },
-      { t: ["تَسْكُنُ", "الزَّوْجَةُ", "مَعَ زَوْجِهَا", "فِي شَقَّةٍ", "كَبِيرَةٍ"], extra: ["يَسْكُنُ"], alt: ["تَسْكُنُ الزَّوْجَةُ فِي شَقَّةٍ كَبِيرَةٍ مَعَ زَوْجِهَا"], tr: "Hanım, eşiyle birlikte büyük bir dairede oturuyor." }
+      { t: ["ذَهَبَ", "الوَلَدُ", "لِزِيَارَةِ", "جَدِّهِ"], extra: ["ذَهَبَتْ"], tr: "The boy went to visit his grandfather." },
+      { t: ["تَحَرَّكَتِ", "الطَّائِرَةُ", "مِنْ", "أَرْضِ", "المَطَارِ"], extra: ["تَحَرَّكَ"], tr: "The plane set off from the airport grounds." },
+      { t: ["يَشْتَدُّ", "الحَرُّ", "فِي", "السُّودَانِ"], extra: ["تَشْتَدُّ"], tr: "The heat is intense in Sudan." },
+      { t: ["يَسْعَى", "الطَّالِبُ", "لِلْحُصُولِ", "عَلَى", "الشَّهَادَةِ"], extra: ["تَسْعَى"], tr: "The student is working to obtain the diploma." },
+      { t: ["قَرَأَتِ", "التِّلْمِيذَةُ", "القِصَّةَ"], extra: ["قَرَأَ"], tr: "The schoolgirl read the story." },
+      { t: ["سَقَطَ", "الرَّجُلُ", "فِي", "النَّهْرِ"], extra: ["سَقَطَتْ"], tr: "The man fell into the river." },
+      { t: ["انْتَظَرَتِ", "الفَتَاةُ", "خَالَتَهَا", "سَاعَةً"], extra: ["انْتَظَرَ"], tr: "The girl waited for her aunt for an hour." },
+      { t: ["تَسْكُنُ", "الزَّوْجَةُ", "مَعَ زَوْجِهَا", "فِي شَقَّةٍ", "كَبِيرَةٍ"], extra: ["يَسْكُنُ"], alt: ["تَسْكُنُ الزَّوْجَةُ فِي شَقَّةٍ كَبِيرَةٍ مَعَ زَوْجِهَا"], tr: "The wife lives with her husband in a large apartment." }
     ]},
-    { type: "number", ar: "حَوِّلِ الفَاعِلَ إِلَى المُثَنَّى وَالجَمْعِ", tr: "Fâili ikil ve çoğul yap. Dikkat: fiil başta olduğu için tekil kalır.",
+    { type: "number", ar: "حَوِّلِ الفَاعِلَ إِلَى المُثَنَّى وَالجَمْعِ", tr: "Make the fā‘il dual and plural. Careful: the verb stays singular because it comes first.",
       exHtml: "<span class=\"ar\">حَضَرَ الطَّالِبُ إِلَى الصَّفِّ ← حَضَرَ الطَّالِبَانِ إِلَى الصَّفِّ ← حَضَرَ الطُّلَّابُ إِلَى الصَّفِّ</span>", rows: [
-      { v: ["حَكَمَ", "حَكَمَا", "حَكَمُوا"], f: ["الحَاكِمُ", "الحَاكِمَانِ", "الحُكَّامُ"], r: ["بِالعَدْلِ"], tr: ["Hâkim adaletle hükmetti.", "İki hâkim adaletle hükmetti.", "Hâkimler adaletle hükmetti."] },
-      { v: ["يَضْرِبُ", "يَضْرِبَانِ", "يَضْرِبُونَ"], f: ["الوَلَدُ", "الوَلَدَانِ", "الأَوْلَادُ"], r: ["الكُرَةَ"], tr: ["Çocuk topa vuruyor.", "İki çocuk topa vuruyor.", "Çocuklar topa vuruyor."] },
-      { v: ["تَدْرُسُ", "تَدْرُسَانِ", "يَدْرُسْنَ"], f: ["الطَّالِبَةُ", "الطَّالِبَتَانِ", "الطَّالِبَاتُ"], r: ["فِي المَدْرَسَةِ الثَّانَوِيَّةِ"], tr: ["Kız öğrenci lisede okuyor.", "İki kız öğrenci lisede okuyor.", "Kız öğrenciler lisede okuyor."] },
-      { v: ["سَافَرَ", "سَافَرَا", "سَافَرُوا"], f: ["المُهَنْدِسُ", "المُهَنْدِسَانِ", "المُهَنْدِسُونَ"], r: ["إِلَى أَمْرِيكَا"], tr: ["Mühendis Amerika'ya gitti.", "İki mühendis Amerika'ya gitti.", "Mühendisler Amerika'ya gitti."] },
-      { v: ["قَدَّمَ", "قَدَّمَا", "قَدَّمُوا"], f: ["الأُسْتَاذُ", "الأُسْتَاذَانِ", "الأَسَاتِذَةُ"], r: ["مُحَاضَرَةً"], tr: ["Hoca bir konferans verdi.", "İki hoca bir konferans verdi.", "Hocalar bir konferans verdi."] },
-      { v: ["حَضَرَ", "حَضَرَا", "حَضَرُوا"], f: ["المُدِيرُ", "المُدِيرَانِ", "المُدِيرُونَ"], r: ["الحَفْلَ"], tr: ["Müdür törene katıldı.", "İki müdür törene katıldı.", "Müdürler törene katıldı."] },
-      { v: ["ذَهَبَ", "ذَهَبَا", "ذَهَبُوا"], f: ["العَامِلُ", "العَامِلَانِ", "العُمَّالُ"], r: ["إِلَى المَصْنَعِ"], tr: ["İşçi fabrikaya gitti.", "İki işçi fabrikaya gitti.", "İşçiler fabrikaya gitti."] },
-      { v: ["يَخْرُجُ", "يَخْرُجَانِ", "يَخْرُجُونَ"], f: ["الطَّالِبُ", "الطَّالِبَانِ", "الطُّلَّابُ"], r: ["مِنْ بَيْتِهِ فِي الصَّبَاحِ", "مِنْ بَيْتِهِمَا فِي الصَّبَاحِ", "مِنْ بُيُوتِهِمْ فِي الصَّبَاحِ"], tr: ["Öğrenci sabah evinden çıkıyor.", "İki öğrenci sabah evlerinden çıkıyor.", "Öğrenciler sabah evlerinden çıkıyor."] }
+      { v: ["حَكَمَ", "حَكَمَا", "حَكَمُوا"], f: ["الحَاكِمُ", "الحَاكِمَانِ", "الحُكَّامُ"], r: ["بِالعَدْلِ"], tr: ["The ruler governed justly.", "The two rulers governed justly.", "The rulers governed justly."] },
+      { v: ["يَضْرِبُ", "يَضْرِبَانِ", "يَضْرِبُونَ"], f: ["الوَلَدُ", "الوَلَدَانِ", "الأَوْلَادُ"], r: ["الكُرَةَ"], tr: ["The boy is kicking the ball.", "The two boys are kicking the ball.", "The boys are kicking the ball."] },
+      { v: ["تَدْرُسُ", "تَدْرُسَانِ", "يَدْرُسْنَ"], f: ["الطَّالِبَةُ", "الطَّالِبَتَانِ", "الطَّالِبَاتُ"], r: ["فِي المَدْرَسَةِ الثَّانَوِيَّةِ"], tr: ["The female student studies at the secondary school.", "The two female students study at the secondary school.", "The female students study at the secondary school."] },
+      { v: ["سَافَرَ", "سَافَرَا", "سَافَرُوا"], f: ["المُهَنْدِسُ", "المُهَنْدِسَانِ", "المُهَنْدِسُونَ"], r: ["إِلَى أَمْرِيكَا"], tr: ["The engineer travelled to America.", "The two engineers travelled to America.", "The engineers travelled to America."] },
+      { v: ["قَدَّمَ", "قَدَّمَا", "قَدَّمُوا"], f: ["الأُسْتَاذُ", "الأُسْتَاذَانِ", "الأَسَاتِذَةُ"], r: ["مُحَاضَرَةً"], tr: ["The professor gave a lecture.", "The two professors gave a lecture.", "The professors gave a lecture."] },
+      { v: ["حَضَرَ", "حَضَرَا", "حَضَرُوا"], f: ["المُدِيرُ", "المُدِيرَانِ", "المُدِيرُونَ"], r: ["الحَفْلَ"], tr: ["The director attended the ceremony.", "The two directors attended the ceremony.", "The directors attended the ceremony."] },
+      { v: ["ذَهَبَ", "ذَهَبَا", "ذَهَبُوا"], f: ["العَامِلُ", "العَامِلَانِ", "العُمَّالُ"], r: ["إِلَى المَصْنَعِ"], tr: ["The worker went to the factory.", "The two workers went to the factory.", "The workers went to the factory."] },
+      { v: ["يَخْرُجُ", "يَخْرُجَانِ", "يَخْرُجُونَ"], f: ["الطَّالِبُ", "الطَّالِبَانِ", "الطُّلَّابُ"], r: ["مِنْ بَيْتِهِ فِي الصَّبَاحِ", "مِنْ بَيْتِهِمَا فِي الصَّبَاحِ", "مِنْ بُيُوتِهِمْ فِي الصَّبَاحِ"], tr: ["The student leaves his house in the morning.", "The two students leave their house in the morning.", "The students leave their houses in the morning."] }
     ]},
-    { type: "pick", agree: true, ar: "ضَعْ هَذِهِ العَلَامَةَ (✓) أَمَامَ الجُمْلَةِ الصَّحِيحَةِ", tr: "Doğru cümleyi seç.", items: [
-      { o: ["أَسْرَعَ اللَّاعِبُونَ إِلَى أَرْضِ المَلْعَبِ.", "أَسْرَعَتِ اللَّاعِبُونَ إِلَى أَرْضِ المَلْعَبِ.", "أَسْرَعَا اللَّاعِبُونَ إِلَى أَرْضِ المَلْعَبِ.", "أَسْرَعُوا اللَّاعِبُونَ إِلَى أَرْضِ المَلْعَبِ."], a: 0, tr: "Oyuncular sahaya koştu.", why: "Fiil başta: tekil kalır. Fâil müzekker: fiil müzekker." },
-      { o: ["زَرَعَا الرَّجُلَانِ الشَّجَرَةَ.", "زَرَعُوا الرَّجُلَانِ الشَّجَرَةَ.", "زَرَعَتِ الرَّجُلَانِ الشَّجَرَةَ.", "زَرَعَ الرَّجُلَانِ الشَّجَرَةَ."], a: 3, tr: "İki adam ağacı dikti.", why: "Fâil ikil olsa da baştaki fiil tekil kalır." },
-      { o: ["تَحَدَّثَ البِنْتُ مَعَ أَبِيهَا.", "تَحَدَّثَتِ البِنْتُ مَعَ أَبِيهَا.", "تَحَدَّثَا البِنْتُ مَعَ أَبِيهَا.", "تَحَدَّثُوا البِنْتُ مَعَ أَبِيهَا."], a: 1, tr: "Kız babasıyla konuştu.", why: "Fâil müennes: mâzîye ـتْ eklenir." },
-      { o: ["شَاهَدُوا الأَطْفَالُ أَسَدًا فِي حَدِيقَةِ الحَيَوَانَاتِ.", "شَاهَدَا الأَطْفَالُ أَسَدًا فِي حَدِيقَةِ الحَيَوَانَاتِ.", "شَاهَدَتِ الأَطْفَالُ أَسَدًا فِي حَدِيقَةِ الحَيَوَانَاتِ.", "شَاهَدَ الأَطْفَالُ أَسَدًا فِي حَدِيقَةِ الحَيَوَانَاتِ."], a: 3, tr: "Çocuklar hayvanat bahçesinde bir aslan gördü.", why: "Fâil akıl sahibi müzekker çoğul: fiil tekil müzekker kalır." },
-      { o: ["يَهْتَمُّ الأُمَّهَاتُ بِصِحَّةِ الأَوْلَادِ.", "تَهْتَمُّ الأُمَّهَاتُ بِصِحَّةِ الأَوْلَادِ.", "يَهْتَمِمْنَ الأُمَّهَاتُ بِصِحَّةِ الأَوْلَادِ.", "يَهْتَمُّونَ الأُمَّهَاتُ بِصِحَّةِ الأَوْلَادِ."], a: 1, tr: "Anneler çocukların sağlığıyla ilgilenir.", why: "Fâil müennes: muzârinin başına تـ gelir; fiil tekil kalır." },
-      { o: ["غَادَرَ الوَزِيرَاتُ المَدِينَةَ.", "غَادَرْنَ الوَزِيرَاتُ المَدِينَةَ.", "غَادَرَتِ الوَزِيرَاتُ المَدِينَةَ.", "غَادَرُوا الوَزِيرَاتُ المَدِينَةَ."], a: 2, tr: "Kadın bakanlar şehirden ayrıldı.", why: "Fâil müennes çoğul: fiil tekil müennes (ـتْ)." },
-      { o: ["بَنَى إِبْرَاهِيمُ وَإِسْمَاعِيلُ عَلَيْهِمَا السَّلَامُ الكَعْبَةَ.", "بَنَيَا إِبْرَاهِيمُ وَإِسْمَاعِيلُ عَلَيْهِمَا السَّلَامُ الكَعْبَةَ.", "بَنَتْ إِبْرَاهِيمُ وَإِسْمَاعِيلُ عَلَيْهِمَا السَّلَامُ الكَعْبَةَ.", "بَنَوْا إِبْرَاهِيمُ وَإِسْمَاعِيلُ عَلَيْهِمَا السَّلَامُ الكَعْبَةَ."], a: 0, tr: "İbrâhîm ve İsmâîl (a.s.) Kâbe'yi inşa etti.", why: "İki fâil olsa da baştaki fiil tekil kalır." },
-      { o: ["خَرَجْنَ العَامِلَاتُ مِنَ المَصْنَعِ مَسَاءً.", "خَرَجُوا العَامِلَاتُ مِنَ المَصْنَعِ مَسَاءً.", "خَرَجَتِ العَامِلَاتُ مِنَ المَصْنَعِ مَسَاءً.", "خَرَجَ العَامِلَاتُ مِنَ المَصْنَعِ مَسَاءً."], a: 2, tr: "Kadın işçiler akşam fabrikadan çıktı.", why: "Fâil müennes: ـتْ; fiil tekil." }
+    { type: "pick", agree: true, ar: "ضَعْ هَذِهِ العَلَامَةَ (✓) أَمَامَ الجُمْلَةِ الصَّحِيحَةِ", tr: "Choose the correct sentence.", items: [
+      { o: ["أَسْرَعَ اللَّاعِبُونَ إِلَى أَرْضِ المَلْعَبِ.", "أَسْرَعَتِ اللَّاعِبُونَ إِلَى أَرْضِ المَلْعَبِ.", "أَسْرَعَا اللَّاعِبُونَ إِلَى أَرْضِ المَلْعَبِ.", "أَسْرَعُوا اللَّاعِبُونَ إِلَى أَرْضِ المَلْعَبِ."], a: 0, tr: "The players hurried onto the pitch.", why: "The verb comes first, so it stays singular. The fā‘il is masculine, so the verb is masculine." },
+      { o: ["زَرَعَا الرَّجُلَانِ الشَّجَرَةَ.", "زَرَعُوا الرَّجُلَانِ الشَّجَرَةَ.", "زَرَعَتِ الرَّجُلَانِ الشَّجَرَةَ.", "زَرَعَ الرَّجُلَانِ الشَّجَرَةَ."], a: 3, tr: "The two men planted the tree.", why: "Even though the fā‘il is dual, the verb at the start stays singular." },
+      { o: ["تَحَدَّثَ البِنْتُ مَعَ أَبِيهَا.", "تَحَدَّثَتِ البِنْتُ مَعَ أَبِيهَا.", "تَحَدَّثَا البِنْتُ مَعَ أَبِيهَا.", "تَحَدَّثُوا البِنْتُ مَعَ أَبِيهَا."], a: 1, tr: "The girl talked with her father.", why: "The fā‘il is feminine: ـتْ is added to the past verb." },
+      { o: ["شَاهَدُوا الأَطْفَالُ أَسَدًا فِي حَدِيقَةِ الحَيَوَانَاتِ.", "شَاهَدَا الأَطْفَالُ أَسَدًا فِي حَدِيقَةِ الحَيَوَانَاتِ.", "شَاهَدَتِ الأَطْفَالُ أَسَدًا فِي حَدِيقَةِ الحَيَوَانَاتِ.", "شَاهَدَ الأَطْفَالُ أَسَدًا فِي حَدِيقَةِ الحَيَوَانَاتِ."], a: 3, tr: "The children saw a lion at the zoo.", why: "The fā‘il is a human masculine plural: the verb stays masculine singular." },
+      { o: ["يَهْتَمُّ الأُمَّهَاتُ بِصِحَّةِ الأَوْلَادِ.", "تَهْتَمُّ الأُمَّهَاتُ بِصِحَّةِ الأَوْلَادِ.", "يَهْتَمِمْنَ الأُمَّهَاتُ بِصِحَّةِ الأَوْلَادِ.", "يَهْتَمُّونَ الأُمَّهَاتُ بِصِحَّةِ الأَوْلَادِ."], a: 1, tr: "The mothers take care of the children's health.", why: "The fā‘il is feminine: تـ goes at the start of the present verb, and the verb stays singular." },
+      { o: ["غَادَرَ الوَزِيرَاتُ المَدِينَةَ.", "غَادَرْنَ الوَزِيرَاتُ المَدِينَةَ.", "غَادَرَتِ الوَزِيرَاتُ المَدِينَةَ.", "غَادَرُوا الوَزِيرَاتُ المَدِينَةَ."], a: 2, tr: "The (female) ministers left the city.", why: "The fā‘il is a feminine plural: the verb is feminine singular (ـتْ)." },
+      { o: ["بَنَى إِبْرَاهِيمُ وَإِسْمَاعِيلُ عَلَيْهِمَا السَّلَامُ الكَعْبَةَ.", "بَنَيَا إِبْرَاهِيمُ وَإِسْمَاعِيلُ عَلَيْهِمَا السَّلَامُ الكَعْبَةَ.", "بَنَتْ إِبْرَاهِيمُ وَإِسْمَاعِيلُ عَلَيْهِمَا السَّلَامُ الكَعْبَةَ.", "بَنَوْا إِبْرَاهِيمُ وَإِسْمَاعِيلُ عَلَيْهِمَا السَّلَامُ الكَعْبَةَ."], a: 0, tr: "Ibrahim and Isma‘il (peace be upon them) built the Ka‘ba.", why: "Even with two fā‘ils, the verb at the start stays singular." },
+      { o: ["خَرَجْنَ العَامِلَاتُ مِنَ المَصْنَعِ مَسَاءً.", "خَرَجُوا العَامِلَاتُ مِنَ المَصْنَعِ مَسَاءً.", "خَرَجَتِ العَامِلَاتُ مِنَ المَصْنَعِ مَسَاءً.", "خَرَجَ العَامِلَاتُ مِنَ المَصْنَعِ مَسَاءً."], a: 2, tr: "The women workers left the factory in the evening.", why: "The fā‘il is feminine: ـتْ; the verb is singular." }
     ]},
-    { type: "story", ar: "اجْعَلِ الشَّخْصَ فِي الحِكَايَةِ لَيْلَى وَاكْتُبْهَا مُجَدَّدًا", tr: "Hikâyedeki kişiyi Leylâ yap: değişmesi gereken fiillere dokunarak müennes yap. Dikkat: her fiilin fâili Ali değil!",
+    { type: "story", ar: "اجْعَلِ الشَّخْصَ فِي الحِكَايَةِ لَيْلَى وَاكْتُبْهَا مُجَدَّدًا", tr: "Make Layla the person in the story: tap the verbs that need to change to make them feminine. Careful: not every verb has Ali as its fā‘il!",
       title: "يَوْمُ عَلِيٍّ",
       parts: [
         { v: ["نَهَضَ", "نَهَضَتْ"] }, " ", { n: ["عَلِيٌّ", "لَيْلَى"] }, " مِنَ النَّوْمِ، ", { v: ["تَوَضَّأَ", "تَوَضَّأَتْ"] }, " ثُمَّ ", { v: ["صَلَّى", "صَلَّتْ"] }, " صَلَاةَ الصُّبْحِ وَ", { v: ["دَخَلَ", "دَخَلَتِ"] }, " المَطْبَخَ وَ", { v: ["تَنَاوَلَ", "تَنَاوَلَتِ"] }, " الفَطُورَ. بَعْدَ الفَطُورِ ", { v: ["وَضَعَ", "وَضَعَتْ"] }, " بَعْضَ الكُتُبِ المَدْرَسِيَّةِ فِي الحَقِيبَةِ وَ", { v: ["خَرَجَ", "خَرَجَتْ"] }, " إِلَى المَوْقِفِ فِي الشَّارِعِ. ", { v: ["وَصَلَتِ", "وَصَلَ"], keep: true }, " الحَافِلَةُ فَ", { v: ["رَكِبَ", "رَكِبَتْ"] }, " ", { n: ["عَلِيٌّ", "لَيْلَى"] }, " الحَافِلَةَ ", { v: ["لِيَذْهَبَ", "لِتَذْهَبَ"] }, " إِلَى المَدْرَسَةِ."
       ],
-      tr2: "Leylâ uykudan kalktı, abdest aldı, sabah namazını kıldı, mutfağa girip kahvaltı yaptı. Kahvaltıdan sonra bazı ders kitaplarını çantaya koyup sokaktaki durağa çıktı. Otobüs geldi; Leylâ okula gitmek için otobüse bindi."
+      tr2: "Layla woke up, made her ablutions, prayed the dawn prayer, went into the kitchen and had breakfast. After breakfast she put some schoolbooks in her bag and went out to the bus stop in the street. The bus arrived, and Layla got on the bus to go to school."
     }
   ]
 },
 // ---------------------------------------------------------------- 4
 {
-  id: "u4", short: "Mef'ûlün Bih", no: 4, ar: "الجُمْلَةُ الفِعْلِيَّةُ", sub: "المَفْعُولُ بِهِ", tr: "Fiil Cümlesi: Mef'ûlün Bih", col: "mef",
-  goals: ["Mef'ûlün bihi bulmak", "Fâil ile mef'ûlü harekesinden ayırmak: fâil ötre, mef'ûl üstün", "Soruya mef'ûlle cevap vermek"],
+  id: "u4", short: "Direct Object", no: 4, ar: "الجُمْلَةُ الفِعْلِيَّةُ", sub: "المَفْعُولُ بِهِ", tr: "Verbal Sentence: The Direct Object (Maf‘ūl Bihi)", col: "mef",
+  goals: ["Finding the direct object (maf‘ūl bihi)", "Telling the fā‘il and the object apart by their vowel: the fā‘il takes ḍamma, the object takes fatḥa", "Answering a question with an object"],
   examples: [
-    { s: "كَتَبَ:fiil / المُعَلِّمُ:fail / المِثَالَ:mef", tr: "Öğretmen örneği yazdı." },
-    { s: "شَرِبَ:fiil / الطِّفْلُ:fail / اللَّبَنَ:mef", tr: "Çocuk sütü içti." },
-    { s: "قَرَأَتْ:fiil / فَاطِمَةُ:fail / الكِتَابَ:mef", tr: "Fâtıma kitabı okudu." }
+    { s: "كَتَبَ:fiil / المُعَلِّمُ:fail / المِثَالَ:mef", tr: "The teacher wrote the example." },
+    { s: "شَرِبَ:fiil / الطِّفْلُ:fail / اللَّبَنَ:mef", tr: "The child drank the milk." },
+    { s: "قَرَأَتْ:fiil / فَاطِمَةُ:fail / الكِتَابَ:mef", tr: "Fatima read the book." }
   ],
   rules: [
-    { tr: "<b class=\"r-mef\">Mef'ûlün bih</b>, fiil cümlesinde çoğunlukla fiil ve fâilden sonra gelen isimdir.", ex: ["كَتَبَ المُعَلِّمُ المِثَالَ."] },
-    { tr: "Fâilin yaptığı işten etkilenen isimdir ve <b>mansûb</b>tur.", ex: ["شَرِبَ الطِّفْلُ اللَّبَنَ."] },
-    { tr: "Tekil isimde nasb alameti <b>üstün</b>dür (ـَ / ـً). Fâil ötre, mef'ûl üstün alır: harekeye bakınca kimin işi yaptığını, kimin etkilendiğini anlarsın.", ex: ["قَرَأَتْ فَاطِمَةُ الكِتَابَ."] }
+    { tr: "The <b class=\"r-mef\">direct object (maf‘ūl bihi)</b> is a noun in a verbal sentence that usually comes after the verb and the fā‘il.", ex: ["كَتَبَ المُعَلِّمُ المِثَالَ."] },
+    { tr: "It is the noun affected by the fā‘il's action, and it is <b>accusative</b> (manṣūb).", ex: ["شَرِبَ الطِّفْلُ اللَّبَنَ."] },
+    { tr: "In a singular noun the sign of the accusative is <b>fatḥa</b> (ـَ / ـً). The fā‘il takes ḍamma and the object takes fatḥa: look at the vowel and you can tell who does the action and what is affected by it.", ex: ["قَرَأَتْ فَاطِمَةُ الكِتَابَ."] }
   ],
   kaide: [
     "١ـ المَفْعُولُ بِهِ اسْمٌ يَأْتِي فِي الجُمْلَةِ الفِعْلِيَّةِ بَعْدَ الفِعْلِ وَالفَاعِلِ عَادَةً. مِثَالٌ: كَتَبَ المُعَلِّمُ المِثَالَ.",
@@ -120,81 +120,81 @@
     "٣ـ المَفْعُولُ مَنْصُوبٌ، وَعَلَامَةُ النَّصْبِ فِي الاسْمِ المُفْرَدِ الفَتْحَةُ. مِثَالٌ: قَرَأَتْ فَاطِمَةُ الكِتَابَ."
   ],
   ex: [
-    { type: "tag", roles: ["fiil", "fail", "mef", "x"], ar: "عَيِّنِ الفَاعِلَ وَالمَفْعُولَ بِهِ فِي الجُمَلِ التَّالِيَةِ وَاضْبِطْ آخِرَهُمَا", tr: "Fiil, fâil ve mef'ûlü belirle. Kontrolden sonra son harekelere bak.", items: [
-      { c: "قَدَّمَ:fiil / الطَّالِبُ:fail / القَهْوَةَ:mef / لِصَدِيقِهِ:x", tr: "Öğrenci kahveyi arkadaşına ikram etti." },
-      { c: "شَاهَدَتْ:fiil / زَيْنَبُ:fail / المَطَرَ:mef / مِنَ النَّافِذَةِ:x", tr: "Zeyneb yağmuru pencereden seyretti." },
-      { c: "رَفَضَ:fiil / الأَبُ:fail / الطَّلَبَ:mef / بِأَدَبٍ:x", tr: "Baba isteği kibarca reddetti." },
-      { c: "لَعِبَ:fiil / الوَلَدُ:fail / كُرَةَ القَدَمِ:mef", tr: "Çocuk futbol oynadı." },
-      { c: "يَشْرَبُ:fiil / الطِّفْلُ:fail / الحَلِيبَ:mef / فِي الحَدِيقَةِ:x", tr: "Çocuk bahçede süt içiyor." },
-      { c: "تَلْعَبُ:fiil / البِنْتُ:fail / كُرَةَ السَّلَّةِ:mef / فِي المَلْعَبِ:x", tr: "Kız sahada basketbol oynuyor." },
-      { c: "يَدْرُسُ:fiil / زَمِيلِي:fail / اللُّغَةَ العَرَبِيَّةَ:mef / فِي إِسْطَنْبُولَ:x", tr: "Arkadaşım İstanbul'da Arapça okuyor." },
-      { c: "لَا يَشْرَبُ:fiil / أَحْمَدُ:fail / مَاءَ المَطَرِ:mef", tr: "Ahmed yağmur suyu içmez." }
+    { type: "tag", roles: ["fiil", "fail", "mef", "x"], ar: "عَيِّنِ الفَاعِلَ وَالمَفْعُولَ بِهِ فِي الجُمَلِ التَّالِيَةِ وَاضْبِطْ آخِرَهُمَا", tr: "Identify the verb, the fā‘il and the object. After checking, look at the final vowels.", items: [
+      { c: "قَدَّمَ:fiil / الطَّالِبُ:fail / القَهْوَةَ:mef / لِصَدِيقِهِ:x", tr: "The student offered the coffee to his friend." },
+      { c: "شَاهَدَتْ:fiil / زَيْنَبُ:fail / المَطَرَ:mef / مِنَ النَّافِذَةِ:x", tr: "Zaynab watched the rain from the window." },
+      { c: "رَفَضَ:fiil / الأَبُ:fail / الطَّلَبَ:mef / بِأَدَبٍ:x", tr: "The father politely refused the request." },
+      { c: "لَعِبَ:fiil / الوَلَدُ:fail / كُرَةَ القَدَمِ:mef", tr: "The boy played football." },
+      { c: "يَشْرَبُ:fiil / الطِّفْلُ:fail / الحَلِيبَ:mef / فِي الحَدِيقَةِ:x", tr: "The child is drinking milk in the garden." },
+      { c: "تَلْعَبُ:fiil / البِنْتُ:fail / كُرَةَ السَّلَّةِ:mef / فِي المَلْعَبِ:x", tr: "The girl is playing basketball on the court." },
+      { c: "يَدْرُسُ:fiil / زَمِيلِي:fail / اللُّغَةَ العَرَبِيَّةَ:mef / فِي إِسْطَنْبُولَ:x", tr: "My classmate is studying Arabic in Istanbul." },
+      { c: "لَا يَشْرَبُ:fiil / أَحْمَدُ:fail / مَاءَ المَطَرِ:mef", tr: "Ahmad does not drink rainwater." }
     ]},
-    { type: "pick", fill: true, ar: "اخْتَرْ مَفْعُولًا بِهِ مُنَاسِبًا ثُمَّ اضْبِطْ آخِرَهُ", tr: "Uygun mef'ûlü seç; son harekesi üstün olur.", items: [
-      { q: "فَحَصَ الطَّبِيبُ ___", o: ["المَرِيضَ", "الكُلِّيَّةَ", "الطَّعَامَ"], a: 0, tr: "Doktor hastayı muayene etti." },
-      { q: "أَكَلَ الطِّفْلُ ___", o: ["الحَلِيبَ", "الفَاكِهَةَ", "الزَّهْرَةَ"], a: 1, tr: "Çocuk meyveyi yedi." },
-      { q: "زَارَ المُعَلِّمُ ___ فِي السَّكَنِ.", o: ["البَحْرَ", "السَّمَكَةَ", "الطُّلَّابَ"], a: 2, tr: "Öğretmen yurtta öğrencileri ziyaret etti." },
-      { q: "تَعَلَّمَتِ الطَّالِبَةُ ___ فِي المَدْرَسَةِ.", o: ["الشَّجَرَةَ", "الأَزْهَارَ", "الكِتَابَةَ"], a: 2, tr: "Kız öğrenci okulda yazmayı öğrendi." },
-      { q: "تَرْكَبُ خَدِيجَةُ ___", o: ["الغُرْفَةَ", "السَّيَّارَةَ", "الثَّوْبَ"], a: 1, tr: "Hadîce arabaya biniyor." },
-      { q: "تُنَظِّفُ الخَادِمَةُ ___", o: ["البَيْتَ", "السَّفَرَ", "المَسْأَلَةَ"], a: 0, tr: "Hizmetçi evi temizliyor." },
-      { q: "يُعْلِنُ الوَالِدُ ___", o: ["الكِتَابَ", "الخَبَرَ", "القِصَّةَ"], a: 1, tr: "Baba haberi duyuruyor." },
-      { q: "يَخْدُمُ الأَبُ ___", o: ["الأُسْرَةَ", "الشَّارِعَ", "الحِصَّةَ"], a: 0, tr: "Baba ailesine hizmet ediyor." }
+    { type: "pick", fill: true, ar: "اخْتَرْ مَفْعُولًا بِهِ مُنَاسِبًا ثُمَّ اضْبِطْ آخِرَهُ", tr: "Choose a suitable object; its final vowel is fatḥa.", items: [
+      { q: "فَحَصَ الطَّبِيبُ ___", o: ["المَرِيضَ", "الكُلِّيَّةَ", "الطَّعَامَ"], a: 0, tr: "The doctor examined the patient." },
+      { q: "أَكَلَ الطِّفْلُ ___", o: ["الحَلِيبَ", "الفَاكِهَةَ", "الزَّهْرَةَ"], a: 1, tr: "The child ate the fruit." },
+      { q: "زَارَ المُعَلِّمُ ___ فِي السَّكَنِ.", o: ["البَحْرَ", "السَّمَكَةَ", "الطُّلَّابَ"], a: 2, tr: "The teacher visited the students in the dormitory." },
+      { q: "تَعَلَّمَتِ الطَّالِبَةُ ___ فِي المَدْرَسَةِ.", o: ["الشَّجَرَةَ", "الأَزْهَارَ", "الكِتَابَةَ"], a: 2, tr: "The female student learned writing at school." },
+      { q: "تَرْكَبُ خَدِيجَةُ ___", o: ["الغُرْفَةَ", "السَّيَّارَةَ", "الثَّوْبَ"], a: 1, tr: "Khadija is getting into the car." },
+      { q: "تُنَظِّفُ الخَادِمَةُ ___", o: ["البَيْتَ", "السَّفَرَ", "المَسْأَلَةَ"], a: 0, tr: "The maid is cleaning the house." },
+      { q: "يُعْلِنُ الوَالِدُ ___", o: ["الكِتَابَ", "الخَبَرَ", "القِصَّةَ"], a: 1, tr: "The father is announcing the news." },
+      { q: "يَخْدُمُ الأَبُ ___", o: ["الأُسْرَةَ", "الشَّارِعَ", "الحِصَّةَ"], a: 0, tr: "The father serves the family." }
     ]},
-    { type: "combo", ar: "أَجِبْ بِمَفْعُولٍ بِهِ مَعَ ضَبْطِ آخِرِ كُلِّ كَلِمَةٍ", tr: "Kim, neyi satın alacak? Fiili fâile uydur ve mef'ûlün harekesini seç (dokundukça değişir).",
+    { type: "combo", ar: "أَجِبْ بِمَفْعُولٍ بِهِ مَعَ ضَبْطِ آخِرِ كُلِّ كَلِمَةٍ", tr: "Who will buy what? Make the verb agree with the fā‘il and choose the object's vowel (tap to change it).",
       exHtml: "<span class=\"ar\">لَيْسَ فِي بَيْتِ الطَّالِبِ سَاعَةٌ ← سَيَشْتَرِي الطَّالِبُ سَاعَةً</span>", items: [
-      { q: "لَيْسَ فِي سَيَّارَةِ الأُسْتَاذِ وَقُودٌ.", p: [{ o: ["سَيَشْتَرِي", "سَتَشْتَرِي"] }, "الأُسْتَاذُ", { o: ["وَقُودٌ", "وَقُودًا", "وَقُودٍ"] }], ok: [[0, 1]], tr: "Hoca yakıt alacak." },
-      { q: "لَيْسَ فِي مَكْتَبِ المُهَنْدِسِ تَقْوِيمٌ.", p: [{ o: ["سَتَشْتَرِي", "سَيَشْتَرِي"] }, "المُهَنْدِسُ", { o: ["تَقْوِيمًا", "تَقْوِيمٌ", "تَقْوِيمٍ"] }], ok: [[1, 0]], tr: "Mühendis bir takvim alacak." },
-      { q: "لَيْسَ فِي غُرْفَةِ سَلِيمٍ مُعْجَمٌ.", p: [{ o: ["سَيَشْتَرِي", "سَتَشْتَرِي"] }, "سَلِيمٌ", { o: ["مُعْجَمٍ", "مُعْجَمٌ", "مُعْجَمًا"] }], ok: [[0, 2]], tr: "Selîm bir sözlük alacak." },
-      { q: "لَيْسَ فِي جَيْبِ الوَلَدِ قَلَمٌ.", p: [{ o: ["سَيَشْتَرِي", "سَتَشْتَرِي"] }, "الوَلَدُ", { o: ["قَلَمٌ", "قَلَمًا", "قَلَمٍ"] }], ok: [[0, 1]], tr: "Çocuk bir kalem alacak." },
-      { q: "لَيْسَ فِي عِيَادَةِ الطَّبِيبَةِ مِرْآةٌ.", p: [{ o: ["سَيَشْتَرِي", "سَتَشْتَرِي"] }, "الطَّبِيبَةُ", { o: ["مِرْآةً", "مِرْآةٌ", "مِرْآةٍ"] }], ok: [[1, 0]], tr: "Kadın doktor bir ayna alacak." },
-      { q: "لَيْسَ فِي حَقِيبَةِ التِّلْمِيذَةِ كِتَابٌ.", p: [{ o: ["سَتَشْتَرِي", "سَيَشْتَرِي"] }, "التِّلْمِيذَةُ", { o: ["كِتَابٌ", "كِتَابٍ", "كِتَابًا"] }], ok: [[0, 2]], tr: "Kız talebe bir kitap alacak." },
-      { q: "لَيْسَ فِي مَطْبَخِ العَائِلَةِ بَصَلٌ.", p: [{ o: ["سَيَشْتَرِي", "سَتَشْتَرِي"] }, "العَائِلَةُ", { o: ["بَصَلًا", "بَصَلٌ", "بَصَلٍ"] }], ok: [[1, 0]], tr: "Aile soğan alacak." },
-      { q: "لَيْسَ فِي بَيْتِ عَمِّكِ ثَلَّاجَةٌ.", p: [{ o: ["سَتَشْتَرِي", "سَيَشْتَرِي"] }, "عَمُّكِ", { o: ["ثَلَّاجَةٌ", "ثَلَّاجَةً", "ثَلَّاجَةٍ"] }], ok: [[1, 1]], tr: "Amcan bir buzdolabı alacak." }
+      { q: "لَيْسَ فِي سَيَّارَةِ الأُسْتَاذِ وَقُودٌ.", p: [{ o: ["سَيَشْتَرِي", "سَتَشْتَرِي"] }, "الأُسْتَاذُ", { o: ["وَقُودٌ", "وَقُودًا", "وَقُودٍ"] }], ok: [[0, 1]], tr: "The teacher will buy fuel." },
+      { q: "لَيْسَ فِي مَكْتَبِ المُهَنْدِسِ تَقْوِيمٌ.", p: [{ o: ["سَتَشْتَرِي", "سَيَشْتَرِي"] }, "المُهَنْدِسُ", { o: ["تَقْوِيمًا", "تَقْوِيمٌ", "تَقْوِيمٍ"] }], ok: [[1, 0]], tr: "The engineer will buy a calendar." },
+      { q: "لَيْسَ فِي غُرْفَةِ سَلِيمٍ مُعْجَمٌ.", p: [{ o: ["سَيَشْتَرِي", "سَتَشْتَرِي"] }, "سَلِيمٌ", { o: ["مُعْجَمٍ", "مُعْجَمٌ", "مُعْجَمًا"] }], ok: [[0, 2]], tr: "Salim will buy a dictionary." },
+      { q: "لَيْسَ فِي جَيْبِ الوَلَدِ قَلَمٌ.", p: [{ o: ["سَيَشْتَرِي", "سَتَشْتَرِي"] }, "الوَلَدُ", { o: ["قَلَمٌ", "قَلَمًا", "قَلَمٍ"] }], ok: [[0, 1]], tr: "The boy will buy a pen." },
+      { q: "لَيْسَ فِي عِيَادَةِ الطَّبِيبَةِ مِرْآةٌ.", p: [{ o: ["سَيَشْتَرِي", "سَتَشْتَرِي"] }, "الطَّبِيبَةُ", { o: ["مِرْآةً", "مِرْآةٌ", "مِرْآةٍ"] }], ok: [[1, 0]], tr: "The (female) doctor will buy a mirror." },
+      { q: "لَيْسَ فِي حَقِيبَةِ التِّلْمِيذَةِ كِتَابٌ.", p: [{ o: ["سَتَشْتَرِي", "سَيَشْتَرِي"] }, "التِّلْمِيذَةُ", { o: ["كِتَابٌ", "كِتَابٍ", "كِتَابًا"] }], ok: [[0, 2]], tr: "The schoolgirl will buy a book." },
+      { q: "لَيْسَ فِي مَطْبَخِ العَائِلَةِ بَصَلٌ.", p: [{ o: ["سَيَشْتَرِي", "سَتَشْتَرِي"] }, "العَائِلَةُ", { o: ["بَصَلًا", "بَصَلٌ", "بَصَلٍ"] }], ok: [[1, 0]], tr: "The family will buy onions." },
+      { q: "لَيْسَ فِي بَيْتِ عَمِّكِ ثَلَّاجَةٌ.", p: [{ o: ["سَتَشْتَرِي", "سَيَشْتَرِي"] }, "عَمُّكِ", { o: ["ثَلَّاجَةٌ", "ثَلَّاجَةً", "ثَلَّاجَةٍ"] }], ok: [[1, 1]], tr: "Your uncle will buy a fridge." }
     ]},
-    { type: "combo", ar: "أَجِبْ عَنِ الأَسْئِلَةِ بِمَفْعُولٍ بِهِ مَعَ ضَبْطِ آخِرِ كُلِّ كَلِمَةٍ", tr: "Soruyu cevapla: fâilin ve mef'ûlün son harekesini seç.",
+    { type: "combo", ar: "أَجِبْ عَنِ الأَسْئِلَةِ بِمَفْعُولٍ بِهِ مَعَ ضَبْطِ آخِرِ كُلِّ كَلِمَةٍ", tr: "Answer the question: choose the final vowel of the fā‘il and of the object.",
       exHtml: "<span class=\"ar\">مَاذَا يَقْرَأُ مُحَمَّدٌ؟ (القُرْآن) ← يَقْرَأُ مُحَمَّدٌ القُرْآنَ</span>", items: [
-      { q: "مَاذَا يَطْبُخُ الطَّبَّاخُ؟ (عَدَس)", p: ["يَطْبُخُ", { o: ["الطَّبَّاخَ", "الطَّبَّاخُ"] }, { o: ["عَدَسٌ", "عَدَسًا", "عَدَسٍ"] }], ok: [[1, 1]], tr: "Aşçı mercimek pişiriyor." },
-      { q: "مَاذَا يَشْرَبُ المُعَلِّمُ؟ (قَهْوَة)", p: ["يَشْرَبُ", { o: ["المُعَلِّمُ", "المُعَلِّمَ"] }, { o: ["قَهْوَةً", "قَهْوَةٌ", "قَهْوَةٍ"] }], ok: [[0, 0]], tr: "Öğretmen kahve içiyor." },
-      { q: "مَاذَا يُشَاهِدُ الأَوْلَادُ؟ (بَرْنَامَج)", p: ["يُشَاهِدُ", { o: ["الأَوْلَادَ", "الأَوْلَادُ"] }, { o: ["بَرْنَامَجٌ", "بَرْنَامَجٍ", "بَرْنَامَجًا"] }], ok: [[1, 2]], tr: "Çocuklar bir program izliyor." },
-      { q: "مَاذَا يَلْعَبُ الرِّيَاضِيُّ؟ (كُرَة القَدَم)", p: ["يَلْعَبُ", { o: ["الرِّيَاضِيُّ", "الرِّيَاضِيَّ"] }, { o: ["كُرَةُ القَدَمِ", "كُرَةَ القَدَمِ", "كُرَةِ القَدَمِ"] }], ok: [[0, 1]], tr: "Sporcu futbol oynuyor." },
-      { q: "مَاذَا تَقْرَأُ زَيْنَبُ؟ (الصَّحِيفَة)", p: ["تَقْرَأُ", { o: ["زَيْنَبَ", "زَيْنَبُ"] }, { o: ["الصَّحِيفَةَ", "الصَّحِيفَةُ", "الصَّحِيفَةِ"] }], ok: [[1, 0]], tr: "Zeyneb gazeteyi okuyor." },
-      { q: "مَاذَا أَحْضَرَتِ الأُمُّ؟ (السَّمَكَة)", p: ["أَحْضَرَتِ", { o: ["الأُمُّ", "الأُمَّ"] }, { o: ["السَّمَكَةُ", "السَّمَكَةِ", "السَّمَكَةَ"] }], ok: [[0, 2]], tr: "Anne balığı getirdi." },
-      { q: "مَاذَا أَعْلَنَتِ الجَامِعَةُ؟ (النَّتَائِج)", p: ["أَعْلَنَتِ", { o: ["الجَامِعَةَ", "الجَامِعَةُ"] }, { o: ["النَّتَائِجَ", "النَّتَائِجُ", "النَّتَائِجِ"] }], ok: [[1, 0]], tr: "Üniversite sonuçları açıkladı." },
-      { q: "مَاذَا سَأَلَتْ عَائِشَةُ؟ (سُؤَال)", p: ["سَأَلَتْ", { o: ["عَائِشَةُ", "عَائِشَةَ"] }, { o: ["سُؤَالٌ", "سُؤَالًا", "سُؤَالٍ"] }], ok: [[0, 1]], tr: "Âişe bir soru sordu." }
+      { q: "مَاذَا يَطْبُخُ الطَّبَّاخُ؟ (عَدَس)", p: ["يَطْبُخُ", { o: ["الطَّبَّاخَ", "الطَّبَّاخُ"] }, { o: ["عَدَسٌ", "عَدَسًا", "عَدَسٍ"] }], ok: [[1, 1]], tr: "The cook is cooking lentils." },
+      { q: "مَاذَا يَشْرَبُ المُعَلِّمُ؟ (قَهْوَة)", p: ["يَشْرَبُ", { o: ["المُعَلِّمُ", "المُعَلِّمَ"] }, { o: ["قَهْوَةً", "قَهْوَةٌ", "قَهْوَةٍ"] }], ok: [[0, 0]], tr: "The teacher is drinking coffee." },
+      { q: "مَاذَا يُشَاهِدُ الأَوْلَادُ؟ (بَرْنَامَج)", p: ["يُشَاهِدُ", { o: ["الأَوْلَادَ", "الأَوْلَادُ"] }, { o: ["بَرْنَامَجٌ", "بَرْنَامَجٍ", "بَرْنَامَجًا"] }], ok: [[1, 2]], tr: "The children are watching a programme." },
+      { q: "مَاذَا يَلْعَبُ الرِّيَاضِيُّ؟ (كُرَة القَدَم)", p: ["يَلْعَبُ", { o: ["الرِّيَاضِيُّ", "الرِّيَاضِيَّ"] }, { o: ["كُرَةُ القَدَمِ", "كُرَةَ القَدَمِ", "كُرَةِ القَدَمِ"] }], ok: [[0, 1]], tr: "The athlete plays football." },
+      { q: "مَاذَا تَقْرَأُ زَيْنَبُ؟ (الصَّحِيفَة)", p: ["تَقْرَأُ", { o: ["زَيْنَبَ", "زَيْنَبُ"] }, { o: ["الصَّحِيفَةَ", "الصَّحِيفَةُ", "الصَّحِيفَةِ"] }], ok: [[1, 0]], tr: "Zaynab is reading the newspaper." },
+      { q: "مَاذَا أَحْضَرَتِ الأُمُّ؟ (السَّمَكَة)", p: ["أَحْضَرَتِ", { o: ["الأُمُّ", "الأُمَّ"] }, { o: ["السَّمَكَةُ", "السَّمَكَةِ", "السَّمَكَةَ"] }], ok: [[0, 2]], tr: "The mother brought the fish." },
+      { q: "مَاذَا أَعْلَنَتِ الجَامِعَةُ؟ (النَّتَائِج)", p: ["أَعْلَنَتِ", { o: ["الجَامِعَةَ", "الجَامِعَةُ"] }, { o: ["النَّتَائِجَ", "النَّتَائِجُ", "النَّتَائِجِ"] }], ok: [[1, 0]], tr: "The university announced the results." },
+      { q: "مَاذَا سَأَلَتْ عَائِشَةُ؟ (سُؤَال)", p: ["سَأَلَتْ", { o: ["عَائِشَةُ", "عَائِشَةَ"] }, { o: ["سُؤَالٌ", "سُؤَالًا", "سُؤَالٍ"] }], ok: [[0, 1]], tr: "Aisha asked a question." }
     ]},
-    { type: "combo", free: true, ar: "امْلَأِ الفَرَاغَاتِ بِفِعْلٍ أَوْ فَاعِلٍ أَوْ مَفْعُولٍ بِهِ", tr: "Boşlukları fiil, fâil ya da mef'ûlle doldur. Birden fazla doğru cevap olabilir; anlamlı ve doğru harekeli olanı seç.",
+    { type: "combo", free: true, ar: "امْلَأِ الفَرَاغَاتِ بِفِعْلٍ أَوْ فَاعِلٍ أَوْ مَفْعُولٍ بِهِ", tr: "Fill in the blanks with a verb, a fā‘il or an object. There may be more than one correct answer; choose one that makes sense and has the correct vowels.",
       exHtml: "<span class=\"ar\">قَرَأَ مُحَمَّدٌ <u>الدَّرْسَ</u> · كَتَبَتْ <u>آمِنَةُ</u> الرِّسَالَةَ · <u>بَنَى</u> المُهَنْدِسُ البِنَاءَ</span>", items: [
-      { p: ["شَاهَدَ المُعَلِّمُ", { o: ["الطُّلَّابُ", "الطُّلَّابَ", "المُبَارَاةَ"] }], ok: [[1], [2]], tr: ["Öğretmen öğrencileri izledi.", "Öğretmen maçı izledi."] },
-      { p: [{ o: ["شَرِبَتْ", "شَرِبَ", "المَاءَ"] }, "الطِّفْلُ عَصِيرًا."], ok: [[1]], tr: "Çocuk meyve suyu içti." },
-      { p: ["أَحْضَرَتْ", { o: ["الأَبُ", "الأُمُّ", "الأُمَّ"] }, { o: ["الطَّعَامُ", "الطَّعَامَ", "الكِتَابَ"] }], ok: [[1, 1], [1, 2]], tr: ["Anne yemeği getirdi.", "Anne kitabı getirdi."] },
-      { p: ["زَارَ", { o: ["الطَّبِيبُ", "الطَّبِيبَةُ", "الطَّبِيبَ"] }, { o: ["المَرِيضُ", "المَرِيضَ", "المَرِيضِ"] }], ok: [[0, 1]], tr: "Doktor hastayı ziyaret etti." },
-      { p: [{ o: ["شَاهَدَ", "شَاهَدَتْ"] }, { o: ["الوَلَدُ", "البِنْتُ", "الوَلَدَ"] }, "البَرْنَامَجَ."], ok: [[0, 0], [1, 1]], tr: ["Erkek çocuk programı izledi.", "Kız programı izledi."] },
-      { p: [{ o: ["طَبَخَتْ", "طَبَخَ"] }, "الطَّبَّاخُ", { o: ["الطَّعَامُ", "الطَّعَامَ", "الطَّعَامِ"] }], ok: [[1, 1]], tr: "Aşçı yemeği pişirdi." },
-      { p: [{ o: ["قَرَأَ", "قَرَأَتْ"] }, { o: ["المُسْلِمُ", "المُسْلِمَةُ", "المُسْلِمَ"] }, "القُرْآنَ."], ok: [[0, 0], [1, 1]], tr: ["Müslüman erkek Kur'an okudu.", "Müslüman kadın Kur'an okudu."] },
-      { p: ["أَكَلَ", { o: ["الطِّفْلَةُ", "الطِّفْلُ", "الطِّفْلَ"] }, { o: ["التُّفَّاحَةُ", "التُّفَّاحَةِ", "التُّفَّاحَةَ"] }], ok: [[1, 2]], tr: "Çocuk elmayı yedi." }
+      { p: ["شَاهَدَ المُعَلِّمُ", { o: ["الطُّلَّابُ", "الطُّلَّابَ", "المُبَارَاةَ"] }], ok: [[1], [2]], tr: ["The teacher watched the students.", "The teacher watched the match."] },
+      { p: [{ o: ["شَرِبَتْ", "شَرِبَ", "المَاءَ"] }, "الطِّفْلُ عَصِيرًا."], ok: [[1]], tr: "The child drank juice." },
+      { p: ["أَحْضَرَتْ", { o: ["الأَبُ", "الأُمُّ", "الأُمَّ"] }, { o: ["الطَّعَامُ", "الطَّعَامَ", "الكِتَابَ"] }], ok: [[1, 1], [1, 2]], tr: ["The mother brought the food.", "The mother brought the book."] },
+      { p: ["زَارَ", { o: ["الطَّبِيبُ", "الطَّبِيبَةُ", "الطَّبِيبَ"] }, { o: ["المَرِيضُ", "المَرِيضَ", "المَرِيضِ"] }], ok: [[0, 1]], tr: "The doctor visited the patient." },
+      { p: [{ o: ["شَاهَدَ", "شَاهَدَتْ"] }, { o: ["الوَلَدُ", "البِنْتُ", "الوَلَدَ"] }, "البَرْنَامَجَ."], ok: [[0, 0], [1, 1]], tr: ["The boy watched the programme.", "The girl watched the programme."] },
+      { p: [{ o: ["طَبَخَتْ", "طَبَخَ"] }, "الطَّبَّاخُ", { o: ["الطَّعَامُ", "الطَّعَامَ", "الطَّعَامِ"] }], ok: [[1, 1]], tr: "The cook cooked the food." },
+      { p: [{ o: ["قَرَأَ", "قَرَأَتْ"] }, { o: ["المُسْلِمُ", "المُسْلِمَةُ", "المُسْلِمَ"] }, "القُرْآنَ."], ok: [[0, 0], [1, 1]], tr: ["The Muslim man read the Qur'an.", "The Muslim woman read the Qur'an."] },
+      { p: ["أَكَلَ", { o: ["الطِّفْلَةُ", "الطِّفْلُ", "الطِّفْلَ"] }, { o: ["التُّفَّاحَةُ", "التُّفَّاحَةِ", "التُّفَّاحَةَ"] }], ok: [[1, 2]], tr: "The child ate the apple." }
     ]},
-    { type: "tag", roles: ["fiil", "fail", "mef", "x"], reading: true, ar: "اقْرَأِ القِطْعَةَ ثُمَّ عَيِّنِ الفَاعِلَ وَالمَفْعُولَ بِهِ", tr: "Parçayı oku; cümlelerdeki fiil, fâil ve mef'ûlü belirle. Bazı cümlelerde fâil gizlidir (هُوَ / هِيَ).",
+    { type: "tag", roles: ["fiil", "fail", "mef", "x"], reading: true, ar: "اقْرَأِ القِطْعَةَ ثُمَّ عَيِّنِ الفَاعِلَ وَالمَفْعُولَ بِهِ", tr: "Read the passage, then identify the verb, the fā‘il and the object in each sentence. In some sentences the fā‘il is a hidden pronoun (هُوَ / هِيَ).",
       title: "حَسَنٌ فِي أَنْقَرَةَ",
       text: "حَسَنٌ طَالِبٌ فِي جَامِعَةِ أَنْقَرَةَ. عُمْرُهُ عِشْرُونَ سَنَةً. يَدْرُسُ فِي كُلِّيَّةِ الهَنْدَسَةِ فِي السَّنَةِ الأُولَى. يَسْكُنُ فِي شَقَّةٍ صَغِيرَةٍ مَعَ أَصْدِقَائِهِ. كَتَبَ حَسَنٌ رِسَالَةً إِلِكْتُرُونِيَّةً إِلَى أُمِّهِ وَأَخْبَرَهَا فِي الرِّسَالَةِ أَنَّهُ سَيَحْضُرُ إِلَى البَيْتِ بَعْدَ ثَلَاثَةِ أَيَّامٍ. وَفِي يَوْمِ الجُمُعَةِ لَبِسَ حَسَنٌ المَلَابِسَ الجَدِيدَةَ وَحَمَلَ حَقِيبَةَ السَّفَرِ، وَرَكِبَ الحَافِلَةَ وَذَهَبَ إِلَى إِسْطَنْبُولَ. اسْتَقْبَلَتِ الأُمُّ وَلَدَهَا فِي المَحَطَّةِ ثُمَّ ذَهَبَ الاثْنَانِ بِسَيَّارَةِ أُجْرَةٍ إِلَى البَيْتِ. قَدَّمَتِ الأُمُّ أَوَّلًا لِوَلَدِهَا عَصِيرًا بَارِدًا ثُمَّ طَبَخَتْ لَهُ طَعَامًا لَذِيذًا وَعَمِلَتْ لَهُ قَهْوَةً تُرْكِيَّةً. وَفِي المَسَاءِ صَحِبَتِ الأُمُّ وَلَدَهَا وَذَهَبَا مَعًا إِلَى السَّاحِلِ. شَاهَدَ حَسَنٌ سَفِينَةً كَبِيرَةً فِي البَحْرِ، كَانَتِ السَّفِينَةُ تَجْرِي بِسُرْعَةٍ. بَقِيَ حَسَنٌ مَعَ أُمِّهِ يَوْمَيْنِ. وَفِي مَسَاءِ يَوْمِ الأَحَدِ حَجَزَ تَذْكِرَةً مِنَ الإِنْتَرْنِتْ، وَفِي السَّاعَةِ الثَّانِيَةَ عَشْرَةَ لَيْلًا وَدَّعَ وَالِدَتَهُ وَخَرَجَ مِنَ البَيْتِ. رَكِبَ الحَافِلَةَ مِنْ مَحَطَّةِ الحَرَمِ السَّاعَةَ الثَّانِيَةَ عَشْرَةَ وَالنِّصْفَ. بَعْدَ خَمْسِ سَاعَاتٍ وَصَلَ إِلَى أَنْقَرَةَ. ذَهَبَ إِلَى البَيْتِ، اسْتَرَاحَ قَلِيلًا ثُمَّ ذَهَبَ إِلَى الجَامِعَةِ.",
-      textTr: "Hasan, Ankara Üniversitesi'nde öğrencidir; yirmi yaşındadır. Mühendislik fakültesinin birinci sınıfında okuyor ve arkadaşlarıyla küçük bir dairede kalıyor. Hasan annesine bir e-posta yazdı ve üç gün sonra eve geleceğini haber verdi. Cuma günü yeni elbiselerini giydi, yol çantasını aldı, otobüse binip İstanbul'a gitti. Annesi oğlunu otogarda karşıladı; ikisi taksiyle eve gittiler. Anne önce oğluna soğuk bir meyve suyu ikram etti, sonra lezzetli bir yemek pişirdi ve Türk kahvesi yaptı. Akşam anne oğlunu yanına alıp sahile gittiler. Hasan denizde büyük bir gemi gördü; gemi hızla ilerliyordu. Hasan annesinin yanında iki gün kaldı. Pazar akşamı internetten bilet ayırttı; gece saat on ikide annesiyle vedalaşıp evden çıktı. Harem otogarından on iki buçukta otobüse bindi, beş saat sonra Ankara'ya vardı. Eve gidip biraz dinlendi, sonra üniversiteye gitti.",
+      textTr: "Hasan is a student at Ankara University; he is twenty years old. He is in the first year of the Faculty of Engineering and lives in a small apartment with his friends. Hasan wrote an email to his mother and told her that he would come home in three days. On Friday he put on his new clothes, took his travel bag, got on the bus and went to Istanbul. His mother met her son at the bus station, and the two of them went home by taxi. First the mother gave her son a cold juice, then she cooked him a delicious meal and made him Turkish coffee. In the evening the mother took her son along and they went to the seashore together. Hasan saw a big ship on the sea; the ship was moving fast. Hasan stayed with his mother for two days. On Sunday evening he booked a ticket online; at twelve o'clock at night he said goodbye to his mother and left the house. He got on the bus at Harem bus station at half past twelve and reached Ankara five hours later. He went home, rested a little, then went to the university.",
       items: [
-      { c: "كَتَبَ:fiil / حَسَنٌ:fail / رِسَالَةً إِلِكْتُرُونِيَّةً:mef / إِلَى أُمِّهِ:x", tr: "Hasan annesine bir e-posta yazdı." },
-      { c: "لَبِسَ:fiil / حَسَنٌ:fail / المَلَابِسَ الجَدِيدَةَ:mef", tr: "Hasan yeni elbiselerini giydi." },
-      { c: "حَمَلَ:fiil / حَقِيبَةَ السَّفَرِ:mef", tr: "Yol çantasını aldı.", why: "Fâil gizli zamirdir: <span class=\"ar\">هُوَ</span> (Hasan)." },
-      { c: "رَكِبَ:fiil / الحَافِلَةَ:mef", tr: "Otobüse bindi.", why: "Fâil gizli: <span class=\"ar\">هُوَ</span>." },
-      { c: "اسْتَقْبَلَتِ:fiil / الأُمُّ:fail / وَلَدَهَا:mef / فِي المَحَطَّةِ:x", tr: "Anne oğlunu otogarda karşıladı." },
-      { c: "قَدَّمَتِ:fiil / الأُمُّ:fail / لِوَلَدِهَا:x / عَصِيرًا بَارِدًا:mef", tr: "Anne oğluna soğuk meyve suyu ikram etti.", why: "Mef'ûl bu cümlede fiil ve fâilden hemen sonra gelmemiş; araya <span class=\"ar\">لِوَلَدِهَا</span> girmiş." },
-      { c: "طَبَخَتْ:fiil / لَهُ:x / طَعَامًا لَذِيذًا:mef", tr: "Ona lezzetli bir yemek pişirdi.", why: "Fâil gizli: <span class=\"ar\">هِيَ</span> (anne)." },
-      { c: "صَحِبَتِ:fiil / الأُمُّ:fail / وَلَدَهَا:mef", tr: "Anne oğlunu yanına aldı." },
-      { c: "شَاهَدَ:fiil / حَسَنٌ:fail / سَفِينَةً كَبِيرَةً:mef / فِي البَحْرِ:x", tr: "Hasan denizde büyük bir gemi gördü." },
-      { c: "حَجَزَ:fiil / تَذْكِرَةً:mef / مِنَ الإِنْتَرْنِتْ:x", tr: "İnternetten bilet ayırttı.", why: "Fâil gizli: <span class=\"ar\">هُوَ</span>." },
-      { c: "وَدَّعَ:fiil / وَالِدَتَهُ:mef", tr: "Annesiyle vedalaştı.", why: "Fâil gizli: <span class=\"ar\">هُوَ</span>." }
+      { c: "كَتَبَ:fiil / حَسَنٌ:fail / رِسَالَةً إِلِكْتُرُونِيَّةً:mef / إِلَى أُمِّهِ:x", tr: "Hasan wrote an email to his mother." },
+      { c: "لَبِسَ:fiil / حَسَنٌ:fail / المَلَابِسَ الجَدِيدَةَ:mef", tr: "Hasan put on his new clothes." },
+      { c: "حَمَلَ:fiil / حَقِيبَةَ السَّفَرِ:mef", tr: "He took his travel bag.", why: "The fā‘il is a hidden pronoun: <span class=\"ar\">هُوَ</span> (Hasan)." },
+      { c: "رَكِبَ:fiil / الحَافِلَةَ:mef", tr: "He got on the bus.", why: "Hidden fā‘il: <span class=\"ar\">هُوَ</span>." },
+      { c: "اسْتَقْبَلَتِ:fiil / الأُمُّ:fail / وَلَدَهَا:mef / فِي المَحَطَّةِ:x", tr: "The mother met her son at the bus station." },
+      { c: "قَدَّمَتِ:fiil / الأُمُّ:fail / لِوَلَدِهَا:x / عَصِيرًا بَارِدًا:mef", tr: "The mother gave her son a cold juice.", why: "Here the object does not come right after the verb and the fā‘il: <span class=\"ar\">لِوَلَدِهَا</span> comes in between." },
+      { c: "طَبَخَتْ:fiil / لَهُ:x / طَعَامًا لَذِيذًا:mef", tr: "She cooked him a delicious meal.", why: "Hidden fā‘il: <span class=\"ar\">هِيَ</span> (the mother)." },
+      { c: "صَحِبَتِ:fiil / الأُمُّ:fail / وَلَدَهَا:mef", tr: "The mother took her son along." },
+      { c: "شَاهَدَ:fiil / حَسَنٌ:fail / سَفِينَةً كَبِيرَةً:mef / فِي البَحْرِ:x", tr: "Hasan saw a big ship on the sea." },
+      { c: "حَجَزَ:fiil / تَذْكِرَةً:mef / مِنَ الإِنْتَرْنِتْ:x", tr: "He booked a ticket online.", why: "Hidden fā‘il: <span class=\"ar\">هُوَ</span>." },
+      { c: "وَدَّعَ:fiil / وَالِدَتَهُ:mef", tr: "He said goodbye to his mother.", why: "Hidden fā‘il: <span class=\"ar\">هُوَ</span>." }
     ]}
   ]
 }
 ];
 
-// Serbest okuma: العَالَمُ الإِسْلَامِيُّ
+// Free reading: العَالَمُ الإِسْلَامِيُّ
 var KIRAAT = {
   title: "العَالَمُ الإِسْلَامِيُّ",
   paras: [
@@ -206,22 +206,22 @@ var KIRAAT = {
     "يَمْلِكُ العَالَمُ الإِسْلَامِيُّ ثَرَوَاتٍ طَبِيعِيَّةً مُهِمَّةً، مِثْلَ النِّفْطِ وَالغَازِ الطَّبِيعِيِّ وَالمَعَادِنِ الأُخْرَى، كَمَا يَمْلِكُ العَالَمُ الإِسْلَامِيُّ الأَرَاضِيَ الزِّرَاعِيَّةَ الوَاسِعَةَ، يَزْرَعُ فِيهَا المُسْلِمُونَ أَنْوَاعَ الفَاكِهَةِ وَالقُطْنِ وَالزَّيْتُونِ وَالقَمْحِ."
   ],
   parasTr: [
-    "Dünyada altı kıta vardır: Afrika, Asya, Kuzey Amerika, Güney Amerika, Avustralya, Avrupa. Afrika, Amerika ve Asya büyük kıtalardır; Avrupa ve Avustralya iki küçük kıtadır.",
-    "İslâm dünyası hangi kıtadadır? İslâm ülkelerinin bir kısmı Asya'da, diğer kısmı Afrika'dadır. Asya'daki İslâm ülkeleri şunlardır: Türkiye, Suudi Arabistan, Yemen, Irak, Körfez ülkeleri, Suriye, Lübnan, Ürdün, Filistin, Pakistan, Bangladeş, İran, Afganistan, Endonezya, Malezya.",
-    "Afrika'daki İslâm ülkeleri şunlardır: Mısır, Sudan, Libya, Moritanya, Tunus, Cezayir, Fas, Somali, Cibuti, Kamerun, Gine, Uganda, Maldivler, Senegal, Gambiya, Çad, Mali, Nijer, Komorlar, Yukarı Volta.",
-    "Bütün bu ülkeleri tek bir siyasî kuruluş bir araya getirir: İslâm Konferansı. İslâm dünyasında yaklaşık bir buçuk milyar Müslüman yaşar; onları din, tarih ve İslâm kültürü birleştirir.",
-    "Arapça bütün Müslümanların gönlünde mukaddes bir dildir; çünkü İslâm'ın iki temel kaynağı olan Kur'an'ın ve hadisin dilidir.",
-    "İslâm dünyası petrol, doğalgaz ve diğer madenler gibi önemli doğal zenginliklere sahiptir. Ayrıca geniş tarım arazileri vardır; Müslümanlar buralarda çeşitli meyveler, pamuk, zeytin ve buğday yetiştirir."
+    "There are six continents in the world: Africa, Asia, North America, South America, Australia and Europe. Africa, America and Asia are large continents; Europe and Australia are two small continents.",
+    "On which continent is the Islamic world? Some Islamic countries are in Asia, and the others are in Africa. The Islamic countries in Asia are: Turkey, Saudi Arabia, Yemen, Iraq, the Gulf states, Syria, Lebanon, Jordan, Palestine, Pakistan, Bangladesh, Iran, Afghanistan, Indonesia and Malaysia.",
+    "The Islamic countries in Africa are: Egypt, Sudan, Libya, Mauritania, Tunisia, Algeria, Morocco, Somalia, Djibouti, Cameroon, Guinea, Uganda, the Maldives, Senegal, Gambia, Chad, Mali, Niger, the Comoros and Upper Volta.",
+    "A single political body brings all these countries together: the Islamic Conference. About one and a half billion Muslims live in the Islamic world; they are united by religion, history and Islamic culture.",
+    "Arabic is a sacred language in the hearts of all Muslims, because it is the language of the Qur'an and the Hadith, the two basic sources of Islam.",
+    "The Islamic world has important natural resources such as oil, natural gas and other minerals. It also has wide farmlands, where Muslims grow many kinds of fruit, cotton, olives and wheat."
   ],
-  // Kıta avı: kitaptaki listeden (Maldivler coğrafî olarak Güney Asya'da olduğu için oyuna alınmadı)
+  // Continent hunt: taken from the book's list (the Maldives were left out of the game because they are geographically in South Asia)
   countries: [
-    ["تُرْكِيَا", "Türkiye", "as"], ["السُّعُودِيَّةُ", "Suudi Arabistan", "as"], ["اليَمَنُ", "Yemen", "as"], ["العِرَاقُ", "Irak", "as"], ["سُورِيَا", "Suriye", "as"], ["لُبْنَانُ", "Lübnan", "as"], ["الأُرْدُنُّ", "Ürdün", "as"], ["فِلَسْطِينُ", "Filistin", "as"], ["بَاكِسْتَانُ", "Pakistan", "as"], ["بَنْغْلَادِيشُ", "Bangladeş", "as"], ["إِيرَانُ", "İran", "as"], ["أَفْغَانِسْتَانُ", "Afganistan", "as"], ["إِنْدُونِيسِيَا", "Endonezya", "as"], ["مَالِيزِيَا", "Malezya", "as"],
-    ["مِصْرُ", "Mısır", "af"], ["السُّودَانُ", "Sudan", "af"], ["لِيبِيَا", "Libya", "af"], ["مُورِيتَانْيَا", "Moritanya", "af"], ["تُونُسُ", "Tunus", "af"], ["الجَزَائِرُ", "Cezayir", "af"], ["المَغْرِبُ", "Fas", "af"], ["الصُّومَالُ", "Somali", "af"], ["جِيبُوتِي", "Cibuti", "af"], ["الكَامِيرُونُ", "Kamerun", "af"], ["غِينْيَا", "Gine", "af"], ["أُوغَنْدَا", "Uganda", "af"], ["السِّنِغَالُ", "Senegal", "af"], ["جَامْبِيَا", "Gambiya", "af"], ["تْشَادُ", "Çad", "af"], ["مَالِي", "Mali", "af"], ["النَّيْجَرُ", "Nijer", "af"], ["جُزُرُ القَمَرِ", "Komorlar", "af"]
+    ["تُرْكِيَا", "Turkey", "as"], ["السُّعُودِيَّةُ", "Saudi Arabia", "as"], ["اليَمَنُ", "Yemen", "as"], ["العِرَاقُ", "Iraq", "as"], ["سُورِيَا", "Syria", "as"], ["لُبْنَانُ", "Lebanon", "as"], ["الأُرْدُنُّ", "Jordan", "as"], ["فِلَسْطِينُ", "Palestine", "as"], ["بَاكِسْتَانُ", "Pakistan", "as"], ["بَنْغْلَادِيشُ", "Bangladesh", "as"], ["إِيرَانُ", "Iran", "as"], ["أَفْغَانِسْتَانُ", "Afghanistan", "as"], ["إِنْدُونِيسِيَا", "Indonesia", "as"], ["مَالِيزِيَا", "Malaysia", "as"],
+    ["مِصْرُ", "Egypt", "af"], ["السُّودَانُ", "Sudan", "af"], ["لِيبِيَا", "Libya", "af"], ["مُورِيتَانْيَا", "Mauritania", "af"], ["تُونُسُ", "Tunisia", "af"], ["الجَزَائِرُ", "Algeria", "af"], ["المَغْرِبُ", "Morocco", "af"], ["الصُّومَالُ", "Somalia", "af"], ["جِيبُوتِي", "Djibouti", "af"], ["الكَامِيرُونُ", "Cameroon", "af"], ["غِينْيَا", "Guinea", "af"], ["أُوغَنْدَا", "Uganda", "af"], ["السِّنِغَالُ", "Senegal", "af"], ["جَامْبِيَا", "Gambia", "af"], ["تْشَادُ", "Chad", "af"], ["مَالِي", "Mali", "af"], ["النَّيْجَرُ", "Niger", "af"], ["جُزُرُ القَمَرِ", "Comoros", "af"]
   ],
   quiz: [
-    { q: "كَمْ قَارَّةً فِي العَالَمِ؟", o: ["خَمْسُ قَارَّاتٍ", "سِتُّ قَارَّاتٍ", "سَبْعُ قَارَّاتٍ"], a: 1, tr: "Dünyada kaç kıta var? Altı." },
-    { q: "مَا الهَيْئَةُ الَّتِي تَجْمَعُ الدُّوَلَ الإِسْلَامِيَّةَ؟", o: ["الأُمَمُ المُتَّحِدَةُ", "المُؤْتَمَرُ الإِسْلَامِيُّ", "الجَامِعَةُ العَرَبِيَّةُ"], a: 1, tr: "İslâm ülkelerini bir araya getiren kuruluş: İslâm Konferansı." },
-    { q: "لِمَاذَا اللُّغَةُ العَرَبِيَّةُ مُقَدَّسَةٌ فِي نُفُوسِ المُسْلِمِينَ؟", o: ["لِأَنَّهَا لُغَةٌ قَدِيمَةٌ", "لِأَنَّهَا لُغَةُ القُرْآنِ وَالحَدِيثِ", "لِأَنَّهَا لُغَةُ التِّجَارَةِ"], a: 1, tr: "Çünkü Kur'an'ın ve hadisin dilidir." },
-    { q: "مَاذَا يَزْرَعُ المُسْلِمُونَ فِي أَرَاضِيهِمْ؟", o: ["النِّفْطَ وَالغَازَ", "الفَاكِهَةَ وَالقُطْنَ وَالزَّيْتُونَ وَالقَمْحَ", "المَعَادِنَ"], a: 1, tr: "Meyve, pamuk, zeytin ve buğday." }
+    { q: "كَمْ قَارَّةً فِي العَالَمِ؟", o: ["خَمْسُ قَارَّاتٍ", "سِتُّ قَارَّاتٍ", "سَبْعُ قَارَّاتٍ"], a: 1, tr: "How many continents are there in the world? Six." },
+    { q: "مَا الهَيْئَةُ الَّتِي تَجْمَعُ الدُّوَلَ الإِسْلَامِيَّةَ؟", o: ["الأُمَمُ المُتَّحِدَةُ", "المُؤْتَمَرُ الإِسْلَامِيُّ", "الجَامِعَةُ العَرَبِيَّةُ"], a: 1, tr: "The body that brings the Islamic countries together: the Islamic Conference." },
+    { q: "لِمَاذَا اللُّغَةُ العَرَبِيَّةُ مُقَدَّسَةٌ فِي نُفُوسِ المُسْلِمِينَ؟", o: ["لِأَنَّهَا لُغَةٌ قَدِيمَةٌ", "لِأَنَّهَا لُغَةُ القُرْآنِ وَالحَدِيثِ", "لِأَنَّهَا لُغَةُ التِّجَارَةِ"], a: 1, tr: "Because it is the language of the Qur'an and the Hadith." },
+    { q: "مَاذَا يَزْرَعُ المُسْلِمُونَ فِي أَرَاضِيهِمْ؟", o: ["النِّفْطَ وَالغَازَ", "الفَاكِهَةَ وَالقُطْنَ وَالزَّيْتُونَ وَالقَمْحَ", "المَعَادِنَ"], a: 1, tr: "Fruit, cotton, olives and wheat." }
   ]
 };
