@@ -1155,3 +1155,15 @@ Kayıt notları: 61. dersin (konuşma) ve 63. dersin (yazı) kaydı yoktur; okum
 olmadığından o bölüm 58. dersin alıştırmaları (garip kelime, tekil–çoğul) ve ek sorularla hazırlandı.
 Düzenleme: `k1u7/veri.js`, `k1u7/uygulama.js`, `k1u7/stil.css`; ses parçaları `k1u7/parcalar.json` → `python3 k1u7/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u7/yap.py`.
+
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 8. ünite — İş (sesli, resimli, çevrimdışı)
+
+`k1u8/index.html` (yayın sürümü `k1u8/sayfa.html`) العَمَلُ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
+26 ders kaydı (ders 64–71) tek `ses.mp3` içinde birleştirilmiş, 165 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (doktor ile mühendis, altı öğrenci, iki öğretmen) ve kitaptaki sorular; **Kelimeler** (ders 64–66, 18 kelime), **Saatler** (السّاعَةُ الواحِدَةُ … الثّانِيَةَ عَشْرَةَ),
+**Kalıplar** (كَمْ ساعَةً؟; كَمْ طِفْلًا لَكَ؟; أَعْمَلُ طَبيبًا; أَيْنَ تَعْمَلُ؟; هَلْ لَكَ…؟ — نَعَمْ، لي…), **Sesler** (ض, ض – د, dokuz âyet), **Dinleme** (ders 69, dört tedrîb;
+4. tedrîbde paragraf ve cümle tamamlama), **Okuma** (Ömer ve Fâtıma metinleri, sesli), **Yazı** (harflerden kelime, harf sıralama), **Konuşma**, **Kendini sına (ünite 7–8)** ve sesli **Sınav**.
+Kayıt notları: 70. dersin (konuşma) ve 72. dersin (yazı) kaydı yoktur; okuma tedrîb 1–4 kitapta da sesli değildir. Kitabın sonundaki yarıyıl sınavının
+(Ünite 1–8) kaydı yüklenmediği için alınmadı. Dinleme tedrîb 2’de “ماذا تَعْمَلُ؟” ile “ما مِهْنَتُكَ؟” soruları için resim eşleşmesi tahminidir.
+Düzenleme: `k1u8/veri.js`, `k1u8/uygulama.js`, `k1u8/stil.css`; ses parçaları `k1u8/parcalar.json` → `python3 k1u8/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u8/yap.py`.
