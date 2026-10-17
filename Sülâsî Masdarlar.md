@@ -1030,3 +1030,18 @@ bağlamıyla birlikte “senin işaretin → doğrusu” olarak, metnin üzerind
 kelimeler altlarında doğru cevapla ve açılır listede atlananlar görünür. Cevap anahtarı Ctrl+Shift+E ya da alttaki bağlantıyla açılır;
 üç analizin cevapları tek ekrandan değiştirilir ve tarayıcıda saklanır. Düzenleme: `kelimetahlil/kaynak.html`, `kelimetahlil/veri.json`
 (her satır: kelime, kelime çeşidi, cinsiyet, sayı, marife–nekra); sonra `python3 kelimetahlil/yap.py`.
+
+## Uygulama: el-Arabiyyetü beyne yedeyk 3, 13. ünite — Babalar ve Oğullar (sesli, çevrimdışı)
+
+`bayna13/index.html` (yayın sürümü `bayna13/sayfa.html`) العَلاقَةُ بَيْنَ الآباءِ والأَبْناءِ ünitesini tek dosyada, internetsiz çalışan bir
+program olarak verir; yazı tipleri ve ünitenin ses kaydı (12:16) dosyanın içindedir. **Dinle ve Oku**: metin, kayıttaki zamanlarına göre
+65 cümleye bölünmüştür; çalan cümle vurgulanır ve ekran onu takip eder, cümleye dokununca yalnız o cümle çalar, paragraf ya da ünite
+girişi ayrı dinlenebilir; hız 0,75–1,25×, “cümleyi tekrarla” ve “dinle – sen tekrar et” (her cümleden sonra süreli bekleme) modları,
+cümle cümle ya da akan metin görünümü, hareke (tam / son harekeler gizli / harekesiz, âyetler korunur) ve Türkçe (açık / tıklayınca,
+kendi çevirisiyle karşılaştırma) ayarları, paragraf başına kelime listesi vardır. **Anlama**: fikir sıralama, başlık–paragraf, âyet
+soruları, kısa cevap (örnek cevap ve öz değerlendirme); dinleme bölümünün (Ders 88) kaydı ünite kaydında olmadığından o cümleler
+yalnızca işaretlenir. **Kelimeler**: kelime kartları, eşleştirme oyunları (kelime–anlam, zıt anlamlılar), tekil biçim, ifade tamamlama,
+kalıba göre cümle. **Nûnü’l-vikâye** (vâcib / câiz / mümteni‘; إِنَّ ve kardeşlerinin amelleri “ileride” notuyla), **Masdarlar**
+(anlama ve baba göre vezinler), **İmlâ** (مِمَّنْ، عَمَّنْ، فيمَنْ ve kayıttan dikte; harekesiz karşılaştırma), **İfade** (sözlü sorular,
+ekip konuları, hadisler, kelime sayaçlı yazı) ve karışık 15 soruluk **Sınav**. Puan, ilerleme ve yazılanlar tarayıcıda saklanır.
+Düzenleme: `bayna13/veri.js` (metin zamanları ve alıştırmalar), `bayna13/kaynak.html`; sonra `python3 bayna13/yap.py`.
