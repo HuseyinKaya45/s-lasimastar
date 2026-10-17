@@ -1115,3 +1115,17 @@ iki sesli metin), **Yazı** (س ش ص ض), **Konuşma** (cami ve kişi resimleri
 Kayıt notları: 34. dersin (konuşma) kaydı yoktur. Okuma tedrîb 1–4’ün kaydı yoktur, kitapta da sesli değildir. Dinleme cevapları kayıtlardan çıkarıldı.
 Düzenleme: `k1u4/veri.js`, `k1u4/uygulama.js`, `k1u4/stil.css`; ses parçaları `k1u4/parcalar.json` → `python3 k1u4/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u4/yap.py`.
+
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 5. ünite — Yiyecek ve içecek (sesli, resimli, çevrimdışı)
+
+`k1u5/index.html` (yayın sürümü `k1u5/sayfa.html`) الطَّعامُ وَالشَّرابُ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
+24 ders kaydı (ders 37–44) tek `ses.mp3` içinde birleştirilmiş, 179 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (lokantaya giderken, uçakta, misafirler) ve ardından kitaptaki “kısaca cevap ver” soruları; **Kelimeler** (ders 37–39, 36 kelime),
+**Sıra sayıları (dişil)** الأولى–الخامِسَة ve eril–dişil eşleştirme, **Kalıplar** (… عَلى المائِدَةِ; آكُلُ…; لا تَأْكُلْ; ماذا تَطْلُبُ / تَطْلُبينَ؟ — بَعْضَ… مِنْ فَضْلِكَ;
+alıştırmalar artık `veri.js` içindeki `KALIP_T` listesinden çiziliyor), **Sesler** (ق, ق – ك çiftleri ve oyun, altı âyet), **Dinleme** (ders 42, dört tedrîb),
+**Okuma** (farklı olanı bul, eşleştirmeler, Zeyneb ve Kâsım–Sâlim metinleri, sesli), **Yazı** (ك ل ن ف ق م), **Konuşma**, **Kendini sına**
+(yiyecek mi içecek mi, zıt anlamlılar, garip kelime, doğru kelime, doğru–yanlış) ve sesli **Sınav**.
+Kayıt notları: 43. dersin (konuşma) kaydı yoktur; okuma tedrîb 1–4 kitapta da sesli değildir. 42-22 kaydı .wav olarak yüklendiği için mp3’e çevrildi.
+1. diyalogda kayıtta Sâlim öğle yemeğinde “اللَّحْمَ وَالدَّجاجَ وَالأَرُزَّ وَالخُبْزَ” der (kitapta “الأَرُزَّ وَالخُبْزَ”); metin kayda göre yazıldı.
+Düzenleme: `k1u5/veri.js`, `k1u5/uygulama.js`, `k1u5/stil.css`; ses parçaları `k1u5/parcalar.json` → `python3 k1u5/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u5/yap.py`.
