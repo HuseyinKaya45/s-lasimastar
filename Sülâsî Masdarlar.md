@@ -1059,3 +1059,19 @@ başlık–paragraf, doğru–yanlış (yanlışların düzeltmesiyle), kısa ce
 (birden fazla doğru kabul edilir) ve kayıttan dikte. **Dinleme**: iki bölümün kaydı, doğru–yanlış, kısa cevap, eşleştirme ve
 seçmeli sorular; dinleme metni çözümden sonra açılır ve cümlelerine dokununca o yerden çalar. **İfade** ve karışık **Sınav**.
 Düzenleme: `bayna14/veri.js`, `bayna14/kaynak.html`; sonra `python3 bayna14/yap.py`.
+
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 1. ünite — Selamlaşma ve Tanışma (sesli, resimli, çevrimdışı)
+
+`k1u1/index.html` (yayın sürümü `k1u1/sayfa.html`) التَّحِيَّةُ وَالتَّعارُفُ ünitesini tek dosyada, internetsiz verir. Kitabın 31 ses kaydı
+(dersler 1–6 ve 8) tek `ses.mp3` içinde birleştirilmiş, her cümle / kelime parçasının yeri `zaman.js`’te tutulur; kitaptaki fotoğraflar
+kırpılıp gömülmüştür. **Diyaloglar** (6 diyalog): cümle cümle dinleme, “dinle ve tekrar et” (her cümleden sonra süre), **rol yapma**
+(bir kişiyi seç; onun sırası gelince kayıt susar ve geri sayımla “sıra sende” der, istenirse kendi satırların bulanıklaşır). **Kelimeler**:
+resimli kartlar (ders ders), “dinle, resmi bul”, “resme bak, kelimeyi seç”, resim–kelime eşleştirme. **Sayılar** ١–٥: eşleştir, sırala,
+duyduğunu göster. **Kalıplar**: هَلْ ve مِنْ أَيْنَ soruları, هذا / هذِهِ ile tanıştırma, اِسْمي, uyruk – ülke; erkek–kadın uyumu, her cevaptan sonra
+doğru cümle okunur. **Sesler**: خ, خ – ك çiftleri ve “hangisini duydun?” oyunu, âyetler. **Dinleme**: ders 4 ve 6’nın dinleme alıştırmaları
+(cevap anahtarı kayıtlardan çıkarıldı). **Okuma**: aynı / farklı olanı bulma (hareke farkları), eşleştirme, resimli cümleler. **Yazı**:
+أ د ذ ر ز و harfleri, parmakla / fareyle soluk harfin üzerinden çizme, tekrar eden harf, baştaki / sondaki harf. **Konuşma** ve sesli
+sorular içeren **Sınav**. Türkçe anlam ve Latin harfli okunuş açılıp kapatılabilir. Not: kayıtta iki yerde kitaptan farklı olarak
+طالِبَة okunur (okuma tedrîb 1’in 9. kelimesi ve kalıplar tedrîb 2’nin son cümlesi); programda kayda uyulmuştur.
+Düzenleme: `k1u1/veri.js`, `k1u1/uygulama.js`, `k1u1/stil.css`; ses parçaları `k1u1/parcalar.json` → `python3 k1u1/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u1/yap.py`.
