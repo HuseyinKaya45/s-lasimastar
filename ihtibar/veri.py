@@ -4,12 +4,14 @@ import os
 
 here = os.path.dirname(os.path.abspath(__file__))
 E, H = "نَعَمْ ✓", "لا ✗"
+Q4 = ["مَتى", "كَيْفَ", "هَلْ", "أَيْنَ"]
 
 
 def mcq(q, d, y, sira=False):
+    """sira: seçenekler karıştırılmaz ama doğru cevap da ilk sıraya konmaz; sira bir liste ise o sıra, değilse alfabetik."""
     o = {"q": q, "d": d, "y": y}
     if sira:
-        o["sira"] = True
+        o["ops"] = list(sira) if isinstance(sira, (list, tuple)) else sorted([d] + y)
     return o
 
 
@@ -30,7 +32,7 @@ def esle(ciftler):
 
 
 def eh(cumleler):
-    return [mcq(q, E if v else H, [H if v else E], True) for q, v in cumleler]
+    return [mcq(q, E if v else H, [H if v else E], [E, H]) for q, v in cumleler]
 
 
 def bolum(ad, ar, puan, oge, tip="mcq", **k):
@@ -53,7 +55,7 @@ S1 = {"id": 1, "ar": "اخْتَبِرْ نَفْسَكَ (الوَحْدَتا�
       "aciklama": "Selamlaşma ve tanışma ile aile ünitelerinin tekrar sınavı. Kitaptaki gibi 40 puan.", "kisimlar": [
     kisim(*MUF, [
         bolum("Kelimeyi tablodaki yerine koy", "ضَعِ الكَلِماتِ الآتِيَةَ في مَكانِها المُناسِبِ مِنَ الجَدْوَلِ", 9,
-              [mcq(w, GRUP1[g], [x for x in GRUP1 if x != GRUP1[g]], True) for w, g in TABLO],
+              [mcq(w, GRUP1[g], [x for x in GRUP1 if x != GRUP1[g]], GRUP1) for w, g in TABLO],
               not_="Her kelime hangi sütuna girer? (بَلَد ülke, ضَمير zamir, رَقْم sayı, أُسْرَة aile, مَكان yer, مِهْنَة meslek)"),
         bolum("Cümleleri tamamla", "أَكْمِلِ الجُمَلَ بِالكَلِماتِ التّالِيَةِ", 8, bank([
             ("أَحْمَدُ في ___.", "الغُرْفَةِ"), ("هذِهِ والِدَتي هِيَ ___.", "طَبيبَةٌ"), ("هذا ___ عُمَرُ.", "جَدّي"), ("عادِلٌ ___ القُرْآنَ الكَريمَ.", "يَقْرَأُ"),
@@ -262,8 +264,8 @@ S5 = {"id": 5, "ar": "الاخْتِبارُ النِّصْفِيُّ (الوَ�
             mcq("هذا أَخي. هُوَ مُدَرِّسَةٌ.", "هذا أَخي. هُوَ مُدَرِّسٌ.", ["هذا أَخي. هُوَ مُدَرِّسَةٌ."]),
             mcq("ماذا سَتَفْعَلُ يا فاطِمَةُ؟", "ماذا سَتَفْعَلينَ يا فاطِمَةُ؟", ["ماذا سَتَفْعَلُ يا فاطِمَةُ؟"])]),
         bolum("Soru kelimesiyle tamamla", "أَكْمِلِ الجُمَلَ بِأَداةِ الاسْتِفْهامِ المُناسِبَةِ (مَتى – كَيْفَ – هَلْ – أَيْنَ)", 4, [
-            mcq("___ تَذْهَبُ إِلى المَدْرَسَةِ؟", "مَتى", ["كَيْفَ", "هَلْ", "أَيْنَ"], True), mcq("___ تُصَلّي الفَجْرَ؟", "أَيْنَ", ["مَتى", "كَيْفَ", "هَلْ"], True),
-            mcq("___ حالُكَ؟", "كَيْفَ", ["مَتى", "هَلْ", "أَيْنَ"], True), mcq("___ أَنْتَ سورِيٌّ؟", "هَلْ", ["مَتى", "كَيْفَ", "أَيْنَ"], True)])])]}
+            mcq("___ تَذْهَبُ إِلى المَدْرَسَةِ؟", "مَتى", [x for x in Q4 if x != "مَتى"], Q4), mcq("___ تُصَلّي الفَجْرَ؟", "أَيْنَ", [x for x in Q4 if x != "أَيْنَ"], Q4),
+            mcq("___ حالُكَ؟", "كَيْفَ", [x for x in Q4 if x != "كَيْفَ"], Q4), mcq("___ أَنْتَ سورِيٌّ؟", "هَلْ", [x for x in Q4 if x != "هَلْ"], Q4)])])]}
 
 
 def temizle(o):

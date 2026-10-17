@@ -25,7 +25,7 @@ function bolumPuan(b) { var n = b.oge.filter(function (o) { return ogeDogru(b, o
 function cevaplanan() { var n = 0, t = 0; BOL.forEach(function (b) { b.oge.forEach(function (o) { t++; var c = C[o.key]; if (c !== undefined && !(Array.isArray(c) && !c.length)) n++; }); }); return [n, t]; }
 
 function ogeHtml(b, o, i) {
-  var c = C[o.key], ops = b.tip === "coklu" ? karistir(o.d.concat(o.y), o.key) : (o.sira ? [o.d].concat(o.y) : karistir([o.d].concat(o.y), o.key));
+  var c = C[o.key], ops = b.tip === "coklu" ? karistir(o.d.concat(o.y), o.key) : (o.ops ? o.ops : karistir([o.d].concat(o.y), o.key));
   var dur = BITTI ? (ogeDogru(b, o) ? ' ok' : ' no') : '';
   var dugme = ops.map(function (op) {
     var sec = b.tip === "coklu" ? (c || []).indexOf(op) >= 0 : c === op, cls = sec ? ' secili' : '';
