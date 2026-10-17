@@ -1167,3 +1167,12 @@ Kayıt notları: 70. dersin (konuşma) ve 72. dersin (yazı) kaydı yoktur; okum
 (Ünite 1–8) kaydı yüklenmediği için alınmadı. Dinleme tedrîb 2’de “ماذا تَعْمَلُ؟” ile “ما مِهْنَتُكَ؟” soruları için resim eşleşmesi tahminidir.
 Düzenleme: `k1u8/veri.js`, `k1u8/uygulama.js`, `k1u8/stil.css`; ses parçaları `k1u8/parcalar.json` → `python3 k1u8/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u8/yap.py`.
+
+## Uygulama: el-Arabiyyetü beyne yedeyk 1 — “Kendini sına” sınavları ve yarıyıl sınavı
+
+`ihtibar/ihtibar1.html` … `ihtibar5.html` (yayın sürümleri `ihtibar/sayfa1.html` … `sayfa5.html`): kitabın dört “اخْتَبِرْ نَفْسَكَ” sınavı (Ünite 1–2, 3–4, 5–6, 7–8; her biri 40 puan)
+ve yarıyıl sınavı (Ünite 1–8, 100 puan) ayrı ayrı, tek dosya ve internetsiz. Öğrenci bütün soruları cevaplar, “Sınavı bitir” ile kitaptaki puanlamaya göre
+bölüm bölüm puan alır; yanlışlarda doğru cevap gösterilir, cevaplar tarayıcıda saklanır. Kitapta öğrencinin yazdığı sorular (tablo, boşluk doldurma,
+eşleştirme, “iki kelime ekle”, hata düzeltme) seçmeli ya da çoklu seçimli soruya çevrildi. Yarıyıl sınavının dinleme bölümü (38 puan) kaydı yüklenmediği için
+henüz yoktur; puan şimdilik 62 üzerinden hesaplanır.
+Ortak motor `ihtibar/motor.js`, veriler `ihtibar/veri.py` (→ `veriN.js`); `python3 ihtibar/yap.py` beşini birden derler.
