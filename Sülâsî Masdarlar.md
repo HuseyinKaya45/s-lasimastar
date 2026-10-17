@@ -1129,3 +1129,17 @@ Kayıt notları: 43. dersin (konuşma) kaydı yoktur; okuma tedrîb 1–4 kitapt
 1. diyalogda kayıtta Sâlim öğle yemeğinde “اللَّحْمَ وَالدَّجاجَ وَالأَرُزَّ وَالخُبْزَ” der (kitapta “الأَرُزَّ وَالخُبْزَ”); metin kayda göre yazıldı.
 Düzenleme: `k1u5/veri.js`, `k1u5/uygulama.js`, `k1u5/stil.css`; ses parçaları `k1u5/parcalar.json` → `python3 k1u5/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u5/yap.py`.
+
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 6. ünite — Namaz (sesli, resimli, çevrimdışı)
+
+`k1u6/index.html` (yayın sürümü `k1u6/sayfa.html`) الصَّلاةُ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
+26 ders kaydı (ders 46–53) tek `ses.mp3` içinde birleştirilmiş, 172 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (beş vakit namaz, Mekke–Medine yolculuğu, ikindi ezanı) ve ardından kitaptaki sorular (3. diyalogda evet–hayır); **Kelimeler** (ders 46–48, 27 kelime),
+**Sıra sayıları** 1–10 ve beş vakit namazın sırası, **Kalıplar** (لِماذا؟ — لِأُصَلِّيَ…; مُسافِرٌ / مُسافِرَةٌ; ضَعْ… بِجانِبِكَ; أَنا ذاهِبٌ إِلى…; emir kipi),
+**Sesler** (ص, ص – س çiftleri ve oyun, altı âyet), **Dinleme** (ders 51, dört tedrîb), **Okuma** (farklı olanı bul, eşleştirmeler, Selmân ve Târık metinleri, sesli),
+**Yazı** (هـ ة ي ى; sondaki harf), **Konuşma**, **Kendini sına (ünite 5–6)** ve sesli **Sınav**.
+Kayıt notları: 52. dersin (konuşma) kaydı yoktur; okuma tedrîb 1–4 kitapta da sesli değildir. Kayıtta 3. diyalogdaki “الصَّلاةُ في المَسْجِدِ أَفْضَلُ” yerine
+“صَلِّ في المَسْجِدِ”, okuma tedrîb 6’daki “في المَسْجِدِ” yerine “في مَسْجِدِ بِلالٍ” okunur; metinler kayda göre yazıldı. Lokmân 17 ve Ahzâb 35’in kayıtta yalnız
+bir bölümü okunduğu için âyet metni de o bölümle verildi. Kalıp tedrîb 1’in son cevabı (لِأُصَلِّيَ الفَجْرَ) kayıtta kesik.
+Düzenleme: `k1u6/veri.js`, `k1u6/uygulama.js`, `k1u6/stil.css`; ses parçaları `k1u6/parcalar.json` → `python3 k1u6/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u6/yap.py`.
