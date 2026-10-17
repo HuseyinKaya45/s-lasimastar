@@ -1075,3 +1075,16 @@ sorular içeren **Sınav**. Türkçe anlam ve Latin harfli okunuş açılıp kap
 طالِبَة okunur (okuma tedrîb 1’in 9. kelimesi ve kalıplar tedrîb 2’nin son cümlesi); programda kayda uyulmuştur.
 Düzenleme: `k1u1/veri.js`, `k1u1/uygulama.js`, `k1u1/stil.css`; ses parçaları `k1u1/parcalar.json` → `python3 k1u1/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u1/yap.py`.
+
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 2. ünite — Aile (sesli, resimli, çevrimdışı)
+
+`k1u2/index.html` (yayın sürümü `k1u2/sayfa.html`) الأُسْرَةُ ünitesini 1. ünite programıyla aynı yapıda, tek dosya ve internetsiz verir.
+23 ders kaydı tek `ses.mp3` içinde birleştirilmiş, 190 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (aile ağacıyla “ailemin fotoğrafı”, Peygamberimizin ailesi, sabah ezanı): cümle cümle dinleme, dinle–tekrar et, rol yapma.
+**Kelimeler** (ders 10–12), **Sayılar** ٦–١٠, **Kalıplar** (أَيْنَ …؟ هذا هُوَ / هذِهِ هِيَ; يَـ / تَـ; مَنْ هذا؟; ـي → ـهُ; her cevaptan sonra kayıt),
+**Sesler** (ع, ع – أ çiftleri ve oyun, âyetler), **Dinleme** (ders 13 ve 15; cevaplar kayıtlardan), **Okuma**, **Yazı** (ب ت ث ط ظ ا çizme,
+eksik / sondaki harf, harfi bulma), **Konuşma**, **Kendini sına (ünite 1–2)** ve sesli **Sınav**.
+Eksik kayıtlar: 11. dersin kelime kaydı (11-04) yüklenmemiş, bu kelimelerin sesi okuma kaydından alındı; `15-19` ve `17-26` adıyla yüklenen
+dosyalar `15-18` ve `17-25`’in kopyası olduğundan okuma tedrîb 5 cümlelerinin ve dinleme tedrîb 4’ün kaydı yok.
+Düzenleme: `k1u2/veri.js`, `k1u2/uygulama.js`, `k1u2/stil.css`; ses parçaları `k1u2/parcalar.json` → `python3 k1u2/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u2/yap.py`.
