@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ünite 9 · Hobiler</title>
+<style>
+:root{
+  --bg:#f6f3ec; --card:#fffdf8; --ink:#1f2328; --muted:#6b6f76; --line:#e2dccf;
+  --accent:#0f766e; --accent-ink:#ffffff; --soft:#e6f2f0; --ok:#15803d; --ok-soft:#dcfce7;
+  --bad:#b91c1c; --bad-soft:#fee2e2; --gold:#a16207;
+  --ar:"Amiri","Scheherazade New","Noto Naskh Arabic","Traditional Arabic","Geeza Pro","Arial",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121417; --card:#1b1e23; --ink:#e8e6e1; --muted:#9aa0a8; --line:#2c3138;
+    --accent:#2dd4bf; --accent-ink:#06201d; --soft:#16302d; --ok:#4ade80; --ok-soft:#12301d;
+    --bad:#f87171; --bad-soft:#3a1717; --gold:#facc15;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121417; --card:#1b1e23; --ink:#e8e6e1; --muted:#9aa0a8; --line:#2c3138;
+  --accent:#2dd4bf; --accent-ink:#06201d; --soft:#16302d; --ok:#4ade80; --ok-soft:#12301d;
+  --bad:#f87171; --bad-soft:#3a1717; --gold:#facc15;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:20px 16px 8px;max-width:960px;margin:0 auto;display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+h1{margin:0;font-size:1.35rem}
+h1 .ar{font-family:var(--ar);font-size:1.6rem;font-weight:700;margin-inline-start:8px}
+.sub{color:var(--muted);font-size:.9rem;margin-top:2px}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .in{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;gap:6px;overflow-x:auto}
+button,.btn{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:7px 12px;white-space:nowrap}
+button:hover{border-color:var(--accent)}
+button.on,button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:disabled{opacity:.5;cursor:default}
+main{max-width:960px;margin:0 auto;padding:16px}
+section{display:none}
+section.show{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+h2{font-size:1.15rem;margin:0 0 10px}
+h3{font-size:1rem;margin:16px 0 8px}
+.ar{font-family:var(--ar);direction:rtl;unicode-bidi:isolate}
+.muted{color:var(--muted)}
+.hint{font-size:.88rem;color:var(--muted)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=search]{font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);flex:1;min-width:160px}
+select{font:inherit;padding:7px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+
+/* Kelime listesi */
+.vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.w{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:4px;position:relative}
+.w .a{font-family:var(--ar);direction:rtl;font-size:1.7rem;line-height:1.5;text-align:right}
+.w .pl{font-family:var(--ar);direction:rtl;font-size:1.05rem;color:var(--muted);text-align:right}
+.w .t{font-weight:600}
+.w .anchor{font-size:.85rem;color:var(--gold)}
+.w .say{position:absolute;top:8px;left:8px;padding:2px 8px;font-size:.85rem}
+.tag{display:inline-block;font-size:.72rem;padding:1px 8px;border-radius:99px;background:var(--soft);color:var(--accent);margin-inline-end:4px}
+
+/* Kartlar */
+.flash{min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;user-select:none}
+.flash .big{font-family:var(--ar);direction:rtl;font-size:3rem;line-height:1.6}
+.flash .tr{font-size:1.5rem;font-weight:600}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+
+/* Diyalog */
+.dlg{display:flex;flex-direction:column;gap:8px}
+.line{display:flex;gap:10px;align-items:flex-start;direction:rtl}
+.line .who{font-family:var(--ar);font-weight:700;min-width:64px;color:var(--accent);font-size:1.2rem}
+.line .bub{background:var(--soft);border-radius:12px;padding:6px 12px;flex:1}
+.line .bub .a{font-family:var(--ar);font-size:1.45rem;line-height:1.7}
+.line .bub .t{direction:ltr;text-align:left;font-size:.9rem;color:var(--muted)}
+.line.alt .bub{background:transparent;border:1px solid var(--line)}
+.hide-tr .t,.hide-tr .tr-only{display:none!important}
+
+/* Tablo */
+table{border-collapse:collapse;width:100%}
+th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:middle}
+td.ar,th.ar{text-align:right;font-size:1.35rem}
+.scroll{overflow-x:auto}
+
+/* Test */
+.q .prompt{font-size:1.15rem;margin-bottom:12px}
+.q .prompt .ar{font-size:2.1rem}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.opts button{padding:12px;text-align:center;white-space:normal}
+.opts button.ar{font-size:1.5rem;direction:rtl}
+.opts button.ok{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.opts button.bad{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.score{font-weight:700;font-size:1.1rem}
+
+/* Eşleştirme */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.match .col{display:flex;flex-direction:column;gap:8px}
+.match button{padding:10px;white-space:normal;min-height:52px}
+.match button.ar{font-size:1.45rem;direction:rtl}
+.match button.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.match button.done{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);cursor:default}
+.match button.wrong{background:var(--bad-soft);border-color:var(--bad)}
+
+.no-hk .strip{} /* işaretleme JS ile kaldırılıyor */
+footer{max-width:960px;margin:0 auto;padding:8px 16px 32px;color:var(--muted);font-size:.85rem}
+@media (max-width:520px){
+  .flash .big{font-size:2.4rem}
+  .line .who{min-width:48px;font-size:1rem}
+  .line .bub .a{font-size:1.25rem}
+}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Ünite 9 — Hobiler <span class="ar">الوَحْدَةُ التَّاسِعَةُ: الهِوَايَاتُ</span></h1>
+    <div class="sub">el-Arabiyyetu Beyne Yedeyk · Kitap 1 · çevrimdışı çalışma programı</div>
+  </div>
+  <div class="tools">
+    <button id="tHk" title="Harekeleri göster/gizle">Hareke: açık</button>
+    <button id="tTr" title="Türkçe çeviriyi göster/gizle">Çeviri: açık</button>
+    <button id="tTheme" title="Tema">Tema</button>
+  </div>
+</header>
+<nav><div class="in" id="tabs"></div></nav>
+<main>
+  <section id="s-kelime">
+    <div class="card">
+      <h2>Kelimeler <span class="ar muted">المُفْرَدَاتُ</span></h2>
+      <div class="row">
+        <input type="search" id="vq" placeholder="Ara (Arapça veya Türkçe)…">
+        <select id="vf"></select>
+      </div>
+      <p class="hint">🔗 işaretli satırlar Türkçede zaten bildiğin, aynı kökten gelen kelimelerdir — ezberlerken bunları çapa olarak kullan. 🔊 düğmesi cihazında Arapça ses varsa okur.</p>
+    </div>
+    <div class="vocab" id="vlist"></div>
+  </section>
+
+  <section id="s-kart">
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <h2 style="margin:0">Kelime Kartları</h2>
+        <div class="row">
+          <select id="fDir">
+            <option value="ar">Arapça → Türkçe</option>
+            <option value="tr">Türkçe → Arapça</option>
+          </select>
+          <select id="fSet">
+            <option value="all">Tüm kelimeler</option>
+            <option value="weak">Sadece bilmediklerim</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin:12px 0 4px" class="row"><span id="fStat" class="hint"></span></div>
+      <div class="bar"><i id="fBar"></i></div>
+    </div>
+    <div class="card flash" id="flash" title="Çevirmek için tıkla (veya boşluk tuşu)"></div>
+    <div class="row" style="justify-content:center">
+      <button id="fPrev">← Önceki</button>
+      <button id="fSay">🔊 Dinle</button>
+      <button id="fBad">✗ Tekrar</button>
+      <button id="fOk" class="primary">✓ Biliyorum</button>
+      <button id="fNext">Sonraki →</button>
+    </div>
+    <p class="hint" style="text-align:center">Klavye: Boşluk = çevir · ← → = gez · 1 = tekrar · 2 = biliyorum</p>
+  </section>
+
+  <section id="s-diyalog">
+    <div id="dlgs"></div>
+  </section>
+
+  <section id="s-okuma">
+    <div class="card">
+      <h2>Okuma Metni <span class="ar muted">القِرَاءَةُ</span></h2>
+      <div class="row" style="margin-bottom:8px"><button id="rSay">🔊 Metni dinle</button></div>
+      <div id="rText"></div>
+    </div>
+    <div class="card">
+      <h2>Sorular <span class="ar muted">أَجِبْ عَنِ الأَسْئِلَةِ</span></h2>
+      <div id="rQs"></div>
+    </div>
+  </section>
+
+  <section id="s-gramer">
+    <div id="gram"></div>
+  </section>
+
+  <section id="s-test">
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <h2 style="margin:0">Test</h2>
+        <div class="row">
+          <select id="qType">
+            <option value="mix">Karışık</option>
+            <option value="ar2tr">Arapça → Türkçe</option>
+            <option value="tr2ar">Türkçe → Arapça</option>
+            <option value="masdar">Fiil → Masdar</option>
+            <option value="an">أَنْ + muzâri</option>
+            <option value="zamir">Zamir ekleri</option>
+          </select>
+          <button id="qNew" class="primary">Yeni test (10 soru)</button>
+        </div>
+      </div>
+      <p class="hint" id="qBest"></p>
+    </div>
+    <div id="quiz"></div>
+  </section>
+
+  <section id="s-eslestir">
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <h2 style="margin:0">Eşleştirme</h2>
+        <div class="row">
+          <span id="mStat" class="score"></span>
+          <button id="mNew" class="primary">Yeni tur</button>
+        </div>
+      </div>
+      <p class="hint">Soldan bir Arapça kelime, sağdan anlamını seç.</p>
+    </div>
+    <div class="match card">
+      <div class="col" id="mL"></div>
+      <div class="col" id="mR"></div>
+    </div>
+  </section>
+</main>
+<footer>Tüm içerik bu dosyanın içindedir; internet gerekmez. İlerlemen yalnızca bu tarayıcıda saklanır. Diyalog ve okuma metinleri ünitenin konusuna göre hazırlanmış alıştırma metinleridir.</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ===================== VERİ ===================== */
+// [arapça, çoğul/mazi-muzari, türkçe, grup, türkçe çapa]
+var V = [
+  ["هِوَايَةٌ","ج: هِوَايَاتٌ","hobi, uğraş","isim","hevâ, hevesli (هوى kökü: istek, arzu)"],
+  ["وَقْتُ الفَرَاغِ","","boş vakit","isim","vakit · ferağat / fâriğ (boş)"],
+  ["القِرَاءَةُ","","okuma","hobi","kıraat"],
+  ["الكِتَابَةُ","","yazma","hobi","kitabet, kâtip, kitap"],
+  ["الرَّسْمُ","","resim yapma","hobi","resim, resmî"],
+  ["السِّبَاحَةُ","","yüzme","hobi",""],
+  ["الرِّيَاضَةُ","","spor","hobi","riyazet (alıştırma, nefis terbiyesi)"],
+  ["كُرَةُ القَدَمِ","","futbol","hobi","küre · kadem (ayak)"],
+  ["كُرَةُ السَّلَّةِ","","basketbol","hobi","küre · sele (sepet)"],
+  ["كُرَةُ الطَّائِرَةِ","","voleybol","hobi","küre · tayyare (uçak)"],
+  ["الجَرْيُ","","koşu","hobi","cereyan"],
+  ["رُكُوبُ الخَيْلِ","","ata binme","hobi","merkep, mürekkep (binilen/birleşen)"],
+  ["الرِّمَايَةُ","","atıcılık, ok atma","hobi","remy (şeytan taşlama: remy-i cimâr)"],
+  ["السَّفَرُ","","yolculuk, seyahat","hobi","sefer, seferber, misafir"],
+  ["التَّصْوِيرُ","","fotoğrafçılık","hobi","tasvir, suret"],
+  ["الطَّبْخُ","","yemek pişirme","hobi","matbah (mutfak), tabbah"],
+  ["جَمْعُ الطَّوَابِعِ","","pul biriktirme","hobi","cem, cemiyet · tabi (basmak)"],
+  ["المُرَاسَلَةُ","","mektuplaşma","hobi","resul, risale, mürasele"],
+  ["نَادٍ","ج: نَوَادٍ (النَّادِي)","kulüp","yer","nida, münadi (çağıran)"],
+  ["مَلْعَبٌ","ج: مَلَاعِبُ","oyun sahası, stadyum","yer","la'b (oyun)"],
+  ["مَسْبَحٌ","ج: مَسَابِحُ","yüzme havuzu","yer",""],
+  ["فَرِيقٌ","ج: فِرَقٌ","takım","isim","ferik, fırka (bölük)"],
+  ["مُبَارَاةٌ","ج: مُبَارَيَاتٌ","maç, karşılaşma","isim",""],
+  ["لَاعِبٌ","ج: لَاعِبُونَ","oyuncu","isim",""],
+  ["مَاهِرٌ","","usta, becerikli","sıfat","mahir, maharet"],
+  ["مُمْتِعٌ","","zevkli, eğlenceli","sıfat","temettü, metâ (faydalanma)"],
+  ["دَائِمًا","","her zaman","zarf","daima"],
+  ["أَحْيَانًا","","bazen","zarf","ahyânen · hîn (zaman)"],
+  ["كُلَّ يَوْمٍ","","her gün","zarf","külli · yevm (yevmiye)"],
+  ["مَرَّةً فِي الأُسْبُوعِ","","haftada bir","zarf","merre (kere) · usbû"],
+  ["مَرَّتَيْنِ","","iki kez","zarf",""],
+  ["أَحَبَّ","يُحِبُّ","sevmek","fiil","muhabbet, habib"],
+  ["لَعِبَ","يَلْعَبُ","oynamak","fiil",""],
+  ["سَبَحَ","يَسْبَحُ","yüzmek","fiil",""],
+  ["قَرَأَ","يَقْرَأُ","okumak","fiil","kıraat, Kur'ân"],
+  ["كَتَبَ","يَكْتُبُ","yazmak","fiil","kitap, mektup"],
+  ["رَسَمَ","يَرْسُمُ","resim çizmek","fiil","resim"],
+  ["شَاهَدَ","يُشَاهِدُ","izlemek, seyretmek","fiil","müşahede, şahit"],
+  ["مَارَسَ","يُمَارِسُ","(bir işi) yapmak, uygulamak","fiil","mümarese"],
+  ["فَازَ","يَفُوزُ","kazanmak","fiil","fevz, Fevzi (kurtuluşa eren)"],
+  ["سَافَرَ","يُسَافِرُ","yolculuk etmek","fiil","sefer, misafir, müsafir"],
+  ["جَرَى","يَجْرِي","koşmak","fiil","cereyan, mecra"]
+];
+
+// Fiil → masdar (sülâsî masdarlar semâîdir; ezberlenir)
+var M = [
+  ["قَرَأَ","يَقْرَأُ","قِرَاءَةٌ","okumak","kıraat","فِعَالَةٌ"],
+  ["كَتَبَ","يَكْتُبُ","كِتَابَةٌ","yazmak","kitabet","فِعَالَةٌ"],
+  ["سَبَحَ","يَسْبَحُ","سِبَاحَةٌ","yüzmek","—","فِعَالَةٌ"],
+  ["رَسَمَ","يَرْسُمُ","رَسْمٌ","resim yapmak","resim","فَعْلٌ"],
+  ["طَبَخَ","يَطْبُخُ","طَبْخٌ","pişirmek","matbah","فَعْلٌ"],
+  ["جَرَى","يَجْرِي","جَرْيٌ","koşmak","cereyan","فَعْلٌ"],
+  ["جَمَعَ","يَجْمَعُ","جَمْعٌ","toplamak","cem","فَعْلٌ"],
+  ["لَعِبَ","يَلْعَبُ","لَعِبٌ","oynamak","—","فَعِلٌ"],
+  ["سَفَرَ","يَسْفِرُ","سَفَرٌ","yola çıkmak","sefer","فَعَلٌ"],
+  ["رَكِبَ","يَرْكَبُ","رُكُوبٌ","binmek","merkep","فُعُولٌ"],
+  ["رَمَى","يَرْمِي","رِمَايَةٌ / رَمْيٌ","atmak","remy","فِعَالَةٌ"],
+  ["فَازَ","يَفُوزُ","فَوْزٌ","kazanmak","fevz","فَعْلٌ"],
+  ["نَامَ","يَنَامُ","نَوْمٌ","uyumak","nevm","فَعْلٌ"]
+];
+
+// أَنْ + muzâri (mansûb)
+var AN = [
+  ["أُحِبُّ القِرَاءَةَ","أُحِبُّ أَنْ أَقْرَأَ","Okumayı severim."],
+  ["أُحِبُّ السِّبَاحَةَ","أُحِبُّ أَنْ أَسْبَحَ","Yüzmeyi severim."],
+  ["يُحِبُّ الرَّسْمَ","يُحِبُّ أَنْ يَرْسُمَ","Resim yapmayı sever."],
+  ["تُحِبُّ الكِتَابَةَ","تُحِبُّ أَنْ تَكْتُبَ","(O kadın) yazmayı sever. / (Sen) yazmayı seversin."],
+  ["نُحِبُّ اللَّعِبَ","نُحِبُّ أَنْ نَلْعَبَ","Oynamayı severiz."],
+  ["أُرِيدُ السَّفَرَ","أُرِيدُ أَنْ أُسَافِرَ","Yolculuk etmek istiyorum."]
+];
+// Test için: [cümle başı, doğru, yanlışlar...]
+var ANQ = [
+  ["أُحِبُّ أَنْ ___ القُرْآنَ.","أَقْرَأَ",["أَقْرَأُ","قِرَاءَةَ","قَرَأَ"],"Kur'an okumayı severim."],
+  ["يُحِبُّ خَالِدٌ أَنْ ___ فِي البَحْرِ.","يَسْبَحَ",["يَسْبَحُ","سَبَحَ","السِّبَاحَةَ"],"Halid denizde yüzmeyi sever."],
+  ["تُحِبُّ مَرْيَمُ أَنْ ___ الأَشْجَارَ.","تَرْسُمَ",["تَرْسُمُ","رَسَمَتْ","رَسْمَ"],"Meryem ağaç çizmeyi sever."],
+  ["نُرِيدُ أَنْ ___ كُرَةَ القَدَمِ.","نَلْعَبَ",["نَلْعَبُ","لَعِبْنَا","لَعِبَ"],"Futbol oynamak istiyoruz."],
+  ["أُرِيدُ أَنْ ___ إِلَى مَكَّةَ.","أُسَافِرَ",["أُسَافِرُ","سَافَرْتُ","سَفَرَ"],"Mekke'ye yolculuk etmek istiyorum."],
+  ["هَلْ تُحِبُّ أَنْ ___ المُبَارَاةَ؟","تُشَاهِدَ",["تُشَاهِدُ","شَاهَدْتَ","مُشَاهَدَةُ"],"Maçı izlemeyi sever misin?"],
+  ["أُحِبُّ ___ (masdar ile).","القِرَاءَةَ",["أَقْرَأُ","قَرَأْتُ","يَقْرَأُ"],"Okumayı severim."],
+  ["يُحِبُّ أَبِي ___ (masdar ile).","الرِّمَايَةَ",["يَرْمِي","رَمَى","أَرْمِي"],"Babam atıcılığı sever."]
+];
+
+var Z = [
+  ["هِوَايَتِي","benim hobim","أَنَا"],
+  ["هِوَايَتُكَ","senin hobin (erkek)","أَنْتَ"],
+  ["هِوَايَتُكِ","senin hobin (kadın)","أَنْتِ"],
+  ["هِوَايَتُهُ","onun hobisi (erkek)","هُوَ"],
+  ["هِوَايَتُهَا","onun hobisi (kadın)","هِيَ"],
+  ["هِوَايَتُنَا","bizim hobimiz","نَحْنُ"],
+  ["هِوَايَتُكُمْ","sizin hobiniz","أَنْتُمْ"],
+  ["هِوَايَتُهُمْ","onların hobisi","هُمْ"]
+];
+
+var D = [
+  {t:"Diyalog 1 — Hobin ne?", p:["أَحْمَدُ","خَالِدٌ"], l:[
+    ["مَا هِوَايَتُكَ يَا خَالِدُ؟","Hobin ne, Halid?"],
+    ["هِوَايَتِي القِرَاءَةُ. وَأَنْتَ، مَا هِوَايَتُكَ؟","Hobim okumak. Ya sen, hobin ne?"],
+    ["هِوَايَتِي السِّبَاحَةُ.","Hobim yüzmek."],
+    ["مَتَى تَسْبَحُ؟","Ne zaman yüzersin?"],
+    ["أَسْبَحُ مَرَّتَيْنِ فِي الأُسْبُوعِ.","Haftada iki kez yüzerim."],
+    ["أَيْنَ تَسْبَحُ؟","Nerede yüzersin?"],
+    ["أَسْبَحُ فِي مَسْبَحِ النَّادِي.","Kulübün havuzunda yüzerim."]
+  ]},
+  {t:"Diyalog 2 — Resim ve yemek", p:["فَاطِمَةُ","مَرْيَمُ"], l:[
+    ["هَلْ تُحِبِّينَ الرَّسْمَ يَا مَرْيَمُ؟","Resim yapmayı sever misin, Meryem?"],
+    ["نَعَمْ، أُحِبُّ الرَّسْمَ كَثِيرًا.","Evet, resim yapmayı çok severim."],
+    ["مَاذَا تَرْسُمِينَ؟","Ne çizersin?"],
+    ["أَرْسُمُ الأَشْجَارَ وَالجِبَالَ وَالبَحْرَ.","Ağaçları, dağları ve denizi çizerim."],
+    ["أَنَا لَا أُحِبُّ الرَّسْمَ، أُحِبُّ الطَّبْخَ.","Ben resmi sevmem, yemek pişirmeyi severim."],
+    ["مَا شَاءَ اللهُ! أَنْتِ طَبَّاخَةٌ مَاهِرَةٌ.","Maşallah! Sen usta bir aşçısın."]
+  ]},
+  {t:"Diyalog 3 — Takım ve maç", p:["عُمَرُ","عَلِيٌّ"], l:[
+    ["هَلْ تَلْعَبُ كُرَةَ القَدَمِ؟","Futbol oynar mısın?"],
+    ["لَا، أَنَا أَلْعَبُ كُرَةَ السَّلَّةِ.","Hayır, ben basketbol oynarım."],
+    ["مَعَ مَنْ تَلْعَبُ؟","Kiminle oynarsın?"],
+    ["أَلْعَبُ مَعَ فَرِيقِ المَدْرَسَةِ.","Okul takımıyla oynarım."],
+    ["هَلْ تُشَاهِدُ المُبَارَيَاتِ فِي التِّلْفَازِ؟","Maçları televizyonda izler misin?"],
+    ["نَعَمْ، أُشَاهِدُهَا أَحْيَانًا.","Evet, bazen izlerim."],
+    ["أَنَا أُحِبُّ أَنْ أُشَاهِدَ المُبَارَيَاتِ فِي المَلْعَبِ.","Ben maçları stadyumda izlemeyi severim."]
+  ]},
+  {t:"Diyalog 4 — Boş vakitte", p:["المُعَلِّمُ","الطَّالِبُ"], l:[
+    ["مَاذَا تَفْعَلُ فِي وَقْتِ الفَرَاغِ؟","Boş vaktinde ne yaparsın?"],
+    ["أَقْرَأُ القِصَصَ، وَأَكْتُبُ الرَّسَائِلَ إِلَى أَصْدِقَائِي.","Hikâyeler okurum ve arkadaşlarıma mektup yazarım."],
+    ["هَلْ تُحِبُّ السَّفَرَ؟","Yolculuğu sever misin?"],
+    ["نَعَمْ، أُحِبُّ أَنْ أُسَافِرَ إِلَى مَكَّةَ وَالمَدِينَةِ.","Evet, Mekke ve Medine'ye yolculuk etmeyi severim."],
+    ["وَمَا الرِّيَاضَةُ الَّتِي تُحِبُّهَا؟","Peki sevdiğin spor hangisi?"],
+    ["أُحِبُّ الجَرْيَ وَرُكُوبَ الخَيْلِ.","Koşmayı ve ata binmeyi severim."]
+  ]}
+];
+
+var R = [
+  ["اسْمِي يُوسُفُ. أَنَا طَالِبٌ فِي المَدْرَسَةِ المُتَوَسِّطَةِ.","Adım Yusuf. Ortaokulda öğrenciyim."],
+  ["لِي هِوَايَاتٌ كَثِيرَةٌ: أُحِبُّ القِرَاءَةَ وَالرِّيَاضَةَ.","Birçok hobim var: okumayı ve sporu severim."],
+  ["أَقْرَأُ كُلَّ يَوْمٍ سَاعَةً قَبْلَ النَّوْمِ.","Her gün uyumadan önce bir saat okurum."],
+  ["وَأَلْعَبُ كُرَةَ القَدَمِ مَعَ أَصْدِقَائِي يَوْمَ الجُمُعَةِ.","Cuma günü de arkadaşlarımla futbol oynarım."],
+  ["أَخِي الكَبِيرُ يُحِبُّ التَّصْوِيرَ، وَأُخْتِي تُحِبُّ الرَّسْمَ.","Ağabeyim fotoğrafçılığı, kız kardeşim resim yapmayı sever."],
+  ["أَمَّا أَبِي فَهِوَايَتُهُ السِّبَاحَةُ وَالرِّمَايَةُ.","Babama gelince, onun hobisi yüzme ve atıcılıktır."],
+  ["هُوَ يَذْهَبُ إِلَى النَّادِي مَرَّةً فِي الأُسْبُوعِ.","O, haftada bir kulübe gider."]
+];
+var RQ = [
+  ["مَا هِوَايَاتُ يُوسُفَ؟","القِرَاءَةُ وَالرِّيَاضَةُ",["الرَّسْمُ وَالطَّبْخُ","التَّصْوِيرُ","السِّبَاحَةُ وَالرِّمَايَةُ"]],
+  ["مَتَى يَقْرَأُ يُوسُفُ؟","قَبْلَ النَّوْمِ",["يَوْمَ الجُمُعَةِ","فِي المَدْرَسَةِ","مَرَّةً فِي الأُسْبُوعِ"]],
+  ["مَاذَا يُحِبُّ أَخُوهُ الكَبِيرُ؟","التَّصْوِيرَ",["الرَّسْمَ","السِّبَاحَةَ","كُرَةَ القَدَمِ"]],
+  ["مَا هِوَايَةُ أُخْتِهِ؟","الرَّسْمُ",["القِرَاءَةُ","الطَّبْخُ","الرِّمَايَةُ"]],
+  ["كَمْ مَرَّةً يَذْهَبُ أَبُوهُ إِلَى النَّادِي؟","مَرَّةً فِي الأُسْبُوعِ",["كُلَّ يَوْمٍ","مَرَّتَيْنِ فِي الأُسْبُوعِ","يَوْمَ الجُمُعَةِ"]]
+];
+
+/* ===================== YARDIMCILAR ===================== */
+var $ = function(s){return document.querySelector(s);};
+var HK = /[ً-ْٰ]/g;
+function store(k,v){try{ if(v===undefined){var x=localStorage.getItem("u9."+k);return x?JSON.parse(x):null;} localStorage.setItem("u9."+k,JSON.stringify(v)); }catch(e){return null;}}
+var S = {hk:store("hk")!==false, tr:store("tr")!==false, known:store("known")||{}, best:store("best")||{}};
+function ar(s){return S.hk?s:s.replace(HK,"");}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+
+var voice=null;
+function pickVoice(){ if(!("speechSynthesis" in window))return; var vs=speechSynthesis.getVoices(); voice=vs.filter(function(v){return /^ar/i.test(v.lang);})[0]||null; }
+if("speechSynthesis" in window){ pickVoice(); speechSynthesis.onvoiceschanged=pickVoice; }
+function say(t){
+  if(!("speechSynthesis" in window))return alert("Bu tarayıcı sesli okumayı desteklemiyor.");
+  speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(t); u.lang="ar-SA"; if(voice)u.voice=voice; u.rate=.8; speechSynthesis.speak(u);
+}
+
+/* ===================== SEKMELER ===================== */
+var TABS=[["kelime","Kelimeler"],["kart","Kartlar"],["diyalog","Diyaloglar"],["okuma","Okuma"],["gramer","Dil Bilgisi"],["test","Test"],["eslestir","Eşleştirme"]];
+var tabsEl=$("#tabs");
+TABS.forEach(function(t){var b=el("button",null,t[1]);b.dataset.id=t[0];b.onclick=function(){show(t[0]);};tabsEl.appendChild(b);});
+function show(id){
+  TABS.forEach(function(t){$("#s-"+t[0]).classList.toggle("show",t[0]===id);});
+  [].forEach.call(tabsEl.children,function(b){b.classList.toggle("on",b.dataset.id===id);});
+  store("tab",id);
+  if(id==="eslestir"&&!$("#mL").children.length)newMatch();
+}
+
+/* ===================== KELİMELER ===================== */
+var groups=["hepsi"].concat(V.map(function(v){return v[3];}).filter(function(g,i,a){return a.indexOf(g)===i;}));
+var GN={hepsi:"Tümü",isim:"İsimler",hobi:"Hobiler",yer:"Yerler",sıfat:"Sıfatlar",zarf:"Zaman/sıklık",fiil:"Fiiller"};
+groups.forEach(function(g){var o=el("option",null,GN[g]||g);o.value=g;$("#vf").appendChild(o);});
+function renderVocab(){
+  var q=$("#vq").value.trim().toLowerCase().replace(HK,""), g=$("#vf").value, box=$("#vlist"); box.innerHTML="";
+  V.forEach(function(v,i){
+    if(g!=="hepsi"&&v[3]!==g)return;
+    if(q&&(v[0]+" "+v[1]+" "+v[2]+" "+v[4]).replace(HK,"").toLowerCase().indexOf(q)<0)return;
+    var c=el("div","w");
+    c.innerHTML='<button class="say" title="Dinle">🔊</button>'+
+      '<div class="a">'+esc(ar(v[0]))+'</div>'+(v[1]?'<div class="pl">'+esc(ar(v[1]))+'</div>':'')+
+      '<div class="t tr-only">'+esc(v[2])+'</div>'+
+      (v[4]?'<div class="anchor tr-only">🔗 '+esc(v[4])+'</div>':'')+
+      '<div><span class="tag">'+esc(GN[v[3]]||v[3])+'</span>'+(S.known[i]?'<span class="tag">✓ biliyorum</span>':'')+'</div>';
+    c.querySelector(".say").onclick=function(){say(v[0]+(v[1]&&v[3]==="fiil"?"، "+v[1]:""));};
+    box.appendChild(c);
+  });
+  if(!box.children.length)box.appendChild(el("p","muted","Sonuç yok."));
+}
+$("#vq").oninput=renderVocab; $("#vf").onchange=renderVocab;
+
+/* ===================== KARTLAR ===================== */
+var F={deck:[],i:0,flip:false};
+function buildDeck(){
+  var idx=V.map(function(_,i){return i;});
+  if($("#fSet").value==="weak")idx=idx.filter(function(i){return !S.known[i];});
+  F.deck=shuffle(idx);F.i=0;F.flip=false;renderFlash();
+}
+function renderFlash(){
+  var box=$("#flash"), n=Object.keys(S.known).length;
+  $("#fStat").textContent="Bilinen: "+n+" / "+V.length+(F.deck.length?" · Kart "+(F.i+1)+" / "+F.deck.length:"");
+  $("#fBar").style.width=(100*n/V.length)+"%";
+  if(!F.deck.length){box.innerHTML='<div class="tr">🎉 Hepsini biliyorsun!</div><p class="hint">“Tüm kelimeler”i seçerek tekrar edebilirsin.</p>';return;}
+  var v=V[F.deck[F.i]], front=$("#fDir").value==="ar";
+  var A='<div class="big">'+esc(ar(v[0]))+'</div>'+(v[1]?'<div class="ar muted" style="font-size:1.2rem">'+esc(ar(v[1]))+'</div>':'');
+  var T='<div class="tr">'+esc(v[2])+'</div>'+(v[4]?'<div class="anchor" style="color:var(--gold);margin-top:6px">🔗 '+esc(v[4])+'</div>':'');
+  box.innerHTML=(front?A:T)+(F.flip?'<hr style="width:60%;border:0;border-top:1px solid var(--line);margin:14px 0">'+(front?T:A):'<p class="hint">çevirmek için tıkla</p>');
+}
+function fMove(d){if(!F.deck.length)return;F.i=(F.i+d+F.deck.length)%F.deck.length;F.flip=false;renderFlash();}
+function fMark(ok){
+  if(!F.deck.length)return; var k=F.deck[F.i];
+  if(ok)S.known[k]=1; else delete S.known[k];
+  store("known",S.known);
+  if(ok&&$("#fSet").value==="weak"){F.deck.splice(F.i,1);if(F.i>=F.deck.length)F.i=0;F.flip=false;renderFlash();}
+  else fMove(1);
+  renderVocab();
+}
+$("#flash").onclick=function(){F.flip=!F.flip;renderFlash();};
+$("#fPrev").onclick=function(){fMove(-1);}; $("#fNext").onclick=function(){fMove(1);};
+$("#fOk").onclick=function(){fMark(true);}; $("#fBad").onclick=function(){fMark(false);};
+$("#fSay").onclick=function(){if(F.deck.length)say(V[F.deck[F.i]][0]);};
+$("#fDir").onchange=function(){F.flip=false;renderFlash();}; $("#fSet").onchange=buildDeck;
+document.addEventListener("keydown",function(e){
+  if(!$("#s-kart").classList.contains("show")||/INPUT|SELECT/.test(e.target.tagName))return;
+  if(e.key===" "){e.preventDefault();F.flip=!F.flip;renderFlash();}
+  else if(e.key==="ArrowRight")fMove(1); else if(e.key==="ArrowLeft")fMove(-1);
+  else if(e.key==="1")fMark(false); else if(e.key==="2")fMark(true);
+});
+
+/* ===================== DİYALOGLAR ===================== */
+function renderDialogs(){
+  var box=$("#dlgs"); box.innerHTML="";
+  D.forEach(function(d){
+    var c=el("div","card"); c.appendChild(el("h2",null,esc(d.t)));
+    var r=el("div","row"); r.style.marginBottom="10px";
+    var all=el("button",null,"🔊 Tümünü dinle"); all.onclick=function(){say(d.l.map(function(x){return x[0];}).join(" ، "));};
+    r.appendChild(all); c.appendChild(r);
+    var wrap=el("div","dlg");
+    d.l.forEach(function(x,i){
+      var line=el("div","line"+(i%2?" alt":""));
+      line.innerHTML='<div class="who">'+esc(ar(d.p[i%2]))+':</div><div class="bub"><div class="a">'+esc(ar(x[0]))+'</div><div class="t">'+esc(x[1])+'</div></div>';
+      line.querySelector(".bub").style.cursor="pointer"; line.querySelector(".bub").title="Dinlemek için tıkla";
+      line.querySelector(".bub").onclick=function(){say(x[0]);};
+      wrap.appendChild(line);
+    });
+    c.appendChild(wrap); box.appendChild(c);
+  });
+}
+
+/* ===================== OKUMA ===================== */
+function renderReading(){
+  $("#rText").innerHTML=R.map(function(x){return '<p style="margin:0 0 8px"><span class="ar" style="display:block;text-align:right;font-size:1.5rem;line-height:1.8">'+esc(ar(x[0]))+'</span><span class="t muted" style="font-size:.9rem">'+esc(x[1])+'</span></p>';}).join("");
+  var box=$("#rQs"); box.innerHTML="";
+  RQ.forEach(function(q,qi){
+    var d=el("div","q"); d.style.marginBottom="16px";
+    d.innerHTML='<div class="prompt ar" style="text-align:right;font-size:1.4rem">'+(qi+1)+'. '+esc(ar(q[0]))+'</div>';
+    d.appendChild(optionGrid(q[1],q[2],true,function(){}));
+    box.appendChild(d);
+  });
+}
+$("#rSay").onclick=function(){say(R.map(function(x){return x[0];}).join(" "));};
+
+/* ===================== DİL BİLGİSİ ===================== */
+function renderGrammar(){
+  var g=$("#gram"); g.innerHTML="";
+  var c1=el("div","card");
+  c1.innerHTML='<h2>1. Hobiler masdardır <span class="ar muted">المَصْدَرُ</span></h2>'+
+    '<p>Hobi isimlerinin çoğu bir fiilin <b>masdarıdır</b> (fiilin isim hâli: “okumak → okuma”). Sülâsî (üç harfli) fiillerin masdarları kalıba bağlı değildir, <b>semâîdir</b>: tek tek ezberlenir. Türkçedeki karşılıkları burada en iyi çapadır.</p>'+
+    '<div class="scroll"><table><thead><tr><th class="ar">المَاضِي</th><th class="ar">المُضَارِعُ</th><th class="ar">المَصْدَرُ</th><th>Anlam</th><th>Türkçe çapa</th><th class="ar">الوَزْنُ</th></tr></thead><tbody>'+
+    M.map(function(m){return '<tr><td class="ar">'+esc(ar(m[0]))+'</td><td class="ar">'+esc(ar(m[1]))+'</td><td class="ar" style="color:var(--accent);font-weight:700">'+esc(ar(m[2]))+'</td><td>'+esc(m[3])+'</td><td style="color:var(--gold)">'+esc(m[4])+'</td><td class="ar">'+esc(ar(m[5]))+'</td></tr>';}).join("")+
+    '</tbody></table></div>'+
+    '<p class="hint">Not: <span class="ar">سَافَرَ</span> mezîd bir fiildir (masdarı <span class="ar">مُسَافَرَةٌ / سِفَارٌ</span>); “yolculuk” anlamında kullanılan <span class="ar">السَّفَرُ</span> ise sülâsî <span class="ar">سَفَرَ</span>’dan gelir.</p>';
+  g.appendChild(c1);
+
+  var c2=el("div","card");
+  c2.innerHTML='<h2>2. <span class="ar">أُحِبُّ</span> + masdar = <span class="ar">أُحِبُّ أَنْ</span> + muzâri</h2>'+
+    '<p>“…-meyi severim” iki şekilde söylenir: ya fiilin arkasına <b>masdar</b> (mansûb: <span class="ar">ـَ</span>) gelir, ya da <span class="ar">أَنْ</span> + <b>muzâri</b> gelir. <span class="ar">أَنْ</span> muzâriyi <b>nasb</b> eder: son harf <b>ötre</b> (<span class="ar">ـُ</span>) yerine <b>üstün</b> (<span class="ar">ـَ</span>) olur.</p>'+
+    '<div class="scroll"><table><thead><tr><th class="ar">بِالمَصْدَرِ</th><th class="ar">بِـ أَنْ + المُضَارِعِ</th><th>Türkçe</th></tr></thead><tbody>'+
+    AN.map(function(a){return '<tr><td class="ar">'+esc(ar(a[0]))+'</td><td class="ar" style="color:var(--accent)">'+esc(ar(a[1]))+'</td><td>'+esc(a[2])+'</td></tr>';}).join("")+
+    '</tbody></table></div>'+
+    '<p class="hint">Dikkat: <span class="ar">أَقْرَأُ</span> (okurum) → <span class="ar">أَنْ أَقْرَأَ</span> (okumak). Aynı kural <span class="ar">أُرِيدُ</span> (isterim) için de geçerlidir.</p>';
+  g.appendChild(c2);
+
+  var c3=el("div","card");
+  c3.innerHTML='<h2>3. Zamir ekleri <span class="ar muted">الضَّمَائِرُ المُتَّصِلَةُ</span></h2>'+
+    '<p><span class="ar">هِوَايَةٌ</span> kelimesine zamir eklenince yuvarlak tâ (<span class="ar">ة</span>) açık tâ gibi okunur: <span class="ar">هِوَايَتِي</span>.</p>'+
+    '<div class="scroll"><table><tbody>'+
+    Z.map(function(z){return '<tr><td class="ar" style="width:90px">'+esc(ar(z[2]))+'</td><td class="ar" style="color:var(--accent)">'+esc(ar(z[0]))+'</td><td>'+esc(z[1])+'</td></tr>';}).join("")+
+    '</tbody></table></div>';
+  g.appendChild(c3);
+
+  var c4=el("div","card");
+  c4.innerHTML='<h2>4. Ne sıklıkla? <span class="ar muted">كَمْ مَرَّةً؟</span></h2>'+
+    '<div class="scroll"><table><tbody>'+
+    [["دَائِمًا","her zaman"],["كُلَّ يَوْمٍ","her gün"],["مَرَّةً فِي الأُسْبُوعِ","haftada bir"],["مَرَّتَيْنِ فِي الأُسْبُوعِ","haftada iki kez"],["أَحْيَانًا","bazen"],["لَا … أَبَدًا","asla … değil"]]
+    .map(function(x){return '<tr><td class="ar" style="color:var(--accent)">'+esc(ar(x[0]))+'</td><td>'+esc(x[1])+'</td></tr>';}).join("")+
+    '</tbody></table></div>'+
+    '<p>Örnek: <span class="ar" style="font-size:1.3rem">'+esc(ar("أَسْبَحُ مَرَّتَيْنِ فِي الأُسْبُوعِ."))+'</span> — Haftada iki kez yüzerim.</p>';
+  g.appendChild(c4);
+}
+
+/* ===================== TEST ===================== */
+function optionGrid(correct,wrongs,isAr,done){
+  var g=el("div","opts"), answered=false;
+  shuffle([correct].concat(wrongs)).forEach(function(o){
+    var b=el("button",isAr?"ar":null,esc(isAr?ar(o):o));
+    b.onclick=function(){
+      if(answered)return; answered=true;
+      [].forEach.call(g.children,function(x,i){x.disabled=true;});
+      var ok=o===correct; b.classList.add(ok?"ok":"bad");
+      if(!ok)[].forEach.call(g.children,function(x){if(x.textContent===(isAr?ar(correct):correct))x.classList.add("ok");});
+      [].forEach.call(g.children,function(x){x.style.opacity=1;});
+      done(ok);
+    };
+    g.appendChild(b);
+  });
+  return g;
+}
+function pickOthers(arr,i,n){return shuffle(arr.filter(function(_,j){return j!==i;})).slice(0,n);}
+function uniq(a){return a.filter(function(x,i){return a.indexOf(x)===i;});}
+function makeQ(type){
+  var i;
+  switch(type){
+    case "ar2tr": i=Math.floor(Math.random()*V.length);
+      return {p:'Bu kelimenin anlamı nedir? <div class="ar">'+esc(ar(V[i][0]))+'</div>',c:V[i][2],w:uniq(pickOthers(V,i,6).map(function(v){return v[2];})).filter(function(x){return x!==V[i][2];}).slice(0,3),ar:false,s:V[i][0]};
+    case "tr2ar": i=Math.floor(Math.random()*V.length);
+      return {p:'Arapçası hangisi? <b>“'+esc(V[i][2])+'”</b>',c:V[i][0],w:pickOthers(V,i,3).map(function(v){return v[0];}),ar:true};
+    case "masdar": i=Math.floor(Math.random()*M.length);
+      return {p:'Masdarı hangisi? <div class="ar">'+esc(ar(M[i][0]+" – "+M[i][1]))+'</div><span class="hint">('+esc(M[i][3])+')</span>',c:M[i][2],w:pickOthers(M,i,3).map(function(m){return m[2];}),ar:true};
+    case "an": i=Math.floor(Math.random()*ANQ.length);
+      return {p:'Boşluğa ne gelir? <div class="ar">'+esc(ar(ANQ[i][0]))+'</div><span class="hint">'+esc(ANQ[i][3])+'</span>',c:ANQ[i][1],w:ANQ[i][2],ar:true};
+    case "zamir": i=Math.floor(Math.random()*Z.length);
+      return {p:'Hangisi <b>“'+esc(Z[i][1])+'”</b>?',c:Z[i][0],w:pickOthers(Z,i,3).map(function(z){return z[0];}),ar:true};
+  }
+}
+var QT=["ar2tr","tr2ar","masdar","an","zamir"];
+function newQuiz(){
+  var type=$("#qType").value, box=$("#quiz"), score=0, answered=0, N=10, seen={};
+  box.innerHTML="";
+  var qs=[], guard=0;
+  while(qs.length<N&&guard++<200){
+    var q=makeQ(type==="mix"?QT[Math.floor(Math.random()*QT.length)]:type);
+    if(seen[q.p])continue; seen[q.p]=1; qs.push(q);
+  }
+  var head=el("div","card"); var sc=el("span","score","0 / "+qs.length); head.appendChild(sc); box.appendChild(head);
+  qs.forEach(function(q,n){
+    var c=el("div","card q"); c.appendChild(el("div","prompt",'<span class="muted">'+(n+1)+'.</span> '+q.p));
+    c.appendChild(optionGrid(q.c,q.w,q.ar,function(ok){
+      answered++; if(ok)score++;
+      sc.textContent=score+" / "+qs.length+(answered===qs.length?"  —  "+(score===qs.length?"Mükemmel! 🎉":score>=7?"Güzel! 👍":"Tekrar dene 💪"):"");
+      if(answered===qs.length){ if(!S.best[type]||score>S.best[type]){S.best[type]=score;store("best",S.best);} showBest(); }
+    }));
+    box.appendChild(c);
+  });
+}
+function showBest(){var b=S.best[$("#qType").value];$("#qBest").textContent=b!=null?"Bu türdeki en iyi skorun: "+b+" / 10":"Bu türde henüz test çözmedin.";}
+$("#qNew").onclick=newQuiz; $("#qType").onchange=function(){showBest();newQuiz();};
+
+/* ===================== EŞLEŞTİRME ===================== */
+var MT={sel:null,left:0,miss:0};
+function newMatch(){
+  var pick=shuffle(V.map(function(_,i){return i;})).slice(0,6), L=$("#mL"), Rr=$("#mR");
+  L.innerHTML=""; Rr.innerHTML=""; MT={sel:null,left:6,miss:0}; mStat();
+  pick.forEach(function(i){var b=el("button","ar",esc(ar(V[i][0])));b.dataset.k=i;b.onclick=function(){mClick(b,"L");};L.appendChild(b);});
+  shuffle(pick).forEach(function(i){var b=el("button",null,esc(V[i][2]));b.dataset.k=i;b.onclick=function(){mClick(b,"R");};Rr.appendChild(b);});
+}
+function mStat(){$("#mStat").textContent=MT.left?("Kalan: "+MT.left+" · Hata: "+MT.miss):("Bitti! Hata: "+MT.miss+(MT.miss===0?" 🎉":""));}
+function mClick(b,side){
+  if(b.classList.contains("done"))return;
+  if(side==="L"){ say(V[b.dataset.k][0]); }
+  if(!MT.sel||MT.sel.side===side){ if(MT.sel)MT.sel.b.classList.remove("sel"); MT.sel={b:b,side:side}; b.classList.add("sel"); return; }
+  var a=MT.sel.b; a.classList.remove("sel"); MT.sel=null;
+  if(a.dataset.k===b.dataset.k){a.classList.add("done");b.classList.add("done");MT.left--;}
+  else{MT.miss++;a.classList.add("wrong");b.classList.add("wrong");setTimeout(function(){a.classList.remove("wrong");b.classList.remove("wrong");},500);}
+  mStat();
+}
+$("#mNew").onclick=newMatch;
+
+/* ===================== AYARLAR ===================== */
+function applyToggles(){
+  $("#tHk").textContent="Hareke: "+(S.hk?"açık":"kapalı");
+  $("#tTr").textContent="Çeviri: "+(S.tr?"açık":"kapalı");
+  document.body.classList.toggle("hide-tr",!S.tr);
+}
+function rerender(){renderVocab();renderFlash();renderDialogs();renderReading();renderGrammar();if($("#mL").children.length)newMatch();}
+$("#tHk").onclick=function(){S.hk=!S.hk;store("hk",S.hk);applyToggles();rerender();};
+$("#tTr").onclick=function(){S.tr=!S.tr;store("tr",S.tr);applyToggles();};
+var themes=[null,"light","dark"], ti=Math.max(0,themes.indexOf(store("theme")));
+function applyTheme(){var t=themes[ti]; if(t)document.documentElement.setAttribute("data-theme",t); else document.documentElement.removeAttribute("data-theme"); $("#tTheme").textContent="Tema: "+(t==="light"?"açık":t==="dark"?"koyu":"otomatik");}
+$("#tTheme").onclick=function(){ti=(ti+1)%3;store("theme",themes[ti]);applyTheme();};
+
+applyTheme(); applyToggles();
+renderVocab(); buildDeck(); renderDialogs(); renderReading(); renderGrammar(); showBest(); newQuiz();
+show(store("tab")||"kelime");
+})();
+</script>
+</body>
+</html>
