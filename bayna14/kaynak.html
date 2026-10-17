@@ -1,0 +1,1056 @@
+<title>Su: Hayatın Aslı · 14. Ünite</title>
+<meta name="description" content="el-Arabiyyetü beyne yedeyk 3, 14. ünite: sesli okuma ve dinleme metinleri, etkileşimli alıştırmalar">
+<style>
+/*FONTLAR*/
+:root {
+  --baslik: "Cormorant Garamond", Georgia, serif;
+  --govde: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --arap: "Scheherazade New", "Amiri", "Traditional Arabic", serif;
+  --bg: #f6f1e6; --yuzey: #fffdf7; --yumusak: #efe7d6; --cizgi: #e2d8c3;
+  --murekkep: #2a2823; --soluk: #6d675b; --vurgu: #1e6b58; --vurgu-acik: #d7ebe4; --altin: #a8781f; --altin-acik: #f6e7c4;
+  --dogru: #2c7a4b; --dogru-acik: #dcf0e2; --yanlis: #b23c2a; --yanlis-acik: #f8e0da; --karaoke: #fbe39a;
+  --golge: 0 1px 2px rgba(60, 45, 20, .06), 0 6px 18px rgba(60, 45, 20, .07);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141716; --yuzey: #1d2120; --yumusak: #252a29; --cizgi: #343b39;
+    --murekkep: #ebe6da; --soluk: #a49f93; --vurgu: #63c4a8; --vurgu-acik: #1f3a33; --altin: #e2b35a; --altin-acik: #3a3020;
+    --dogru: #6fcf91; --dogru-acik: #1e3a28; --yanlis: #f08672; --yanlis-acik: #43231d; --karaoke: #4d4216;
+    --golge: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 18px rgba(0, 0, 0, .25);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141716; --yuzey: #1d2120; --yumusak: #252a29; --cizgi: #343b39;
+  --murekkep: #ebe6da; --soluk: #a49f93; --vurgu: #63c4a8; --vurgu-acik: #1f3a33; --altin: #e2b35a; --altin-acik: #3a3020;
+  --dogru: #6fcf91; --dogru-acik: #1e3a28; --yanlis: #f08672; --yanlis-acik: #43231d; --karaoke: #4d4216;
+  --golge: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 18px rgba(0, 0, 0, .25);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--murekkep); font: 17px/1.55 var(--govde); }
+button, textarea, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+[hidden] { display: none !important; }
+.ar { font-family: var(--arap); direction: rtl; unicode-bidi: isolate; }
+.sar { font-family: var(--arap); font-size: 1.25em; direction: rtl; unicode-bidi: isolate; }
+.ar-ic { font-family: var(--arap); font-size: 1.2em; direction: rtl; unicode-bidi: isolate; }
+.soluk { color: var(--soluk); }
+.kucuk { font-size: .88rem; }
+h1, h2, h3 { font-family: var(--baslik); font-weight: 700; line-height: 1.15; margin: 0; }
+
+/* üst bölüm */
+.ust { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 92%, transparent); background: var(--bg); border-bottom: 1px solid var(--cizgi); }
+.ust-ic { max-width: 1040px; margin: 0 auto; padding: 10px 16px 0; }
+.ust-satir { display: flex; align-items: center; gap: 12px; }
+.logo { display: flex; align-items: baseline; gap: 10px; min-width: 0; flex: 1; }
+.logo h1 { font-size: 1.35rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.logo .ar { font-size: 1.3rem; color: var(--vurgu); white-space: nowrap; }
+.puan { display: flex; align-items: center; gap: 6px; background: var(--altin-acik); color: var(--altin); border-radius: 999px; padding: 3px 12px; font-weight: 700; font-size: .95rem; white-space: nowrap; }
+.ikon-btn { border: 1px solid var(--cizgi); background: var(--yuzey); border-radius: 10px; width: 38px; height: 38px; display: grid; place-items: center; font-size: 1.05rem; }
+.sekmeler { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; margin-top: 8px; }
+.sekmeler::-webkit-scrollbar { display: none; }
+.sekme { border: 0; background: none; padding: 8px 12px 9px; border-bottom: 3px solid transparent; white-space: nowrap; color: var(--soluk); font-weight: 600; font-size: .95rem; display: flex; flex-direction: column; align-items: center; gap: 0; }
+.sekme small { font-family: var(--arap); font-weight: 400; font-size: .85rem; line-height: 1.2; }
+.sekme[aria-selected="true"] { color: var(--vurgu); border-bottom-color: var(--vurgu); }
+.sekme .nokta { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--dogru); margin-left: 4px; vertical-align: middle; }
+
+main { max-width: 1040px; margin: 0 auto; padding: 18px 16px 80px; }
+.kart { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 16px; padding: 18px 20px; box-shadow: var(--golge); margin-bottom: 18px; }
+.kart > h2 { font-size: 1.55rem; margin-bottom: 4px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.kart > h2 .ar { font-size: 1.3rem; color: var(--vurgu); font-weight: 400; }
+.kart > .aciklama { color: var(--soluk); margin: 2px 0 14px; }
+.yigin > * + * { margin-top: 12px; }
+.btn { border: 1px solid var(--cizgi); background: var(--yuzey); border-radius: 10px; padding: 7px 14px; font-weight: 600; font-size: .95rem; }
+.btn:hover { border-color: var(--vurgu); }
+.btn.dolu { background: var(--vurgu); border-color: var(--vurgu); color: var(--yuzey); }
+.btn.kucuk { padding: 4px 10px; font-size: .85rem; }
+.btn:disabled { opacity: .5; cursor: default; }
+.satir-btn { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+textarea, input[type="text"] { width: 100%; border: 1px solid var(--cizgi); border-radius: 10px; background: var(--bg); padding: 9px 12px; resize: vertical; }
+textarea.ar, input.ar { font-size: 1.35rem; line-height: 1.8; }
+textarea:focus, input:focus, button:focus-visible { outline: 2px solid var(--vurgu); outline-offset: 1px; }
+.not { background: var(--altin-acik); border-radius: 12px; padding: 10px 14px; font-size: .95rem; }
+.not b { color: var(--altin); }
+.ileride { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--altin); border: 1px solid var(--altin); border-radius: 6px; padding: 0 6px; margin-inline-start: 4px; }
+
+/* ayarlar */
+.ayarlar { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.ayar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.ayar .lbl { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--soluk); }
+.seg { display: inline-flex; border: 1px solid var(--cizgi); border-radius: 10px; overflow: hidden; background: var(--yuzey); }
+.seg button { border: 0; background: none; padding: 5px 11px; font-size: .88rem; font-weight: 600; color: var(--soluk); }
+.seg button + button { border-inline-start: 1px solid var(--cizgi); }
+.seg button[aria-pressed="true"] { background: var(--vurgu); color: var(--yuzey); }
+.anahtar { display: inline-flex; align-items: center; gap: 6px; font-size: .9rem; font-weight: 600; cursor: pointer; user-select: none; }
+.anahtar input { accent-color: var(--vurgu); width: 17px; height: 17px; }
+
+/* oynatıcı */
+.oynatici { position: sticky; top: var(--ust-h, 96px); z-index: 10; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 16px; box-shadow: var(--golge); padding: 10px 14px; margin-bottom: 16px; }
+.oy-ust { display: flex; align-items: center; gap: 10px; }
+.oy-btn { border: 0; background: var(--yumusak); width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-size: 1rem; flex: none; }
+.oy-btn.buyuk { width: 50px; height: 50px; background: var(--vurgu); color: var(--yuzey); font-size: 1.25rem; }
+.oy-orta { flex: 1; min-width: 0; }
+.oy-orta input[type="range"] { width: 100%; accent-color: var(--vurgu); margin: 0; }
+.oy-zaman { display: flex; justify-content: space-between; font-size: .8rem; color: var(--soluk); font-variant-numeric: tabular-nums; }
+.oy-alt { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-top: 8px; }
+.tekrar-kutu { display: flex; align-items: center; gap: 10px; margin-top: 8px; background: var(--altin-acik); border-radius: 10px; padding: 8px 12px; font-weight: 600; }
+.tekrar-cubuk { flex: 1; height: 6px; background: var(--cizgi); border-radius: 3px; overflow: hidden; }
+.tekrar-cubuk i { display: block; height: 100%; width: 0; background: var(--altin); }
+.p-atla { display: flex; gap: 4px; flex-wrap: wrap; }
+.p-atla button { border: 1px solid var(--cizgi); background: var(--yuzey); border-radius: 8px; min-width: 30px; height: 28px; font-size: .85rem; font-weight: 700; color: var(--soluk); }
+.p-atla button.aktif { background: var(--vurgu-acik); color: var(--vurgu); border-color: var(--vurgu); }
+
+/* okuma metni */
+.paragraf { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 16px; padding: 14px 18px 16px; margin-bottom: 14px; box-shadow: var(--golge); scroll-margin-top: 220px; }
+.p-bas { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.p-no { width: 30px; height: 30px; border-radius: 50%; background: var(--vurgu); color: var(--yuzey); display: grid; place-items: center; font-weight: 700; flex: none; }
+.p-bas h3 { font-size: 1.3rem; flex: 1; min-width: 160px; }
+.kelime-cip { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 4px; }
+.cip { display: inline-flex; align-items: baseline; gap: 6px; background: var(--yumusak); border-radius: 8px; padding: 2px 9px; font-size: .88rem; }
+.cip .ar { font-size: 1.15rem; }
+details > summary { cursor: pointer; color: var(--soluk); font-size: .92rem; font-weight: 600; }
+.birim { display: flex; gap: 10px; align-items: flex-start; padding: 7px 8px; border-radius: 12px; cursor: pointer; transition: background .2s; }
+.birim + .birim { border-top: 1px dashed var(--cizgi); }
+.birim:hover { background: var(--yumusak); }
+.birim.calan { background: var(--karaoke); }
+.birim.dinlendi .bcal { color: var(--dogru); }
+.bcal { flex: none; border: 1px solid var(--cizgi); background: var(--yuzey); width: 32px; height: 32px; border-radius: 50%; margin-top: 8px; font-size: .8rem; }
+.bmetin { flex: 1; min-width: 0; }
+.bmetin > .ar { font-size: 1.75rem; line-height: 2.05; margin: 0; text-align: right; }
+.trline { color: var(--soluk); font-size: .98rem; margin-top: 2px; }
+.tr-gizli { margin-top: 2px; }
+.akis { font-size: 1.85rem; line-height: 2.25; text-align: justify; margin: 4px 0; }
+.akis .birim { display: inline; padding: 2px 3px; border-radius: 6px; border: 0; }
+.hkk { cursor: help; border-bottom: 1px dotted var(--soluk); }
+.hkk.acik { color: var(--vurgu); }
+.kendi-ceviri { margin-top: 10px; }
+.kendi-ceviri label { display: block; margin-bottom: 4px; font-size: .92rem; }
+
+/* alıştırmalar */
+.soru { padding: 12px 0; }
+.soru + .soru { border-top: 1px solid var(--cizgi); }
+.soru-no { display: inline-grid; place-items: center; min-width: 26px; height: 26px; border-radius: 8px; background: var(--yumusak); font-weight: 700; font-size: .85rem; margin-inline-end: 6px; color: var(--soluk); }
+.soru-metin { font-size: 1.55rem; line-height: 1.9; }
+.soru-metin u { text-decoration-color: var(--altin); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.bosluk { display: inline-block; min-width: 70px; border-bottom: 2px solid var(--altin); margin: 0 4px; text-align: center; color: var(--vurgu); }
+.secim { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.sec { border: 1.5px solid var(--cizgi); background: var(--yuzey); border-radius: 12px; padding: 6px 14px; font-weight: 600; transition: transform .1s, background .2s; }
+.sec.ar { font-size: 1.4rem; line-height: 1.6; padding: 2px 16px; font-weight: 400; }
+.sec:hover:not(:disabled) { border-color: var(--vurgu); transform: translateY(-1px); }
+.sec.dogru { background: var(--dogru-acik); border-color: var(--dogru); color: var(--dogru); }
+.sec.yanlis { background: var(--yanlis-acik); border-color: var(--yanlis); color: var(--yanlis); text-decoration: line-through; }
+.sec:disabled { cursor: default; }
+.secim.bitti .sec:not(.dogru):not(.yanlis) { opacity: .55; }
+.sonra { margin-top: 8px; font-size: .95rem; color: var(--soluk); }
+.sonra .ar { font-size: 1.3rem; color: var(--murekkep); }
+.titre { animation: titre .35s; }
+@keyframes titre { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+.model { background: var(--vurgu-acik); border-radius: 12px; padding: 8px 14px; margin-top: 8px; }
+.model .ar { font-size: 1.45rem; line-height: 1.9; }
+.oz-isaret { margin-top: 8px; }
+.etiket { display: inline-block; font-size: .8rem; font-weight: 700; border-radius: 6px; padding: 1px 8px; }
+.etiket.ok { background: var(--dogru-acik); color: var(--dogru); }
+.etiket.no { background: var(--yanlis-acik); color: var(--yanlis); }
+.ilerleme { height: 8px; background: var(--yumusak); border-radius: 4px; overflow: hidden; }
+.ilerleme i { display: block; height: 100%; background: var(--vurgu); border-radius: 4px; transition: width .4s; }
+.bolum-ust { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+
+/* başlangıç */
+.kahraman { background: linear-gradient(135deg, var(--vurgu-acik), var(--altin-acik)); border: 1px solid var(--cizgi); border-radius: 20px; padding: 26px 24px; margin-bottom: 18px; text-align: center; }
+.kahraman .ar { font-size: 2.5rem; color: var(--vurgu); line-height: 1.6; }
+.kahraman h2 { font-size: 2rem; margin: 2px 0 6px; }
+.kahraman p { color: var(--soluk); margin: 0 auto; max-width: 640px; }
+.yol { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.yol-kart { text-align: left; border: 1px solid var(--cizgi); background: var(--yuzey); border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; box-shadow: var(--golge); }
+.yol-kart:hover { border-color: var(--vurgu); }
+.yol-kart b { font-size: 1.05rem; }
+.yol-kart .ar { color: var(--vurgu); font-size: 1.1rem; }
+.yol-kart .soluk { font-size: .85rem; }
+.yol-kart .sayi { display: flex; justify-content: space-between; font-size: .8rem; color: var(--soluk); }
+
+/* kartlar ve oyunlar */
+.flas { perspective: 900px; max-width: 420px; margin: 8px auto; }
+.flas-ic { position: relative; height: 190px; transition: transform .5s; transform-style: preserve-3d; cursor: pointer; }
+.flas.dondu .flas-ic { transform: rotateY(180deg); }
+.flas-yuz { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 18px; border: 1px solid var(--cizgi); display: grid; place-items: center; text-align: center; padding: 16px; box-shadow: var(--golge); }
+.flas-on { background: var(--yuzey); font-size: 2.3rem; }
+.flas-arka { background: var(--vurgu-acik); transform: rotateY(180deg); font-size: 1.3rem; font-weight: 600; }
+.flas-arka small { display: block; font-size: .85rem; color: var(--soluk); font-weight: 400; }
+.eslestir { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.eslestir .sutun { display: flex; flex-direction: column; gap: 8px; }
+.es { border: 1.5px solid var(--cizgi); background: var(--yuzey); border-radius: 12px; padding: 6px 10px; min-height: 48px; font-weight: 600; transition: all .2s; }
+.es.ar { font-size: 1.35rem; font-weight: 400; }
+.es.secili { border-color: var(--vurgu); background: var(--vurgu-acik); }
+.es.tamam { background: var(--dogru-acik); border-color: var(--dogru); color: var(--dogru); opacity: .6; cursor: default; }
+.es.hata { background: var(--yanlis-acik); border-color: var(--yanlis); }
+.sira-havuz, .sira-dizi { display: flex; flex-direction: column; gap: 8px; }
+.sira-oge { border: 1.5px solid var(--cizgi); background: var(--yuzey); border-radius: 12px; padding: 6px 14px; text-align: right; font-size: 1.35rem; line-height: 1.8; font-family: var(--arap); direction: rtl; }
+.sira-oge.yerlesti { background: var(--dogru-acik); border-color: var(--dogru); cursor: default; display: flex; gap: 10px; align-items: center; }
+.sira-oge.yerlesti .no { font-family: var(--govde); direction: ltr; font-size: .85rem; font-weight: 700; background: var(--dogru); color: var(--yuzey); border-radius: 50%; width: 24px; height: 24px; display: grid; place-items: center; flex: none; }
+.sira-oge small { display: block; font-family: var(--govde); direction: ltr; text-align: left; font-size: .85rem; color: var(--soluk); }
+.ikili { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.tablo { width: 100%; border-collapse: collapse; }
+.tablo th, .tablo td { border-bottom: 1px solid var(--cizgi); padding: 8px 6px; text-align: left; vertical-align: top; }
+.tablo th { font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; color: var(--soluk); }
+.tablo .ar { font-size: 1.3rem; }
+.hukum-tablo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.hukum-kutu { border-radius: 14px; padding: 12px 14px; border: 1px solid var(--cizgi); background: var(--bg); }
+.hukum-kutu h3 { font-size: 1.25rem; margin-bottom: 4px; }
+.hukum-kutu.v h3 { color: var(--dogru); } .hukum-kutu.c h3 { color: var(--altin); } .hukum-kutu.m h3 { color: var(--yanlis); }
+.hukum-kutu ul { margin: 6px 0 0; padding-inline-start: 18px; font-size: .95rem; }
+.ornek-grup { border-inline-start: 4px solid var(--vurgu); padding: 4px 14px; margin: 10px 0; }
+.ornek-grup .ar { font-size: 1.45rem; line-height: 1.9; }
+.ornek-grup .tur { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.ornek-grup .tur span { background: var(--yumusak); border-radius: 8px; padding: 0 10px; font-family: var(--arap); font-size: 1.3rem; direction: rtl; }
+.ornek-grup .tur b { color: var(--yanlis); font-weight: 700; }
+.kel { border: 0; background: none; font: inherit; color: inherit; padding: 0 2px; border-radius: 6px; cursor: pointer; }
+.kel:hover:not(:disabled) { background: var(--vurgu-acik); }
+.kel.dogru { background: var(--dogru-acik); color: var(--dogru); }
+.kel.yanlis { background: var(--yanlis-acik); color: var(--yanlis); text-decoration: line-through; }
+.kel:disabled { cursor: default; }
+.nokta-metin { font-size: 1.45rem; line-height: 2.4; text-align: justify; }
+select.nk { font-family: var(--govde); font-size: .95rem; direction: ltr; border: 1.5px dashed var(--altin); border-radius: 8px; background: var(--altin-acik); color: var(--murekkep); padding: 0 2px; margin: 0 3px; vertical-align: middle; }
+select.nk.nk-ok { border: 1.5px solid var(--dogru); background: var(--dogru-acik); }
+select.nk.nk-no { border: 1.5px solid var(--yanlis); background: var(--yanlis-acik); }
+.dsatir { display: flex; gap: 10px; padding: 6px 8px; border-radius: 12px; cursor: pointer; }
+.dsatir + .dsatir { border-top: 1px dashed var(--cizgi); }
+.dsatir:hover { background: var(--yumusak); }
+.dsatir.calan { background: var(--karaoke); }
+.dsatir .ar { font-size: 1.5rem; line-height: 1.9; margin: 0; }
+.dikte-sonuc { font-family: var(--arap); direction: rtl; font-size: 1.5rem; line-height: 2; margin-top: 8px; }
+.dikte-sonuc .k-ok { color: var(--dogru); }
+.dikte-sonuc .k-no { color: var(--yanlis); text-decoration: underline wavy; }
+.sayac { font-size: .85rem; color: var(--soluk); font-variant-numeric: tabular-nums; }
+.sinav-soru { min-height: 220px; }
+.sonuc-buyuk { font-family: var(--baslik); font-size: 3.4rem; font-weight: 700; color: var(--vurgu); text-align: center; line-height: 1; }
+.toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(20px); background: var(--murekkep); color: var(--bg); padding: 10px 18px; border-radius: 12px; font-weight: 600; opacity: 0; transition: all .3s; pointer-events: none; z-index: 50; max-width: calc(100% - 32px); text-align: center; }
+.toast.goster { opacity: 1; transform: translateX(-50%) translateY(0); }
+.alt-bilgi { text-align: center; color: var(--soluk); font-size: .85rem; margin-top: 30px; }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .nk-tablo thead { display: none; }
+  .nk-tablo tr { display: grid; grid-template-columns: 48px 1fr; gap: 2px 10px; padding: 8px 0; border-bottom: 1px solid var(--cizgi); }
+  .nk-tablo td { border: 0; padding: 2px; }
+  .nk-tablo td:nth-child(3), .nk-tablo td:nth-child(4) { grid-column: 1 / -1; }
+  .logo h1 { font-size: 1.1rem; }
+  .logo .ar { display: none; }
+  .kart { padding: 14px 14px; }
+  .paragraf { padding: 12px 12px 14px; }
+  .bmetin > .ar { font-size: 1.5rem; }
+  .akis { font-size: 1.55rem; }
+  .ikili, .hukum-tablo { grid-template-columns: 1fr; }
+  .eslestir { gap: 6px; }
+  .es.ar { font-size: 1.2rem; }
+  .kahraman .ar { font-size: 1.9rem; }
+  .oy-btn { width: 36px; height: 36px; }
+  .oy-btn.buyuk { width: 44px; height: 44px; }
+}
+</style>
+<header class="ust" id="ust">
+  <div class="ust-ic">
+    <div class="ust-satir">
+      <div class="logo"><h1>Su: Hayatın Aslı</h1><span class="ar">الماءُ أَصْلُ الحَياةِ وسِرُّها</span></div>
+      <span class="puan" id="puan" title="Toplam puan">★ 0</span>
+      <button class="ikon-btn" id="efektBtn" type="button" title="Ses efektleri">♪</button>
+      <button class="ikon-btn" id="temaBtn" type="button" title="Açık / koyu tema">☾</button>
+    </div>
+    <nav class="sekmeler" id="sekmeler" role="tablist" aria-label="Bölümler"></nav>
+  </div>
+</header>
+<main id="ana"></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script id="ses-veri" type="text/plain">SES_OKUMA</script>
+<script id="ses-d1" type="text/plain">SES_D1</script>
+<script id="ses-d2" type="text/plain">SES_D2</script>
+<script>
+/*VERI*/
+</script>
+<script>
+(function () {
+"use strict";
+// ---------- kayıt ----------
+var PFX = "b14:";
+var store = {
+  get: function (k, d) { try { var v = localStorage.getItem(PFX + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set: function (k, v) { try { localStorage.setItem(PFX + k, JSON.stringify(v)); } catch (e) {} },
+  del: function (k) { try { localStorage.removeItem(PFX + k); } catch (e) {} }
+};
+var ST = Object.assign({ hk: "tam", tr: true, hiz: 1, tema: "", efekt: true, gorunum: "satir", takip: true, dongu: false, tekrar: false, sekme: "bas" }, store.get("ayar", {}));
+var A = store.get("cevap", {});
+function ayarKaydet() { store.set("ayar", ST); }
+function cevapKaydet() { store.set("cevap", A); }
+
+var SEKMELER = [
+  ["bas", "Başlangıç", "البِدايَةُ"], ["dinle", "Dinle ve Oku", "الاسْتِماعُ والقِراءَةُ"], ["anla", "Anlama", "الاسْتيعابُ"],
+  ["kelime", "Kelimeler", "المُفْرَداتُ"], ["rubai", "Rubâî masdar", "مَصادِرُ الرُّباعِيِّ"], ["humasi", "Humâsî–südâsî", "الخُماسِيُّ والسُّداسِيُّ"],
+  ["imla", "İmlâ", "الإِمْلاءُ"], ["dinleme", "Dinleme", "فَهْمُ المَسْموعِ"], ["ifade", "İfade", "التَّعْبيرُ"], ["sinav", "Sınav", "الاخْتِبارُ"]
+];
+var YOL_ACIKLAMA = {
+  dinle: "Metni dinle, cümle cümle tekrar et; hareke ve Türkçe ayarlarıyla oku.",
+  anla: "Fikirleri sırala, başlıkları eşleştir, doğru–yanlış ve kısa cevaplar.",
+  kelime: "Kelime kartları, eşleştirme, çoğullar, metinden kelime bulma, fiil–harf, kalıplar.",
+  rubai: "Dört harfli fiillerin masdarları: إِفْعال، تَفْعيل، مُفاعَلَة، فَعْلَلَة…",
+  humasi: "Beş ve altı harfli fiillerin masdarları: تَفَعُّل، افْتِعال، اسْتِفْعال…",
+  imla: "Noktalama işaretleri, metne noktalama koyma ve kayıttan dikte.",
+  dinleme: "İki sesli dinleme metni: doğru–yanlış, kısa cevap, eşleştirme.",
+  ifade: "Ekip konuşmaları ve yazılı anlatım.",
+  sinav: "Bütün bölümlerden karışık 15 soru; en iyi puanın saklanır."
+};
+function toplam(t) {
+  switch (t) {
+    case "bas": return ONCE.length;
+    case "dinle": return METIN.length;
+    case "anla": return 1 + BASLIK_PARAGRAF.length + DY.length + KISA.length;
+    case "kelime": return 1 + COGUL.length + GRUP.length + FIIL_HARF.length + KALIP.reduce(function (s, k) { return s + k[1].length; }, 0);
+    case "rubai": return RUBAI_BUL.length + RUBAI_FIIL.length + RUBAI_CIKAR.length * 3 + RUBAI_AYET.length * 2;
+    case "humasi": return HUMASI_BUL.length + HUMASI_FIIL.length + HUMASI_CEVIR.length + HUMASI_AYET.length;
+    case "imla": return NOKTA_METIN.length + DIKTE.length;
+    case "dinleme": return DINLEME.reduce(function (s, d) { return s + d.dy.length + d.kisa.length + (d.eslestir ? 1 : d.secmeli.length); }, 0);
+    case "ifade": return SOZLU_GRUP.reduce(function (s, g) { return s + g[2].length; }, 0) + YAZI.length;
+    case "sinav": return 1;
+  }
+  return 0;
+}
+function yapilan(t) { var n = 0; for (var k in A) if (k.indexOf(t + "/") === 0) n++; return n; }
+function puanHesap() { var p = 0; for (var k in A) if (A[k].ok) p += 10; return p; }
+
+// ---------- yardımcılar ----------
+function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function karistir(arr, tohum) {
+  var a = arr.slice(), s = tohum === undefined ? Math.floor(Math.random() * 2147483647) : hash(String(tohum)) || 1;
+  for (var i = a.length - 1; i > 0; i--) { s = (Math.imul(s, 1103515245) + 12345) & 0x7fffffff; var j = s % (i + 1), t = a[i]; a[i] = a[j]; a[j] = t; }
+  return a;
+}
+function rastgele(arr, n, haric) { return karistir(arr.filter(function (x) { return haric.indexOf(x) < 0; })).slice(0, n); }
+// Türkçe metin içindeki Arapça parçaları yönü bozulmasın diye ayrı sarar
+function arSar(s) { return String(s).replace(/[\u0600-\u06FF](?:[\u0600-\u06FF\s/]*[\u0600-\u06FF])?/g, function (m) { return '<span class="ar-ic">' + m + '</span>'; }); }
+function bosluk(s, dolu) { return s.replace("___", '<span class="bosluk">' + (dolu || "&nbsp;") + '</span>'); }
+function ilerlemeHtml(t) { var y = Math.min(yapilan(t), toplam(t)), tp = toplam(t); return '<div class="ilerleme" title="' + y + ' / ' + tp + '"><i style="width:' + (tp ? Math.round(100 * y / tp) : 0) + '%"></i></div>'; }
+var toastZ;
+function toast(m) { var t = document.getElementById("toast"); t.textContent = m; t.classList.add("goster"); clearTimeout(toastZ); toastZ = setTimeout(function () { t.classList.remove("goster"); }, 2600); }
+var ACtx;
+function bip(ok) {
+  if (!ST.efekt) return;
+  try {
+    ACtx = ACtx || new (window.AudioContext || window.webkitAudioContext)();
+    var o = ACtx.createOscillator(), g = ACtx.createGain(), t = ACtx.currentTime;
+    o.type = "sine"; o.frequency.setValueAtTime(ok ? 660 : 220, t); if (ok) o.frequency.setValueAtTime(880, t + .08);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.12, t + .02); g.gain.exponentialRampToValueAtTime(.0001, t + (ok ? .25 : .3));
+    o.connect(g); g.connect(ACtx.destination); o.start(t); o.stop(t + .32);
+  } catch (e) {}
+}
+function cevapla(key, ok, v) {
+  if (A[key]) return false;
+  A[key] = { ok: ok ? 1 : 0, v: v === undefined ? "" : v }; cevapKaydet(); ustGuncelle();
+  var t = key.split("/")[0];
+  if (yapilan(t) === toplam(t)) { var s = SEKMELER.filter(function (x) { return x[0] === t; })[0]; if (s) setTimeout(function () { toast("Tebrikler! “" + s[1] + "” bölümünü tamamladın."); }, 400); }
+  return true;
+}
+function bolumSifirla(t) { for (var k in A) if (k.indexOf(t + "/") === 0) delete A[k]; cevapKaydet(); ustGuncelle(); }
+
+// ---------- hareke ve Türkçe ayarları ----------
+function ayarHtml() {
+  var hk = [["tam", "Harekeli"], ["son", "Son harekeler gizli"], ["yok", "Harekesiz"]], tr = [[1, "Açık"], [0, "Tıklayınca"]];
+  return '<div class="ayarlar"><div class="ayar"><span class="lbl">Hareke</span><div class="seg" role="group" aria-label="Hareke">' + hk.map(function (h) { return '<button type="button" data-hk="' + h[0] + '" aria-pressed="' + (ST.hk === h[0]) + '">' + h[1] + '</button>'; }).join("") + '</div></div>' +
+    '<div class="ayar"><span class="lbl">Türkçe</span><div class="seg" role="group" aria-label="Türkçe">' + tr.map(function (t) { return '<button type="button" data-trm="' + t[0] + '" aria-pressed="' + (ST.tr === !!t[0]) + '">' + t[1] + '</button>'; }).join("") + '</div></div></div>';
+}
+function trSatir(t, tag) {
+  if (!t) return "";
+  tag = tag || "div";
+  if (ST.tr) return '<' + tag + ' class="trline">' + t + '</' + tag + '>';
+  return '<div class="tr-gizli"><button type="button" class="btn kucuk trac" data-trac="1">Türkçesi</button><' + tag + ' class="trline" hidden>' + t + '</' + tag + '></div>';
+}
+var HK_HARF = "ء-يٱ-ۓـ", HK_ISARET = "ً-ْٰ";
+var HK_KELIME = new RegExp("[" + HK_HARF + HK_ISARET + "]+", "g");
+function hkSade(w, mod) {
+  if (mod === "yok") return w.replace(new RegExp("[" + HK_ISARET + "]", "g"), "");
+  // son hareke: kelimenin sonundaki hareke ya da tenvin (şedde kalır); tenvinli eliften önceki tenvin de gider
+  var sonda = new RegExp("[" + HK_ISARET + "]+$"), elifli = new RegExp("([" + HK_ISARET + "]*ً[" + HK_ISARET + "]*)([اى])$");
+  var sedde = function (r) { return r.indexOf("ّ") >= 0 ? "ّ" : ""; };
+  // bitişik zamirli kelime: i'rab harekesi zamirden önceki harfte (بَيْتُهُ → بَيْته)
+  var zamirli = new RegExp("^(.*[" + HK_HARF + "][" + HK_ISARET + "]*?)[\\u064E\\u064F\\u0650](\\u0651?)((?:[\\u0647\\u0643]|\\u0646[" + HK_ISARET + "]*(?=\\u0627))[" + HK_ISARET + "]*(?:[\\u0645\\u0627][" + HK_ISARET + "]*){0,2})$");
+  var z = w.match(zamirli);
+  if (z && z[1].replace(new RegExp("[" + HK_ISARET + "]", "g"), "").replace(/^[وف]/, "").length >= 2) return z[1] + z[2] + z[3].replace(sonda, "");
+  if (elifli.test(w)) return w.replace(elifli, function (m, r, e) { return sedde(r) + e; });
+  return w.replace(sonda, function (r) { return sedde(r); });
+}
+function harekeUygula(kok) {
+  if (ST.hk === "tam") return;
+  kok.querySelectorAll(".ar-hk").forEach(function (el) {
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), dugumler = [], ayet = 0;
+    while (w.nextNode()) { var n = w.currentNode; if (n.parentNode.closest(".hkk")) continue; dugumler.push(n); }
+    dugumler.forEach(function (n) {
+      var t = n.nodeValue, bas = ayet;
+      for (var q = 0; q < t.length; q++) { if (t[q] === "﴿") ayet++; else if (t[q] === "﴾") ayet = Math.max(0, ayet - 1); }
+      if (!/[ء-ي]/.test(t)) return;
+      var frag = document.createDocumentFragment(), son = 0;
+      t.replace(HK_KELIME, function (k, i) {
+        var once = t.slice(0, i), ic = bas + (once.split("﴿").length - 1) - (once.split("﴾").length - 1);
+        if (ic > 0) return k;
+        var sade = hkSade(k, ST.hk);
+        if (sade === k) return k;
+        if (i > son) frag.appendChild(document.createTextNode(t.slice(son, i)));
+        var sp = document.createElement("span"); sp.className = "hkk"; sp.textContent = sade; sp.dataset.o = k; sp.dataset.s = sade; sp.title = "Harekesini görmek için tıkla";
+        frag.appendChild(sp); son = i + k.length; return k;
+      });
+      if (son === 0) return;
+      if (son < t.length) frag.appendChild(document.createTextNode(t.slice(son)));
+      n.parentNode.replaceChild(frag, n);
+    });
+  });
+}
+
+// ---------- ortak alıştırma parçaları ----------
+var DOGRU = {};
+// çoktan seçmeli: ilk cevap puanlanır
+function secim(key, dogru, yanlislar, o) {
+  o = o || {};
+  DOGRU[key] = dogru;
+  var ops = o.sira ? [dogru].concat(yanlislar).sort() : karistir([dogru].concat(yanlislar), key), c = A[key];
+  return '<div class="secim' + (c ? ' bitti' : '') + '" data-k="' + key + '">' + ops.map(function (op) {
+    var cls = ""; if (c) { if (op === dogru) cls = " dogru"; else if (c.v === op) cls = " yanlis"; }
+    return '<button type="button" class="sec' + (o.tr ? '' : ' ar') + cls + '" data-v="' + esc(op) + '"' + (c ? ' disabled' : '') + '>' + (o.etiket ? o.etiket(op) : op) + '</button>';
+  }).join("") + '</div><div class="sonra"' + (c ? '' : ' hidden') + '>' + (o.sonra || '') + '</div>';
+}
+// yaz – modeli gör – kendini değerlendir
+function yazGoster(key, model, tr, o) {
+  o = o || {};
+  var c = A[key], yazi = store.get("y:" + key, "");
+  return '<textarea class="' + (o.tr ? '' : 'ar') + '" rows="' + (o.satir || 2) + '" data-yaz="' + key + '" placeholder="' + (o.yer || 'Cevabını yaz…') + '">' + esc(yazi) + '</textarea>' +
+    '<div class="satir-btn" style="margin-top:6px"><button type="button" class="btn kucuk" data-goster="' + key + '"' + (c ? ' hidden' : '') + '>' + (o.dugme || 'Örnek cevabı göster') + '</button></div>' +
+    '<div class="model" data-model="' + key + '"' + (c ? '' : ' hidden') + '>' + (model ? '<div class="' + (o.modelTr ? '' : 'ar') + '">' + model + '</div>' : '') + (tr ? '<div class="trline">' + tr + '</div>' : '') +
+    '<div class="oz-isaret satir-btn">' + (c ? '<span class="etiket ' + (c.ok ? 'ok">✓ Doğru saydın' : 'no">✗ Tekrar çalış') + '</span>' :
+      '<span class="kucuk soluk">Kendi cevabın nasıldı?</span><button type="button" class="btn kucuk" data-oz="' + key + '" data-ok="1">✓ Doğru</button><button type="button" class="btn kucuk" data-oz="' + key + '" data-ok="0">✗ Eksik / yanlış</button>') + '</div></div>';
+}
+function bolumBasi(t, baslik) {
+  return '<div class="bolum-ust"><div class="soluk kucuk" id="bolumSayi" data-t="' + t + '" data-b="' + esc(baslik) + '">' + baslik + ' · ' + Math.min(yapilan(t), toplam(t)) + ' / ' + toplam(t) + ' tamamlandı</div><button type="button" class="btn kucuk" data-sifirla="' + t + '">Bu bölümü sıfırla</button></div><div id="bolumBar">' + ilerlemeHtml(t) + '</div>';
+}
+function kart(baslik, ar, aciklama, govde, id) {
+  return '<section class="kart"' + (id ? ' id="' + id + '"' : '') + '><h2>' + baslik + (ar ? ' <span class="ar">' + ar + '</span>' : '') + '</h2>' + (aciklama ? '<p class="aciklama">' + aciklama + '</p>' : '') + govde + '</section>';
+}
+function soru(no, ic) { return '<div class="soru"><span class="soru-no">' + no + '</span>' + ic + '</div>'; }
+
+// ================= SES =================
+var ses = new Audio();
+ses.preload = "auto";
+var OY = { izle: -1, tek: false, bitis: null, vurgu: -1, tekrarZ: null };
+function sesHazirla() {
+  if (ses.src) return;
+  var el = document.getElementById("ses-veri"), b64 = el ? el.textContent.replace(/\s+/g, "") : "";
+  if (!b64 || b64.indexOf("SES_") === 0) return;
+  var bin = atob(b64), u = new Uint8Array(bin.length);
+  for (var i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+  ses.src = URL.createObjectURL(new Blob([u], { type: "audio/mpeg" }));
+  ses.playbackRate = ST.hiz;
+}
+function birimBul(t) { for (var i = 0; i < METIN.length; i++) if (t >= METIN[i][0] && t < METIN[i][1]) return i; return -1; }
+function cal() { sesHazirla(); ses.playbackRate = ST.hiz; var p = ses.play(); if (p && p.catch) p.catch(function () {}); }
+function birimCal(i, tek) {
+  if (i < 0 || i >= METIN.length) return;
+  tekrarIptal(); sesHazirla();
+  OY.tek = !!tek; OY.bitis = null; OY.izle = i;
+  ses.currentTime = METIN[i][0] + 0.01; vurgula(i); cal();
+}
+function aralikCal(bas, son) { tekrarIptal(); sesHazirla(); OY.tek = false; OY.izle = birimBul(bas + 0.02); OY.bitis = son; ses.currentTime = bas + 0.01; cal(); }
+function dinlendi(i) { if (!A["dinle/" + i]) { A["dinle/" + i] = { ok: 1, v: "" }; cevapKaydet(); ustGuncelle(); var e = document.querySelector('.birim[data-i="' + i + '"]'); if (e) e.classList.add("dinlendi"); if (yapilan("dinle") === toplam("dinle")) toast("Bütün metni dinledin. Tebrikler!"); } }
+function tik() {
+  if (!ses.paused) {
+    var t = ses.currentTime;
+    if (OY.bitis !== null && t >= OY.bitis - 0.03) {
+      if (OY.izle >= 0) dinlendi(OY.izle);
+      ses.pause(); OY.bitis = null; OY.izle = -1;
+    } else if (OY.izle >= 0 && t >= METIN[OY.izle][1] - 0.03) {
+      var j = OY.izle; dinlendi(j);
+      if (ST.dongu) { ses.currentTime = METIN[j][0] + 0.01; }
+      else if (OY.tek) { ses.pause(); OY.tek = false; OY.izle = -1; }
+      else if (ST.tekrar) { ses.pause(); OY.izle = -1; tekrarBaslat(j); }
+      else OY.izle = j + 1 < METIN.length ? j + 1 : -1;
+    } else if (OY.izle < 0 && OY.bitis === null && !OY.tek) { OY.izle = birimBul(t); }
+    var i = birimBul(ses.currentTime);
+    if (i !== OY.vurgu) vurgula(i);
+    oyArayuz();
+  }
+  requestAnimationFrame(tik);
+}
+function vurgula(i) {
+  OY.vurgu = i;
+  document.querySelectorAll(".birim.calan").forEach(function (e) { e.classList.remove("calan"); });
+  if (i < 0) return;
+  var e = document.querySelector('#ana .birim[data-i="' + i + '"]');
+  if (!e) return;
+  e.classList.add("calan");
+  if (ST.takip && !ses.paused) {
+    var r = e.getBoundingClientRect(), alt = 0, oy = document.getElementById("oynatici"); if (oy) alt = oy.getBoundingClientRect().bottom;
+    if (r.top < alt + 8 || r.bottom > window.innerHeight - 20) window.scrollBy({ top: r.top - alt - (window.innerHeight - alt) / 3, behavior: "smooth" });
+  }
+  var p = METIN[i][2];
+  document.querySelectorAll(".p-atla button").forEach(function (b) { b.classList.toggle("aktif", +b.dataset.patla === p); });
+}
+function tekrarBaslat(j) {
+  var sure = (METIN[j][1] - METIN[j][0]) / ST.hiz * 1.2 + 1, bas = performance.now();
+  var kutu = document.getElementById("tekrarKutu");
+  if (kutu) { kutu.hidden = false; }
+  function adim() {
+    var gec = (performance.now() - bas) / 1000, k = document.getElementById("tekrarKutu");
+    if (k) { k.querySelector("i").style.width = Math.min(100, gec / sure * 100) + "%"; k.querySelector("span").textContent = "Şimdi sen tekrar et… " + Math.max(0, Math.ceil(sure - gec)); }
+    if (gec >= sure) { tekrarIptal(); if (j + 1 < METIN.length) birimCal(j + 1, false); return; }
+    OY.tekrarZ = requestAnimationFrame(adim);
+  }
+  OY.tekrarZ = requestAnimationFrame(adim);
+}
+function tekrarIptal() { if (OY.tekrarZ) cancelAnimationFrame(OY.tekrarZ); OY.tekrarZ = null; var k = document.getElementById("tekrarKutu"); if (k) k.hidden = true; }
+function sureYaz(s) { s = Math.max(0, s || 0); var m = Math.floor(s / 60), x = Math.floor(s % 60); return m + ":" + (x < 10 ? "0" : "") + x; }
+function oyArayuz() {
+  var b = document.getElementById("oyCal"); if (!b) return;
+  b.textContent = ses.paused ? "▶" : "❚❚"; b.setAttribute("aria-label", ses.paused ? "Oynat" : "Duraklat");
+  var r = document.getElementById("oySar"), d = ses.duration || METIN[METIN.length - 1][1];
+  if (r && !r.dataset.surukle) { r.max = d; r.value = ses.currentTime; }
+  var z = document.getElementById("oyZaman"); if (z) z.textContent = sureYaz(ses.currentTime);
+  var tz = document.getElementById("oyToplam"); if (tz) tz.textContent = sureYaz(d);
+}
+ses.addEventListener("pause", oyArayuz); ses.addEventListener("play", oyArayuz); ses.addEventListener("loadedmetadata", oyArayuz);
+ses.addEventListener("ended", function () { OY.izle = -1; oyArayuz(); });
+requestAnimationFrame(tik);
+
+// ================= BÖLÜMLER =================
+var CIZ = {};
+
+CIZ.bas = function () {
+  var yol = SEKMELER.slice(1).map(function (s) {
+    var y = Math.min(yapilan(s[0]), toplam(s[0])), t = toplam(s[0]);
+    return '<button type="button" class="yol-kart" data-git="' + s[0] + '"><span class="ar">' + s[2] + '</span><b>' + s[1] + '</b><span class="soluk">' + YOL_ACIKLAMA[s[0]] + '</span>' + ilerlemeHtml(s[0]) + '<span class="sayi"><span>' + y + ' / ' + t + '</span><span>' + (y === t ? "✓ bitti" : "") + '</span></span></button>';
+  }).join("");
+  var once = ONCE.map(function (o, i) { return soru(i + 1, '<div class="soru-metin ar">' + o[0] + '</div>' + trSatir(o[1]) + yazGoster("bas/once/" + i, "", o[2], { tr: true, modelTr: true, yer: "Tahminini yaz (Türkçe ya da Arapça)…", dugme: "Örnek düşünceyi göster" })); }).join("");
+  return '<div class="kahraman"><div class="ar">الماءُ أَصْلُ الحَياةِ وسِرُّها</div><h2>Su: Hayatın Aslı ve Sırrı</h2>' +
+    '<p>el-Arabiyyetü beyne yedeyk, 3. kitap, 14. ünite. Canlılarda ve insan bedeninde su, suyun kaynakları ve dengesi; rubâî, humâsî ve südâsî fiillerin masdarları; noktalama işaretleri. Okuma ve dinleme kayıtları, alıştırmalar ve sınav bu dosyanın içindedir; internet gerekmez.</p>' +
+    '<div class="satir-btn" style="justify-content:center;margin-top:14px"><button type="button" class="btn dolu" data-git="dinle">▶ Metni dinlemeye başla</button><button type="button" class="btn" data-act="giris">Ünite girişini dinle</button></div></div>' +
+    kart("Okumadan önce", "قَبْلَ القِراءَةِ", "Metni okumadan önce başlığı düşün; tahminlerini yaz, sonra örnek düşünceyle karşılaştır.", ayarHtml() + once) +
+    kart("Çalışma yolu", "", "Sırayla gitmen önerilir. Her doğru cevap 10 puan; ilerlemen bu cihazda saklanır.", '<div class="yol">' + yol + '</div><div class="satir-btn" style="margin-top:14px"><button type="button" class="btn kucuk" data-act="hepsiniSifirla">Bütün ilerlemeyi sıfırla</button></div>');
+};
+
+CIZ.dinle = function () {
+  var paragraflar = {};
+  METIN.forEach(function (m, i) { (paragraflar[m[2]] = paragraflar[m[2]] || []).push(i); });
+  var ps = Object.keys(paragraflar).map(Number).sort(function (a, b) { return a - b; });
+  var oy = '<div class="oynatici" id="oynatici"><div class="oy-ust">' +
+    '<button type="button" class="oy-btn" data-act="onceki" aria-label="Önceki cümle">⏮</button>' +
+    '<button type="button" class="oy-btn buyuk" id="oyCal" data-act="calDur" aria-label="Oynat">▶</button>' +
+    '<button type="button" class="oy-btn" data-act="sonraki" aria-label="Sonraki cümle">⏭</button>' +
+    '<div class="oy-orta"><input type="range" id="oySar" min="0" max="' + METIN[METIN.length - 1][1] + '" step="0.1" value="0" aria-label="Konum"><div class="oy-zaman"><span id="oyZaman">0:00</span><span id="oyToplam">' + sureYaz(METIN[METIN.length - 1][1]) + '</span></div></div></div>' +
+    '<div class="oy-alt"><div class="ayar"><span class="lbl">Hız</span><div class="seg" role="group" aria-label="Hız">' + [0.75, 1, 1.25].map(function (h) { return '<button type="button" data-hiz="' + h + '" aria-pressed="' + (ST.hiz === h) + '">' + String(h).replace(".", ",") + '×</button>'; }).join("") + '</div></div>' +
+    '<label class="anahtar"><input type="checkbox" data-ayar="dongu"' + (ST.dongu ? ' checked' : '') + '> Cümleyi tekrarla</label>' +
+    '<label class="anahtar"><input type="checkbox" data-ayar="tekrar"' + (ST.tekrar ? ' checked' : '') + '> Dinle – sen tekrar et</label>' +
+    '<label class="anahtar"><input type="checkbox" data-ayar="takip"' + (ST.takip ? ' checked' : '') + '> Metni takip et</label>' +
+    '<div class="p-atla" aria-label="Paragrafa git">' + ps.map(function (p) { return '<button type="button" data-patla="' + p + '" title="' + esc(PARAGRAF_ADI[p]) + '">' + p + '</button>'; }).join("") + '</div></div>' +
+    '<div class="tekrar-kutu" id="tekrarKutu" hidden><span>Şimdi sen tekrar et…</span><div class="tekrar-cubuk"><i></i></div><button type="button" class="btn kucuk" data-act="tekrarAtla">Devam</button><button type="button" class="btn kucuk" data-act="tekrarDur">Dur</button></div></div>';
+  var ust = '<section class="kart"><h2>Dinle ve Oku <span class="ar">الاسْتِماعُ والقِراءَةُ</span></h2><p class="aciklama">Bir cümleye dokununca yalnız o cümle çalar. “Dinle – sen tekrar et” açıkken her cümleden sonra sana söz sırası gelir. Kısayollar: boşluk = oynat/duraklat, ← → = önceki/sonraki cümle.</p>' +
+    '<div class="ayarlar">' + ayarHtml().replace('<div class="ayarlar">', '').replace(/<\/div>$/, '') + '<div class="ayar"><span class="lbl">Görünüm</span><div class="seg" role="group" aria-label="Görünüm"><button type="button" data-gorunum="satir" aria-pressed="' + (ST.gorunum === "satir") + '">Cümle cümle</button><button type="button" data-gorunum="akis" aria-pressed="' + (ST.gorunum === "akis") + '">Akan metin</button></div></div></div>' +
+    '<div class="satir-btn" style="margin-top:10px"><button type="button" class="btn kucuk" data-act="giris">Ünite girişini dinle</button><span class="kucuk soluk">' + yapilan("dinle") + ' / ' + METIN.length + ' cümle dinlendi</span></div></section>';
+  var govde = ps.map(function (p) {
+    var ids = paragraflar[p], kel = SOZLUK.filter(function (s) { return s[2] === p; });
+    var metin;
+    if (ST.gorunum === "akis") {
+      metin = '<p class="akis ar ar-hk">' + ids.map(function (i) { return '<span class="birim' + (A["dinle/" + i] ? ' dinlendi' : '') + '" data-i="' + i + '">' + METIN[i][3] + '</span>'; }).join(" ") + '</p>' + trSatir(ids.map(function (i) { return METIN[i][4]; }).join(" "));
+    } else {
+      metin = ids.map(function (i) { return '<div class="birim' + (A["dinle/" + i] ? ' dinlendi' : '') + '" data-i="' + i + '"><button type="button" class="bcal" data-bcal="' + i + '" aria-label="Bu cümleyi dinle">▶</button><div class="bmetin"><p class="ar ar-hk">' + METIN[i][3] + '</p>' + trSatir(METIN[i][4]) + '</div></div>'; }).join("");
+    }
+    var cvk = "cv:" + p;
+    var ceviri = ST.tr ? "" : '<div class="kendi-ceviri"><label for="' + cvk + '"><b>Paragrafı kendin çevir</b> <span class="soluk">(yazdığın bu cihazda saklanır)</span></label><textarea id="' + cvk + '" data-cevir="' + cvk + '" rows="3" placeholder="Türkçesini kendi cümlelerinle yaz…">' + esc(store.get(cvk, "")) + '</textarea><details style="margin-top:6px"><summary>Çevirimi karşılaştır</summary><p class="trline">' + ids.map(function (i) { return METIN[i][4]; }).join(" ") + '</p></details></div>';
+    return '<section class="paragraf" id="p-' + p + '"><div class="p-bas"><span class="p-no">' + p + '</span><h3>' + PARAGRAF_ADI[p] + '</h3><button type="button" class="btn kucuk" data-pcal="' + p + '">▶ Paragrafı dinle</button></div>' +
+      (kel.length ? '<details><summary>Bu paragrafın kelimeleri (' + kel.length + ')</summary><div class="kelime-cip">' + kel.map(function (k) { return '<span class="cip"><span class="ar">' + k[0] + '</span><span>' + k[1] + '</span></span>'; }).join("") + '</div></details>' : '') +
+      metin + ceviri + '</section>';
+  }).join("");
+  return ust + oy + govde;
+};
+
+CIZ.anla = function () {
+  var h = bolumBasi("anla", "Anlama");
+  // 1. sıralama
+  var sira = store.get("sira", []), havuz = karistir(SIRALA.map(function (s, i) { return i; }), "sira-havuz"), bitti = sira.length === SIRALA.length;
+  var siraHtml = '<div class="ikili"><div><div class="soluk kucuk" style="margin-bottom:6px">Fikirler (karışık) — sıradaki fikre dokun</div><div class="sira-havuz">' + havuz.filter(function (i) { return sira.indexOf(i) < 0; }).map(function (i) { return '<button type="button" class="sira-oge" data-sira="' + i + '">' + SIRALA[i][0] + '</button>'; }).join("") + (bitti ? '<div class="not">✓ Sıralama tamam. Hata sayın: <b>' + store.get("siraHata", 0) + '</b></div>' : '') + '</div></div>' +
+    '<div><div class="soluk kucuk" style="margin-bottom:6px">Metindeki sıra</div><div class="sira-dizi">' + sira.map(function (i, n) { return '<div class="sira-oge yerlesti"><span class="no">' + (n + 1) + '</span><div>' + SIRALA[i][0] + '<small>' + SIRALA[i][1] + ' · ' + SIRALA[i][2] + '. paragraf</small></div></div>'; }).join("") + '</div></div></div>' +
+    '<div class="satir-btn" style="margin-top:10px"><span class="kucuk soluk">Hata: <b id="siraHata">' + store.get("siraHata", 0) + '</b></span><button type="button" class="btn kucuk" data-act="siraSifirla">Baştan sırala</button></div>';
+  // 2. başlık – paragraf
+  var bp = BASLIK_PARAGRAF.map(function (b, i) {
+    var yan = [1, 2, 3, 4, 5, 6].filter(function (x) { return x !== b[2]; }).map(String);
+    return soru(i + 1, '<span class="sar">' + b[0] + '</span>' + trSatir(b[1], "span") + secim("anla/bp/" + i, String(b[2]), yan, { tr: true, etiket: function (x) { return x + ". p"; }, sonra: b[2] + ". paragraf: " + PARAGRAF_ADI[b[2]] }));
+  }).join("");
+  // 3. doğru – yanlış
+  var dy = DY.map(function (d, i) { return soru(i + 1, '<span class="sar">' + d[0] + '</span>' + trSatir(d[3]) + dyHtml("anla/dy/" + i, d[1], d[2])); }).join("");
+  // 4. kısa cevap
+  var kisa = KISA.map(function (k, i) { return soru(i + 1, '<span class="sar">' + k[0] + '</span>' + yazGoster("anla/kisa/" + i, k[1], k[2], { yer: "Arapça cevabını yaz…" })); }).join("");
+  return h + '<div style="height:14px"></div>' + ayarHtml().replace('class="ayarlar"', 'class="ayarlar" style="margin-bottom:14px"') +
+    kart("1. Fikirleri sırala", "رَتِّبِ الأَفْكارَ حَسَبَ وُرودِها في النَّصِّ", "Bu fikirler metinde hangi sırayla geçiyor? Sıradaki fikre dokun; yanlışta titrer.", siraHtml) +
+    kart("2. Başlık hangi paragrafın?", "وائِمْ بَيْنَ العُنْوانِ ورَقْمِ الفِقْرَةِ", "", bp) +
+    kart("3. Doğru mu, yanlış mı?", "ضَعْ عَلامَةَ (✓) أَوْ (✗)، ثُمَّ صَحِّحِ الخَطَأَ", "Yanlış cümlelerin doğrusu cevaptan sonra görünür.", dy) +
+    kart("4. Kısa cevap", "أَجِبْ بِاخْتِصارٍ", "Önce kendin yaz, sonra örnek cevapla karşılaştırıp kendini değerlendir.", kisa);
+};
+function dyHtml(key, dogruMu, duzeltme) {
+  return secim(key, dogruMu ? "✓ Doğru" : "✗ Yanlış", [dogruMu ? "✗ Yanlış" : "✓ Doğru"], { tr: true, sira: true, sonra: dogruMu ? "Cümle doğru." : (duzeltme ? 'Doğrusu: <span class="ar">' + duzeltme + '</span>' : "Cümle yanlış.") });
+}
+
+// eşleştirme oyunu
+var OYUN = {}, OYUN_KAYNAK = {};
+function eslestirHtml(key, kaynak, ayar) {
+  OYUN_KAYNAK[key] = kaynak;
+  var o = OYUN[key];
+  if (!o || o.yeni) { var ciftler = kaynak(); o = OYUN[key] = { ciftler: ciftler, sol: karistir(ciftler.map(function (c, i) { return i; })), sag: karistir(ciftler.map(function (c, i) { return i; })), tamam: [], hata: 0, secili: null, sagTr: ayar.sagTr }; }
+  var c = A[key];
+  return '<div class="eslestir" data-oyun="' + key + '"><div class="sutun">' + o.sol.map(function (i) { return '<button type="button" class="es ar' + (o.tamam.indexOf(i) >= 0 ? ' tamam' : '') + '" data-es="sol" data-i="' + i + '"' + (o.tamam.indexOf(i) >= 0 ? ' disabled' : '') + '>' + o.ciftler[i][0] + '</button>'; }).join("") + '</div>' +
+    '<div class="sutun">' + o.sag.map(function (i) { return '<button type="button" class="es' + (o.sagTr ? '' : ' ar') + (o.tamam.indexOf(i) >= 0 ? ' tamam' : '') + '" data-es="sag" data-i="' + i + '"' + (o.tamam.indexOf(i) >= 0 ? ' disabled' : '') + '>' + o.ciftler[i][1] + '</button>'; }).join("") + '</div></div>' +
+    '<div class="satir-btn" style="margin-top:10px"><span class="kucuk soluk">Hata: <b data-oyunhata="' + key + '">' + o.hata + '</b>' + (c ? ' · İlk oyun: ' + (c.ok ? '✓ başarılı' : 'tekrar çalış') : '') + '</span><button type="button" class="btn kucuk" data-yenioyun="' + key + '">Yeni tur</button></div>';
+}
+function sozlukCiftleri() {
+  var p = ST.kartP || 0, liste = SOZLUK.filter(function (s) { return !p || s[2] === p; });
+  return karistir(liste).slice(0, 6).map(function (s) { return [s[0], s[1]]; });
+}
+// gruplama: üç doğru kelimeyi bul
+function grupHtml(i) {
+  var g = GRUP[i], key = "kelime/grup/" + i, durum = store.get("grup:" + i, { b: [], h: 0 }), c = A[key];
+  var yanlis = karistir(GRUP.filter(function (x, j) { return j !== i; }).reduce(function (a, x) { return a.concat(x[2]); }, []), "g" + i).filter(function (w) { return g[2].indexOf(w) < 0; }).slice(0, 3);
+  var hepsi = karistir(g[2].concat(yanlis), "gk" + i);
+  return '<div class="secim" data-grup="' + i + '">' + hepsi.map(function (w) { var ok = g[2].indexOf(w) >= 0, bul = durum.b.indexOf(w) >= 0 || (c && ok); return '<button type="button" class="sec ar' + (bul ? ' dogru' : '') + '" data-gw="' + esc(w) + '"' + (bul || c ? ' disabled' : '') + '>' + w + '</button>'; }).join("") + '</div>' +
+    '<div class="sonra kucuk">' + (c ? '✓ Tamam · hata: ' + durum.h : 'Bulunan: ' + durum.b.length + ' / 3 · hata: ' + durum.h) + '</div>';
+}
+CIZ.kelime = function () {
+  var p = ST.kartP || 0, liste = SOZLUK.map(function (s, i) { return i; }).filter(function (i) { return !p || SOZLUK[i][2] === p; });
+  var bildim = store.get("bildim", []), kalan = liste.filter(function (i) { return bildim.indexOf(i) < 0; });
+  var deste = ST.sadeceBilmedik ? kalan : liste;
+  var ki = Math.min(ST.kartI || 0, Math.max(0, deste.length - 1)), cur = deste[ki];
+  var secP = '<div class="ayar"><span class="lbl">Paragraf</span><select data-kartp="1" style="border:1px solid var(--cizgi);border-radius:8px;background:var(--yuzey);padding:4px 8px"><option value="0">Hepsi (' + SOZLUK.length + ')</option>' + Object.keys(PARAGRAF_ADI).map(function (k) { return '<option value="' + k + '"' + (+k === p ? ' selected' : '') + '>' + k + '. ' + esc(PARAGRAF_ADI[k]) + '</option>'; }).join("") + '</select></div>';
+  var flas = cur === undefined ? '<div class="not">Bu destede bilmediğin kelime kalmadı. Harika! “Bilmediklerim” seçeneğini kapatıp hepsini tekrar edebilirsin.</div>' :
+    '<div class="flas" id="flas"><div class="flas-ic" data-act="cevir" role="button" tabindex="0" aria-label="Kartı çevir"><div class="flas-yuz flas-on ar">' + SOZLUK[cur][0] + '</div><div class="flas-yuz flas-arka"><div>' + SOZLUK[cur][1] + '<small>' + SOZLUK[cur][2] + '. paragraf</small></div></div></div></div>' +
+    '<div class="satir-btn" style="justify-content:center"><button type="button" class="btn kucuk" data-kart="-1">←</button><span class="sayac">' + (ki + 1) + ' / ' + deste.length + '</span><button type="button" class="btn kucuk" data-kart="1">→</button><button type="button" class="btn kucuk" data-bildim="' + cur + '">' + (bildim.indexOf(cur) >= 0 ? '↺ Tekrar listesine al' : '✓ Biliyorum') + '</button></div>';
+  var kartlar = '<div class="ayarlar" style="margin-bottom:6px">' + secP + '<label class="anahtar"><input type="checkbox" data-ayar="sadeceBilmedik"' + (ST.sadeceBilmedik ? ' checked' : '') + '> Yalnız bilmediklerim</label><span class="kucuk soluk">Bildiğin: ' + liste.filter(function (i) { return bildim.indexOf(i) >= 0; }).length + ' / ' + liste.length + '</span></div>' + flas;
+  var oyun1 = eslestirHtml("kelime/sozluk", sozlukCiftleri, { sagTr: true });
+  var cogul = COGUL.map(function (t, i) {
+    var c = A["kelime/cogul/" + i];
+    return soru(i + 1, '<div class="soru-metin ar">' + bosluk(t[0], c ? t[2] : "") + ' <span class="soluk kucuk" style="font-family:var(--govde)">(tekili: <span class="ar">' + t[1] + '</span>)</span></div>' + trSatir(t[4]) + secim("kelime/cogul/" + i, t[2], t[3].filter(function (x) { return x !== t[2]; })));
+  }).join("");
+  var grup = GRUP.map(function (g, i) { return soru(i + 1, '<span class="sar">' + g[0] + '</span> <span class="soluk kucuk">— ' + g[1] + '</span>' + grupHtml(i)); }).join("");
+  var fh = FIIL_HARF.map(function (f, i) {
+    var c = A["kelime/harf/" + i];
+    return soru(i + 1, '<span class="sar" style="color:var(--vurgu)">' + f[0] + '</span> <span class="bosluk">' + (c ? f[1] : "&nbsp;") + '</span>' + secim("kelime/harf/" + i, f[1], karistir(HARFLER.filter(function (x) { return x !== f[1]; }), "h" + i).slice(0, 3), { sonra: 'Örnek: <span class="ar">' + f[2] + '</span> — ' + f[3] }));
+  }).join("");
+  var kalip = KALIP.map(function (k, ki2) {
+    return '<div class="soru"><div class="not" style="margin-bottom:6px"><b>Örnek:</b> <span class="sar">' + k[0] + '</span></div>' + k[1].map(function (x, xi) { return '<div style="margin-top:10px"><span class="soru-no">' + (xi + 1) + '</span><span class="sar">' + x[0].replace(/___/g, '<span class="bosluk">&nbsp;</span>') + '</span>' + yazGoster("kelime/kalip/" + ki2 + "-" + xi, x[1], "", { yer: "Cümleyi tamamla…" }) + '</div>'; }).join("") + '</div>';
+  }).join("");
+  return bolumBasi("kelime", "Kelimeler") + '<div style="height:14px"></div>' +
+    kart("Kelime kartları", "بِطاقاتُ المُفْرَداتِ", "Karta dokun, anlamını gör. Bildiklerini işaretle; tekrar listesi küçülsün.", kartlar) +
+    kart("Eşleştir: kelime – anlam", "", "Soldan Arapça kelimeyi, sağdan anlamını seç. Her turda 6 kelime; ilk turun puanlanır (en çok 2 hata).", oyun1) +
+    kart("Çoğulunu koy", "هاتِ مِنَ النَّصِّ جَمْعَ الكَلِماتِ وضَعْها في الفَراغِ", "Parantezdeki kelimenin metinde geçen çoğulunu seç.", cogul) +
+    kart("Metinden üç kelime", "هاتِ مِنَ النَّصِّ ثَلاثَ كَلِماتٍ لِكُلٍّ مِمّا يَلي", "Her grup için metinde geçen üç kelimeyi bul; diğerleri başka gruplara ait.", grup) +
+    kart("Fiil ve harfi", "اخْتَرِ الحَرْفَ الَّذي يَرِدُ مَعَ الفِعْلِ", "Fiille birlikte kullanılan harf-i cerri seç; sonra metindeki örneği gör.", fh) +
+    kart("Kalıba göre cümle kur", "اقْرَأِ الجُمَلَ ثُمَّ انْسُجْ عَلى مِنْوالِها", "Örnekteki kalıpla cümleyi tamamla, sonra örnek cevapla karşılaştır.", kalip);
+};
+
+// ---------- masdar yardımcıları ----------
+function masdarSec(key, dogrular, yanlislar, not) {
+  var d = dogrular.split("|");
+  return secim(key, d[0], yanlislar, { sonra: (d.length > 1 ? 'Bu da doğru: <span class="ar">' + d.slice(1).join("، ") + '</span>. ' : '') + (not ? arSar(not) : '') });
+}
+function kelimeSec(key, cumle, dogru) {
+  var c = A[key], temiz = function (w) { return w.replace(/[﴿﴾«»،.؛:!؟()\[\]]/g, ""); };
+  DOGRU[key] = temiz(dogru);
+  return '<div class="soru-metin ar kelimeler-sec" data-k="' + key + '">' + cumle.split(" ").map(function (w) {
+    var t = temiz(w), cls = c ? (t === DOGRU[key] ? ' dogru' : (c.v === t ? ' yanlis' : '')) : '';
+    return t ? '<button type="button" class="kel' + cls + '" data-kw="' + esc(t) + '"' + (c ? ' disabled' : '') + '>' + w + '</button>' : w;
+  }).join(" ") + '</div>';
+}
+function ornekTablo(satirlar) {
+  return '<table class="tablo">' + satirlar.map(function (r) { return '<tr><td class="kucuk soluk" style="width:60px">' + r[0] + '</td><td class="ar">' + r[1].replace(r[2], '<u style="text-decoration-color:var(--yanlis)">' + r[2] + '</u>') + '</td></tr>'; }).join("") + '</table>';
+}
+
+CIZ.rubai = function () {
+  var ornek = ornekTablo(RUBAI_ORNEK.map(function (r) { var vs = r[3].split("|"), cm = r[2]; vs.forEach(function (v) { cm = cm.replace(v, "<u>" + v + "</u>"); }); return [r[0] + (r[1] ? " " + r[1] : ""), cm, "\u0000"]; }));
+  var kural = '<table class="tablo"><thead><tr><th>Fiil</th><th>Masdar</th><th>Ne zaman</th><th>Örnek</th></tr></thead><tbody>' + RUBAI_KURAL.map(function (k) { return '<tr><td class="ar" style="color:var(--vurgu)">' + k[0] + '</td><td class="ar" style="color:var(--altin)">' + arSar(k[1]) + '</td><td>' + arSar(k[2]) + '</td><td class="ar">' + k[3] + '</td></tr>'; }).join("") + '</tbody></table>' +
+    '<p class="not" style="margin-top:12px"><b>Kural:</b> Rubâî (dört harfli) fiillerin masdarları <b>kıyâsîdir</b>; yani belli vezinlere göre gelir. Sülâsî masdarlar ise çoğunlukla semâîdir (işitilerek öğrenilir).</p>';
+  var bul = RUBAI_BUL.map(function (m, i) { return soru(i + 1, '<span class="sar">' + m[0] + '</span> <span class="soluk kucuk">fiilinin masdarı</span>' + masdarSec("rubai/bul/" + i, m[1], [m[2], m[3]], "Vezin: " + m[4])); }).join("");
+  var fiil = RUBAI_FIIL.map(function (m, i) { return soru(i + 1, '<span class="sar">' + m[0] + '</span> <span class="soluk kucuk">masdarının fiili</span>' + secim("rubai/fiil/" + i, m[1], [m[2], m[3]])); }).join("");
+  var cikar = RUBAI_CIKAR.map(function (m, i) {
+    return soru(i + 1, '<div class="kucuk soluk">a) Masdara dokun:</div>' + kelimeSec("rubai/cikar/" + i + "-m", m[0], m[1]) +
+      '<div class="kucuk soluk" style="margin-top:8px">b) Masdarın vezni:</div>' + secim("rubai/cikar/" + i + "-v", m[2], karistir(RUBAI_VEZIN.filter(function (v) { return v !== m[2]; }), "rv" + i).slice(0, 3)) +
+      '<div class="kucuk soluk" style="margin-top:8px">c) Fiilinin vezni:</div>' + secim("rubai/cikar/" + i + "-f", m[3], RUBAI_FVEZIN.filter(function (v) { return v !== m[3]; })));
+  }).join("");
+  var masdarlar = RUBAI_AYET.map(function (m) { return m[2]; });
+  var ayet = RUBAI_AYET.map(function (m, i) {
+    var cm = m[0].replace(m[1], "<u>" + m[1] + "</u>");
+    return soru(i + 1, '<div class="soru-metin ar">' + cm + '</div><div class="kucuk soluk">a) Altı çizili fiilin masdarı:</div>' + secim("rubai/ayet/" + i + "-m", m[2], rastgele(masdarlar.filter(function (x) { return x !== m[2]; }), 2, [])) +
+      '<div class="kucuk soluk" style="margin-top:8px">b) Vezni:</div>' + secim("rubai/ayet/" + i + "-v", m[3], karistir(["إِفْعال", "تَفْعيل", "فِعال / مُفاعَلَة", "فَعْلَلَة"].filter(function (v) { return v !== m[3]; }), "ra" + i).slice(0, 2)));
+  }).join("");
+  return bolumBasi("rubai", "Rubâî masdarlar") + '<div style="height:14px"></div>' +
+    kart("Örnekler", "الأَمْثِلَةُ: ادْرُسْ وتَأَمَّلْ", "Altı çizili kelimeler dört harfli (rubâî) fiillerin masdarlarıdır.", ornek) +
+    kart("Kural", "مَصادِرُ الأَفْعالِ الرُّباعِيَّةِ", "Rubâî masdarlar dört vezin grubunda gelir.", kural) +
+    kart("1. Masdarını bul", "هاتِ مَصادِرَ الأَفْعالِ التّالِيَةِ", "", bul) +
+    kart("2. Fiilini bul", "هاتِ أَفْعالَ المَصادِرِ التّالِيَةِ", "", fiil) +
+    kart("3. Masdarı çıkar", "اسْتَخْرِجْ مِمّا يَلي المَصادِرَ، ووَزْنَها، ووَزْنَ أَفْعالِها", "Önce cümledeki masdara dokun, sonra vezinleri seç.", cikar) +
+    kart("4. Âyetlerdeki fiillerin masdarı", "هاتِ مَصادِرَ الأَفْعالِ الَّتي تَحْتَها خَطٌّ، ووَزْنَها", "", ayet);
+};
+
+CIZ.humasi = function () {
+  var ornek = ornekTablo(HUMASI_ORNEK.map(function (r) { return [r[0], r[1], r[2]]; }));
+  var kural = '<div class="hukum-tablo" style="grid-template-columns:repeat(2,1fr)">' +
+    '<div class="hukum-kutu v"><h3>تَـ ile başlayanlar</h3><div class="kucuk soluk">Masdar, mâzinin veznindedir; sondan önceki harf ötreli (damme) olur.</div><ul><li><span class="sar">تَعَلَّمَ ← تَعَلُّمٌ</span></li><li><span class="sar">تَنافَسَ ← تَنافُسٌ</span></li><li><span class="sar">تَدَحْرَجَ ← تَدَحْرُجٌ</span></li></ul></div>' +
+    '<div class="hukum-kutu c"><h3>Vasl hemzesiyle başlayanlar</h3><div class="kucuk soluk">Masdar, mâzinin veznindedir; üçüncü harf esreli olur ve sondan önce elif eklenir.</div><ul><li><span class="sar">اشْتَدَّ ← اشْتِدادٌ</span></li><li><span class="sar">اطْمَأَنَّ ← اطْمِئْنانٌ</span></li><li><span class="sar">اسْتَكْبَرَ ← اسْتِكْبارٌ</span></li></ul></div></div>' +
+    '<p class="not" style="margin-top:12px"><b>Dikkat:</b> <span class="sar">اسْتَفْعَلَ</span> veznindeki fiilin ortası (aynü’l-fiili) elif ise <span class="sar">اسْتِفْعال</span>’in elifi düşer, yerine sona <span class="sar">ة</span> gelir: <span class="sar">اسْتَقامَ ← اسْتِقامَةٌ، اسْتَعانَ ← اسْتِعانَةٌ</span>. Humâsî ve südâsî masdarların hepsi kıyâsîdir.</p>';
+  var bul = HUMASI_BUL.map(function (m, i) { var kural = { a: "تَـ ile başlar: sondan önceki harf ötreli", b: "vasl hemzesi: üçüncü harf esreli + elif", c: "اسْتَفْعَلَ, ortası elif: elif düşer, sona ة" }[m[4]]; return soru(i + 1, '<span class="sar">' + m[0] + '</span> <span class="soluk kucuk">fiilinin masdarı</span>' + masdarSec("humasi/bul/" + i, m[1], [m[2], m[3]], kural)); }).join("");
+  var fiil = HUMASI_FIIL.map(function (m, i) { return soru(i + 1, '<span class="sar">' + m[0] + '</span> <span class="soluk kucuk">masdarının fiili</span>' + secim("humasi/fiil/" + i, m[1], [m[2], m[3]], { sonra: ["مُعاشَرَةٌ", "تَكْسيرٌ", "مُسابَقَةٌ"].indexOf(m[0]) >= 0 ? "Dikkat: bu masdar humâsî değil, rubâî bir fiilden gelir." : "" })); }).join("");
+  var cevir = HUMASI_CEVIR.map(function (m, i) { return soru(i + 1, '<span class="sar">' + m[0] + '</span> <span class="soluk kucuk">→ humâsî / südâsî fiil, masdarı ve bir cümle</span>' + yazGoster("humasi/cevir/" + i, m[1] + ' ← ' + m[2] + '<br>' + m[3], "", { yer: "Fiil – masdar – cümle…", dugme: "Örnek cevabı göster" })); }).join("");
+  var ayet = HUMASI_AYET.map(function (m, i) { return soru(i + 1, '<div class="soru-metin ar">' + m[0].replace(m[1], "<u>" + m[1] + "</u>") + '</div><div class="kucuk soluk">Altı çizili fiilin masdarı:</div>' + secim("humasi/ayet/" + i, m[2], [m[3], m[4]])); }).join("");
+  return bolumBasi("humasi", "Humâsî ve südâsî masdarlar") + '<div style="height:14px"></div>' +
+    kart("Örnekler", "الأَمْثِلَةُ: ادْرُسْ وتَأَمَّلْ", "Altı çizili kelimeler beş ve altı harfli fiillerin masdarlarıdır.", ornek) +
+    kart("Kural", "مَصادِرُ الأَفْعالِ الخُماسِيَّةِ والسُّداسِيَّةِ", "İki vezin yolu vardır.", kural) +
+    kart("1. Masdarını bul", "هاتِ مَصادِرَ الأَفْعالِ التّالِيَةِ", "", bul) +
+    kart("2. Fiilini bul", "هاتِ أَفْعالَ المَصادِرِ التّالِيَةِ", "Bazıları rubâî fiillerden gelir; dikkat!", fiil) +
+    kart("3. Humâsî ya da südâsîye çevir", "حَوِّلِ الأَفْعالَ التّالِيَةَ إِلى أَفْعالٍ خُماسِيَّةٍ أَوْ سُداسِيَّةٍ، وهاتِ مَصادِرَها في جُمَلٍ مُفيدَةٍ", "Birden fazla doğru cevap olabilir; örnek cevapla karşılaştır.", cevir) +
+    kart("4. Âyetlerdeki fiillerin masdarı", "هاتِ مَصادِرَ الأَفْعالِ الَّتي تَحْتَها خَطٌّ في الآياتِ التّالِيَةِ", "", ayet);
+};
+
+// ---------- imlâ ----------
+function sadele(s) {
+  return s.replace(/[ً-ْٰـ]/g, "").replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").replace(/[^ء-ي\s]/g, " ").trim().split(/\s+/).filter(Boolean);
+}
+function dikteKarsilastir(hedef, yazi) {
+  var h = sadele(hedef), y = sadele(yazi), n = h.length, m = y.length, L = [];
+  for (var i = 0; i <= n; i++) { L.push(new Array(m + 1).fill(0)); }
+  for (i = n - 1; i >= 0; i--) for (var j = m - 1; j >= 0; j--) L[i][j] = h[i] === y[j] ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+  var esles = new Array(n).fill(false); i = 0; j = 0;
+  while (i < n && j < m) { if (h[i] === y[j]) { esles[i] = true; i++; j++; } else if (L[i + 1][j] >= L[i][j + 1]) i++; else j++; }
+  return esles;
+}
+function dikteSonucHtml(idx) {
+  var hedef = METIN[idx][3], yazi = store.get("y:imla/dikte/" + idx, ""), es = dikteKarsilastir(hedef, yazi), k = 0;
+  var kelimeler = hedef.split(/\s+/).map(function (w) { var n = sadele(w).length; if (!n) return w; var ok = es.slice(k, k + n).every(Boolean); k += n; return '<span class="' + (ok ? 'k-ok' : 'k-no') + '">' + w + '</span>'; });
+  var dogruSay = es.filter(Boolean).length;
+  return { html: '<div class="dikte-sonuc">' + kelimeler.join(" ") + '</div>', oran: es.length ? dogruSay / es.length : 0, d: dogruSay, t: es.length };
+}
+var NK = {};
+function noktaHtml(b) {
+  var n = 0, parca = NOKTA_METIN[b][1].split(/\[\[(.*?)\]\]/), cevap = store.get("nk:" + b, {}), sonuc = A["imla/nokta/" + b];
+  NK[b] = [];
+  var html = parca.map(function (p, i) {
+    if (i % 2 === 0) return esc(p).replace(/\n/g, "<br>");
+    var j = n++; NK[b].push(p.split("|"));
+    var v = cevap[j] || "";
+    return '<select class="nk" data-nk="' + b + '" data-j="' + j + '" aria-label="Noktalama ' + (j + 1) + '"><option value="">…</option>' + NOKTA_SECENEK.map(function (s) { return '<option' + (s === v ? ' selected' : '') + '>' + s + '</option>'; }).join("") + '</select>';
+  }).join("");
+  return (NOKTA_METIN[b][0] ? '<h3 class="ar" style="text-align:center;font-size:1.5rem;color:var(--vurgu)">' + NOKTA_METIN[b][0] + '</h3>' : '') + '<div class="nokta-metin ar" data-nkmetin="' + b + '">' + html + '</div>' +
+    '<div class="satir-btn" style="margin-top:8px"><button type="button" class="btn kucuk" data-nkkontrol="' + b + '">Kontrol et</button><button type="button" class="btn kucuk" data-nkgoster="' + b + '">Doğrularını göster</button><span class="kucuk soluk" data-nksonuc="' + b + '">' + (sonuc ? 'Son kontrol: %' + sonuc.v + (sonuc.ok ? ' ✓' : '') : n + ' boşluk') + '</span></div>';
+}
+CIZ.imla = function () {
+  var tablo = '<div style="overflow-x:auto"><table class="tablo nk-tablo"><thead><tr><th>İşaret</th><th>Adı</th><th>Ne zaman konur?</th><th>Örnek</th></tr></thead><tbody>' + NOKTALAMA.map(function (r) { return '<tr><td style="font-size:1.6rem;font-weight:700;color:var(--vurgu);text-align:center;white-space:nowrap">' + r[0] + '</td><td><span class="ar" style="font-size:1.2rem">' + r[1] + '</span><div class="kucuk soluk">' + r[2] + '</div></td><td class="kucuk">' + r[3] + '</td><td class="ar">' + r[4] + '</td></tr>'; }).join("") + '</tbody></table></div>';
+  var nk = NOKTA_METIN.map(function (x, b) { return '<div class="soru">' + noktaHtml(b) + '</div>'; }).join("");
+  var dikte = DIKTE.map(function (idx, i) {
+    var c = A["imla/dikte/" + idx], son = c ? dikteSonucHtml(idx) : null;
+    return soru(i + 1, '<div class="satir-btn"><button type="button" class="btn kucuk dolu" data-bcal="' + idx + '">▶ Dinle</button><button type="button" class="btn kucuk" data-yavas="' + idx + '">▶ Yavaş dinle</button><span class="kucuk soluk">Noktalamayı da düşünerek yaz; karşılaştırmada hareke ve noktalama sayılmaz.</span></div>' +
+      '<textarea class="ar" rows="2" style="margin-top:8px" data-yaz="imla/dikte/' + idx + '" placeholder="Dinlediğin cümleyi yaz…">' + esc(store.get("y:imla/dikte/" + idx, "")) + '</textarea>' +
+      '<div class="satir-btn" style="margin-top:6px"><button type="button" class="btn kucuk" data-dikte="' + idx + '">Kontrol et</button></div><div data-dsonuc="' + idx + '">' + (son ? son.html + '<div class="kucuk soluk">' + son.d + ' / ' + son.t + ' kelime doğru ' + (c.ok ? '<span class="etiket ok">✓</span>' : '') + '</div>' : '') + '</div>');
+  }).join("");
+  return bolumBasi("imla", "İmlâ") + '<div style="height:14px"></div>' +
+    kart("Noktalama işaretleri", "عَلاماتُ التَّرْقيمِ", "Arapçada virgül (،), noktalı virgül (؛) ve soru işareti (؟) ters yöne bakar.", tablo) +
+    kart("Noktalama alıştırması", "ضَعْ عَلاماتِ التَّرْقيمِ المُناسِبَةَ فيما يَلي", "Her kutuya uygun işareti seç ve kontrol et. %80 ve üstü puan kazandırır; istediğin kadar deneyebilirsin. Bazı yerlerde birden fazla işaret doğru sayılır.", nk) +
+    kart("Dikte", "الإِمْلاءُ", "Metinden seçilmiş cümleleri dinle ve yaz. Kelimelerin en az %90’ı doğruysa puan alırsın.", dikte);
+};
+
+// ---------- dinleme ----------
+var DSES = {}, DOY = { aktif: null, bitis: null };
+function dsesAl(k) {
+  if (DSES[k]) return DSES[k];
+  var a = new Audio(), el = document.getElementById("ses-" + k), b64 = el ? el.textContent.replace(/\s+/g, "") : "";
+  if (b64 && b64.indexOf("SES_") !== 0) { var bin = atob(b64), u = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); a.src = URL.createObjectURL(new Blob([u], { type: "audio/mpeg" })); }
+  a.addEventListener("play", dArayuz); a.addEventListener("pause", dArayuz); a.addEventListener("loadedmetadata", dArayuz);
+  return (DSES[k] = a);
+}
+function dCal(k, bas, son) {
+  var a = dsesAl(k); ses.pause(); tekrarIptal();
+  Object.keys(DSES).forEach(function (x) { if (x !== k) DSES[x].pause(); });
+  DOY.aktif = k; DOY.bitis = son === undefined ? null : son;
+  if (bas !== undefined) a.currentTime = bas;
+  a.playbackRate = ST.hiz; var p = a.play(); if (p && p.catch) p.catch(function () {});
+}
+function dArayuz() {
+  DINLEME.forEach(function (d) {
+    var a = DSES[d.ses]; if (!a) return;
+    var b = document.querySelector('[data-dcal="' + d.ses + '"]'); if (b) b.textContent = a.paused ? "▶" : "❚❚";
+    var r = document.querySelector('[data-dsar="' + d.ses + '"]'); if (r && !r.dataset.surukle) { r.max = a.duration || d.metin[d.metin.length - 1][1]; r.value = a.currentTime; }
+    var z = document.querySelector('[data-dzaman="' + d.ses + '"]'); if (z) z.textContent = sureYaz(a.currentTime) + " / " + sureYaz(a.duration || d.metin[d.metin.length - 1][1]);
+    var t = a.currentTime;
+    document.querySelectorAll('.dsatir[data-d="' + d.ses + '"]').forEach(function (s) { var m = d.metin[+s.dataset.i]; s.classList.toggle("calan", !a.paused && t >= m[0] && t < m[1]); });
+  });
+}
+function dTik() {
+  var k = DOY.aktif, a = k && DSES[k];
+  if (a && !a.paused) { if (DOY.bitis !== null && a.currentTime >= DOY.bitis) { a.pause(); DOY.bitis = null; } dArayuz(); }
+  requestAnimationFrame(dTik);
+}
+requestAnimationFrame(dTik);
+ses.addEventListener("play", function () { Object.keys(DSES).forEach(function (x) { DSES[x].pause(); }); });
+CIZ.dinleme = function () {
+  var govde = DINLEME.map(function (d, di) {
+    var k = d.ses, son = d.metin[d.metin.length - 1][1];
+    var oy = '<div class="oynatici" style="position:static;margin:0 0 10px"><div class="oy-ust"><button type="button" class="oy-btn buyuk" data-dcal="' + k + '" aria-label="Oynat / duraklat">▶</button><button type="button" class="oy-btn" data-dbas="' + k + '" aria-label="Baştan">⏮</button>' +
+      '<div class="oy-orta"><input type="range" data-dsar="' + k + '" min="0" max="' + son + '" step="0.1" value="0" aria-label="Konum"><div class="oy-zaman"><span data-dzaman="' + k + '">0:00 / ' + sureYaz(son) + '</span><span class="seg" role="group" aria-label="Hız">' + [0.75, 1, 1.25].map(function (h) { return '<button type="button" data-hiz="' + h + '" aria-pressed="' + (ST.hiz === h) + '">' + String(h).replace(".", ",") + '×</button>'; }).join("") + '</span></div></div></div></div>';
+    var dy = d.dy.map(function (x, i) { return soru(i + 1, '<span class="sar">' + x[0] + '</span>' + dyHtml("dinleme/" + di + "/dy/" + i, x[1], "")); }).join("");
+    var kisa = d.kisa.map(function (x, i) { return soru(i + 1, '<span class="sar">' + x[0] + '</span>' + yazGoster("dinleme/" + di + "/kisa/" + i, x[1], x[2], { yer: "Duyduğuna göre cevap yaz…" })); }).join("");
+    var ek = d.eslestir ? '<h3 style="margin:14px 0 6px;font-size:1.2rem">Eşleştir <span class="ar soluk" style="font-size:1rem">اخْتَرْ مِنَ القائِمَةِ (أ) ما يُناسِبُها مِنَ القائِمَةِ (ب)</span></h3>' + eslestirHtml("dinleme/" + di + "/es", function () { return d.eslestir; }, {}) :
+      '<h3 style="margin:14px 0 6px;font-size:1.2rem">Doğru cevabı seç <span class="ar soluk" style="font-size:1rem">اخْتَرِ الجَوابَ الصَّحيحَ</span></h3>' + d.secmeli.map(function (x, i) { return soru(i + 1, '<span class="sar">' + x[0] + '</span>' + secim("dinleme/" + di + "/sec/" + i, x[1], x[2])); }).join("");
+    var metin = '<details style="margin-top:14px"' + (store.get("dmetin" + di, false) ? ' open' : '') + ' data-dmetin="' + di + '"><summary>Dinleme metni (soruları çözdükten sonra aç)</summary><div class="ar-hk" style="margin-top:8px">' + d.metin.map(function (m, i) { return '<div class="dsatir" data-d="' + k + '" data-i="' + i + '"><div class="bmetin"><p class="ar">' + m[2] + '</p>' + trSatir(m[3]) + '</div></div>'; }).join("") + '</div></details>';
+    return kart(d.tr.split(":")[0], d.ad, d.tr.split(":")[1] || "", oy + '<h3 style="margin:6px 0;font-size:1.2rem">Doğru mu, yanlış mı? <span class="ar soluk" style="font-size:1rem">أَجِبْ مِمّا سَمِعْتَ</span></h3>' + dy +
+      '<h3 style="margin:14px 0 6px;font-size:1.2rem">Kısa cevap <span class="ar soluk" style="font-size:1rem">أَجِبْ بِاخْتِصارٍ</span></h3>' + kisa + ek + metin);
+  }).join("");
+  return bolumBasi("dinleme", "Dinleme") + '<div style="height:14px"></div><p class="not">Önce kaydı baştan sona dinle, sonra soruları çöz. Gerekirse tekrar dinle. Dinleme metni en altta gizlidir; cümlelerine dokununca o yerden çalar.</p>' + govde;
+};
+
+CIZ.ifade = function () {
+  var soz = SOZLU_GRUP.map(function (g, gi) {
+    return '<div class="soru"><div class="sar" style="color:var(--vurgu)">' + g[0] + '</div><div class="kucuk soluk">' + g[1] + ' (ekip çalışması)</div>' + g[2].map(function (x, i) {
+      var k = "ifade/sozlu/" + gi + "-" + i;
+      return '<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px"><span class="soru-no">' + (i + 1) + '</span><span class="sar" style="flex:1;min-width:180px">' + x[0] + '</span><span class="kucuk soluk">' + x[1] + '</span>' + (A[k] ? '<span class="etiket ok">✓ Konuştuk</span>' : '<button type="button" class="btn kucuk" data-sozlu="' + gi + '-' + i + '">Konuştuk</button>') + '</div>';
+    }).join("") + '</div>';
+  }).join("");
+  var yazi = YAZI.map(function (y, i) {
+    var k = "ifade/yazi/" + i, metin = store.get("y:" + k, ""), say = sadele(metin).length;
+    return '<div class="soru"><h3 class="ar" style="font-size:1.5rem;color:var(--vurgu)">' + y[0] + '</h3><div class="kucuk soluk">Yaklaşık ' + y[1] + ' kelime. Şu noktalara değin:</div><ul class="ar" style="font-size:1.25rem;line-height:1.9">' + y[2].map(function (x) { return '<li>' + x + '</li>'; }).join("") + '</ul>' +
+      '<textarea class="ar" rows="8" data-yaz="' + k + '" data-hedef="' + y[1] + '" placeholder="Yazına başla…">' + esc(metin) + '</textarea><div class="satir-btn" style="margin-top:6px"><span class="sayac" data-sayac="' + k + '">' + say + ' / ' + y[1] + ' kelime</span><div class="ilerleme" style="flex:1;min-width:120px"><i data-sayacbar="' + k + '" style="width:' + Math.min(100, Math.round(say / y[1] * 100)) + '%"></i></div>' + (A[k] ? '<span class="etiket ok">✓ Tamamlandı</span>' : '') + '</div></div>';
+  }).join("");
+  return bolumBasi("ifade", "İfade") + '<div style="height:14px"></div>' +
+    kart("Sözlü ifade", "التَّعْبيرُ الشَّفَهِيُّ", "Arkadaşlarınla Arapça konuşun; konuştuğunuz konuyu işaretleyin.", soz) +
+    kart("Yazılı ifade", "التَّعْبيرُ الكِتابِيُّ", "Yazın bu cihazda saklanır. Hedef kelime sayısına ulaşınca bölüm tamamlanır.", yazi);
+};
+
+// ---------- sınav ----------
+var SINAV = null;
+function sinavHavuzu() {
+  var h = [];
+  RUBAI_BUL.forEach(function (m) { h.push({ tur: "rb", tr: "Fiilin masdarı hangisi?", ar: m[0], d: m[1].split("|")[0], y: [m[2], m[3]], not: "Vezin: " + m[4] }); });
+  RUBAI_FIIL.forEach(function (m) { h.push({ tur: "rf", tr: "Bu masdarın fiili hangisi?", ar: m[0], d: m[1], y: [m[2], m[3]] }); });
+  HUMASI_BUL.forEach(function (m) { h.push({ tur: "hb", tr: "Fiilin masdarı hangisi?", ar: m[0], d: m[1], y: [m[2], m[3]] }); });
+  HUMASI_FIIL.forEach(function (m) { h.push({ tur: "hf", tr: "Bu masdarın fiili hangisi?", ar: m[0], d: m[1], y: [m[2], m[3]] }); });
+  HUMASI_AYET.forEach(function (m) { h.push({ tur: "ha", tr: "Altı çizili fiilin masdarı hangisi?", ar: m[0].replace(m[1], "<u>" + m[1] + "</u>"), d: m[2], y: [m[3], m[4]] }); });
+  RUBAI_AYET.forEach(function (m) { h.push({ tur: "ra", tr: "Altı çizili fiilin masdarı hangisi?", ar: m[0].replace(m[1], "<u>" + m[1] + "</u>"), d: m[2], y: rastgele(RUBAI_AYET.map(function (x) { return x[2]; }).filter(function (x) { return x !== m[2]; }), 2, []) }); });
+  COGUL.forEach(function (t) { h.push({ tur: "co", tr: "Boşluğa “" + t[1] + "” kelimesinin çoğulunu koy:", ar: bosluk(t[0]), d: t[2], y: t[3].filter(function (x) { return x !== t[2]; }), not: t[4] }); });
+  FIIL_HARF.forEach(function (f, i) { h.push({ tur: "fh", tr: "Bu fiil hangi harfle kullanılır?", ar: f[0] + " …", d: f[1], y: rastgele(HARFLER, 3, [f[1]]), not: f[2] }); });
+  SOZLUK.forEach(function (s) { h.push({ tur: "so", tr: "Bu kelimenin anlamı nedir?", ar: s[0], d: s[1], y: rastgele(SOZLUK.map(function (x) { return x[1]; }), 3, [s[1]]), trOps: true }); });
+  DY.forEach(function (d) { h.push({ tur: "dy", tr: "Metne göre bu cümle doğru mu?", ar: d[0], d: d[1] ? "✓ Doğru" : "✗ Yanlış", y: [d[1] ? "✗ Yanlış" : "✓ Doğru"], trOps: true, not: d[2] }); });
+  BASLIK_PARAGRAF.forEach(function (b) { h.push({ tur: "bp", tr: "Bu başlık metnin hangi paragrafına uygun? (" + b[1] + ")", ar: b[0], d: b[2] + ". paragraf", y: rastgele([1, 2, 3, 4, 5, 6].filter(function (x) { return x !== b[2]; }), 3, []).map(function (x) { return x + ". paragraf"; }), trOps: true }); });
+  return h;
+}
+function sinavBaslat() {
+  var h = karistir(sinavHavuzu()), secilen = [], turler = {};
+  h.forEach(function (q) { if (secilen.length < 15 && (turler[q.tur] || 0) < 2) { secilen.push(q); turler[q.tur] = (turler[q.tur] || 0) + 1; } });
+  secilen.forEach(function (q) { q.ops = q.tur === "dy" ? ["✓ Doğru", "✗ Yanlış"] : karistir([q.d].concat(q.y)); });
+  SINAV = { s: secilen, i: 0, cevap: [] };
+  ciz();
+}
+CIZ.sinav = function () {
+  var eniyi = store.get("sinavEnIyi", null);
+  if (!SINAV) return kart("Ünite sınavı", "الاخْتِبارُ", "Kelimeler, nûnü’l-vikâye, masdarlar, imlâ ve anlamadan karışık 15 soru. Her soruda tek doğru vardır.", '<div class="satir-btn"><button type="button" class="btn dolu" data-act="sinavBasla">Sınavı başlat</button>' + (eniyi !== null ? '<span class="soluk">En iyi sonucun: <b>%' + eniyi + '</b></span>' : '') + '</div>');
+  var S = SINAV;
+  if (S.i >= S.s.length) {
+    var d = S.cevap.filter(function (c) { return c.ok; }).length, oran = Math.round(100 * d / S.s.length);
+    var yanlislar = S.cevap.map(function (c, i) { return c.ok ? "" : '<div class="soru"><div class="kucuk soluk">' + arSar(S.s[i].tr) + '</div><div class="soru-metin ar">' + S.s[i].ar + '</div><div>Senin cevabın: <span class="' + (S.s[i].trOps ? '' : 'sar') + '" style="color:var(--yanlis)">' + c.v + '</span> · Doğrusu: <span class="' + (S.s[i].trOps ? '' : 'sar') + '" style="color:var(--dogru)">' + S.s[i].d + '</span></div></div>'; }).join("");
+    return kart("Sınav sonucu", "النَّتيجَةُ", "", '<div class="sonuc-buyuk">%' + oran + '</div><p style="text-align:center" class="soluk">' + d + ' / ' + S.s.length + ' doğru' + (oran >= 85 ? ' — mükemmel!' : oran >= 60 ? ' — iyi, yanlışlarına bir göz at.' : ' — ilgili bölümleri tekrar çalış.') + '</p><div class="satir-btn" style="justify-content:center"><button type="button" class="btn dolu" data-act="sinavBasla">Yeni sınav</button></div>' + (yanlislar ? '<h3 style="margin-top:16px;font-size:1.3rem">Yanlışların</h3>' + yanlislar : ''));
+  }
+  var q = S.s[S.i], c = S.cevap[S.i];
+  return kart("Soru " + (S.i + 1) + " / " + S.s.length, "", "", '<div class="ilerleme" style="margin-bottom:12px"><i style="width:' + Math.round(100 * S.i / S.s.length) + '%"></i></div><div class="sinav-soru"><div class="soluk">' + arSar(q.tr) + '</div><div class="soru-metin ar" style="font-size:1.9rem;margin:6px 0">' + q.ar + '</div>' +
+    '<div class="secim' + (c ? ' bitti' : '') + '">' + q.ops.map(function (o, oi) { var cls = c ? (o === q.d ? ' dogru' : c.v === o ? ' yanlis' : '') : ''; return '<button type="button" class="sec' + (q.trOps ? '' : ' ar') + cls + '" data-sinav="' + oi + '"' + (c ? ' disabled' : '') + '>' + o + '</button>'; }).join("") + '</div>' +
+    (c ? '<div class="sonra">' + (c.ok ? '✓ Doğru! ' : '✗ Doğrusu: <span class="' + (q.trOps ? '' : 'ar') + '">' + q.d + '</span> ') + (q.not ? '<span class="soluk">· ' + arSar(q.not) + '</span>' : '') + '</div><div class="satir-btn" style="margin-top:12px"><button type="button" class="btn dolu" data-act="sinavSonraki">' + (S.i + 1 < S.s.length ? 'Sonraki soru →' : 'Sonucu gör') + '</button></div>' : '') + '</div>');
+};
+
+// ================= ÇİZİM VE OLAYLAR =================
+var ana = document.getElementById("ana");
+function sekmelerCiz() {
+  document.getElementById("sekmeler").innerHTML = SEKMELER.map(function (s) {
+    var bitti = s[0] !== "bas" && yapilan(s[0]) >= toplam(s[0]);
+    return '<button type="button" class="sekme" role="tab" data-sekme="' + s[0] + '" aria-selected="' + (ST.sekme === s[0]) + '"><span>' + s[1] + (bitti ? '<span class="nokta" title="Tamamlandı"></span>' : '') + '</span><small>' + s[2] + '</small></button>';
+  }).join("");
+}
+function ustGuncelle() {
+  document.getElementById("puan").textContent = "★ " + puanHesap();
+  sekmelerCiz();
+  var bs = document.getElementById("bolumSayi");
+  if (bs) { var t = bs.dataset.t; bs.textContent = bs.dataset.b + " · " + Math.min(yapilan(t), toplam(t)) + " / " + toplam(t) + " tamamlandı"; document.getElementById("bolumBar").innerHTML = ilerlemeHtml(t); }
+}
+function ciz(kaydirma) {
+  var y = window.scrollY;
+  ana.innerHTML = CIZ[ST.sekme]() + '<p class="alt-bilgi">el-Arabiyyetü beyne yedeyk · 3. kitap · 14. ünite — çevrimdışı çalışır; ilerlemen bu tarayıcıda saklanır.</p>';
+  harekeUygula(ana);
+  if (ST.sekme === "dinle") { OY.vurgu = -2; vurgula(birimBul(ses.currentTime)); oyArayuz(); }
+  ustYukseklik();
+  window.scrollTo(0, kaydirma ? 0 : y);
+}
+function ustYukseklik() { document.documentElement.style.setProperty("--ust-h", (document.getElementById("ust").offsetHeight + 8) + "px"); }
+window.addEventListener("resize", ustYukseklik);
+function sekmeAc(s) { ST.sekme = s; ayarKaydet(); sekmelerCiz(); ciz(true); var b = document.querySelector('.sekme[data-sekme="' + s + '"]'); if (b && b.scrollIntoView) b.scrollIntoView({ block: "nearest", inline: "center" }); }
+function temaUygula() { if (ST.tema) document.documentElement.setAttribute("data-theme", ST.tema); else document.documentElement.removeAttribute("data-theme"); }
+
+document.addEventListener("click", function (e) {
+  var t = e.target, el;
+  if ((el = t.closest(".hkk"))) { var acik = el.classList.toggle("acik"); el.textContent = acik ? el.dataset.o : el.dataset.s; return; }
+  if ((el = t.closest("[data-sekme]"))) { sekmeAc(el.dataset.sekme); return; }
+  if ((el = t.closest("[data-git]"))) { sekmeAc(el.dataset.git); return; }
+  if ((el = t.closest("[data-trac]"))) { var tl = el.nextElementSibling; tl.hidden = !tl.hidden; el.textContent = tl.hidden ? "Türkçesi" : "Gizle"; return; }
+  if ((el = t.closest("[data-hk]"))) { ST.hk = el.dataset.hk; ayarKaydet(); ciz(); return; }
+  if ((el = t.closest("[data-trm]"))) { ST.tr = el.dataset.trm === "1"; ayarKaydet(); ciz(); return; }
+  if ((el = t.closest("[data-gorunum]"))) { ST.gorunum = el.dataset.gorunum; ayarKaydet(); ciz(); return; }
+  if ((el = t.closest("[data-hiz]"))) { ST.hiz = +el.dataset.hiz; ses.playbackRate = ST.hiz; Object.keys(DSES).forEach(function (x) { DSES[x].playbackRate = ST.hiz; }); ayarKaydet(); el.parentNode.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", b === el); }); return; }
+  if ((el = t.closest("[data-bcal]"))) { birimCal(+el.dataset.bcal, true); return; }
+  if ((el = t.closest("[data-yavas]"))) { var eski = ST.hiz; ST.hiz = 0.75; birimCal(+el.dataset.yavas, true); ST.hiz = eski; return; }
+  if ((el = t.closest("[data-pcal]"))) { var p = +el.dataset.pcal, ids = METIN.map(function (m, i) { return i; }).filter(function (i) { return METIN[i][2] === p; }); aralikCal(METIN[ids[0]][0], METIN[ids[ids.length - 1]][1]); return; }
+  if ((el = t.closest("[data-patla]"))) { var pp = +el.dataset.patla, ilk = METIN.findIndex(function (m) { return m[2] === pp; }); var sec = document.getElementById("p-" + pp); if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" }); if (!ses.paused) birimCal(ilk, false); return; }
+  if ((el = t.closest(".dsatir")) && !t.closest("button, .tr-gizli")) { var dd = DINLEME.filter(function (x) { return x.ses === el.dataset.d; })[0]; dCal(el.dataset.d, dd.metin[+el.dataset.i][0]); return; }
+  if ((el = t.closest("[data-dcal]"))) { var dk = el.dataset.dcal, da = dsesAl(dk); if (da.paused) dCal(dk); else da.pause(); return; }
+  if ((el = t.closest("[data-dbas]"))) { dCal(el.dataset.dbas, 0); return; }
+  if ((el = t.closest(".birim")) && !t.closest("button, textarea, .tr-gizli, a")) { birimCal(+el.dataset.i, true); return; }
+  if ((el = t.closest("[data-act]"))) { islem(el.dataset.act, el); return; }
+  if ((el = t.closest(".secim .sec[data-v]"))) {
+    var kutu = el.parentNode, key = kutu.dataset.k; if (A[key]) return;
+    var ok = el.dataset.v === DOGRU[key];
+    cevapla(key, ok, el.dataset.v); bip(ok);
+    kutu.classList.add("bitti");
+    kutu.querySelectorAll(".sec").forEach(function (b) { b.disabled = true; if (b.dataset.v === DOGRU[key]) b.classList.add("dogru"); });
+    if (!ok) { el.classList.add("yanlis"); kutu.classList.add("titre"); }
+    var sn = kutu.nextElementSibling; if (sn && sn.classList.contains("sonra") && sn.innerHTML) sn.hidden = false;
+    var bs = kutu.closest(".soru"); if (bs) { var bo = bs.querySelector(".bosluk"); if (bo && /^(kelime\/tekil|kelime\/ifade|imla\/men)\//.test(key)) bo.textContent = DOGRU[key]; }
+    return;
+  }
+  if ((el = t.closest("[data-sinav]"))) {
+    var q = SINAV.s[SINAV.i]; if (SINAV.cevap[SINAV.i]) return;
+    var v = q.ops[+el.dataset.sinav], dg = v === q.d; SINAV.cevap[SINAV.i] = { ok: dg, v: v }; bip(dg);
+    if (SINAV.cevap.length === SINAV.s.length && SINAV.cevap.every(Boolean)) {
+      var oran = Math.round(100 * SINAV.cevap.filter(function (c) { return c.ok; }).length / SINAV.s.length);
+      if (oran > store.get("sinavEnIyi", -1)) store.set("sinavEnIyi", oran);
+      cevapla("sinav/bitti", oran >= 60, oran);
+    }
+    ciz(); return;
+  }
+  if ((el = t.closest("[data-goster]"))) { var k = el.dataset.goster; el.hidden = true; var md = document.querySelector('[data-model="' + k + '"]'); if (md) md.hidden = false; return; }
+  if ((el = t.closest("[data-oz]"))) { var k2 = el.dataset.oz, ok2 = el.dataset.ok === "1"; cevapla(k2, ok2); bip(ok2); el.parentNode.innerHTML = '<span class="etiket ' + (ok2 ? 'ok">✓ Doğru saydın' : 'no">✗ Tekrar çalış') + '</span>'; return; }
+  if ((el = t.closest("[data-sifirla]"))) { if (confirm("Bu bölümdeki cevaplar silinsin mi?")) { bolumSifirla(el.dataset.sifirla); if (el.dataset.sifirla === "anla") { store.del("sira"); store.del("siraHata"); } ciz(); } return; }
+  if ((el = t.closest("[data-sira]"))) {
+    var i = +el.dataset.sira, sira = store.get("sira", []);
+    if (i === sira.length) { sira.push(i); store.set("sira", sira); bip(true); if (sira.length === SIRALA.length) { var hata = store.get("siraHata", 0); cevapla("anla/sirala", hata <= 1, hata); toast("Sıralama tamam! Hata: " + hata); } ciz(); }
+    else { var h = store.get("siraHata", 0) + 1; store.set("siraHata", h); bip(false); el.classList.remove("titre"); void el.offsetWidth; el.classList.add("titre"); var hs = document.getElementById("siraHata"); if (hs) hs.textContent = h; }
+    return;
+  }
+  if ((el = t.closest("[data-es]"))) { eslestirTik(el); return; }
+  if ((el = t.closest("[data-yenioyun]"))) { var ky = el.dataset.yenioyun; OYUN[ky].yeni = true; oyunYenile(ky); return; }
+  if ((el = t.closest(".kel[data-kw]"))) {
+    var kk = el.parentNode.dataset.k; if (A[kk]) return;
+    var okk = el.dataset.kw === DOGRU[kk]; cevapla(kk, okk, el.dataset.kw); bip(okk);
+    el.parentNode.querySelectorAll(".kel").forEach(function (b) { b.disabled = true; if (b.dataset.kw === DOGRU[kk]) b.classList.add("dogru"); });
+    if (!okk) { el.classList.add("yanlis"); el.parentNode.classList.add("titre"); }
+    return;
+  }
+  if ((el = t.closest("[data-gw]"))) {
+    var gi = +el.parentNode.dataset.grup, gk = "kelime/grup/" + gi, du = store.get("grup:" + gi, { b: [], h: 0 }), gw = el.dataset.gw;
+    if (A[gk] || du.b.indexOf(gw) >= 0) return;
+    if (GRUP[gi][2].indexOf(gw) >= 0) { du.b.push(gw); el.classList.add("dogru"); el.disabled = true; bip(true); }
+    else { du.h++; bip(false); el.classList.remove("titre"); void el.offsetWidth; el.classList.add("yanlis", "titre"); setTimeout(function () { el.classList.remove("yanlis"); }, 500); }
+    store.set("grup:" + gi, du);
+    if (du.b.length === 3) { cevapla(gk, du.h <= 1, du.h); el.parentNode.querySelectorAll(".sec").forEach(function (b) { b.disabled = true; }); }
+    el.parentNode.nextElementSibling.textContent = du.b.length === 3 ? "✓ Tamam · hata: " + du.h : "Bulunan: " + du.b.length + " / 3 · hata: " + du.h;
+    return;
+  }
+  if ((el = t.closest("[data-nkkontrol]")) || (el = t.closest("[data-nkgoster]"))) {
+    var nb = +(el.dataset.nkkontrol || el.dataset.nkgoster), goster = !!el.dataset.nkgoster, dg = 0;
+    document.querySelectorAll('select.nk[data-nk="' + nb + '"]').forEach(function (sl) {
+      var kabul = NK[nb][+sl.dataset.j];
+      if (goster && kabul.indexOf(sl.value) < 0) { sl.value = kabul[0]; sl.classList.add("gosterildi"); }
+      var ok = kabul.indexOf(sl.value) >= 0; if (ok) dg++;
+      sl.classList.toggle("nk-ok", ok); sl.classList.toggle("nk-no", !ok);
+    });
+    if (goster) { document.querySelector('[data-nksonuc="' + nb + '"]').textContent = "Doğruları gösterildi (yeşil kutular)."; return; }
+    var oran = Math.round(100 * dg / NK[nb].length), nkk = "imla/nokta/" + nb, okn = oran >= 80;
+    if (okn || !A[nkk]) { if (!A[nkk] || oran > A[nkk].v) { delete A[nkk]; cevapla(nkk, okn, oran); } }
+    bip(okn); document.querySelector('[data-nksonuc="' + nb + '"]').textContent = dg + " / " + NK[nb].length + " doğru (%" + oran + ")" + (okn ? " ✓" : " — kırmızıları düzelt");
+    return;
+  }
+  if ((el = t.closest("[data-kart]"))) { ST.kartI = Math.max(0, (ST.kartI || 0) + +el.dataset.kart); var top = kartDesteBoyu(); if (ST.kartI >= top) ST.kartI = 0; ayarKaydet(); ciz(); return; }
+  if ((el = t.closest("[data-bildim]"))) { var bi = +el.dataset.bildim, bl = store.get("bildim", []), yer = bl.indexOf(bi); if (yer >= 0) bl.splice(yer, 1); else { bl.push(bi); bip(true); if (!ST.sadeceBilmedik) ST.kartI = (ST.kartI || 0) + 1; } store.set("bildim", bl); if (ST.kartI >= kartDesteBoyu()) ST.kartI = 0; ayarKaydet(); ciz(); return; }
+  if ((el = t.closest("[data-dikte]"))) { var di = +el.dataset.dikte, sn2 = dikteSonucHtml(di), ok3 = sn2.oran >= 0.9; if (ok3 || !A["imla/dikte/" + di]) { delete A["imla/dikte/" + di]; cevapla("imla/dikte/" + di, ok3, Math.round(sn2.oran * 100)); } bip(ok3); document.querySelector('[data-dsonuc="' + di + '"]').innerHTML = sn2.html + '<div class="kucuk soluk">' + sn2.d + ' / ' + sn2.t + ' kelime doğru ' + (ok3 ? '<span class="etiket ok">✓ Harika!</span>' : '<span class="etiket no">Kırmızı kelimelere dikkat; tekrar dinleyip düzelt.</span>') + '</div>'; return; }
+  if ((el = t.closest("[data-sozlu]"))) { cevapla("ifade/sozlu/" + el.dataset.sozlu, true); bip(true); el.outerHTML = '<span class="etiket ok">✓ Konuştuk</span>'; return; }
+  if ((el = t.closest("[data-din]"))) { store.set(el.dataset.din, el.dataset.v); el.parentNode.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", b === el); }); return; }
+});
+function kartDesteBoyu() { var p = ST.kartP || 0, bl = store.get("bildim", []); return SOZLUK.filter(function (s, i) { return (!p || s[2] === p) && (!ST.sadeceBilmedik || bl.indexOf(i) < 0); }).length; }
+function oyunYenile(key) { var kap = document.querySelector('[data-oyun="' + key + '"]'); if (!kap) return; var o = OYUN[key], tmp = document.createElement("div"); tmp.innerHTML = eslestirHtml(key, OYUN_KAYNAK[key], { sagTr: o.sagTr }); var alt = kap.nextElementSibling; kap.replaceWith(tmp.children[0]); alt.replaceWith(tmp.children[0]); }
+function eslestirTik(el) {
+  var key = el.closest("[data-oyun]").dataset.oyun, o = OYUN[key], yan = el.dataset.es, i = +el.dataset.i;
+  if (o.tamam.indexOf(i) >= 0) return;
+  if (!o.secili || o.secili.yan === yan) { document.querySelectorAll('[data-oyun="' + key + '"] .es.secili').forEach(function (b) { b.classList.remove("secili"); }); o.secili = { yan: yan, i: i, el: el }; el.classList.add("secili"); return; }
+  var diger = o.secili; o.secili = null; diger.el.classList.remove("secili");
+  if (diger.i === i) {
+    o.tamam.push(i); bip(true);
+    document.querySelectorAll('[data-oyun="' + key + '"] .es[data-i="' + i + '"]').forEach(function (b) { b.classList.add("tamam"); b.disabled = true; });
+    if (o.tamam.length === o.ciftler.length) { cevapla(key, o.hata <= 2, o.hata); toast(o.hata === 0 ? "Kusursuz eşleştirme!" : "Tamam! Hata: " + o.hata); }
+  } else {
+    o.hata++; bip(false);
+    [el, diger.el].forEach(function (b) { b.classList.add("hata", "titre"); setTimeout(function () { b.classList.remove("hata", "titre"); }, 450); });
+    var hb = document.querySelector('[data-oyunhata="' + key + '"]'); if (hb) hb.textContent = o.hata;
+  }
+}
+function islem(a, el) {
+  switch (a) {
+    case "calDur": if (ses.paused) { tekrarIptal(); if (OY.izle < 0 && OY.bitis === null) { OY.tek = false; var b = birimBul(ses.currentTime); if (b < 0 && ses.currentTime < METIN[0][0]) { b = 0; ses.currentTime = METIN[0][0]; } OY.izle = b; } else OY.tek = false; cal(); } else { ses.pause(); } break;
+    case "onceki": birimCal(Math.max(0, (OY.vurgu >= 0 ? OY.vurgu : birimBul(ses.currentTime)) - 1), false); break;
+    case "sonraki": birimCal(Math.min(METIN.length - 1, (OY.vurgu >= 0 ? OY.vurgu : 0) + 1), false); break;
+    case "giris": tekrarIptal(); sesHazirla(); OY.tek = false; OY.izle = -1; OY.bitis = GIRIS_SES[1]; ses.currentTime = GIRIS_SES[0]; cal(); toast("Ünite girişi çalıyor…"); break;
+    case "tekrarAtla": var j = OY.vurgu; tekrarIptal(); if (j + 1 < METIN.length) birimCal(j + 1, false); break;
+    case "tekrarDur": tekrarIptal(); break;
+    case "cevir": var f = document.getElementById("flas"); if (f) f.classList.toggle("dondu"); break;
+    case "siraSifirla": store.del("sira"); ciz(); break;
+    case "sinavBasla": sinavBaslat(); window.scrollTo(0, 0); break;
+    case "sinavSonraki": SINAV.i++; ciz(true); break;
+    case "hepsiniSifirla": if (confirm("Bütün cevaplar, yazılar ve ilerleme silinsin mi?")) { try { Object.keys(localStorage).forEach(function (k) { if (k.indexOf(PFX) === 0 && k !== PFX + "ayar") localStorage.removeItem(k); }); } catch (e) {} A = {}; SINAV = null; ustGuncelle(); ciz(); } break;
+  }
+}
+document.addEventListener("change", function (e) {
+  var t = e.target;
+  if (t.dataset.ayar) { ST[t.dataset.ayar] = t.checked; ayarKaydet(); if (t.dataset.ayar === "tekrar" && !t.checked) tekrarIptal(); if (t.dataset.ayar === "sadeceBilmedik") { ST.kartI = 0; ayarKaydet(); ciz(); } }
+  if (t.classList && t.classList.contains("nk")) { var nc = store.get("nk:" + t.dataset.nk, {}); nc[t.dataset.j] = t.value; store.set("nk:" + t.dataset.nk, nc); t.classList.remove("nk-ok", "nk-no", "gosterildi"); }
+  if (t.dataset.kartp) { ST.kartP = +t.value; ST.kartI = 0; ayarKaydet(); OYUN["kelime/sozluk"] = null; ciz(); }
+});
+document.addEventListener("input", function (e) {
+  var t = e.target;
+  if (t.dataset.cevir) store.set(t.dataset.cevir, t.value);
+  if (t.dataset.yaz) {
+    store.set("y:" + t.dataset.yaz, t.value);
+    if (t.dataset.hedef) {
+      var k = t.dataset.yaz, say = sadele(t.value).length, hdf = +t.dataset.hedef;
+      var s = document.querySelector('[data-sayac="' + k + '"]'); if (s) s.textContent = say + " / " + hdf + " kelime";
+      var b = document.querySelector('[data-sayacbar="' + k + '"]'); if (b) b.style.width = Math.min(100, Math.round(say / hdf * 100)) + "%";
+      if (say >= hdf && !A[k]) { cevapla(k, true); bip(true); toast("Hedef kelime sayısına ulaştın!"); }
+    }
+  }
+});
+var sar = function (e) { return e.target && e.target.id === "oySar"; };
+document.addEventListener("pointerdown", function (e) { if (e.target.dataset && e.target.dataset.dsar) e.target.dataset.surukle = "1"; });
+document.addEventListener("change", function (e) { var k = e.target.dataset && e.target.dataset.dsar; if (k) { delete e.target.dataset.surukle; var a = dsesAl(k); a.currentTime = +e.target.value; dArayuz(); } });
+document.addEventListener("pointerdown", function (e) { if (sar(e)) e.target.dataset.surukle = "1"; });
+document.addEventListener("input", function (e) { if (sar(e)) { var z = document.getElementById("oyZaman"); if (z) z.textContent = sureYaz(+e.target.value); } });
+document.addEventListener("change", function (e) { if (sar(e)) { delete e.target.dataset.surukle; tekrarIptal(); sesHazirla(); ses.currentTime = +e.target.value; OY.tek = false; OY.bitis = null; OY.izle = birimBul(ses.currentTime); vurgula(OY.izle); } });
+document.addEventListener("keydown", function (e) {
+  if (ST.sekme !== "dinle" || /^(TEXTAREA|INPUT|SELECT)$/.test(e.target.tagName)) {
+    if (e.target.classList && e.target.classList.contains("flas-ic") && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); islem("cevir"); }
+    return;
+  }
+  if (e.key === " " && e.target.tagName !== "BUTTON") { e.preventDefault(); islem("calDur"); }
+  else if (e.key === "ArrowRight") { e.preventDefault(); islem("sonraki"); }
+  else if (e.key === "ArrowLeft") { e.preventDefault(); islem("onceki"); }
+});
+document.getElementById("temaBtn").addEventListener("click", function () {
+  var koyu = ST.tema ? ST.tema === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  ST.tema = koyu ? "light" : "dark"; ayarKaydet(); temaUygula();
+});
+var efektBtn = document.getElementById("efektBtn");
+function efektGoster() { efektBtn.style.opacity = ST.efekt ? 1 : .45; efektBtn.title = ST.efekt ? "Ses efektleri açık" : "Ses efektleri kapalı"; }
+efektBtn.addEventListener("click", function () { ST.efekt = !ST.efekt; ayarKaydet(); efektGoster(); toast(ST.efekt ? "Ses efektleri açık" : "Ses efektleri kapalı"); });
+
+if (!CIZ[ST.sekme]) ST.sekme = "bas";
+temaUygula(); efektGoster(); ustGuncelle(); ciz(true);
+setTimeout(sesHazirla, 300);
+window.__b13 = { ses: ses, OY: OY, A: function () { return A; } };
+})();
+</script>

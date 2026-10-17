@@ -1045,3 +1045,17 @@ kalıba göre cümle. **Nûnü’l-vikâye** (vâcib / câiz / mümteni‘; إِ
 (anlama ve baba göre vezinler), **İmlâ** (مِمَّنْ، عَمَّنْ، فيمَنْ ve kayıttan dikte; harekesiz karşılaştırma), **İfade** (sözlü sorular,
 ekip konuları, hadisler, kelime sayaçlı yazı) ve karışık 15 soruluk **Sınav**. Puan, ilerleme ve yazılanlar tarayıcıda saklanır.
 Düzenleme: `bayna13/veri.js` (metin zamanları ve alıştırmalar), `bayna13/kaynak.html`; sonra `python3 bayna13/yap.py`.
+
+## Uygulama: el-Arabiyyetü beyne yedeyk 3, 14. ünite — Su: Hayatın Aslı (sesli, çevrimdışı)
+
+`bayna14/index.html` (yayın sürümü `bayna14/sayfa.html`) الماءُ أَصْلُ الحَياةِ وسِرُّها ünitesini 13. ünite programıyla aynı yapıda,
+tek dosya ve internetsiz verir; okuma kaydı (Ders 92, 8:15) ile iki dinleme kaydı (Ders 95/96) dosyanın içindedir. **Dinle ve Oku**:
+metin kayıttaki zamanlarına göre 41 cümleye bölünmüştür (cümle cümle dinleme, karaoke vurgusu, “dinle – sen tekrar et”, hız,
+hareke ve Türkçe ayarları; Enbiyâ âyetinin numarası kitaptaki ٢٠ yerine doğru olarak ٣٠ yazılmıştır). **Anlama**: fikir sıralama,
+başlık–paragraf, doğru–yanlış (yanlışların düzeltmesiyle), kısa cevap. **Kelimeler**: kartlar, eşleştirme, çoğul bulma, “metinden
+üç kelime” gruplama, fiil–harf-i cer, kalıba göre cümle. **Rubâî masdar** (إِفْعال / إِفالَة، تَفْعيل / تَفْعِلَة، مُفاعَلَة / فِعال،
+فَعْلَلَة / فِعْلال; cümlede masdara dokunma ve vezin bulma) ve **Humâsî–südâsî masdar** (تَـ ile ve vasl hemzesiyle başlayanlar,
+اسْتِفْعال’de elifin düşmesi). **İmlâ**: noktalama işaretleri tablosu, kitaptaki metinlere açılır kutularla noktalama koyma
+(birden fazla doğru kabul edilir) ve kayıttan dikte. **Dinleme**: iki bölümün kaydı, doğru–yanlış, kısa cevap, eşleştirme ve
+seçmeli sorular; dinleme metni çözümden sonra açılır ve cümlelerine dokununca o yerden çalar. **İfade** ve karışık **Sınav**.
+Düzenleme: `bayna14/veri.js`, `bayna14/kaynak.html`; sonra `python3 bayna14/yap.py`.
