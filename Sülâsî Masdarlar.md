@@ -1088,3 +1088,18 @@ Eksik kayıtlar: 11. dersin kelime kaydı (11-04) yüklenmemiş, bu kelimelerin 
 dosyalar `15-18` ve `17-25`’in kopyası olduğundan okuma tedrîb 5 cümlelerinin ve dinleme tedrîb 4’ün kaydı yok.
 Düzenleme: `k1u2/veri.js`, `k1u2/uygulama.js`, `k1u2/stil.css`; ses parçaları `k1u2/parcalar.json` → `python3 k1u2/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u2/yap.py`.
+
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 3. ünite — Konut (sesli, resimli, çevrimdışı)
+
+`k1u3/index.html` (yayın sürümü `k1u3/sayfa.html`) السَّكَنُ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
+29 ders kaydı (ders 19–26) tek `ses.mp3` içinde birleştirilmiş, 200 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (nerede oturuyorsun?, daire kiralamak, eşya almak): cümle cümle dinleme, dinle–tekrar et, rol yapma.
+**Kelimeler** (ders 19–21), **Günler** (haftanın günleri, محرم takvimi, sıralama, dinleyip bulma),
+**Kalıplar** (هَلْ تَسْكُنُ…؟ نَعَمْ / لا; أُريدُ … مِنْ فَضْلِكَ; ماذا تُريدُ لِـ…؟; كَمْ غُرْفَةً؟ في أَيِّ دَوْرٍ؟; لَدَيْنا … جَميلٌ / جَميلَةٌ; her cevaptan sonra kayıt),
+**Sesler** (ح, ح – ه çiftleri ve oyun, âyetler), **Dinleme** (ders 24, dört tedrîb; cevaplar kayıtlardan), **Okuma** (kelimeler, farklı olanı bul,
+cümleler, Ahmed’in dairesi metni ve soruları), **Yazı** (ج ح خ ع غ çizme, eksik / baştaki harf, harfi bulma), **Konuşma**,
+**Kendini sına** (eşyayı odasına yerleştir vb.) ve sesli **Sınav**.
+Kayıt notları: 25. dersin (konuşma) kaydı yoktur, kitapta da sesli değildir. Dinleme tedrîb 2’de kat sorusunun resimleri ayırt edilemediğinden
+o madde çıkarıldı, “dört oda” maddesi için kat resimleri kullanıldı. Kayıtta 2. diyaloğun son cümlesi “هذا بابُ الشَّقَّةِ” yerine “هذِهِ هِيَ الشَّقَّةُ” okunur; metin kayda göre yazıldı.
+Düzenleme: `k1u3/veri.js`, `k1u3/uygulama.js`, `k1u3/stil.css`; ses parçaları `k1u3/parcalar.json` → `python3 k1u3/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u3/yap.py`.
