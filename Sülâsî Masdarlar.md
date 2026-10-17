@@ -1168,6 +1168,20 @@ Kayıt notları: 70. dersin (konuşma) ve 72. dersin (yazı) kaydı yoktur; okum
 Düzenleme: `k1u8/veri.js`, `k1u8/uygulama.js`, `k1u8/stil.css`; ses parçaları `k1u8/parcalar.json` → `python3 k1u8/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u8/yap.py`.
 
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 9. ünite — Alışveriş (sesli, resimli, çevrimdışı)
+
+`k1u9/index.html` (yayın sürümü `k1u9/sayfa.html`) التَّسَوُّقُ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
+30 ders kaydı (ders 73–80) tek `ses.mp3` içinde birleştirilmiş, 167 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (kitapçıda, pazarda, giyim mağazasında) ve “evet / hayır” soruları; **Kelimeler** (ders 73–75, 30 kelime), **Renkler ve sayılar**
+(altı renk; عِشْرونَ … ثَمانونَ), **Kalıplar** (أُريدُ …; هذا / هذِهِ …; أَيَّ … تُريدُ؟; بِكَمِ …؟; المَطْلوبُ … رِيالًا; هَلْ تُريدُ شَيْئًا آخَرَ؟; renkli isim),
+**Sesler** (ظ, ظ – ذ, altı âyet), **Dinleme** (ders 78, dört kayıt), **Okuma** (dört sesli metin ve boşluk doldurma), **Yazı**, **Konuşma**,
+**Alıştırmalar** (ders 76 ve 81: garip kelime, eşleştirme, yanlış yazılan kelime, aynı cümle, kelime sıralama, boşluk doldurma) ve sesli **Sınav**.
+Bu ünitede kitapta “Kendini sına” yoktur. Kayıt notları: 79. dersin (konuşma) ve 81. dersin (yazı) kaydı yoktur; okuma tedrîb 5–6 da sessizdir.
+Kayda uyuldu: okuma tedrîb 4’te gazete “بِرِيالٍ واحِدٍ” (kitapta بِرِيالَيْنِ; toplam 80 riyal ancak böyle tutar); kalıp tedrîb 4’ün kaydında “أُريدُ قَميصًا” satırı yoktur;
+kalıp tedrîb 1’de dişil isimler “هذِهِ” ile okunur. Dinleme tedrîb 2’de ekmeğin, tedrîb 3’te sevbin fiyatı kayıtta söylenmez; cevaplar toplamdan çıkarıldı (1 ve 20 riyal).
+Düzenleme: `k1u9/veri.js`, `k1u9/uygulama.js`, `k1u9/stil.css`; ses parçaları `k1u9/parcalar.json` → `python3 k1u9/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u9/yap.py`.
+
 ## Uygulama: el-Arabiyyetü beyne yedeyk 1 — “Kendini sına” sınavları ve yarıyıl sınavı
 
 `ihtibar/ihtibar1.html` … `ihtibar5.html` (yayın sürümleri `ihtibar/sayfa1.html` … `sayfa5.html`): kitabın dört “اخْتَبِرْ نَفْسَكَ” sınavı (Ünite 1–2, 3–4, 5–6, 7–8; her biri 40 puan)
