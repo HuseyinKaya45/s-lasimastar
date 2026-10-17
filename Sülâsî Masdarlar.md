@@ -1103,3 +1103,15 @@ Kayıt notları: 25. dersin (konuşma) kaydı yoktur, kitapta da sesli değildir
 o madde çıkarıldı, “dört oda” maddesi için kat resimleri kullanıldı. Kayıtta 2. diyaloğun son cümlesi “هذا بابُ الشَّقَّةِ” yerine “هذِهِ هِيَ الشَّقَّةُ” okunur; metin kayda göre yazıldı.
 Düzenleme: `k1u3/veri.js`, `k1u3/uygulama.js`, `k1u3/stil.css`; ses parçaları `k1u3/parcalar.json` → `python3 k1u3/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u3/yap.py`.
+
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 4. ünite — Günlük hayat (sesli, resimli, çevrimdışı)
+
+`k1u4/index.html` (yayın sürümü `k1u4/sayfa.html`) الحَياةُ اليَوْمِيَّةُ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
+24 ders kaydı (ders 28–35) tek `ses.mp3` içinde birleştirilmiş, 154 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (sabah, tatil günü ev işleri, tatil sabahı) ve her diyaloğun ardından kitaptaki “kısaca cevap ver” soruları; **Kelimeler** (ders 28–30),
+**Sıra sayıları** (الأَوَّلُ–الخامِسُ), **Kalıplar** (مَتى تَذْهَبُ؟ أَذْهَبُ السّاعَةَ…; أَيْنَ تُصَلّي…؟; ماذا تَفْعَلُ / تَفْعَلينَ؟; سَـ ile gelecek zaman),
+**Sesler** (ط, ط – ت çiftleri ve oyun, sekiz âyet), **Dinleme** (ders 33, dört tedrîb), **Okuma** (farklı olanı bul, cümle–resim ve soru–cevap eşleştirme,
+iki sesli metin), **Yazı** (س ش ص ض), **Konuşma** (cami ve kişi resimleriyle), **Kendini sına (ünite 3–4)** ve sesli **Sınav**.
+Kayıt notları: 34. dersin (konuşma) kaydı yoktur. Okuma tedrîb 1–4’ün kaydı yoktur, kitapta da sesli değildir. Dinleme cevapları kayıtlardan çıkarıldı.
+Düzenleme: `k1u4/veri.js`, `k1u4/uygulama.js`, `k1u4/stil.css`; ses parçaları `k1u4/parcalar.json` → `python3 k1u4/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u4/yap.py`.
