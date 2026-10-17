@@ -1173,6 +1173,7 @@ sonra `python3 k1u8/yap.py`.
 `ihtibar/ihtibar1.html` … `ihtibar5.html` (yayın sürümleri `ihtibar/sayfa1.html` … `sayfa5.html`): kitabın dört “اخْتَبِرْ نَفْسَكَ” sınavı (Ünite 1–2, 3–4, 5–6, 7–8; her biri 40 puan)
 ve yarıyıl sınavı (Ünite 1–8, 100 puan) ayrı ayrı, tek dosya ve internetsiz. Öğrenci bütün soruları cevaplar, “Sınavı bitir” ile kitaptaki puanlamaya göre
 bölüm bölüm puan alır; yanlışlarda doğru cevap gösterilir, cevaplar tarayıcıda saklanır. Kitapta öğrencinin yazdığı sorular (tablo, boşluk doldurma,
-eşleştirme, “iki kelime ekle”, hata düzeltme) seçmeli ya da çoklu seçimli soruya çevrildi. Yarıyıl sınavının dinleme bölümü (38 puan) kaydı yüklenmediği için
-henüz yoktur; puan şimdilik 62 üzerinden hesaplanır.
+eşleştirme, “iki kelime ekle”, hata düzeltme) seçmeli ya da çoklu seçimli soruya çevrildi. Yarıyıl sınavının dinleme bölümü (38 puan, altı tedrîb) öğretmen kitabının
+kayıtlarıyla sesli: kayıtlar `ihtibar/ses5.mp3` içinde birleşik, parçaların yeri `parcalar5.json` → `python3 ihtibar/ses_yap.py <ham mp3 klasörü>` ile `zaman5.js`.
+Kitapta yazılarak cevaplanan dinleme soruları (kelime / ifade yazma, cevabı yazma) seçmeli soruya çevrildi.
 Ortak motor `ihtibar/motor.js`, veriler `ihtibar/veri.py` (→ `veriN.js`); `python3 ihtibar/yap.py` beşini birden derler.

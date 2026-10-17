@@ -443,6 +443,8 @@ button.kkart:hover { transform: translateY(-2px); border-color: var(--vurgu); }
 .uyari { border: 1px dashed var(--altin); background: var(--altin-acik); border-radius: 12px; padding: 12px 14px; }
 .metin details { margin-top: 6px; font-size: .9rem; }
 .soru .secim { direction: rtl; }
+.btn.calan { background: var(--altin-acik); border-color: var(--altin); }
+.calbtn2 { margin: 0 0 6px; }
 .btn.buyuk { padding: 11px 22px; font-size: 1.05rem; }
 </style>
 </head>
@@ -457,6 +459,7 @@ button.kkart:hover { transform: translateY(-2px); border-color: var(--vurgu); }
   </div>
 </header>
 <main id="ana"></main>
+<script id="ses-veri" type="text/plain"></script>
 <script>
 // Otomatik üretildi (veri.py). Toplam puan: 40
 var SINAV = {
@@ -1031,6 +1034,7 @@ var SINAV = {
  ]
 };
 
+
 </script>
 <script>
 // ================= SINAV MOTORU: “Kendini sına” sayfaları =================
@@ -1067,13 +1071,14 @@ function ogeHtml(b, o, i) {
     if (BITTI) { var dg = b.tip === "coklu" ? o.d.indexOf(op) >= 0 : op === o.d; if (dg) cls += ' dogru'; else if (sec) cls += ' yanlis'; }
     return '<button type="button" class="sec ar' + cls + '" data-o="' + o.key + '" data-v="' + esc(op) + '"' + (BITTI ? ' disabled' : '') + '>' + op + '</button>';
   }).join("");
-  return '<div class="soru' + dur + '"><span class="soru-no">' + (i + 1) + '</span>' + (o.q ? '<div class="sq ar" dir="rtl">' + esc(o.q).replace(/\[([^\]]+)\]/g, '<u>$1</u>').replace(/___/g, '<span class="bosluk2">&nbsp;</span>').replace(/\s+←$/, ' ←') + '</div>' : '') + '<div class="secim' + (BITTI ? ' bitti' : '') + '">' + dugme + '</div>' +
+  return '<div class="soru' + dur + '"><span class="soru-no">' + (i + 1) + '</span>' + (o.ses ? '<button type="button" class="btn kucuk calbtn2" data-cal="' + o.ses + '">🔊 Dinle</button>' : '') + (o.q ? '<div class="sq ar" dir="rtl">' + esc(o.q).replace(/\[([^\]]+)\]/g, '<u>$1</u>').replace(/___/g, '<span class="bosluk2">&nbsp;</span>').replace(/\s+←$/, ' ←') + '</div>' : '') + '<div class="secim' + (BITTI ? ' bitti' : '') + '">' + dugme + '</div>' +
     (BITTI && !ogeDogru(b, o) ? '<div class="sonra">Doğrusu: <span class="ar">' + (b.tip === "coklu" ? o.d.join("، ") : o.d) + '</span></div>' : '') + '</div>';
 }
 function bolumHtml(b, no) {
   var p = BITTI ? '<span class="rozet">' + bolumPuan(b) + ' / ' + b.puan + '</span>' : '<span class="rozet soluk">' + b.puan + ' puan</span>';
   return '<section class="kart" id="b' + b.key + '"><h2>' + no + '. ' + b.ad + (b.ar ? ' <span class="ar">' + b.ar + '</span>' : '') + p + '</h2>' + (b.not ? '<p class="aciklama">' + arSar(b.not) + '</p>' : '') +
     (b.metin ? '<div class="metin"><p class="ar">' + b.metin + '</p>' + (b.metinTr ? '<details><summary>Türkçesi</summary><div class="trline">' + b.metinTr + '</div></details>' : '') + '</div>' : '') +
+    (b.ses ? '<div class="satir-btn" style="margin-bottom:8px">' + [].concat(b.ses).map(function (id, j) { return '<button type="button" class="btn dolu" data-cal="' + id + '">▶ ' + ([].concat(b.ses).length > 1 ? (j + 1) + '. kaydı' : 'Kaydı') + ' dinle</button>'; }).join("") + '</div>' : '') +
     (b.kayitYok ? '<div class="uyari">' + b.kayitYok + '</div>' : b.oge.map(function (o, i) { return ogeHtml(b, o, i); }).join("")) + '</section>';
 }
 function ciz() {
@@ -1087,7 +1092,21 @@ function ciz() {
   document.getElementById("ana").innerHTML = bas + govde + son + '<p class="alt-bilgi">el-Arabiyyetü beyne yedeyk · 1. kitap · ' + SINAV.tr + ' — çevrimdışı çalışır; cevapların bu tarayıcıda saklanır.</p>';
   document.getElementById("puan").textContent = BITTI ? top + " / " + max : cv[0] + " / " + cv[1];
 }
+// ---------- ses: tek mp3, parçalar ZAMAN[id] = [[başlangıç, bitiş], ...] ----------
+var ses = new Audio(), PLAN = [], BTN = null;
+function sesHazir() {
+  if (ses.src) return true;
+  var el = document.getElementById("ses-veri"), b64 = el ? el.textContent.replace(/\s+/g, "") : "";
+  if (!b64 || b64 === "SES_B64") return false;
+  var bin = atob(b64), u = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+  ses.src = URL.createObjectURL(new Blob([u], { type: "audio/mpeg" })); return true;
+}
+function durdur() { PLAN = []; ses.pause(); ses.dataset.son = ""; if (BTN) BTN.classList.remove("calan"); BTN = null; }
+function sonraki() { var p = PLAN.shift(); if (!p) { durdur(); return; } ses.currentTime = p[0]; ses.dataset.son = p[1]; ses.play(); }
+ses.addEventListener("timeupdate", function () { if (ses.dataset.son && ses.currentTime >= +ses.dataset.son) { ses.pause(); ses.dataset.son = ""; setTimeout(sonraki, 350); } });
+function cal(id, btn) { var ayni = BTN === btn; durdur(); if (ayni || !window.ZAMAN || !ZAMAN[id] || !sesHazir()) return; PLAN = ZAMAN[id].slice(); BTN = btn; btn.classList.add("calan"); sonraki(); }
 document.addEventListener("click", function (e) {
+  var cb = e.target.closest("[data-cal]"); if (cb) { cal(cb.dataset.cal, cb); return; }
   var el = e.target.closest("[data-o]");
   if (el && !BITTI) {
     var key = el.dataset.o, v = el.dataset.v, b = BOL.filter(function (x) { return key.indexOf(x.key + "-") === 0; })[0];
