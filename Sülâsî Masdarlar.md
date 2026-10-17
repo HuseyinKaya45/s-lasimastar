@@ -1143,3 +1143,15 @@ Kayıt notları: 52. dersin (konuşma) kaydı yoktur; okuma tedrîb 1–4 kitapt
 bir bölümü okunduğu için âyet metni de o bölümle verildi. Kalıp tedrîb 1’in son cevabı (لِأُصَلِّيَ الفَجْرَ) kayıtta kesik.
 Düzenleme: `k1u6/veri.js`, `k1u6/uygulama.js`, `k1u6/stil.css`; ses parçaları `k1u6/parcalar.json` → `python3 k1u6/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u6/yap.py`.
+
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 7. ünite — Öğrenim (sesli, resimli, çevrimdışı)
+
+`k1u7/index.html` (yayın sürümü `k1u7/sayfa.html`) الدِّراسَةُ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
+28 ders kaydı (ders 55–62) tek `ses.mp3` içinde birleştirilmiş, 186 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (ders programı, iki üniversiteli kız, okul günü) ve kitaptaki sorular; **Kelimeler** (ders 55–57, 25 kelime), **Sıra sayıları (dişil)** الأولى–العاشِرَة
+ve eril–dişil eşleştirme, **Kalıplar** (بَعيدٌ / بَعيدَةٌ عَنْ; سَأَكونُ…; طالِبٌ / طالِبَةٌ; في أَيِّ… تَدْرُسُ / تَدْرُسينَ؟; geçmiş–şimdi–emir), **Sesler** (غ, غ – ق, dokuz âyet),
+**Dinleme** (ders 60, dört tedrîb), **Okuma** (Meryem ve Ahmed metinleri, sesli), **Yazı** (لا / لأ, vâv ve uzun û, hareke ve tenvin), **Konuşma**, **Kendini sına** ve sesli **Sınav**.
+Kayıt notları: 61. dersin (konuşma) ve 63. dersin (yazı) kaydı yoktur; okuma tedrîb 1–4 kitapta da sesli değildir. Bu ünitede kitapta “Kendini sına” sayfası
+olmadığından o bölüm 58. dersin alıştırmaları (garip kelime, tekil–çoğul) ve ek sorularla hazırlandı.
+Düzenleme: `k1u7/veri.js`, `k1u7/uygulama.js`, `k1u7/stil.css`; ses parçaları `k1u7/parcalar.json` → `python3 k1u7/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u7/yap.py`.
