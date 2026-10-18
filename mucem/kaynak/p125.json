@@ -1,0 +1,406 @@
+[
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَنْجَرَة",
+  "cogul": "حَناجِر",
+  "metin": "( ج ) حَناجِر . العُضْوُ في الرَّقَبَةِ الَّذي يَلي القَصَبَةَ الهَوائِيَّةَ ، “تَخْرُجُ الهَمْزَةُ مِنَ الحَنْجَرَةِ وَأَقْصى الحَلْقِ” ، ﴿ وَبَلَغَتِ الْقُلُوبُ الْحَناجِرَ ﴾ .",
+  "tanim": "العُضْوُ في الرَّقَبَةِ الَّذي يَلي القَصَبَةَ الهَوائِيَّةَ",
+  "ornekler": [
+   "تَخْرُجُ الهَمْزَةُ مِنَ الحَنْجَرَةِ وَأَقْصى الحَلْقِ",
+   "﴿ وَبَلَغَتِ الْقُلُوبُ الْحَناجِرَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "تَخْرُجُ الهَمْزَةُ مِنَ الحَنْجَرَةِ وَأَقْصى الحَلْقِ",
+   "kelime": "الحَنْجَرَةِ"
+  },
+  "tr": "gırtlak",
+  "tanim_tr": "Boyunda, soluk borusunun ardından gelen organ.",
+  "ornekler_tr": [
+   "Hemze gırtlaktan ve boğazın en dibinden çıkar.",
+   "Yürekler gırtlaklara dayanmıştı."
+  ],
+  "resim": "p125_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَنِيَّة",
+  "cogul": "حَنايا",
+  "metin": "( ج ) حَنايا . ما كانَ فيهِ انْحِناءٌ كَالقَوْسِ وَالضِّلْعِ ... وَغَيْرِهِما ، “أَخْفى ذلِكَ السِّرَّ في حَنايا صَدْرِهِ” .",
+  "tanim": "ما كانَ فيهِ انْحِناءٌ كَالقَوْسِ وَالضِّلْعِ ... وَغَيْرِهِما",
+  "ornekler": [
+   "أَخْفى ذلِكَ السِّرَّ في حَنايا صَدْرِهِ"
+  ],
+  "bosluk": {
+   "cumle": "أَخْفى ذلِكَ السِّرَّ في حَنايا صَدْرِهِ",
+   "kelime": "حَنايا"
+  },
+  "tr": "kıvrım, eğri",
+  "tanim_tr": "Yay ve kaburga gibi eğriliği olan şey.",
+  "ornekler_tr": [
+   "O sırrı göğsünün derinliklerinde sakladı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "الحَنيفِيَّة",
+  "cogul": null,
+  "metin": "مِلَّةُ الإِسْلامِ ، “كانَ الرَّسولُ ﷺ يَتَعَبَّدُ عَلى الطَّريقَةِ الإِبْراهيمِيَّةِ الحَنيفِيَّةِ قَبْلَ البِعْثَةِ” .",
+  "tanim": "مِلَّةُ الإِسْلامِ",
+  "ornekler": [
+   "كانَ الرَّسولُ ﷺ يَتَعَبَّدُ عَلى الطَّريقَةِ الإِبْراهيمِيَّةِ الحَنيفِيَّةِ قَبْلَ البِعْثَةِ"
+  ],
+  "bosluk": {
+   "cumle": "يَتَعَبَّدُ عَلى الطَّريقَةِ الإِبْراهيمِيَّةِ الحَنيفِيَّةِ",
+   "kelime": "الحَنيفِيَّةِ"
+  },
+  "tr": "hanîflik",
+  "tanim_tr": "İslam dini.",
+  "ornekler_tr": [
+   "Resulullah (s.a.v.) peygamberlikten önce İbrahimî hanîf yol üzere ibadet ederdi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "k": "حَوادِث",
+  "yon": "حادِث",
+  "iliski": "جمع",
+  "tr": "olaylar, kazalar"
+ },
+ {
+  "sayfa": 125,
+  "k": "حِوار",
+  "yon": "حاوَرَ",
+  "iliski": "مصدر",
+  "tr": "diyalog, karşılıklı konuşma"
+ },
+ {
+  "sayfa": 125,
+  "k": "حَواسيب",
+  "yon": "حاسوب",
+  "iliski": "جمع",
+  "tr": "bilgisayarlar"
+ },
+ {
+  "sayfa": 125,
+  "k": "حَوافِز",
+  "yon": "حافِز",
+  "iliski": "جمع",
+  "tr": "teşvikler"
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَوالَيْ",
+  "cogul": null,
+  "metin": "( ١ ) ظَرْفٌ يَعْني الإِحاطَةَ حَوْلَ الشَّيْءِ ، “بَنى سوراً حَوالَيِ الحَديقَةِ” . ( ٢ ) نَحْوُ ، قَريباً مِنْ ، “مَكَثْتُ في الهِنْدِ حَوالَيْ شَهْرَيْنِ” .",
+  "tanim": "( ١ ) ظَرْفٌ يَعْني الإِحاطَةَ حَوْلَ الشَّيْءِ ( ٢ ) نَحْوُ ، قَريباً مِنْ",
+  "ornekler": [
+   "بَنى سوراً حَوالَيِ الحَديقَةِ",
+   "مَكَثْتُ في الهِنْدِ حَوالَيْ شَهْرَيْنِ"
+  ],
+  "bosluk": {
+   "cumle": "مَكَثْتُ في الهِنْدِ حَوالَيْ شَهْرَيْنِ",
+   "kelime": "حَوالَيْ"
+  },
+  "tr": "etrafında; yaklaşık",
+  "tanim_tr": "(1) Bir şeyin etrafını kuşatmayı ifade eden zarf. (2) Yaklaşık, civarında.",
+  "ornekler_tr": [
+   "Bahçenin etrafına bir duvar yaptı.",
+   "Hindistan'da yaklaşık iki ay kaldım."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَوْض",
+  "cogul": "حِياض ، أَحْواض",
+  "metin": "( ج ) حِياض وَأَحْواض ؛ مُجْتَمَعُ الماءِ ، “تُغْسَلُ الأَواني في حَوْضٍ يُسَمّى حَوْضَ الغَسيلِ ، وَيَسْبَحُ الأَطْفالُ في حَوْضِ السِّباحَةِ” .",
+  "tanim": "مُجْتَمَعُ الماءِ",
+  "ornekler": [
+   "تُغْسَلُ الأَواني في حَوْضٍ يُسَمّى حَوْضَ الغَسيلِ ، وَيَسْبَحُ الأَطْفالُ في حَوْضِ السِّباحَةِ"
+  ],
+  "bosluk": {
+   "cumle": "وَيَسْبَحُ الأَطْفالُ في حَوْضِ السِّباحَةِ",
+   "kelime": "حَوْضِ"
+  },
+  "tr": "havuz, lavabo",
+  "tanim_tr": "Suyun toplandığı yer.",
+  "ornekler_tr": [
+   "Kaplar lavabo denen bir havzada yıkanır, çocuklar da yüzme havuzunda yüzer."
+  ],
+  "resim": "p125_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَوْقَلَ",
+  "cogul": null,
+  "metin": "يُحَوْقِلُ حَوْقَلَةً : قالَ لا حَوْلَ وَلا قُوَّةَ إِلّا بِاللهِ .",
+  "tanim": "قالَ لا حَوْلَ وَلا قُوَّةَ إِلّا بِاللهِ",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "lâ havle demek",
+  "tanim_tr": "“Lâ havle ve lâ kuvvete illâ billâh” demek.",
+  "ornekler_tr": [],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَوْل",
+  "cogul": null,
+  "metin": "( ١ ) العامُ ، ﴿ وَالْوالِداتُ يُرْضِعْنَ أَوْلادَهُنَّ حَوْلَيْنِ كامِلَيْنِ ﴾ . ( ٢ ) القُدْرَة ، “لا حَوْلَ وَلا قُوَّةَ إِلّا بِاللهِ” . ( ٣ ) ما يُحيطُ بِالشَّيْءِ ، ﴿ وَلَوْ كُنْتَ فَظّاً غَليظَ الْقَلْبِ لانْفَضُّوا مِنْ حَوْلِكَ ﴾ .",
+  "tanim": "( ١ ) العامُ ( ٢ ) القُدْرَة ( ٣ ) ما يُحيطُ بِالشَّيْءِ",
+  "ornekler": [
+   "﴿ وَالْوالِداتُ يُرْضِعْنَ أَوْلادَهُنَّ حَوْلَيْنِ كامِلَيْنِ ﴾",
+   "لا حَوْلَ وَلا قُوَّةَ إِلّا بِاللهِ",
+   "﴿ وَلَوْ كُنْتَ فَظّاً غَليظَ الْقَلْبِ لانْفَضُّوا مِنْ حَوْلِكَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "لانْفَضُّوا مِنْ حَوْلِكَ",
+   "kelime": "حَوْلِكَ"
+  },
+  "tr": "yıl; güç; çevre",
+  "tanim_tr": "(1) Yıl. (2) Güç, kudret. (3) Bir şeyi çevreleyen yer.",
+  "ornekler_tr": [
+   "Anneler çocuklarını tam iki yıl emzirirler.",
+   "Güç ve kuvvet ancak Allah'ındır.",
+   "Kaba, katı kalpli olsaydın, etrafından dağılıp giderlerdi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَوَّلَ",
+  "cogul": null,
+  "metin": "يُحَوِّلُ تَحْويلاً : نَقَلَ وَغَيَّرَ ، “حَوَّلَ مَكانَ إِقامَتِهِ مِنَ القاهِرَةِ إِلى صَنْعاءَ” ، ﴿ فَلَنْ تَجِدَ لِسُنَّتِ اللَّهِ تَبْديلاً وَلَنْ تَجِدَ لِسُنَّتِ اللَّهِ تَحْويلاً ﴾ .",
+  "tanim": "نَقَلَ وَغَيَّرَ",
+  "ornekler": [
+   "حَوَّلَ مَكانَ إِقامَتِهِ مِنَ القاهِرَةِ إِلى صَنْعاءَ",
+   "﴿ فَلَنْ تَجِدَ لِسُنَّتِ اللَّهِ تَبْديلاً وَلَنْ تَجِدَ لِسُنَّتِ اللَّهِ تَحْويلاً ﴾"
+  ],
+  "bosluk": {
+   "cumle": "حَوَّلَ مَكانَ إِقامَتِهِ مِنَ القاهِرَةِ إِلى صَنْعاءَ",
+   "kelime": "حَوَّلَ"
+  },
+  "tr": "değiştirmek, aktarmak",
+  "tanim_tr": "Nakletmek ve değiştirmek.",
+  "ornekler_tr": [
+   "İkamet yerini Kahire'den San'a'ya taşıdı.",
+   "Allah'ın kanununda asla bir değişiklik bulamazsın, Allah'ın kanununda bir sapma da bulamazsın."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَوى",
+  "cogul": null,
+  "metin": "يَحْوي حِوايَةً : مَلَكَ وَضَمَّ الشَّيْءَ وَاسْتَوْلى عَلَيْهِ ، “يَحْوي هذا المَنْزِلُ سِتَّ غُرَفٍ” .",
+  "tanim": "مَلَكَ وَضَمَّ الشَّيْءَ وَاسْتَوْلى عَلَيْهِ",
+  "ornekler": [
+   "يَحْوي هذا المَنْزِلُ سِتَّ غُرَفٍ"
+  ],
+  "bosluk": {
+   "cumle": "يَحْوي هذا المَنْزِلُ سِتَّ غُرَفٍ",
+   "kelime": "يَحْوي"
+  },
+  "tr": "içermek, kapsamak",
+  "tanim_tr": "Sahip olmak, bir şeyi kapsamak ve ele geçirmek.",
+  "ornekler_tr": [
+   "Bu ev altı oda içeriyor."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَيٌّ",
+  "cogul": null,
+  "metin": "خِلافُ مَيِّتٍ ، ﴿ وَجَعَلْنا مِنَ الْماءِ كُلَّ شَيْءٍ حَيٍّ أَفَلا يُؤْمِنُونَ ﴾ .",
+  "tanim": "خِلافُ مَيِّتٍ",
+  "ornekler": [
+   "﴿ وَجَعَلْنا مِنَ الْماءِ كُلَّ شَيْءٍ حَيٍّ أَفَلا يُؤْمِنُونَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَجَعَلْنا مِنَ الْماءِ كُلَّ شَيْءٍ حَيٍّ",
+   "kelime": "حَيٍّ"
+  },
+  "tr": "diri, canlı",
+  "tanim_tr": "Ölünün zıddı.",
+  "ornekler_tr": [
+   "Her canlı şeyi sudan yarattık. Hâlâ inanmayacaklar mı?"
+  ],
+  "resim": "p125_3.jpg",
+  "not": "Resimde حَيّ / مَيِّت karşıtlığı."
+ },
+ {
+  "sayfa": 125,
+  "k": "حَياء",
+  "yon": "حَيِيَ",
+  "iliski": "مصدر",
+  "tr": "utanma, haya"
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَياة",
+  "cogul": null,
+  "metin": "اسْتِمْرارٌ وَدَوامٌ ، “لا يَزالُ المَريضُ عَلى قَيْدِ الحَياةِ” ، ﴿ وَلا يَمْلِكُونَ مَوْتاً وَلا حَياةً وَلا نُشُوراً ﴾ .",
+  "tanim": "اسْتِمْرارٌ وَدَوامٌ",
+  "ornekler": [
+   "لا يَزالُ المَريضُ عَلى قَيْدِ الحَياةِ",
+   "﴿ وَلا يَمْلِكُونَ مَوْتاً وَلا حَياةً وَلا نُشُوراً ﴾"
+  ],
+  "bosluk": {
+   "cumle": "لا يَزالُ المَريضُ عَلى قَيْدِ الحَياةِ",
+   "kelime": "الحَياةِ"
+  },
+  "tr": "hayat",
+  "tanim_tr": "Devam etme ve süreklilik.",
+  "ornekler_tr": [
+   "Hasta hâlâ hayatta.",
+   "Ölüme, hayata ve yeniden dirilmeye de güçleri yetmez."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "k": "حِياض",
+  "yon": "حَوْض",
+  "iliski": "جمع",
+  "tr": "havuzlar"
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَيَّة",
+  "cogul": null,
+  "metin": "( مُذ ) حَيّ . انْظُرْ : حَيٌّ . وَالحَيَّةُ هِيَ الثُّعْبانُ ، وَفي الحَديثِ : (اقْتُلوا الحَيَّةَ وَالعَقْرَبَ وَإِنْ كُنْتُمْ في الصَّلاةِ) ، ﴿ فَأَلْقاها فَإِذا هِيَ حَيَّةٌ تَسْعى ﴾ .",
+  "tanim": "( مُذ ) حَيّ ؛ وَالحَيَّةُ هِيَ الثُّعْبانُ",
+  "ornekler": [
+   "(اقْتُلوا الحَيَّةَ وَالعَقْرَبَ وَإِنْ كُنْتُمْ في الصَّلاةِ)",
+   "﴿ فَأَلْقاها فَإِذا هِيَ حَيَّةٌ تَسْعى ﴾"
+  ],
+  "bosluk": {
+   "cumle": "فَأَلْقاها فَإِذا هِيَ حَيَّةٌ تَسْعى",
+   "kelime": "حَيَّةٌ"
+  },
+  "tr": "yılan; diri (dişil)",
+  "tanim_tr": "Hayy'ın müzekkeri (dişil biçimi). el-Hayye: yılan.",
+  "ornekler_tr": [
+   "Namazda bile olsanız yılanı ve akrebi öldürün.",
+   "Onu attı, bir de ne görsün, o koşan bir yılan oluvermiş."
+  ],
+  "resim": "p125_4.jpg",
+  "not": "Kitapta “(مُذ) حَيّ” yazıyor; anlamca müennes (مؤ) olmalı."
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَيْثُ",
+  "cogul": null,
+  "metin": "ظَرْفُ مَكانٍ ، “اجْلِسْ حَيْثُ انْتَهى بِكَ المَجْلِسُ” ، “سافِرْ حَيْثُ شِئْتَ” ، ﴿ وَحَيْثُ ما كُنْتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ ﴾ .",
+  "tanim": "ظَرْفُ مَكانٍ",
+  "ornekler": [
+   "اجْلِسْ حَيْثُ انْتَهى بِكَ المَجْلِسُ",
+   "سافِرْ حَيْثُ شِئْتَ",
+   "﴿ وَحَيْثُ ما كُنْتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "سافِرْ حَيْثُ شِئْتَ",
+   "kelime": "حَيْثُ"
+  },
+  "tr": "-diği yer(de)",
+  "tanim_tr": "Mekân zarfı.",
+  "ornekler_tr": [
+   "Meclis seni nereye ulaştırdıysa oraya otur.",
+   "Nereye istersen seyahat et.",
+   "Nerede olursanız yüzlerinizi o yöne çevirin."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حَيَّرَ",
+  "cogul": null,
+  "metin": "يُحَيِّرُ تَحْييراً . جَعَلَهُ في حَيْرَةٍ ، “كَلامُكَ حَيَّرَني” .",
+  "tanim": "جَعَلَهُ في حَيْرَةٍ",
+  "ornekler": [
+   "كَلامُكَ حَيَّرَني"
+  ],
+  "bosluk": {
+   "cumle": "كَلامُكَ حَيَّرَني",
+   "kelime": "حَيَّرَني"
+  },
+  "tr": "şaşırtmak",
+  "tanim_tr": "Birini şaşkınlık içinde bırakmak.",
+  "ornekler_tr": [
+   "Sözlerin beni şaşırttı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 125,
+  "k": "حَيْرَة",
+  "yon": "حارَ",
+  "iliski": "مصدر",
+  "tr": "şaşkınlık"
+ },
+ {
+  "sayfa": 125,
+  "k": "حَيْض",
+  "yon": "حاضَتْ",
+  "iliski": "مصدر",
+  "tr": "hayız, adet"
+ },
+ {
+  "sayfa": 125,
+  "k": "حَيْف",
+  "yon": "حافَ",
+  "iliski": "مصدر",
+  "tr": "haksızlık, zulüm"
+ },
+ {
+  "sayfa": 125,
+  "baski_no": "١٢٥",
+  "k": "حيلَة",
+  "cogul": "حِيَل",
+  "metin": "( ج ) حِيَل : الحِذْقُ وَجَوْدَةُ النَّظَرِ وَالمَقْدِرَةُ عَلى التَّصَرُّفِ في الأُمورِ ، “خَرَجَ المُتَّهَمُ مِنَ المَوْقِفِ بِحيلَةٍ” .",
+  "tanim": "الحِذْقُ وَجَوْدَةُ النَّظَرِ وَالمَقْدِرَةُ عَلى التَّصَرُّفِ في الأُمورِ",
+  "ornekler": [
+   "خَرَجَ المُتَّهَمُ مِنَ المَوْقِفِ بِحيلَةٍ"
+  ],
+  "bosluk": {
+   "cumle": "خَرَجَ المُتَّهَمُ مِنَ المَوْقِفِ بِحيلَةٍ",
+   "kelime": "بِحيلَةٍ"
+  },
+  "tr": "hile, çare",
+  "tanim_tr": "Ustalık, iyi düşünme ve işleri idare edebilme becerisi.",
+  "ornekler_tr": [
+   "Sanık durumdan bir hileyle sıyrıldı."
+  ],
+  "resim": null,
+  "not": null
+ }
+]

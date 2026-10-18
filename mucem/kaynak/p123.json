@@ -1,0 +1,363 @@
+[
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حُلْم",
+  "cogul": "أَحْلام",
+  "metin": "( ج ) أَحْلام : ما يَراهُ النّائِمُ في نَوْمِهِ ، “رَأى المَلِكُ حُلْماً أَقْلَقَهُ فَنادى يوسُفَ -عَلَيْهِ السَّلامُ- لِيُعَبِّرَهُ لَهُ” ، ﴿ قالُوا أَضْغاثُ أَحْلامٍ وَما نَحْنُ بِتَأْويلِ الأَحْلامِ بِعالِمينَ ﴾ .",
+  "tanim": "ما يَراهُ النّائِمُ في نَوْمِهِ",
+  "ornekler": [
+   "رَأى المَلِكُ حُلْماً أَقْلَقَهُ فَنادى يوسُفَ -عَلَيْهِ السَّلامُ- لِيُعَبِّرَهُ لَهُ",
+   "﴿ قالُوا أَضْغاثُ أَحْلامٍ وَما نَحْنُ بِتَأْويلِ الأَحْلامِ بِعالِمينَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "رَأى المَلِكُ حُلْماً أَقْلَقَهُ",
+   "kelime": "حُلْماً"
+  },
+  "tr": "rüya",
+  "tanim_tr": "Uyuyanın uykusunda gördüğü şey.",
+  "ornekler_tr": [
+   "Kral kendisini kaygılandıran bir rüya gördü ve onu yorumlaması için Yusuf'u (a.s.) çağırdı.",
+   "Dediler ki: Karışık rüyalar; biz rüya yorumunu bilmeyiz."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حُلُم",
+  "cogul": null,
+  "metin": "بُلوغُ سِنِّ الرُّشْدِ ، ﴿ وَإِذا بَلَغَ الأَطْفالُ مِنْكُمُ الْحُلُمَ فَلْيَسْتَأْذِنُوا كَما اسْتَأْذَنَ الَّذينَ مِنْ قَبْلِهِمْ ﴾ .",
+  "tanim": "بُلوغُ سِنِّ الرُّشْدِ",
+  "ornekler": [
+   "﴿ وَإِذا بَلَغَ الأَطْفالُ مِنْكُمُ الْحُلُمَ فَلْيَسْتَأْذِنُوا كَما اسْتَأْذَنَ الَّذينَ مِنْ قَبْلِهِمْ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَإِذا بَلَغَ الأَطْفالُ مِنْكُمُ الْحُلُمَ فَلْيَسْتَأْذِنُوا",
+   "kelime": "الْحُلُمَ"
+  },
+  "tr": "ergenlik, buluğ",
+  "tanim_tr": "Rüşt yaşına ulaşma.",
+  "ornekler_tr": [
+   "Çocuklarınız ergenlik çağına girdiklerinde, kendilerinden öncekilerin izin istediği gibi izin istesinler."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حِلْم",
+  "cogul": "أَحْلام",
+  "metin": "( ج ) أَحْلام : التَّعَقُّلُ وَضَبْطُ النَّفْسِ ، وَفي الحَديثِ : (إِنَّ فيكَ لَخَصْلَتَيْنِ يُحِبُّهُما اللهُ تَعالى : الحِلْمُ وَالأَناةُ) ، ﴿ أَمْ تَأْمُرُهُمْ أَحْلامُهُمْ بِهذا ﴾ .",
+  "tanim": "التَّعَقُّلُ وَضَبْطُ النَّفْسِ",
+  "ornekler": [
+   "(إِنَّ فيكَ لَخَصْلَتَيْنِ يُحِبُّهُما اللهُ تَعالى : الحِلْمُ وَالأَناةُ)",
+   "﴿ أَمْ تَأْمُرُهُمْ أَحْلامُهُمْ بِهذا ﴾"
+  ],
+  "bosluk": {
+   "cumle": "إِنَّ فيكَ لَخَصْلَتَيْنِ يُحِبُّهُما اللهُ تَعالى : الحِلْمُ وَالأَناةُ",
+   "kelime": "الحِلْمُ"
+  },
+  "tr": "yumuşak huyluluk, akıl",
+  "tanim_tr": "Akıllıca davranma ve kendine hâkim olma.",
+  "ornekler_tr": [
+   "Sende Allah Teâlâ'nın sevdiği iki haslet var: yumuşak huyluluk ve teenni.",
+   "Yoksa akılları mı onlara bunu emrediyor?"
+  ],
+  "resim": null,
+  "not": "Kitapta hadis ﴿ ﴾ ayet işaretleri içinde basılmış; burada parantezle yazıldı."
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حَلُوَ",
+  "cogul": null,
+  "metin": "يَحْلو حَلاوَةً : أَصْبَحَ طَعْمُهُ كَطَعْمِ السُّكَّرِ ، “حَلُوَ التُّفّاحُ بَعْدَ نُضْجِهِ” .",
+  "tanim": "أَصْبَحَ طَعْمُهُ كَطَعْمِ السُّكَّرِ",
+  "ornekler": [
+   "حَلُوَ التُّفّاحُ بَعْدَ نُضْجِهِ"
+  ],
+  "bosluk": {
+   "cumle": "حَلُوَ التُّفّاحُ بَعْدَ نُضْجِهِ",
+   "kelime": "حَلُوَ"
+  },
+  "tr": "tatlı olmak",
+  "tanim_tr": "Tadı şeker tadı gibi olmak.",
+  "ornekler_tr": [
+   "Elma olgunlaştıktan sonra tatlandı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "k": "حَلْوى",
+  "yon": "حَلاوَة",
+  "iliski": "انظر",
+  "tr": "tatlı, helva"
+ },
+ {
+  "sayfa": 123,
+  "k": "حَلْوَيات",
+  "yon": "حَلاوَة",
+  "iliski": "انظر",
+  "tr": "tatlılar"
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حُلِيّ",
+  "cogul": null,
+  "metin": "ما تَتَزَيَّنُ بِهِ النِّساءُ مِنَ الجَواهِرِ وَالمَصوغاتِ ، “لَبِسَتِ العَروسُ جَميعَ حُلِيِّها اسْتِعْداداً لِزِفافِها” ، ﴿ وَاتَّخَذَ قَوْمُ مُوسى مِنْ بَعْدِهِ مِنْ حُلِيِّهِمْ عِجْلاً جَسَداً لَهُ خُوارٌ ﴾ .",
+  "tanim": "ما تَتَزَيَّنُ بِهِ النِّساءُ مِنَ الجَواهِرِ وَالمَصوغاتِ",
+  "ornekler": [
+   "لَبِسَتِ العَروسُ جَميعَ حُلِيِّها اسْتِعْداداً لِزِفافِها",
+   "﴿ وَاتَّخَذَ قَوْمُ مُوسى مِنْ بَعْدِهِ مِنْ حُلِيِّهِمْ عِجْلاً جَسَداً لَهُ خُوارٌ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "لَبِسَتِ العَروسُ جَميعَ حُلِيِّها اسْتِعْداداً لِزِفافِها",
+   "kelime": "حُلِيِّها"
+  },
+  "tr": "süs eşyası, mücevher",
+  "tanim_tr": "Kadınların süslendiği mücevherler ve işlenmiş takılar.",
+  "ornekler_tr": [
+   "Gelin düğününe hazırlanmak için bütün takılarını taktı.",
+   "Musa'nın kavmi, onun arkasından süs eşyalarından böğüren bir buzağı heykeli edindi."
+  ],
+  "resim": "p123_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حَليب",
+  "cogul": null,
+  "metin": "ما يَخْرُجُ مِنَ الثَّدْيِ وَالضَّرْعِ مِنْ سائِلٍ أَبْيَضَ ؛ وَهُوَ اللَّبَنُ ، “اشْرَبِ الحَليبَ مَعَ إِفْطارِكَ” ، “هذِهِ البَقَرَةُ تُدِرُّ حَليباً كَثيراً” .",
+  "tanim": "ما يَخْرُجُ مِنَ الثَّدْيِ وَالضَّرْعِ مِنْ سائِلٍ أَبْيَضَ ؛ وَهُوَ اللَّبَنُ",
+  "ornekler": [
+   "اشْرَبِ الحَليبَ مَعَ إِفْطارِكَ",
+   "هذِهِ البَقَرَةُ تُدِرُّ حَليباً كَثيراً"
+  ],
+  "bosluk": {
+   "cumle": "اشْرَبِ الحَليبَ مَعَ إِفْطارِكَ",
+   "kelime": "الحَليبَ"
+  },
+  "tr": "süt",
+  "tanim_tr": "Memeden çıkan beyaz sıvı; süt.",
+  "ornekler_tr": [
+   "Kahvaltınla birlikte süt iç.",
+   "Bu inek çok süt verir."
+  ],
+  "resim": "p123_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حِلْيَة",
+  "cogul": null,
+  "metin": "ما يُتَزَيَّنُ بِهِ ، ﴿ وَتَسْتَخْرِجُوا مِنْهُ حِلْيَةً تَلْبَسُونَها ﴾ ، ﴿ أَوَمَنْ يُنَشَّأُ فِي الْحِلْيَةِ وَهُوَ فِي الْخِصامِ غَيْرُ مُبينٍ ﴾ . انْظُرْ أَيْضاً : حُلِيّ .",
+  "tanim": "ما يُتَزَيَّنُ بِهِ",
+  "ornekler": [
+   "﴿ وَتَسْتَخْرِجُوا مِنْهُ حِلْيَةً تَلْبَسُونَها ﴾",
+   "﴿ أَوَمَنْ يُنَشَّأُ فِي الْحِلْيَةِ وَهُوَ فِي الْخِصامِ غَيْرُ مُبينٍ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَتَسْتَخْرِجُوا مِنْهُ حِلْيَةً تَلْبَسُونَها",
+   "kelime": "حِلْيَةً"
+  },
+  "tr": "süs, ziynet",
+  "tanim_tr": "Kendisiyle süslenilen şey.",
+  "ornekler_tr": [
+   "Ondan takınacağınız süs eşyaları çıkarasınız diye.",
+   "Süs içinde yetiştirilen ve tartışmada (derdini) açıkça ifade edemeyen kimseyi mi?"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حَليف",
+  "cogul": "حُلَفاء",
+  "metin": "( ج ) حُلَفاء : الشَّخْصُ أَوِ الدَّوْلَةُ الَّتي تَتَعاهَدُ مَعَ الأُخْرى عَلى التَّناصُرِ ، “كانَ المُنافِقونَ بِقِيادَةِ عَبْدِ اللهِ بْنِ سَلولٍ حُلَفاءَ لِبَني قَيْنُقاعَ مِنَ اليَهودِ قَبْلَ الإِسْلامِ” .",
+  "tanim": "الشَّخْصُ أَوِ الدَّوْلَةُ الَّتي تَتَعاهَدُ مَعَ الأُخْرى عَلى التَّناصُرِ",
+  "ornekler": [
+   "كانَ المُنافِقونَ بِقِيادَةِ عَبْدِ اللهِ بْنِ سَلولٍ حُلَفاءَ لِبَني قَيْنُقاعَ مِنَ اليَهودِ قَبْلَ الإِسْلامِ"
+  ],
+  "bosluk": {
+   "cumle": "كانَ المُنافِقونَ بِقِيادَةِ عَبْدِ اللهِ بْنِ سَلولٍ حُلَفاءَ لِبَني قَيْنُقاعَ",
+   "kelime": "حُلَفاءَ"
+  },
+  "tr": "müttefik",
+  "tanim_tr": "Diğeriyle yardımlaşma üzerine antlaşma yapan kişi veya devlet.",
+  "ornekler_tr": [
+   "Abdullah b. Selûl önderliğindeki münafıklar, İslam'dan önce Yahudilerden Benî Kaynuka'nın müttefikleriydi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حَليم",
+  "cogul": null,
+  "metin": "صَفوحٌ يَعْفو وَلا يُعاجِلُ بِالعُقوبَةِ ، ﴿ وَاللَّهُ غَفُورٌ حَليمٌ ﴾ .",
+  "tanim": "صَفوحٌ يَعْفو وَلا يُعاجِلُ بِالعُقوبَةِ",
+  "ornekler": [
+   "﴿ وَاللَّهُ غَفُورٌ حَليمٌ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَاللَّهُ غَفُورٌ حَليمٌ",
+   "kelime": "حَليمٌ"
+  },
+  "tr": "halim, yumuşak huylu",
+  "tanim_tr": "Bağışlayan, affeden ve cezalandırmada acele etmeyen.",
+  "ornekler_tr": [
+   "Allah bağışlayandır, halimdir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حُمَّ",
+  "cogul": null,
+  "metin": "يُحَمُّ حُمّى : ( ١ ) أَصابَتْهُ الحُمّى ، “حُمَّ المُديرُ فَتَرَكَ العَمَلَ” . ( ٢ ) قُدِّرَ ، “إِذا حُمَّ القَضاءُ ، لَمْ يَنْفَعِ الدَّواءُ” .",
+  "tanim": "( ١ ) أَصابَتْهُ الحُمّى ( ٢ ) قُدِّرَ",
+  "ornekler": [
+   "حُمَّ المُديرُ فَتَرَكَ العَمَلَ",
+   "إِذا حُمَّ القَضاءُ ، لَمْ يَنْفَعِ الدَّواءُ"
+  ],
+  "bosluk": {
+   "cumle": "حُمَّ المُديرُ فَتَرَكَ العَمَلَ",
+   "kelime": "حُمَّ"
+  },
+  "tr": "ateşlenmek; takdir edilmek",
+  "tanim_tr": "(1) Ateşli hastalığa yakalanmak. (2) Takdir edilmek.",
+  "ornekler_tr": [
+   "Müdür ateşlendi ve işi bıraktı.",
+   "Kader gelip çatınca ilaç fayda etmez."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حَماة",
+  "cogul": null,
+  "metin": "أُمُّ الزَّوْجِ أَوِ الزَّوْجَة .",
+  "tanim": "أُمُّ الزَّوْجِ أَوِ الزَّوْجَة",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "kayınvalide",
+  "tanim_tr": "Kocanın veya karının annesi.",
+  "ornekler_tr": [],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حِمار",
+  "cogul": "حَمير ، حُمُر ، أَحْمِرَة",
+  "metin": "( ج ) حَمير وَحُمُر وَأَحْمِرَة . حَيَوانٌ كالحِصانِ وَالبَغْلِ يُسْتَخْدَمُ لِلرُّكوبِ ، “رَأَيْتُ المُزارِعَ يَحْمِلُ القَمْحَ عَلى حِمارِهِ” ، ﴿ مَثَلُ الَّذينَ حُمِّلُوا التَّوْراةَ ثُمَّ لَمْ يَحْمِلُوها كَمَثَلِ الْحِمارِ يَحْمِلُ أَسْفاراً ﴾ ، ﴿ وَالْخَيْلَ وَالْبِغالَ وَالْحَميرَ لِتَرْكَبُوها وَزينَةً ﴾ .",
+  "tanim": "حَيَوانٌ كالحِصانِ وَالبَغْلِ يُسْتَخْدَمُ لِلرُّكوبِ",
+  "ornekler": [
+   "رَأَيْتُ المُزارِعَ يَحْمِلُ القَمْحَ عَلى حِمارِهِ",
+   "﴿ مَثَلُ الَّذينَ حُمِّلُوا التَّوْراةَ ثُمَّ لَمْ يَحْمِلُوها كَمَثَلِ الْحِمارِ يَحْمِلُ أَسْفاراً ﴾",
+   "﴿ وَالْخَيْلَ وَالْبِغالَ وَالْحَميرَ لِتَرْكَبُوها وَزينَةً ﴾"
+  ],
+  "bosluk": {
+   "cumle": "رَأَيْتُ المُزارِعَ يَحْمِلُ القَمْحَ عَلى حِمارِهِ",
+   "kelime": "حِمارِهِ"
+  },
+  "tr": "eşek",
+  "tanim_tr": "At ve katır gibi binmek için kullanılan bir hayvan.",
+  "ornekler_tr": [
+   "Çiftçinin buğdayı eşeğinin üstünde taşıdığını gördüm.",
+   "Tevrat'la yükümlü tutulup da onun gereğini yapmayanların durumu, ciltlerle kitap taşıyan eşeğin durumu gibidir.",
+   "Binmeniz ve süs için atları, katırları ve eşekleri (yarattı)."
+  ],
+  "resim": "p123_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حَماس",
+  "cogul": null,
+  "metin": "وَحَماسَةٌ : الشَّجاعَةُ وَالشِّدَّةُ في العَمَلِ وَالحَرْبِ وَغَيْرِ ذلِكَ ، “المُسْلِمونَ يُكَبِّرونَ عِنْدَ دُخولِ المَعارِكِ فَيُعْطيهِمْ ذلِكَ حَماساً كَبيراً” .",
+  "tanim": "الشَّجاعَةُ وَالشِّدَّةُ في العَمَلِ وَالحَرْبِ وَغَيْرِ ذلِكَ",
+  "ornekler": [
+   "المُسْلِمونَ يُكَبِّرونَ عِنْدَ دُخولِ المَعارِكِ فَيُعْطيهِمْ ذلِكَ حَماساً كَبيراً"
+  ],
+  "bosluk": {
+   "cumle": "فَيُعْطيهِمْ ذلِكَ حَماساً كَبيراً",
+   "kelime": "حَماساً"
+  },
+  "tr": "heves, coşku",
+  "tanim_tr": "(Hamâse de denir): işte, savaşta vb. cesaret ve şiddet.",
+  "ornekler_tr": [
+   "Müslümanlar savaşa girerken tekbir getirirler; bu onlara büyük bir coşku verir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حَمّام",
+  "cogul": null,
+  "metin": "ما يُغْتَسَلُ فيهِ ، وَأَصْبَحَ الآنَ يُطْلَقُ عَلى مَكانِ قَضاءِ الحاجَةِ أَيْضاً ، “في بَيْتِنا مَطْبَخٌ وَحَمّامٌ وَغُرْفَتانِ” .",
+  "tanim": "ما يُغْتَسَلُ فيهِ ، وَأَصْبَحَ الآنَ يُطْلَقُ عَلى مَكانِ قَضاءِ الحاجَةِ أَيْضاً",
+  "ornekler": [
+   "في بَيْتِنا مَطْبَخٌ وَحَمّامٌ وَغُرْفَتانِ"
+  ],
+  "bosluk": {
+   "cumle": "في بَيْتِنا مَطْبَخٌ وَحَمّامٌ وَغُرْفَتانِ",
+   "kelime": "وَحَمّامٌ"
+  },
+  "tr": "banyo, hamam",
+  "tanim_tr": "İçinde yıkanılan yer; artık tuvalet için de kullanılmaktadır.",
+  "ornekler_tr": [
+   "Evimizde bir mutfak, bir banyo ve iki oda var."
+  ],
+  "resim": "p123_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 123,
+  "k": "حَمام",
+  "yon": "حَمامَة",
+  "iliski": "مفرد",
+  "tr": "güvercinler",
+  "not_": "Kitapta: “واحِدَتُهُ حَمامَة . انْظُرْ : حَمامَة .”"
+ },
+ {
+  "sayfa": 123,
+  "baski_no": "١٢٣",
+  "k": "حَمامَة",
+  "cogul": "حَمام",
+  "metin": "( ج ) حَمام : نَوْعٌ مِنَ الطُّيورِ ، اسْتُخْدِمَ الزّاجِلُ مِنْهُ لِنَقْلِ",
+  "tanim": "نَوْعٌ مِنَ الطُّيورِ ، اسْتُخْدِمَ الزّاجِلُ مِنْهُ لِنَقْلِ الرَّسائِلِ في الماضي",
+  "ornekler": [
+   "اشْتَرَيْتُ مِنْ سوقِ الطُّيورِ عِشْرينَ حَمامَةً"
+  ],
+  "bosluk": {
+   "cumle": "اشْتَرَيْتُ مِنْ سوقِ الطُّيورِ عِشْرينَ حَمامَةً",
+   "kelime": "حَمامَةً"
+  },
+  "tr": "güvercin",
+  "tanim_tr": "Bir kuş türü; posta güvercini geçmişte mektup taşımak için kullanılırdı.",
+  "ornekler_tr": [
+   "Kuş pazarından yirmi güvercin satın aldım."
+  ],
+  "resim": "p123_5.jpg",
+  "not": "Metin p124'te devam ediyor (tanımın sonu ve örnek oradan alındı)."
+ }
+]

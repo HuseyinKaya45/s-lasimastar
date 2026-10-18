@@ -39,7 +39,7 @@ for yol in sorted(glob.glob(os.path.join(here, "kaynak", "p*.json")), key=lambda
             yonler.append(x)
             continue
         b = x.get("bosluk")
-        maddeler.append({"k": x["k"], "c": x.get("cogul") or "", "m": x.get("metin", ""), "t": x.get("tanim") or "",
+        maddeler.append({"k": x["k"], "c": x.get("cogul") or "", "m": x.get("metin", ""), "t": (x.get("tanim") or "").strip("—- "),
                          "o": x.get("ornekler") or [], "b": [b["cumle"], b["kelime"]] if b and b.get("cumle") and b.get("kelime") else None,
                          "tr": x.get("tr", ""), "ttr": x.get("tanim_tr") or "", "otr": x.get("ornekler_tr") or [],
                          "r": (x.get("resim") or "")[:-4] or None, "s": x["sayfa"], "y": []})
