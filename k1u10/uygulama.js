@@ -490,7 +490,7 @@ function sinavHavuzu() {
   KALIP_T.forEach(function (t, ti) { t.oge.forEach(function (x) { if (x.r) h.push({ tur: "k" + ti, tr: (x.s ? x.s + " — " : "") + "Doğru cevap hangisi?", resimSoru: x.r, d: x.d, y: x.y }); }); });
   FARKLI.forEach(function (f) { h.push({ tur: "farkli", tr: "Hangisi farklı?", d: f[0][f[1]] + " (" + ["أ", "ب", "ج"][f[1]] + ")", y: [0, 1, 2].filter(function (j) { return j !== f[1]; }).map(function (j) { return f[0][j] + " (" + ["أ", "ب", "ج"][j] + ")"; }) }); });
   CIFT.forEach(function (c, i) { var ha = i % 2 === 0, id = (ha ? "ha-" : "he-") + i; if (ZAMAN[id]) h.push({ tur: "ta", tr: "Hangi kelimeyi duydun?", cal: id, d: c[ha ? 0 : 1], y: [c[ha ? 1 : 0]] }); });
-  GUN.forEach(function (g, i) { if (ZAMAN["g" + i]) h.push({ tur: "renk", tr: "Hangi rengi duydun?", cal: "g" + i, d: g[0], y: rastgele(GUN.map(function (x) { return x[0]; }), 3, [g[0]]) }); });
+  GUN.forEach(function (g, i) { if (ZAMAN["g" + i]) h.push({ tur: "renk", tr: "Hangi kelimeyi duydun?", cal: "g" + i, d: g[0], y: rastgele(GUN.map(function (x) { return x[0]; }), 3, [g[0]]) }); });
   BAS_HARF.forEach(function (b) { h.push({ tur: "harf", tr: "Bu kelimeler hangi harfle bitiyor? " + b[0].join("، "), d: b[1], y: rastgele(HARF_SIK, 3, [b[1]]) }); });
   return h;
 }
