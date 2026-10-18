@@ -1,0 +1,442 @@
+[
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "إِسْمَنْت",
+  "cogul": null,
+  "metin": "مَسْحوقٌ يَتَكَوَّنُ مِنَ الحَجَرِ الجيرِيِّ وَالجِبْس، يُضافُ إِلَيهِ الماءُ وَالرَّمْلُ لِلبِناء.",
+  "tanim": "مَسْحوقٌ يَتَكَوَّنُ مِنَ الحَجَرِ الجيرِيِّ وَالجِبْس، يُضافُ إِلَيهِ الماءُ وَالرَّمْلُ لِلبِناء",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "çimento",
+  "tanim_tr": "Kireç taşı ve alçıdan oluşan, inşaat için içine su ve kum katılan toz.",
+  "ornekler_tr": [],
+  "resim": "p14_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسْنان",
+  "yon": "سِنّ",
+  "iliski": "جمع",
+  "tr": "dişler"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسْنِمَة",
+  "yon": "سَنام",
+  "iliski": "جمع",
+  "tr": "hörgüçler"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "إِسْهام",
+  "yon": "أَسْهَمَ",
+  "iliski": "مصدر",
+  "tr": "katkı, katılım"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسْهَبَ",
+  "cogul": null,
+  "metin": "يُسْهِبُ إِسْهاباً: أَطالَ في الكَلامِ وَكَثَّرَهُ، خِلافُ أَوْجَزَ أَوِ اخْتَصَرَ، \"تَحَدَّثَ المُحاضِرُ وَأَسْهَبَ حَتّى مَلَّ الحاضِرونَ\".",
+  "tanim": "أَطالَ في الكَلامِ وَكَثَّرَهُ، خِلافُ أَوْجَزَ أَوِ اخْتَصَرَ",
+  "ornekler": [
+   "تَحَدَّثَ المُحاضِرُ وَأَسْهَبَ حَتّى مَلَّ الحاضِرونَ"
+  ],
+  "bosluk": {
+   "cumle": "تَحَدَّثَ المُحاضِرُ وَأَسْهَبَ حَتّى مَلَّ الحاضِرونَ",
+   "kelime": "وَأَسْهَبَ"
+  },
+  "tr": "sözü uzatmak",
+  "tanim_tr": "Konuşmayı uzattı ve çoğalttı; kısa kesmenin zıddı.",
+  "ornekler_tr": [
+   "Konuşmacı konuştu ve sözü öyle uzattı ki dinleyenler sıkıldı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسْهَمَ",
+  "cogul": null,
+  "metin": "يُسْهِمُ إِسْهاماً: شارَكَ، \"أَسْهَمَ المُسلِمونَ بِنَصيبٍ كَبيرٍ في نَشْرِ العُلومِ وَالحَضارَةِ\".",
+  "tanim": "شارَكَ",
+  "ornekler": [
+   "أَسْهَمَ المُسلِمونَ بِنَصيبٍ كَبيرٍ في نَشْرِ العُلومِ وَالحَضارَةِ"
+  ],
+  "bosluk": {
+   "cumle": "أَسْهَمَ المُسلِمونَ بِنَصيبٍ كَبيرٍ في نَشْرِ العُلومِ وَالحَضارَةِ",
+   "kelime": "أَسْهَمَ"
+  },
+  "tr": "katkıda bulunmak",
+  "tanim_tr": "Katıldı, pay sahibi oldu.",
+  "ornekler_tr": [
+   "Müslümanlar ilimlerin ve medeniyetin yayılmasına büyük katkıda bulundu."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسْوَأُ",
+  "cogul": null,
+  "metin": "أَكْثَرُ سوءاً وَرَداءَةً، خِلافُ أَحْسَن وَأَطْيَب، وفي الحَديثِ: (أَسْوَأُ النّاسِ سَرِقَةً الَّذي يَسْرِقُ مِنْ صَلاتِه).",
+  "tanim": "أَكْثَرُ سوءاً وَرَداءَةً، خِلافُ أَحْسَن وَأَطْيَب",
+  "ornekler": [
+   "أَسْوَأُ النّاسِ سَرِقَةً الَّذي يَسْرِقُ مِنْ صَلاتِه"
+  ],
+  "bosluk": {
+   "cumle": "أَسْوَأُ النّاسِ سَرِقَةً الَّذي يَسْرِقُ مِنْ صَلاتِه",
+   "kelime": "أَسْوَأُ"
+  },
+  "tr": "daha kötü, en kötü",
+  "tanim_tr": "Daha kötü ve daha bayağı; daha güzel ve daha iyinin zıddı.",
+  "ornekler_tr": [
+   "(Hadis) Hırsızlığı en kötü olan insan, namazından çalandır."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسْوار",
+  "yon": "سور",
+  "iliski": "جمع",
+  "tr": "surlar"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسْواط",
+  "yon": "سَوْط",
+  "iliski": "جمع",
+  "tr": "kamçılar"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسْواق",
+  "yon": "سوق",
+  "iliski": "جمع",
+  "tr": "çarşılar, pazarlar"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أُسْوَة",
+  "cogul": null,
+  "metin": "قُدْوَة، ﴿لَقَدْ كانَ لَكُمْ في رَسُولِ اللهِ أُسْوَةٌ حَسَنَةٌ﴾.",
+  "tanim": "قُدْوَة",
+  "ornekler": [
+   "﴿لَقَدْ كانَ لَكُمْ في رَسُولِ اللهِ أُسْوَةٌ حَسَنَةٌ﴾"
+  ],
+  "bosluk": {
+   "cumle": "لَقَدْ كانَ لَكُمْ في رَسُولِ اللهِ أُسْوَةٌ حَسَنَةٌ",
+   "kelime": "أُسْوَةٌ"
+  },
+  "tr": "örnek, model",
+  "tanim_tr": "Örnek alınacak kimse.",
+  "ornekler_tr": [
+   "\"Andolsun, Allah'ın Resulünde sizin için güzel bir örnek vardır.\" (Ahzâb 21)"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسْوَد",
+  "cogul": null,
+  "metin": "(مُؤ) سَوْداء: لَوْنٌ خِلافُ الأَبْيَض، ﴿وَكُلُوا وَاشْرَبُوا حَتّى يَتَبَيَّنَ لَكُمُ الخَيْطُ الأَبْيَضُ مِنَ الخَيْطِ الأَسْوَدِ مِنَ الفَجْرِ﴾.",
+  "tanim": "لَوْنٌ خِلافُ الأَبْيَض",
+  "ornekler": [
+   "﴿وَكُلُوا وَاشْرَبُوا حَتّى يَتَبَيَّنَ لَكُمُ الخَيْطُ الأَبْيَضُ مِنَ الخَيْطِ الأَسْوَدِ مِنَ الفَجْرِ﴾"
+  ],
+  "bosluk": {
+   "cumle": "حَتّى يَتَبَيَّنَ لَكُمُ الخَيْطُ الأَبْيَضُ مِنَ الخَيْطِ الأَسْوَدِ مِنَ الفَجْرِ",
+   "kelime": "الأَسْوَدِ"
+  },
+  "tr": "siyah, kara",
+  "tanim_tr": "Beyazın zıddı olan renk.",
+  "ornekler_tr": [
+   "\"Fecrin beyaz ipliği siyah iplikten size ayırt edilinceye kadar yiyin, için.\" (Bakara 187)"
+  ],
+  "resim": "p14_2.jpg",
+  "not": "Müennesi: سَوْداء. Resim أسود/أبيض karşıtlığını gösteriyor.",
+  "muennes": "سَوْداء"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسْوِرَة",
+  "yon": "سِوار",
+  "iliski": "جمع",
+  "tr": "bilezikler"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسِيَ",
+  "cogul": null,
+  "metin": "يَأْسَى إِسَياً: حَزِنَ وَأَسِفَ، \"أَسِيَ عَلَيهِ وَلَهُ\"، ﴿فَلا تَأْسَ عَلَى القَوْمِ الكافِرينَ﴾.",
+  "tanim": "حَزِنَ وَأَسِفَ",
+  "ornekler": [
+   "أَسِيَ عَلَيهِ وَلَهُ",
+   "﴿فَلا تَأْسَ عَلَى القَوْمِ الكافِرينَ﴾"
+  ],
+  "bosluk": {
+   "cumle": "فَلا تَأْسَ عَلَى القَوْمِ الكافِرينَ",
+   "kelime": "تَأْسَ"
+  },
+  "tr": "üzülmek, kederlenmek",
+  "tanim_tr": "Üzüldü ve esef etti.",
+  "ornekler_tr": [
+   "Ona/onun için üzüldü.",
+   "\"Kâfirler topluluğu için üzülme.\" (Mâide 68)"
+  ],
+  "resim": null,
+  "not": "Mastar kitapta إِسَياً gibi basılmış (bilinen biçimi أَسًى); hareke belirsiz."
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسْياف",
+  "yon": "سَيْف",
+  "iliski": "جمع",
+  "tr": "kılıçlar"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَسير",
+  "cogul": null,
+  "metin": "الشَّخْصُ الَّذي يَأْخُذُهُ الأَعْداءُ في الحَرْبِ أَوِ المَعْرَكَةِ، \"أُخِذَ الجُنْدِيُّ أَسيراً في الحَرْبِ\"، ﴿وَيُطْعِمُونَ الطَّعامَ عَلى حُبِّهِ مِسْكيناً وَيَتيماً وَأَسيراً﴾.",
+  "tanim": "الشَّخْصُ الَّذي يَأْخُذُهُ الأَعْداءُ في الحَرْبِ أَوِ المَعْرَكَةِ",
+  "ornekler": [
+   "أُخِذَ الجُنْدِيُّ أَسيراً في الحَرْبِ",
+   "﴿وَيُطْعِمُونَ الطَّعامَ عَلى حُبِّهِ مِسْكيناً وَيَتيماً وَأَسيراً﴾"
+  ],
+  "bosluk": {
+   "cumle": "أُخِذَ الجُنْدِيُّ أَسيراً في الحَرْبِ",
+   "kelime": "أَسيراً"
+  },
+  "tr": "esir, tutsak",
+  "tanim_tr": "Savaşta veya çarpışmada düşmanların yakaladığı kişi.",
+  "ornekler_tr": [
+   "Asker savaşta esir alındı.",
+   "\"Kendileri ona ihtiyaç duydukları halde yemeği yoksula, yetime ve esire yedirirler.\" (İnsan 8)"
+  ],
+  "resim": "p14_3.jpg",
+  "not": "Metin sağ sütunun sonundan sol sütunun başına taşıyor; ikisi birleştirildi."
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَشاحَ",
+  "cogul": null,
+  "metin": "يُشيحُ إِشاحَةً: صَرَفَ وَجْهَهُ وَأَعْرَضَ لِعَدَمِ الرِّضا، \"لَقِيَ خَصْمَهُ في الطَّريقِ؛ فَأَشاحَ بِوَجْهِهِ عَنْهُ\".",
+  "tanim": "صَرَفَ وَجْهَهُ وَأَعْرَضَ لِعَدَمِ الرِّضا",
+  "ornekler": [
+   "لَقِيَ خَصْمَهُ في الطَّريقِ؛ فَأَشاحَ بِوَجْهِهِ عَنْهُ"
+  ],
+  "bosluk": {
+   "cumle": "لَقِيَ خَصْمَهُ في الطَّريقِ؛ فَأَشاحَ بِوَجْهِهِ عَنْهُ",
+   "kelime": "فَأَشاحَ"
+  },
+  "tr": "yüz çevirmek",
+  "tanim_tr": "Hoşnutsuzluktan yüzünü çevirdi ve döndü.",
+  "ornekler_tr": [
+   "Yolda hasmıyla karşılaştı ve ondan yüzünü çevirdi."
+  ],
+  "resim": "p14_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَشادَ",
+  "cogul": null,
+  "metin": "يُشيدُ إِشادَةً: مَدَحَ وَأَثْنَى، \"أَشادَ المُديرُ بِعَمَلِ المُوَظَّفينَ\".",
+  "tanim": "مَدَحَ وَأَثْنَى",
+  "ornekler": [
+   "أَشادَ المُديرُ بِعَمَلِ المُوَظَّفينَ"
+  ],
+  "bosluk": {
+   "cumle": "أَشادَ المُديرُ بِعَمَلِ المُوَظَّفينَ",
+   "kelime": "أَشادَ"
+  },
+  "tr": "övmek, takdir etmek",
+  "tanim_tr": "Övdü ve methetti.",
+  "ornekler_tr": [
+   "Müdür çalışanların işini övdü."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "إِشادَة",
+  "yon": "أَشادَ",
+  "iliski": "مصدر",
+  "tr": "övgü, takdir"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَشارَ",
+  "cogul": null,
+  "metin": "يُشيرُ إِشارَةً: (١) أَوْمَأَ مُعَبِّراً عَنْ مَعْنًى مِنَ المَعاني؛ كَالدَّعْوَةِ إِلى الخُروجِ أَوِ الدُّخولِ. (٢) أَشارَ عَلَيهِ بِكَذا: نَصَحَهُ بِأَنْ يَفْعَلَ ما دَلَّهُ عَلَيهِ مِنْ صَواب.",
+  "tanim": "(١) أَوْمَأَ مُعَبِّراً عَنْ مَعْنًى مِنَ المَعاني؛ كَالدَّعْوَةِ إِلى الخُروجِ أَوِ الدُّخولِ (٢) أَشارَ عَلَيهِ بِكَذا: نَصَحَهُ بِأَنْ يَفْعَلَ ما دَلَّهُ عَلَيهِ مِنْ صَواب",
+  "ornekler": [
+   "أَشارَ عَلَيهِ بِكَذا"
+  ],
+  "bosluk": {
+   "cumle": "أَشارَ عَلَيهِ بِكَذا",
+   "kelime": "أَشارَ"
+  },
+  "tr": "işaret etmek; tavsiye etmek",
+  "tanim_tr": "(1) Çıkmaya veya girmeye çağırmak gibi bir anlamı ifade ederek işaret etti. (2) Ona şunu tavsiye etti: gösterdiği doğru şeyi yapmasını öğütledi.",
+  "ornekler_tr": [
+   "Ona şunu tavsiye etti."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "إِشارَة",
+  "cogul": null,
+  "metin": "مَصْدَرُ أَشارَ: رَمْزٌ وَعَلامَةٌ أَو حَرَكَةٌ تَدُلُّ عَلى أَمْرٍ ما، \"هذِهِ الإِشارَةُ تَدُلُّ عَلى وُجودِ مُسْتَشْفًى هُنا\"، \"هذِهِ إِشارَةُ الخَطَرِ\"، \"لا تَسِرْ وَالإِشارَةُ الضَّوْئِيَّةُ حَمْراءُ\".",
+  "tanim": "مَصْدَرُ أَشارَ: رَمْزٌ وَعَلامَةٌ أَو حَرَكَةٌ تَدُلُّ عَلى أَمْرٍ ما",
+  "ornekler": [
+   "هذِهِ الإِشارَةُ تَدُلُّ عَلى وُجودِ مُسْتَشْفًى هُنا",
+   "هذِهِ إِشارَةُ الخَطَرِ",
+   "لا تَسِرْ وَالإِشارَةُ الضَّوْئِيَّةُ حَمْراءُ"
+  ],
+  "bosluk": {
+   "cumle": "هذِهِ إِشارَةُ الخَطَرِ",
+   "kelime": "إِشارَةُ"
+  },
+  "tr": "işaret",
+  "tanim_tr": "Eşâra'nın mastarı: bir şeye delalet eden sembol, alamet veya hareket.",
+  "ornekler_tr": [
+   "Bu işaret burada bir hastane olduğunu gösteriyor.",
+   "Bu, tehlike işaretidir.",
+   "Trafik ışığı kırmızıyken yürüme."
+  ],
+  "resim": "p14_5.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "إِشاعَة",
+  "cogul": null,
+  "metin": "خَبَرٌ كاذِبٌ انْتَشَرَ، \"لا تُصَدِّقْ هذا الكَلامَ، فَهُوَ إِشاعَةٌ\".",
+  "tanim": "خَبَرٌ كاذِبٌ انْتَشَرَ",
+  "ornekler": [
+   "لا تُصَدِّقْ هذا الكَلامَ، فَهُوَ إِشاعَةٌ"
+  ],
+  "bosluk": {
+   "cumle": "لا تُصَدِّقْ هذا الكَلامَ، فَهُوَ إِشاعَةٌ",
+   "kelime": "إِشاعَةٌ"
+  },
+  "tr": "söylenti, dedikodu",
+  "tanim_tr": "Yayılmış yalan haber.",
+  "ornekler_tr": [
+   "Bu söze inanma, o bir söylentidir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَشْبار",
+  "yon": "شِبْر",
+  "iliski": "جمع",
+  "tr": "karışlar"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَشْبال",
+  "yon": "شِبْل",
+  "iliski": "جمع",
+  "tr": "aslan yavruları"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَشْباه",
+  "yon": "شِبْه",
+  "iliski": "جمع",
+  "tr": "benzerler"
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَشْبَهَ",
+  "cogul": null,
+  "metin": "يُشْبِهُ شَبَهاً: ماثَلَ، أَشْبَهَ الشَّيْءُ الشَّيْءَ: ماثَلَهُ، وفي المَثَلِ: \"مَنْ أَشْبَهَ أَباهُ فَما ظَلَمَ\"، \"ما أَشْبَهَ اللَّيْلَةَ بِالبارِحَةِ!\".",
+  "tanim": "ماثَلَ، أَشْبَهَ الشَّيْءُ الشَّيْءَ: ماثَلَهُ",
+  "ornekler": [
+   "أَشْبَهَ الشَّيْءُ الشَّيْءَ",
+   "مَنْ أَشْبَهَ أَباهُ فَما ظَلَمَ",
+   "ما أَشْبَهَ اللَّيْلَةَ بِالبارِحَةِ!"
+  ],
+  "bosluk": {
+   "cumle": "مَنْ أَشْبَهَ أَباهُ فَما ظَلَمَ",
+   "kelime": "أَشْبَهَ"
+  },
+  "tr": "benzemek",
+  "tanim_tr": "Benzedi; bir şey diğerine benzedi: ona benzer oldu.",
+  "ornekler_tr": [
+   "Şey şeye benzedi.",
+   "(Atasözü) Babasına benzeyen haksızlık etmemiştir. (Armut dibine düşer.)",
+   "Bu gece dün geceye ne kadar da benziyor!"
+  ],
+  "resim": "p14_6.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَشْتات",
+  "cogul": null,
+  "metin": "مُتَفَرِّقونَ؛ خِلافُ جَميع، ﴿لَيْسَ عَلَيْكُمْ جُناحٌ أَنْ تَأْكُلُوا جَميعاً أَوْ أَشْتاتاً﴾.",
+  "tanim": "مُتَفَرِّقونَ؛ خِلافُ جَميع",
+  "ornekler": [
+   "﴿لَيْسَ عَلَيْكُمْ جُناحٌ أَنْ تَأْكُلُوا جَميعاً أَوْ أَشْتاتاً﴾"
+  ],
+  "bosluk": {
+   "cumle": "لَيْسَ عَلَيْكُمْ جُناحٌ أَنْ تَأْكُلُوا جَميعاً أَوْ أَشْتاتاً",
+   "kelime": "أَشْتاتاً"
+  },
+  "tr": "dağınık, ayrı ayrı",
+  "tanim_tr": "Dağınık olanlar; topluca olanın zıddı.",
+  "ornekler_tr": [
+   "\"Topluca veya ayrı ayrı yemenizde size bir günah yoktur.\" (Nûr 61)"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 14,
+  "baski_no": "١٤",
+  "k": "أَشْجار",
+  "yon": "شَجَرَة",
+  "iliski": "جمع",
+  "tr": "ağaçlar"
+ }
+]

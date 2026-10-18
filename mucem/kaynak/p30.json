@@ -1,0 +1,401 @@
+[
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "إمْتاع",
+  "yon": "أَمْتَعَ",
+  "iliski": "مصدر",
+  "tr": "eğlendirme, zevk verme"
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْتَعَ",
+  "cogul": null,
+  "metin": "يُمْتِعُ إمْتاعاً : سَرَّ وَأَبْهَجَ ، “أَمْتَعَ الشّاعِرُ الحُضورَ بِشِعْرِهِ” ، “أَمْتَعَنا القارِئُ بِتِلاوَةِ القُرْآنِ” .",
+  "tanim": "سَرَّ وَأَبْهَجَ",
+  "ornekler": [
+   "أَمْتَعَ الشّاعِرُ الحُضورَ بِشِعْرِهِ",
+   "أَمْتَعَنا القارِئُ بِتِلاوَةِ القُرْآنِ"
+  ],
+  "bosluk": {
+   "cumle": "أَمْتَعَ الشّاعِرُ الحُضورَ بِشِعْرِهِ",
+   "kelime": "أَمْتَعَ"
+  },
+  "tr": "zevk vermek, sevindirmek",
+  "tanim_tr": "Sevindirdi ve neşelendirdi.",
+  "ornekler_tr": [
+   "Şair, şiiriyle dinleyicilere zevk verdi.",
+   "Kâri, Kur'an tilavetiyle bize hoş anlar yaşattı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْثال",
+  "yon": "مَثَل",
+  "iliski": "جمع",
+  "tr": "benzerler; atasözleri"
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْثِلَة",
+  "yon": "مِثال",
+  "iliski": "جمع",
+  "tr": "örnekler"
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمَدَّ",
+  "cogul": null,
+  "metin": "يُمِدُّ إمْداداً : أَعانَ ، أَغاثَ ، زَوَّدَ ، أَعْطَى ، “أَمَدَّ المُحْسِنُ أَهْلَهُ بِمُساعَداتٍ عَديدَةٍ” ، ﴿أَمَدَّكُمْ بِأَنْعَامٍ وَبَنِينَ﴾ .",
+  "tanim": "أَعانَ ، أَغاثَ ، زَوَّدَ ، أَعْطَى",
+  "ornekler": [
+   "أَمَدَّ المُحْسِنُ أَهْلَهُ بِمُساعَداتٍ عَديدَةٍ",
+   "﴿أَمَدَّكُمْ بِأَنْعَامٍ وَبَنِينَ﴾"
+  ],
+  "bosluk": {
+   "cumle": "أَمَدَّ المُحْسِنُ أَهْلَهُ بِمُساعَداتٍ عَديدَةٍ",
+   "kelime": "أَمَدَّ"
+  },
+  "tr": "yardım etmek, takviye etmek",
+  "tanim_tr": "Yardım etti, imdadına yetişti, donattı, verdi.",
+  "ornekler_tr": [
+   "Hayırsever kişi ailesine pek çok yardımda bulundu.",
+   "Size hayvanlar ve oğullar verdi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "إمْداد",
+  "yon": "أَمَدَّ",
+  "iliski": "مصدر",
+  "tr": "yardım, ikmal",
+  "not": "Kitapta 'مَصْدَرُ أمَدَّ . انْظُرْ : مَدَّ' yazıyor (yönlendirme مدّ maddesine)."
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْر",
+  "cogul": "أُمور، أَوامِر",
+  "metin": "(ج) أُمور وَأَوامِر : (١) طَلَبٌ ، “أَطِعْ أَمْرَ رَبِّكَ” . (٢) حالٌ أَوْ شَأْنٌ ، “لا أَعْرِفُ عَنْ هذا الأَمْرِ شَيْئاً” ، ﴿يَقُولُونَ هَلْ لَنَا مِنَ الْأَمْرِ مِنْ شَيْءٍ﴾ .",
+  "tanim": "(١) طَلَبٌ . (٢) حالٌ أَوْ شَأْنٌ",
+  "ornekler": [
+   "أَطِعْ أَمْرَ رَبِّكَ",
+   "لا أَعْرِفُ عَنْ هذا الأَمْرِ شَيْئاً",
+   "﴿يَقُولُونَ هَلْ لَنَا مِنَ الْأَمْرِ مِنْ شَيْءٍ﴾"
+  ],
+  "bosluk": {
+   "cumle": "أَطِعْ أَمْرَ رَبِّكَ",
+   "kelime": "أَمْرَ"
+  },
+  "tr": "emir; iş, mesele",
+  "tanim_tr": "(1) İstek, buyruk. (2) Durum veya iş.",
+  "ornekler_tr": [
+   "Rabbinin emrine itaat et.",
+   "Bu mesele hakkında hiçbir şey bilmiyorum.",
+   "Diyorlar ki: Bu işte bize düşen bir şey var mı?"
+  ],
+  "resim": null,
+  "not": "Çoğul: anlam (١) için أوامر, anlam (٢) için أمور kullanılır (kitapta ayrım belirtilmemiş)."
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمَرَ",
+  "cogul": null,
+  "metin": "يَأْمُرُ أَمْراً : طَلَبَ ؛ خِلافُ نَهَى ، “أَمَرَ الأَبُ ابْنَهُ بِالصَّلاةِ” ، ﴿يَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنْكَرِ﴾ .",
+  "tanim": "طَلَبَ ؛ خِلافُ نَهَى",
+  "ornekler": [
+   "أَمَرَ الأَبُ ابْنَهُ بِالصَّلاةِ",
+   "﴿يَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنْكَرِ﴾"
+  ],
+  "bosluk": {
+   "cumle": "أَمَرَ الأَبُ ابْنَهُ بِالصَّلاةِ",
+   "kelime": "أَمَرَ"
+  },
+  "tr": "emretmek",
+  "tanim_tr": "İstedi, buyurdu; yasaklamanın zıddı.",
+  "ornekler_tr": [
+   "Baba oğluna namazı emretti.",
+   "İyiliği emreder, kötülükten alıkoyarlar."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أُمَراء",
+  "yon": "أَمير",
+  "iliski": "جمع",
+  "tr": "emirler"
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْراض",
+  "yon": "مَرَض",
+  "iliski": "جمع",
+  "tr": "hastalıklar"
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْسِ",
+  "cogul": null,
+  "metin": "(١) اليَوْمُ الَّذي قَبْلَ اليَوْمِ الحالي ، “اليَوْمُ الجُمُعَةُ ، وَغَداً السَّبْتُ ، وَأَمْسِ كانَ الخَميسَ” . (٢) الماضي ، “كَأَنَّكَ لَمْ تَكُنْ صَديقي بِالأَمْسِ” ، ﴿فَجَعَلْنَاهَا حَصِيدًا كَأَنْ لَمْ تَغْنَ بِالْأَمْسِ﴾ .",
+  "tanim": "(١) اليَوْمُ الَّذي قَبْلَ اليَوْمِ الحالي . (٢) الماضي",
+  "ornekler": [
+   "اليَوْمُ الجُمُعَةُ ، وَغَداً السَّبْتُ ، وَأَمْسِ كانَ الخَميسَ",
+   "كَأَنَّكَ لَمْ تَكُنْ صَديقي بِالأَمْسِ",
+   "﴿فَجَعَلْنَاهَا حَصِيدًا كَأَنْ لَمْ تَغْنَ بِالْأَمْسِ﴾"
+  ],
+  "bosluk": {
+   "cumle": "كَأَنَّكَ لَمْ تَكُنْ صَديقي بِالأَمْسِ",
+   "kelime": "بِالأَمْسِ"
+  },
+  "tr": "dün",
+  "tanim_tr": "(1) Bugünden önceki gün. (2) Geçmiş.",
+  "ornekler_tr": [
+   "Bugün cuma, yarın cumartesi, dün de perşembeydi.",
+   "Sanki dün benim arkadaşım değilmişsin gibi.",
+   "Onu, sanki dün hiç yokmuş gibi biçilmiş bir hale getirdik."
+  ],
+  "resim": null,
+  "not": "Kitapta 'الخميس' harekesi okunaksız; كانَ'nin haberi olarak الخَميسَ yazıldı."
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "إمْساك",
+  "yon": "أَمْسَكَ",
+  "iliski": "مصدر",
+  "tr": "tutma; kendini tutma, oruçta imsak"
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْسَكَ",
+  "cogul": null,
+  "metin": "يُمْسِكُ إمْساكاً : (١) أَخَذَ وَقَبَضَ وَتَعَلَّقَ بِالشَّيْءِ ، “أَمْسَكَ الغَريقُ بِالخَشَبَةِ” ، “أَمْسَكْتُ بِيَدِ الأَعْمَى حَتَّى أَوْصَلْتُهُ إلى بَيْتِهِ” . (٢) تَوَقَّفَ وَتَرَكَ وَامْتَنَعَ ، “أَمْسَكَ الصّائِمُ عَنِ الطَّعامِ وَالشَّرابِ” ، وَفي الحَديثِ : (إذا ذُكِرَ أَصْحابي فَأَمْسِكوا) .",
+  "tanim": "(١) أَخَذَ وَقَبَضَ وَتَعَلَّقَ بِالشَّيْءِ . (٢) تَوَقَّفَ وَتَرَكَ وَامْتَنَعَ",
+  "ornekler": [
+   "أَمْسَكَ الغَريقُ بِالخَشَبَةِ",
+   "أَمْسَكْتُ بِيَدِ الأَعْمَى حَتَّى أَوْصَلْتُهُ إلى بَيْتِهِ",
+   "أَمْسَكَ الصّائِمُ عَنِ الطَّعامِ وَالشَّرابِ",
+   "(إذا ذُكِرَ أَصْحابي فَأَمْسِكوا)"
+  ],
+  "bosluk": {
+   "cumle": "أَمْسَكْتُ بِيَدِ الأَعْمَى حَتَّى أَوْصَلْتُهُ إلى بَيْتِهِ",
+   "kelime": "أَمْسَكْتُ"
+  },
+  "tr": "tutmak; kendini tutmak",
+  "tanim_tr": "(1) Aldı, kavradı ve bir şeye tutundu. (2) Durdu, bıraktı ve kendini tuttu.",
+  "ornekler_tr": [
+   "Boğulmakta olan adam tahtaya tutundu.",
+   "Âmânın elinden tuttum, onu evine ulaştırana kadar.",
+   "Oruçlu yemekten ve içmekten imsak etti.",
+   "Hadiste: Ashabım anıldığında (kötü söz söylemekten) dilinizi tutun."
+  ],
+  "resim": "p30_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْسَى",
+  "cogul": null,
+  "metin": "يُمْسي إمْساءً : (١) صارَ في وَقْتِ المَساءِ ؛ خِلافُ أَصْبَحَ ، ﴿فَسُبْحَانَ اللَّهِ حِينَ تُمْسُونَ وَحِينَ تُصْبِحُونَ﴾ . (٢) فِعْلٌ ماضٍ ناقِصٌ مِنْ أَخَواتِ كانَ ، يَرْفَعُ الاسْمَ وَيَنْصِبُ الخَبَرَ ، “أَمْسَى المَريضُ ساهِراً” .",
+  "tanim": "(١) صارَ في وَقْتِ المَساءِ ؛ خِلافُ أَصْبَحَ . (٢) فِعْلٌ ماضٍ ناقِصٌ مِنْ أَخَواتِ كانَ ، يَرْفَعُ الاسْمَ وَيَنْصِبُ الخَبَرَ",
+  "ornekler": [
+   "﴿فَسُبْحَانَ اللَّهِ حِينَ تُمْسُونَ وَحِينَ تُصْبِحُونَ﴾",
+   "أَمْسَى المَريضُ ساهِراً"
+  ],
+  "bosluk": {
+   "cumle": "أَمْسَى المَريضُ ساهِراً",
+   "kelime": "أَمْسَى"
+  },
+  "tr": "akşamlamak",
+  "tanim_tr": "(1) Akşam vaktine girdi; sabahlamanın zıddı. (2) Kâne'nin kardeşlerinden nâkıs mazi fiil; ismini merfu, haberini mansup yapar.",
+  "ornekler_tr": [
+   "Akşama girdiğinizde ve sabaha erdiğinizde Allah'ı tesbih edin.",
+   "Hasta akşamı uykusuz geçirdi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "إمْضاء",
+  "yon": "أَمْضَى",
+  "iliski": "مصدر",
+  "tr": "imza; yürütme"
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْضَى",
+  "cogul": null,
+  "metin": "يُمْضي إمْضاءً : (١) أَنْفَذَ ، أَجْرَى . “أَمْضَى رِجالُ الأَمْنِ أَمْرَ القاضي” . (٢) قَضَى . “أَمْضَيْتُ أُسْبوعاً في المَدينَةِ” . (٣) الإمْضاءُ : التَّوْقيعُ ، “لِكُلِّ إنْسانٍ إمْضاءٌ خاصٌّ بِهِ” .",
+  "tanim": "(١) أَنْفَذَ ، أَجْرَى . (٢) قَضَى . (٣) الإمْضاءُ : التَّوْقيعُ",
+  "ornekler": [
+   "أَمْضَى رِجالُ الأَمْنِ أَمْرَ القاضي",
+   "أَمْضَيْتُ أُسْبوعاً في المَدينَةِ",
+   "لِكُلِّ إنْسانٍ إمْضاءٌ خاصٌّ بِهِ"
+  ],
+  "bosluk": {
+   "cumle": "أَمْضَيْتُ أُسْبوعاً في المَدينَةِ",
+   "kelime": "أَمْضَيْتُ"
+  },
+  "tr": "geçirmek; yürütmek",
+  "tanim_tr": "(1) Uyguladı, yürüttü. (2) (Vakit) geçirdi. (3) İmza.",
+  "ornekler_tr": [
+   "Güvenlik görevlileri hâkimin emrini uyguladı.",
+   "Şehirde bir hafta geçirdim.",
+   "Her insanın kendine özgü bir imzası vardır."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْطار",
+  "yon": "مَطَر",
+  "iliski": "جمع",
+  "tr": "yağmurlar"
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْطَرَ",
+  "cogul": null,
+  "metin": "يُمْطِرُ إمْطاراً وَمَطَراً : أَنْزَلَ المَطَرَ ، ﴿وَأَمْطَرْنَا عَلَيْهِمْ مَطَرًا فَسَاءَ مَطَرُ الْمُنْذَرِينَ﴾ .",
+  "tanim": "أَنْزَلَ المَطَرَ",
+  "ornekler": [
+   "﴿وَأَمْطَرْنَا عَلَيْهِمْ مَطَرًا فَسَاءَ مَطَرُ الْمُنْذَرِينَ﴾"
+  ],
+  "bosluk": {
+   "cumle": "﴿وَأَمْطَرْنَا عَلَيْهِمْ مَطَرًا فَسَاءَ مَطَرُ الْمُنْذَرِينَ﴾",
+   "kelime": "وَأَمْطَرْنَا"
+  },
+  "tr": "yağmur yağdırmak",
+  "tanim_tr": "Yağmur indirdi.",
+  "ornekler_tr": [
+   "Üzerlerine bir yağmur yağdırdık; uyarılanların yağmuru ne kötüdür!"
+  ],
+  "resim": "p30_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْعاء",
+  "cogul": null,
+  "metin": "جَمْعُ مِعًى : وَهُوَ المُصْران ، “هُناكَ أَمْراضٌ تُصيبُ الأَمْعاءَ الدَّقيقَةَ وَالأَمْعاءَ الغَليظَةَ في الإنْسانِ” ، وَفي الحَديثِ : (المُؤْمِنُ يَأْكُلُ في مِعًى واحِدٍ وَالكافِرُ يَأْكُلُ في سَبْعَةِ أَمْعاءٍ) .",
+  "tanim": "جَمْعُ مِعًى : وَهُوَ المُصْران",
+  "ornekler": [
+   "هُناكَ أَمْراضٌ تُصيبُ الأَمْعاءَ الدَّقيقَةَ وَالأَمْعاءَ الغَليظَةَ في الإنْسانِ",
+   "(المُؤْمِنُ يَأْكُلُ في مِعًى واحِدٍ وَالكافِرُ يَأْكُلُ في سَبْعَةِ أَمْعاءٍ)"
+  ],
+  "bosluk": {
+   "cumle": "هُناكَ أَمْراضٌ تُصيبُ الأَمْعاءَ الدَّقيقَةَ وَالأَمْعاءَ الغَليظَةَ في الإنْسانِ",
+   "kelime": "الأَمْعاءَ"
+  },
+  "tr": "bağırsaklar",
+  "tanim_tr": "Mi'an (bağırsak) kelimesinin çoğulu.",
+  "ornekler_tr": [
+   "İnsanda ince bağırsaklara ve kalın bağırsaklara isabet eden hastalıklar vardır.",
+   "Hadiste: Mümin bir bağırsakla yer, kâfir ise yedi bağırsakla yer."
+  ],
+  "resim": "p30_3.jpg",
+  "not": "Hadis baskıda '(' ile açılıp '\"' ile kapanıyor; parantez olarak yazıldı. Tekil: مِعًى."
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْعَنَ",
+  "cogul": null,
+  "metin": "يُمْعِنُ إمْعاناً : بالَغَ وَجَدَّ ، “أَمْعَنَ الباحِثُ في دِراسَةِ المَوْضوعِ” .",
+  "tanim": "بالَغَ وَجَدَّ",
+  "ornekler": [
+   "أَمْعَنَ الباحِثُ في دِراسَةِ المَوْضوعِ"
+  ],
+  "bosluk": {
+   "cumle": "أَمْعَنَ الباحِثُ في دِراسَةِ المَوْضوعِ",
+   "kelime": "أَمْعَنَ"
+  },
+  "tr": "derinlemesine incelemek",
+  "tanim_tr": "İleri gitti ve ciddiyetle çalıştı.",
+  "ornekler_tr": [
+   "Araştırmacı konuyu incelemekte derine indi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "إمْكان",
+  "yon": "أَمْكَنَ",
+  "iliski": "مصدر",
+  "tr": "imkân, olanak"
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "إمْكانِيَّة",
+  "cogul": "إمْكانِيّات",
+  "metin": "(ج) إمْكانِيّات : الاسْتِطاعَةُ وَالقُدْرَةُ وَالوُسْعُ ، “إمْكانِيّاتُ مُؤَسَّسَتِنا مَحْدودَةٌ ، فَلا نَسْتَطيعُ أَنْ نُسْهِمَ في كُلِّ مَشْروعٍ” .",
+  "tanim": "الاسْتِطاعَةُ وَالقُدْرَةُ وَالوُسْعُ",
+  "ornekler": [
+   "إمْكانِيّاتُ مُؤَسَّسَتِنا مَحْدودَةٌ ، فَلا نَسْتَطيعُ أَنْ نُسْهِمَ في كُلِّ مَشْروعٍ"
+  ],
+  "bosluk": {
+   "cumle": "إمْكانِيّاتُ مُؤَسَّسَتِنا مَحْدودَةٌ",
+   "kelime": "إمْكانِيّاتُ"
+  },
+  "tr": "imkân, olanak",
+  "tanim_tr": "Güç yetirme, kudret ve takat.",
+  "ornekler_tr": [
+   "Kurumumuzun imkânları sınırlı, bu yüzden her projeye katkıda bulunamıyoruz."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 30,
+  "baski_no": "٣٠",
+  "k": "أَمْكَنَ",
+  "cogul": null,
+  "metin": "يُمْكِنُ إمْكاناً : (١) سَهُلَ وَتَيَسَّرَ ، “أَمْكَنَ الوُصولُ إلى السَّفينَةِ الغارِقَةِ” ، “لا يُمْكِنُ أَنْ يَقومَ بِهذا العَمَلِ شَخْصٌ واحِدٌ” . (٢) أَقْدَرَهُ عَلَيْهِ ، ﴿وَإِنْ يُرِيدُوا خِيَانَتَكَ فَقَدْ خَانُوا اللَّهَ مِنْ قَبْلُ فَأَمْكَنَ مِنْهُمْ﴾ .",
+  "tanim": "(١) سَهُلَ وَتَيَسَّرَ . (٢) أَقْدَرَهُ عَلَيْهِ",
+  "ornekler": [
+   "أَمْكَنَ الوُصولُ إلى السَّفينَةِ الغارِقَةِ",
+   "لا يُمْكِنُ أَنْ يَقومَ بِهذا العَمَلِ شَخْصٌ واحِدٌ",
+   "﴿وَإِنْ يُرِيدُوا خِيَانَتَكَ فَقَدْ خَانُوا اللَّهَ مِنْ قَبْلُ فَأَمْكَنَ مِنْهُمْ﴾"
+  ],
+  "bosluk": {
+   "cumle": "لا يُمْكِنُ أَنْ يَقومَ بِهذا العَمَلِ شَخْصٌ واحِدٌ",
+   "kelime": "يُمْكِنُ"
+  },
+  "tr": "mümkün olmak",
+  "tanim_tr": "(1) Kolaylaştı, mümkün oldu. (2) Ona güç verdi, imkân tanıdı.",
+  "ornekler_tr": [
+   "Batık gemiye ulaşmak mümkün oldu.",
+   "Bu işi tek bir kişinin yapması mümkün değil.",
+   "Eğer sana hıyanet etmek isterlerse, daha önce Allah'a da hıyanet etmişlerdi; O da onlara karşı (sana) imkân verdi."
+  ],
+  "resim": null,
+  "not": null
+ }
+]

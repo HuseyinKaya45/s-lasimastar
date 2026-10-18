@@ -602,8 +602,8 @@
   var LT = null;
   function levhaCiz() {
     ana.innerHTML = LEVHA.map(function (l, n) {
-      return '<section class="kart"><h2 class="ar" style="text-align:right">' + esc(l.b) + "</h2>" + (l.tb ? '<p class="aciklama">' + esc(l.tb) + "</p>" : "") +
-        (RESIM[l.r] ? '<div class="levha-kap"><img class="levha-resim" src="' + RESIM[l.r] + '" alt="" title="Büyütmek için dokun"></div>' : "") +
+      return '<section class="kart"><h2 class="ar" style="text-align:right">' + esc(l.b) + "</h2>" + (l.tr ? '<p class="aciklama">' + esc(l.tr) + "</p>" : "") +
+        l.r.map(function (r) { return RESIM[r] ? '<div class="levha-kap"><img class="levha-resim" src="' + RESIM[r] + '" alt="" title="Büyütmek için dokun"></div>' : ""; }).join("") +
         '<p class="soluk kucuk">Resme dokununca büyür. Bir etikete dokun, Türkçesi görünsün.</p><div class="etiketler">' + l.e.map(function (x, k) {
           return '<button type="button" class="etiket-cip" data-lv="' + n + "-" + k + '"><span class="ar">' + esc(x[0]) + "</span><small></small></button>";
         }).join("") + '</div><div class="satir-btn" style="margin-top:12px"><button class="btn dolu" type="button" data-lvtest="' + n + '">Bu levhadan test</button></div></section>';

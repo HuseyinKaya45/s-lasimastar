@@ -1,0 +1,428 @@
+[
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْجان",
+  "yon": "شَجَن",
+  "iliski": "جمع",
+  "tr": "kederler, hüzünler"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشِحَّة",
+  "yon": "شَحيح",
+  "iliski": "جمع",
+  "tr": "cimriler"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْخاص",
+  "yon": "شَخْص",
+  "iliski": "جمع",
+  "tr": "şahıslar, kişiler"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشَدُّ",
+  "cogul": null,
+  "metin": "أَكْثَرُ شِدَّةً، \"ما أَشَدَّ شَوْقي لَهُ!\"، ﴿وَقالُوا مَنْ أَشَدُّ مِنّا قُوَّةً﴾.",
+  "tanim": "أَكْثَرُ شِدَّةً",
+  "ornekler": [
+   "ما أَشَدَّ شَوْقي لَهُ!",
+   "﴿وَقالُوا مَنْ أَشَدُّ مِنّا قُوَّةً﴾"
+  ],
+  "bosluk": {
+   "cumle": "ما أَشَدَّ شَوْقي لَهُ!",
+   "kelime": "أَشَدَّ"
+  },
+  "tr": "daha şiddetli, daha güçlü",
+  "tanim_tr": "Daha şiddetli, daha çetin.",
+  "ornekler_tr": [
+   "Ona ne kadar da özlem duyuyorum!",
+   "\"Ve 'Bizden daha güçlü kim var?' dediler.\" (Fussılet 15)"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشِدّاء",
+  "yon": "شَديد",
+  "iliski": "جمع",
+  "tr": "güçlüler, çetinler"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشَّرَ",
+  "cogul": null,
+  "metin": "يُؤَشِّرُ تَأْشيراً: وَضَعَ عَلامَةً أَو عِبارَةً مَكْتوبَةً تَسْمَحُ بِإِمْضاءِ أَو عَمَلِ الشَّيْءِ، \"أَشَّرَ الضّابِطُ عَلى جَوازِ السَّفَرِ\".",
+  "tanim": "وَضَعَ عَلامَةً أَو عِبارَةً مَكْتوبَةً تَسْمَحُ بِإِمْضاءِ أَو عَمَلِ الشَّيْءِ",
+  "ornekler": [
+   "أَشَّرَ الضّابِطُ عَلى جَوازِ السَّفَرِ"
+  ],
+  "bosluk": {
+   "cumle": "أَشَّرَ الضّابِطُ عَلى جَوازِ السَّفَرِ",
+   "kelime": "أَشَّرَ"
+  },
+  "tr": "onaylamak, vize vermek",
+  "tanim_tr": "Bir şeyin yürürlüğe girmesine veya yapılmasına izin veren bir işaret ya da yazılı ibare koydu.",
+  "ornekler_tr": [
+   "Memur pasaporta vize bastı (onay koydu)."
+  ],
+  "resim": "p15_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْراف",
+  "yon": "شَريف",
+  "iliski": "جمع",
+  "tr": "şerefliler, soylular"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "إِشْراف",
+  "yon": "أَشْرَفَ",
+  "iliski": "مصدر",
+  "tr": "denetim, gözetim"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْرِطَة",
+  "yon": "شَريط",
+  "iliski": "جمع",
+  "tr": "şeritler, bantlar"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْرَفَ",
+  "cogul": null,
+  "metin": "يُشْرِفُ إِشْرافاً: (١) أَدارَ وَراقَبَ، \"أَشْرَفَ المُديرُ عَلى العَمَلِ\". (٢) كادَ أَو قَرُبَ، \"أَشْرَفَ الرَّجُلُ عَلى الهَلاكِ\".",
+  "tanim": "(١) أَدارَ وَراقَبَ (٢) كادَ أَو قَرُبَ",
+  "ornekler": [
+   "أَشْرَفَ المُديرُ عَلى العَمَلِ",
+   "أَشْرَفَ الرَّجُلُ عَلى الهَلاكِ"
+  ],
+  "bosluk": {
+   "cumle": "أَشْرَفَ المُديرُ عَلى العَمَلِ",
+   "kelime": "أَشْرَفَ"
+  },
+  "tr": "denetlemek; yaklaşmak",
+  "tanim_tr": "(1) Yönetti ve denetledi. (2) Az kaldı, yaklaştı.",
+  "ornekler_tr": [
+   "Müdür işi denetledi.",
+   "Adam ölümün eşiğine geldi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْرَقَ",
+  "cogul": null,
+  "metin": "يُشْرِقُ إِشْراقاً؛ أَشْرَقَتِ الشَّمْسُ: طَلَعَتْ وَأَضاءَتِ الأَرْضَ، أَشْرَقَتِ الأَرْضُ: أَنارَتْ بِإِشْراقِ الشَّمْسِ، ﴿وَأَشْرَقَتِ الأَرْضُ بِنُورِ رَبِّها﴾.",
+  "tanim": "أَشْرَقَتِ الشَّمْسُ: طَلَعَتْ وَأَضاءَتِ الأَرْضَ، أَشْرَقَتِ الأَرْضُ: أَنارَتْ بِإِشْراقِ الشَّمْسِ",
+  "ornekler": [
+   "أَشْرَقَتِ الشَّمْسُ",
+   "أَشْرَقَتِ الأَرْضُ",
+   "﴿وَأَشْرَقَتِ الأَرْضُ بِنُورِ رَبِّها﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَأَشْرَقَتِ الأَرْضُ بِنُورِ رَبِّها",
+   "kelime": "وَأَشْرَقَتِ"
+  },
+  "tr": "doğmak (güneş), aydınlanmak",
+  "tanim_tr": "Güneş doğdu: çıktı ve yeryüzünü aydınlattı; yeryüzü aydınlandı: güneşin doğuşuyla ışıdı.",
+  "ornekler_tr": [
+   "Güneş doğdu.",
+   "Yeryüzü aydınlandı.",
+   "\"Yeryüzü Rabbinin nuruyla aydınlandı.\" (Zümer 69)"
+  ],
+  "resim": "p15_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "إِشْعال",
+  "yon": "أَشْعَلَ",
+  "iliski": "مصدر",
+  "tr": "yakma, tutuşturma"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشِعَّة",
+  "yon": "شُعاع",
+  "iliski": "جمع",
+  "tr": "ışınlar"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْعَلَ",
+  "cogul": null,
+  "metin": "يُشْعِلُ إِشْعالاً؛ أَشْعَلَ النّارَ: أَوْقَدَها وَأَلْهَبَها، \"إِشْعالُ النّارِ في الحَطَبِ قَدْ يُؤَدّي إِلى حَريقٍ كَبيرٍ\".",
+  "tanim": "أَشْعَلَ النّارَ: أَوْقَدَها وَأَلْهَبَها",
+  "ornekler": [
+   "أَشْعَلَ النّارَ",
+   "إِشْعالُ النّارِ في الحَطَبِ قَدْ يُؤَدّي إِلى حَريقٍ كَبيرٍ"
+  ],
+  "bosluk": {
+   "cumle": "أَشْعَلَ النّارَ",
+   "kelime": "أَشْعَلَ"
+  },
+  "tr": "yakmak, tutuşturmak",
+  "tanim_tr": "Ateşi yaktı: onu tutuşturdu ve alevlendirdi.",
+  "ornekler_tr": [
+   "Ateşi yaktı.",
+   "Odunda ateş yakmak büyük bir yangına yol açabilir."
+  ],
+  "resim": "p15_3.jpg",
+  "not": "Resim أشعل/أطفأ karşıtlığını gösteriyor."
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْغال",
+  "yon": "شُغْل",
+  "iliski": "جمع",
+  "tr": "işler, meşguliyetler"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْفَقَ",
+  "cogul": null,
+  "metin": "يُشْفِقُ إِشْفاقاً: (١) أَشْفَقَ مِنْهُ: خافَ وَحَذِرَ، ﴿وَهُمْ مِنَ السّاعَةِ مُشْفِقُونَ﴾. (٢) أَشْفَقَ عَلَيهِ: خافَ عَلَيهِ وَعَطَفَ، \"أَشْفَقَتِ الأُمُّ عَلى ابْنِها مِنَ البَرْدِ\".",
+  "tanim": "(١) أَشْفَقَ مِنْهُ: خافَ وَحَذِرَ (٢) أَشْفَقَ عَلَيهِ: خافَ عَلَيهِ وَعَطَفَ",
+  "ornekler": [
+   "﴿وَهُمْ مِنَ السّاعَةِ مُشْفِقُونَ﴾",
+   "أَشْفَقَتِ الأُمُّ عَلى ابْنِها مِنَ البَرْدِ"
+  ],
+  "bosluk": {
+   "cumle": "أَشْفَقَتِ الأُمُّ عَلى ابْنِها مِنَ البَرْدِ",
+   "kelime": "أَشْفَقَتِ"
+  },
+  "tr": "korkmak; acımak, şefkat göstermek",
+  "tanim_tr": "(1) Ondan korktu ve çekindi. (2) Onun için endişelendi ve ona şefkat gösterdi.",
+  "ornekler_tr": [
+   "\"Onlar kıyametten korkarlar.\" (Enbiyâ 49)",
+   "Anne, oğlunun soğuktan etkilenmesinden endişelendi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشِقّاء",
+  "yon": "شَقيق",
+  "iliski": "جمع",
+  "tr": "öz kardeşler"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْكال",
+  "yon": "شَكْل",
+  "iliski": "جمع",
+  "tr": "şekiller"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْمَلُ",
+  "cogul": null,
+  "metin": "أَكْثَرُ شُمولاً وَعُموماً؛ خِلافُ أَخَصّ، \"هذا الأَمْرُ أَشْمَلُ مِنْ سابِقِه، إِذْ إِنَّهُ يُفيدُ الصَّغيرَ وَالكَبيرَ\".",
+  "tanim": "أَكْثَرُ شُمولاً وَعُموماً؛ خِلافُ أَخَصّ",
+  "ornekler": [
+   "هذا الأَمْرُ أَشْمَلُ مِنْ سابِقِه، إِذْ إِنَّهُ يُفيدُ الصَّغيرَ وَالكَبيرَ"
+  ],
+  "bosluk": {
+   "cumle": "هذا الأَمْرُ أَشْمَلُ مِنْ سابِقِه",
+   "kelime": "أَشْمَلُ"
+  },
+  "tr": "daha kapsamlı",
+  "tanim_tr": "Daha kuşatıcı ve daha genel; daha özelin zıddı.",
+  "ornekler_tr": [
+   "Bu iş öncekinden daha kapsamlı, çünkü küçüğe de büyüğe de yarar sağlıyor."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْهَبُ",
+  "cogul": null,
+  "metin": "لَوْنٌ مُخْتَلِطٌ بَياضُهُ بِسَوادِه، \"رَأَيْتُ قِطّاً أَشْهَبَ\".",
+  "tanim": "لَوْنٌ مُخْتَلِطٌ بَياضُهُ بِسَوادِه",
+  "ornekler": [
+   "رَأَيْتُ قِطّاً أَشْهَبَ"
+  ],
+  "bosluk": {
+   "cumle": "رَأَيْتُ قِطّاً أَشْهَبَ",
+   "kelime": "أَشْهَبَ"
+  },
+  "tr": "kır, boz (renk)",
+  "tanim_tr": "Beyazı siyahına karışmış renk.",
+  "ornekler_tr": [
+   "Kır bir kedi gördüm."
+  ],
+  "resim": "p15_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْهَرَ",
+  "cogul": null,
+  "metin": "يُشْهِرُ إِشْهاراً: أَعْلَنَ وَأَظْهَرَ، أَشْهَرَ الرَّجُلُ إِسْلامَهُ: أَعْلَنَهُ وَجَعَلَهُ مَعْروفاً بَيْنَ النّاسِ.",
+  "tanim": "أَعْلَنَ وَأَظْهَرَ",
+  "ornekler": [
+   "أَشْهَرَ الرَّجُلُ إِسْلامَهُ"
+  ],
+  "bosluk": {
+   "cumle": "أَشْهَرَ الرَّجُلُ إِسْلامَهُ",
+   "kelime": "أَشْهَرَ"
+  },
+  "tr": "ilan etmek, duyurmak",
+  "tanim_tr": "İlan etti ve açığa vurdu; adam Müslümanlığını ilan etti: onu duyurdu ve insanlar arasında bilinir kıldı.",
+  "ornekler_tr": [
+   "Adam Müslüman olduğunu ilan etti."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْهُرٌ",
+  "yon": "شَهْر",
+  "iliski": "جمع",
+  "tr": "aylar"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْهَرُ",
+  "cogul": null,
+  "metin": "أَكْثَرُ شُهْرَةً، \"هذا الأَمْرُ أَشْهَرُ مِنْ أَنْ تُخْفِيَهُ\"، \"عُمَرُ بْنُ الخَطّابِ أَشْهَرُ مِنْ أَنْ نُعَرِّفَ بِهِ\".",
+  "tanim": "أَكْثَرُ شُهْرَةً",
+  "ornekler": [
+   "هذا الأَمْرُ أَشْهَرُ مِنْ أَنْ تُخْفِيَهُ",
+   "عُمَرُ بْنُ الخَطّابِ أَشْهَرُ مِنْ أَنْ نُعَرِّفَ بِهِ"
+  ],
+  "bosluk": {
+   "cumle": "هذا الأَمْرُ أَشْهَرُ مِنْ أَنْ تُخْفِيَهُ",
+   "kelime": "أَشْهَرُ"
+  },
+  "tr": "daha meşhur",
+  "tanim_tr": "Daha ünlü.",
+  "ornekler_tr": [
+   "Bu iş gizleyemeyeceğin kadar bilinir.",
+   "Ömer b. Hattâb tanıtılmaya gerek olmayacak kadar meşhurdur."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْواط",
+  "yon": "شَوْط",
+  "iliski": "جمع",
+  "tr": "koşular, devreler"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْياء",
+  "yon": "شَيْء",
+  "iliski": "جمع",
+  "tr": "şeyler, eşyalar"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَشْياع",
+  "yon": "شيعَة",
+  "iliski": "جمع",
+  "tr": "taraftarlar"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَصابَ",
+  "cogul": null,
+  "metin": "يُصيبُ إِصابَةً: (١) أَصابَ الشَّيْءَ: ضَرَبَهُ وَأَدْرَكَهُ، \"أَصابَهُ في رَأْسِه\". (٢) وَقَعَ لَهُ أَو حَدَثَ لَهُ، \"أَصابَتْهُ مُصيبَةٌ، فَلَمْ يَخْرُجْ مِنَ البَيْتِ مُنْذُ ذلِكَ الوَقْتِ\"، ﴿الَّذينَ إِذا أَصابَتْهُمْ مُصيبَةٌ قالُوا إِنّا لِلّهِ وَإِنّا إِلَيْهِ راجِعُونَ﴾.",
+  "tanim": "(١) أَصابَ الشَّيْءَ: ضَرَبَهُ وَأَدْرَكَهُ (٢) وَقَعَ لَهُ أَو حَدَثَ لَهُ",
+  "ornekler": [
+   "أَصابَهُ في رَأْسِه",
+   "أَصابَتْهُ مُصيبَةٌ، فَلَمْ يَخْرُجْ مِنَ البَيْتِ مُنْذُ ذلِكَ الوَقْتِ",
+   "﴿الَّذينَ إِذا أَصابَتْهُمْ مُصيبَةٌ قالُوا إِنّا لِلّهِ وَإِنّا إِلَيْهِ راجِعُونَ﴾"
+  ],
+  "bosluk": {
+   "cumle": "أَصابَهُ في رَأْسِه",
+   "kelime": "أَصابَهُ"
+  },
+  "tr": "isabet etmek; başına gelmek",
+  "tanim_tr": "(1) Şeye isabet etti: ona vurdu ve ulaştı. (2) Başına geldi, ona oldu.",
+  "ornekler_tr": [
+   "Onu başından vurdu (yaraladı).",
+   "Başına bir musibet geldi ve o zamandan beri evden çıkmadı.",
+   "\"Onlara bir musibet geldiğinde 'Biz Allah'a aitiz ve O'na döneceğiz' derler.\" (Bakara 156)"
+  ],
+  "resim": "p15_5.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "إِصابَة",
+  "yon": "أَصابَ",
+  "iliski": "مصدر",
+  "tr": "isabet; yaralanma"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَصابِع",
+  "yon": "إِصْبَع",
+  "iliski": "جمع",
+  "tr": "parmaklar"
+ },
+ {
+  "sayfa": 15,
+  "baski_no": "١٥",
+  "k": "أَصْبَحَ",
+  "cogul": null,
+  "metin": "يُصْبِحُ إِصْباحاً: (١) خِلافُ أَمْسَى، دَخَلَ في وَقْتِ الصُّبْحِ، (أَصْبَحْنا وَأَصْبَحَ المُلْكُ لِلّهِ رَبِّ",
+  "tanim": "(١) خِلافُ أَمْسَى، دَخَلَ في وَقْتِ الصُّبْحِ",
+  "ornekler": [
+   "أَصْبَحْنا وَأَصْبَحَ المُلْكُ لِلّهِ رَبِّ"
+  ],
+  "bosluk": {
+   "cumle": "أَصْبَحْنا وَأَصْبَحَ المُلْكُ لِلّهِ",
+   "kelime": "أَصْبَحْنا"
+  },
+  "tr": "sabahlamak; olmak",
+  "tanim_tr": "(1) Akşamlamanın zıddı; sabah vaktine girdi.",
+  "ornekler_tr": [
+   "Sabahladık, mülk de Allah'a ait olarak sabahladı... (sabah duası; devamı sonraki sayfada)"
+  ],
+  "resim": "p15_6.jpg",
+  "not": "Madde sonraki sayfada (PDF s.16) devam ediyor; metin/tanım/örnek burada yarım kaldı. Resim أصبح/أمسى karşıtlığını gösteriyor."
+ }
+]

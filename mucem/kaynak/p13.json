@@ -1,0 +1,429 @@
+[
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسِرَّة",
+  "yon": "سَرير",
+  "iliski": "جمع",
+  "tr": "yataklar, karyolalar"
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْرَعَ",
+  "cogul": null,
+  "metin": "يُسْرِعُ إِسْراعاً: عَجَّلَ؛ خِلافُ أَبْطَأَ، \"أَسرَعَ السّائِقُ فَصَدَمَ الجِدارَ\"، \"لا تُسْرِعْ بِالسَّيّارَةِ فَفي السُّرْعَةِ النَّدامَةُ\".",
+  "tanim": "عَجَّلَ؛ خِلافُ أَبْطَأَ",
+  "ornekler": [
+   "أَسرَعَ السّائِقُ فَصَدَمَ الجِدارَ",
+   "لا تُسْرِعْ بِالسَّيّارَةِ فَفي السُّرْعَةِ النَّدامَةُ"
+  ],
+  "bosluk": {
+   "cumle": "أَسرَعَ السّائِقُ فَصَدَمَ الجِدارَ",
+   "kelime": "أَسرَعَ"
+  },
+  "tr": "acele etmek, hızlanmak",
+  "tanim_tr": "Acele etti; yavaşlamanın zıddı.",
+  "ornekler_tr": [
+   "Sürücü hızlandı ve duvara çarptı.",
+   "Arabayla hızlı gitme, hızda pişmanlık vardır."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْرَعُ",
+  "cogul": null,
+  "metin": "أَكثَرُ سُرْعَةً وَعَجَلَةً؛ خِلافُ أَبْطَأَ، \"الطّائِرَةُ أَسْرَعُ مِنَ السَّيّارَةِ\".",
+  "tanim": "أَكثَرُ سُرْعَةً وَعَجَلَةً؛ خِلافُ أَبْطَأَ",
+  "ornekler": [
+   "الطّائِرَةُ أَسْرَعُ مِنَ السَّيّارَةِ"
+  ],
+  "bosluk": {
+   "cumle": "الطّائِرَةُ أَسْرَعُ مِنَ السَّيّارَةِ",
+   "kelime": "أَسْرَعُ"
+  },
+  "tr": "daha hızlı",
+  "tanim_tr": "Daha süratli ve aceleci; daha yavaşın zıddı.",
+  "ornekler_tr": [
+   "Uçak arabadan daha hızlıdır."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْرَفَ",
+  "cogul": null,
+  "metin": "يُسْرِفُ إِسْرافاً: بَذَّرَ، تَجاوَزَ الحَدَّ، \"لا تُسْرِفْ في اسْتِعْمالِ الماءِ\"، \"لا تُسْرِفْ في تَناوُلِ السُّكَّرِيّاتِ\"، ﴿وَكُلُوا وَاشْرَبُوا وَلا تُسْرِفُوا﴾.",
+  "tanim": "بَذَّرَ، تَجاوَزَ الحَدَّ",
+  "ornekler": [
+   "لا تُسْرِفْ في اسْتِعْمالِ الماءِ",
+   "لا تُسْرِفْ في تَناوُلِ السُّكَّرِيّاتِ",
+   "﴿وَكُلُوا وَاشْرَبُوا وَلا تُسْرِفُوا﴾"
+  ],
+  "bosluk": {
+   "cumle": "لا تُسْرِفْ في اسْتِعْمالِ الماءِ",
+   "kelime": "تُسْرِفْ"
+  },
+  "tr": "israf etmek",
+  "tanim_tr": "Savurganlık etti, haddi aştı.",
+  "ornekler_tr": [
+   "Su kullanırken israf etme.",
+   "Şekerli yiyecekleri yerken aşırıya kaçma.",
+   "\"Yiyin, için, fakat israf etmeyin.\" (A'râf 31)"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْرَى",
+  "cogul": null,
+  "metin": "يُسْري إِسْراءً؛ سارَ لَيْلاً، ﴿سُبْحانَ الَّذي أَسْرَى بِعَبْدِه لَيْلاً مِنَ المَسْجِدِ الحَرامِ إِلى المَسْجِدِ الأَقْصَى﴾.",
+  "tanim": "سارَ لَيْلاً",
+  "ornekler": [
+   "﴿سُبْحانَ الَّذي أَسْرَى بِعَبْدِه لَيْلاً مِنَ المَسْجِدِ الحَرامِ إِلى المَسْجِدِ الأَقْصَى﴾"
+  ],
+  "bosluk": {
+   "cumle": "سُبْحانَ الَّذي أَسْرَى بِعَبْدِه لَيْلاً",
+   "kelime": "أَسْرَى"
+  },
+  "tr": "gece yürütmek",
+  "tanim_tr": "Gece yürüdü.",
+  "ornekler_tr": [
+   "\"Kulunu bir gece Mescid-i Haram'dan Mescid-i Aksa'ya yürüten Allah'ın şanı yücedir.\" (İsrâ 1)"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْرَى",
+  "yon": "أَسير",
+  "iliski": "جمع",
+  "tr": "esirler"
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْطُر",
+  "yon": "سَطْر",
+  "iliski": "جمع",
+  "tr": "satırlar"
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أُسْطورَة",
+  "cogul": "أَساطير",
+  "metin": "(ج) أَساطير: خُرافَةٌ أَو حِكايَةٌ يَسودُها الخَيالُ، ﴿إِذا تُتْلَى عَلَيْهِ آياتُنا قالَ أَساطيرُ الأَوَّلينَ﴾.",
+  "tanim": "خُرافَةٌ أَو حِكايَةٌ يَسودُها الخَيالُ",
+  "ornekler": [
+   "﴿إِذا تُتْلَى عَلَيْهِ آياتُنا قالَ أَساطيرُ الأَوَّلينَ﴾"
+  ],
+  "bosluk": {
+   "cumle": "إِذا تُتْلَى عَلَيْهِ آياتُنا قالَ أَساطيرُ الأَوَّلينَ",
+   "kelime": "أَساطيرُ"
+  },
+  "tr": "efsane, masal",
+  "tanim_tr": "Hayal ürünü hurafe veya hikâye.",
+  "ornekler_tr": [
+   "\"Ona ayetlerimiz okunduğunda 'Öncekilerin masalları' der.\" (Kalem 15)"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسِفَ",
+  "cogul": null,
+  "metin": "يَأْسَفُ أَسَفاً: نَدِمَ وَحَزِنَ عَلى شَيْءٍ حَدَثَ، أَو شَيْءٍ لا يَستَطيعُ فِعلَهُ، \"أَسِفْتُ لِأَنَّني لَمْ أَتَمَكَّنْ مِنْ مُساعَدَتِك\"، ﴿وَتَوَلَّى عَنْهُمْ وَقالَ يا أَسَفَى عَلى يُوسُفَ﴾.",
+  "tanim": "نَدِمَ وَحَزِنَ عَلى شَيْءٍ حَدَثَ، أَو شَيْءٍ لا يَستَطيعُ فِعلَهُ",
+  "ornekler": [
+   "أَسِفْتُ لِأَنَّني لَمْ أَتَمَكَّنْ مِنْ مُساعَدَتِك",
+   "﴿وَتَوَلَّى عَنْهُمْ وَقالَ يا أَسَفَى عَلى يُوسُفَ﴾"
+  ],
+  "bosluk": {
+   "cumle": "أَسِفْتُ لِأَنَّني لَمْ أَتَمَكَّنْ مِنْ مُساعَدَتِك",
+   "kelime": "أَسِفْتُ"
+  },
+  "tr": "üzülmek, esef etmek",
+  "tanim_tr": "Olmuş bir şeye ya da yapamadığı bir şeye pişman olup üzüldü.",
+  "ornekler_tr": [
+   "Sana yardım edemediğim için üzüldüm.",
+   "\"Onlardan yüz çevirdi ve 'Vah Yusuf'um!' dedi.\" (Yûsuf 84)"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْفَل",
+  "cogul": null,
+  "metin": "الجُزْءُ المُنْخَفِضُ؛ مُقابِلُ أَعْلَى، \"اُكْتُبِ الجَوابَ أَسْفَلَ الصَّفْحَةِ\"، ﴿إِنَّ المُنافِقينَ في الدَّرْكِ الأَسْفَلِ مِنَ النّارِ وَلَنْ تَجِدَ لَهُمْ نَصيراً﴾.",
+  "tanim": "الجُزْءُ المُنْخَفِضُ؛ مُقابِلُ أَعْلَى",
+  "ornekler": [
+   "اُكْتُبِ الجَوابَ أَسْفَلَ الصَّفْحَةِ",
+   "﴿إِنَّ المُنافِقينَ في الدَّرْكِ الأَسْفَلِ مِنَ النّارِ وَلَنْ تَجِدَ لَهُمْ نَصيراً﴾"
+  ],
+  "bosluk": {
+   "cumle": "اُكْتُبِ الجَوابَ أَسْفَلَ الصَّفْحَةِ",
+   "kelime": "أَسْفَلَ"
+  },
+  "tr": "alt, en alt",
+  "tanim_tr": "Alçak kısım; yukarının (a'lâ) karşıtı.",
+  "ornekler_tr": [
+   "Cevabı sayfanın altına yaz.",
+   "\"Münafıklar ateşin en alt tabakasındadır; onlara hiçbir yardımcı bulamazsın.\" (Nisâ 145)"
+  ],
+  "resim": "p13_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "إِسْفِنْج",
+  "cogul": null,
+  "metin": "مادَّةٌ تُؤْخَذُ مِنْ حَيَوانٍ بَحْرِيٍّ يُسَمَّى الإِسْفَنْج، وَمِنْهُ نَوْعٌ صِناعِيٌّ، يُسْتَعْمَلُ في الاسْتِحْمامِ وَالتَّنْظيفِ وَالفَرْش.",
+  "tanim": "مادَّةٌ تُؤْخَذُ مِنْ حَيَوانٍ بَحْرِيٍّ يُسَمَّى الإِسْفَنْج، وَمِنْهُ نَوْعٌ صِناعِيٌّ، يُسْتَعْمَلُ في الاسْتِحْمامِ وَالتَّنْظيفِ وَالفَرْش",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "sünger",
+  "tanim_tr": "Sünger denen bir deniz hayvanından elde edilen madde; yapay türü de vardır; banyoda, temizlikte ve döşemede kullanılır.",
+  "ornekler_tr": [],
+  "resim": "p13_3.jpg",
+  "not": "Madde başında إِسْفِنْج, metinde الإِسْفَنْج (fe fethalı) basılmış."
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أُسْقُف",
+  "cogul": "أَساقِفَة",
+  "metin": "(ج) أَساقِفَة: رُتْبَةٌ دينِيَّةٌ في الكَنيسَةِ.",
+  "tanim": "رُتْبَةٌ دينِيَّةٌ في الكَنيسَةِ",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "piskopos",
+  "tanim_tr": "Kilisede dinî bir rütbe.",
+  "ornekler_tr": [],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْقُفٌ",
+  "yon": "سَقْف",
+  "iliski": "جمع",
+  "tr": "tavanlar",
+  "not": "Kitapta \"(ج) سَقْف. اُنْظُرْ: سَقْف.\" şeklinde basılmış; yani سَقْف'ın çoğulu."
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "إِسْكافي",
+  "cogul": null,
+  "metin": "/ إِسْكاف: صانِعُ الأَحْذِيَةِ أَو مُصْلِحُها، \"أَصْلَحْتُ حِذائي عِنْدَ الإِسْكافِيِّ\".",
+  "tanim": "صانِعُ الأَحْذِيَةِ أَو مُصْلِحُها",
+  "ornekler": [
+   "أَصْلَحْتُ حِذائي عِنْدَ الإِسْكافِيِّ"
+  ],
+  "bosluk": {
+   "cumle": "أَصْلَحْتُ حِذائي عِنْدَ الإِسْكافِيِّ",
+   "kelime": "الإِسْكافِيِّ"
+  },
+  "tr": "ayakkabıcı",
+  "tanim_tr": "Ayakkabı yapan veya tamir eden kimse.",
+  "ornekler_tr": [
+   "Ayakkabımı ayakkabıcıda tamir ettirdim."
+  ],
+  "resim": "p13_1.jpg",
+  "not": "Madde başı iki biçimli: إِسْكافي / إِسْكاف",
+  "varyant": "إِسْكاف"
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْلاك",
+  "yon": "سِلْك",
+  "iliski": "جمع",
+  "tr": "teller, kablolar"
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "إِسْلام",
+  "cogul": null,
+  "metin": "مَصْدَرُ أَسْلَمَ: دينُ الإِسْلامِ الَّذي أَنزَلَهُ اللهُ عَلى النَّبِيِّ مُحَمَّدٍ ﷺ يَقومُ عَلى الإِيمانِ بِاللهِ وَحْدَهُ لا شَريكَ لَهُ، ﴿وَمَنْ يَبْتَغِ غَيْرَ الإِسْلامِ ديناً فَلَنْ يُقْبَلَ مِنْهُ وَهُوَ في الآخِرَةِ مِنَ الخاسِرينَ﴾.",
+  "tanim": "مَصْدَرُ أَسْلَمَ: دينُ الإِسْلامِ الَّذي أَنزَلَهُ اللهُ عَلى النَّبِيِّ مُحَمَّدٍ ﷺ يَقومُ عَلى الإِيمانِ بِاللهِ وَحْدَهُ لا شَريكَ لَهُ",
+  "ornekler": [
+   "﴿وَمَنْ يَبْتَغِ غَيْرَ الإِسْلامِ ديناً فَلَنْ يُقْبَلَ مِنْهُ وَهُوَ في الآخِرَةِ مِنَ الخاسِرينَ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَمَنْ يَبْتَغِ غَيْرَ الإِسْلامِ ديناً فَلَنْ يُقْبَلَ مِنْهُ",
+   "kelime": "الإِسْلامِ"
+  },
+  "tr": "İslam",
+  "tanim_tr": "Eslema fiilinin mastarı: Allah'ın Peygamber Muhammed'e (s.a.v.) indirdiği, ortağı olmayan tek Allah'a imana dayanan İslam dini.",
+  "ornekler_tr": [
+   "\"Kim İslam'dan başka bir din ararsa ondan asla kabul edilmez ve o ahirette kaybedenlerdendir.\" (Âl-i İmrân 85)"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْلِحَة",
+  "yon": "سِلاح",
+  "iliski": "جمع",
+  "tr": "silahlar"
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْلَمَ",
+  "cogul": null,
+  "metin": "يُسْلِمُ إِسْلاماً: (١) دَخَلَ في الإِسْلامِ، \"قَدْ أَفْلَحَ مَنْ أَسْلَمَ\" (٢) أَخْلَصَ الدّينَ، \"أَسْلَمَ لِلّهِ رَبِّ العالَمينَ\"، ﴿بَلَى مَنْ أَسْلَمَ وَجْهَهُ لِلّهِ﴾. (٣) فَوَّضَ وَأَعْطَى، \"أَسْلَمَ خالِدُ بْنُ الوَليدِ القِيادَةَ لِأَبي عُبَيْدَةَ\". (٤) تَرَكَ وَخَذَلَ، أَسْلَمَ الرَّجُلُ الشَّخْصَ: تَرَكَهُ لِعَدُوِّه.",
+  "tanim": "(١) دَخَلَ في الإِسْلامِ (٢) أَخْلَصَ الدّينَ (٣) فَوَّضَ وَأَعْطَى (٤) تَرَكَ وَخَذَلَ، أَسْلَمَ الرَّجُلُ الشَّخْصَ: تَرَكَهُ لِعَدُوِّه",
+  "ornekler": [
+   "قَدْ أَفْلَحَ مَنْ أَسْلَمَ",
+   "أَسْلَمَ لِلّهِ رَبِّ العالَمينَ",
+   "﴿بَلَى مَنْ أَسْلَمَ وَجْهَهُ لِلّهِ﴾",
+   "أَسْلَمَ خالِدُ بْنُ الوَليدِ القِيادَةَ لِأَبي عُبَيْدَةَ",
+   "أَسْلَمَ الرَّجُلُ الشَّخْصَ"
+  ],
+  "bosluk": {
+   "cumle": "قَدْ أَفْلَحَ مَنْ أَسْلَمَ",
+   "kelime": "أَسْلَمَ"
+  },
+  "tr": "Müslüman olmak; teslim etmek",
+  "tanim_tr": "(1) İslam'a girdi. (2) Dini Allah'a halis kıldı. (3) Havale etti, teslim etti. (4) Bıraktı, yardımsız bıraktı; adam kişiyi düşmanına terk etti.",
+  "ornekler_tr": [
+   "Müslüman olan kurtuluşa ermiştir.",
+   "Âlemlerin Rabbine teslim oldu.",
+   "\"Hayır, kim yüzünü Allah'a teslim ederse...\" (Bakara 112)",
+   "Halid b. Velid komutayı Ebu Ubeyde'ye teslim etti.",
+   "Adam o kişiyi (düşmanına) terk etti."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أُسْلوب",
+  "cogul": "أَساليب",
+  "metin": "(ج) أَساليب: طَريقَةٌ أَو مَذْهَبٌ، \"أُسلوبُكَ في تَرْبِيَةِ أَبنائِكَ يَخْتَلِفُ عَنْ أَساليبِ بَقِيَّةِ الآباءِ\"، \"لِكُلِّ كاتِبٍ أُسْلوبُهُ الخاصُّ في الكِتابَةِ\".",
+  "tanim": "طَريقَةٌ أَو مَذْهَبٌ",
+  "ornekler": [
+   "أُسلوبُكَ في تَرْبِيَةِ أَبنائِكَ يَخْتَلِفُ عَنْ أَساليبِ بَقِيَّةِ الآباءِ",
+   "لِكُلِّ كاتِبٍ أُسْلوبُهُ الخاصُّ في الكِتابَةِ"
+  ],
+  "bosluk": {
+   "cumle": "لِكُلِّ كاتِبٍ أُسْلوبُهُ الخاصُّ في الكِتابَةِ",
+   "kelime": "أُسْلوبُهُ"
+  },
+  "tr": "üslup, yöntem",
+  "tanim_tr": "Yol veya tarz.",
+  "ornekler_tr": [
+   "Çocuklarını yetiştirme yöntemin diğer babaların yöntemlerinden farklı.",
+   "Her yazarın yazmada kendine özgü bir üslubu vardır."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْماء",
+  "yon": "اسْم",
+  "iliski": "جمع",
+  "tr": "isimler"
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْماك",
+  "yon": "سَمَك",
+  "iliski": "واحدته سَمَكَة",
+  "tr": "balıklar",
+  "not": "Kitapta \"واحِدَتُهُ سَمَكَةٌ. اُنْظُرْ: سَمَك.\""
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْمالٌ",
+  "cogul": null,
+  "metin": "جَمْعُ سَمَل: الثِّيابُ القَديمَةُ، \"رَأَيْتُهُ يَلْبَسُ أَسْمالاً بالِيَةً، فَعَرَفْتُ أَنَّهُ فَقيرٌ مُحْتاجٌ\".",
+  "tanim": "الثِّيابُ القَديمَةُ",
+  "ornekler": [
+   "رَأَيْتُهُ يَلْبَسُ أَسْمالاً بالِيَةً، فَعَرَفْتُ أَنَّهُ فَقيرٌ مُحْتاجٌ"
+  ],
+  "bosluk": {
+   "cumle": "رَأَيْتُهُ يَلْبَسُ أَسْمالاً بالِيَةً",
+   "kelime": "أَسْمالاً"
+  },
+  "tr": "eski püskü elbiseler",
+  "tanim_tr": "Seml'in çoğulu: eski elbiseler.",
+  "ornekler_tr": [
+   "Onu eskimiş paçavralar giyerken gördüm ve muhtaç bir fakir olduğunu anladım."
+  ],
+  "resim": "p13_4.jpg",
+  "not": null,
+  "tekil": "سَمَل"
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْمِدَة",
+  "yon": "سَماد",
+  "iliski": "جمع",
+  "tr": "gübreler"
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْمَر",
+  "cogul": null,
+  "metin": "لَوْنٌ بَيْنَ البَياضِ وَالسَّوادِ، \"لَوْنُ الرَّمادِ أَسْمَرُ\".",
+  "tanim": "لَوْنٌ بَيْنَ البَياضِ وَالسَّوادِ",
+  "ornekler": [
+   "لَوْنُ الرَّمادِ أَسْمَرُ"
+  ],
+  "bosluk": {
+   "cumle": "لَوْنُ الرَّمادِ أَسْمَرُ",
+   "kelime": "أَسْمَرُ"
+  },
+  "tr": "esmer, boz renk",
+  "tanim_tr": "Beyazla siyah arası renk.",
+  "ornekler_tr": [
+   "Külün rengi bozdur."
+  ],
+  "resim": "p13_5.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 13,
+  "baski_no": "١٣",
+  "k": "أَسْمَعُ",
+  "cogul": null,
+  "metin": "كَثيرُ السَّمْعِ، أَكثَرُ إِصْغاءً.",
+  "tanim": "كَثيرُ السَّمْعِ، أَكثَرُ إِصْغاءً",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "daha iyi işiten",
+  "tanim_tr": "Çok işiten, daha dikkatle dinleyen.",
+  "ornekler_tr": [],
+  "resim": null,
+  "not": null
+ }
+]

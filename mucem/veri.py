@@ -21,10 +21,18 @@ for yol in sorted(glob.glob(os.path.join(here, "kaynak", "p*.json"))):
             if maddeler:
                 maddeler[-1]["m"] = (maddeler[-1]["m"] + " " + x.get("metin", "")).strip()
             continue
-        if x.get("levha"):
-            levhalar.append({"b": x.get("baslik", ""), "r": (x.get("resim") or "")[:-4], "s": x["sayfa"],
-                             "e": [[e["ar"], e.get("tr", "")] for e in x.get("etiketler", [])]})
-            continue
+        if x.get("levha") or x.get("etiketler"):
+            b = x.get("baslik") or x["k"]
+            e = [[e["ar"], e.get("tr", "")] for e in x.get("etiketler", [])]
+            r = (x.get("resim") or "")[:-4]
+            # bir sonraki sayfada "(تابِع)" ile devam eden levha öncekiyle birleşir
+            if levhalar and norm(b).replace("(تابع)", "").strip() == norm(levhalar[-1]["b"]):
+                levhalar[-1]["e"] += e
+                levhalar[-1]["r"].append(r)
+            else:
+                levhalar.append({"b": b, "tr": x.get("tr", ""), "r": [r], "s": x["sayfa"], "e": e})
+            if not x.get("yon"):
+                continue
         if x.get("yon"):
             yonler.append(x)
             continue
@@ -45,12 +53,14 @@ for y in yonler:
     i = bas.get(norm(y["yon"]))
     if i is not None:
         maddeler[i]["y"].append([y.get("iliski", ""), y["k"]])
+        if y.get("resim") and not maddeler[i]["r"] and not y.get("etiketler"):
+            maddeler[i]["r"] = y["resim"][:-4]
     else:
         YON.append([y["k"], y.get("iliski", ""), y["yon"], y.get("tr", "")])
 for m in maddeler:
     if not m["y"]:
         del m["y"]
-kullanilan = {m["r"] for m in maddeler if m["r"]} | {l["r"] for l in levhalar}
+kullanilan = {m["r"] for m in maddeler if m["r"]} | {r for l in levhalar for r in l["r"]}
 RESIM = {}
 for f in sorted(glob.glob(os.path.join(here, "resim", "*.jpg"))):
     ad = os.path.basename(f)[:-4]
