@@ -1264,10 +1264,11 @@ sonra `python3 kelime5313/yap.py`.
 
 ## Uygulama: Sözlük Defteri — العربية بين يديك sözlüğü (Arapça açıklamalarla kelime çalışması, çevrimdışı)
 
-`mucem/index.html` (yayın sürümü `mucem/sayfa.html`) sözlüğün taranmış sayfalarından okunan maddeleri (ilk parça: s. 1–36, أ harfi, 503 madde, 139 resim, 4 levha)
+`mucem/index.html` (yayın sürümü `mucem/sayfa.html`) sözlüğün taranmış sayfalarından okunan maddeleri (s. 1–155, أ–ر harfleri; kaynak PDF'lerde bulunmayan s. 76 hariç: 2295 madde, 711 resim, 6 levha)
 kitaptaki Arapça açıklama, örnek cümle/ayet ve resimleriyle çalıştırır; her maddede Türkçe anlam ve açıklama/örnek çevirileri bir düğmenin arkasındadır.
 **Kartlar** (ön yüz: kelime ya da Arapça tanım; aralıklı tekrar, “bir daha gösterme”), **Tanımdan bul** (Arapça açıklama ya da resim → dört kelime),
 **Boşluk doldur** (kitaptaki örnek cümlede eksik kelime), **Eşleştir** (kelime ↔ kısa Arapça açıklama ya da Türkçe), **Sözlük** (sayfa sırasıyla bütün maddeler, arama,
 ★, yönlendirme maddeleri), **Levhalar** (cihazlar, çiçekler, dış ve iç organlar; etiket testi), **İstatistik** (ayarlar, yedek). İlerleme madde başıyla saklanır,
 yeni sayfalar eklenince kaybolmaz. “جمع … انظر …” yönlendirmeleri hedef maddeye bağlanır; hedefi henüz eklenmemiş olanlar Sözlük’te ayrı listelenir.
-Düzenleme: sayfa verileri `mucem/kaynak/pNN.json`, resimler `mucem/resim/` → `python3 mucem/veri.py` → `python3 mucem/yap.py`.
+Resimler yayın sayfasında ayrı `resimN.js` dosyalarındadır (16 MB sınırı).
+Düzenleme: sayfa verileri `mucem/kaynak/pNNN.json`, resimler `mucem/resim/` → `python3 mucem/veri.py` → `python3 mucem/yap.py`.
