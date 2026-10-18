@@ -1,0 +1,13 @@
+"""Kelime Defteri (5313 kelime): kaynak.html + stil.css + fontlar.css + veri.js + uygulama.js
+-> sayfa.html (artifact) ve index.html (tam sayfa, çevrimdışı). veri.js, veri.py ile üretilir."""
+import os
+here = os.path.dirname(os.path.abspath(__file__))
+rd = lambda n: open(os.path.join(here, n), encoding="utf-8").read()
+src = (rd("kaynak.html").replace("/*FONTLAR*/", rd("fontlar.css")).replace("/*STIL*/", rd("stil.css"))
+       .replace("/*VERI*/", rd("veri.js")).replace("/*UYGULAMA*/", rd("uygulama.js")))
+open(os.path.join(here, "sayfa.html"), "w", encoding="utf-8").write(src)
+head, rest = src.split("</style>", 1)
+open(os.path.join(here, "index.html"), "w", encoding="utf-8").write(
+    '<!doctype html>\n<html lang="tr">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+    + head + "</style>\n</head>\n<body>" + rest + "</body>\n</html>\n")
+print("yapıldı", round(len(src) / 1e6, 2), "MB")

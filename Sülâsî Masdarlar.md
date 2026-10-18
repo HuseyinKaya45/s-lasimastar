@@ -1248,3 +1248,14 @@ eşleştirme, “iki kelime ekle”, hata düzeltme) seçmeli ya da çoklu seçi
 kayıtlarıyla sesli: kayıtlar `ihtibar/ses5.mp3` içinde birleşik, parçaların yeri `parcalar5.json` → `python3 ihtibar/ses_yap.py <ham mp3 klasörü>` ile `zaman5.js`.
 Kitapta yazılarak cevaplanan dinleme soruları (kelime / ifade yazma, cevabı yazma) seçmeli soruya çevrildi.
 Ortak motor `ihtibar/motor.js`, veriler `ihtibar/veri.py` (→ `veriN.js`); `python3 ihtibar/yap.py` beşini birden derler.
+
+## Uygulama: Kelime Defteri — 5313 Arapça kelimenin Türkçesi (aralıklı tekrar, çevrimdışı)
+
+`kelime5313/index.html` (yayın sürümü `kelime5313/sayfa.html`) sıklık sırasıyla verilen 5313 Arapça kelimeyi Türkçe anlamlarıyla çalıştırır; tek dosya, internetsiz.
+**Bugün** (tekrar bekleyen + günlük yeni kelime, seri), **Kartlar** (Arapça→Türkçe / Türkçe→Arapça / karışık; Bilmedim · Zor · Bildim · Kolay ile SM-2 benzeri aralıklı tekrar),
+**Test** (dört seçenek, iki yön), **Yazma** (Türkçesini yaz; Türkçe harfsiz ve küçük yazım hatalarına toleranslı), **Eşleştir**, **Liste** (100’lük 54 paket, Arapça/Türkçe/İngilizce/numara
+ile arama, ★ yıldızlama, Türkçeyi gizleyip kendini deneme), **İstatistik** (son 14 gün, gelecek 7 günün tekrarı, paket ızgarası, ayarlar, yedek al / yükle, sıfırla).
+İlerleme tarayıcıda (`localStorage`) saklanır. Cihazda Arapça konuşma sesi varsa kartlarda 🔊 düğmesi çıkar.
+Kaynak listedeki İngilizce anlamlar Türkçeye çevrildi; İngilizcesi Arapçayla uyuşmayan girdiler Arapçaya göre çevrildi, İngilizce ipucu olarak kartta kalır.
+Düzenleme: Türkçe anlamlar `kelime5313/turkce.tsv` (No⇥Türkçe), kaynak `kelime5313/kaynak_liste.json`, düzeltmeler `kelime5313/veri.py` → `veri.js`;
+sonra `python3 kelime5313/yap.py`.
