@@ -28,7 +28,14 @@
     }
     return d[n];
   }
-  function toast(m) { var t = $("#toast"); t.textContent = m; t.classList.add("acik"); clearTimeout(toast.z); toast.z = setTimeout(function () { t.classList.remove("acik"); }, 2200); }
+  function toast(m, geri) {
+    var t = $("#toast"); t.textContent = m;
+    if (geri) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "toast-geri"; b.textContent = "Geri al";
+      b.addEventListener("click", function () { t.classList.remove("acik"); geri(); }); t.appendChild(b);
+    }
+    t.classList.add("acik"); clearTimeout(toast.z); toast.z = setTimeout(function () { t.classList.remove("acik"); }, geri ? 5000 : 2200);
+  }
   function konfeti() {
     var renk = ["#1e6b58", "#a8781f", "#2f5f9e", "#b23c2a", "#63c4a8"];
     for (var i = 0; i < 40; i++) {
@@ -53,8 +60,15 @@
   var D = yukle();
   function kaydet() { try { localStorage.setItem(ANAHTAR, JSON.stringify(D)); } catch (e) { depoVar = false; } }
 
-  function durum(i) { var s = D.k[i]; if (!s) return "yeni"; if (s.i >= 21) return "tamam"; return "ogr"; }
-  var DURUM_AD = { yeni: "yeni", ogr: "öğreniliyor", tamam: "öğrenildi" };
+  function durum(i) { var s = D.k[i]; if (!s) return "yeni"; if (s.b) return "bil"; if (s.i >= 21) return "tamam"; return "ogr"; }
+  var DURUM_AD = { yeni: "yeni", ogr: "öğreniliyor", tamam: "öğrenildi", bil: "biliyorum" };
+  // "Bir daha gösterme": kelime bilinen sayılır, kartlarda ve tekrarlarda bir daha çıkmaz
+  function biliyorum(i, ac) {
+    var s = D.k[i];
+    if (ac) { if (s) s.b = 1; else D.k[i] = { r: 0, i: 0, e: 2.5, d: bugun(), l: 0, g: 0, b: 1 }; }
+    else if (s) { delete s.b; if (!s.g) delete D.k[i]; }
+    kaydet();
+  }
   function durumHTML(i) { var d = durum(i); return '<span class="durum ' + d + '">' + DURUM_AD[d] + "</span>"; }
   function gunKayit() { var t = bugun(); return D.gun[t] || (D.gun[t] = { t: 0, y: 0, d: 0 }); }
   function yeniKalan() { var t = bugun(); var n = D.yb.g === t ? D.yb.n : 0; return Math.max(0, D.ay.yeni - n); }
@@ -66,7 +80,7 @@
   }
   function bekleyenler() {
     var t = bugun(), r = [];
-    for (var k in D.k) if (D.k[k].d <= t) r.push(+k);
+    for (var k in D.k) if (D.k[k].d <= t && !D.k[k].b) r.push(+k);
     r.sort(function (a, b) { return (D.k[a].d - D.k[b].d) || (a - b); });
     return r;
   }
@@ -76,8 +90,8 @@
     return r;
   }
   function sayilar() {
-    var c = { yeni: N, ogr: 0, tamam: 0 };
-    for (var k in D.k) { c.yeni--; c[D.k[k].i >= 21 ? "tamam" : "ogr"]++; }
+    var c = { yeni: N, ogr: 0, tamam: 0, bil: 0 };
+    for (var k in D.k) { c.yeni--; c[durum(+k)]++; }
     return c;
   }
 
@@ -183,8 +197,8 @@
       '<div class="satir-btn">' + (bitti ? '<button class="btn dolu buyuk" id="ekYeni" type="button">+10 yeni kelime</button><button class="btn buyuk" id="gitTest" type="button">Test çöz</button>' :
         '<button class="btn dolu buyuk" id="basla" type="button">Çalışmaya başla →</button>') + "</div></section>" +
       '<section class="kart"><h2>Genel ilerleme</h2><p class="aciklama">' + N + ' kelimeden <b>' + (N - c.yeni) + "</b> tanesiyle tanıştın.</p>" +
-      '<div class="ilerleme"><i class="o" style="width:' + (c.tamam / N * 100) + '%"></i><i class="g" style="width:' + (c.ogr / N * 100) + '%"></i></div>' +
-      '<div class="efsane"><span><i style="background:var(--dogru)"></i>Öğrenildi ' + c.tamam + '</span><span><i style="background:var(--altin)"></i>Öğreniliyor ' + c.ogr +
+      '<div class="ilerleme"><i class="o" style="width:' + (c.tamam / N * 100) + '%"></i><i class="b" style="width:' + (c.bil / N * 100) + '%"></i><i class="g" style="width:' + (c.ogr / N * 100) + '%"></i></div>' +
+      '<div class="efsane"><span><i style="background:var(--dogru)"></i>Öğrenildi ' + c.tamam + '</span><span><i style="background:var(--mavi)"></i>Biliyorum ' + c.bil + '</span><span><i style="background:var(--altin)"></i>Öğreniliyor ' + c.ogr +
       '</span><span><i style="background:var(--yumusak)"></i>Yeni ' + c.yeni + "</span></div></section>" +
       '<section class="kart"><h2>Sıradaki yeni kelimeler</h2><p class="aciklama">Kelimeler en sık kullanılandan başlayarak sıralı. Başlangıç yerini İstatistik → Ayarlar\'dan ya da Liste\'den değiştirebilirsin.</p>' +
       sira.map(function (i) { return kelimeSatir(i); }).join("") + "</section>" +
@@ -196,7 +210,7 @@
     var b = $("#basla"); if (b) b.addEventListener("click", function () { S = null; git("calis"); });
     var ey = $("#ekYeni"); if (ey) ey.addEventListener("click", function () { ekstraYeni = 10; S = null; git("calis"); });
     var gt = $("#gitTest"); if (gt) gt.addEventListener("click", function () { git("test"); });
-    kelimeOlay(ana);
+
   }
 
   // ---------- KARTLAR ----------
@@ -244,17 +258,30 @@
       '<div class="ayarlar" style="margin-top:16px"><span class="ayar"><span class="lbl">Yön</span>' +
       seg("yon", D.ay.yon, [["ar", "Arapça → Türkçe"], ["tr", "Türkçe → Arapça"], ["karisik", "Karışık"]]) + "</span>" +
       '<label class="anahtar"><input type="checkbox" id="enGoster"' + (D.ay.en ? " checked" : "") + "> İngilizce ipucu</label></div>" +
-      '<p class="soluk kucuk">Kısayollar: <b>Boşluk</b> kartı çevirir, <b>1–4</b> puanlar.' + (yeniMi ? " Yeni kelimede “Bilmedim” dersen kart birkaç kart sonra yine gelir." : "") + "</p>";
+      '<button class="btn bil-btn" id="bilBtn" type="button">✓ Bunu iyi biliyorum — bir daha gösterme</button>' +
+      '<p class="soluk kucuk">Kısayollar: <b>Boşluk</b> kartı çevirir, <b>1–4</b> puanlar, <b>B</b> bir daha göstermez.' + (yeniMi ? " Yeni kelimede “Bilmedim” dersen kart birkaç kart sonra yine gelir." : "") + "</p>";
     function cevir() { if (!S.acik) { S.acik = true; calisCiz(); } }
     $("#fkart").addEventListener("click", cevir);
     var g = $("#goster"); if (g) g.addEventListener("click", cevir);
     $$(".oy button").forEach(function (b) { b.addEventListener("click", function () { cevap(+b.getAttribute("data-q")); }); });
+    $("#bilBtn").addEventListener("click", gosterme);
     segBagla(ana, function (a, v) { D.ay.yon = v; kaydet(); calisCiz(); });
     $("#enGoster").addEventListener("change", function () { D.ay.en = this.checked; kaydet(); calisCiz(); });
     tus = function (e) {
       if (e.key === " " || e.key === "Enter") { e.preventDefault(); if (!S.acik) cevir(); else cevap(3); }
       else if (S.acik && /^[1-4]$/.test(e.key)) cevap(+e.key);
+      else if (e.key === "b" || e.key === "B") gosterme();
     };
+  }
+  function gosterme() {
+    var i = S.q.shift(), once = D.k[i] ? JSON.stringify(D.k[i]) : null, kuyruk = S.q.filter(function (x) { return x === i; }).length;
+    S.q = S.q.filter(function (x) { return x !== i; });
+    S.top -= kuyruk; S.top--;
+    biliyorum(i, true); S.acik = false; calisCiz();
+    toast("“" + arParca(i).ana + "” bir daha gösterilmeyecek.", function () {
+      if (once) D.k[i] = JSON.parse(once); else delete D.k[i];
+      kaydet(); S.q.unshift(i); S.top += 1 + kuyruk; if (aktif === "calis") calisCiz();
+    });
   }
   function cevap(q) {
     var i = S.q.shift();
@@ -270,9 +297,9 @@
   function havuz() {
     var k = D.ay.kay, r;
     if (k === "paket") r = aralik(D.ay.kp * PAKET, Math.min(N, (D.ay.kp + 1) * PAKET));
-    else if (k === "zor") r = Object.keys(D.k).map(Number).filter(function (i) { return D.k[i].l > 0 || D.k[i].e < 2.3 || D.k[i].r === 0; });
+    else if (k === "zor") r = Object.keys(D.k).map(Number).filter(function (i) { return !D.k[i].b && (D.k[i].l > 0 || D.k[i].e < 2.3 || D.k[i].r === 0); });
     else if (k === "yildiz") r = Object.keys(D.f).map(Number);
-    else r = Object.keys(D.k).map(Number);
+    else r = Object.keys(D.k).map(Number).filter(function (i) { return !D.k[i].b; });
     return r;
   }
   function kaynakHTML() {
@@ -504,10 +531,20 @@
   function kelimeSatir(i) {
     return '<div class="kelime"><span class="no">' + (i + 1) + '</span><span class="ar">' + esc(K[i][0]) + "</span>" +
       '<span class="tr">' + esc(K[i][1]) + (D.ay.en && K[i][2] ? '<span class="en">' + esc(K[i][2]) + "</span>" : "") + "</span>" +
-      '<span class="yan"><button type="button" class="yildiz' + (D.f[i] ? " acik" : "") + '" data-yildiz="' + i + '" title="Yıldızla" aria-label="Yıldızla">' + (D.f[i] ? "★" : "☆") + "</button>" + durumHTML(i) + "</span></div>";
+      '<span class="yan"><button type="button" class="yildiz' + (D.f[i] ? " acik" : "") + '" data-yildiz="' + i + '" title="Yıldızla" aria-label="Yıldızla">' + (D.f[i] ? "★" : "☆") + "</button>" + durumHTML(i) +
+      '<button type="button" class="bil-kucuk" data-bil="' + i + '">' + (D.k[i] && D.k[i].b ? "↺ yeniden çalış" : "✓ biliyorum") + "</button></span></div>";
   }
   function kelimeOlay(kok) {
     kok.addEventListener("click", function (e) {
+      var bb = e.target.closest("[data-bil]");
+      if (bb) {
+        var bi = +bb.getAttribute("data-bil"), ac = !(D.k[bi] && D.k[bi].b);
+        biliyorum(bi, ac); S = null;
+        var satir = bb.closest(".kelime"), yeni = document.createElement("div"); yeni.innerHTML = kelimeSatir(bi);
+        satir.replaceWith(yeni.firstChild);
+        toast(ac ? "Bu kelime bir daha gösterilmeyecek." : "Kelime yeniden çalışma listesinde.");
+        return;
+      }
       var y = e.target.closest("[data-yildiz]");
       if (y) {
         var i = +y.getAttribute("data-yildiz");
@@ -527,7 +564,7 @@
         return '<button type="button" class="paket' + (p === L.p && !L.ara ? " aktif" : "") + '" data-p="' + p + '" title="' + paketAd(p) + '">' + (p * PAKET + 1) +
           '<span class="dolgu" style="width:' + pd[p] + '%"></span></button>';
       }).join("") + "</div>" +
-      '<div class="ayarlar"><span class="ayar">' + seg("filtre", L.filtre, [["hepsi", "Hepsi"], ["yeni", "Yeni"], ["ogr", "Öğreniliyor"], ["tamam", "Öğrenildi"], ["yildiz", "★"]]) + "</span>" +
+      '<div class="ayarlar"><span class="ayar">' + seg("filtre", L.filtre, [["hepsi", "Hepsi"], ["yeni", "Yeni"], ["ogr", "Öğreniliyor"], ["tamam", "Öğrenildi"], ["bil", "Biliyorum"], ["yildiz", "★"]]) + "</span>" +
       '<label class="anahtar"><input type="checkbox" id="gizle"' + (D.ay.gizle ? " checked" : "") + "> Türkçeyi gizle (kendini dene)</label></div>" +
       '<div class="satir-btn" id="pAraclar"' + (L.ara ? " hidden" : "") + '><button class="btn kucuk" id="pBas" type="button">Yeni kelimeleri bu paketten başlat</button>' +
       '<button class="btn kucuk" id="pTest" type="button">Bu paketi test et</button><button class="btn kucuk" id="pEsle" type="button">Bu paketle eşleştir</button></div>' +
@@ -541,7 +578,7 @@
     $("#pBas").addEventListener("click", function () { D.ay.bas = L.p * PAKET; kaydet(); toast("Yeni kelimeler artık " + (L.p * PAKET + 1) + ". kelimeden başlayacak."); });
     $("#pTest").addEventListener("click", function () { D.ay.kay = "paket"; D.ay.kp = L.p; kaydet(); T = null; git("test"); });
     $("#pEsle").addEventListener("click", function () { D.ay.kay = "paket"; D.ay.kp = L.p; kaydet(); E = null; git("esle"); });
-    kelimeOlay($("#liste"));
+
   }
   function listeDoldur() {
     var r, q = L.ara;
@@ -561,7 +598,7 @@
   }
   function paketDurum() {
     var r = aralik(0, PSAY).map(function () { return 0; });
-    for (var k in D.k) if (D.k[k].i >= 21) r[Math.floor(k / PAKET)]++;
+    for (var k in D.k) if (D.k[k].b || D.k[k].i >= 21) r[Math.floor(k / PAKET)]++;
     return r.map(function (v, p) { return Math.round(v / (Math.min(N, (p + 1) * PAKET) - p * PAKET) * 100); });
   }
 
@@ -571,7 +608,7 @@
     for (var g in D.gun) { tops += D.gun[g].t; dogru += D.gun[g].d; }
     for (var j = 13; j >= 0; j--) { var gk = D.gun[t - j]; gecmis.push([t - j, gk ? gk.t : 0]); }
     for (j = 0; j < 7; j++) ileri.push([t + j, 0]);
-    for (var k in D.k) { var fark = Math.max(0, D.k[k].d - t); if (fark < 7) ileri[fark][1]++; }
+    for (var k in D.k) { if (D.k[k].b) continue; var fark = Math.max(0, D.k[k].d - t); if (fark < 7) ileri[fark][1]++; }
     var gmax = Math.max.apply(null, gecmis.map(function (x) { return x[1]; }).concat([1]));
     var imax = Math.max.apply(null, ileri.map(function (x) { return x[1]; }).concat([1]));
     var GUN = ["Pz", "Pt", "Sa", "Ça", "Pe", "Cu", "Ct"];
@@ -580,7 +617,7 @@
     for (k in D.k) { var pk = Math.floor(k / PAKET); ilk[pk] = (ilk[pk] || 0) + 1; }
     ana.innerHTML =
       '<section class="kart"><h2>Özet</h2><div class="hero" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))">' +
-      '<div class="sayi yeni"><b>' + c.tamam + '</b><span>öğrenildi</span></div><div class="sayi seri"><b>' + c.ogr + '</b><span>öğreniliyor</span></div>' +
+      '<div class="sayi yeni"><b>' + c.tamam + '</b><span>öğrenildi</span></div><div class="sayi tekrar"><b>' + c.bil + '</b><span>biliyorum</span></div><div class="sayi seri"><b>' + c.ogr + '</b><span>öğreniliyor</span></div>' +
       '<div class="sayi tekrar"><b>' + tops + '</b><span>toplam cevap</span></div><div class="sayi"><b>' + (tops ? Math.round(dogru / tops * 100) : 0) + '%</b><span>başarı</span></div>' +
       '<div class="sayi seri"><b>' + seri() + '</b><span>gün seri 🔥</span></div></div>' +
       '<p class="soluk kucuk">“Öğrenildi”: bir sonraki tekrarı en az 3 hafta sonra olan kelime.</p></section>' +
@@ -645,5 +682,6 @@
     });
   }
 
+  kelimeOlay(ana);
   git("bugun");
 })();

@@ -1255,6 +1255,8 @@ Ortak motor `ihtibar/motor.js`, veriler `ihtibar/veri.py` (→ `veriN.js`); `pyt
 **Bugün** (tekrar bekleyen + günlük yeni kelime, seri), **Kartlar** (Arapça→Türkçe / Türkçe→Arapça / karışık; Bilmedim · Zor · Bildim · Kolay ile SM-2 benzeri aralıklı tekrar),
 **Test** (dört seçenek, iki yön), **Yazma** (Türkçesini yaz; Türkçe harfsiz ve küçük yazım hatalarına toleranslı), **Eşleştir**, **Liste** (100’lük 54 paket, Arapça/Türkçe/İngilizce/numara
 ile arama, ★ yıldızlama, Türkçeyi gizleyip kendini deneme), **İstatistik** (son 14 gün, gelecek 7 günün tekrarı, paket ızgarası, ayarlar, yedek al / yükle, sıfırla).
+İyi bilinen kelime kartta “✓ Bunu iyi biliyorum — bir daha gösterme” (kısayol B, geri alınabilir) ya da Liste’de “✓ biliyorum” ile
+“biliyorum” durumuna geçer; tekrarlara, kartlara ve testlere bir daha gelmez, Liste’den “↺ yeniden çalış” ile geri alınır.
 İlerleme tarayıcıda (`localStorage`) saklanır. Cihazda Arapça konuşma sesi varsa kartlarda 🔊 düğmesi çıkar.
 Kaynak listedeki İngilizce anlamlar Türkçeye çevrildi; İngilizcesi Arapçayla uyuşmayan girdiler Arapçaya göre çevrildi, İngilizce ipucu olarak kartta kalır.
 Düzenleme: Türkçe anlamlar `kelime5313/turkce.tsv` (No⇥Türkçe), kaynak `kelime5313/kaynak_liste.json`, düzeltmeler `kelime5313/veri.py` → `veri.js`;
