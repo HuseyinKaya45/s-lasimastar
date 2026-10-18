@@ -1212,6 +1212,20 @@ Dinleme tedrîb 4’ün kaydı bir paragraf değil, cümlelerin kendisidir; ceva
 Düzenleme: `k1u11/veri.js`, `k1u11/uygulama.js`, `k1u11/stil.css`; ses parçaları `k1u11/parcalar.json` → `python3 k1u11/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u11/yap.py`.
 
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 12. ünite — Hobiler (sesli, resimli, çevrimdışı)
+
+`k1u12/index.html` (yayın sürümü `k1u12/sayfa.html`) الهِواياتُ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
+29 ders kaydı (ders 100–105) tek `ses.mp3` içinde birleştirilmiş, 186 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (hobilerin neler, hobi sergisi, okul kulüpleri) ve kitaptaki sorular; **Kelimeler** (ders 100–102, 31 kelime);
+**Sıfatlar** (طَويلٌ – قَصيرٌ … 12 sıfat, zıt anlamlı eşleştirme, ders 108’in resimli alıştırması); **Kalıplar** (ما هِوايَتُكَ؟; هَلْ زُرْتَ …؟ — لا، ما زُرْتُهُ;
+هذا جَناحُ …; أَيَّ … تَخْتارينَ؟; كَمْ ساعَةً …؟; هَلْ لَدَيْكَ …؟), **Sesler** (ش – س, beş âyet), **Dinleme** (ders 105, dört tedrîb; 1. ve 3. resimli),
+**Okuma** (üç sesli metin, boşluk doldurma), **Yazı**, **Konuşma**, **Alıştırmalar** (ders 103, 107, 108), **Kendini sına (ünite 11–12)** ve sesli **Sınav**.
+Kayıt notları: 106. (konuşma) ve 108. (yazı) derslerin kaydı yoktur; okuma tedrîb 5 sessizdir. Kalıp tedrîb 6’nın kaydında 5. resim
+“قَميصٌ أَخْضَرُ” diye okunur (kitapta mavi gömlek); 3. diyalogda Semîre’nin sorusu tekrar bölümünde okunmadığı için ilk okumadan alındı.
+Dinleme tedrîb 1 ve 3’te resim seçimleri kayda göre yapıldı (gazetenin Arapça olanı, saatlerden dört saati gösteren).
+Düzenleme: `k1u12/veri.js`, `k1u12/uygulama.js`, `k1u12/stil.css`; ses parçaları `k1u12/parcalar.json` → `python3 k1u12/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u12/yap.py`.
+
 ## Uygulama: el-Arabiyyetü beyne yedeyk 1 — “Kendini sına” sınavları ve yarıyıl sınavı
 
 `ihtibar/ihtibar1.html` … `ihtibar5.html` (yayın sürümleri `ihtibar/sayfa1.html` … `sayfa5.html`): kitabın dört “اخْتَبِرْ نَفْسَكَ” sınavı (Ünite 1–2, 3–4, 5–6, 7–8; her biri 40 puan)
