@@ -1,0 +1,371 @@
+[
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَقام",
+  "cogul": null,
+  "metin": "يَسْتَقِيمُ اسْتِقامَةً : ( ١ ) اسْتَوى ، “اسْتَقامَ الطَّريقُ” . ( ٢ ) اعْتَدَلَ في سُلوكِهِ ، ﴿ وَأَلَّوِ اسْتَقامُوا عَلَى الطَّريقَةِ لَأَسْقَيْناهُمْ ماءً غَدَقاً ﴾ ، ﴿ إِنَّ الَّذينَ قالُوا رَبُّنا اللَّهُ ثُمَّ اسْتَقامُوا ﴾ .",
+  "tanim": "( ١ ) اسْتَوى ( ٢ ) اعْتَدَلَ في سُلوكِهِ",
+  "ornekler": [
+   "“اسْتَقامَ الطَّريقُ”",
+   "﴿ وَأَلَّوِ اسْتَقامُوا عَلَى الطَّريقَةِ لَأَسْقَيْناهُمْ ماءً غَدَقاً ﴾",
+   "﴿ إِنَّ الَّذينَ قالُوا رَبُّنا اللَّهُ ثُمَّ اسْتَقامُوا ﴾"
+  ],
+  "bosluk": {
+   "cumle": "إِنَّ الَّذينَ قالُوا رَبُّنا اللَّهُ ثُمَّ اسْتَقامُوا",
+   "kelime": "اسْتَقامُوا"
+  },
+  "tr": "dosdoğru olmak",
+  "tanim_tr": "(1) Düz olmak, dümdüz uzanmak. (2) Davranışında dürüst ve ölçülü olmak.",
+  "ornekler_tr": [
+   "Yol dümdüz uzandı.",
+   "Eğer o yol üzerinde dosdoğru gitselerdi, onlara bol su içirirdik.",
+   "“Rabbimiz Allah'tır” deyip sonra dosdoğru olanlar..."
+  ],
+  "resim": "p047_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 47,
+  "k": "اسْتِقْبال",
+  "yon": "اسْتَقْبَلَ",
+  "iliski": "مصدر",
+  "tr": "karşılama"
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَقْبَحَ",
+  "cogul": null,
+  "metin": "يَسْتَقْبِحُ اسْتِقْباحاً : عَدَّهُ قَبيحاً ، “اسْتَقْبَحَ النّاسُ ما قامَ بِهِ ذَلِكَ الرَّجُلُ مِنْ أَقْوالٍ وَأَفْعالٍ” .",
+  "tanim": "عَدَّهُ قَبيحاً",
+  "ornekler": [
+   "“اسْتَقْبَحَ النّاسُ ما قامَ بِهِ ذَلِكَ الرَّجُلُ مِنْ أَقْوالٍ وَأَفْعالٍ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَقْبَحَ النّاسُ ما قامَ بِهِ ذَلِكَ الرَّجُلُ مِنْ أَقْوالٍ وَأَفْعالٍ",
+   "kelime": "اسْتَقْبَحَ"
+  },
+  "tr": "çirkin görmek",
+  "tanim_tr": "Bir şeyi çirkin saymak.",
+  "ornekler_tr": [
+   "İnsanlar o adamın söz ve davranışlarını çirkin buldu."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَقْبَلَ",
+  "cogul": null,
+  "metin": "يَسْتَقْبِلُ اسْتِقْبالاً : لَقِيَ مُرَحِّباً ، اتَّجَهَ ، “اسْتَقْبَلَ الوَزيرُ ضُيوفَهُ في المَطارِ” ،",
+  "tanim": "لَقِيَ مُرَحِّباً ، اتَّجَهَ",
+  "ornekler": [
+   "“اسْتَقْبَلَ الوَزيرُ ضُيوفَهُ في المَطارِ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَقْبَلَ الوَزيرُ ضُيوفَهُ في المَطارِ",
+   "kelime": "اسْتَقْبَلَ"
+  },
+  "tr": "karşılamak",
+  "tanim_tr": "Hoş geldin diyerek karşılamak; yönelmek.",
+  "ornekler_tr": [
+   "Bakan misafirlerini havaalanında karşıladı."
+  ],
+  "resim": "p047_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَقْدَمَ",
+  "cogul": null,
+  "metin": "يَسْتَقْدِمُ اسْتِقْداماً . ( ١ ) طَلَبَ قُدومَ الشَّخْصِ ، “اسْتَقْدَمَتِ الشَّرِكَةُ عِشْرينَ مُهَنْدِساً مِنَ الخارِجِ” . ( ٢ ) سَبَقَ غَيْرَهُ ، وَتَقَدَّمَ عَلَيْهِ ؛ خِلافُ اسْتَأْخَرَ ، ﴿ وَلِكُلِّ أُمَّةٍ أَجَلٌ فَإِذا جاءَ أَجَلُهُمْ لا يَسْتَأْخِرُونَ ساعَةً وَلا يَسْتَقْدِمُونَ ﴾ .",
+  "tanim": "( ١ ) طَلَبَ قُدومَ الشَّخْصِ ( ٢ ) سَبَقَ غَيْرَهُ ، وَتَقَدَّمَ عَلَيْهِ ؛ خِلافُ اسْتَأْخَرَ",
+  "ornekler": [
+   "“اسْتَقْدَمَتِ الشَّرِكَةُ عِشْرينَ مُهَنْدِساً مِنَ الخارِجِ”",
+   "﴿ وَلِكُلِّ أُمَّةٍ أَجَلٌ فَإِذا جاءَ أَجَلُهُمْ لا يَسْتَأْخِرُونَ ساعَةً وَلا يَسْتَقْدِمُونَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَقْدَمَتِ الشَّرِكَةُ عِشْرينَ مُهَنْدِساً مِنَ الخارِجِ",
+   "kelime": "اسْتَقْدَمَتِ"
+  },
+  "tr": "getirtmek; öne geçmek",
+  "tanim_tr": "(1) Birinin gelmesini istemek, getirtmek. (2) Başkasını geçmek, öne geçmek; geri kalmanın zıddı.",
+  "ornekler_tr": [
+   "Şirket yurt dışından yirmi mühendis getirtti.",
+   "Her ümmetin bir eceli vardır; ecelleri gelince ne bir an geri kalabilirler ne de öne geçebilirler."
+  ],
+  "resim": null,
+  "not": "Kitapta 'يَسْتَقْدِمُ اسْتِقْداماً .' satırı resim nedeniyle madde başının bir satır üstünde, اسْتَقْبَلَ maddesinin sonunda basılmış."
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَقَرَّ",
+  "cogul": null,
+  "metin": "يَسْتَقِرُّ اسْتِقْراراً : سَكَنَ وَبَقِيَ مُدَّةً طَويلَةً ، ثَبَتَ ، “اسْتَقَرَّ عَلِيٌّ في الباكِسْتانِ ، بَعْدَ أَنْ تَزَوَّجَ مِنْ أَهْلِها” ، “اسْتَقَرَّ رَأْيُ الجَميعِ عَلَى السَّفَرِ إِلى أَنْدونيسْيا” .",
+  "tanim": "سَكَنَ وَبَقِيَ مُدَّةً طَويلَةً ، ثَبَتَ",
+  "ornekler": [
+   "“اسْتَقَرَّ عَلِيٌّ في الباكِسْتانِ ، بَعْدَ أَنْ تَزَوَّجَ مِنْ أَهْلِها”",
+   "“اسْتَقَرَّ رَأْيُ الجَميعِ عَلَى السَّفَرِ إِلى أَنْدونيسْيا”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَقَرَّ رَأْيُ الجَميعِ عَلَى السَّفَرِ إِلى أَنْدونيسْيا",
+   "kelime": "اسْتَقَرَّ"
+  },
+  "tr": "yerleşmek, karar kılmak",
+  "tanim_tr": "Yerleşip uzun süre kalmak; sabit olmak, karar kılmak.",
+  "ornekler_tr": [
+   "Ali, oradan biriyle evlendikten sonra Pakistan'a yerleşti.",
+   "Herkesin görüşü Endonezya'ya gitmekte karar kıldı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَقْرَأَ",
+  "cogul": null,
+  "metin": "يَسْتَقْرِئُ اسْتِقْراءً : ( ١ ) طَلَبَ القِراءَةَ ، “اسْتَقْرَأَ المُعَلِّمُ الطُّلّابَ” . ( ٢ ) دَرَسَ وَتَتَبَّعَ لِمَعْرِفَةِ خَواصِّ الشَّيْءِ ، “لابُدَّ أَنْ تَسْتَقْرِئَ كُلَّ ما لَهُ عَلاقَةٌ بِالمَوْضوعِ ؛ لِلْوُصولِ إِلى الحَقيقَةِ” .",
+  "tanim": "( ١ ) طَلَبَ القِراءَةَ ( ٢ ) دَرَسَ وَتَتَبَّعَ لِمَعْرِفَةِ خَواصِّ الشَّيْءِ",
+  "ornekler": [
+   "“اسْتَقْرَأَ المُعَلِّمُ الطُّلّابَ”",
+   "“لابُدَّ أَنْ تَسْتَقْرِئَ كُلَّ ما لَهُ عَلاقَةٌ بِالمَوْضوعِ ؛ لِلْوُصولِ إِلى الحَقيقَةِ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَقْرَأَ المُعَلِّمُ الطُّلّابَ",
+   "kelime": "اسْتَقْرَأَ"
+  },
+  "tr": "okutmak; incelemek",
+  "tanim_tr": "(1) Okumasını istemek, okutmak. (2) Bir şeyin özelliklerini öğrenmek için inceleyip araştırmak (tümevarım).",
+  "ornekler_tr": [
+   "Öğretmen öğrencilere okuttu.",
+   "Gerçeğe ulaşmak için konuyla ilgisi olan her şeyi incelemen gerekir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 47,
+  "k": "اسْتِقْرار",
+  "yon": "اسْتَقَرَّ",
+  "iliski": "مصدر",
+  "tr": "yerleşme, istikrar"
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَقْصى",
+  "cogul": null,
+  "metin": "يَسْتَقْصي اسْتِقْصاءً : أَحاطَ بِالمَوْضوعِ ، “اسْتَقْصى الباحِثُ المَوْضوعَ” .",
+  "tanim": "أَحاطَ بِالمَوْضوعِ",
+  "ornekler": [
+   "“اسْتَقْصى الباحِثُ المَوْضوعَ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَقْصى الباحِثُ المَوْضوعَ",
+   "kelime": "اسْتَقْصى"
+  },
+  "tr": "etraflıca araştırmak",
+  "tanim_tr": "Konuyu her yönüyle kavramak, enine boyuna araştırmak.",
+  "ornekler_tr": [
+   "Araştırmacı konuyu etraflıca inceledi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 47,
+  "k": "اسْتِقْطاب",
+  "yon": "اسْتَقْطَبَ",
+  "iliski": "مصدر",
+  "tr": "kendine çekme, kutuplaşma"
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَقْطَبَ",
+  "cogul": null,
+  "metin": "يَسْتَقْطِبُ اسْتِقْطاباً : جَذَبَ وَاسْتَمالَ ، “تَعْمَلُ بَعْضُ الدُّوَلِ الكَبيرَةِ عَلَى اسْتِقْطابِ الدُّوَلِ الصَّغيرَةِ إِلى جانِبِها ؛ لِلْوُصولِ إِلى مَطامِعِها” ، “اسْتَقْطَبَ المُديرُ بَعْضَ الأَعْضاءِ إِلى جانِبِهِ ، لِيُصَوِّتوا لَهُ في الانْتِخاباتِ” .",
+  "tanim": "جَذَبَ وَاسْتَمالَ",
+  "ornekler": [
+   "“تَعْمَلُ بَعْضُ الدُّوَلِ الكَبيرَةِ عَلَى اسْتِقْطابِ الدُّوَلِ الصَّغيرَةِ إِلى جانِبِها ؛ لِلْوُصولِ إِلى مَطامِعِها”",
+   "“اسْتَقْطَبَ المُديرُ بَعْضَ الأَعْضاءِ إِلى جانِبِهِ ، لِيُصَوِّتوا لَهُ في الانْتِخاباتِ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَقْطَبَ المُديرُ بَعْضَ الأَعْضاءِ إِلى جانِبِهِ",
+   "kelime": "اسْتَقْطَبَ"
+  },
+  "tr": "kendi tarafına çekmek",
+  "tanim_tr": "Çekmek ve gönlünü kazanmak, kendi tarafına çekmek.",
+  "ornekler_tr": [
+   "Bazı büyük devletler, emellerine ulaşmak için küçük devletleri kendi yanlarına çekmeye çalışır.",
+   "Müdür, seçimlerde kendisine oy versinler diye bazı üyeleri kendi tarafına çekti."
+  ],
+  "resim": null,
+  "not": "Madde sağ sütunun sonundan sol sütuna geçiyor."
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَقَلَّ",
+  "cogul": null,
+  "metin": "يَسْتَقِلُّ اسْتِقْلالاً : ( ١ ) انْفَرَدَ بِقَرارِهِ وَأَمْرِهِ ، “اسْتَقَلَّ بِرَأْيِهِ ، وَلَمْ يَسْتَشِرْ أَحَداً” . ( ٢ ) أَصْبَحَ سَيِّدَ أَمْرِهِ ، “اسْتَقَلَّتْ مُعْظَمُ الدُّوَلِ مِنَ الاسْتِعْمارِ القَديمِ” . ( ٣ ) عَدَّهُ قَليلاً ، “اسْتَقَلَّ ما أُعْطِيَ مِنْ مالٍ” . ( ٤ ) رَكِبَ ، عَلا ، “اسْتَقَلَّ السَّيّارَةَ في سَفَرِهِ” .",
+  "tanim": "( ١ ) انْفَرَدَ بِقَرارِهِ وَأَمْرِهِ ( ٢ ) أَصْبَحَ سَيِّدَ أَمْرِهِ ( ٣ ) عَدَّهُ قَليلاً ( ٤ ) رَكِبَ ، عَلا",
+  "ornekler": [
+   "“اسْتَقَلَّ بِرَأْيِهِ ، وَلَمْ يَسْتَشِرْ أَحَداً”",
+   "“اسْتَقَلَّتْ مُعْظَمُ الدُّوَلِ مِنَ الاسْتِعْمارِ القَديمِ”",
+   "“اسْتَقَلَّ ما أُعْطِيَ مِنْ مالٍ”",
+   "“اسْتَقَلَّ السَّيّارَةَ في سَفَرِهِ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَقَلَّتْ مُعْظَمُ الدُّوَلِ مِنَ الاسْتِعْمارِ القَديمِ",
+   "kelime": "اسْتَقَلَّتْ"
+  },
+  "tr": "bağımsız olmak",
+  "tanim_tr": "(1) Kararında ve işinde tek başına hareket etmek. (2) Kendi işinin efendisi olmak, bağımsızlaşmak. (3) Az görmek. (4) Binmek, üstüne çıkmak.",
+  "ornekler_tr": [
+   "Kendi görüşüyle hareket etti, kimseye danışmadı.",
+   "Devletlerin çoğu eski sömürgecilikten bağımsızlığını kazandı.",
+   "Kendisine verilen parayı az buldu.",
+   "Yolculuğunda arabaya bindi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 47,
+  "k": "اسْتِقْلال",
+  "yon": "اسْتَقَلَّ",
+  "iliski": "مصدر",
+  "tr": "bağımsızlık"
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَكانَ",
+  "cogul": null,
+  "metin": "يَسْتَكينُ اسْتِكانَةً : خَضَعَ وَذَلَّ ، “يا لَهُ مِنْ رَجُلٍ ، لا يَسْتَكينُ لِلظُّلْمِ !” ، ﴿ وَما ضَعُفُوا وَما اسْتَكانُوا ﴾ .",
+  "tanim": "خَضَعَ وَذَلَّ",
+  "ornekler": [
+   "“يا لَهُ مِنْ رَجُلٍ ، لا يَسْتَكينُ لِلظُّلْمِ !”",
+   "﴿ وَما ضَعُفُوا وَما اسْتَكانُوا ﴾"
+  ],
+  "bosluk": {
+   "cumle": "يا لَهُ مِنْ رَجُلٍ ، لا يَسْتَكينُ لِلظُّلْمِ",
+   "kelime": "يَسْتَكينُ"
+  },
+  "tr": "boyun eğmek",
+  "tanim_tr": "Boyun eğmek ve zillete düşmek.",
+  "ornekler_tr": [
+   "Ne adammış! Zulme boyun eğmiyor!",
+   "Zayıflık göstermediler, boyun da eğmediler."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 47,
+  "k": "اسْتِكْبار",
+  "yon": "اسْتَكْبَرَ",
+  "iliski": "مصدر",
+  "tr": "büyüklenme, kibir"
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَكْبَرَ",
+  "cogul": null,
+  "metin": "يَسْتَكْبِرُ اسْتِكْباراً : عانَدَ ، وَتَكَبَّرَ ، وَلَمْ يَقْبَلِ الحَقَّ ، ﴿ وَاسْتَغْشَوْا ثِيابَهُمْ وَأَصَرُّوا وَاسْتَكْبَرُوا اسْتِكْباراً ﴾ ، ﴿ إِنَّ الَّذينَ يَسْتَكْبِرُونَ عَنْ عِبادَتي سَيَدْخُلُونَ جَهَنَّمَ داخِرينَ ﴾ .",
+  "tanim": "عانَدَ ، وَتَكَبَّرَ ، وَلَمْ يَقْبَلِ الحَقَّ",
+  "ornekler": [
+   "﴿ وَاسْتَغْشَوْا ثِيابَهُمْ وَأَصَرُّوا وَاسْتَكْبَرُوا اسْتِكْباراً ﴾",
+   "﴿ إِنَّ الَّذينَ يَسْتَكْبِرُونَ عَنْ عِبادَتي سَيَدْخُلُونَ جَهَنَّمَ داخِرينَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "إِنَّ الَّذينَ يَسْتَكْبِرُونَ عَنْ عِبادَتي سَيَدْخُلُونَ جَهَنَّمَ داخِرينَ",
+   "kelime": "يَسْتَكْبِرُونَ"
+  },
+  "tr": "büyüklenmek",
+  "tanim_tr": "İnatlaşmak, büyüklenmek ve hakkı kabul etmemek.",
+  "ornekler_tr": [
+   "Elbiselerine büründüler, direttiler ve büyüklendikçe büyüklendiler.",
+   "Bana ibadet etmeyi kibirlerine yediremeyenler, aşağılanmış olarak cehenneme gireceklerdir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَكْشَفَ",
+  "cogul": null,
+  "metin": "يَسْتَكْشِفُ اسْتِكْشافاً : اسْتَطْلَعَ ، “اسْتَكْشَفَ سِلاحُ الطَّيَرانِ المَنْطِقَةَ قَبْلَ الهُجومِ الشّامِلِ” ، “اسْتَكْشَفَ المَسْؤولونَ آراءَ النّاسِ ، قَبْلَ اتِّخاذِ القَرارِ” .",
+  "tanim": "اسْتَطْلَعَ",
+  "ornekler": [
+   "“اسْتَكْشَفَ سِلاحُ الطَّيَرانِ المَنْطِقَةَ قَبْلَ الهُجومِ الشّامِلِ”",
+   "“اسْتَكْشَفَ المَسْؤولونَ آراءَ النّاسِ ، قَبْلَ اتِّخاذِ القَرارِ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَكْشَفَ المَسْؤولونَ آراءَ النّاسِ ، قَبْلَ اتِّخاذِ القَرارِ",
+   "kelime": "اسْتَكْشَفَ"
+  },
+  "tr": "keşfetmek, yoklamak",
+  "tanim_tr": "Keşif yapmak, durumu öğrenmeye çalışmak.",
+  "ornekler_tr": [
+   "Hava kuvvetleri genel saldırıdan önce bölgede keşif yaptı.",
+   "Yetkililer karar vermeden önce halkın görüşlerini yokladı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَلْقى",
+  "cogul": null,
+  "metin": "يَسْتَلْقي اسْتِلْقاءً : اضْطَجَعَ ، رَقَدَ ، نامَ عَلَى ظَهْرِهِ ، “اسْتَلْقَى العامِلُ تَحْتَ ظِلِّ الشَّجَرَةِ وَاسْتَغْرَقَ في النَّوْمِ” ، “ضَحِكَ الرَّجُلُ ، حَتَّى اسْتَلْقَى عَلَى قَفاهُ” .",
+  "tanim": "اضْطَجَعَ ، رَقَدَ ، نامَ عَلَى ظَهْرِهِ",
+  "ornekler": [
+   "“اسْتَلْقَى العامِلُ تَحْتَ ظِلِّ الشَّجَرَةِ وَاسْتَغْرَقَ في النَّوْمِ”",
+   "“ضَحِكَ الرَّجُلُ ، حَتَّى اسْتَلْقَى عَلَى قَفاهُ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَلْقَى العامِلُ تَحْتَ ظِلِّ الشَّجَرَةِ وَاسْتَغْرَقَ في النَّوْمِ",
+   "kelime": "اسْتَلْقَى"
+  },
+  "tr": "sırtüstü uzanmak",
+  "tanim_tr": "Uzanmak, yatmak, sırtüstü yatmak.",
+  "ornekler_tr": [
+   "İşçi ağacın gölgesinde sırtüstü uzandı ve derin bir uykuya daldı.",
+   "Adam gülmekten sırtüstü düştü."
+  ],
+  "resim": "p047_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 47,
+  "baski_no": "٤٧",
+  "k": "اسْتَماتَ",
+  "cogul": null,
+  "metin": "يَسْتَميتُ اسْتِماتَةً : واجَهَ المَوْتَ دونَ خَوْفٍ ، “يَسْتَميتُ المُجاهِدُ في سَبيلِ اللهِ” .",
+  "tanim": "واجَهَ المَوْتَ دونَ خَوْفٍ",
+  "ornekler": [
+   "“يَسْتَميتُ المُجاهِدُ في سَبيلِ اللهِ”"
+  ],
+  "bosluk": {
+   "cumle": "يَسْتَميتُ المُجاهِدُ في سَبيلِ اللهِ",
+   "kelime": "يَسْتَميتُ"
+  },
+  "tr": "canını ortaya koymak",
+  "tanim_tr": "Ölümle korkusuzca yüz yüze gelmek, ölümüne savaşmak.",
+  "ornekler_tr": [
+   "Mücahit Allah yolunda canını ortaya koyar."
+  ],
+  "resim": null,
+  "not": null
+ }
+]

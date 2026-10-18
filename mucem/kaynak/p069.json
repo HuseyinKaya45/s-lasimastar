@@ -1,0 +1,407 @@
+[
+ {
+  "sayfa": 69,
+  "devam": true,
+  "metin": "“هٰذا طَعامٌ لِلطُّيورِ ، لا يَصْلُحُ لِلْبَشَرِ” ، ﴿ قالَتْ لَهُمْ رُسُلُهُمْ إِنْ نَحْنُ إِلاَّ بَشَرٌ مِثْلُكُمْ ﴾ ."
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَشَرَةٌ",
+  "cogul": null,
+  "metin": "ظاهِرُ الجِلْدِ ، “عَلِيٌّ ذو بَشَرَةٍ داكِنَةٍ” .",
+  "tanim": "ظاهِرُ الجِلْدِ",
+  "ornekler": [
+   "“عَلِيٌّ ذو بَشَرَةٍ داكِنَةٍ”"
+  ],
+  "bosluk": {
+   "cumle": "عَلِيٌّ ذو بَشَرَةٍ داكِنَةٍ",
+   "kelime": "بَشَرَةٍ"
+  },
+  "tr": "ten, cilt",
+  "tanim_tr": "Derinin dış yüzü.",
+  "ornekler_tr": [
+   "Ali esmer tenlidir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بُشْرى",
+  "cogul": null,
+  "metin": "ما يُبَشَّرُ بِهِ مِنْ أَخْبارٍ سارَّةٍ ، ﴿ لَهُمُ الْبُشْرَى فِي الْحَياةِ الدُّنْيا وَفِي الآخِرَةِ لا تَبْديلَ لِكَلِماتِ اللَّهِ ﴾ .",
+  "tanim": "ما يُبَشَّرُ بِهِ مِنْ أَخْبارٍ سارَّةٍ",
+  "ornekler": [
+   "﴿ لَهُمُ الْبُشْرَى فِي الْحَياةِ الدُّنْيا وَفِي الآخِرَةِ لا تَبْديلَ لِكَلِماتِ اللَّهِ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "لَهُمُ الْبُشْرَى فِي الْحَياةِ الدُّنْيا وَفِي الآخِرَةِ",
+   "kelime": "الْبُشْرَى"
+  },
+  "tr": "müjde",
+  "tanim_tr": "Müjdelenen sevindirici haber.",
+  "ornekler_tr": [
+   "Dünya hayatında da ahirette de müjde onlaradır. Allah'ın sözlerinde değişiklik olmaz."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَشَرِيَّة",
+  "cogul": null,
+  "metin": "نِسْبَةٌ إِلَى البَشَرِ ؛ أَيِ الجِنْسِ البَشَرِيِّ . أُنْظُرْ : بَشَر .",
+  "tanim": "نِسْبَةٌ إِلَى البَشَرِ ؛ أَيِ الجِنْسِ البَشَرِيِّ",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "insanlık",
+  "tanim_tr": "Beşere nispet; yani insan türü. Bkz. beşer.",
+  "ornekler_tr": [],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَصَرٌ",
+  "cogul": null,
+  "metin": "البَصَرُ حاسَّةُ الرُّؤْيَةِ ( العَيْنِ ) ، ﴿ إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤادَ كُلُّ أُولٰئِكَ كانَ عَنْهُ مَسْؤُولاً ﴾ . وأُنْظُرْ أَيْضاً : أَبْصَرَ .",
+  "tanim": "حاسَّةُ الرُّؤْيَةِ ( العَيْنِ )",
+  "ornekler": [
+   "﴿ إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤادَ كُلُّ أُولٰئِكَ كانَ عَنْهُ مَسْؤُولاً ﴾"
+  ],
+  "bosluk": {
+   "cumle": "إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤادَ كُلُّ أُولٰئِكَ كانَ عَنْهُ مَسْؤُولاً",
+   "kelime": "وَالْبَصَرَ"
+  },
+  "tr": "görme duyusu, göz",
+  "tanim_tr": "Görme duyusu (göz). Ayrıca bkz. ebsara.",
+  "ornekler_tr": [
+   "Şüphesiz kulak, göz ve kalp; bunların hepsi ondan sorumludur."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَصَرِيّ",
+  "cogul": null,
+  "metin": "نِسْبَةٌ إِلَى البَصَرِ . انْظُرْ : بَصَرٌ .",
+  "tanim": "نِسْبَةٌ إِلَى البَصَرِ",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "görsel",
+  "tanim_tr": "Görmeyle ilgili. Bkz. basar.",
+  "ornekler_tr": [],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَصَقَ",
+  "cogul": null,
+  "metin": "يَبْصُقُ بَصْقاً : لَفَظَ وَرَمَى ما في فَمِهِ ، “بَصَقَ المَريضُ دَماً” .",
+  "tanim": "لَفَظَ وَرَمَى ما في فَمِهِ",
+  "ornekler": [
+   "“بَصَقَ المَريضُ دَماً”"
+  ],
+  "bosluk": {
+   "cumle": "بَصَقَ المَريضُ دَماً",
+   "kelime": "بَصَقَ"
+  },
+  "tr": "tükürmek",
+  "tanim_tr": "Ağzındakini dışarı atmak.",
+  "ornekler_tr": [
+   "Hasta kan tükürdü."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَصَلٌ",
+  "cogul": null,
+  "metin": "واحِدَتُهُ بَصَلَةٌ ؛ نَوْعٌ مِنَ الخَضْراواتِ ذو رائِحَةٍ نَفّاذَةٍ ، يُؤْكَلُ نِيئاً وَمَطْبوخاً ، وفي الحَديثِ : ( مَنْ أَكَلَ ثوماً أَوْ بَصَلاً فَلْيَعْتَزِلْنا وَلْيَعْتَزِلْ مَسْجِدَنا وَلْيَقْعُدْ في بَيْتِهِ ) ، ﴿ يُخْرِجْ لَنا مِمَّا تُنْبِتُ الأَرْضُ مِنْ بَقْلِها وَقِثّائِها وَفُومِها وَعَدَسِها وَبَصَلِها ﴾ .",
+  "tanim": "نَوْعٌ مِنَ الخَضْراواتِ ذو رائِحَةٍ نَفّاذَةٍ ، يُؤْكَلُ نِيئاً وَمَطْبوخاً",
+  "ornekler": [
+   "( مَنْ أَكَلَ ثوماً أَوْ بَصَلاً فَلْيَعْتَزِلْنا وَلْيَعْتَزِلْ مَسْجِدَنا وَلْيَقْعُدْ في بَيْتِهِ )",
+   "﴿ يُخْرِجْ لَنا مِمَّا تُنْبِتُ الأَرْضُ مِنْ بَقْلِها وَقِثّائِها وَفُومِها وَعَدَسِها وَبَصَلِها ﴾"
+  ],
+  "bosluk": {
+   "cumle": "مَنْ أَكَلَ ثوماً أَوْ بَصَلاً فَلْيَعْتَزِلْنا",
+   "kelime": "بَصَلاً"
+  },
+  "tr": "soğan",
+  "tanim_tr": "Tekili basale; keskin kokulu, çiğ ve pişmiş olarak yenen bir sebze türü.",
+  "ornekler_tr": [
+   "Hadiste: Kim sarımsak ya da soğan yerse bizden ve mescidimizden uzak dursun, evinde otursun.",
+   "Bize yerin bitirdiği sebzesinden, acurundan, sarımsağından, mercimeğinden ve soğanından çıkarsın."
+  ],
+  "resim": "p069_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَصَمَ",
+  "cogul": null,
+  "metin": "يَبْصُمُ بَصْماً : خَتَمَ بِطَرَفِ إِصْبَعِهِ . أُنْظُرْ : بَصْمَةٌ .",
+  "tanim": "خَتَمَ بِطَرَفِ إِصْبَعِهِ",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "parmak basmak",
+  "tanim_tr": "Parmağının ucuyla mühürlemek. Bkz. basma.",
+  "ornekler_tr": [],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَصْمَةٌ",
+  "cogul": null,
+  "metin": "الخَتْمُ بِطَرَفِ الإِصْبَعِ ، “كَتَبَ الرَّجُلُ تَعَهُّداً جَديداً وَوَضَعَ بَصْمَتَهُ عَلَيْهِ” .",
+  "tanim": "الخَتْمُ بِطَرَفِ الإِصْبَعِ",
+  "ornekler": [
+   "“كَتَبَ الرَّجُلُ تَعَهُّداً جَديداً وَوَضَعَ بَصْمَتَهُ عَلَيْهِ”"
+  ],
+  "bosluk": {
+   "cumle": "كَتَبَ الرَّجُلُ تَعَهُّداً جَديداً وَوَضَعَ بَصْمَتَهُ عَلَيْهِ",
+   "kelime": "بَصْمَتَهُ"
+  },
+  "tr": "parmak izi",
+  "tanim_tr": "Parmak ucuyla yapılan mühür.",
+  "ornekler_tr": [
+   "Adam yeni bir taahhütname yazdı ve üzerine parmak izini bastı."
+  ],
+  "resim": "p069_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَصيصٌ",
+  "cogul": null,
+  "metin": "قَليلٌ ، شُعاعٌ ، “هَلْ لَدَيْكَ بَصيصٌ مِنْ أَمَلٍ في الفَوْزِ ؟” .",
+  "tanim": "قَليلٌ ، شُعاعٌ",
+  "ornekler": [
+   "“هَلْ لَدَيْكَ بَصيصٌ مِنْ أَمَلٍ في الفَوْزِ ؟”"
+  ],
+  "bosluk": {
+   "cumle": "هَلْ لَدَيْكَ بَصيصٌ مِنْ أَمَلٍ في الفَوْزِ ؟",
+   "kelime": "بَصيصٌ"
+  },
+  "tr": "parıltı, kıvılcım (umut)",
+  "tanim_tr": "Az miktar; ışık huzmesi.",
+  "ornekler_tr": [
+   "Kazanmaya dair bir parça umudun var mı?"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "k": "بَضائِع",
+  "yon": "بِضاعَة",
+  "iliski": "جمع",
+  "tr": "mallar, ticari eşya"
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بِضاعَة",
+  "cogul": "بَضائِع",
+  "metin": "( ج ) بَضائِع ، ما يُتَّجَرُ بِهِ مِنَ السِّلَعِ . “تَحْمِلُ البَواخِرُ كَثيراً مِنَ البَضائِعِ” ، ﴿ هٰذِهِ بِضاعَتُنا رُدَّتْ إِلَيْنا ﴾ .",
+  "tanim": "ما يُتَّجَرُ بِهِ مِنَ السِّلَعِ",
+  "ornekler": [
+   "“تَحْمِلُ البَواخِرُ كَثيراً مِنَ البَضائِعِ”",
+   "﴿ هٰذِهِ بِضاعَتُنا رُدَّتْ إِلَيْنا ﴾"
+  ],
+  "bosluk": {
+   "cumle": "هٰذِهِ بِضاعَتُنا رُدَّتْ إِلَيْنا",
+   "kelime": "بِضاعَتُنا"
+  },
+  "tr": "mal, ticari eşya",
+  "tanim_tr": "Ticareti yapılan mallar.",
+  "ornekler_tr": [
+   "Vapurlar çok miktarda mal taşır.",
+   "İşte sermayemiz bize geri verilmiş."
+  ],
+  "resim": "p069_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بِضْع",
+  "cogul": null,
+  "metin": "( ١ ) قِطْعَةٌ ، جُزْءٌ ، وفي الحَديثِ : ( إِنَّ فاطِمَةَ بِضْعَةٌ مِنِّي ) . ( ٢ ) كِنايَةٌ عَنِ الجِماعِ ، وفي الحَديثِ : ( وفي بِضْعِ أَحَدِكُمْ صَدَقَةٌ ) . ( ٣ ) العَدَدُ مِنْ ثَلاثَةٍ إِلَى عَشَرَةٍ ، ﴿ فَلَبِثَ فِي السِّجْنِ بِضْعَ سِنينَ ﴾ .",
+  "tanim": "( ١ ) قِطْعَةٌ ، جُزْءٌ ( ٢ ) كِنايَةٌ عَنِ الجِماعِ ( ٣ ) العَدَدُ مِنْ ثَلاثَةٍ إِلَى عَشَرَةٍ",
+  "ornekler": [
+   "( إِنَّ فاطِمَةَ بِضْعَةٌ مِنِّي )",
+   "( وفي بِضْعِ أَحَدِكُمْ صَدَقَةٌ )",
+   "﴿ فَلَبِثَ فِي السِّجْنِ بِضْعَ سِنينَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "فَلَبِثَ فِي السِّجْنِ بِضْعَ سِنينَ",
+   "kelime": "بِضْعَ"
+  },
+  "tr": "birkaç (3–10); parça",
+  "tanim_tr": "(1) Parça, kısım. (2) Cinsel birleşmeden kinaye. (3) Üçten ona kadar sayı.",
+  "ornekler_tr": [
+   "Hadiste: Fatıma benden bir parçadır.",
+   "Hadiste: Sizden birinin (helal) cinsel ilişkisinde bile sadaka vardır.",
+   "Böylece zindanda birkaç yıl kaldı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بُطْءٌ",
+  "cogul": null,
+  "metin": "تَوانٍ وتَأَخُّرٌ ؛ خِلافُ سُرْعَةٍ . “أَصْبَحَ الشَّيْخُ يَمْشي بِبُطْءٍ لِكِبَرِ سِنِّهِ” ، ( “مَنْ بَطَّأَ بِهِ عَمَلُهُ ، لَمْ يُسْرِعْ بِهِ نَسَبُهُ” ) . وأُنْظُرْ أَيْضاً : أَبْطَأَ .",
+  "tanim": "تَوانٍ وتَأَخُّرٌ ؛ خِلافُ سُرْعَةٍ",
+  "ornekler": [
+   "“أَصْبَحَ الشَّيْخُ يَمْشي بِبُطْءٍ لِكِبَرِ سِنِّهِ”",
+   "( “مَنْ بَطَّأَ بِهِ عَمَلُهُ ، لَمْ يُسْرِعْ بِهِ نَسَبُهُ” )"
+  ],
+  "bosluk": {
+   "cumle": "أَصْبَحَ الشَّيْخُ يَمْشي بِبُطْءٍ لِكِبَرِ سِنِّهِ",
+   "kelime": "بِبُطْءٍ"
+  },
+  "tr": "yavaşlık",
+  "tanim_tr": "Gevşeklik ve gecikme; hızın zıddı. Ayrıca bkz. ebtae.",
+  "ornekler_tr": [
+   "Yaşlı adam, yaşının ilerlemesinden dolayı yavaş yürür oldu.",
+   "Ameli kendisini geri bırakanı nesebi öne geçiremez."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَطارِقَة",
+  "cogul": null,
+  "metin": "جَمْعُ بِطْريق : القائِدُ مِنْ قُوّادِ الرّومِ ( مُعَرَّب ) ، “جَمَعَ النَّجاشِيُّ بَطارِقَتَهُ لِيَسْتَشيرَهُمْ في أَمْرِ المُسْلِمينَ” .",
+  "tanim": "جَمْعُ بِطْريق : القائِدُ مِنْ قُوّادِ الرّومِ ( مُعَرَّب )",
+  "ornekler": [
+   "“جَمَعَ النَّجاشِيُّ بَطارِقَتَهُ لِيَسْتَشيرَهُمْ في أَمْرِ المُسْلِمينَ”"
+  ],
+  "bosluk": {
+   "cumle": "جَمَعَ النَّجاشِيُّ بَطارِقَتَهُ لِيَسْتَشيرَهُمْ في أَمْرِ المُسْلِمينَ",
+   "kelime": "بَطارِقَتَهُ"
+  },
+  "tr": "patrikler, komutanlar",
+  "tanim_tr": "Bitrîk'in çoğulu: Rum komutanlarından bir komutan (Arapçalaşmış kelime).",
+  "ornekler_tr": [
+   "Necaşi, Müslümanların durumu hakkında danışmak için ileri gelen papazlarını topladı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَطّارِيَّة",
+  "cogul": null,
+  "metin": "خِزانَةٌ لِتَوْليدِ الطّاقَةِ الكَهْرَبائِيَّةِ ، تُسْتَعْمَلُ لِلسّاعاتِ وأَجْهِزَةِ المِذْياعِ والسَّيّاراتِ وغَيْرِها . “تَوَقَّفَ المِذْياعُ ؛ لِأَنَّ بَطّارِيَّتَهُ قَدْ نَفِدَتْ” .",
+  "tanim": "خِزانَةٌ لِتَوْليدِ الطّاقَةِ الكَهْرَبائِيَّةِ ، تُسْتَعْمَلُ لِلسّاعاتِ وأَجْهِزَةِ المِذْياعِ والسَّيّاراتِ وغَيْرِها",
+  "ornekler": [
+   "“تَوَقَّفَ المِذْياعُ ؛ لِأَنَّ بَطّارِيَّتَهُ قَدْ نَفِدَتْ”"
+  ],
+  "bosluk": {
+   "cumle": "تَوَقَّفَ المِذْياعُ ؛ لِأَنَّ بَطّارِيَّتَهُ قَدْ نَفِدَتْ",
+   "kelime": "بَطّارِيَّتَهُ"
+  },
+  "tr": "pil, akü",
+  "tanim_tr": "Elektrik enerjisi üreten hazne; saatler, radyolar, arabalar vb. için kullanılır.",
+  "ornekler_tr": [
+   "Radyo durdu; çünkü pili bitmişti."
+  ],
+  "resim": "p069_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَطاطا وبَطاطِس",
+  "cogul": null,
+  "metin": "دَرَناتٌ نَشَوِيَّةٌ حُلْوَةُ الطَّعْمِ تُؤْكَلُ مَشْوِيَّةً أَوْ مَسْلوقَةً أَوْ مَطْبوخَةً .",
+  "tanim": "دَرَناتٌ نَشَوِيَّةٌ حُلْوَةُ الطَّعْمِ تُؤْكَلُ مَشْوِيَّةً أَوْ مَسْلوقَةً أَوْ مَطْبوخَةً",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "patates",
+  "tanim_tr": "Közlenmiş, haşlanmış ya da pişmiş olarak yenen, tatlı lezzetli nişastalı yumrular.",
+  "ornekler_tr": [],
+  "resim": "p069_5.jpg",
+  "not": "Madde başı iki kelime: بَطاطا / وبَطاطِس."
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بِطاقَة",
+  "cogul": null,
+  "metin": "وَرَقَةٌ صَغيرَةٌ مُقَوّاةٌ تُكْتَبُ فيها دَعَواتٌ ومُلاحَظاتٌ ، “بَعَثَ مُحَمَّدٌ إِلَى صَديقِهِ بِطاقَةَ دَعْوَةٍ لِحُضورِ حَفْلِ زَواجِهِ” .",
+  "tanim": "وَرَقَةٌ صَغيرَةٌ مُقَوّاةٌ تُكْتَبُ فيها دَعَواتٌ ومُلاحَظاتٌ",
+  "ornekler": [
+   "“بَعَثَ مُحَمَّدٌ إِلَى صَديقِهِ بِطاقَةَ دَعْوَةٍ لِحُضورِ حَفْلِ زَواجِهِ”"
+  ],
+  "bosluk": {
+   "cumle": "بَعَثَ مُحَمَّدٌ إِلَى صَديقِهِ بِطاقَةَ دَعْوَةٍ لِحُضورِ حَفْلِ زَواجِهِ",
+   "kelime": "بِطاقَةَ"
+  },
+  "tr": "kart",
+  "tanim_tr": "Üzerine davetler ve notlar yazılan küçük sert kâğıt.",
+  "ornekler_tr": [
+   "Muhammed arkadaşına düğününe katılması için bir davetiye gönderdi."
+  ],
+  "resim": "p069_6.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بِطالَة",
+  "cogul": null,
+  "metin": "التَّعَطُّلُ عَنِ العَمَلِ ، “تَعُمُّ البِطالَةُ كَثيراً مِنْ دُوَلِ العالَمِ” .",
+  "tanim": "التَّعَطُّلُ عَنِ العَمَلِ",
+  "ornekler": [
+   "“تَعُمُّ البِطالَةُ كَثيراً مِنْ دُوَلِ العالَمِ”"
+  ],
+  "bosluk": {
+   "cumle": "تَعُمُّ البِطالَةُ كَثيراً مِنْ دُوَلِ العالَمِ",
+   "kelime": "البِطالَةُ"
+  },
+  "tr": "işsizlik",
+  "tanim_tr": "İşten yoksun kalma.",
+  "ornekler_tr": [
+   "İşsizlik dünya ülkelerinin pek çoğunu sarmış durumda."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 69,
+  "baski_no": "٦٩",
+  "k": "بَطّانِيَّة",
+  "cogul": null,
+  "metin": "غِطاءٌ مِنَ الصّوفِ أَوِ القُطْنِ يُلْتَحَفُ بِهِ في مَوْسِمِ البَرْدِ .",
+  "tanim": "غِطاءٌ مِنَ الصّوفِ أَوِ القُطْنِ يُلْتَحَفُ بِهِ في مَوْسِمِ البَرْدِ",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "battaniye",
+  "tanim_tr": "Soğuk mevsimde örtünülen yün ya da pamuk örtü.",
+  "ornekler_tr": [],
+  "resim": "p069_7.jpg",
+  "not": null
+ }
+]

@@ -1,0 +1,420 @@
+[
+ {
+  "sayfa": 38,
+  "devam": true,
+  "metin": "قَضَيْتُ فَلا عُدْوانَ عَلَيَّ﴾. (٣) أَداةٌ لِلتَّعَجُّبِ، “قابَلْتُ رَجُلاً أَيَّ رَجُلٍ!”."
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "إِيّا",
+  "cogul": null,
+  "metin": "ضَميرُ نَصْبٍ مُنْفَصِلٍ، “إِيّاها، إِيّاهُ، إِيّاكِ، إِيّاكَ... إلخ”، ﴿إِيّاكَ نَعْبُدُ وَإِيّاكَ نَسْتَعينُ﴾.",
+  "tanim": "ضَميرُ نَصْبٍ مُنْفَصِلٍ.",
+  "ornekler": [
+   "إِيّاها، إِيّاهُ، إِيّاكِ، إِيّاكَ... إلخ",
+   "﴿إِيّاكَ نَعْبُدُ وَإِيّاكَ نَسْتَعينُ﴾"
+  ],
+  "bosluk": {
+   "cumle": "﴿إِيّاكَ نَعْبُدُ وَإِيّاكَ نَسْتَعينُ﴾",
+   "kelime": "إِيّاكَ"
+  },
+  "tr": "mansub munfasıl zamir",
+  "tanim_tr": "Ayrı yazılan nasb zamiri.",
+  "ornekler_tr": [
+   "Onu (dişil), onu (eril), seni (dişil), seni (eril)... vb.",
+   "Yalnız sana ibadet eder, yalnız senden yardım dileriz."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "آيات",
+  "yon": "آيَة",
+  "iliski": "جمع",
+  "tr": "ayetler, işaretler"
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "أَيادٍ",
+  "yon": "يَد",
+  "iliski": "جمع",
+  "tr": "eller; iyilikler",
+  "not": "kitapta: (الأيادي) جَمْعُ يَد"
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "أَيّام",
+  "yon": "يَوْم",
+  "iliski": "جمع",
+  "tr": "günler"
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "آيَة",
+  "cogul": "آيات وَآي",
+  "metin": "(ج) آيات وَآي: (١) عَلامَةٌ، ﴿إِنَّ آيَةَ مُلْكِهِ أَنْ يَأْتِيَكُمُ التّابوتُ فيهِ سَكينَةٌ مِنْ رَبِّكُمْ﴾. (٢) مُعْجِزَةٌ، ﴿وَقالُوا لَوْلا نُزِّلَ عَلَيْهِ آيَةٌ مِنْ رَبِّهِ قُلْ إِنَّ اللَّهَ قادِرٌ عَلى أَنْ يُنَزِّلَ آيَةً وَلكِنَّ أَكْثَرَهُمْ لا يَعْلَمُونَ﴾. (٣) عِبْرَةٌ، ﴿وَانْظُرْ إِلى حِمارِكَ وَلِنَجْعَلَكَ آيَةً لِلنّاسِ﴾. (٤) جُزْءٌ مِنْ سورَةٍ في القُرْآنِ، الآيَةُ الأُولى في سورَةِ الإِخْلاصِ هِيَ ﴿قُلْ هُوَ اللهُ أَحَدٌ﴾.",
+  "tanim": "(١) عَلامَةٌ. (٢) مُعْجِزَةٌ. (٣) عِبْرَةٌ. (٤) جُزْءٌ مِنْ سورَةٍ في القُرْآنِ.",
+  "ornekler": [
+   "﴿إِنَّ آيَةَ مُلْكِهِ أَنْ يَأْتِيَكُمُ التّابوتُ فيهِ سَكينَةٌ مِنْ رَبِّكُمْ﴾",
+   "﴿وَقالُوا لَوْلا نُزِّلَ عَلَيْهِ آيَةٌ مِنْ رَبِّهِ قُلْ إِنَّ اللَّهَ قادِرٌ عَلى أَنْ يُنَزِّلَ آيَةً وَلكِنَّ أَكْثَرَهُمْ لا يَعْلَمُونَ﴾",
+   "﴿وَانْظُرْ إِلى حِمارِكَ وَلِنَجْعَلَكَ آيَةً لِلنّاسِ﴾",
+   "الآيَةُ الأُولى في سورَةِ الإِخْلاصِ هِيَ ﴿قُلْ هُوَ اللهُ أَحَدٌ﴾"
+  ],
+  "bosluk": {
+   "cumle": "الآيَةُ الأُولى في سورَةِ الإِخْلاصِ هِيَ ﴿قُلْ هُوَ اللهُ أَحَدٌ﴾",
+   "kelime": "الآيَةُ"
+  },
+  "tr": "işaret; mucize; ayet",
+  "tanim_tr": "(1) İşaret, alamet. (2) Mucize. (3) İbret. (4) Kur'an'da bir surenin parçası, ayet.",
+  "ornekler_tr": [
+   "Onun hükümdarlığının alameti, size içinde Rabbinizden bir huzur bulunan sandığın gelmesidir.",
+   "\"Ona Rabbinden bir mucize indirilseydi ya!\" dediler. De ki: Allah bir mucize indirmeye kadirdir, fakat çoğu bilmez.",
+   "Eşeğine bak; seni insanlara bir ibret kılalım.",
+   "İhlas suresinin ilk ayeti \"De ki: O Allah birdir\" ayetidir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "أَيْتام",
+  "yon": "يَتيم",
+  "iliski": "جمع",
+  "tr": "yetimler"
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "إِيثار",
+  "cogul": null,
+  "metin": "تَقْديمُ الشَّخْصِ الآخَرينَ عَلى نَفْسِهِ؛ خِلافُ الأَثَرَةِ، “عِنْدَما وَصَلَ المُهاجِرونَ إِلى يَثْرِبَ، آخَى بَيْنَهُمُ الرَّسولُ ﷺ فَكانَ مِنَ الأَنْصارِ الإِيثارُ وَمِنَ المُهاجِرينَ التَّعَفُّفُ”.",
+  "tanim": "تَقْديمُ الشَّخْصِ الآخَرينَ عَلى نَفْسِهِ؛ خِلافُ الأَثَرَةِ.",
+  "ornekler": [
+   "عِنْدَما وَصَلَ المُهاجِرونَ إِلى يَثْرِبَ، آخَى بَيْنَهُمُ الرَّسولُ ﷺ فَكانَ مِنَ الأَنْصارِ الإِيثارُ وَمِنَ المُهاجِرينَ التَّعَفُّفُ"
+  ],
+  "bosluk": {
+   "cumle": "فَكانَ مِنَ الأَنْصارِ الإِيثارُ وَمِنَ المُهاجِرينَ التَّعَفُّفُ",
+   "kelime": "الإِيثارُ"
+  },
+  "tr": "diğerkâmlık, îsâr",
+  "tanim_tr": "Kişinin başkalarını kendisine tercih etmesi; bencilliğin zıddı.",
+  "ornekler_tr": [
+   "Muhacirler Yesrib'e varınca Resûlullah (s.a.v.) onları kardeş yaptı; Ensar'dan îsâr, Muhacirlerden iffet (tok gözlülük) görüldü."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "إِيجاب",
+  "cogul": null,
+  "metin": "مَصْدَرُ أَوْجَبَ: إِثْباتٌ أَوْ مُوافَقَةٌ؛ خِلافُ سَلْبٍ، “طَلَبْتُ مِنْهُ المُساعَدَةَ؛ فَكانَ رَدُّهُ بِالإِيجابِ”، “حَدِّثْني بِالنَّتيجَةِ مَهْما كانَتْ سَلْباً أَمْ إِيجاباً”.",
+  "tanim": "مَصْدَرُ أَوْجَبَ: إِثْباتٌ أَوْ مُوافَقَةٌ؛ خِلافُ سَلْبٍ.",
+  "ornekler": [
+   "طَلَبْتُ مِنْهُ المُساعَدَةَ؛ فَكانَ رَدُّهُ بِالإِيجابِ",
+   "حَدِّثْني بِالنَّتيجَةِ مَهْما كانَتْ سَلْباً أَمْ إِيجاباً"
+  ],
+  "bosluk": {
+   "cumle": "طَلَبْتُ مِنْهُ المُساعَدَةَ؛ فَكانَ رَدُّهُ بِالإِيجابِ",
+   "kelime": "بِالإِيجابِ"
+  },
+  "tr": "olumlu cevap, kabul",
+  "tanim_tr": "Evceb'in mastarı: olumlama veya kabul; olumsuzun zıddı.",
+  "ornekler_tr": [
+   "Ondan yardım istedim; cevabı olumlu oldu.",
+   "Sonuç olumsuz da olsa olumlu da olsa bana anlat."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "إِيجار",
+  "cogul": null,
+  "metin": "المَبْلَغُ الَّذي يُدْفَعُ مُقابِلَ الانْتِفاعِ بِمَكانٍ أَوْ شَيْءٍ ما؛ كَالبَيْتِ أَوِ السَّيّارَةِ، “أَدْفَعُ إِيجارَ الشَّقَّةِ كُلَّ سَنَةٍ”.",
+  "tanim": "المَبْلَغُ الَّذي يُدْفَعُ مُقابِلَ الانْتِفاعِ بِمَكانٍ أَوْ شَيْءٍ ما؛ كَالبَيْتِ أَوِ السَّيّارَةِ.",
+  "ornekler": [
+   "أَدْفَعُ إِيجارَ الشَّقَّةِ كُلَّ سَنَةٍ"
+  ],
+  "bosluk": {
+   "cumle": "أَدْفَعُ إِيجارَ الشَّقَّةِ كُلَّ سَنَةٍ",
+   "kelime": "إِيجارَ"
+  },
+  "tr": "kira",
+  "tanim_tr": "Ev veya araba gibi bir yerden ya da şeyden yararlanma karşılığında ödenen ücret.",
+  "ornekler_tr": [
+   "Dairenin kirasını her yıl öderim."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "أَيَّدَ",
+  "cogul": null,
+  "metin": "يُؤَيِّدُ تَأْييداً: (١) دَعَمَ وَسانَدَ، “قَدَّمْتُ طَلَباً إِلى المُديرِ بِالعُطْلَةِ فَأَيَّدَهُ وَوافَقَ عَلَيْهِ”. (٢) نَصَرَ وَأَعانَ، “كُلُّ المُسْلِمينَ يُؤَيِّدونَ الفِلَسْطينِيّينَ”، ﴿وَأَيَّدْناهُ بِرُوحِ الْقُدُسِ﴾.",
+  "tanim": "(١) دَعَمَ وَسانَدَ. (٢) نَصَرَ وَأَعانَ.",
+  "ornekler": [
+   "قَدَّمْتُ طَلَباً إِلى المُديرِ بِالعُطْلَةِ فَأَيَّدَهُ وَوافَقَ عَلَيْهِ",
+   "كُلُّ المُسْلِمينَ يُؤَيِّدونَ الفِلَسْطينِيّينَ",
+   "﴿وَأَيَّدْناهُ بِرُوحِ الْقُدُسِ﴾"
+  ],
+  "bosluk": {
+   "cumle": "كُلُّ المُسْلِمينَ يُؤَيِّدونَ الفِلَسْطينِيّينَ",
+   "kelime": "يُؤَيِّدونَ"
+  },
+  "tr": "desteklemek",
+  "tanim_tr": "(1) Desteklemek, arka çıkmak. (2) Yardım etmek, güçlendirmek.",
+  "ornekler_tr": [
+   "Müdüre izin dilekçesi verdim, o da destekleyip onayladı.",
+   "Bütün Müslümanlar Filistinlileri destekliyor.",
+   "Onu Ruhu'l-Kudüs ile destekledik."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "أَيْدٍ",
+  "yon": "يَد",
+  "iliski": "جمع",
+  "tr": "eller",
+  "not": "kitapta: (الأيدي) جَمْعُ يَد"
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "إيذاء",
+  "yon": "آذى",
+  "iliski": "مصدر",
+  "tr": "eziyet etme"
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "إيصال",
+  "yon": "أَوْصَلَ",
+  "iliski": "مصدر",
+  "tr": "ulaştırma"
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "أَيْضاً",
+  "cogul": null,
+  "metin": "كَلِمَةٌ مَنْصوبَةٌ دائِماً تَعْني كَذلِكَ، “أَتى مُحَمَّدٌ وَشَقيقُهُ أَيْضاً”، “سَأُسافِرُ إِلى لُبْنانَ وَإِلى سورِيا أَيْضاً”.",
+  "tanim": "كَلِمَةٌ مَنْصوبَةٌ دائِماً تَعْني كَذلِكَ.",
+  "ornekler": [
+   "أَتى مُحَمَّدٌ وَشَقيقُهُ أَيْضاً",
+   "سَأُسافِرُ إِلى لُبْنانَ وَإِلى سورِيا أَيْضاً"
+  ],
+  "bosluk": {
+   "cumle": "أَتى مُحَمَّدٌ وَشَقيقُهُ أَيْضاً",
+   "kelime": "أَيْضاً"
+  },
+  "tr": "de, dahi, ayrıca",
+  "tanim_tr": "Daima mansub olan ve \"aynı şekilde, de/da\" anlamına gelen kelime.",
+  "ornekler_tr": [
+   "Muhammed geldi, kardeşi de.",
+   "Lübnan'a ve Suriye'ye de gideceğim."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "أَيْفاع",
+  "yon": "يافِع",
+  "iliski": "جمع",
+  "tr": "delikanlılar"
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "أَيْقاظ",
+  "yon": "يَقِظ",
+  "iliski": "جمع",
+  "tr": "uyanıklar"
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "إِيقاف",
+  "yon": "أَوْقَفَ",
+  "iliski": "مصدر",
+  "tr": "durdurma"
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "أَيْقَنَ",
+  "cogul": null,
+  "metin": "يوقِنُ إيقاناً: عَلِمَ، وَتَأَكَّدَ، وَتَحَقَّقَ مِنَ الشَّيْءِ، “عِنْدَما تَحَدَّثَ اللِّصُّ، أَيْقَنَ القاضي أَنَّهُ كاذِبٌ”، ﴿لَعَلَّكُمْ بِلِقاءِ رَبِّكُمْ تُوقِنُونَ﴾.",
+  "tanim": "عَلِمَ، وَتَأَكَّدَ، وَتَحَقَّقَ مِنَ الشَّيْءِ.",
+  "ornekler": [
+   "عِنْدَما تَحَدَّثَ اللِّصُّ، أَيْقَنَ القاضي أَنَّهُ كاذِبٌ",
+   "﴿لَعَلَّكُمْ بِلِقاءِ رَبِّكُمْ تُوقِنُونَ﴾"
+  ],
+  "bosluk": {
+   "cumle": "عِنْدَما تَحَدَّثَ اللِّصُّ، أَيْقَنَ القاضي أَنَّهُ كاذِبٌ",
+   "kelime": "أَيْقَنَ"
+  },
+  "tr": "kesin bilmek",
+  "tanim_tr": "Bilmek, emin olmak, bir şeyin doğruluğunu tespit etmek.",
+  "ornekler_tr": [
+   "Hırsız konuşunca hâkim onun yalancı olduğuna kesin kanaat getirdi.",
+   "Umulur ki Rabbinize kavuşacağınıza kesin olarak inanırsınız."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "إيمان",
+  "cogul": null,
+  "metin": "مَصْدَرُ آمَنَ: التَّصْديقُ بِالغَيْبِ، وَالاعْتِقادُ الجازِمُ بِاللهِ سُبْحانَهُ وَتَعالَى، “ماتَ حَمْزَةُ - رَضِيَ اللهُ عَنْهُ - وَقَلْبُهُ مُطْمَئِنٌّ بِالإيمانِ”، ﴿مَنْ كَفَرَ بِاللَّهِ مِنْ بَعْدِ إيمانِهِ إِلّا مَنْ أُكْرِهَ وَقَلْبُهُ مُطْمَئِنٌّ بِالإيمانِ﴾.",
+  "tanim": "مَصْدَرُ آمَنَ: التَّصْديقُ بِالغَيْبِ، وَالاعْتِقادُ الجازِمُ بِاللهِ سُبْحانَهُ وَتَعالَى.",
+  "ornekler": [
+   "ماتَ حَمْزَةُ - رَضِيَ اللهُ عَنْهُ - وَقَلْبُهُ مُطْمَئِنٌّ بِالإيمانِ",
+   "﴿مَنْ كَفَرَ بِاللَّهِ مِنْ بَعْدِ إيمانِهِ إِلّا مَنْ أُكْرِهَ وَقَلْبُهُ مُطْمَئِنٌّ بِالإيمانِ﴾"
+  ],
+  "bosluk": {
+   "cumle": "ماتَ حَمْزَةُ - رَضِيَ اللهُ عَنْهُ - وَقَلْبُهُ مُطْمَئِنٌّ بِالإيمانِ",
+   "kelime": "بِالإيمانِ"
+  },
+  "tr": "iman",
+  "tanim_tr": "Âmene'nin mastarı: gaybı tasdik etmek ve Allah'a (c.c.) kesin olarak inanmak.",
+  "ornekler_tr": [
+   "Hamza (r.a.) kalbi imanla dolu olarak vefat etti.",
+   "Kalbi imanla dolu olduğu hâlde (inkâra) zorlanan hariç, imanından sonra Allah'ı inkâr eden..."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "أَيْنَ",
+  "cogul": null,
+  "metin": "ظَرْفُ مَكانٍ، تَكونُ: (١) اسْمَ اسْتِفْهامٍ، “مِنْ أَيْنَ جِئْتَ؟”، (٢) شَرْطاً، “أَيْنَ تُسافِرْ أُسافِرْ مَعَكَ”، ﴿أَيْنَما تَكُونُوا يُدْرِكْكُمُ الْمَوْتُ﴾.",
+  "tanim": "ظَرْفُ مَكانٍ، تَكونُ: (١) اسْمَ اسْتِفْهامٍ. (٢) شَرْطاً.",
+  "ornekler": [
+   "مِنْ أَيْنَ جِئْتَ؟",
+   "أَيْنَ تُسافِرْ أُسافِرْ مَعَكَ",
+   "﴿أَيْنَما تَكُونُوا يُدْرِكْكُمُ الْمَوْتُ﴾"
+  ],
+  "bosluk": {
+   "cumle": "مِنْ أَيْنَ جِئْتَ؟",
+   "kelime": "أَيْنَ"
+  },
+  "tr": "nerede, nereye",
+  "tanim_tr": "Mekân zarfı: (1) Soru ismi. (2) Şart edatı.",
+  "ornekler_tr": [
+   "Nereden geldin?",
+   "Nereye yolculuk edersen seninle gelirim.",
+   "Nerede olursanız olun ölüm size yetişir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "ائْتَمَرَ",
+  "cogul": null,
+  "metin": "يَأْتَمِرُ ائْتِماراً: (١) تَشاوَرَ، “اجْتَمَعَ النّاسُ وَائْتَمَرُوا في قَضِيَّةِ القُدْسِ”، ﴿وَأْتَمِرُوا بَيْنَكُمْ بِمَعْرُوفٍ﴾. (٢) تَآمَرَ، ﴿إِنَّ الْمَلَأَ يَأْتَمِرُونَ بِكَ لِيَقْتُلُوكَ﴾.",
+  "tanim": "(١) تَشاوَرَ. (٢) تَآمَرَ.",
+  "ornekler": [
+   "اجْتَمَعَ النّاسُ وَائْتَمَرُوا في قَضِيَّةِ القُدْسِ",
+   "﴿وَأْتَمِرُوا بَيْنَكُمْ بِمَعْرُوفٍ﴾",
+   "﴿إِنَّ الْمَلَأَ يَأْتَمِرُونَ بِكَ لِيَقْتُلُوكَ﴾"
+  ],
+  "bosluk": {
+   "cumle": "اجْتَمَعَ النّاسُ وَائْتَمَرُوا في قَضِيَّةِ القُدْسِ",
+   "kelime": "ائْتَمَرُوا"
+  },
+  "tr": "danışmak; komplo kurmak",
+  "tanim_tr": "(1) İstişare etmek, danışmak. (2) Komplo kurmak, gizlice anlaşmak.",
+  "ornekler_tr": [
+   "İnsanlar toplanıp Kudüs meselesini istişare ettiler.",
+   "Aranızda güzellikle danışın.",
+   "İleri gelenler seni öldürmek için aralarında anlaşıyorlar."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "ابْتاعَ",
+  "cogul": null,
+  "metin": "يَبْتاعُ ابْتِياعاً: اشْتَرَى، “ذَهَبْتُ إِلى السّوقِ وَابْتَعْتُ بَعْضَ الثِّيابِ”.",
+  "tanim": "اشْتَرَى.",
+  "ornekler": [
+   "ذَهَبْتُ إِلى السّوقِ وَابْتَعْتُ بَعْضَ الثِّيابِ"
+  ],
+  "bosluk": {
+   "cumle": "ذَهَبْتُ إِلى السّوقِ وَابْتَعْتُ بَعْضَ الثِّيابِ",
+   "kelime": "ابْتَعْتُ"
+  },
+  "tr": "satın almak",
+  "tanim_tr": "Satın almak.",
+  "ornekler_tr": [
+   "Çarşıya gittim ve birkaç elbise satın aldım."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "ابْتَدَأَ",
+  "cogul": null,
+  "metin": "يَبْتَدِئُ ابْتِداءً: بَدَأَ وَحَدَثَ، “ابْتَدَأَتِ الدِّراسَةُ السّاعَةَ السّابِعَةَ صَباحاً”، “ابْتَدَأَ الخَطيبُ خُطْبَتَهُ بِاسْمِ اللهِ وَالسَّلامِ عَلى الحاضِرينَ”.",
+  "tanim": "بَدَأَ وَحَدَثَ.",
+  "ornekler": [
+   "ابْتَدَأَتِ الدِّراسَةُ السّاعَةَ السّابِعَةَ صَباحاً",
+   "ابْتَدَأَ الخَطيبُ خُطْبَتَهُ بِاسْمِ اللهِ وَالسَّلامِ عَلى الحاضِرينَ"
+  ],
+  "bosluk": {
+   "cumle": "ابْتَدَأَتِ الدِّراسَةُ السّاعَةَ السّابِعَةَ صَباحاً",
+   "kelime": "ابْتَدَأَتِ"
+  },
+  "tr": "başlamak",
+  "tanim_tr": "Başlamak, meydana gelmek.",
+  "ornekler_tr": [
+   "Dersler sabah saat yedide başladı.",
+   "Hatip konuşmasına besmele ve hazırlara selam vererek başladı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 38,
+  "baski_no": "٣٨",
+  "k": "ابْتَدَعَ",
+  "cogul": null,
+  "metin": "يَبْتَدِعُ ابْتِداعاً: (١) أَتَى بِشَيْءٍ جَديدٍ، لَمْ",
+  "tanim": "(١) أَتَى بِشَيْءٍ جَديدٍ، لَمْ ...",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "icat etmek, ortaya çıkarmak",
+  "tanim_tr": "(1) Yeni bir şey ortaya koymak ...",
+  "ornekler_tr": [],
+  "resim": null,
+  "not": "madde sonraki sayfada (p039) devam ediyor"
+ }
+]

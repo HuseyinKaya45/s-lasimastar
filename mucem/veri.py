@@ -19,7 +19,8 @@ maddeler, yonler, levhalar = [], [], []
 for yol in sorted(glob.glob(os.path.join(here, "kaynak", "p*.json")), key=lambda y: int(re.sub(r"\D", "", os.path.basename(y)))):
     for x in json.load(open(yol, encoding="utf-8")):
         if x.get("devam"):
-            if maddeler:
+            # yalnızca hemen önceki sayfanın son maddesine eklenir (arada okunmamış sayfa varsa atlanır)
+            if maddeler and maddeler[-1]["s"] == x["sayfa"] - 1:
                 maddeler[-1]["m"] = (maddeler[-1]["m"] + " " + x.get("metin", "")).strip()
             continue
         if x.get("levha") or x.get("etiketler"):

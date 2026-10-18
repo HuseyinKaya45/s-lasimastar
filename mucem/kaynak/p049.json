@@ -1,0 +1,428 @@
+[
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَهْجَنَ",
+  "cogul": null,
+  "metin": "يَسْتَهْجِنُ اسْتِهْجاناً : اسْتَقْبَحَ ، “يَسْتَهْجِنُ الصّالِحونَ ما يَفْعَلُهُ أَهْلُ الباطِلِ” .",
+  "tanim": "اسْتَقْبَحَ",
+  "ornekler": [
+   "“يَسْتَهْجِنُ الصّالِحونَ ما يَفْعَلُهُ أَهْلُ الباطِلِ”"
+  ],
+  "bosluk": {
+   "cumle": "يَسْتَهْجِنُ الصّالِحونَ ما يَفْعَلُهُ أَهْلُ الباطِلِ",
+   "kelime": "يَسْتَهْجِنُ"
+  },
+  "tr": "çirkin bulmak",
+  "tanim_tr": "Çirkin görmek, kınamak.",
+  "ornekler_tr": [
+   "Salih kimseler batıl ehlinin yaptıklarını çirkin bulur."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَهْزَأَ",
+  "cogul": null,
+  "metin": "يَسْتَهْزِئُ اسْتِهْزاءً : سَخِرَ ، وَنَظَرَ نَظْرَةَ احْتِقارٍ ، ﴿ وَلَقَدِ اسْتُهْزِئَ بِرُسُلٍ مِنْ قَبْلِكَ فَحاقَ بِالَّذينَ سَخِرُوا مِنْهُمْ ما كانُوا بِهِ يَسْتَهْزِئُونَ ﴾ .",
+  "tanim": "سَخِرَ ، وَنَظَرَ نَظْرَةَ احْتِقارٍ",
+  "ornekler": [
+   "﴿ وَلَقَدِ اسْتُهْزِئَ بِرُسُلٍ مِنْ قَبْلِكَ فَحاقَ بِالَّذينَ سَخِرُوا مِنْهُمْ ما كانُوا بِهِ يَسْتَهْزِئُونَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "فَحاقَ بِالَّذينَ سَخِرُوا مِنْهُمْ ما كانُوا بِهِ يَسْتَهْزِئُونَ",
+   "kelime": "يَسْتَهْزِئُونَ"
+  },
+  "tr": "alay etmek",
+  "tanim_tr": "Alay etmek, hor bakmak.",
+  "ornekler_tr": [
+   "Andolsun, senden önceki peygamberlerle de alay edilmişti de alay ettikleri şey, onlardan alay edenleri kuşatıvermişti."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "k": "اسْتِهْزاء",
+  "yon": "اسْتَهْزَأَ",
+  "iliski": "مصدر",
+  "tr": "alay etme"
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَهَلَّ",
+  "cogul": null,
+  "metin": "يَسْتَهِلُّ اسْتِهْلالاً : ( ١ ) ابْتَدَأَ ، “اسْتَهَلَّ الحَفْلَ بِآياتٍ مِنَ الذِّكْرِ الحَكيمِ” . ( ٢ ) أَشْرَقَ ، “اسْتَهَلَّ شَهْرُ رَمَضانَ” . “اسْتَهَلَّ وَجْهُ الأُمِّ عِنْدَما عَلِمَتْ بِنَجاحِ ابْنَتِها” .",
+  "tanim": "( ١ ) ابْتَدَأَ ( ٢ ) أَشْرَقَ",
+  "ornekler": [
+   "“اسْتَهَلَّ الحَفْلَ بِآياتٍ مِنَ الذِّكْرِ الحَكيمِ”",
+   "“اسْتَهَلَّ شَهْرُ رَمَضانَ”",
+   "“اسْتَهَلَّ وَجْهُ الأُمِّ عِنْدَما عَلِمَتْ بِنَجاحِ ابْنَتِها”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَهَلَّ الحَفْلَ بِآياتٍ مِنَ الذِّكْرِ الحَكيمِ",
+   "kelime": "اسْتَهَلَّ"
+  },
+  "tr": "başlamak; parlamak",
+  "tanim_tr": "(1) Başlamak. (2) (Ay/hilal) doğmak; (yüz) parlamak, aydınlanmak.",
+  "ornekler_tr": [
+   "Töreni Kur'an'dan ayetlerle başlattı.",
+   "Ramazan ayı başladı (hilali doğdu).",
+   "Kızının başarılı olduğunu öğrenince annenin yüzü aydınlandı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "k": "اسْتِهْلاك",
+  "yon": "اسْتَهْلَكَ",
+  "iliski": "مصدر",
+  "tr": "tüketim"
+ },
+ {
+  "sayfa": 49,
+  "k": "اسْتِهْلال",
+  "yon": "اسْتَهَلَّ",
+  "iliski": "مصدر",
+  "tr": "başlangıç"
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَهْلَكَ",
+  "cogul": null,
+  "metin": "يَسْتَهْلِكُ اسْتِهْلاكاً : أَنْفَقَ ، وَاسْتَنْفَدَ ، “اسْتَهْلَكَ كُلَّ مالِهِ فيما لا يَنْفَعُ” .",
+  "tanim": "أَنْفَقَ ، وَاسْتَنْفَدَ",
+  "ornekler": [
+   "“اسْتَهْلَكَ كُلَّ مالِهِ فيما لا يَنْفَعُ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَهْلَكَ كُلَّ مالِهِ فيما لا يَنْفَعُ",
+   "kelime": "اسْتَهْلَكَ"
+  },
+  "tr": "tüketmek",
+  "tanim_tr": "Harcamak ve tüketmek.",
+  "ornekler_tr": [
+   "Bütün malını faydasız şeylerde tüketti."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَهْوى",
+  "cogul": null,
+  "metin": "يَسْتَهْوي اسْتِهْواءً : أَعْجَبَ وَأَدْهَشَ ، “اسْتَهْواني حَديثُهُ المُمْتِعُ” ، ﴿ كَالَّذي اسْتَهْوَتْهُ الشَّياطينُ في الأَرْضِ حَيْرانَ ﴾ .",
+  "tanim": "أَعْجَبَ وَأَدْهَشَ",
+  "ornekler": [
+   "“اسْتَهْواني حَديثُهُ المُمْتِعُ”",
+   "﴿ كَالَّذي اسْتَهْوَتْهُ الشَّياطينُ في الأَرْضِ حَيْرانَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَهْواني حَديثُهُ المُمْتِعُ",
+   "kelime": "اسْتَهْواني"
+  },
+  "tr": "cezbetmek, büyülemek",
+  "tanim_tr": "Hoşa gitmek ve hayran bırakmak, cezbetmek.",
+  "ornekler_tr": [
+   "Onun keyifli sohbeti beni cezbetti.",
+   "Şeytanların ayartıp yeryüzünde şaşkın bir hâlde bıraktığı kimse gibi..."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "k": "اسْتِواء",
+  "yon": "اسْتَوى",
+  "iliski": "مصدر",
+  "tr": "düzlük, eşitlik"
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَوْثَقَ",
+  "cogul": null,
+  "metin": "يَسْتَوْثِقُ اسْتيثاقاً : ثَبَتَ وَتَحَقَّقَ وَوَثِقَ ، “اسْتَوْثَقْتُ صَديقي وَوَضَعْتُ عِنْدَهُ كُلَّ مالي ، قَبْلَ الذَّهابِ إِلى الحَجِّ” ، “اسْتَوْثَقْتُ مِنْ صِدْقِهِ فَأَعْطَيْتُهُ بَعْضَ الهِباتِ وَالهَدايا” . انْظُرْ أَيْضاً : وَثِقَ .",
+  "tanim": "ثَبَتَ وَتَحَقَّقَ وَوَثِقَ",
+  "ornekler": [
+   "“اسْتَوْثَقْتُ صَديقي وَوَضَعْتُ عِنْدَهُ كُلَّ مالي ، قَبْلَ الذَّهابِ إِلى الحَجِّ”",
+   "“اسْتَوْثَقْتُ مِنْ صِدْقِهِ فَأَعْطَيْتُهُ بَعْضَ الهِباتِ وَالهَدايا”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَوْثَقْتُ مِنْ صِدْقِهِ فَأَعْطَيْتُهُ بَعْضَ الهِباتِ وَالهَدايا",
+   "kelime": "اسْتَوْثَقْتُ"
+  },
+  "tr": "emin olmak, güvenmek",
+  "tanim_tr": "Sağlamlaştırmak, doğruluğundan emin olmak ve güvenmek.",
+  "ornekler_tr": [
+   "Hacca gitmeden önce arkadaşıma güvendim ve bütün malımı ona emanet ettim.",
+   "Dürüstlüğünden emin oldum ve ona bazı bağış ve hediyeler verdim."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَوْدَعَ",
+  "cogul": null,
+  "metin": "يَسْتَوْدِعُ اسْتيداعاً : وَضَعَ الشَّيْءَ وَديعَةً ، “اسْتَوْدَعْتُ مالي عِنْدَ التّاجِرِ حَتَّى أَعودَ” ، “قُلْتُ لِوالِدَيَّ عِنْدَ السَّفَرِ : أَسْتَوْدِعُكُما اللهَ الَّذي لا تَضيعُ وَدائِعُهُ” .",
+  "tanim": "وَضَعَ الشَّيْءَ وَديعَةً",
+  "ornekler": [
+   "“اسْتَوْدَعْتُ مالي عِنْدَ التّاجِرِ حَتَّى أَعودَ”",
+   "“قُلْتُ لِوالِدَيَّ عِنْدَ السَّفَرِ : أَسْتَوْدِعُكُما اللهَ الَّذي لا تَضيعُ وَدائِعُهُ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَوْدَعْتُ مالي عِنْدَ التّاجِرِ حَتَّى أَعودَ",
+   "kelime": "اسْتَوْدَعْتُ"
+  },
+  "tr": "emanet etmek",
+  "tanim_tr": "Bir şeyi emanet olarak bırakmak.",
+  "ornekler_tr": [
+   "Dönünceye kadar paramı tüccara emanet ettim.",
+   "Yolculuğa çıkarken anne babama: “Sizi emanetleri zayi olmayan Allah'a emanet ediyorum” dedim."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَوْعَبَ",
+  "cogul": null,
+  "metin": "يَسْتَوْعِبُ اسْتيعاباً : ( ١ ) وَسِعَ ، “اسْتَوْعَبَتِ الكُلِّيَّةُ كُلَّ الطُّلّابِ” . ( ٢ ) فَهِمَ ، “اسْتَوْعَبْتُ كُلَّ ما جاءَ في النَّصِّ” .",
+  "tanim": "( ١ ) وَسِعَ ( ٢ ) فَهِمَ",
+  "ornekler": [
+   "“اسْتَوْعَبَتِ الكُلِّيَّةُ كُلَّ الطُّلّابِ”",
+   "“اسْتَوْعَبْتُ كُلَّ ما جاءَ في النَّصِّ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَوْعَبْتُ كُلَّ ما جاءَ في النَّصِّ",
+   "kelime": "اسْتَوْعَبْتُ"
+  },
+  "tr": "kapsamak; kavramak",
+  "tanim_tr": "(1) Sığdırmak, kapsamak. (2) Kavramak, anlamak.",
+  "ornekler_tr": [
+   "Fakülte bütün öğrencileri kapsadı (alabildi).",
+   "Metinde geçen her şeyi kavradım."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَوْلى",
+  "cogul": null,
+  "metin": "يَسْتَوْلي اسْتيلاءً : سَيْطَرَ ، غَلَبَ ، تَمَكَّنَ ، “اسْتَوْلَى العَدُوُّ عَلَى بَعْضِ القُرَى” .",
+  "tanim": "سَيْطَرَ ، غَلَبَ ، تَمَكَّنَ",
+  "ornekler": [
+   "“اسْتَوْلَى العَدُوُّ عَلَى بَعْضِ القُرَى”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَوْلَى العَدُوُّ عَلَى بَعْضِ القُرَى",
+   "kelime": "اسْتَوْلَى"
+  },
+  "tr": "ele geçirmek",
+  "tanim_tr": "Hâkim olmak, galip gelmek, ele geçirmek.",
+  "ornekler_tr": [
+   "Düşman bazı köyleri ele geçirdi."
+  ],
+  "resim": null,
+  "not": "Madde başı kitapta 'اِسْتَوْلى' gibi elif altında esre ile görünüyor."
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَوى",
+  "cogul": null,
+  "metin": "يَسْتَوي اسْتِواءً : اسْتَقَرَّ ، اعْتَدَلَ وَاسْتَقامَ ، وَاتَّفَقَ ، وَزالَ الفَرْقُ ، “لا يَسْتَوي الحَقُّ وَالباطِلُ” ، ﴿ وَاسْتَوَتْ عَلَى الْجُودِيِّ ﴾ .",
+  "tanim": "اسْتَقَرَّ ، اعْتَدَلَ وَاسْتَقامَ ، وَاتَّفَقَ ، وَزالَ الفَرْقُ",
+  "ornekler": [
+   "“لا يَسْتَوي الحَقُّ وَالباطِلُ”",
+   "﴿ وَاسْتَوَتْ عَلَى الْجُودِيِّ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "لا يَسْتَوي الحَقُّ وَالباطِلُ",
+   "kelime": "يَسْتَوي"
+  },
+  "tr": "eşit olmak; oturmak",
+  "tanim_tr": "Yerleşmek, düzelmek, dosdoğru olmak; denk olmak, fark kalmamak.",
+  "ornekler_tr": [
+   "Hak ile batıl bir olmaz.",
+   "(Gemi) Cûdî'nin üzerine oturdu."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتيعاب",
+  "cogul": null,
+  "metin": "فَهْمٌ ، طاقَةٌ ، قُدْرَةٌ ، “أَجِبْ عَنْ أَسْئِلَةِ الاسْتيعابِ التّالِيَةِ” .",
+  "tanim": "فَهْمٌ ، طاقَةٌ ، قُدْرَةٌ",
+  "ornekler": [
+   "“أَجِبْ عَنْ أَسْئِلَةِ الاسْتيعابِ التّالِيَةِ”"
+  ],
+  "bosluk": {
+   "cumle": "أَجِبْ عَنْ أَسْئِلَةِ الاسْتيعابِ التّالِيَةِ",
+   "kelime": "الاسْتيعابِ"
+  },
+  "tr": "kavrama, kapasite",
+  "tanim_tr": "Anlama; kapasite, güç.",
+  "ornekler_tr": [
+   "Aşağıdaki anlama sorularını cevaplayın."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "k": "اسْتيقاظ",
+  "yon": "اسْتَيْقَظَ",
+  "iliski": "مصدر",
+  "tr": "uyanma"
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَيْقَظَ",
+  "cogul": null,
+  "metin": "يَسْتَيْقِظُ اسْتيقاظاً : صَحا مِنْ نَوْمِهِ أَوْ تَنَبَّهَ ، “اسْتَيْقَظَ الطّالِبُ المُجْتَهِدُ قَبْلَ أَذانِ الفَجْرِ” ، “اسْتَيْقَظَ المُهْمِلُ مِنْ غَفْلَتِهِ” ، “عِنْدَ الاسْتيقاظِ صَباحاً يَدْعو المُسْلِمُ بِالأَدْعِيَةِ المَأْثورَةِ” .",
+  "tanim": "صَحا مِنْ نَوْمِهِ أَوْ تَنَبَّهَ",
+  "ornekler": [
+   "“اسْتَيْقَظَ الطّالِبُ المُجْتَهِدُ قَبْلَ أَذانِ الفَجْرِ”",
+   "“اسْتَيْقَظَ المُهْمِلُ مِنْ غَفْلَتِهِ”",
+   "“عِنْدَ الاسْتيقاظِ صَباحاً يَدْعو المُسْلِمُ بِالأَدْعِيَةِ المَأْثورَةِ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَيْقَظَ الطّالِبُ المُجْتَهِدُ قَبْلَ أَذانِ الفَجْرِ",
+   "kelime": "اسْتَيْقَظَ"
+  },
+  "tr": "uyanmak",
+  "tanim_tr": "Uykusundan uyanmak ya da (gafletten) uyanmak.",
+  "ornekler_tr": [
+   "Çalışkan öğrenci sabah ezanından önce uyandı.",
+   "İhmalkâr kişi gafletinden uyandı.",
+   "Müslüman sabah uyandığında Peygamber'den gelen dualarla dua eder."
+  ],
+  "resim": "p049_1.jpg",
+  "not": "Resimde 'استيقظ' ve karşıtı 'نام' etiketleri var."
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْم",
+  "cogul": "أَسْماء",
+  "metin": "( ج ) أَسْماء : كَلِمَةٌ تُطْلَقُ عَلَى الشَّخْصِ أَوِ الشَّيْءِ لِيُعْرَفَ بِها ، أَوْ يُشارُ إِلَيْهِ بِها في الحَديثِ ، مِثْلُ : مُحَمَّد – شَجَرَة – أَسَد – عائِلَة .",
+  "tanim": "كَلِمَةٌ تُطْلَقُ عَلَى الشَّخْصِ أَوِ الشَّيْءِ لِيُعْرَفَ بِها ، أَوْ يُشارُ إِلَيْهِ بِها في الحَديثِ",
+  "ornekler": [
+   "مُحَمَّد – شَجَرَة – أَسَد – عائِلَة"
+  ],
+  "bosluk": null,
+  "tr": "isim, ad",
+  "tanim_tr": "Bir kişi veya şeyin onunla bilinmesi ya da konuşmada ona işaret edilmesi için verilen kelime.",
+  "ornekler_tr": [
+   "Muhammed – ağaç – aslan – aile"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْوَدَّ",
+  "cogul": null,
+  "metin": "يَسْوَدُّ اسْوِداداً : تَغَيَّرَ أَوْ تَحَوَّلَ لَوْنُهُ إِلى الأَسْوَدِ ؛ خِلافُ ابْيَضَّ ، ﴿ فَأَمَّا الَّذينَ اسْوَدَّتْ وُجُوهُهُمْ ﴾ ، ﴿ يَوْمَ تَبْيَضُّ وُجُوهٌ وَتَسْوَدُّ وُجُوهٌ ﴾ .",
+  "tanim": "تَغَيَّرَ أَوْ تَحَوَّلَ لَوْنُهُ إِلى الأَسْوَدِ ؛ خِلافُ ابْيَضَّ",
+  "ornekler": [
+   "﴿ فَأَمَّا الَّذينَ اسْوَدَّتْ وُجُوهُهُمْ ﴾",
+   "﴿ يَوْمَ تَبْيَضُّ وُجُوهٌ وَتَسْوَدُّ وُجُوهٌ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "يَوْمَ تَبْيَضُّ وُجُوهٌ وَتَسْوَدُّ وُجُوهٌ",
+   "kelime": "وَتَسْوَدُّ"
+  },
+  "tr": "kararmak",
+  "tanim_tr": "Rengi değişip siyaha dönmek; ağarmanın zıddı.",
+  "ornekler_tr": [
+   "Yüzleri kararanlara gelince...",
+   "Nice yüzlerin ak, nice yüzlerin kara olacağı gün..."
+  ],
+  "resim": "p049_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اسْتَشاطَ",
+  "cogul": null,
+  "metin": "يَسْتَشيطُ اسْتِشاطَةً : اشْتَدَّ غَضَبُهُ ، “سَبَّهُ بِكَلِماتٍ قَبيحَةٍ ؛ فَاسْتَشاطَ غَضَباً” .",
+  "tanim": "اشْتَدَّ غَضَبُهُ",
+  "ornekler": [
+   "“سَبَّهُ بِكَلِماتٍ قَبيحَةٍ ؛ فَاسْتَشاطَ غَضَباً”"
+  ],
+  "bosluk": {
+   "cumle": "سَبَّهُ بِكَلِماتٍ قَبيحَةٍ ؛ فَاسْتَشاطَ غَضَباً",
+   "kelime": "فَاسْتَشاطَ"
+  },
+  "tr": "öfkeden köpürmek",
+  "tanim_tr": "Öfkesi şiddetlenmek.",
+  "ornekler_tr": [
+   "Ona çirkin sözlerle sövdü, o da öfkeden köpürdü."
+  ],
+  "resim": null,
+  "not": "Kitapta bu madde alfabetik sıra dışında, اسود'dan sonra basılmış."
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اشْتاقَ",
+  "cogul": null,
+  "metin": "يَشْتاقُ اشْتِياقاً : رَغِبَ في الشَّيْءِ رَغْبَةً شَديدَةً ، “طالَ السَّفَرُ ، فَاشْتاقَ المُسافِرُ إِلى أَهْلِهِ” .",
+  "tanim": "رَغِبَ في الشَّيْءِ رَغْبَةً شَديدَةً",
+  "ornekler": [
+   "“طالَ السَّفَرُ ، فَاشْتاقَ المُسافِرُ إِلى أَهْلِهِ”"
+  ],
+  "bosluk": {
+   "cumle": "طالَ السَّفَرُ ، فَاشْتاقَ المُسافِرُ إِلى أَهْلِهِ",
+   "kelime": "فَاشْتاقَ"
+  },
+  "tr": "özlemek",
+  "tanim_tr": "Bir şeyi çok istemek, özlemek.",
+  "ornekler_tr": [
+   "Yolculuk uzadı, yolcu ailesini özledi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 49,
+  "baski_no": "٤٩",
+  "k": "اشْتَبَكَ",
+  "cogul": null,
+  "metin": "يَشْتَبِكُ اشْتِباكاً : تَلاحَمَ ، تَداخَلَ ، تَصادَمَ ، تَقاتَلَ ، “اشْتَبَكَ الجَيْشانِ عِنْدَ طُلوعِ الفَجْرِ” .",
+  "tanim": "تَلاحَمَ ، تَداخَلَ ، تَصادَمَ ، تَقاتَلَ",
+  "ornekler": [
+   "“اشْتَبَكَ الجَيْشانِ عِنْدَ طُلوعِ الفَجْرِ”"
+  ],
+  "bosluk": {
+   "cumle": "اشْتَبَكَ الجَيْشانِ عِنْدَ طُلوعِ الفَجْرِ",
+   "kelime": "اشْتَبَكَ"
+  },
+  "tr": "çatışmak",
+  "tanim_tr": "Birbirine girmek, iç içe geçmek, çarpışmak, savaşmak.",
+  "ornekler_tr": [
+   "İki ordu şafak sökerken çatıştı."
+  ],
+  "resim": "p049_3.jpg",
+  "not": null
+ }
+]
