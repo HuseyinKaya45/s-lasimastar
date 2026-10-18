@@ -1,0 +1,365 @@
+[
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اشْتَدَّ",
+  "cogul": null,
+  "metin": "يَشْتَدُّ اشْتِداداً : زادَ وَقَوِيَ ، “اشْتَدَّ عَلَى صَديقي المَرَضُ ؛ فَحَمَلْناهُ إِلى المُسْتَشْفَى” .",
+  "tanim": "زادَ وَقَوِيَ",
+  "ornekler": [
+   "“اشْتَدَّ عَلَى صَديقي المَرَضُ ؛ فَحَمَلْناهُ إِلى المُسْتَشْفَى”"
+  ],
+  "bosluk": {
+   "cumle": "اشْتَدَّ عَلَى صَديقي المَرَضُ",
+   "kelime": "اشْتَدَّ"
+  },
+  "tr": "şiddetlenmek",
+  "tanim_tr": "Artmak ve güçlenmek.",
+  "ornekler_tr": [
+   "Arkadaşımın hastalığı ağırlaştı, biz de onu hastaneye götürdük."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اشْتَرَكَ",
+  "cogul": null,
+  "metin": "يَشْتَرِكُ اشْتِراكاً : تَعاوَنَ اثْنانِ أَوْ أَكْثَرُ في عَمَلٍ ما ، “اشْتَرَكَ الصَّديقانِ وَفَتَحا مَحَلّاً تِجارِيّاً” ، “اشْتَرَكْتُ في الرِّحْلَةِ ، وَدَفَعْتُ نَصيبي مِنَ النُّقودِ” .",
+  "tanim": "تَعاوَنَ اثْنانِ أَوْ أَكْثَرُ في عَمَلٍ ما",
+  "ornekler": [
+   "“اشْتَرَكَ الصَّديقانِ وَفَتَحا مَحَلّاً تِجارِيّاً”",
+   "“اشْتَرَكْتُ في الرِّحْلَةِ ، وَدَفَعْتُ نَصيبي مِنَ النُّقودِ”"
+  ],
+  "bosluk": {
+   "cumle": "اشْتَرَكْتُ في الرِّحْلَةِ ، وَدَفَعْتُ نَصيبي مِنَ النُّقودِ",
+   "kelime": "اشْتَرَكْتُ"
+  },
+  "tr": "ortak olmak, katılmak",
+  "tanim_tr": "İki veya daha fazla kişinin bir işte iş birliği yapması.",
+  "ornekler_tr": [
+   "İki arkadaş ortak olup bir dükkân açtılar.",
+   "Geziye katıldım ve payıma düşen parayı ödedim."
+  ],
+  "resim": "p050_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اشْتَرى",
+  "cogul": null,
+  "metin": "يَشْتَري اشْتِراءً وَشِراءً : أَخَذَ ، وَامْتَلَكَ الشَّيْءَ بِثَمَنٍ ؛ خِلافُ باعَ ، “اشْتَرَيْتُ الحاسوبَ بِأَلْفِ رِيالٍ ، وَبِعْتُهُ بِثَمانِمِئَةِ رِيالٍ” ، ﴿ إِنَّ اللَّهَ اشْتَرَى مِنَ الْمُؤْمِنينَ أَنْفُسَهُمْ ﴾ .",
+  "tanim": "أَخَذَ ، وَامْتَلَكَ الشَّيْءَ بِثَمَنٍ ؛ خِلافُ باعَ",
+  "ornekler": [
+   "“اشْتَرَيْتُ الحاسوبَ بِأَلْفِ رِيالٍ ، وَبِعْتُهُ بِثَمانِمِئَةِ رِيالٍ”",
+   "﴿ إِنَّ اللَّهَ اشْتَرَى مِنَ الْمُؤْمِنينَ أَنْفُسَهُمْ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "اشْتَرَيْتُ الحاسوبَ بِأَلْفِ رِيالٍ",
+   "kelime": "اشْتَرَيْتُ"
+  },
+  "tr": "satın almak",
+  "tanim_tr": "Bir şeyi bedel karşılığında almak ve sahip olmak; satmanın zıddı.",
+  "ornekler_tr": [
+   "Bilgisayarı bin riyale aldım, sekiz yüz riyale sattım.",
+   "Allah müminlerden canlarını satın almıştır."
+  ],
+  "resim": "p050_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اشْتَعَلَ",
+  "cogul": null,
+  "metin": "يَشْتَعِلُ اشْتِعالاً : الْتَهَبَ وَتَوَقَّدَ ، “اشْتَعَلَتْ مَحَطَّةُ الوَقودِ بِالنّيرانِ” ، ﴿ وَاشْتَعَلَ الرَّأْسُ شَيْباً ﴾ .",
+  "tanim": "الْتَهَبَ وَتَوَقَّدَ",
+  "ornekler": [
+   "“اشْتَعَلَتْ مَحَطَّةُ الوَقودِ بِالنّيرانِ”",
+   "﴿ وَاشْتَعَلَ الرَّأْسُ شَيْباً ﴾"
+  ],
+  "bosluk": {
+   "cumle": "اشْتَعَلَتْ مَحَطَّةُ الوَقودِ بِالنّيرانِ",
+   "kelime": "اشْتَعَلَتْ"
+  },
+  "tr": "tutuşmak, yanmak",
+  "tanim_tr": "Alev almak ve tutuşmak.",
+  "ornekler_tr": [
+   "Benzin istasyonu alev aldı.",
+   "Saçım sakalım ağardı (baş ak düşmekle tutuştu)."
+  ],
+  "resim": "p050_3.jpg",
+  "not": "Resimde 'اشتعل' ve karşıtı 'انطفأ' etiketleri var."
+ },
+ {
+  "sayfa": 50,
+  "k": "اشْتِغال",
+  "yon": "اشْتَغَلَ",
+  "iliski": "مصدر",
+  "tr": "meşguliyet, çalışma"
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اشْتَغَلَ",
+  "cogul": null,
+  "metin": "يَشْتَغِلُ اشْتِغالاً : عَمِلَ وَتَحَرَّكَ ، “اشْتَغَلَ مُحَمَّدٌ بِالتِّجارَةِ وَقْتاً قَصيراً” ، “اشْتَغَلَ مُحَرِّكُ السَّيّارَةِ بَعْدَ أَنْ تَوَقَّفَ” ، “لابُدَّ مِنَ الاشْتِغالِ بِالأَعْمالِ الصّالِحَةِ ؛ لِأَنَّ فيها الأَجْرَ الدُّنْيَوِيَّ وَالأُخْرَوِيَّ” .",
+  "tanim": "عَمِلَ وَتَحَرَّكَ",
+  "ornekler": [
+   "“اشْتَغَلَ مُحَمَّدٌ بِالتِّجارَةِ وَقْتاً قَصيراً”",
+   "“اشْتَغَلَ مُحَرِّكُ السَّيّارَةِ بَعْدَ أَنْ تَوَقَّفَ”",
+   "“لابُدَّ مِنَ الاشْتِغالِ بِالأَعْمالِ الصّالِحَةِ ؛ لِأَنَّ فيها الأَجْرَ الدُّنْيَوِيَّ وَالأُخْرَوِيَّ”"
+  ],
+  "bosluk": {
+   "cumle": "اشْتَغَلَ مُحَمَّدٌ بِالتِّجارَةِ وَقْتاً قَصيراً",
+   "kelime": "اشْتَغَلَ"
+  },
+  "tr": "çalışmak, meşgul olmak",
+  "tanim_tr": "Çalışmak ve hareket etmek (çalışır hâle gelmek).",
+  "ornekler_tr": [
+   "Muhammed kısa bir süre ticaretle uğraştı.",
+   "Arabanın motoru durduktan sonra (yeniden) çalıştı.",
+   "Salih amellerle meşgul olmak gerekir; çünkü onlarda hem dünya hem ahiret ecri vardır."
+  ],
+  "resim": "p050_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اشْتَكى",
+  "cogul": null,
+  "metin": "يَشْتَكي اشْتِكاءً : شَكا ، خاصَمَ ، تَأَلَّمَ ، “اشْتَكَتِ الزَّوْجَةُ زَوْجَها إِلى القاضي” . “اشْتَكَيْتُ مِنْ بَطْني طَوالَ الأُسْبوعِ الماضي” ، ﴿ قَدْ سَمِعَ اللَّهُ قَوْلَ الَّتي تُجادِلُكَ في زَوْجِها وَتَشْتَكي إِلَى اللَّهِ ﴾ .",
+  "tanim": "شَكا ، خاصَمَ ، تَأَلَّمَ",
+  "ornekler": [
+   "“اشْتَكَتِ الزَّوْجَةُ زَوْجَها إِلى القاضي”",
+   "“اشْتَكَيْتُ مِنْ بَطْني طَوالَ الأُسْبوعِ الماضي”",
+   "﴿ قَدْ سَمِعَ اللَّهُ قَوْلَ الَّتي تُجادِلُكَ في زَوْجِها وَتَشْتَكي إِلَى اللَّهِ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "اشْتَكَتِ الزَّوْجَةُ زَوْجَها إِلى القاضي",
+   "kelime": "اشْتَكَتِ"
+  },
+  "tr": "şikâyet etmek",
+  "tanim_tr": "Şikâyet etmek, davacı olmak; acı çekmek.",
+  "ornekler_tr": [
+   "Kadın kocasını hâkime şikâyet etti.",
+   "Geçen hafta boyunca karnımdan rahatsızdım.",
+   "Allah, kocası hakkında seninle tartışan ve Allah'a şikâyette bulunan kadının sözünü işitmiştir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اشْتَمَلَ",
+  "cogul": null,
+  "metin": "يَشْتَمِلُ اشْتِمالاً : ( ١ ) احْتَوَى وَتَضَمَّنَ “اشْتَمَلَ الكِتابُ عَلَى كُلِّ ما يَتَوَقَّعُهُ القارِئُ” ، ﴿ أَمَّا اشْتَمَلَتْ عَلَيْهِ أَرْحامُ الْأُنْثَيَيْنِ ﴾ . ( ٢ ) أَدارَ وَلَفَّ الشَّيْءَ كُلَّهُ ، “اشْتَمَلَ مُحَمَّدٌ بِثَوْبِهِ ، حَتَّى لا تُرَى يَدُهُ المَكْسورَةُ” .",
+  "tanim": "( ١ ) احْتَوَى وَتَضَمَّنَ ( ٢ ) أَدارَ وَلَفَّ الشَّيْءَ كُلَّهُ",
+  "ornekler": [
+   "“اشْتَمَلَ الكِتابُ عَلَى كُلِّ ما يَتَوَقَّعُهُ القارِئُ”",
+   "﴿ أَمَّا اشْتَمَلَتْ عَلَيْهِ أَرْحامُ الْأُنْثَيَيْنِ ﴾",
+   "“اشْتَمَلَ مُحَمَّدٌ بِثَوْبِهِ ، حَتَّى لا تُرَى يَدُهُ المَكْسورَةُ”"
+  ],
+  "bosluk": {
+   "cumle": "اشْتَمَلَ الكِتابُ عَلَى كُلِّ ما يَتَوَقَّعُهُ القارِئُ",
+   "kelime": "اشْتَمَلَ"
+  },
+  "tr": "kapsamak; bürünmek",
+  "tanim_tr": "(1) İçermek, kapsamak. (2) Bir şeyi tamamen sarmak, bürünmek.",
+  "ornekler_tr": [
+   "Kitap okuyucunun beklediği her şeyi içeriyordu.",
+   "Yoksa iki dişinin rahimlerinin içine aldığını mı?",
+   "Muhammed kırık eli görünmesin diye elbisesine büründü."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اشْتُهِرَ",
+  "cogul": null,
+  "metin": "يُشْتَهَرُ اشْتِهاراً : انْتَشَرَ وَذاعَ وَعُرِفَ بِصِفَةٍ مِنَ الصِّفاتِ ، “اشْتُهِرَ مُحَمَّدٌ ﷺ بِالصِّدْقِ وَالأَمانَةِ قَبْلَ مَبْعَثِهِ” .",
+  "tanim": "انْتَشَرَ وَذاعَ وَعُرِفَ بِصِفَةٍ مِنَ الصِّفاتِ",
+  "ornekler": [
+   "“اشْتُهِرَ مُحَمَّدٌ ﷺ بِالصِّدْقِ وَالأَمانَةِ قَبْلَ مَبْعَثِهِ”"
+  ],
+  "bosluk": {
+   "cumle": "اشْتُهِرَ مُحَمَّدٌ ﷺ بِالصِّدْقِ وَالأَمانَةِ قَبْلَ مَبْعَثِهِ",
+   "kelime": "اشْتُهِرَ"
+  },
+  "tr": "tanınmak, meşhur olmak",
+  "tanim_tr": "Yayılmak, duyulmak ve bir özelliğiyle tanınmak.",
+  "ornekler_tr": [
+   "Hz. Muhammed (s.a.v.) peygamberlikten önce doğruluk ve güvenilirlikle tanınmıştı."
+  ],
+  "resim": null,
+  "not": "Madde başı kitapta 'أُشْتُهِرَ' (hemze-i kat' ile) basılmış; burada standart yazımla verildi."
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اشْتَهى",
+  "cogul": null,
+  "metin": "يَشْتَهي اشْتِهاءً : رَغِبَ رَغْبَةً شَديدَةً ، “اشْتَهَيْتُ الطَّعامَ الدَّسِمَ ، بَعْدَما نَهاني عَنْهُ الطَّبيبُ” ، ﴿ وَلَكُمْ فيها ما تَشْتَهي أَنْفُسُكُمْ ﴾ .",
+  "tanim": "رَغِبَ رَغْبَةً شَديدَةً",
+  "ornekler": [
+   "“اشْتَهَيْتُ الطَّعامَ الدَّسِمَ ، بَعْدَما نَهاني عَنْهُ الطَّبيبُ”",
+   "﴿ وَلَكُمْ فيها ما تَشْتَهي أَنْفُسُكُمْ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَلَكُمْ فيها ما تَشْتَهي أَنْفُسُكُمْ",
+   "kelime": "تَشْتَهي"
+  },
+  "tr": "canı çekmek, arzulamak",
+  "tanim_tr": "Çok istemek, canı çekmek.",
+  "ornekler_tr": [
+   "Doktor yasakladıktan sonra yağlı yemek canım çekti.",
+   "Orada canlarınızın çektiği her şey sizin içindir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اشْرَأَبَّ",
+  "cogul": null,
+  "metin": "يَشْرَئِبُّ اشْرِئْباباً : مَدَّ عُنُقَهُ لِيَرَى الشَّيْءَ ، أَوْ لِيَراهُ النّاسُ ، “اشْرَأَبَّ مِنْ فَوْقِ السّورِ ؛ لِيَتَحَدَّثَ مَعَ صَديقِهِ” ، “عِنْدَما أَرادَ الرَّسولُ ﷺ أَنْ يُعْطِيَ الرّايَةَ لِأَحَدِ الصَّحابَةِ اشْرَأَبَّتْ أَعْناقُهُمْ لِذَلِكَ” .",
+  "tanim": "مَدَّ عُنُقَهُ لِيَرَى الشَّيْءَ ، أَوْ لِيَراهُ النّاسُ",
+  "ornekler": [
+   "“اشْرَأَبَّ مِنْ فَوْقِ السّورِ ؛ لِيَتَحَدَّثَ مَعَ صَديقِهِ”",
+   "“عِنْدَما أَرادَ الرَّسولُ ﷺ أَنْ يُعْطِيَ الرّايَةَ لِأَحَدِ الصَّحابَةِ اشْرَأَبَّتْ أَعْناقُهُمْ لِذَلِكَ”"
+  ],
+  "bosluk": {
+   "cumle": "اشْرَأَبَّ مِنْ فَوْقِ السّورِ ؛ لِيَتَحَدَّثَ مَعَ صَديقِهِ",
+   "kelime": "اشْرَأَبَّ"
+  },
+  "tr": "boynunu uzatmak",
+  "tanim_tr": "Bir şeyi görmek ya da insanlara görünmek için boynunu uzatmak.",
+  "ornekler_tr": [
+   "Arkadaşıyla konuşmak için duvarın üstünden boynunu uzattı.",
+   "Resulullah (s.a.v.) sancağı sahabeden birine vermek istediğinde (hepsi) boyunlarını uzattılar."
+  ],
+  "resim": "p050_5.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اشْمَأَزَّ",
+  "cogul": null,
+  "metin": "يَشْمَئِزُّ اشْمِئْزازاً : كَرِهَ وَنَفَرَ مِنَ الشَّيْءِ ، “عِنْدَما شَمَمْتُ رائِحَةَ الحَمّامِ اشْمَأَزَّتْ نَفْسي” ، ﴿ وَإِذا ذُكِرَ اللَّهُ وَحْدَهُ اشْمَأَزَّتْ قُلُوبُ الَّذينَ لا يُؤْمِنُونَ بِالْآخِرَةِ ﴾ .",
+  "tanim": "كَرِهَ وَنَفَرَ مِنَ الشَّيْءِ",
+  "ornekler": [
+   "“عِنْدَما شَمَمْتُ رائِحَةَ الحَمّامِ اشْمَأَزَّتْ نَفْسي”",
+   "﴿ وَإِذا ذُكِرَ اللَّهُ وَحْدَهُ اشْمَأَزَّتْ قُلُوبُ الَّذينَ لا يُؤْمِنُونَ بِالْآخِرَةِ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "عِنْدَما شَمَمْتُ رائِحَةَ الحَمّامِ اشْمَأَزَّتْ نَفْسي",
+   "kelime": "اشْمَأَزَّتْ"
+  },
+  "tr": "tiksinmek",
+  "tanim_tr": "Bir şeyden hoşlanmamak ve ondan nefret edip uzaklaşmak.",
+  "ornekler_tr": [
+   "Tuvaletin kokusunu alınca midem bulandı (tiksindim).",
+   "Allah tek olarak anıldığında ahirete inanmayanların kalpleri tiksinir."
+  ],
+  "resim": "p050_6.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اصْطادَ",
+  "cogul": null,
+  "metin": "يَصْطادُ اصْطِياداً : قَبَضَ ، أَمْسَكَ ، قَتَلَ ، “كانَ حَمْزَةُ يَصْطادُ الطُّيورَ” ، ﴿ وَإِذا حَلَلْتُمْ فَاصْطادُوا ﴾ .",
+  "tanim": "قَبَضَ ، أَمْسَكَ ، قَتَلَ",
+  "ornekler": [
+   "“كانَ حَمْزَةُ يَصْطادُ الطُّيورَ”",
+   "﴿ وَإِذا حَلَلْتُمْ فَاصْطادُوا ﴾"
+  ],
+  "bosluk": {
+   "cumle": "كانَ حَمْزَةُ يَصْطادُ الطُّيورَ",
+   "kelime": "يَصْطادُ"
+  },
+  "tr": "avlamak",
+  "tanim_tr": "Yakalamak, tutmak, öldürmek (avlamak).",
+  "ornekler_tr": [
+   "Hamza kuş avlardı.",
+   "İhramdan çıktığınızda avlanın."
+  ],
+  "resim": "p050_7.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اضْطَجَعَ",
+  "cogul": null,
+  "metin": "يَضْطَجِعُ اضْطِجاعاً : وَضَعَ جَنْبَهُ عَلَى الفِراشِ أَوِ الأَرْضِ أَوْ غَيْرِهِما ، وَيَكْثُرُ أَنْ يَكونَ لِلنَّوْمِ . “اضْطَجَعَ العامِلُ قَبْلَ أَنْ يَأْكُلَ” .",
+  "tanim": "وَضَعَ جَنْبَهُ عَلَى الفِراشِ أَوِ الأَرْضِ أَوْ غَيْرِهِما ، وَيَكْثُرُ أَنْ يَكونَ لِلنَّوْمِ",
+  "ornekler": [
+   "“اضْطَجَعَ العامِلُ قَبْلَ أَنْ يَأْكُلَ”"
+  ],
+  "bosluk": {
+   "cumle": "اضْطَجَعَ العامِلُ قَبْلَ أَنْ يَأْكُلَ",
+   "kelime": "اضْطَجَعَ"
+  },
+  "tr": "yanı üstü uzanmak",
+  "tanim_tr": "Yatağa, yere vb. yanını koyup uzanmak; çoğunlukla uyumak için olur.",
+  "ornekler_tr": [
+   "İşçi yemek yemeden önce uzandı."
+  ],
+  "resim": "p050_8.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اضْطُرَّ",
+  "cogul": null,
+  "metin": "يُضْطَرُّ اضْطِراراً : لَجَأَ وَاحْتاجَ بَعْدَ ضيقٍ ، ﴿ إِلّا ما اضْطُرِرْتُمْ إِلَيْهِ ﴾ .",
+  "tanim": "لَجَأَ وَاحْتاجَ بَعْدَ ضيقٍ",
+  "ornekler": [
+   "﴿ إِلّا ما اضْطُرِرْتُمْ إِلَيْهِ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "إِلّا ما اضْطُرِرْتُمْ إِلَيْهِ",
+   "kelime": "اضْطُرِرْتُمْ"
+  },
+  "tr": "mecbur kalmak",
+  "tanim_tr": "Darlıktan sonra başvurmak, muhtaç olmak; zorunda kalmak.",
+  "ornekler_tr": [
+   "Zorunda kaldıklarınız hariç."
+  ],
+  "resim": null,
+  "not": "Madde başı kitapta 'أُضْطُرَّ' (hemze ile) basılmış."
+ },
+ {
+  "sayfa": 50,
+  "k": "اضْطِراب",
+  "yon": "اضْطَرَبَ",
+  "iliski": "مصدر",
+  "tr": "çalkantı, karışıklık"
+ },
+ {
+  "sayfa": 50,
+  "baski_no": "٥٠",
+  "k": "اضْطَرَبَ",
+  "cogul": null,
+  "metin": "يَضْطَرِبُ اضْطِراباً : تَحَرَّكَ بِعُنْفٍ ، وَماجَ ، وَاخْتَلَّ وَلَمْ يَسْتَقِرَّ .",
+  "tanim": "تَحَرَّكَ بِعُنْفٍ ، وَماجَ ، وَاخْتَلَّ وَلَمْ يَسْتَقِرَّ",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "çalkalanmak, sarsılmak",
+  "tanim_tr": "Şiddetle hareket etmek, dalgalanmak; bozulup kararsız olmak.",
+  "ornekler_tr": [],
+  "resim": "p050_9.jpg",
+  "not": null
+ }
+]

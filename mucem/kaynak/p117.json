@@ -1,0 +1,401 @@
+[
+ {
+  "sayfa": 117,
+  "devam": true,
+  "metin": "مُحَدَّدَةٍ ، “فازَ الحِزْبُ الوَطَنِيُّ في الانْتِخاباتِ” ، ﴿ أَلا إِنَّ حِزْبَ اللَّهِ هُمُ الْمُفْلِحُونَ ﴾ ."
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَزَمَ",
+  "cogul": null,
+  "metin": "يَحْزِمُ حَزْماً : ( ١ ) شَدَّ وَرَبَطَ ، “حَزَمَ الرَّجُلُ حَقائِبَهُ اسْتِعْداداً لِلسَّفَرِ” . ( ٢ ) قَرَّرَ وَضَبَطَ ، “حَزَمَ القائِدُ أَمْرَهُ اسْتِعْداداً لِلقِتالِ” .",
+  "tanim": "( ١ ) شَدَّ وَرَبَطَ ( ٢ ) قَرَّرَ وَضَبَطَ",
+  "ornekler": [
+   "حَزَمَ الرَّجُلُ حَقائِبَهُ اسْتِعْداداً لِلسَّفَرِ",
+   "حَزَمَ القائِدُ أَمْرَهُ اسْتِعْداداً لِلقِتالِ"
+  ],
+  "bosluk": {
+   "cumle": "حَزَمَ الرَّجُلُ حَقائِبَهُ اسْتِعْداداً لِلسَّفَرِ",
+   "kelime": "حَزَمَ"
+  },
+  "tr": "bağlamak, toplamak",
+  "tanim_tr": "(1) Sıkıca bağlamak. (2) Karar verip kesinleştirmek.",
+  "ornekler_tr": [
+   "Adam yolculuğa hazırlanmak için çantalarını topladı.",
+   "Komutan savaşa hazırlanmak için kararını kesinleştirdi."
+  ],
+  "resim": "p117_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حِزْمَة",
+  "cogul": "حِزَم",
+  "metin": "( ج ) حِزَم : ما جُمِعَ وَرُبِطَ مِنْ كُلِّ شَيْءٍ ، “يَحْمِلُ الحِمارُ حِزَماً مِنَ الحَطَبِ فَوْقَ ظَهْرِهِ” .",
+  "tanim": "ما جُمِعَ وَرُبِطَ مِنْ كُلِّ شَيْءٍ",
+  "ornekler": [
+   "يَحْمِلُ الحِمارُ حِزَماً مِنَ الحَطَبِ فَوْقَ ظَهْرِهِ"
+  ],
+  "bosluk": {
+   "cumle": "يَحْمِلُ الحِمارُ حِزَماً مِنَ الحَطَبِ فَوْقَ ظَهْرِهِ",
+   "kelime": "حِزَماً"
+  },
+  "tr": "demet, deste",
+  "tanim_tr": "Her şeyden toplanıp bağlanmış olan.",
+  "ornekler_tr": [
+   "Eşek sırtında odun demetleri taşıyor."
+  ],
+  "resim": "p117_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَزِنَ",
+  "cogul": null,
+  "metin": "يَحْزَنُ حُزْناً : ذَهَبَ السُّرورُ عَنْهُ ، أَصابَهُ الهَمُّ ؛ خِلافُ فَرِحَ ، “حَزِنَ الرَّجُلُ لِمَوْتِ ابْنِهِ” ، ﴿ إِذْ يَقُولُ لِصاحِبِهِ لا تَحْزَنْ إِنَّ اللَّهَ مَعَنا ﴾ .",
+  "tanim": "ذَهَبَ السُّرورُ عَنْهُ ، أَصابَهُ الهَمُّ ؛ خِلافُ فَرِحَ",
+  "ornekler": [
+   "حَزِنَ الرَّجُلُ لِمَوْتِ ابْنِهِ",
+   "﴿ إِذْ يَقُولُ لِصاحِبِهِ لا تَحْزَنْ إِنَّ اللَّهَ مَعَنا ﴾"
+  ],
+  "bosluk": {
+   "cumle": "حَزِنَ الرَّجُلُ لِمَوْتِ ابْنِهِ",
+   "kelime": "حَزِنَ"
+  },
+  "tr": "üzülmek",
+  "tanim_tr": "Sevinci gitmek, kedere uğramak; sevinmenin zıddı.",
+  "ornekler_tr": [
+   "Adam oğlunun ölümüne üzüldü.",
+   "Hani arkadaşına: “Üzülme, Allah bizimle” diyordu."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حُزْن",
+  "cogul": "أَحْزان",
+  "metin": "( ج ) أَحْزان : هَمٌّ وَغَمٌّ ؛ خِلافُ سُرور ، ﴿ وَابْيَضَّتْ عَيْناهُ مِنَ الْحُزْنِ فَهُوَ كَظيمٌ ﴾ .",
+  "tanim": "هَمٌّ وَغَمٌّ ؛ خِلافُ سُرور",
+  "ornekler": [
+   "﴿ وَابْيَضَّتْ عَيْناهُ مِنَ الْحُزْنِ فَهُوَ كَظيمٌ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَابْيَضَّتْ عَيْناهُ مِنَ الْحُزْنِ فَهُوَ كَظيمٌ",
+   "kelime": "الْحُزْنِ"
+  },
+  "tr": "hüzün, keder",
+  "tanim_tr": "Tasa ve keder; sevincin zıddı.",
+  "ornekler_tr": [
+   "Üzüntüden gözlerine ak düştü; artık o, acısını içine gömüyordu."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَزين",
+  "cogul": "حُزَناء",
+  "metin": "( ج ) حُزَناء . غَيْرُ مَسْرورٍ ؛ خِلافُ فَرِحٍ ، “المُسْلِمُ حَزينٌ ؛ لِما يُصيبُ إِخْوَتَهُ مِنْ ظُلْمٍ” .",
+  "tanim": "غَيْرُ مَسْرورٍ ؛ خِلافُ فَرِحٍ",
+  "ornekler": [
+   "المُسْلِمُ حَزينٌ ؛ لِما يُصيبُ إِخْوَتَهُ مِنْ ظُلْمٍ"
+  ],
+  "bosluk": {
+   "cumle": "المُسْلِمُ حَزينٌ ؛ لِما يُصيبُ إِخْوَتَهُ مِنْ ظُلْمٍ",
+   "kelime": "حَزينٌ"
+  },
+  "tr": "üzgün",
+  "tanim_tr": "Sevinçli olmayan; sevinçlinin zıddı.",
+  "ornekler_tr": [
+   "Müslüman, kardeşlerine reva görülen zulümden dolayı üzgündür."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَساء",
+  "cogul": null,
+  "metin": "الشُّرْبَةُ ؛ نَوْعٌ مِنَ المَرَقِ يُصْنَعُ مِنَ الخَضْراواتِ ، أَوِ العَدَسِ ، أَوِ الدَّجاجِ أَوْ غَيْرِها ، “حَساءُ الدَّجاجِ بِالخَضْراواتِ طَيِّبُ المَذاقِ” .",
+  "tanim": "الشُّرْبَةُ ؛ نَوْعٌ مِنَ المَرَقِ يُصْنَعُ مِنَ الخَضْراواتِ ، أَوِ العَدَسِ ، أَوِ الدَّجاجِ أَوْ غَيْرِها",
+  "ornekler": [
+   "حَساءُ الدَّجاجِ بِالخَضْراواتِ طَيِّبُ المَذاقِ"
+  ],
+  "bosluk": {
+   "cumle": "حَساءُ الدَّجاجِ بِالخَضْراواتِ طَيِّبُ المَذاقِ",
+   "kelime": "حَساءُ"
+  },
+  "tr": "çorba",
+  "tanim_tr": "Çorba; sebze, mercimek, tavuk vb.den yapılan bir et suyu türü.",
+  "ornekler_tr": [
+   "Sebzeli tavuk çorbası lezzetlidir."
+  ],
+  "resim": "p117_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حِساب",
+  "cogul": null,
+  "metin": "مَصْدَرُ حَسَبَ : ( ١ ) كَثيرٌ ، كافٍ ، ﴿ جَزاءً مِنْ رَبِّكَ عَطاءً حِساباً ﴾ . ( ٢ ) الرَّصيدُ في المَصْرِفِ ، “ما رَقْمُ حِسابِكَ في المَصْرِفِ ؟” . ( ٣ ) تَضْييق ، ﴿ وَاللَّهُ يَرْزُقُ مَنْ يَشاءُ بِغَيْرِ حِسابٍ ﴾ . ( ٤ ) التَّكاليف . “هذِهِ قائِمَةُ الحِسابِ” .",
+  "tanim": "مَصْدَرُ حَسَبَ : ( ١ ) كَثيرٌ ، كافٍ ( ٢ ) الرَّصيدُ في المَصْرِفِ ( ٣ ) تَضْييق ( ٤ ) التَّكاليف",
+  "ornekler": [
+   "﴿ جَزاءً مِنْ رَبِّكَ عَطاءً حِساباً ﴾",
+   "ما رَقْمُ حِسابِكَ في المَصْرِفِ ؟",
+   "﴿ وَاللَّهُ يَرْزُقُ مَنْ يَشاءُ بِغَيْرِ حِسابٍ ﴾",
+   "هذِهِ قائِمَةُ الحِسابِ"
+  ],
+  "bosluk": {
+   "cumle": "ما رَقْمُ حِسابِكَ في المَصْرِفِ ؟",
+   "kelime": "حِسابِكَ"
+  },
+  "tr": "hesap",
+  "tanim_tr": "Hasebe fiilinin mastarı: (1) Çok, yeterli. (2) Bankadaki bakiye/hesap. (3) Daraltma, kısma. (4) Masraflar.",
+  "ornekler_tr": [
+   "Rabbinden bir karşılık, yeterli bir ihsan olarak.",
+   "Bankadaki hesap numaran kaç?",
+   "Allah dilediğine hesapsız rızık verir.",
+   "Bu, hesap listesidir (fatura)."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَسِبَ",
+  "cogul": null,
+  "metin": "يَحْسَبُ حَسَباً : اعْتَبَرَ وَظَنَّ ، “حَسِبْتُكَ نائِماً” ، ﴿ وَتَحْسَبُهُمْ أَيْقاظاً وَهُمْ رُقُودٌ ﴾ .",
+  "tanim": "اعْتَبَرَ وَظَنَّ",
+  "ornekler": [
+   "حَسِبْتُكَ نائِماً",
+   "﴿ وَتَحْسَبُهُمْ أَيْقاظاً وَهُمْ رُقُودٌ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "حَسِبْتُكَ نائِماً",
+   "kelime": "حَسِبْتُكَ"
+  },
+  "tr": "sanmak, zannetmek",
+  "tanim_tr": "Saymak, zannetmek.",
+  "ornekler_tr": [
+   "Seni uyuyor sandım.",
+   "Onlar uykuda oldukları halde sen onları uyanık sanırsın."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَسَبَ",
+  "cogul": null,
+  "metin": "يَحْسُبُ حِساباً : عَدَّ وَأَحْصى ، “احْسُبْ نُقودَكَ قَبْلَ مُغادَرَةِ المَصْرِفِ” .",
+  "tanim": "عَدَّ وَأَحْصى",
+  "ornekler": [
+   "احْسُبْ نُقودَكَ قَبْلَ مُغادَرَةِ المَصْرِفِ"
+  ],
+  "bosluk": {
+   "cumle": "احْسُبْ نُقودَكَ قَبْلَ مُغادَرَةِ المَصْرِفِ",
+   "kelime": "احْسُبْ"
+  },
+  "tr": "saymak, hesaplamak",
+  "tanim_tr": "Saymak ve tek tek hesaplamak.",
+  "ornekler_tr": [
+   "Bankadan ayrılmadan önce paranı say."
+  ],
+  "resim": "p117_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَسْب",
+  "cogul": null,
+  "metin": "حَسْبُكَ / بِحَسْبِكَ ؛ كَفاكَ ، ﴿ يا أَيُّهَا النَّبِيُّ حَسْبُكَ اللَّهُ وَمَنِ اتَّبَعَكَ مِنَ الْمُؤْمِنينَ ﴾ .",
+  "tanim": "حَسْبُكَ / بِحَسْبِكَ ؛ كَفاكَ",
+  "ornekler": [
+   "﴿ يا أَيُّهَا النَّبِيُّ حَسْبُكَ اللَّهُ وَمَنِ اتَّبَعَكَ مِنَ الْمُؤْمِنينَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "يا أَيُّهَا النَّبِيُّ حَسْبُكَ اللَّهُ",
+   "kelime": "حَسْبُكَ"
+  },
+  "tr": "yeter",
+  "tanim_tr": "Hasbuke / bihasbike: sana yeter.",
+  "ornekler_tr": [
+   "Ey Peygamber! Sana ve sana uyan müminlere Allah yeter."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَسُبَ",
+  "cogul": null,
+  "metin": "يَحْسُبُ حَسَباً : كانَ لَهُ وَلآبائِهِ شَرَفٌ وَكَرَمٌ ، “حَسُبَ مُحَمَّدٌ ﷺ فَهُوَ ذو حَسَبٍ” .",
+  "tanim": "كانَ لَهُ وَلآبائِهِ شَرَفٌ وَكَرَمٌ",
+  "ornekler": [
+   "حَسُبَ مُحَمَّدٌ ﷺ فَهُوَ ذو حَسَبٍ"
+  ],
+  "bosluk": {
+   "cumle": "حَسُبَ مُحَمَّدٌ ﷺ فَهُوَ ذو حَسَبٍ",
+   "kelime": "حَسُبَ"
+  },
+  "tr": "soylu olmak",
+  "tanim_tr": "Kendisinin ve atalarının şerefi ve asaleti olmak.",
+  "ornekler_tr": [
+   "Muhammed (s.a.v.) soyludur; o, şeref sahibidir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَسَبٌ",
+  "cogul": null,
+  "metin": "شَرَفٌ وَكَرَمٌ انْظُرْ : حَسُبَ . وَفي الحَديثِ : (تُنْكَحُ المَرْأَةُ لأَرْبَعٍ : لِمالِها وَلِحَسَبِها وَلِجَمالِها وَلِدينِها ، فاظْفَرْ بِذاتِ الدّينِ تَرِبَتْ يَداكَ) .",
+  "tanim": "شَرَفٌ وَكَرَمٌ",
+  "ornekler": [
+   "(تُنْكَحُ المَرْأَةُ لأَرْبَعٍ : لِمالِها وَلِحَسَبِها وَلِجَمالِها وَلِدينِها ، فاظْفَرْ بِذاتِ الدّينِ تَرِبَتْ يَداكَ)"
+  ],
+  "bosluk": {
+   "cumle": "تُنْكَحُ المَرْأَةُ لأَرْبَعٍ : لِمالِها وَلِحَسَبِها وَلِجَمالِها وَلِدينِها",
+   "kelime": "وَلِحَسَبِها"
+  },
+  "tr": "soy, asalet",
+  "tanim_tr": "Şeref ve asalet. Bkz. hasube.",
+  "ornekler_tr": [
+   "Kadın dört şey için nikâhlanır: malı, soyu, güzelliği ve dini için. Sen dindar olanı seç ki elin bereket bulsun."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَسْبَما",
+  "cogul": null,
+  "metin": "كَيْفَما . بِلا اسْتِعْدادٍ مُسْبَقٍ ، “جَلَسَ بَيْنَ النّاسِ حَسْبَما اتَّفَقَ” .",
+  "tanim": "كَيْفَما . بِلا اسْتِعْدادٍ مُسْبَقٍ",
+  "ornekler": [
+   "جَلَسَ بَيْنَ النّاسِ حَسْبَما اتَّفَقَ"
+  ],
+  "bosluk": {
+   "cumle": "جَلَسَ بَيْنَ النّاسِ حَسْبَما اتَّفَقَ",
+   "kelime": "حَسْبَما"
+  },
+  "tr": "nasıl denk gelirse",
+  "tanim_tr": "Nasıl olursa; önceden hazırlık yapmadan.",
+  "ornekler_tr": [
+   "İnsanların arasına rastgele (nasıl denk geldiyse) oturdu."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَسَدَ",
+  "cogul": null,
+  "metin": "يَحْسُدُ حَسَداً : تَمَنّى زَوالَ نِعْمَةِ غَيْرِهِ ، وَفي الحَديثِ : (لا حَسَدَ إِلّا في اثْنَتَيْنِ ...) ، ﴿ أَمْ يَحْسُدُونَ النّاسَ عَلى ما آتاهُمُ اللَّهُ مِنْ فَضْلِهِ ﴾ ، ﴿ وَمِنْ شَرِّ حاسِدٍ إِذا حَسَدَ ﴾ .",
+  "tanim": "تَمَنّى زَوالَ نِعْمَةِ غَيْرِهِ",
+  "ornekler": [
+   "(لا حَسَدَ إِلّا في اثْنَتَيْنِ ...)",
+   "﴿ أَمْ يَحْسُدُونَ النّاسَ عَلى ما آتاهُمُ اللَّهُ مِنْ فَضْلِهِ ﴾",
+   "﴿ وَمِنْ شَرِّ حاسِدٍ إِذا حَسَدَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَمِنْ شَرِّ حاسِدٍ إِذا حَسَدَ",
+   "kelime": "حَسَدَ"
+  },
+  "tr": "kıskanmak, haset etmek",
+  "tanim_tr": "Başkasının nimetinin yok olmasını istemek.",
+  "ornekler_tr": [
+   "Hasetlik ancak iki şeyde olur...",
+   "Yoksa Allah'ın lütfundan verdiği şeyler için insanları kıskanıyorlar mı?",
+   "Haset ettiği zaman hasetçinin şerrinden."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَسَرَ",
+  "cogul": null,
+  "metin": "يَحْسِرُ حُسوراً : كَشَفَ ، “حَسَرَ عَنْ رَأْسِهِ : كَشَفَ عَنْهُ” .",
+  "tanim": "كَشَفَ",
+  "ornekler": [
+   "حَسَرَ عَنْ رَأْسِهِ : كَشَفَ عَنْهُ"
+  ],
+  "bosluk": {
+   "cumle": "حَسَرَ عَنْ رَأْسِهِ",
+   "kelime": "حَسَرَ"
+  },
+  "tr": "açmak, sıyırmak",
+  "tanim_tr": "Açmak, örtüsünü kaldırmak.",
+  "ornekler_tr": [
+   "Başını açtı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَسْرَة",
+  "cogul": null,
+  "metin": "التَّلَهُّفُ عَلى الشَّيْءِ الفائِتِ ، “عَضَّ إِصْبَعَهُ حَسْرَةً عَلى فَواتِ الفُرْصَةِ” ، ﴿ فَسَيُنْفِقُونَها ثُمَّ تَكُونُ عَلَيْهِمْ حَسْرَةً ثُمَّ يُغْلَبُونَ ﴾ .",
+  "tanim": "التَّلَهُّفُ عَلى الشَّيْءِ الفائِتِ",
+  "ornekler": [
+   "عَضَّ إِصْبَعَهُ حَسْرَةً عَلى فَواتِ الفُرْصَةِ",
+   "﴿ فَسَيُنْفِقُونَها ثُمَّ تَكُونُ عَلَيْهِمْ حَسْرَةً ثُمَّ يُغْلَبُونَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "عَضَّ إِصْبَعَهُ حَسْرَةً عَلى فَواتِ الفُرْصَةِ",
+   "kelime": "حَسْرَةً"
+  },
+  "tr": "hasret, pişmanlık",
+  "tanim_tr": "Kaçırılan bir şeye duyulan yanıp tutuşma.",
+  "ornekler_tr": [
+   "Fırsatı kaçırdığı için hayıflanarak parmağını ısırdı.",
+   "Onu harcayacaklar, sonra bu onlara hasret (pişmanlık) olacak, sonra da yenilecekler."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 117,
+  "baski_no": "١١٧",
+  "k": "حَسَّنَ",
+  "cogul": null,
+  "metin": "يُحَسِّنُ تَحْسيناً : غَيَّرَ إِلى الأَحْسَنِ وَالأَفْضَلِ ، وَفي الحَديثِ : (اللَّهُمَّ كَما حَسَّنْتَ خَلْقي فَحَسِّنْ خُلُقي) ، “هُناكَ دُروسٌ في تَحْسينِ الخَطِّ” .",
+  "tanim": "غَيَّرَ إِلى الأَحْسَنِ وَالأَفْضَلِ",
+  "ornekler": [
+   "(اللَّهُمَّ كَما حَسَّنْتَ خَلْقي فَحَسِّنْ خُلُقي)",
+   "هُناكَ دُروسٌ في تَحْسينِ الخَطِّ"
+  ],
+  "bosluk": {
+   "cumle": "اللَّهُمَّ كَما حَسَّنْتَ خَلْقي فَحَسِّنْ خُلُقي",
+   "kelime": "حَسَّنْتَ"
+  },
+  "tr": "güzelleştirmek, iyileştirmek",
+  "tanim_tr": "Daha güzele ve daha iyiye çevirmek.",
+  "ornekler_tr": [
+   "Allah'ım! Yaratılışımı güzel kıldığın gibi ahlakımı da güzelleştir.",
+   "Yazıyı güzelleştirme dersleri var."
+  ],
+  "resim": null,
+  "not": null
+ }
+]
