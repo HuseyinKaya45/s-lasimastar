@@ -1226,6 +1226,19 @@ Dinleme tedrîb 1 ve 3’te resim seçimleri kayda göre yapıldı (gazetenin Ar
 Düzenleme: `k1u12/veri.js`, `k1u12/uygulama.js`, `k1u12/stil.css`; ses parçaları `k1u12/parcalar.json` → `python3 k1u12/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u12/yap.py`.
 
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 13. ünite — Yolculuk (sesli, resimli, çevrimdışı)
+
+`k1u13/index.html` (yayın sürümü `k1u13/sayfa.html`) السَّفَرُ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
+24 ders kaydı tek `ses.mp3` içinde birleştirilmiş, 145 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (havaalanında rezervasyon, pasaport kontrolü, kayıp bavul) ve kitaptaki sorular; **Kelimeler** (ders 109–111, 20 kelime);
+**Yönler** (شَمالٌ، جَنوبٌ، شَرْقٌ، غَرْبٌ ve ders 112 / 117’nin resimli yön alıştırmaları); **Kalıplar** (هَلْ أَنْتَ …؟ — لا، أَنا …; ماذا في …؟;
+مِنْ أَيْنَ أَنْتَ قادِمٌ؟; هَلِ الحَجْزُ عَلى الخُطوطِ …؟), **Sesler** (kısa ـَ ve uzun ـا, üç sure), **Dinleme** (ders 114, dört tedrîb),
+**Okuma** (iki sesli metin, iki boşluk doldurma), **Yazı**, **Konuşma**, **Alıştırmalar** ve sesli **Sınav**. Bu ünitede “Kendini sına” yoktur.
+Kayıt notları: kayıt dosyalarının ders numaraları kitaptan bir geridir (ör. 3. diyalog “110-03”, kalıplar “112-…”, dinleme “113-…”, okuma “115-…”);
+konuşma (115), okuma tedrîb 1, 5 ve yazı (117) dersleri sessizdir. Dinleme tedrîb 4’ün kaydında Ahmed “مُهَنْدِسٌ” diye anılır.
+Düzenleme: `k1u13/veri.js`, `k1u13/uygulama.js`, `k1u13/stil.css`; ses parçaları `k1u13/parcalar.json` → `python3 k1u13/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u13/yap.py`.
+
 ## Uygulama: el-Arabiyyetü beyne yedeyk 1 — “Kendini sına” sınavları ve yarıyıl sınavı
 
 `ihtibar/ihtibar1.html` … `ihtibar5.html` (yayın sürümleri `ihtibar/sayfa1.html` … `sayfa5.html`): kitabın dört “اخْتَبِرْ نَفْسَكَ” sınavı (Ünite 1–2, 3–4, 5–6, 7–8; her biri 40 puan)
