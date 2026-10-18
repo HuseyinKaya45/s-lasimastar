@@ -1215,7 +1215,7 @@ sonra `python3 k1u11/yap.py`.
 ## Uygulama: el-Arabiyyetü beyne yedeyk 1, 12. ünite — Hobiler (sesli, resimli, çevrimdışı)
 
 `k1u12/index.html` (yayın sürümü `k1u12/sayfa.html`) الهِواياتُ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
-29 ders kaydı (ders 100–105) tek `ses.mp3` içinde birleştirilmiş, 186 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+29 ders kaydı (ders 100–107) tek `ses.mp3` içinde birleştirilmiş, 186 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
 **Diyaloglar** (hobilerin neler, hobi sergisi, okul kulüpleri) ve kitaptaki sorular; **Kelimeler** (ders 100–102, 31 kelime);
 **Sıfatlar** (طَويلٌ – قَصيرٌ … 12 sıfat, zıt anlamlı eşleştirme, ders 108’in resimli alıştırması); **Kalıplar** (ما هِوايَتُكَ؟; هَلْ زُرْتَ …؟ — لا، ما زُرْتُهُ;
 هذا جَناحُ …; أَيَّ … تَخْتارينَ؟; كَمْ ساعَةً …؟; هَلْ لَدَيْكَ …؟), **Sesler** (ش – س, beş âyet), **Dinleme** (ders 105, dört tedrîb; 1. ve 3. resimli),
