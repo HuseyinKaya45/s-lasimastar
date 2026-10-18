@@ -575,7 +575,19 @@
       return f === "hepsi" ? true : f === "yildiz" ? D.f[ID[i]] : durum(i) === f;
     });
     var h = "", son = null;
-    r.forEach(function (i) { if (M[i].s !== son) { son = M[i].s; h += '<div class="sayfa-bas">Sayfa ' + son + "</div>"; } h += maddeHTML(i); });
+    if (q) {
+      // aramada önce madde başı eşleşenler, sonra yalnızca metinde geçenler
+      var puan = function (i) {
+        var k = arMi ? arNorm(M[i].k) : trNorm(M[i].tr), t = arMi ? aq : tq;
+        return k === t ? 0 : k.indexOf(t) === 0 ? 1 : k.indexOf(t) >= 0 ? 2 : 3;
+      };
+      r.sort(function (a, b) { return (puan(a) - puan(b)) || (a - b); });
+      var ilk = r.length && puan(r[0]) < 3, ayrac = false;
+      r.forEach(function (i) {
+        if (ilk && !ayrac && puan(i) === 3) { ayrac = true; h += '<div class="sayfa-bas">Açıklamasında geçenler</div>'; }
+        h += maddeHTML(i);
+      });
+    } else r.forEach(function (i) { if (M[i].s !== son) { son = M[i].s; h += '<div class="sayfa-bas">Sayfa ' + son + "</div>"; } h += maddeHTML(i); });
     $("#liste").innerHTML = h || '<p class="soluk">Sonuç yok.</p>';
   }
   function maddeYenile(i) {
