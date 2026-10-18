@@ -6219,11 +6219,21 @@ var K = [["ال","(harf-i tarif) belirlilik takısı: el-, -ı/-i","the (definit
     $("#en2").addEventListener("change", function () { D.ay.en = this.checked; kaydet(); });
     $$(".izgara .h").forEach(function (b) { b.addEventListener("click", function () { L.p = +b.getAttribute("data-p"); L.ara = ""; git("liste"); }); });
     $("#yedekAl").addEventListener("click", function () {
-      var blob = new Blob([JSON.stringify(D)], { type: "application/json" }), a = document.createElement("a");
-      var d = new Date(); a.href = URL.createObjectURL(blob);
-      a.download = "kelime-defteri-yedek-" + d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2) + ".json";
-      document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
-      toast("Yedek indirildi.");
+      var d = new Date(), veri = JSON.stringify(D);
+      var ad = "kelime-defteri-yedek-" + d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2) + ".json";
+      function tarayici() {
+        var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([veri], { type: "application/json" })); a.download = ad;
+        document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+        toast("Yedek indirildi.");
+      }
+      // claude.ai sayfasında indirme izin penceresiyle yapılır; tek dosya sürümünde doğrudan indirilir
+      if (!(window.claude && window.claude.use)) return tarayici();
+      window.claude.use("downloads").then(function (dl) {
+        if (!dl) return tarayici();
+        dl.save({ filename: ad, data: veri }).then(function () { toast("Yedek kaydedildi."); }, function (e) {
+          toast(e && e.code === "declined" ? "Yedek kaydedilmedi." : "Burada indirme yapılamıyor; programı dosya olarak açıp yedek al.");
+        });
+      }, tarayici);
     });
     $("#yedekDosya").addEventListener("change", function () {
       var f = this.files[0]; if (!f) return;
