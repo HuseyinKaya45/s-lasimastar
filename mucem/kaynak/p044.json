@@ -1,0 +1,448 @@
+[
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "ازْدِهار",
+  "yon": "ازْدَهَرَ",
+  "iliski": "مصدر",
+  "tr": "gelişme, refah"
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "ازْدَهَرَ",
+  "cogul": null,
+  "metin": "يَزْدَهِرُ ازْدِهاراً: زادَ، وَتَقَدَّمَ، “ازْدَهَرَتِ التِّجارَةُ بَيْنَ البَلَدَيْنِ”، “شَهِدَ هذا القَرْنُ ازْدِهاراً في العُلومِ وَالثَّقافَةِ”.",
+  "tanim": "زادَ، وَتَقَدَّمَ.",
+  "ornekler": [
+   "ازْدَهَرَتِ التِّجارَةُ بَيْنَ البَلَدَيْنِ",
+   "شَهِدَ هذا القَرْنُ ازْدِهاراً في العُلومِ وَالثَّقافَةِ"
+  ],
+  "bosluk": {
+   "cumle": "ازْدَهَرَتِ التِّجارَةُ بَيْنَ البَلَدَيْنِ",
+   "kelime": "ازْدَهَرَتِ"
+  },
+  "tr": "gelişmek, serpilmek",
+  "tanim_tr": "Artmak, ilerlemek, gelişmek.",
+  "ornekler_tr": [
+   "İki ülke arasındaki ticaret gelişti.",
+   "Bu yüzyıl bilim ve kültürde bir yükselişe tanık oldu."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "ازْدِياد",
+  "yon": "ازْدادَ",
+  "iliski": "مصدر",
+  "tr": "artış"
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَأْثَرَ",
+  "cogul": null,
+  "metin": "يَسْتَأْثِرُ اسْتِئْثاراً: خَصَّ الشَّخْصُ نَفْسَهُ بِالشَّيْءِ دونَ الآخَرينَ، “اسْتَأْثَرَ الأَخُ الكَبيرُ بِكُلِّ المالِ لِنَفْسِهِ”.",
+  "tanim": "خَصَّ الشَّخْصُ نَفْسَهُ بِالشَّيْءِ دونَ الآخَرينَ.",
+  "ornekler": [
+   "اسْتَأْثَرَ الأَخُ الكَبيرُ بِكُلِّ المالِ لِنَفْسِهِ"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَأْثَرَ الأَخُ الكَبيرُ بِكُلِّ المالِ لِنَفْسِهِ",
+   "kelime": "اسْتَأْثَرَ"
+  },
+  "tr": "kendine ayırmak, tekeline almak",
+  "tanim_tr": "Bir şeyi başkalarına vermeyip kendine ayırmak.",
+  "ornekler_tr": [
+   "Büyük kardeş bütün malı kendine ayırdı."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَأْجَرَ",
+  "cogul": null,
+  "metin": "يَسْتَأْجِرُ اسْتِئْجاراً: اسْتَعْمَلَ المَكانَ أَوِ الشَّخْصَ مُقابِلَ أَجْرٍ يَدْفَعُهُ، “اسْتَأْجَرَ البَيْتَ سَنَةً كامِلَةً”، ﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الأَمينُ﴾.",
+  "tanim": "اسْتَعْمَلَ المَكانَ أَوِ الشَّخْصَ مُقابِلَ أَجْرٍ يَدْفَعُهُ.",
+  "ornekler": [
+   "اسْتَأْجَرَ البَيْتَ سَنَةً كامِلَةً",
+   "﴿إِنَّ خَيْرَ مَنِ اسْتَأْجَرْتَ الْقَوِيُّ الأَمينُ﴾"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَأْجَرَ البَيْتَ سَنَةً كامِلَةً",
+   "kelime": "اسْتَأْجَرَ"
+  },
+  "tr": "kiralamak; ücretle tutmak",
+  "tanim_tr": "Ödediği bir ücret karşılığında bir yeri kullanmak veya birini çalıştırmak.",
+  "ornekler_tr": [
+   "Evi tam bir yıllığına kiraladı.",
+   "Ücretle tuttuğun kimselerin en hayırlısı güçlü ve güvenilir olandır."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَأْذَنَ",
+  "cogul": null,
+  "metin": "يَسْتَأْذِنُ اسْتِئْذاناً: طَلَبَ الإِذْنَ وَالسَّماحَ، “اسْتَأْذَنْتُ مِنَ المُدَرِّسِ وَخَرَجْتُ مِنَ الصَّفِّ”، ﴿وَيَسْتَأْذِنُ فَريقٌ مِنْهُمُ﴾. وَانْظُرْ أَيْضاً: أَذِنَ.",
+  "tanim": "طَلَبَ الإِذْنَ وَالسَّماحَ.",
+  "ornekler": [
+   "اسْتَأْذَنْتُ مِنَ المُدَرِّسِ وَخَرَجْتُ مِنَ الصَّفِّ",
+   "﴿وَيَسْتَأْذِنُ فَريقٌ مِنْهُمُ﴾"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَأْذَنْتُ مِنَ المُدَرِّسِ وَخَرَجْتُ مِنَ الصَّفِّ",
+   "kelime": "اسْتَأْذَنْتُ"
+  },
+  "tr": "izin istemek",
+  "tanim_tr": "İzin ve müsaade istemek. (Ayrıca bkz. ezine)",
+  "ornekler_tr": [
+   "Öğretmenden izin istedim ve sınıftan çıktım.",
+   "İçlerinden bir grup izin istiyor."
+  ],
+  "resim": "p044_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَأْصَلَ",
+  "cogul": null,
+  "metin": "يَسْتَأْصِلُ اسْتِئْصالاً: اقْتَلَعَ، وَأَبادَ، وَأَزالَ، “اسْتَأْصَلَ الشَّجَرَةَ اليابِسَةَ”، “اسْتَأْصَلَ العَدُوُّ شَأْفَتَهُمْ”، “اسْتَأْصَلَ الجَرّاحُ الأَوْرامَ”.",
+  "tanim": "اقْتَلَعَ، وَأَبادَ، وَأَزالَ.",
+  "ornekler": [
+   "اسْتَأْصَلَ الشَّجَرَةَ اليابِسَةَ",
+   "اسْتَأْصَلَ العَدُوُّ شَأْفَتَهُمْ",
+   "اسْتَأْصَلَ الجَرّاحُ الأَوْرامَ"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَأْصَلَ الجَرّاحُ الأَوْرامَ",
+   "kelime": "اسْتَأْصَلَ"
+  },
+  "tr": "kökünden sökmek",
+  "tanim_tr": "Kökünden sökmek, yok etmek, gidermek.",
+  "ornekler_tr": [
+   "Kuru ağacı kökünden söktü.",
+   "Düşman onların kökünü kazıdı.",
+   "Cerrah tümörleri çıkardı."
+  ],
+  "resim": "p044_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَبَدَّ",
+  "cogul": null,
+  "metin": "يَسْتَبِدُّ اسْتِبْداداً: انْفَرَدَ الشَّخْصُ بِالرَّأْيِ أَوِ الحُكْمِ، “اسْتَبَدَّ فِرْعَوْنُ بِالحُكْمِ وَالرَّأْيِ وَكانَ يَقولُ: لا أُريكُمْ إِلّا ما أَرَى...”.",
+  "tanim": "انْفَرَدَ الشَّخْصُ بِالرَّأْيِ أَوِ الحُكْمِ.",
+  "ornekler": [
+   "اسْتَبَدَّ فِرْعَوْنُ بِالحُكْمِ وَالرَّأْيِ وَكانَ يَقولُ: لا أُريكُمْ إِلّا ما أَرَى..."
+  ],
+  "bosluk": {
+   "cumle": "اسْتَبَدَّ فِرْعَوْنُ بِالحُكْمِ وَالرَّأْيِ",
+   "kelime": "اسْتَبَدَّ"
+  },
+  "tr": "istibdat etmek, tek başına hükmetmek",
+  "tanim_tr": "Görüşte veya yönetimde tek başına hareket etmek, despotluk etmek.",
+  "ornekler_tr": [
+   "Firavun yönetimde ve görüşte tek başına hükmetti ve \"Ben size ancak kendi görüşümü gösteriyorum...\" derdi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَبْعَدَ",
+  "cogul": null,
+  "metin": "يَسْتَبْعِدُ اسْتِبْعاداً. (١) أَبْعَدَ، “اسْتَبْعَدَ الرَّئيسُ وَزيرَ الطّاقَةِ مِنَ الحُكومَةِ”. (٢) ظَنَّ الشَّيْءَ بَعيدَ الوُقوعِ، “أَسْتَبْعِدُ أَنْ يُعامِلَ المُسْلِمُ والِدَيْهِ مُعامَلَةً سَيِّئَةً”.",
+  "tanim": "(١) أَبْعَدَ. (٢) ظَنَّ الشَّيْءَ بَعيدَ الوُقوعِ.",
+  "ornekler": [
+   "اسْتَبْعَدَ الرَّئيسُ وَزيرَ الطّاقَةِ مِنَ الحُكومَةِ",
+   "أَسْتَبْعِدُ أَنْ يُعامِلَ المُسْلِمُ والِدَيْهِ مُعامَلَةً سَيِّئَةً"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَبْعَدَ الرَّئيسُ وَزيرَ الطّاقَةِ مِنَ الحُكومَةِ",
+   "kelime": "اسْتَبْعَدَ"
+  },
+  "tr": "uzaklaştırmak; uzak görmek",
+  "tanim_tr": "(1) Uzaklaştırmak. (2) Bir şeyin olmasını uzak ihtimal görmek.",
+  "ornekler_tr": [
+   "Başkan enerji bakanını hükümetten uzaklaştırdı.",
+   "Bir Müslümanın anne babasına kötü davranmasını uzak bir ihtimal görüyorum."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَبْقَى",
+  "cogul": null,
+  "metin": "يَسْتَبْقي اسْتِبْقاءً: تَرَكَ بَعْضَ الشَّيْءِ، “كانَ عِنْدي طَعامٌ كَثيرٌ وَزَّعْتُهُ عَلَى المَساكينِ وَاسْتَبْقَيْتُ مِنْهُ شَيْئاً لِأَهْلي”، “زارَني أَحَدُ إِخْواني، فَاسْتَبْقَيْتُهُ عِنْدي في البَيْتِ”.",
+  "tanim": "تَرَكَ بَعْضَ الشَّيْءِ.",
+  "ornekler": [
+   "كانَ عِنْدي طَعامٌ كَثيرٌ وَزَّعْتُهُ عَلَى المَساكينِ وَاسْتَبْقَيْتُ مِنْهُ شَيْئاً لِأَهْلي",
+   "زارَني أَحَدُ إِخْواني، فَاسْتَبْقَيْتُهُ عِنْدي في البَيْتِ"
+  ],
+  "bosluk": {
+   "cumle": "زارَني أَحَدُ إِخْواني، فَاسْتَبْقَيْتُهُ عِنْدي في البَيْتِ",
+   "kelime": "فَاسْتَبْقَيْتُهُ"
+  },
+  "tr": "alıkoymak, ayırıp bırakmak",
+  "tanim_tr": "Bir şeyin bir kısmını bırakmak, ayırmak; alıkoymak.",
+  "ornekler_tr": [
+   "Çok yemeğim vardı; onu yoksullara dağıttım ve ailem için biraz ayırdım.",
+   "Kardeşlerimden biri beni ziyaret etti, onu evde yanımda alıkoydum."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتِثْمار",
+  "yon": "اسْتَثْمَرَ",
+  "iliski": "مصدر",
+  "tr": "yatırım"
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَثْمَرَ",
+  "cogul": null,
+  "metin": "يَسْتَثْمِرُ اسْتِثْماراً: نَمَّى الشَّيْءَ، وَاسْتَغَلَّهُ اسْتِغْلالاً طَيِّباً، “اسْتَثْمَرَ التّاجِرُ أَمْوالَهُ في البَيْعِ وَالشِّراءِ”، “اسْتَثْمَرَ الطّالِبُ وَقْتَهُ في الاسْتِذْكارِ”.",
+  "tanim": "نَمَّى الشَّيْءَ، وَاسْتَغَلَّهُ اسْتِغْلالاً طَيِّباً.",
+  "ornekler": [
+   "اسْتَثْمَرَ التّاجِرُ أَمْوالَهُ في البَيْعِ وَالشِّراءِ",
+   "اسْتَثْمَرَ الطّالِبُ وَقْتَهُ في الاسْتِذْكارِ"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَثْمَرَ الطّالِبُ وَقْتَهُ في الاسْتِذْكارِ",
+   "kelime": "اسْتَثْمَرَ"
+  },
+  "tr": "yatırım yapmak, değerlendirmek",
+  "tanim_tr": "Bir şeyi geliştirmek ve onu iyi şekilde değerlendirmek.",
+  "ornekler_tr": [
+   "Tüccar parasını alım satımda değerlendirdi.",
+   "Öğrenci vaktini ders çalışarak değerlendirdi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتِثْناء",
+  "yon": "اسْتَثْنَى",
+  "iliski": "مصدر",
+  "tr": "istisna"
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَثْنَى",
+  "cogul": null,
+  "metin": "يَسْتَثْني اسْتِثْناءً: أَخْرَجَ مِنَ القاعِدَةِ؛ حَتَّى لا يَنْطَبِقَ عَلَيْهِ الحُكْمُ أَوِ القاعِدَةُ، “صَرَفَ المُديرُ المُوَظَّفينَ وَاسْتَثْنَى واحِداً مِنْهُمْ”.",
+  "tanim": "أَخْرَجَ مِنَ القاعِدَةِ؛ حَتَّى لا يَنْطَبِقَ عَلَيْهِ الحُكْمُ أَوِ القاعِدَةُ.",
+  "ornekler": [
+   "صَرَفَ المُديرُ المُوَظَّفينَ وَاسْتَثْنَى واحِداً مِنْهُمْ"
+  ],
+  "bosluk": {
+   "cumle": "صَرَفَ المُديرُ المُوَظَّفينَ وَاسْتَثْنَى واحِداً مِنْهُمْ",
+   "kelime": "وَاسْتَثْنَى"
+  },
+  "tr": "istisna etmek, hariç tutmak",
+  "tanim_tr": "Hüküm veya kural kendisine uygulanmasın diye kuralın dışında tutmak.",
+  "ornekler_tr": [
+   "Müdür memurları gönderdi, içlerinden birini hariç tuttu."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَجابَ",
+  "cogul": null,
+  "metin": "يَسْتَجيبُ اسْتِجابَةً: قَضَى الحاجَةَ، وَلَبَّى الطَّلَبَ، أَطاعَ، ﴿فَاسْتَجابَ لَكُمْ أَنّي مُمِدُّكُمْ﴾، ﴿فَلْيَسْتَجيبُوا لي﴾.",
+  "tanim": "قَضَى الحاجَةَ، وَلَبَّى الطَّلَبَ، أَطاعَ.",
+  "ornekler": [
+   "﴿فَاسْتَجابَ لَكُمْ أَنّي مُمِدُّكُمْ﴾",
+   "﴿فَلْيَسْتَجيبُوا لي﴾"
+  ],
+  "bosluk": {
+   "cumle": "﴿فَلْيَسْتَجيبُوا لي﴾",
+   "kelime": "فَلْيَسْتَجيبُوا"
+  },
+  "tr": "karşılık vermek, kabul etmek",
+  "tanim_tr": "İhtiyacı gidermek, isteğe karşılık vermek, itaat etmek.",
+  "ornekler_tr": [
+   "O da \"Ben size yardım edeceğim\" diye duanızı kabul etti.",
+   "Öyleyse onlar da benim çağrıma uysunlar."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَحَدَّ",
+  "cogul": null,
+  "metin": "يَسْتَحِدُّ اسْتِحْداداً: حَلَقَ الشَّعْرَ- وَخاصَّةً العانَةَ- بِآلَةٍ حادَّةٍ، “مِنْ سُنَنِ الفِطْرَةِ الاسْتِحْدادُ”.",
+  "tanim": "حَلَقَ الشَّعْرَ- وَخاصَّةً العانَةَ- بِآلَةٍ حادَّةٍ.",
+  "ornekler": [
+   "مِنْ سُنَنِ الفِطْرَةِ الاسْتِحْدادُ"
+  ],
+  "bosluk": {
+   "cumle": "مِنْ سُنَنِ الفِطْرَةِ الاسْتِحْدادُ",
+   "kelime": "الاسْتِحْدادُ"
+  },
+  "tr": "(kılları) tıraş etmek",
+  "tanim_tr": "Keskin bir aletle kılları, özellikle etek tıraşını yapmak.",
+  "ornekler_tr": [
+   "Etek tıraşı fıtrat sünnetlerindendir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتِحْداد",
+  "yon": "اسْتَحَدَّ",
+  "iliski": "مصدر",
+  "tr": "etek tıraşı"
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَحَقَّ",
+  "cogul": null,
+  "metin": "يَسْتَحِقُّ اسْتِحْقاقاً: حانَ وَوَجَبَ، “أَنْهَى العامِلُ العَمَلَ، فَاسْتَحَقَّ الأَجْرَ”، “يَسْتَحِقُّ المَريضُ العَطْفَ”، ﴿فَإِنْ عُثِرَ عَلَى أَنَّهُمَا اسْتَحَقّا إِثْماً فَآخَرانِ يَقُومانِ مَقامَهُما﴾.",
+  "tanim": "حانَ وَوَجَبَ.",
+  "ornekler": [
+   "أَنْهَى العامِلُ العَمَلَ، فَاسْتَحَقَّ الأَجْرَ",
+   "يَسْتَحِقُّ المَريضُ العَطْفَ",
+   "﴿فَإِنْ عُثِرَ عَلَى أَنَّهُمَا اسْتَحَقّا إِثْماً فَآخَرانِ يَقُومانِ مَقامَهُما﴾"
+  ],
+  "bosluk": {
+   "cumle": "أَنْهَى العامِلُ العَمَلَ، فَاسْتَحَقَّ الأَجْرَ",
+   "kelime": "فَاسْتَحَقَّ"
+  },
+  "tr": "hak etmek",
+  "tanim_tr": "Vakti gelmek, gerekmek; hak etmek.",
+  "ornekler_tr": [
+   "İşçi işi bitirdi ve ücreti hak etti.",
+   "Hasta şefkati hak eder.",
+   "Eğer o ikisinin günah işlediği anlaşılırsa, onların yerine başka iki kişi geçer."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَحَلَّ",
+  "cogul": null,
+  "metin": "يَسْتَحِلُّ اسْتِحْلالاً: جَعَلَ الحَرامَ حَلالاً، “لا يَسْتَحِلُّ المُسْلِمُ ما حَرَّمَ اللهُ”.",
+  "tanim": "جَعَلَ الحَرامَ حَلالاً.",
+  "ornekler": [
+   "لا يَسْتَحِلُّ المُسْلِمُ ما حَرَّمَ اللهُ"
+  ],
+  "bosluk": {
+   "cumle": "لا يَسْتَحِلُّ المُسْلِمُ ما حَرَّمَ اللهُ",
+   "kelime": "يَسْتَحِلُّ"
+  },
+  "tr": "helal saymak",
+  "tanim_tr": "Haramı helal kılmak, helal saymak.",
+  "ornekler_tr": [
+   "Müslüman Allah'ın haram kıldığını helal saymaz."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَحْيا",
+  "cogul": null,
+  "metin": "يَسْتَحْيي اسْتِحْياءً: تَرَكَهُ حَيّاً، عَفا عَنْهُ، بَعْدَما قَدَرَ أَنْ يَقْتُلَهُ، “اسْتَحْيا القائِدُ الأَسيرَ”، ﴿قالَ سَنُقَتِّلُ أَبْناءَهُمْ وَنَسْتَحْيي نِساءَهُمْ﴾.",
+  "tanim": "تَرَكَهُ حَيّاً، عَفا عَنْهُ، بَعْدَما قَدَرَ أَنْ يَقْتُلَهُ.",
+  "ornekler": [
+   "اسْتَحْيا القائِدُ الأَسيرَ",
+   "﴿قالَ سَنُقَتِّلُ أَبْناءَهُمْ وَنَسْتَحْيي نِساءَهُمْ﴾"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَحْيا القائِدُ الأَسيرَ",
+   "kelime": "اسْتَحْيا"
+  },
+  "tr": "sağ bırakmak",
+  "tanim_tr": "Öldürmeye gücü yettiği hâlde onu sağ bırakmak, affetmek.",
+  "ornekler_tr": [
+   "Komutan esiri sağ bıraktı.",
+   "\"Onların oğullarını öldüreceğiz, kadınlarını sağ bırakacağız\" dedi."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَخارَ",
+  "cogul": null,
+  "metin": "يَسْتَخيرُ اسْتِخارَةً: سَأَلَ اللهَ سُبْحانَهُ وَتَعالَى أَنْ يُوَفِّقَهُ لِاخْتِيارِ ما فيهِ صَلاحُهُ وَمَنْفَعَتُهُ، “يَسْتَخيرُ المُسْلِمُ رَبَّهُ في صَلاةِ الاسْتِخارَةِ، أَنْ يَشْرَحَ صَدْرَهُ لِلأَمْرِ، أَوْ يَصْرِفَهُ عَنْهُ”.",
+  "tanim": "سَأَلَ اللهَ سُبْحانَهُ وَتَعالَى أَنْ يُوَفِّقَهُ لِاخْتِيارِ ما فيهِ صَلاحُهُ وَمَنْفَعَتُهُ.",
+  "ornekler": [
+   "يَسْتَخيرُ المُسْلِمُ رَبَّهُ في صَلاةِ الاسْتِخارَةِ، أَنْ يَشْرَحَ صَدْرَهُ لِلأَمْرِ، أَوْ يَصْرِفَهُ عَنْهُ"
+  ],
+  "bosluk": {
+   "cumle": "يَسْتَخيرُ المُسْلِمُ رَبَّهُ في صَلاةِ الاسْتِخارَةِ",
+   "kelime": "يَسْتَخيرُ"
+  },
+  "tr": "istihare etmek",
+  "tanim_tr": "Allah'tan (c.c.) kendisi için iyi ve faydalı olanı seçmeye muvaffak kılmasını istemek.",
+  "ornekler_tr": [
+   "Müslüman istihare namazında Rabbinden, o işe gönlünü açmasını ya da onu kendisinden uzaklaştırmasını ister."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتِخْدام",
+  "yon": "اسْتَخْدَمَ",
+  "iliski": "مصدر",
+  "tr": "kullanım"
+ },
+ {
+  "sayfa": 44,
+  "baski_no": "٤٤",
+  "k": "اسْتَخْدَمَ",
+  "cogul": null,
+  "metin": "يَسْتَخْدِمُ اسْتِخْداماً: وَظَّفَ، عَيَّنَ وَاسْتَعْمَلَ، “اسْتَخْدَمَ الأَطِبّاءُ أَجْهِزَةً حَديثَةً، لِفَحْصِ المَرْضَى”، “اسْتِخْدامُ الطّاقَةِ الذَّرِّيَّةِ لِلأَغْراضِ",
+  "tanim": "وَظَّفَ، عَيَّنَ وَاسْتَعْمَلَ.",
+  "ornekler": [
+   "اسْتَخْدَمَ الأَطِبّاءُ أَجْهِزَةً حَديثَةً، لِفَحْصِ المَرْضَى"
+  ],
+  "bosluk": {
+   "cumle": "اسْتَخْدَمَ الأَطِبّاءُ أَجْهِزَةً حَديثَةً، لِفَحْصِ المَرْضَى",
+   "kelime": "اسْتَخْدَمَ"
+  },
+  "tr": "kullanmak; istihdam etmek",
+  "tanim_tr": "İşe almak, tayin etmek ve kullanmak.",
+  "ornekler_tr": [
+   "Doktorlar hastaları muayene etmek için modern cihazlar kullandı."
+  ],
+  "resim": null,
+  "not": "madde sonraki sayfada (p045) devam ediyor"
+ }
+]

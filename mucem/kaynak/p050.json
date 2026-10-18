@@ -354,12 +354,23 @@
   "cogul": null,
   "metin": "يَضْطَرِبُ اضْطِراباً : تَحَرَّكَ بِعُنْفٍ ، وَماجَ ، وَاخْتَلَّ وَلَمْ يَسْتَقِرَّ .",
   "tanim": "تَحَرَّكَ بِعُنْفٍ ، وَماجَ ، وَاخْتَلَّ وَلَمْ يَسْتَقِرَّ",
-  "ornekler": [],
-  "bosluk": null,
+  "ornekler": [
+   "“اضْطَرَبَ البَحْرُ وَعَلَتْ أَمْواجُهُ”",
+   "“اضْطَرَبَتِ الآراءُ حَوْلَ مَصيرِ الرَّجُلَيْنِ”",
+   "“اضْطَرَبَ الأَمْنُ في ذَلِكَ البَلَدِ”"
+  ],
+  "bosluk": {
+   "cumle": "اضْطَرَبَ البَحْرُ وَعَلَتْ أَمْواجُهُ",
+   "kelime": "اضْطَرَبَ"
+  },
   "tr": "çalkalanmak, sarsılmak",
   "tanim_tr": "Şiddetle hareket etmek, dalgalanmak; bozulup kararsız olmak.",
-  "ornekler_tr": [],
+  "ornekler_tr": [
+   "Deniz çalkalandı ve dalgaları yükseldi.",
+   "İki adamın akıbeti hakkında görüşler karıştı (çelişti).",
+   "O ülkede güvenlik bozuldu."
+  ],
   "resim": "p050_9.jpg",
-  "not": null
+  "not": "Örnekler sayfa 51'in başında devam ediyor; 'ornekler' ve 'bosluk' oradan alındı, 'metin' yalnız bu sayfadaki kısmı içeriyor."
  }
 ]
