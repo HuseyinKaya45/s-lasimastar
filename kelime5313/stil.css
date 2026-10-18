@@ -121,6 +121,8 @@ input:focus, select:focus, button:focus-visible { outline: 2px solid var(--vurgu
 .oy .o4 { color: var(--mavi); border-color: var(--mavi); }
 .oy button:hover { transform: translateY(-1px); }
 .bil-btn { width: 100%; margin-top: 10px; color: var(--mavi); border-style: dashed; }
+.btn.onay { background: var(--yanlis-acik); border-color: var(--yanlis); color: var(--yanlis); }
+.bil-paket { color: var(--mavi); border-style: dashed; }
 .bil-kucuk { border: 1px solid var(--cizgi); background: none; border-radius: 6px; padding: 0 6px; font-size: .72rem; font-weight: 600; color: var(--soluk); white-space: nowrap; }
 .bil-kucuk:hover { border-color: var(--mavi); color: var(--mavi); }
 .toast-geri { margin-inline-start: 12px; border: 0; background: none; color: var(--altin-acik); font-weight: 700; text-decoration: underline; pointer-events: auto; }

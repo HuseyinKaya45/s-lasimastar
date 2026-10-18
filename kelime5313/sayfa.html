@@ -188,6 +188,8 @@ input:focus, select:focus, button:focus-visible { outline: 2px solid var(--vurgu
 .oy .o4 { color: var(--mavi); border-color: var(--mavi); }
 .oy button:hover { transform: translateY(-1px); }
 .bil-btn { width: 100%; margin-top: 10px; color: var(--mavi); border-style: dashed; }
+.btn.onay { background: var(--yanlis-acik); border-color: var(--yanlis); color: var(--yanlis); }
+.bil-paket { color: var(--mavi); border-style: dashed; }
 .bil-kucuk { border: 1px solid var(--cizgi); background: none; border-radius: 6px; padding: 0 6px; font-size: .72rem; font-weight: 600; color: var(--soluk); white-space: nowrap; }
 .bil-kucuk:hover { border-color: var(--mavi); color: var(--mavi); }
 .toast-geri { margin-inline-start: 12px; border: 0; background: none; color: var(--altin-acik); font-weight: 700; text-decoration: underline; pointer-events: auto; }
@@ -5655,6 +5657,13 @@ var K = [["ال","(harf-i tarif) belirlilik takısı: el-, -ı/-i","the (definit
     }
   }
 
+  // onay: ilk dokunuşta düğme soruyu gösterir, 5 sn içinde ikinci dokunuş işi yapar (sayfa içi; confirm() bazı görünümlerde engelli)
+  function onayli(btn, soru, fn) {
+    if (btn.dataset.onay) { clearTimeout(+btn.dataset.onay); delete btn.dataset.onay; btn.textContent = btn.dataset.eski; btn.classList.remove("onay"); fn(); return; }
+    btn.dataset.eski = btn.textContent; btn.textContent = soru; btn.classList.add("onay");
+    btn.dataset.onay = setTimeout(function () { delete btn.dataset.onay; btn.textContent = btn.dataset.eski; btn.classList.remove("onay"); }, 5000);
+  }
+
   // ---------- kayıt ----------
   var depoVar = true;
   function bos() { return { v: 1, k: {}, f: {}, gun: {}, yb: { g: 0, n: 0 }, ay: { yeni: 20, yon: "ar", en: true, bas: 0, tema: null, kay: "ogr", kp: 0, gizle: false } }; }
@@ -6176,7 +6185,8 @@ var K = [["ال","(harf-i tarif) belirlilik takısı: el-, -ı/-i","the (definit
       '<div class="ayarlar"><span class="ayar">' + seg("filtre", L.filtre, [["hepsi", "Hepsi"], ["yeni", "Yeni"], ["ogr", "Öğreniliyor"], ["tamam", "Öğrenildi"], ["bil", "Biliyorum"], ["yildiz", "★"]]) + "</span>" +
       '<label class="anahtar"><input type="checkbox" id="gizle"' + (D.ay.gizle ? " checked" : "") + "> Türkçeyi gizle (kendini dene)</label></div>" +
       '<div class="satir-btn" id="pAraclar"' + (L.ara ? " hidden" : "") + '><button class="btn kucuk" id="pBas" type="button">Yeni kelimeleri bu paketten başlat</button>' +
-      '<button class="btn kucuk" id="pTest" type="button">Bu paketi test et</button><button class="btn kucuk" id="pEsle" type="button">Bu paketle eşleştir</button></div>' +
+      '<button class="btn kucuk" id="pTest" type="button">Bu paketi test et</button><button class="btn kucuk" id="pEsle" type="button">Bu paketle eşleştir</button>' +
+      '<button class="btn kucuk bil-paket" id="pBil" type="button">✓ Bu paketteki yeni kelimelerin hepsini biliyorum</button></div>' +
       '<div id="liste" class="' + (D.ay.gizle ? "gizli-tr" : "") + '" style="margin-top:10px"></div></section>';
     listeDoldur();
     var ara = $("#ara"), z;
@@ -6187,7 +6197,23 @@ var K = [["ال","(harf-i tarif) belirlilik takısı: el-, -ı/-i","the (definit
     $("#pBas").addEventListener("click", function () { D.ay.bas = L.p * PAKET; kaydet(); toast("Yeni kelimeler artık " + (L.p * PAKET + 1) + ". kelimeden başlayacak."); });
     $("#pTest").addEventListener("click", function () { D.ay.kay = "paket"; D.ay.kp = L.p; kaydet(); T = null; git("test"); });
     $("#pEsle").addEventListener("click", function () { D.ay.kay = "paket"; D.ay.kp = L.p; kaydet(); E = null; git("esle"); });
+    $("#pBil").addEventListener("click", function () {
+      var p = L.p, yeniler = aralik(p * PAKET, Math.min(N, (p + 1) * PAKET)).filter(function (i) { return !D.k[i]; });
+      if (!yeniler.length) return toast("Bu pakette yeni kelime kalmadı.");
+      onayli(this, "Emin misin? " + yeniler.length + " kelime işaretlenecek — evet, işaretle", function () {
+      yeniler.forEach(function (i) { biliyorum(i, true); });
+      S = null; listeDoldur(); listePaketGuncelle();
+      toast(yeniler.length + " kelime “biliyorum” olarak işaretlendi.", function () {
+        yeniler.forEach(function (i) { biliyorum(i, false); });
+        S = null; if (aktif === "liste") { listeDoldur(); listePaketGuncelle(); }
+      });
+      });
+    });
 
+  }
+  function listePaketGuncelle() {
+    var pd = paketDurum();
+    $$(".paket").forEach(function (b) { $(".dolgu", b).style.width = pd[+b.getAttribute("data-p")] + "%"; });
   }
   function listeDoldur() {
     var r, q = L.ara;
@@ -6285,9 +6311,9 @@ var K = [["ال","(harf-i tarif) belirlilik takısı: el-, -ı/-i","the (definit
       r.readAsText(f);
     });
     $("#sifirla").addEventListener("click", function () {
-      if (!confirm("Bütün ilerleme silinecek. Emin misin?")) return;
-      if (!confirm("Son kez soruyorum: geri alınamaz. Silinsin mi?")) return;
+      onayli(this, "Bütün ilerleme silinecek, geri alınamaz — eminim, sil", function () {
       var tema = D.ay.tema; D = bos(); D.ay.tema = tema; kaydet(); seriGuncelle(); S = null; T = null; Y = null; E = null; istCiz(); toast("Sıfırlandı.");
+      });
     });
   }
 
