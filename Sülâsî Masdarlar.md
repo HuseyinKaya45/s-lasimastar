@@ -1182,6 +1182,21 @@ kalıp tedrîb 1’de dişil isimler “هذِهِ” ile okunur. Dinleme tedrî
 Düzenleme: `k1u9/veri.js`, `k1u9/uygulama.js`, `k1u9/stil.css`; ses parçaları `k1u9/parcalar.json` → `python3 k1u9/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u9/yap.py`.
 
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 10. ünite — Hava (sesli, resimli, çevrimdışı)
+
+`k1u10/index.html` (yayın sürümü `k1u10/sayfa.html`) الجَوُّ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
+26 ders kaydı (ders 82–87) tek `ses.mp3` içinde birleştirilmiş, 159 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (yağmurlu gün, Londra’dan telefon, hafta sonu tatili) ve kitaptaki sorular; **Kelimeler** (ders 82–84, 30 kelime);
+**Yer ve zaman** (في، فَوْقَ، تَحْتَ، أَمامَ، خَلْفَ، يَمينٌ، شِمالٌ; mevsimler; gün – hafta – ay – yıl sıralaması);
+**Kalıplar** (سَأُحْضِرُ …; هَلْ نَذْهَبُ …؟; تَرَكْتُهُ / تَرَكْتُها; كَمْ دَرَجَةُ الحَرارَةِ؟; هذا فَصْلُ …), **Sesler** (ض – ظ, sekiz âyet), **Dinleme** (ders 87, dört kayıt),
+**Okuma** (dört metin ve boşluk doldurma), **Yazı**, **Konuşma**, **Alıştırmalar** (ders 85 ve 90), **Kendini sına (ünite 9–10)** ve sesli **Sınav**.
+Kayıt notları: 88. (konuşma), 89. (okuma) ve 90. (yazı) derslerin kaydı yoktur. Kayda uyuldu: 1. diyalogda “هَلْ نَذْهَبُ إِلى السّوقِ” (kitapta نَخْرُجُ),
+3. diyalogda “أَيْنَ سَنَقْضي” (kitapta نَقْضي); bazı âyetler kayıtta kısmen okunur, metinler kayda göre kısaltıldı. Dinleme tedrîb 4’ün 2. sorusu
+(“مَتى سَيَذْهَبُ؟”) kayıttan cevaplanamadığı için “sabah nereye gitti?” sorusuyla değiştirildi; tedrîb 2’de konuşanların sırası tahminidir.
+Ders 85 tedrîb 1 (kitabın yeri) ve tedrîb 3 (arabanın çevresi) resimlerden kesin cevap çıkmadığı için konuşma alıştırması olarak verildi.
+Düzenleme: `k1u10/veri.js`, `k1u10/uygulama.js`, `k1u10/stil.css`; ses parçaları `k1u10/parcalar.json` → `python3 k1u10/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u10/yap.py`.
+
 ## Uygulama: el-Arabiyyetü beyne yedeyk 1 — “Kendini sına” sınavları ve yarıyıl sınavı
 
 `ihtibar/ihtibar1.html` … `ihtibar5.html` (yayın sürümleri `ihtibar/sayfa1.html` … `sayfa5.html`): kitabın dört “اخْتَبِرْ نَفْسَكَ” sınavı (Ünite 1–2, 3–4, 5–6, 7–8; her biri 40 puan)
