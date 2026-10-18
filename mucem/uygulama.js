@@ -94,9 +94,12 @@
     r.sort(function (a, b) { return (st(a).d - st(b).d) || (a - b); });
     return r;
   }
+  // harfler: sözlükteki sıraya göre (أ ب ت …)
+  var HARF = M.map(function (x) { return arNorm(x.k).charAt(0); }), HARFLER = [];
+  HARF.forEach(function (h) { if (HARFLER.indexOf(h) < 0) HARFLER.push(h); });
   function siradakiYeniler(n, haric) {
-    var r = [], h = haric || {};
-    for (var i = 0; i < N && r.length < n; i++) if (!st(i) && !h[i]) r.push(i);
+    var r = [], h = haric || {}, bas = Math.max(0, HARF.indexOf(D.ay.basHarf));
+    for (var j = 0; j < N && r.length < n; j++) { var i = (bas + j) % N; if (!st(i) && !h[i]) r.push(i); }
     return r;
   }
   function sayilar() {
@@ -535,7 +538,7 @@
   }
 
   // ---------- SÖZLÜK ----------
-  var L = { ara: "", filtre: "hepsi", acik: {}, tr: {} };
+  var L = { ara: "", filtre: "hepsi", harf: HARFLER[0], acik: {}, tr: {} };
   function maddeHTML(i) {
     var x = M[i], ac = L.acik[i], b = st(i) && st(i).b;
     return '<div class="madde" data-m="' + i + '"><div class="madde-ust" data-ac="' + i + '"><span class="ar">' + esc(x.k) + '</span><span class="tr">' + esc(x.tr) + "</span>" +
@@ -550,6 +553,7 @@
   function sozlukCiz() {
     ana.innerHTML = '<section class="kart"><h2>Sözlük</h2><p class="aciklama">Maddeler kitaptaki sırayla. Bir maddeye dokununca açıklaması, örnekleri ve resmi açılır.</p>' +
       '<div class="arama"><input type="search" id="ara" placeholder="Ara: بحر, deniz…" value="' + esc(L.ara) + '" aria-label="Ara"></div>' +
+      (HARFLER.length > 1 ? '<div class="ayarlar"><span class="ayar"><span class="lbl">Harf</span>' + seg("harf", L.harf, HARFLER.map(function (h) { return [h, '<span class="ar" style="font-size:1.2rem">' + h + "</span>"]; }).concat([["*", "Hepsi"]])) + "</span></div>" : "") +
       '<div class="ayarlar"><span class="ayar">' + seg("filtre", L.filtre, [["hepsi", "Hepsi"], ["yeni", "Yeni"], ["ogr", "Öğreniliyor"], ["tamam", "Öğrenildi"], ["bil", "Biliyorum"], ["yildiz", "★"]]) + "</span></div>" +
       (YON.length ? '<details class="kucuk" style="margin-bottom:8px"><summary>Yönlendirme maddeleri (' + YON.length + ")</summary>" + YON.map(function (y) {
         return '<div class="r" style="padding:3px 0"><span class="ar" style="font-size:1.2rem">' + esc(y[0]) + "</span> — " + esc(y[1]) + ' <span class="ar" style="font-size:1.2rem">' + esc(y[2]) + '</span> <span class="soluk">' + esc(y[3] || "") + "</span></div>";
@@ -558,11 +562,12 @@
     listeDoldur();
     var ara = $("#ara"), z;
     ara.addEventListener("input", function () { clearTimeout(z); z = setTimeout(function () { L.ara = ara.value.trim(); listeDoldur(); }, 200); });
-    segBagla(ana, function (a, v) { L.filtre = v; $$('[data-seg="filtre"] button').forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === v); }); listeDoldur(); });
+    segBagla(ana, function (a, v) { if (a === "harf") { L.harf = v; $$('[data-seg="harf"] button').forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === v); }); return listeDoldur(); } L.filtre = v; $$('[data-seg="filtre"] button').forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === v); }); listeDoldur(); });
   }
   function listeDoldur() {
     var q = L.ara, aq = arNorm(q), tq = trNorm(q), arMi = /[؀-ۿ]/.test(q), f = L.filtre;
     var r = aralik(0, N).filter(function (i) {
+      if (!q && L.harf !== "*" && HARF[i] !== L.harf) return false;
       if (q) {
         var x = M[i];
         if (arMi ? (arNorm(x.k).indexOf(aq) < 0 && arNorm(x.c).indexOf(aq) < 0 && arNorm(x.m).indexOf(aq) < 0) : (trNorm(x.tr).indexOf(tq) < 0 && trNorm(x.ttr).indexOf(tq) < 0)) return false;
@@ -673,6 +678,8 @@
       }).join("") + "</div></div></section>" +
       '<section class="kart"><h2>Ayarlar</h2><div class="ayarlar"><span class="ayar"><span class="lbl">Günlük yeni kelime</span>' +
       seg("yeni", D.ay.yeni, [[5, "5"], [10, "10"], [15, "15"], [20, "20"], [30, "30"]]) + "</span></div>" +
+      (HARFLER.length > 1 ? '<div class="ayarlar"><span class="ayar"><span class="lbl">Yeni kelimeler şu harften başlasın</span><select id="basHarf" aria-label="Başlangıç harfi">' +
+        HARFLER.map(function (h) { return '<option value="' + h + '"' + (h === (D.ay.basHarf || HARFLER[0]) ? " selected" : "") + ">" + h + "</option>"; }).join("") + "</select></span></div>" : "") +
       (arSes ? '<p class="soluk kucuk">🔊 Cihazında Arapça ses bulundu; kartlarda dinleme düğmesi görünür.</p>' : '<p class="soluk kucuk">Cihazında Arapça okuma sesi bulunamadı, bu yüzden dinleme düğmesi gizli.</p>') + "</section>" +
       '<section class="kart"><h2>Yedek</h2><p class="aciklama">İlerlemen yalnızca bu tarayıcıda durur. Ara sıra yedek al; yedeği başka bir cihazda “Yedeği yükle” ile açabilirsin. Sözlüğe yeni sayfalar eklendiğinde de ilerlemen korunur.</p>' +
       (depoVar ? "" : '<p class="not"><b>Dikkat:</b> Bu tarayıcı kayıt yapmaya izin vermiyor. Sayfayı kapatınca ilerleme kaybolur; mutlaka yedek al.</p>') +
@@ -680,6 +687,7 @@
       '<label class="btn" for="yedekDosya" style="display:inline-block">Yedeği yükle</label><input type="file" id="yedekDosya" accept=".json,application/json" hidden>' +
       '<button class="btn" id="sifirla" type="button" style="margin-inline-start:auto;color:var(--yanlis)">Her şeyi sıfırla</button></div></section>';
     segBagla(ana, function (a, v) { D.ay.yeni = +v; kaydet(); S = null; istCiz(); toast("Günde " + v + " yeni kelime."); });
+    var bh = $("#basHarf"); if (bh) bh.addEventListener("change", function () { D.ay.basHarf = this.value; kaydet(); S = null; toast("Yeni kelimeler “" + this.value + "” harfinden başlayacak."); });
     $("#yedekAl").addEventListener("click", function () {
       var d = new Date(), veri = JSON.stringify(D);
       var ad = "sozluk-defteri-yedek-" + d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2) + ".json";
