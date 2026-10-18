@@ -1,0 +1,436 @@
+[
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَرِقَّاء",
+  "yon": "رَقيق",
+  "iliski": "جمع",
+  "tr": "köleler; ince/nazik olanlar"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَرْقام",
+  "yon": "رَقْم",
+  "iliski": "جمع",
+  "tr": "rakamlar, sayılar"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَرْقَط",
+  "cogul": null,
+  "metin": "(مُؤ) رَقْطاء: اللَّوْنُ الَّذي فيه بُقَعٌ سَوْداءُ وَأُخْرى بَيْضاءُ، أَو غَيْرُهما، \"هذا قِطٌّ أَرْقَطُ، وتلك قِطَّةٌ رَقْطاء\".",
+  "tanim": "اللَّوْنُ الَّذي فيه بُقَعٌ سَوْداءُ وَأُخْرى بَيْضاءُ، أَو غَيْرُهما",
+  "ornekler": [
+   "هذا قِطٌّ أَرْقَطُ، وتلك قِطَّةٌ رَقْطاء"
+  ],
+  "bosluk": {
+   "cumle": "هذا قِطٌّ أَرْقَطُ، وتلك قِطَّةٌ رَقْطاء",
+   "kelime": "أَرْقَطُ"
+  },
+  "tr": "alacalı, benekli",
+  "tanim_tr": "Siyah ve beyaz ya da başka renklerde benekleri olan renk.",
+  "ornekler_tr": [
+   "Bu alacalı bir erkek kedi, şu da alacalı bir dişi kedi."
+  ],
+  "resim": "p11_1.jpg",
+  "not": "Müennesi: رَقْطاء",
+  "muennes": "رَقْطاء"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَرْكان",
+  "yon": "رُكْن",
+  "iliski": "جمع",
+  "tr": "köşeler; temel unsurlar, rükünler"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَرْمَل",
+  "cogul": "أَرامِل",
+  "metin": "(ج) أَرامِل: مَنْ ماتَتْ زَوْجَتُهُ؛ أَرْمَلَة: مَنْ ماتَ زَوْجُها، \"هُناكَ جَمعيَّةٌ لِرعايةِ الأَرامل\".",
+  "tanim": "مَنْ ماتَتْ زَوْجَتُهُ؛ أَرْمَلَة: مَنْ ماتَ زَوْجُها",
+  "ornekler": [
+   "هُناكَ جَمعيَّةٌ لِرعايةِ الأَرامل"
+  ],
+  "bosluk": {
+   "cumle": "هُناكَ جَمعيَّةٌ لِرعايةِ الأَرامل",
+   "kelime": "الأَرامل"
+  },
+  "tr": "dul (erkek)",
+  "tanim_tr": "Karısı ölmüş kimse; ermele: kocası ölmüş kadın.",
+  "ornekler_tr": [
+   "Dullara bakmak için bir dernek var."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "إِرْهاق",
+  "yon": "أَرْهَق",
+  "iliski": "مصدر",
+  "tr": "yorma, bitkinlik"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَرْهَقَ",
+  "cogul": null,
+  "metin": "يُرهِقُ إِرْهاقاً: أَتْعَبَ وأَجْهَدَ، \"عَمِلَ الطّالِبُ كَثيراً مَعَ والِدِه؛ فأَرْهَقَهُ العملُ\".",
+  "tanim": "أَتْعَبَ وأَجْهَدَ",
+  "ornekler": [
+   "عَمِلَ الطّالِبُ كَثيراً مَعَ والِدِه؛ فأَرْهَقَهُ العملُ"
+  ],
+  "bosluk": {
+   "cumle": "عَمِلَ الطّالِبُ كَثيراً مَعَ والِدِه؛ فأَرْهَقَهُ العملُ",
+   "kelime": "فأَرْهَقَهُ"
+  },
+  "tr": "yormak, bitkin düşürmek",
+  "tanim_tr": "Yordu ve takatini tüketti.",
+  "ornekler_tr": [
+   "Öğrenci babasıyla birlikte çok çalıştı; iş onu bitkin düşürdü."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَرْوَعُ",
+  "cogul": null,
+  "metin": "أَكْثَرُ رَوْعَةً: أَكْثَرُ جَمالاً، \"السَّفَرُ بَحْراً أَرْوَعُ مِن السَّفَرِ جَوّاً\".",
+  "tanim": "أَكْثَرُ رَوْعَةً: أَكْثَرُ جَمالاً",
+  "ornekler": [
+   "السَّفَرُ بَحْراً أَرْوَعُ مِن السَّفَرِ جَوّاً"
+  ],
+  "bosluk": {
+   "cumle": "السَّفَرُ بَحْراً أَرْوَعُ مِن السَّفَرِ جَوّاً",
+   "kelime": "أَرْوَعُ"
+  },
+  "tr": "daha harika",
+  "tanim_tr": "Daha muhteşem, daha güzel.",
+  "ornekler_tr": [
+   "Deniz yolculuğu hava yolculuğundan daha harikadır."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَرْوِقَة",
+  "yon": "رُواق",
+  "iliski": "جمع",
+  "tr": "revaklar, koridorlar"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَرْياف",
+  "yon": "ريف",
+  "iliski": "جمع",
+  "tr": "kırsal bölgeler, köyler"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَريكَة",
+  "cogul": "أَرائِك",
+  "metin": "(ج) أَرائِك: مَقْعَدٌ طَويلٌ (مُنجَّد) ذو ذِراعَين، ﴿عَلَى الأَرائِكِ يَنْظُرُونَ﴾.",
+  "tanim": "مَقْعَدٌ طَويلٌ (مُنجَّد) ذو ذِراعَين",
+  "ornekler": [
+   "﴿عَلَى الأَرائِكِ يَنْظُرُونَ﴾"
+  ],
+  "bosluk": {
+   "cumle": "عَلَى الأَرائِكِ يَنْظُرُونَ",
+   "kelime": "الأَرائِكِ"
+  },
+  "tr": "kanepe, koltuk",
+  "tanim_tr": "İki kollu, uzun (döşemeli) oturak.",
+  "ornekler_tr": [
+   "\"Koltuklar üzerinde (etrafı) seyrederler.\" (Mutaffifîn 23)"
+  ],
+  "resim": "p11_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزاحَ",
+  "cogul": null,
+  "metin": "يُزيحُ إِزاحَةً: أَبْعَدَ، \"أَزاحَ العُمّالُ الصَّخْرَ عَنِ الطَّريقِ\".",
+  "tanim": "أَبْعَدَ",
+  "ornekler": [
+   "أَزاحَ العُمّالُ الصَّخْرَ عَنِ الطَّريقِ"
+  ],
+  "bosluk": {
+   "cumle": "أَزاحَ العُمّالُ الصَّخْرَ عَنِ الطَّريقِ",
+   "kelime": "أَزاحَ"
+  },
+  "tr": "kaldırmak, uzaklaştırmak",
+  "tanim_tr": "Uzaklaştırdı.",
+  "ornekler_tr": [
+   "İşçiler kayaları yoldan kaldırdı."
+  ],
+  "resim": "p11_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزالَ",
+  "cogul": null,
+  "metin": "يُزيلُ إِزالةً؛ (١) مَحا وَمَسَحَ، \"أَزالَ الكِتابَةَ عَنِ السَّبّورَةِ\". (٢) أَبعَدَ، \"أَزالَ الرَّجُلُ الشَّوكَ عَنِ الطَّريقِ\".",
+  "tanim": "(١) مَحا وَمَسَحَ (٢) أَبعَدَ",
+  "ornekler": [
+   "أَزالَ الكِتابَةَ عَنِ السَّبّورَةِ",
+   "أَزالَ الرَّجُلُ الشَّوكَ عَنِ الطَّريقِ"
+  ],
+  "bosluk": {
+   "cumle": "أَزالَ الكِتابَةَ عَنِ السَّبّورَةِ",
+   "kelime": "أَزالَ"
+  },
+  "tr": "silmek, gidermek",
+  "tanim_tr": "(1) Sildi, sildi süpürdü. (2) Uzaklaştırdı.",
+  "ornekler_tr": [
+   "Yazıyı tahtadan sildi.",
+   "Adam dikenleri yoldan kaldırdı."
+  ],
+  "resim": "p11_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "إِزالَة",
+  "yon": "أَزالَ",
+  "iliski": "مصدر",
+  "tr": "giderme, silme"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزْر",
+  "cogul": null,
+  "metin": "مَصْدَرُ أَزَرَ: قُوَّة، شَدَّ أَزْرَهُ/ شَدَّ مِنْ أَزْرِه: قَوّاهُ، ﴿اشْدُدْ بِهِ أَزْرِي﴾.",
+  "tanim": "مَصْدَرُ أَزَرَ: قُوَّة، شَدَّ أَزْرَهُ/ شَدَّ مِنْ أَزْرِه: قَوّاهُ",
+  "ornekler": [
+   "شَدَّ أَزْرَهُ",
+   "شَدَّ مِنْ أَزْرِه",
+   "﴿اشْدُدْ بِهِ أَزْرِي﴾"
+  ],
+  "bosluk": {
+   "cumle": "اشْدُدْ بِهِ أَزْرِي",
+   "kelime": "أَزْرِي"
+  },
+  "tr": "güç, kuvvet",
+  "tanim_tr": "Ezera fiilinin mastarı: güç, kuvvet. Şedde ezrehû / şedde min ezrihî: onu güçlendirdi, destekledi.",
+  "ornekler_tr": [
+   "Onu güçlendirdi.",
+   "Onu destekledi.",
+   "\"Onunla beni güçlendir.\" (Tâhâ 31)"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزْرَق",
+  "cogul": null,
+  "metin": "(مُؤ) زَرْقاء: أَحَدُ الأَلْوانِ الأَساسيَّة، \"لَوْنُ السَّماءِ أَزْرَقُ، وَلَوْنُ البَحْرِ أَزْرَقُ\".",
+  "tanim": "أَحَدُ الأَلْوانِ الأَساسيَّة",
+  "ornekler": [
+   "لَوْنُ السَّماءِ أَزْرَقُ، وَلَوْنُ البَحْرِ أَزْرَقُ"
+  ],
+  "bosluk": {
+   "cumle": "لَوْنُ السَّماءِ أَزْرَقُ",
+   "kelime": "أَزْرَقُ"
+  },
+  "tr": "mavi",
+  "tanim_tr": "Ana renklerden biri.",
+  "ornekler_tr": [
+   "Gökyüzünün rengi mavidir, denizin rengi de mavidir."
+  ],
+  "resim": "p11_5.jpg",
+  "not": "Müennesi: زَرْقاء",
+  "muennes": "زَرْقاء"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزْعَجَ",
+  "cogul": null,
+  "metin": "يُزْعِجُ إِزْعاجاً: ضايَقَ وَأَقْلَقَ، \"أَزْعَجَني صَوْتُ السَّيّاراتِ في الشّارِعِ\"، \"أَزْعَجَني خَبَرُ الحادثِ الَّذي وَقَعَ لِصَديقي\".",
+  "tanim": "ضايَقَ وَأَقْلَقَ",
+  "ornekler": [
+   "أَزْعَجَني صَوْتُ السَّيّاراتِ في الشّارِعِ",
+   "أَزْعَجَني خَبَرُ الحادثِ الَّذي وَقَعَ لِصَديقي"
+  ],
+  "bosluk": {
+   "cumle": "أَزْعَجَني صَوْتُ السَّيّاراتِ في الشّارِعِ",
+   "kelime": "أَزْعَجَني"
+  },
+  "tr": "rahatsız etmek",
+  "tanim_tr": "Sıktı ve huzursuz etti.",
+  "ornekler_tr": [
+   "Sokaktaki arabaların sesi beni rahatsız etti.",
+   "Arkadaşımın başına gelen kazanın haberi beni tedirgin etti."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزِقَّة",
+  "yon": "زُقاق",
+  "iliski": "جمع",
+  "tr": "sokaklar, ara sokaklar"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزْمان",
+  "yon": "زَمان",
+  "iliski": "جمع",
+  "tr": "zamanlar, çağlar"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزْمَة",
+  "cogul": null,
+  "metin": "مُشْكِلَة، ضائِقَة، \"أَضاعَ فُلانٌ كُلَّ ثَرْوَتِه؛ فأصبح في أَزْمَةٍ ماليّة\"، \"هناك أزمة بَيْنَ الدَّوْلَتَيْنِ الجارَتَيْنِ\".",
+  "tanim": "مُشْكِلَة، ضائِقَة",
+  "ornekler": [
+   "أَضاعَ فُلانٌ كُلَّ ثَرْوَتِه؛ فأصبح في أَزْمَةٍ ماليّة",
+   "هناك أزمة بَيْنَ الدَّوْلَتَيْنِ الجارَتَيْنِ"
+  ],
+  "bosluk": {
+   "cumle": "أَضاعَ فُلانٌ كُلَّ ثَرْوَتِه؛ فأصبح في أَزْمَةٍ ماليّة",
+   "kelime": "أَزْمَةٍ"
+  },
+  "tr": "kriz, bunalım",
+  "tanim_tr": "Sorun, darlık, sıkıntı.",
+  "ornekler_tr": [
+   "Falanca bütün servetini kaybetti; mali bir krize düştü.",
+   "İki komşu ülke arasında bir kriz var."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزْمَعَ",
+  "cogul": null,
+  "metin": "يُزْمِعُ إِزْماعاً: عَزَمَ وقَرَّرَ، \"يُزْمِعُ المُديرُ عَلى عَقْدِ اجْتِماعٍ قَريب\".",
+  "tanim": "عَزَمَ وقَرَّرَ",
+  "ornekler": [
+   "يُزْمِعُ المُديرُ عَلى عَقْدِ اجْتِماعٍ قَريب"
+  ],
+  "bosluk": {
+   "cumle": "يُزْمِعُ المُديرُ عَلى عَقْدِ اجْتِماعٍ قَريب",
+   "kelime": "يُزْمِعُ"
+  },
+  "tr": "azmetmek, karar vermek",
+  "tanim_tr": "Azmetti ve karar verdi.",
+  "ornekler_tr": [
+   "Müdür yakında bir toplantı yapmaya karar vermiş durumda."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزْمِنَة",
+  "yon": "زَمان",
+  "iliski": "جمع",
+  "tr": "zamanlar, devirler"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزْهار",
+  "yon": "زَهْرَة",
+  "iliski": "جمع",
+  "tr": "çiçekler",
+  "resim": "p11_6.jpg",
+  "etiketler": [
+   {
+    "ar": "سَوْسَن",
+    "tr": "süsen"
+   },
+   {
+    "ar": "أَقْحُوان",
+    "tr": "papatya (resimde siklamen)"
+   },
+   {
+    "ar": "قَرْنُفُل",
+    "tr": "karanfil"
+   },
+   {
+    "ar": "رَيحان",
+    "tr": "fesleğen"
+   },
+   {
+    "ar": "بَنَفْسَج",
+    "tr": "menekşe"
+   },
+   {
+    "ar": "نَرجس",
+    "tr": "nergis"
+   },
+   {
+    "ar": "وَرد",
+    "tr": "gül"
+   }
+  ],
+  "not": "Sayfadaki çiçek resimleri (etiketli) bu maddeye bağlandı."
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزْواج",
+  "yon": "زَوْج",
+  "iliski": "جمع",
+  "tr": "eşler; çiftler"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزْياء",
+  "yon": "زِيّ",
+  "iliski": "جمع",
+  "tr": "kıyafetler, moda"
+ },
+ {
+  "sayfa": 11,
+  "baski_no": "١١",
+  "k": "أَزيز",
+  "cogul": null,
+  "metin": "الصَّوْتُ الشَّديد، \"أَزيزُ الطّائِراتِ يَمنَعُني النَّوْمَ\".",
+  "tanim": "الصَّوْتُ الشَّديد",
+  "ornekler": [
+   "أَزيزُ الطّائِراتِ يَمنَعُني النَّوْمَ"
+  ],
+  "bosluk": {
+   "cumle": "أَزيزُ الطّائِراتِ يَمنَعُني النَّوْمَ",
+   "kelime": "أَزيزُ"
+  },
+  "tr": "uğultu, vızıltı",
+  "tanim_tr": "Şiddetli ses.",
+  "ornekler_tr": [
+   "Uçakların uğultusu beni uyutmuyor."
+  ],
+  "resim": null,
+  "not": null
+ }
+]

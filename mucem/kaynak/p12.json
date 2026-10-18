@@ -1,0 +1,454 @@
+[
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسْئِلَة",
+  "yon": "سَأَلَ",
+  "iliski": "جمع",
+  "tr": "sorular"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَساءَ",
+  "cogul": null,
+  "metin": "يُسيءُ إِساءَةً: لَم يُحْسِن؛ آذى، \"أَساءَ فُلانٌ التَّصَرُّفَ مَعَ زُمَلائِه\"، ﴿مَنْ عَمِلَ صالِحاً فَلِنَفْسِه وَمَنْ أَساءَ فَعَلَيْها﴾. \"لَم يَقْبَلْ إِبراهيمُ الإِساءَةَ؛ فَشَكا إِلى الرَّئيسِ\".",
+  "tanim": "لَم يُحْسِن؛ آذى",
+  "ornekler": [
+   "أَساءَ فُلانٌ التَّصَرُّفَ مَعَ زُمَلائِه",
+   "﴿مَنْ عَمِلَ صالِحاً فَلِنَفْسِه وَمَنْ أَساءَ فَعَلَيْها﴾",
+   "لَم يَقْبَلْ إِبراهيمُ الإِساءَةَ؛ فَشَكا إِلى الرَّئيسِ"
+  ],
+  "bosluk": {
+   "cumle": "أَساءَ فُلانٌ التَّصَرُّفَ مَعَ زُمَلائِه",
+   "kelime": "أَساءَ"
+  },
+  "tr": "kötülük etmek",
+  "tanim_tr": "İyi davranmadı; eziyet etti.",
+  "ornekler_tr": [
+   "Falanca arkadaşlarına karşı kötü davrandı.",
+   "\"Kim iyi bir iş yaparsa kendi lehinedir, kim kötülük ederse kendi aleyhinedir.\" (Fussılet 46)",
+   "İbrahim kötü muameleyi kabul etmedi ve müdüre şikâyet etti."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "إِساءَة",
+  "yon": "أَساءَ",
+  "iliski": "مصدر",
+  "tr": "kötülük, kötü davranma"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسابيع",
+  "yon": "أُسْبوع",
+  "iliski": "جمع",
+  "tr": "haftalar"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَساتِذَة",
+  "yon": "أُسْتاذ",
+  "iliski": "جمع",
+  "tr": "hocalar, öğretmenler"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَساس",
+  "cogul": "أُسُس",
+  "metin": "(ج) أُسُس: المَبادِئُ الَّتي تَعتَمِدُ عَلَيها بَعْضُ الظَّواهِرِ أَوِ الأُمورِ، \"بَنَى داروِن نَظَرِيَّتَهُ عَلى أَساسٍ باطِلٍ\"، وفي المَثَلِ: \"العَدْلُ أَساسُ المُلْكِ\".",
+  "tanim": "المَبادِئُ الَّتي تَعتَمِدُ عَلَيها بَعْضُ الظَّواهِرِ أَوِ الأُمورِ",
+  "ornekler": [
+   "بَنَى داروِن نَظَرِيَّتَهُ عَلى أَساسٍ باطِلٍ",
+   "العَدْلُ أَساسُ المُلْكِ"
+  ],
+  "bosluk": {
+   "cumle": "العَدْلُ أَساسُ المُلْكِ",
+   "kelime": "أَساسُ"
+  },
+  "tr": "temel, esas",
+  "tanim_tr": "Bazı olguların veya işlerin dayandığı ilkeler.",
+  "ornekler_tr": [
+   "Darwin teorisini batıl bir temel üzerine kurdu.",
+   "(Atasözü) Adalet mülkün temelidir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَساسيّ",
+  "cogul": null,
+  "metin": "ذو عَلاقَةٍ بِالأَساس، ما لا يُستَغنَى عَنهُ مِنَ الأُمور، \"التَّعْليمُ الأَساسِيُّ مُهِمّ\".",
+  "tanim": "ذو عَلاقَةٍ بِالأَساس، ما لا يُستَغنَى عَنهُ مِنَ الأُمور",
+  "ornekler": [
+   "التَّعْليمُ الأَساسِيُّ مُهِمّ"
+  ],
+  "bosluk": {
+   "cumle": "التَّعْليمُ الأَساسِيُّ مُهِمّ",
+   "kelime": "الأَساسِيُّ"
+  },
+  "tr": "temel, esaslı",
+  "tanim_tr": "Temelle ilgili; vazgeçilemeyen şey.",
+  "ornekler_tr": [
+   "Temel eğitim önemlidir."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَساطير",
+  "yon": "أُسْطورَة",
+  "iliski": "جمع",
+  "tr": "efsaneler, masallar"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَساقِفَة",
+  "yon": "أُسْقُف",
+  "iliski": "جمع",
+  "tr": "piskoposlar"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَساليب",
+  "yon": "أُسْلوب",
+  "iliski": "جمع",
+  "tr": "yöntemler, üsluplar"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَساوِر",
+  "yon": "سِوار",
+  "iliski": "جمع",
+  "tr": "bilezikler"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسْباب",
+  "yon": "سَبَب",
+  "iliski": "جمع",
+  "tr": "sebepler"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسْباط",
+  "yon": "سِبْط",
+  "iliski": "جمع",
+  "tr": "torunlar; (İsrailoğulları) kabileleri"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسْبَغَ",
+  "cogul": null,
+  "metin": "يُسبِغُ إِسباغاً: وَسَّعَ، كَثَّرَ، كَمَّلَ، \"تَوَضَّأَ فَأَسْبَغَ الوُضوءَ\"، ﴿وَأَسْبَغَ عَلَيْكُمْ نِعَمَهُ ظاهِرَةً وَباطِنَةً﴾.",
+  "tanim": "وَسَّعَ، كَثَّرَ، كَمَّلَ",
+  "ornekler": [
+   "تَوَضَّأَ فَأَسْبَغَ الوُضوءَ",
+   "﴿وَأَسْبَغَ عَلَيْكُمْ نِعَمَهُ ظاهِرَةً وَباطِنَةً﴾"
+  ],
+  "bosluk": {
+   "cumle": "تَوَضَّأَ فَأَسْبَغَ الوُضوءَ",
+   "kelime": "فَأَسْبَغَ"
+  },
+  "tr": "bolca vermek, tamamlamak",
+  "tanim_tr": "Genişletti, çoğalttı, tamamladı.",
+  "ornekler_tr": [
+   "Abdest aldı ve abdestini tam (güzelce) aldı.",
+   "\"Size açık ve gizli nimetlerini bolca verdi.\" (Lokmân 20)"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسْبَقُ",
+  "cogul": null,
+  "metin": "أَكْثَرُ سَبْقاً وَتَقدُّماً وَمُبادَرَةً مِن غَيرِه، \"كانَ الفَرَسُ الأَبيَضُ الأَسْبَقَ في العَدْوِ\"، \"عَلِيٌّ أَسْبَقُ إِلى فِعلِ الخَيْراتِ مِن إِخْوَتِه\".",
+  "tanim": "أَكْثَرُ سَبْقاً وَتَقدُّماً وَمُبادَرَةً مِن غَيرِه",
+  "ornekler": [
+   "كانَ الفَرَسُ الأَبيَضُ الأَسْبَقَ في العَدْوِ",
+   "عَلِيٌّ أَسْبَقُ إِلى فِعلِ الخَيْراتِ مِن إِخْوَتِه"
+  ],
+  "bosluk": {
+   "cumle": "عَلِيٌّ أَسْبَقُ إِلى فِعلِ الخَيْراتِ مِن إِخْوَتِه",
+   "kelime": "أَسْبَقُ"
+  },
+  "tr": "daha önde, daha önce davranan",
+  "tanim_tr": "Başkasından daha önde, daha ileri ve daha girişken olan.",
+  "ornekler_tr": [
+   "Beyaz at koşuda en öndeydi.",
+   "Ali hayır işlemede kardeşlerinden daha öndedir."
+  ],
+  "resim": null,
+  "not": "İlk örnekte الأَسْبَقَ'in son harekesi taramada belirsiz."
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسْبَلَ",
+  "cogul": null,
+  "metin": "يُسْبِلُ إِسْبالاً: أَطالَ ثَوبَهُ وَإِزارَهُ إِلى ما تَحْتَ الكَعْبَيْنِ، فَهُوَ مُسْبِلٌ، \"أَسْبَلَ الرَّجُلُ ثَوْبَهُ تَكَبُّراً\".",
+  "tanim": "أَطالَ ثَوبَهُ وَإِزارَهُ إِلى ما تَحْتَ الكَعْبَيْنِ، فَهُوَ مُسْبِلٌ",
+  "ornekler": [
+   "أَسْبَلَ الرَّجُلُ ثَوْبَهُ تَكَبُّراً"
+  ],
+  "bosluk": {
+   "cumle": "أَسْبَلَ الرَّجُلُ ثَوْبَهُ تَكَبُّراً",
+   "kelime": "أَسْبَلَ"
+  },
+  "tr": "(elbiseyi) sarkıtmak",
+  "tanim_tr": "Elbisesini ve izarını topukların altına kadar uzattı; böyle yapana müsbil denir.",
+  "ornekler_tr": [
+   "Adam kibirlenerek elbisesini yerlere sarkıttı."
+  ],
+  "resim": "p12_5.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أُسْبوع",
+  "cogul": "أَسابيع",
+  "metin": "(ج) أَسابيع: سَبْعَةُ أَيّامٍ، \"مِنَ الجُمُعَةِ إِلى الجُمُعَةِ أُسبوعٌ كامِلٌ فيهِ سَبْعَةُ أَيّام\"، \"وفي الشَّهْرِ أَرْبَعَةُ أَسابيعَ\".",
+  "tanim": "سَبْعَةُ أَيّامٍ",
+  "ornekler": [
+   "مِنَ الجُمُعَةِ إِلى الجُمُعَةِ أُسبوعٌ كامِلٌ فيهِ سَبْعَةُ أَيّام",
+   "وفي الشَّهْرِ أَرْبَعَةُ أَسابيعَ"
+  ],
+  "bosluk": {
+   "cumle": "مِنَ الجُمُعَةِ إِلى الجُمُعَةِ أُسبوعٌ كامِلٌ فيهِ سَبْعَةُ أَيّام",
+   "kelime": "أُسبوعٌ"
+  },
+  "tr": "hafta",
+  "tanim_tr": "Yedi gün.",
+  "ornekler_tr": [
+   "Cumadan cumaya içinde yedi gün olan tam bir hafta vardır.",
+   "Ayda dört hafta vardır."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أُسْتاذ",
+  "cogul": "أَساتِذَة",
+  "metin": "(ج) أَساتِذَة: (١) مُعَلِّم، مُدَرِّس، \"إِبراهيمُ أُستاذُ العُلومِ في مَدْرَسَتِنا\". (٢) ماهِر، \"أَحمَدُ أُستاذٌ في كُرَةِ القَدَمِ\".",
+  "tanim": "(١) مُعَلِّم، مُدَرِّس (٢) ماهِر",
+  "ornekler": [
+   "إِبراهيمُ أُستاذُ العُلومِ في مَدْرَسَتِنا",
+   "أَحمَدُ أُستاذٌ في كُرَةِ القَدَمِ"
+  ],
+  "bosluk": {
+   "cumle": "إِبراهيمُ أُستاذُ العُلومِ في مَدْرَسَتِنا",
+   "kelime": "أُستاذُ"
+  },
+  "tr": "öğretmen, hoca; usta",
+  "tanim_tr": "(1) Muallim, öğretmen. (2) Usta, mahir.",
+  "ornekler_tr": [
+   "İbrahim okulumuzun fen öğretmenidir.",
+   "Ahmed futbolda ustadır."
+  ],
+  "resim": "p12_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسْخِياء",
+  "yon": "سَخِيّ",
+  "iliski": "جمع",
+  "tr": "cömertler"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسَد",
+  "cogul": "أُسود",
+  "metin": "(ج) أُسود: حَيَوانٌ مُفتَرِسٌ يُطلَقُ عَلَيهِ مَلِكُ الغابَةِ، يُضْرَبُ بِهِ المَثَلُ في الشَّجاعَةِ، \"الجُندِيُّ المُسلِمُ كَالأَسَدِ في الحُروبِ\".",
+  "tanim": "حَيَوانٌ مُفتَرِسٌ يُطلَقُ عَلَيهِ مَلِكُ الغابَةِ، يُضْرَبُ بِهِ المَثَلُ في الشَّجاعَةِ",
+  "ornekler": [
+   "الجُندِيُّ المُسلِمُ كَالأَسَدِ في الحُروبِ"
+  ],
+  "bosluk": {
+   "cumle": "الجُندِيُّ المُسلِمُ كَالأَسَدِ في الحُروبِ",
+   "kelime": "كَالأَسَدِ"
+  },
+  "tr": "aslan",
+  "tanim_tr": "Ormanlar kralı denen, cesarette örnek gösterilen yırtıcı hayvan.",
+  "ornekler_tr": [
+   "Müslüman asker savaşlarda aslan gibidir."
+  ],
+  "resim": "p12_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسْداس",
+  "yon": "سُدُس",
+  "iliski": "جمع",
+  "tr": "altıda birler"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسْدَلَ",
+  "cogul": null,
+  "metin": "يُسْدِلُ إِسْدالاً: أَرْخَى، \"أَسْدَلَ المُخْرِجُ السِّتارَةَ عَلى المَشْهَدِ الأَخير\".",
+  "tanim": "أَرْخَى",
+  "ornekler": [
+   "أَسْدَلَ المُخْرِجُ السِّتارَةَ عَلى المَشْهَدِ الأَخير"
+  ],
+  "bosluk": {
+   "cumle": "أَسْدَلَ المُخْرِجُ السِّتارَةَ عَلى المَشْهَدِ الأَخير",
+   "kelime": "أَسْدَلَ"
+  },
+  "tr": "(perde) indirmek, sarkıtmak",
+  "tanim_tr": "Salıverdi, sarkıttı.",
+  "ornekler_tr": [
+   "Yönetmen son sahnede perdeyi indirdi."
+  ],
+  "resim": "p12_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسْدَى",
+  "cogul": null,
+  "metin": "يُسْدي إِسْداءً: أَعْطَى وَقَدَّمَ، \"مَنْ أَسْدَى إِلَيكَ مَعروفاً فاشكُرْهُ\".",
+  "tanim": "أَعْطَى وَقَدَّمَ",
+  "ornekler": [
+   "مَنْ أَسْدَى إِلَيكَ مَعروفاً فاشكُرْهُ"
+  ],
+  "bosluk": {
+   "cumle": "مَنْ أَسْدَى إِلَيكَ مَعروفاً فاشكُرْهُ",
+   "kelime": "أَسْدَى"
+  },
+  "tr": "(iyilik) etmek, sunmak",
+  "tanim_tr": "Verdi ve sundu.",
+  "ornekler_tr": [
+   "Sana bir iyilik yapana teşekkür et."
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسَرَ",
+  "cogul": null,
+  "metin": "يَأْسِرُ أَسْراً؛ قَبَضَ عَلَى، \"أَسَرَ الجُنْدِيَّ\".",
+  "tanim": "قَبَضَ عَلَى",
+  "ornekler": [
+   "أَسَرَ الجُنْدِيَّ"
+  ],
+  "bosluk": {
+   "cumle": "أَسَرَ الجُنْدِيَّ",
+   "kelime": "أَسَرَ"
+  },
+  "tr": "esir almak",
+  "tanim_tr": "Yakaladı.",
+  "ornekler_tr": [
+   "Askeri esir aldı."
+  ],
+  "resim": "p12_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أُسَر",
+  "yon": "أُسْرَة",
+  "iliski": "جمع",
+  "tr": "aileler"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "إِسْراء",
+  "yon": "أَسْرَى",
+  "iliski": "مصدر",
+  "tr": "gece yürütme; İsrâ"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "إِسْرائيل",
+  "cogul": null,
+  "metin": "لَقَبٌ أُطْلِقَ عَلَى يَعْقوبَ بنِ إِسحاقَ بنِ إِبراهيمَ الخَليلِ عَلَيهِمُ السَّلام، ﴿كُلُّ الطَّعامِ كانَ حِلّاً لِبَني إِسْرائيلَ إِلّا ما حَرَّمَ إِسْرائيلُ عَلى نَفْسِه﴾.",
+  "tanim": "لَقَبٌ أُطْلِقَ عَلَى يَعْقوبَ بنِ إِسحاقَ بنِ إِبراهيمَ الخَليلِ عَلَيهِمُ السَّلام",
+  "ornekler": [
+   "﴿كُلُّ الطَّعامِ كانَ حِلّاً لِبَني إِسْرائيلَ إِلّا ما حَرَّمَ إِسْرائيلُ عَلى نَفْسِه﴾"
+  ],
+  "bosluk": {
+   "cumle": "كُلُّ الطَّعامِ كانَ حِلّاً لِبَني إِسْرائيلَ",
+   "kelime": "إِسْرائيلَ"
+  },
+  "tr": "İsrail (Hz. Yakub)",
+  "tanim_tr": "Halil İbrahim oğlu İshak oğlu Yakub'a (selam üzerlerine olsun) verilen lakap.",
+  "ornekler_tr": [
+   "\"İsrail'in (Yakub'un) kendisine haram kıldıkları dışında bütün yiyecekler İsrailoğullarına helaldi.\" (Âl-i İmrân 93)"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أَسْرار",
+  "yon": "سِرّ",
+  "iliski": "جمع",
+  "tr": "sırlar"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "إِسْراف",
+  "yon": "أَسْرَفَ",
+  "iliski": "مصدر",
+  "tr": "israf, savurganlık"
+ },
+ {
+  "sayfa": 12,
+  "baski_no": "١٢",
+  "k": "أُسْرَة",
+  "cogul": "أُسَر",
+  "metin": "(ج) أُسَر: (١) الأُسْرَةُ الأَهلُ وَالأَقارِبُ، \"تَتَكَوَّنُ الأُسْرَةُ مِنَ الأَبِ وَالأُمِّ وَالأَوْلادِ\". (٢) جَماعَةٌ يَربِطُها أَمْرٌ مُشْتَرَكٌ، \"نَحنُ في هذِه المَدْرَسَةِ أُسْرَةٌ واحِدَةٌ\".",
+  "tanim": "(١) الأُسْرَةُ الأَهلُ وَالأَقارِبُ (٢) جَماعَةٌ يَربِطُها أَمْرٌ مُشْتَرَكٌ",
+  "ornekler": [
+   "تَتَكَوَّنُ الأُسْرَةُ مِنَ الأَبِ وَالأُمِّ وَالأَوْلادِ",
+   "نَحنُ في هذِه المَدْرَسَةِ أُسْرَةٌ واحِدَةٌ"
+  ],
+  "bosluk": {
+   "cumle": "تَتَكَوَّنُ الأُسْرَةُ مِنَ الأَبِ وَالأُمِّ وَالأَوْلادِ",
+   "kelime": "الأُسْرَةُ"
+  },
+  "tr": "aile",
+  "tanim_tr": "(1) Aile: ev halkı ve akrabalar. (2) Ortak bir işin birbirine bağladığı topluluk.",
+  "ornekler_tr": [
+   "Aile anne, baba ve çocuklardan oluşur.",
+   "Biz bu okulda tek bir aileyiz."
+  ],
+  "resim": null,
+  "not": null
+ }
+]
