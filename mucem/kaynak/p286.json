@@ -1,0 +1,458 @@
+[
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَفيف",
+  "cogul": "أَكِفّاء",
+  "metin": "(ج) أَكِفّاء : أَعْمى ، مَنْ لا يُبْصِرُ ، “يَحْمِلُ الكَفيفُ عَصا بَيْضاءَ” ، “كانَ بَعْضُ العُلَماءِ كَفيفَ البَصَرِ” .",
+  "tanim": "أَعْمى ، مَنْ لا يُبْصِرُ",
+  "ornekler": [
+   "“يَحْمِلُ الكَفيفُ عَصا بَيْضاءَ”",
+   "“كانَ بَعْضُ العُلَماءِ كَفيفَ البَصَرِ”"
+  ],
+  "bosluk": {
+   "cumle": "يَحْمِلُ الكَفيفُ عَصا بَيْضاءَ",
+   "kelime": "الكَفيفُ"
+  },
+  "tr": "kör, âmâ",
+  "tanim_tr": "Kör; göremeyen kimse.",
+  "ornekler_tr": [
+   "“Kör, beyaz baston taşır.”",
+   "“Bazı âlimler gözleri görmeyen kimselerdi.”"
+  ],
+  "resim": "p286_1.jpg",
+  "not": "Resimde karşıtı مُبْصِر da gösteriliyor. Çoğuldaki harekeler (أَكِفّاء) baskıda tam net değil."
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَفيل",
+  "cogul": "كُفَلاء",
+  "metin": "(ج) كُفَلاء : (١) ضامِنٌ ، “طَلَبَ رِجالُ الأَمْنِ كَفيلاً ، لإِطْلاقِ سَراحِ المُتَّهَمِ” . (٢) مُهَيْمِنٌ وَرَقيبٌ ، ﴿ وَقَدْ جَعَلْتُمُ اللَّهَ عَلَيْكُمْ كَفيلاً ﴾ .",
+  "tanim": "(١) ضامِنٌ (٢) مُهَيْمِنٌ وَرَقيبٌ",
+  "ornekler": [
+   "“طَلَبَ رِجالُ الأَمْنِ كَفيلاً ، لإِطْلاقِ سَراحِ المُتَّهَمِ”",
+   "﴿ وَقَدْ جَعَلْتُمُ اللَّهَ عَلَيْكُمْ كَفيلاً ﴾"
+  ],
+  "bosluk": {
+   "cumle": "طَلَبَ رِجالُ الأَمْنِ كَفيلاً ، لإِطْلاقِ سَراحِ المُتَّهَمِ",
+   "kelime": "كَفيلاً"
+  },
+  "tr": "kefil",
+  "tanim_tr": "(1) Kefil, garantör. (2) Gözetici ve denetleyici.",
+  "ornekler_tr": [
+   "“Güvenlik görevlileri, sanığın serbest bırakılması için bir kefil istedi.”",
+   "﴿ Allah'ı üzerinize kefil (şahit) kılmıştınız. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كُلّ",
+  "cogul": null,
+  "metin": "جَميعٌ ، “حَضَرَ الطُّلاّبُ كُلُّهُمْ” ، “باعَ التّاجِرُ البِضاعَةَ كُلَّها” ، ﴿ قَدْ عَلِمَ كُلُّ أُناسٍ مَشْرَبَهُمْ ﴾ .",
+  "tanim": "جَميعٌ",
+  "ornekler": [
+   "“حَضَرَ الطُّلاّبُ كُلُّهُمْ”",
+   "“باعَ التّاجِرُ البِضاعَةَ كُلَّها”",
+   "﴿ قَدْ عَلِمَ كُلُّ أُناسٍ مَشْرَبَهُمْ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "باعَ التّاجِرُ البِضاعَةَ كُلَّها",
+   "kelime": "كُلَّها"
+  },
+  "tr": "hepsi, her",
+  "tanim_tr": "Tümü, hepsi.",
+  "ornekler_tr": [
+   "“Öğrencilerin hepsi geldi.”",
+   "“Tüccar malın hepsini sattı.”",
+   "﴿ Her topluluk kendi içeceği yeri bildi. ﴾"
+  ],
+  "resim": "p286_2.jpg",
+  "not": "Resimde karşıtı بَعْض da gösteriliyor."
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَلَّ",
+  "cogul": null,
+  "metin": "يَكَلُّ كَلاًّ : تَعِبَ ، “هذا العامِلُ النَّشيطُ ، لا يَكَلُّ مِنَ العَمَلِ” .",
+  "tanim": "تَعِبَ",
+  "ornekler": [
+   "“هذا العامِلُ النَّشيطُ ، لا يَكَلُّ مِنَ العَمَلِ”"
+  ],
+  "bosluk": {
+   "cumle": "هذا العامِلُ النَّشيطُ ، لا يَكَلُّ مِنَ العَمَلِ",
+   "kelime": "يَكَلُّ"
+  },
+  "tr": "yorulmak",
+  "tanim_tr": "Yoruldu.",
+  "ornekler_tr": [
+   "“Bu çalışkan işçi çalışmaktan yorulmaz.”"
+  ],
+  "resim": null,
+  "not": "Muzari baskıda يَكَلُّ (kâf üstünde fetha) gibi görünüyor; doğrusu يَكِلُّ olmalı."
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَلاّ",
+  "cogul": null,
+  "metin": "(١) كَلِمَةٌ لِلرَّدْعِ وَالزَّجْرِ وَالاسْتِنْكارِ ، ﴿ كَلاّ لَئِنْ لَمْ يَنْتَهِ لَنَسْفَعاً بِالنّاصِيَةِ ﴾ . (٢) تَكونُ لِلنَّفْيِ وَالرَّدِّ ، “هَلْ زُرْتَهُ أَمْسِ : كَلاّ” .",
+  "tanim": "(١) كَلِمَةٌ لِلرَّدْعِ وَالزَّجْرِ وَالاسْتِنْكارِ (٢) تَكونُ لِلنَّفْيِ وَالرَّدِّ",
+  "ornekler": [
+   "﴿ كَلاّ لَئِنْ لَمْ يَنْتَهِ لَنَسْفَعاً بِالنّاصِيَةِ ﴾",
+   "“هَلْ زُرْتَهُ أَمْسِ : كَلاّ”"
+  ],
+  "bosluk": {
+   "cumle": "هَلْ زُرْتَهُ أَمْسِ : كَلاّ",
+   "kelime": "كَلاّ"
+  },
+  "tr": "hayır, asla",
+  "tanim_tr": "(1) Caydırma, azarlama ve kınama için kullanılan bir kelime. (2) Olumsuzluk ve reddetme için kullanılır.",
+  "ornekler_tr": [
+   "﴿ Hayır! Eğer vazgeçmezse andolsun onu perçeminden yakalayıp sürükleriz. ﴾",
+   "“Onu dün ziyaret ettin mi? Hayır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كِلا",
+  "cogul": null,
+  "metin": "(مؤ) كِلْتا : اسْمٌ مَقْصورٌ ، لَفْظُهُ مُفْرَدٌ وَمَعْناهُ مُثَنًّى ، “حَضَرَ الأُسْتاذانِ كِلاهُما” ، “وَصَلَ كِلا المُدَرِّسَيْنِ” ، “اشْتَرَيْنا الحَقيبَتَيْنِ كِلْتَيْهِما” ، ﴿ كِلْتَا الْجَنَّتَيْنِ آتَتْ أُكُلَها ﴾ .",
+  "tanim": "اسْمٌ مَقْصورٌ ، لَفْظُهُ مُفْرَدٌ وَمَعْناهُ مُثَنًّى",
+  "ornekler": [
+   "“حَضَرَ الأُسْتاذانِ كِلاهُما”",
+   "“وَصَلَ كِلا المُدَرِّسَيْنِ”",
+   "“اشْتَرَيْنا الحَقيبَتَيْنِ كِلْتَيْهِما”",
+   "﴿ كِلْتَا الْجَنَّتَيْنِ آتَتْ أُكُلَها ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَصَلَ كِلا المُدَرِّسَيْنِ",
+   "kelime": "كِلا"
+  },
+  "tr": "her ikisi",
+  "tanim_tr": "Maksur isim; lafzı tekil, anlamı ikildir.",
+  "ornekler_tr": [
+   "“Hocaların ikisi de geldi.”",
+   "“Öğretmenlerin ikisi de geldi.”",
+   "“Çantaların ikisini de satın aldık.”",
+   "﴿ İki bahçenin ikisi de meyvesini verdi. ﴾"
+  ],
+  "resim": null,
+  "not": "Müennesi: كِلْتا."
+ },
+ {
+  "sayfa": 286,
+  "k": "كِلاب",
+  "yon": "كَلْب",
+  "iliski": "جمع",
+  "tr": "köpekler"
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَلام",
+  "cogul": null,
+  "metin": "قَوْلٌ ، حَديثٌ ، “القُرْآنُ كَلامُ اللهِ” ، “لَمْ أَسْمَعْ كَلامَكَ” . “خَيْرُ الكَلامِ ما قَلَّ وَدَلَّ” .",
+  "tanim": "قَوْلٌ ، حَديثٌ",
+  "ornekler": [
+   "“القُرْآنُ كَلامُ اللهِ”",
+   "“لَمْ أَسْمَعْ كَلامَكَ”",
+   "“خَيْرُ الكَلامِ ما قَلَّ وَدَلَّ”"
+  ],
+  "bosluk": {
+   "cumle": "لَمْ أَسْمَعْ كَلامَكَ",
+   "kelime": "كَلامَكَ"
+  },
+  "tr": "söz, konuşma",
+  "tanim_tr": "Söz, konuşma.",
+  "ornekler_tr": [
+   "“Kur'an Allah'ın kelamıdır.”",
+   "“Sözünü duymadım.”",
+   "“Sözün hayırlısı az ve öz olanıdır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَلْبٌ",
+  "cogul": "كِلاب",
+  "metin": "(ج) كِلاب : حَيَوانٌ مِنْ ذَوي الأَنْيابِ ، “يَخافُ اللُّصوصُ الكِلابَ” ، “يَحْرُسُ الكَلْبُ الأَغْنامَ” ، ﴿ فَمَثَلُهُ كَمَثَلِ الْكَلْبِ إِنْ تَحْمِلْ عَلَيْهِ يَلْهَثْ ﴾ .",
+  "tanim": "حَيَوانٌ مِنْ ذَوي الأَنْيابِ",
+  "ornekler": [
+   "“يَخافُ اللُّصوصُ الكِلابَ”",
+   "“يَحْرُسُ الكَلْبُ الأَغْنامَ”",
+   "﴿ فَمَثَلُهُ كَمَثَلِ الْكَلْبِ إِنْ تَحْمِلْ عَلَيْهِ يَلْهَثْ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "يَحْرُسُ الكَلْبُ الأَغْنامَ",
+   "kelime": "الكَلْبُ"
+  },
+  "tr": "köpek",
+  "tanim_tr": "Azı dişli hayvanlardan bir hayvan.",
+  "ornekler_tr": [
+   "“Hırsızlar köpeklerden korkar.”",
+   "“Köpek koyunları korur.”",
+   "﴿ Onun durumu köpeğin durumu gibidir: üzerine varsan da dilini sarkıtıp solur. ﴾"
+  ],
+  "resim": "p286_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَلَّفَ",
+  "cogul": null,
+  "metin": "يُكَلِّفُ تَكْليفاً : حَمَّلَ ، فَرَضَ ، أَوْجَبَ ، “كَلَّفَهُ بِحَمْلِ الرِّسالَةِ إِلى أُسْرَتِهِ” ، ﴿ لا يُكَلِّفُ اللَّهُ نَفْساً إِلاّ وُسْعَها لَها ما كَسَبَتْ وَعَلَيْها مَا اكْتَسَبَتْ ﴾ .",
+  "tanim": "حَمَّلَ ، فَرَضَ ، أَوْجَبَ",
+  "ornekler": [
+   "“كَلَّفَهُ بِحَمْلِ الرِّسالَةِ إِلى أُسْرَتِهِ”",
+   "﴿ لا يُكَلِّفُ اللَّهُ نَفْساً إِلاّ وُسْعَها لَها ما كَسَبَتْ وَعَلَيْها مَا اكْتَسَبَتْ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "كَلَّفَهُ بِحَمْلِ الرِّسالَةِ إِلى أُسْرَتِهِ",
+   "kelime": "كَلَّفَهُ"
+  },
+  "tr": "görevlendirmek",
+  "tanim_tr": "Yükledi, farz kıldı, gerekli kıldı.",
+  "ornekler_tr": [
+   "“Onu mektubu ailesine götürmekle görevlendirdi.”",
+   "﴿ Allah hiçbir kimseye gücünün yeteceğinden fazlasını yüklemez. Herkesin kazandığı (iyilik) kendi lehine, işlediği (kötülük) de kendi aleyhinedir. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَلِفَ",
+  "cogul": null,
+  "metin": "يَكْلَفُ كَلَفاً : أَحَبَّ ، “كَلِفَ بِأَبْناءِ أُخْتِهِ ، لِأَدَبِهِمْ” ، “كَلِفَ العالِمُ بِآثارِ المُسْلِمينَ في الأَنْدَلُسِ” .",
+  "tanim": "أَحَبَّ",
+  "ornekler": [
+   "“كَلِفَ بِأَبْناءِ أُخْتِهِ ، لِأَدَبِهِمْ”",
+   "“كَلِفَ العالِمُ بِآثارِ المُسْلِمينَ في الأَنْدَلُسِ”"
+  ],
+  "bosluk": {
+   "cumle": "كَلِفَ العالِمُ بِآثارِ المُسْلِمينَ في الأَنْدَلُسِ",
+   "kelime": "كَلِفَ"
+  },
+  "tr": "tutkun olmak",
+  "tanim_tr": "Sevdi, düşkün oldu.",
+  "ornekler_tr": [
+   "“Terbiyeli oldukları için kız kardeşinin çocuklarına düşkündü.”",
+   "“Âlim, Endülüs'teki Müslümanların eserlerine tutkundu.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كُلْفَة",
+  "cogul": "كُلَف",
+  "metin": "(ج) كُلَف : قيمَةٌ ، ثَمَنٌ ، “ما كُلْفَةُ هذا الثَّوْبِ الجَديدِ ؟” ، “زادَتْ كُلْفَةُ الإِنْتاجِ الزِّراعِيِّ” .",
+  "tanim": "قيمَةٌ ، ثَمَنٌ",
+  "ornekler": [
+   "“ما كُلْفَةُ هذا الثَّوْبِ الجَديدِ ؟”",
+   "“زادَتْ كُلْفَةُ الإِنْتاجِ الزِّراعِيِّ”"
+  ],
+  "bosluk": {
+   "cumle": "زادَتْ كُلْفَةُ الإِنْتاجِ الزِّراعِيِّ",
+   "kelime": "كُلْفَةُ"
+  },
+  "tr": "maliyet",
+  "tanim_tr": "Değer, fiyat.",
+  "ornekler_tr": [
+   "“Bu yeni elbisenin maliyeti ne kadar?”",
+   "“Tarımsal üretimin maliyeti arttı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَلَّمَ",
+  "cogul": null,
+  "metin": "يُكَلِّمُ تَكْليماً : حَدَّثَ ، “مَنْ كَلَّمَكَ بِهذا الكَلامِ ؟” ، ﴿ وَكَلَّمَ اللَّهُ مُوسى تَكْليماً ﴾ .",
+  "tanim": "حَدَّثَ",
+  "ornekler": [
+   "“مَنْ كَلَّمَكَ بِهذا الكَلامِ ؟”",
+   "﴿ وَكَلَّمَ اللَّهُ مُوسى تَكْليماً ﴾"
+  ],
+  "bosluk": {
+   "cumle": "مَنْ كَلَّمَكَ بِهذا الكَلامِ ؟",
+   "kelime": "كَلَّمَكَ"
+  },
+  "tr": "konuşmak",
+  "tanim_tr": "Konuştu, söz söyledi.",
+  "ornekler_tr": [
+   "“Bu sözü sana kim söyledi?”",
+   "﴿ Allah Musa ile gerçekten konuştu. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَلِمَة",
+  "cogul": null,
+  "metin": "(١) لَفْظَةٌ واحِدَةٌ لَها مَعْنًى ، “(في) كَلِمَةٌ وَ (جاءَ) كَلِمَةٌ وَ (لَيْتَ) كَلِمَةٌ” . (٢) خُطْبَةٌ ، “يُلْقي المُديرُ كَلِمَةً كُلَّ أُسْبوعٍ” .",
+  "tanim": "(١) لَفْظَةٌ واحِدَةٌ لَها مَعْنًى (٢) خُطْبَةٌ",
+  "ornekler": [
+   "“(في) كَلِمَةٌ وَ (جاءَ) كَلِمَةٌ وَ (لَيْتَ) كَلِمَةٌ”",
+   "“يُلْقي المُديرُ كَلِمَةً كُلَّ أُسْبوعٍ”"
+  ],
+  "bosluk": {
+   "cumle": "يُلْقي المُديرُ كَلِمَةً كُلَّ أُسْبوعٍ",
+   "kelime": "كَلِمَةً"
+  },
+  "tr": "kelime; konuşma",
+  "tanim_tr": "(1) Anlamı olan tek bir lafız. (2) Hitabe, konuşma.",
+  "ornekler_tr": [
+   "“(في) bir kelimedir, (جاء) bir kelimedir, (ليت) bir kelimedir.”",
+   "“Müdür her hafta bir konuşma yapar.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "k": "كُلًى",
+  "yon": "كُلْيَة",
+  "iliski": "جمع",
+  "tr": "böbrekler"
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كُلِّيَّة",
+  "cogul": null,
+  "metin": "قِسْمٌ عِلْمِيٌّ مِنْ جامِعَةٍ ، “يَدْرُسُ صَديقي في كُلِّيَّةِ العُلومِ” ، “تَتَأَلَّفُ جامِعَتُنا مِنْ خَمْسِ كُلِّيّاتٍ” ، “هَلْ في بَلَدِكَ كُلِّيَّةٌ لِلْعُلومِ الإِسْلامِيَّةِ ؟” .",
+  "tanim": "قِسْمٌ عِلْمِيٌّ مِنْ جامِعَةٍ",
+  "ornekler": [
+   "“يَدْرُسُ صَديقي في كُلِّيَّةِ العُلومِ”",
+   "“تَتَأَلَّفُ جامِعَتُنا مِنْ خَمْسِ كُلِّيّاتٍ”",
+   "“هَلْ في بَلَدِكَ كُلِّيَّةٌ لِلْعُلومِ الإِسْلامِيَّةِ ؟”"
+  ],
+  "bosluk": {
+   "cumle": "يَدْرُسُ صَديقي في كُلِّيَّةِ العُلومِ",
+   "kelime": "كُلِّيَّةِ"
+  },
+  "tr": "fakülte",
+  "tanim_tr": "Bir üniversitenin ilmî bölümü.",
+  "ornekler_tr": [
+   "“Arkadaşım fen fakültesinde okuyor.”",
+   "“Üniversitemiz beş fakülteden oluşuyor.”",
+   "“Senin ülkende İslami ilimler fakültesi var mı?”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كُلْيَة",
+  "cogul": "كُلًى",
+  "metin": "(ج) كُلًى : عُضْوٌ يُنَقّي الدَّمَ ، وَيُفْرِزُ البَوْلَ ، “يَشْكو مِنَ الْتِهابٍ في الكُلى” ، “يَتَبَرَّعُ بَعْضُ النّاسِ بِكُلاهُمْ إِلى مَرْضى الكُلى” .",
+  "tanim": "عُضْوٌ يُنَقّي الدَّمَ ، وَيُفْرِزُ البَوْلَ",
+  "ornekler": [
+   "“يَشْكو مِنَ الْتِهابٍ في الكُلى”",
+   "“يَتَبَرَّعُ بَعْضُ النّاسِ بِكُلاهُمْ إِلى مَرْضى الكُلى”"
+  ],
+  "bosluk": {
+   "cumle": "يَشْكو مِنَ الْتِهابٍ في الكُلى",
+   "kelime": "الكُلى"
+  },
+  "tr": "böbrek",
+  "tanim_tr": "Kanı temizleyen ve idrarı salgılayan organ.",
+  "ornekler_tr": [
+   "“Böbreklerdeki bir iltihaptan şikâyet ediyor.”",
+   "“Bazı insanlar böbreklerini böbrek hastalarına bağışlar.”"
+  ],
+  "resim": "p286_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَليل",
+  "cogul": "كِلال",
+  "metin": "(ج) كِلال : ضَعيفٌ ، “أَصْبَحَ جَسَدُهُ كَليلاً بَعْدَ المَرَضِ” .",
+  "tanim": "ضَعيفٌ",
+  "ornekler": [
+   "“أَصْبَحَ جَسَدُهُ كَليلاً بَعْدَ المَرَضِ”"
+  ],
+  "bosluk": {
+   "cumle": "أَصْبَحَ جَسَدُهُ كَليلاً بَعْدَ المَرَضِ",
+   "kelime": "كَليلاً"
+  },
+  "tr": "bitkin, güçsüz",
+  "tanim_tr": "Zayıf, güçsüz.",
+  "ornekler_tr": [
+   "“Hastalıktan sonra bedeni bitkin düştü.”"
+  ],
+  "resim": "p286_5.jpg",
+  "not": "Resimde karşıtı قَوِيّ da gösteriliyor."
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كَمْ",
+  "cogul": null,
+  "metin": "(١) أَداةُ اسْتِفْهامٍ بِمَعْنى أَيِّ عَدَدٍ ، “كَمْ طالِباً في الصَّفِّ ؟” ، “كَمْ صَفْحَةً في هذا المُعْجَمِ ؟” . (٢) خَبَرِيَّةٌ بِمَعْنى كَثيرٍ ، “كَمْ مِنْ بَلَدٍ زُرْتَ” ، ﴿ كَمْ مِنْ فِئَةٍ قَليلَةٍ غَلَبَتْ فِئَةً كَثيرَةً بِإِذْنِ اللَّهِ وَاللَّهُ مَعَ الصّابِرينَ ﴾ .",
+  "tanim": "(١) أَداةُ اسْتِفْهامٍ بِمَعْنى أَيِّ عَدَدٍ (٢) خَبَرِيَّةٌ بِمَعْنى كَثيرٍ",
+  "ornekler": [
+   "“كَمْ طالِباً في الصَّفِّ ؟”",
+   "“كَمْ صَفْحَةً في هذا المُعْجَمِ ؟”",
+   "“كَمْ مِنْ بَلَدٍ زُرْتَ”",
+   "﴿ كَمْ مِنْ فِئَةٍ قَليلَةٍ غَلَبَتْ فِئَةً كَثيرَةً بِإِذْنِ اللَّهِ وَاللَّهُ مَعَ الصّابِرينَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "كَمْ صَفْحَةً في هذا المُعْجَمِ ؟",
+   "kelime": "كَمْ"
+  },
+  "tr": "kaç; nice",
+  "tanim_tr": "(1) “Kaç” anlamında soru edatı. (2) “Çok” anlamında haber bildiren (kem-i haberiyye).",
+  "ornekler_tr": [
+   "“Sınıfta kaç öğrenci var?”",
+   "“Bu sözlükte kaç sayfa var?”",
+   "“Nice ülkeler gezdin!”",
+   "﴿ Nice az topluluk, Allah'ın izniyle çok topluluğa galip gelmiştir. Allah sabredenlerle beraberdir. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 286,
+  "baski_no": "٢٨٦",
+  "k": "كُمَّثْرى",
+  "cogul": null,
+  "metin": "نَوْعٌ مِنَ الفاكِهَةِ لَهُ شَكْلٌ يُشْبِهُ الجَرَسَ ، “يَبيعُ هذا الفاكِهِيُّ أَفْضَلَ أَنْواعِ الكُمَّثْرى” .",
+  "tanim": "نَوْعٌ مِنَ الفاكِهَةِ لَهُ شَكْلٌ يُشْبِهُ الجَرَسَ",
+  "ornekler": [
+   "“يَبيعُ هذا الفاكِهِيُّ أَفْضَلَ أَنْواعِ الكُمَّثْرى”"
+  ],
+  "bosluk": {
+   "cumle": "يَبيعُ هذا الفاكِهِيُّ أَفْضَلَ أَنْواعِ الكُمَّثْرى",
+   "kelime": "الكُمَّثْرى"
+  },
+  "tr": "armut",
+  "tanim_tr": "Çan şeklinde bir meyve türü.",
+  "ornekler_tr": [
+   "“Bu manav armudun en iyi çeşitlerini satıyor.”"
+  ],
+  "resim": "p286_6.jpg",
+  "not": null
+ }
+]

@@ -1,0 +1,411 @@
+[
+ {
+  "sayfa": 315,
+  "devam": true,
+  "metin": "عَلَى السِّباحَةِ” ، “مَرَّنَ المُدَرِّسُ التَّلاميذَ عَلى حَلِّ المَسائِلِ” ."
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مُروءَة",
+  "cogul": null,
+  "metin": "سُلوكٌ وَأَخْلاقٌ لَدَى الإِنْسانِ ، تَجْعَلُهُ يَهُبُّ لِمُساعَدَةِ النّاسِ ، “لي أَخٌ ذو مُروءَةٍ ، يُساعِدُ كُلَّ مَنْ يَطْلُبُ مِنْهُ المُساعَدَةَ” ، “لا تَنْتَظِرْ مِنْ هٰذا الرَّجُلِ خَيْراً ، فَهُوَ قَليلُ المُروءَةِ” .",
+  "tanim": "سُلوكٌ وَأَخْلاقٌ لَدَى الإِنْسانِ ، تَجْعَلُهُ يَهُبُّ لِمُساعَدَةِ النّاسِ",
+  "ornekler": [
+   "“لي أَخٌ ذو مُروءَةٍ ، يُساعِدُ كُلَّ مَنْ يَطْلُبُ مِنْهُ المُساعَدَةَ”",
+   "“لا تَنْتَظِرْ مِنْ هٰذا الرَّجُلِ خَيْراً ، فَهُوَ قَليلُ المُروءَةِ”"
+  ],
+  "bosluk": {
+   "cumle": "لا تَنْتَظِرْ مِنْ هٰذا الرَّجُلِ خَيْراً ، فَهُوَ قَليلُ المُروءَةِ",
+   "kelime": "المُروءَةِ"
+  },
+  "tr": "mertlik, yiğitlik",
+  "tanim_tr": "İnsanı başkalarına yardıma koşturan davranış ve ahlak.",
+  "ornekler_tr": [
+   "“Mert bir kardeşim var; kendisinden yardım isteyen herkese yardım eder.”",
+   "“Bu adamdan hayır bekleme, mertliği azdır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مَرْوَة",
+  "cogul": null,
+  "metin": "(المَرْوَة) : جَبَلٌ بِمَكَّةَ مُقابِلٌ لِلصَّفا ، ﴿ إِنَّ الصَّفا وَالمَرْوَةَ مِنْ شَعائِرِ اللهِ ﴾ .",
+  "tanim": "جَبَلٌ بِمَكَّةَ مُقابِلٌ لِلصَّفا",
+  "ornekler": [
+   "﴿ إِنَّ الصَّفا وَالمَرْوَةَ مِنْ شَعائِرِ اللهِ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "إِنَّ الصَّفا وَالمَرْوَةَ مِنْ شَعائِرِ اللهِ",
+   "kelime": "المَرْوَةَ"
+  },
+  "tr": "Merve tepesi",
+  "tanim_tr": "Mekke'de Safa'nın karşısındaki tepe.",
+  "ornekler_tr": [
+   "﴿ Şüphesiz Safa ile Merve Allah'ın nişanelerindendir. ﴾"
+  ],
+  "resim": "p315_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 315,
+  "k": "مُروج",
+  "yon": "مَرْج",
+  "iliski": "جمع",
+  "tr": "çayırlar"
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مُرور",
+  "cogul": null,
+  "metin": "السَّيْرُ عَلَى الطَّريقِ ، “تَزْدَحِمُ حَرَكَةُ المُرورِ عِنْدَ الظُّهْرِ” ، “المُرورُ مَمْنوعٌ مِنْ هٰذا الطَّريقِ” .",
+  "tanim": "السَّيْرُ عَلَى الطَّريقِ",
+  "ornekler": [
+   "“تَزْدَحِمُ حَرَكَةُ المُرورِ عِنْدَ الظُّهْرِ”",
+   "“المُرورُ مَمْنوعٌ مِنْ هٰذا الطَّريقِ”"
+  ],
+  "bosluk": {
+   "cumle": "المُرورُ مَمْنوعٌ مِنْ هٰذا الطَّريقِ",
+   "kelime": "المُرورُ"
+  },
+  "tr": "geçiş; trafik",
+  "tanim_tr": "Yolda gitme, geçme.",
+  "ornekler_tr": [
+   "“Öğle vakti trafik yoğunlaşır.”",
+   "“Bu yoldan geçiş yasaktır.”"
+  ],
+  "resim": null,
+  "not": "Madde başı kitapta “مُرورٌ” (tenvinli)."
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مُرونَة",
+  "cogul": null,
+  "metin": "حُسْنُ التَّصَرُّفِ في الأُمورِ ، “المُرونَةُ صِفَةٌ لازِمَةٌ لِكُلِّ مَسْؤولٍ” ، “أَراكَ قَليلَ المُرونَةِ في التَّعامُلِ مَعَ النّاسِ” .",
+  "tanim": "حُسْنُ التَّصَرُّفِ في الأُمورِ",
+  "ornekler": [
+   "“المُرونَةُ صِفَةٌ لازِمَةٌ لِكُلِّ مَسْؤولٍ”",
+   "“أَراكَ قَليلَ المُرونَةِ في التَّعامُلِ مَعَ النّاسِ”"
+  ],
+  "bosluk": {
+   "cumle": "المُرونَةُ صِفَةٌ لازِمَةٌ لِكُلِّ مَسْؤولٍ",
+   "kelime": "المُرونَةُ"
+  },
+  "tr": "esneklik",
+  "tanim_tr": "İşlerde iyi davranma, idarelilik.",
+  "ornekler_tr": [
+   "“Esneklik her yönetici için gerekli bir niteliktir.”",
+   "“İnsanlarla ilişkilerinde seni pek esnek görmüyorum.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مِرْيَة",
+  "cogul": null,
+  "metin": "شَكٌّ ، جَدَلٌ ، “هٰذا مَوْضوعٌ لا مِرْيَةَ فيهِ” ، ﴿ فَلا تَكُ في مِرْيَةٍ مِنْهُ ﴾ .",
+  "tanim": "شَكٌّ ، جَدَلٌ",
+  "ornekler": [
+   "“هٰذا مَوْضوعٌ لا مِرْيَةَ فيهِ”",
+   "﴿ فَلا تَكُ في مِرْيَةٍ مِنْهُ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "هٰذا مَوْضوعٌ لا مِرْيَةَ فيهِ",
+   "kelime": "مِرْيَةَ"
+  },
+  "tr": "şüphe",
+  "tanim_tr": "Şüphe, tartışma.",
+  "ornekler_tr": [
+   "“Bu, hakkında şüphe olmayan bir konudur.”",
+   "﴿ Ondan şüphe içinde olma. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مُريح",
+  "cogul": null,
+  "metin": "فيهِ راحَةٌ ؛ خِلافُ مُتْعِب ، “سَمِعْتُ مِنْهُ كَلاماً مُريحاً” .",
+  "tanim": "فيهِ راحَةٌ ؛ خِلافُ مُتْعِب",
+  "ornekler": [
+   "“سَمِعْتُ مِنْهُ كَلاماً مُريحاً”"
+  ],
+  "bosluk": {
+   "cumle": "سَمِعْتُ مِنْهُ كَلاماً مُريحاً",
+   "kelime": "مُريحاً"
+  },
+  "tr": "rahatlatıcı, rahat",
+  "tanim_tr": "İçinde rahatlık olan; yorucunun karşıtı.",
+  "ornekler_tr": [
+   "“Ondan içimi rahatlatan sözler duydum.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مَريض",
+  "cogul": "مَرْضَى",
+  "metin": "(ج) مَرْضَى : الَّذي أَصابَهُ مَرَضٌ ، سَقيم ، “تَناوَلَ المَريضُ الدَّواءَ” ، “شَفَى اللهُ المَريضَ” .",
+  "tanim": "الَّذي أَصابَهُ مَرَضٌ ، سَقيم",
+  "ornekler": [
+   "“تَناوَلَ المَريضُ الدَّواءَ”",
+   "“شَفَى اللهُ المَريضَ”"
+  ],
+  "bosluk": {
+   "cumle": "تَناوَلَ المَريضُ الدَّواءَ",
+   "kelime": "المَريضُ"
+  },
+  "tr": "hasta",
+  "tanim_tr": "Hastalığa yakalanmış kişi, hasta.",
+  "ornekler_tr": [
+   "“Hasta ilacı aldı.”",
+   "“Allah hastaya şifa verdi.”"
+  ],
+  "resim": "p315_2.jpg",
+  "not": "Resim مَريض / صَحيح karşıtlığını gösteriyor."
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مُزاح",
+  "cogul": null,
+  "metin": "مُداعَبَة ، “هٰذا رَجُلٌ كَثيرُ المُزاحِ” . “كَثْرَةُ المُزاحِ تُؤَدّي إِلى مُشْكِلاتٍ أَحْياناً” .",
+  "tanim": "مُداعَبَة",
+  "ornekler": [
+   "“هٰذا رَجُلٌ كَثيرُ المُزاحِ”",
+   "“كَثْرَةُ المُزاحِ تُؤَدّي إِلى مُشْكِلاتٍ أَحْياناً”"
+  ],
+  "bosluk": {
+   "cumle": "هٰذا رَجُلٌ كَثيرُ المُزاحِ",
+   "kelime": "المُزاحِ"
+  },
+  "tr": "şaka",
+  "tanim_tr": "Şakalaşma.",
+  "ornekler_tr": [
+   "“Bu, çok şaka yapan bir adamdır.”",
+   "“Çok şaka yapmak bazen sorunlara yol açar.”"
+  ],
+  "resim": null,
+  "not": "İki örnek arasında kitapta virgül yerine nokta basılmış."
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مُزاحِم",
+  "cogul": null,
+  "metin": "الَّذي يُضايِقُ النّاسَ ، وَيُدافِعُهُمْ ، “أَراكَ مُزاحِماً لِزُمَلائِكَ عِنْدَ الخُروجِ مِنَ القاعَةِ” .",
+  "tanim": "الَّذي يُضايِقُ النّاسَ ، وَيُدافِعُهُمْ",
+  "ornekler": [
+   "“أَراكَ مُزاحِماً لِزُمَلائِكَ عِنْدَ الخُروجِ مِنَ القاعَةِ”"
+  ],
+  "bosluk": {
+   "cumle": "أَراكَ مُزاحِماً لِزُمَلائِكَ عِنْدَ الخُروجِ مِنَ القاعَةِ",
+   "kelime": "مُزاحِماً"
+  },
+  "tr": "itişip kakışan",
+  "tanim_tr": "İnsanları sıkıştıran ve iten kişi.",
+  "ornekler_tr": [
+   "“Salondan çıkarken arkadaşlarını ittiğini görüyorum.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مُزارِع",
+  "cogul": null,
+  "metin": "فَلاّحٌ ، الَّذي يَزْرَعُ الأَرْضَ ، زارِعٌ ، “يَحْرُثُ المُزارِعُ الأَرْضَ بِالمِحْراثِ” ، “يَجْني المُزارِعُ ما يَزْرَعُ” .",
+  "tanim": "فَلاّحٌ ، الَّذي يَزْرَعُ الأَرْضَ ، زارِعٌ",
+  "ornekler": [
+   "“يَحْرُثُ المُزارِعُ الأَرْضَ بِالمِحْراثِ”",
+   "“يَجْني المُزارِعُ ما يَزْرَعُ”"
+  ],
+  "bosluk": {
+   "cumle": "يَحْرُثُ المُزارِعُ الأَرْضَ بِالمِحْراثِ",
+   "kelime": "المُزارِعُ"
+  },
+  "tr": "çiftçi",
+  "tanim_tr": "Köylü, toprağı eken kişi, ekinci.",
+  "ornekler_tr": [
+   "“Çiftçi toprağı sabanla sürer.”",
+   "“Çiftçi ne ekerse onu biçer.”"
+  ],
+  "resim": "p315_3.jpg",
+  "not": "Örnekler sol sütunun başında devam ediyor."
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مَزاعِم",
+  "cogul": null,
+  "metin": "جَمْعُ مَزْعَم : أَمْرٌ يَحْتَمِلُ الصِّدْقَ وَالكَذِبَ ، ادِّعاءٌ لَيْسَ لَهُ دَليلٌ ، “بَطَلَتْ كُلُّ المَزاعِمِ الَّتي جاءَ بِها” .",
+  "tanim": "جَمْعُ مَزْعَم : أَمْرٌ يَحْتَمِلُ الصِّدْقَ وَالكَذِبَ ، ادِّعاءٌ لَيْسَ لَهُ دَليلٌ",
+  "ornekler": [
+   "“بَطَلَتْ كُلُّ المَزاعِمِ الَّتي جاءَ بِها”"
+  ],
+  "bosluk": {
+   "cumle": "بَطَلَتْ كُلُّ المَزاعِمِ الَّتي جاءَ بِها",
+   "kelime": "المَزاعِمِ"
+  },
+  "tr": "iddialar",
+  "tanim_tr": "Mez'am'ın çoğulu: doğru da yalan da olabilen şey, delili olmayan iddia.",
+  "ornekler_tr": [
+   "“Ortaya attığı bütün iddialar çürüdü.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 315,
+  "k": "مَزايا",
+  "yon": "مِزْيَة",
+  "iliski": "جمع",
+  "tr": "üstünlükler, meziyetler",
+  "not": "Kitapta yönlendirme “مِزْيَة” olarak basılmış; asıl madde p316'da مَزِيَّة."
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مَزَجَ",
+  "cogul": null,
+  "metin": "يَمْزُجُ مَزْجاً : خَلَطَ شَيْئاً بِآخَرَ ، “لا تَمْزُجِ الحَليبَ بِالماءِ” .",
+  "tanim": "خَلَطَ شَيْئاً بِآخَرَ",
+  "ornekler": [
+   "“لا تَمْزُجِ الحَليبَ بِالماءِ”"
+  ],
+  "bosluk": {
+   "cumle": "لا تَمْزُجِ الحَليبَ بِالماءِ",
+   "kelime": "تَمْزُجِ"
+  },
+  "tr": "karıştırmak",
+  "tanim_tr": "Bir şeyi başka bir şeyle karıştırdı.",
+  "ornekler_tr": [
+   "“Sütü suyla karıştırma.”"
+  ],
+  "resim": "p315_4.jpg",
+  "not": "Kitapta mastar “مُزجاً” gibi görünüyor (ilk harfin harekesi belirsiz); sözlükte doğrusu مَزْجاً."
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مُزَخْرَف",
+  "cogul": null,
+  "metin": "مُزَيَّنٌ ، مُجَمَّلٌ وَمُحَسَّنٌ ، “ثَوْبُ عائِشَةَ مُزَخْرَفٌ بِأَلْوانٍ جَميلَةٍ” ، “يُحِبُّ الأَطْفالُ الثِّيابَ المُزَخْرَفَةَ” .",
+  "tanim": "مُزَيَّنٌ ، مُجَمَّلٌ وَمُحَسَّنٌ",
+  "ornekler": [
+   "“ثَوْبُ عائِشَةَ مُزَخْرَفٌ بِأَلْوانٍ جَميلَةٍ”",
+   "“يُحِبُّ الأَطْفالُ الثِّيابَ المُزَخْرَفَةَ”"
+  ],
+  "bosluk": {
+   "cumle": "يُحِبُّ الأَطْفالُ الثِّيابَ المُزَخْرَفَةَ",
+   "kelime": "المُزَخْرَفَةَ"
+  },
+  "tr": "süslü, nakışlı",
+  "tanim_tr": "Süslenmiş, güzelleştirilmiş.",
+  "ornekler_tr": [
+   "“Âişe'nin elbisesi güzel renklerle süslenmiş.”",
+   "“Çocuklar süslü elbiseleri sever.”"
+  ],
+  "resim": "p315_5.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مُزْدَحِم",
+  "cogul": null,
+  "metin": "بِهِ زِحامٌ ، مَليءٌ ، وَمُكْتَظٌّ ، “القاعَةُ مُزْدَحِمَةٌ بِالطُّلاّبِ” ، “لا تَسِرْ في شارِعِ الوادي ، فَهُوَ مُزْدَحِمٌ الآنَ” .",
+  "tanim": "بِهِ زِحامٌ ، مَليءٌ ، وَمُكْتَظٌّ",
+  "ornekler": [
+   "“القاعَةُ مُزْدَحِمَةٌ بِالطُّلاّبِ”",
+   "“لا تَسِرْ في شارِعِ الوادي ، فَهُوَ مُزْدَحِمٌ الآنَ”"
+  ],
+  "bosluk": {
+   "cumle": "القاعَةُ مُزْدَحِمَةٌ بِالطُّلاّبِ",
+   "kelime": "مُزْدَحِمَةٌ"
+  },
+  "tr": "kalabalık, sıkışık",
+  "tanim_tr": "İzdihamlı, dolu ve tıklım tıklım.",
+  "ornekler_tr": [
+   "“Salon öğrencilerle dolu.”",
+   "“Vadi caddesinden gitme, şu an çok kalabalık.”"
+  ],
+  "resim": "p315_6.jpg",
+  "not": "Resim مُزْدَحِم / خالٍ karşıtlığını gösteriyor."
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مُزْدَلِفَة",
+  "cogul": null,
+  "metin": "مَوْضِعٌ بَيْنَ مِنًى وَعَرَفَةَ ، يَبيتُ فيهِ الحُجّاجُ لَيْلَةَ العاشِرِ مِنْ ذي الحِجَّةِ .",
+  "tanim": "مَوْضِعٌ بَيْنَ مِنًى وَعَرَفَةَ ، يَبيتُ فيهِ الحُجّاجُ لَيْلَةَ العاشِرِ مِنْ ذي الحِجَّةِ",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "Müzdelife",
+  "tanim_tr": "Mina ile Arafat arasında, hacıların Zilhicce'nin onuncu gecesini geçirdiği yer.",
+  "ornekler_tr": [],
+  "resim": "p315_7.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مَزْرَعَة",
+  "cogul": "مَزارِع",
+  "metin": "(ج) مَزارِع : مَكانُ الزِّراعَةِ وَتَرْبِيَةِ الحَيَوانِ ، “لَدَيْنا مَزْرَعَةٌ كَبيرَةٌ في الرّيفِ” ، “في مَزْرَعَتِنا أَشْجارُ لَيْمونٍ وَبُرْتُقالٍ” .",
+  "tanim": "مَكانُ الزِّراعَةِ وَتَرْبِيَةِ الحَيَوانِ",
+  "ornekler": [
+   "“لَدَيْنا مَزْرَعَةٌ كَبيرَةٌ في الرّيفِ”",
+   "“في مَزْرَعَتِنا أَشْجارُ لَيْمونٍ وَبُرْتُقالٍ”"
+  ],
+  "bosluk": {
+   "cumle": "لَدَيْنا مَزْرَعَةٌ كَبيرَةٌ في الرّيفِ",
+   "kelime": "مَزْرَعَةٌ"
+  },
+  "tr": "çiftlik",
+  "tanim_tr": "Tarım yapılan ve hayvan yetiştirilen yer.",
+  "ornekler_tr": [
+   "“Kırsalda büyük bir çiftliğimiz var.”",
+   "“Çiftliğimizde limon ve portakal ağaçları var.”"
+  ],
+  "resim": "p315_8.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 315,
+  "baski_no": "٣١٥",
+  "k": "مُزْعِج",
+  "cogul": null,
+  "metin": "ما يُسَبِّبُ القَلَقَ وَالضّيقَ وَالاضْطِرابَ ، “صُراخُ الطِّفْلِ في اللَّيْلِ",
+  "tanim": "ما يُسَبِّبُ القَلَقَ وَالضّيقَ وَالاضْطِرابَ",
+  "ornekler": [
+   "“صُراخُ الطِّفْلِ في اللَّيْلِ مُزْعِجٌ”",
+   "“نَقَلَتْ إِلَيْنا الإِذاعَةُ أَخْباراً مُزْعِجَةً عَنْ بِلادِنا”"
+  ],
+  "bosluk": {
+   "cumle": "صُراخُ الطِّفْلِ في اللَّيْلِ مُزْعِجٌ",
+   "kelime": "مُزْعِجٌ"
+  },
+  "tr": "rahatsız edici",
+  "tanim_tr": "Kaygı, sıkıntı ve huzursuzluğa yol açan.",
+  "ornekler_tr": [
+   "“Çocuğun gece bağırması rahatsız edicidir.”",
+   "“Radyo bize ülkemizle ilgili kaygı verici haberler iletti.”"
+  ],
+  "resim": "p315_9.jpg",
+  "not": "Metin p316'da devam ediyor (örneklerin sonu oradan alındı). Resim مُزْعِج / مُريح karşıtlığını gösteriyor."
+ }
+]

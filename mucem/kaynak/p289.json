@@ -1,0 +1,374 @@
+[
+ {
+  "sayfa": 289,
+  "k": "لِئام",
+  "yon": "لَئيم",
+  "iliski": "جمع",
+  "tr": "alçaklar, cimriler"
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لَأْلَأَ",
+  "cogul": null,
+  "metin": "يُلَأْلِئُ لَأْلَأَةً : لَمَعَ ، “لَأْلَأَ البَرْقُ” .",
+  "tanim": "لَمَعَ",
+  "ornekler": [
+   "“لَأْلَأَ البَرْقُ”"
+  ],
+  "bosluk": {
+   "cumle": "لَأْلَأَ البَرْقُ",
+   "kelime": "لَأْلَأَ"
+  },
+  "tr": "parıldamak",
+  "tanim_tr": "Parladı.",
+  "ornekler_tr": [
+   "“Şimşek çaktı (parladı).”"
+  ],
+  "resim": "p289_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لُؤْلُؤ",
+  "cogul": "لَآلِئ",
+  "metin": "(ج) لَآلِئُ : الواحِدَةُ لُؤْلُؤَةٌ ، دُرٌّ يَتَكَوَّنُ في البِحارِ وَالأَنْهارِ ، وَهُوَ لَمّاعٌ كُرَوِيُّ الشَّكْلِ ، ﴿ يَخْرُجُ مِنْهُمَا اللُّؤْلُؤُ وَالْمَرْجانُ ﴾ .",
+  "tanim": "دُرٌّ يَتَكَوَّنُ في البِحارِ وَالأَنْهارِ ، وَهُوَ لَمّاعٌ كُرَوِيُّ الشَّكْلِ",
+  "ornekler": [
+   "﴿ يَخْرُجُ مِنْهُمَا اللُّؤْلُؤُ وَالْمَرْجانُ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "يَخْرُجُ مِنْهُمَا اللُّؤْلُؤُ وَالْمَرْجانُ",
+   "kelime": "اللُّؤْلُؤُ"
+  },
+  "tr": "inci",
+  "tanim_tr": "Denizlerde ve nehirlerde oluşan, parlak, yuvarlak biçimli inci. Tekili: لُؤْلُؤَة.",
+  "ornekler_tr": [
+   "﴿ İkisinden de inci ve mercan çıkar. ﴾"
+  ],
+  "resim": "p289_2.jpg",
+  "not": "Tekili: لُؤْلُؤَة."
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لَئيم",
+  "cogul": "لِئام",
+  "metin": "(ج) لِئام : خِلافُ كَريمٍ ، وَهُوَ الشَّخْصُ الَّذي تَجْتَمِعُ فيهِ صِفاتٌ غَيْرُ حَميدَةٍ ، مِثْلُ : الشُّحِّ وَمَهانَةِ النَّفْسِ وَالدَّناءَةِ .",
+  "tanim": "خِلافُ كَريمٍ ، وَهُوَ الشَّخْصُ الَّذي تَجْتَمِعُ فيهِ صِفاتٌ غَيْرُ حَميدَةٍ ، مِثْلُ : الشُّحِّ وَمَهانَةِ النَّفْسِ وَالدَّناءَةِ",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "alçak, cimri",
+  "tanim_tr": "Cömerdin zıddı; cimrilik, nefis düşüklüğü ve alçaklık gibi övülmeyen sıfatları kendinde toplayan kişi.",
+  "ornekler_tr": [],
+  "resim": "p289_3.jpg",
+  "not": "Resimde karşıtı كَريم da gösteriliyor."
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لا",
+  "cogul": null,
+  "metin": "(١) حَرْفُ نَفْيٍ ، “لا أَعْلَمُ ما حَدَثَ أَمْسِ” ، “لا يَتَأَخَّرُ الطّالِبُ المُجْتَهِدُ عَنِ الدَّرْسِ” . (٢) حَرْفُ نَهْيٍ ، “لا تُهْمِلْ في عَمَلِكَ” ، ﴿ وَلا تَمْشِ فِي الْأَرْضِ مَرَحاً ﴾ .",
+  "tanim": "(١) حَرْفُ نَفْيٍ (٢) حَرْفُ نَهْيٍ",
+  "ornekler": [
+   "“لا أَعْلَمُ ما حَدَثَ أَمْسِ”",
+   "“لا يَتَأَخَّرُ الطّالِبُ المُجْتَهِدُ عَنِ الدَّرْسِ”",
+   "“لا تُهْمِلْ في عَمَلِكَ”",
+   "﴿ وَلا تَمْشِ فِي الْأَرْضِ مَرَحاً ﴾"
+  ],
+  "bosluk": {
+   "cumle": "لا تُهْمِلْ في عَمَلِكَ",
+   "kelime": "لا"
+  },
+  "tr": "hayır, değil; -me",
+  "tanim_tr": "(1) Olumsuzluk harfi. (2) Yasaklama (nehiy) harfi.",
+  "ornekler_tr": [
+   "“Dün ne olduğunu bilmiyorum.”",
+   "“Çalışkan öğrenci dersten geri kalmaz.”",
+   "“İşinde ihmalkârlık yapma.”",
+   "﴿ Yeryüzünde böbürlenerek yürüme. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لا عَجَبَ",
+  "cogul": null,
+  "metin": "لا غَرابَةَ وَلا دَهْشَةَ ، “لا عَجَبَ مِنْ تَفَوُّقِهِ ، فَهُوَ مُجْتَهِدٌ وَذَكِيٌّ” ، “لا عَجَبَ مِنْ سُقوطِ المَبْنى ، فَأَساسُهُ ضَعيفٌ” .",
+  "tanim": "لا غَرابَةَ وَلا دَهْشَةَ",
+  "ornekler": [
+   "“لا عَجَبَ مِنْ تَفَوُّقِهِ ، فَهُوَ مُجْتَهِدٌ وَذَكِيٌّ”",
+   "“لا عَجَبَ مِنْ سُقوطِ المَبْنى ، فَأَساسُهُ ضَعيفٌ”"
+  ],
+  "bosluk": {
+   "cumle": "لا عَجَبَ مِنْ سُقوطِ المَبْنى ، فَأَساسُهُ ضَعيفٌ",
+   "kelime": "لا عَجَبَ"
+  },
+  "tr": "şaşılacak bir şey yok",
+  "tanim_tr": "Garip ve şaşırtıcı bir şey yok.",
+  "ornekler_tr": [
+   "“Başarılı olmasına şaşmamak gerek; o çalışkan ve zekidir.”",
+   "“Binanın çökmesi şaşırtıcı değil; temeli zayıf.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لا مانِعَ",
+  "cogul": null,
+  "metin": "لَيْسَ هُناكَ ما يَحولُ دونَ ذلِكَ ، “لا مانِعَ مِنْ زِيارَتِكَ” ، “لا مانِعَ مِنْ سَفَرِكَ” .",
+  "tanim": "لَيْسَ هُناكَ ما يَحولُ دونَ ذلِكَ",
+  "ornekler": [
+   "“لا مانِعَ مِنْ زِيارَتِكَ”",
+   "“لا مانِعَ مِنْ سَفَرِكَ”"
+  ],
+  "bosluk": {
+   "cumle": "لا مانِعَ مِنْ زِيارَتِكَ",
+   "kelime": "لا مانِعَ"
+  },
+  "tr": "sakıncası yok",
+  "tanim_tr": "Buna engel olacak bir şey yok.",
+  "ornekler_tr": [
+   "“Ziyaretinde bir sakınca yok.”",
+   "“Yolculuğuna bir engel yok.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لائِحَة",
+  "cogul": "لَوائِح",
+  "metin": "(ج) لَوائِح : مَجْموعَةٌ مِنَ المَوادِّ توضَعُ لِتَنْظيمِ العَمَلِ في شَرِكَةٍ أَوْ مُؤَسَّسَةٍ ، “ظَهَرَتِ اللّائِحَةُ الجَديدَةُ الَّتي تُنَظِّمُ العَمَلَ” .",
+  "tanim": "مَجْموعَةٌ مِنَ المَوادِّ توضَعُ لِتَنْظيمِ العَمَلِ في شَرِكَةٍ أَوْ مُؤَسَّسَةٍ",
+  "ornekler": [
+   "“ظَهَرَتِ اللّائِحَةُ الجَديدَةُ الَّتي تُنَظِّمُ العَمَلَ”"
+  ],
+  "bosluk": {
+   "cumle": "ظَهَرَتِ اللّائِحَةُ الجَديدَةُ الَّتي تُنَظِّمُ العَمَلَ",
+   "kelime": "اللّائِحَةُ"
+  },
+  "tr": "yönetmelik",
+  "tanim_tr": "Bir şirkette veya kurumda işi düzenlemek için konulan maddeler bütünü.",
+  "ornekler_tr": [
+   "“İşi düzenleyen yeni yönetmelik yayımlandı.”"
+  ],
+  "resim": null,
+  "not": "Madde sağ sütunun sonundan sol sütunun başına devam ediyor."
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لائِق",
+  "cogul": null,
+  "metin": "مُلائِمٌ وَمُناسِبٌ ، “هذا القَميصُ لائِقٌ عَلَيْكَ” .",
+  "tanim": "مُلائِمٌ وَمُناسِبٌ",
+  "ornekler": [
+   "“هذا القَميصُ لائِقٌ عَلَيْكَ”"
+  ],
+  "bosluk": {
+   "cumle": "هذا القَميصُ لائِقٌ عَلَيْكَ",
+   "kelime": "لائِقٌ"
+  },
+  "tr": "uygun, yakışır",
+  "tanim_tr": "Uygun ve münasip.",
+  "ornekler_tr": [
+   "“Bu gömlek sana yakışıyor.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "اللاّئي",
+  "cogul": null,
+  "metin": "اللاّتي ، اللَّواتي : اسْمٌ مَوْصولٌ لِجَماعَةِ الإِناثِ ، “هؤُلاءِ هُنَّ الطّالِباتُ اللاّئي تَفَوَّقْنَ في الامْتِحاناتِ” ، ﴿ إِنْ أُمَّهاتُهُمْ إِلاَّ اللاّئي وَلَدْنَهُمْ ﴾ .",
+  "tanim": "اسْمٌ مَوْصولٌ لِجَماعَةِ الإِناثِ",
+  "ornekler": [
+   "“هؤُلاءِ هُنَّ الطّالِباتُ اللاّئي تَفَوَّقْنَ في الامْتِحاناتِ”",
+   "﴿ إِنْ أُمَّهاتُهُمْ إِلاَّ اللاّئي وَلَدْنَهُمْ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "هؤُلاءِ هُنَّ الطّالِباتُ اللاّئي تَفَوَّقْنَ في الامْتِحاناتِ",
+   "kelime": "اللاّئي"
+  },
+  "tr": "ki onlar (dişil çoğul)",
+  "tanim_tr": "Dişil çoğul için ism-i mevsul (Eş anlamlıları: اللاّتي، اللَّواتي).",
+  "ornekler_tr": [
+   "“Bunlar sınavlarda başarılı olan kız öğrencilerdir.”",
+   "﴿ Onların anneleri, ancak onları doğuran kadınlardır. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لا بُدَّ",
+  "cogul": null,
+  "metin": "أَمْرٌ ضَرورِيٌّ ، لا مَهْرَبَ مِنْهُ ، واجِبٌ ، لازِمٌ ، “المَوْتُ حَقيقَةٌ لا بُدَّ مِنْها” .",
+  "tanim": "أَمْرٌ ضَرورِيٌّ ، لا مَهْرَبَ مِنْهُ ، واجِبٌ ، لازِمٌ",
+  "ornekler": [
+   "“المَوْتُ حَقيقَةٌ لا بُدَّ مِنْها”"
+  ],
+  "bosluk": {
+   "cumle": "المَوْتُ حَقيقَةٌ لا بُدَّ مِنْها",
+   "kelime": "لا بُدَّ"
+  },
+  "tr": "kaçınılmaz, mutlaka",
+  "tanim_tr": "Zorunlu, kaçışı olmayan, gerekli, lazım olan şey.",
+  "ornekler_tr": [
+   "“Ölüm kaçınılmaz bir gerçektir.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "اللاّتُ",
+  "cogul": null,
+  "metin": "صَنَمٌ شَهيرٌ كانَ يَعْبُدُهُ المُشْرِكونَ في الجاهِلِيَّةِ ، ﴿ أَفَرَأَيْتُمُ اللاَّتَ وَالْعُزَّى ﴾ .",
+  "tanim": "صَنَمٌ شَهيرٌ كانَ يَعْبُدُهُ المُشْرِكونَ في الجاهِلِيَّةِ",
+  "ornekler": [
+   "﴿ أَفَرَأَيْتُمُ اللاَّتَ وَالْعُزَّى ﴾"
+  ],
+  "bosluk": {
+   "cumle": "أَفَرَأَيْتُمُ اللاَّتَ وَالْعُزَّى",
+   "kelime": "اللاَّتَ"
+  },
+  "tr": "Lât (put)",
+  "tanim_tr": "Cahiliye döneminde müşriklerin taptığı meşhur bir put.",
+  "ornekler_tr": [
+   "﴿ Gördünüz mü o Lât'ı ve Uzzâ'yı? ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لاجِئ",
+  "cogul": null,
+  "metin": "الشَّخْصُ الَّذي يَهْرُبُ مِنْ بَلَدِهِ إِلى بَلَدٍ آخَرَ لِسَبَبٍ سِياسِيٍّ أَوْ حَرْبِيٍّ أَوْ غَيْرِ ذلِكَ ، “يَكْثُرُ اللاّجِئونَ أَثْناءَ الحُروبِ” .",
+  "tanim": "الشَّخْصُ الَّذي يَهْرُبُ مِنْ بَلَدِهِ إِلى بَلَدٍ آخَرَ لِسَبَبٍ سِياسِيٍّ أَوْ حَرْبِيٍّ أَوْ غَيْرِ ذلِكَ",
+  "ornekler": [
+   "“يَكْثُرُ اللاّجِئونَ أَثْناءَ الحُروبِ”"
+  ],
+  "bosluk": {
+   "cumle": "يَكْثُرُ اللاّجِئونَ أَثْناءَ الحُروبِ",
+   "kelime": "اللاّجِئونَ"
+  },
+  "tr": "mülteci",
+  "tanim_tr": "Siyasi, savaş veya başka bir sebeple ülkesinden başka bir ülkeye kaçan kimse.",
+  "ornekler_tr": [
+   "“Savaşlar sırasında mülteciler çoğalır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لاحَ",
+  "cogul": null,
+  "metin": "يَلوحُ لَوْحاً : ظَهَرَ وَبَدا ، “لاحَ هِلالُ شَهْرِ رَمَضانَ” .",
+  "tanim": "ظَهَرَ وَبَدا",
+  "ornekler": [
+   "“لاحَ هِلالُ شَهْرِ رَمَضانَ”"
+  ],
+  "bosluk": {
+   "cumle": "لاحَ هِلالُ شَهْرِ رَمَضانَ",
+   "kelime": "لاحَ"
+  },
+  "tr": "görünmek",
+  "tanim_tr": "Göründü, belirdi.",
+  "ornekler_tr": [
+   "“Ramazan ayının hilali göründü.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لاحَظَ",
+  "cogul": null,
+  "metin": "يُلاحِظُ مُلاحَظَةً : (١) راقَبَ ، “كانَ رِجالُ الأَمْنِ يُلاحِظونَ سُلوكَ الجاسوسِ الغَريبَ” . (٢) شاهَدَ ، “ماذا تُلاحِظُ عَلى هذِهِ الصّورَةِ ؟” .",
+  "tanim": "(١) راقَبَ (٢) شاهَدَ",
+  "ornekler": [
+   "“كانَ رِجالُ الأَمْنِ يُلاحِظونَ سُلوكَ الجاسوسِ الغَريبَ”",
+   "“ماذا تُلاحِظُ عَلى هذِهِ الصّورَةِ ؟”"
+  ],
+  "bosluk": {
+   "cumle": "ماذا تُلاحِظُ عَلى هذِهِ الصّورَةِ ؟",
+   "kelime": "تُلاحِظُ"
+  },
+  "tr": "gözlemlemek, fark etmek",
+  "tanim_tr": "(1) Gözetledi. (2) Gördü, fark etti.",
+  "ornekler_tr": [
+   "“Güvenlik görevlileri casusun tuhaf davranışını gözetliyordu.”",
+   "“Bu resimde neyi fark ediyorsun?”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لاحَقَ",
+  "cogul": null,
+  "metin": "يُلاحِقُ مُلاحَقَةً : تابَعَ ، طارَدَ ، “لاحَقَ رِجالُ الأَمْنِ السّارِقَ في كُلِّ مَكانٍ” ، “أَمْسَكَ بِهِ ، بَعْدَ أَنْ لاحَقَهُ طَويلاً” .",
+  "tanim": "تابَعَ ، طارَدَ",
+  "ornekler": [
+   "“لاحَقَ رِجالُ الأَمْنِ السّارِقَ في كُلِّ مَكانٍ”",
+   "“أَمْسَكَ بِهِ ، بَعْدَ أَنْ لاحَقَهُ طَويلاً”"
+  ],
+  "bosluk": {
+   "cumle": "لاحَقَ رِجالُ الأَمْنِ السّارِقَ في كُلِّ مَكانٍ",
+   "kelime": "لاحَقَ"
+  },
+  "tr": "kovalamak, takip etmek",
+  "tanim_tr": "Peşine düştü, kovaladı.",
+  "ornekler_tr": [
+   "“Güvenlik görevlileri hırsızı her yerde takip etti.”",
+   "“Onu uzun süre kovaladıktan sonra yakaladı.”"
+  ],
+  "resim": "p289_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 289,
+  "baski_no": "٢٨٩",
+  "k": "لاذَ",
+  "cogul": null,
+  "metin": "يَلوذُ لَوْذاً وَلِواذاً : (١) هَرَبَ ، “لاذَ اللِّصُّ بِالفِرارِ” . (٢) سَكَتَ ، “لاذَ المُتَّهَمُ بِالصَّمْتِ عِنْدَما تَحَدَّثَ مَعَهُ القاضي” . (٣) اخْتَفى ، “لاذَ اللُّصوصُ بِالجِبالِ” .",
+  "tanim": "(١) هَرَبَ (٢) سَكَتَ (٣) اخْتَفى",
+  "ornekler": [
+   "“لاذَ اللِّصُّ بِالفِرارِ”",
+   "“لاذَ المُتَّهَمُ بِالصَّمْتِ عِنْدَما تَحَدَّثَ مَعَهُ القاضي”",
+   "“لاذَ اللُّصوصُ بِالجِبالِ”"
+  ],
+  "bosluk": {
+   "cumle": "لاذَ اللِّصُّ بِالفِرارِ",
+   "kelime": "لاذَ"
+  },
+  "tr": "sığınmak; kaçmak",
+  "tanim_tr": "(1) Kaçtı. (2) Sustu. (3) Saklandı, sığındı.",
+  "ornekler_tr": [
+   "“Hırsız kaçmaya yeltendi (kaçtı).”",
+   "“Hâkim kendisiyle konuşunca sanık susmayı tercih etti.”",
+   "“Hırsızlar dağlara sığındı.”"
+  ],
+  "resim": null,
+  "not": null
+ }
+]
