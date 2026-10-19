@@ -1,0 +1,417 @@
+[
+ {
+  "sayfa": 244,
+  "devam": true,
+  "metin": "أَغْبِقُ قَبْلَهُما مالاً وَلا وَلَداً ) ، “حَلَبَ الرّاعي الغَنَمَ وَغَبَقَ أَصْحابَهُ وَأَهْلَهُ” ."
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَبَنَ",
+  "cogul": null,
+  "metin": "يَغْبِنُ غَبْناً : نَقَصَهُ حَقَّهُ في البَيْعِ نَقْصاً ظاهِراً ، غَلَبَهُ بِدَرَجَةٍ كَبيرَةٍ ، “يَشْعُرُ المَظْلومُ بِالغَبْنِ” .",
+  "tanim": "نَقَصَهُ حَقَّهُ في البَيْعِ نَقْصاً ظاهِراً ، غَلَبَهُ بِدَرَجَةٍ كَبيرَةٍ",
+  "ornekler": [
+   "“يَشْعُرُ المَظْلومُ بِالغَبْنِ”"
+  ],
+  "bosluk": {
+   "cumle": "يَشْعُرُ المَظْلومُ بِالغَبْنِ",
+   "kelime": "بِالغَبْنِ"
+  },
+  "tr": "aldatmak (alışverişte)",
+  "tanim_tr": "Alışverişte birinin hakkını açıkça eksik vermek; onu büyük ölçüde alt etmek.",
+  "ornekler_tr": [
+   "“Zulme uğrayan, aldatılmışlık (haksızlık) hisseder.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَبوق",
+  "yon": "غبق",
+  "iliski": "مصدر",
+  "tr": "akşam içilen süt"
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَبِيّ",
+  "cogul": "أَغْبِياء",
+  "metin": "( ج ) أَغْبِياءُ : جاهِلٌ يَخْفَى عَلَيْهِ كَثيرٌ مِنَ الأُمورِ الظّاهِرَةِ ؛ خِلافُ ذَكِيّ ، “ما الفَرْقُ بَيْنَ الغَبِيِّ وَالذَّكِيِّ ؟” .",
+  "tanim": "جاهِلٌ يَخْفَى عَلَيْهِ كَثيرٌ مِنَ الأُمورِ الظّاهِرَةِ ؛ خِلافُ ذَكِيّ",
+  "ornekler": [
+   "“ما الفَرْقُ بَيْنَ الغَبِيِّ وَالذَّكِيِّ ؟”"
+  ],
+  "bosluk": {
+   "cumle": "ما الفَرْقُ بَيْنَ الغَبِيِّ وَالذَّكِيِّ ؟",
+   "kelime": "الغَبِيِّ"
+  },
+  "tr": "aptal, anlayışsız",
+  "tanim_tr": "Açık olan birçok şeyi kavrayamayan cahil kimse; zekinin zıddı.",
+  "ornekler_tr": [
+   "“Aptal ile zeki arasındaki fark nedir?”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غُثاء",
+  "cogul": null,
+  "metin": "ما يَحْمِلُهُ السَّيْلُ في طَريقِهِ مِنْ زَبَدٍ وَفُتاتِ الأَشْياءِ وَالأَوْراقِ ... وفي الحَديثِ : ( وَلَكِنَّكُمْ غُثاءٌ كَغُثاءِ السَّيْلِ ) ، ﴿ فَجَعَلَهُ غُثاءً أَحْوَى ﴾ .",
+  "tanim": "ما يَحْمِلُهُ السَّيْلُ في طَريقِهِ مِنْ زَبَدٍ وَفُتاتِ الأَشْياءِ وَالأَوْراقِ",
+  "ornekler": [
+   "( وَلَكِنَّكُمْ غُثاءٌ كَغُثاءِ السَّيْلِ )",
+   "﴿ فَجَعَلَهُ غُثاءً أَحْوَى ﴾"
+  ],
+  "bosluk": {
+   "cumle": "فَجَعَلَهُ غُثاءً أَحْوَى",
+   "kelime": "غُثاءً"
+  },
+  "tr": "sel süprüntüsü, çerçöp",
+  "tanim_tr": "Selin yolunda sürükleyip getirdiği köpük, eşya kırıntıları ve yapraklar.",
+  "ornekler_tr": [
+   "Hadiste: (Fakat siz selin getirdiği çerçöp gibi olacaksınız.)",
+   "﴿ Sonra onu kapkara bir çerçöp yaptı ﴾"
+  ],
+  "resim": "p244_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَثَيان",
+  "cogul": null,
+  "metin": "خُبْثُ النَّفْسِ وَاضْطِرابُها وَالمَيْلُ إِلَى التَّقَيُّؤِ ، “أَصابَهُ مَنْظَرُ الأَوْساخِ بِالغَثَيانِ” ،",
+  "tanim": "خُبْثُ النَّفْسِ وَاضْطِرابُها وَالمَيْلُ إِلَى التَّقَيُّؤِ",
+  "ornekler": [
+   "“أَصابَهُ مَنْظَرُ الأَوْساخِ بِالغَثَيانِ”"
+  ],
+  "bosluk": {
+   "cumle": "أَصابَهُ مَنْظَرُ الأَوْساخِ بِالغَثَيانِ",
+   "kelime": "بِالغَثَيانِ"
+  },
+  "tr": "mide bulantısı",
+  "tanim_tr": "İçin bulanması, çalkalanması ve kusma isteği.",
+  "ornekler_tr": [
+   "“Pisliklerin görüntüsü onun midesini bulandırdı.”"
+  ],
+  "resim": "p244_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَد",
+  "cogul": null,
+  "metin": "اليَوْمُ التّالي لِليَوْمِ الحالي ، “لا أَسْتَطيعُ الحُضورَ اليَوْمَ ، وَسَأَحْضُرُ في الغَدِ” ، “سَأُسافِرُ غَداً إِلَى مَكَّةَ” ، ﴿ وَلا تَقولَنَّ لِشَيْءٍ إِنّي فاعِلٌ ذَلِكَ غَداً ﴾ ، ﴿ أَرْسِلْهُ مَعَنا غَداً يَرْتَعْ وَيَلْعَبْ وَإِنّا لَهُ لَحافِظونَ ﴾ .",
+  "tanim": "اليَوْمُ التّالي لِليَوْمِ الحالي",
+  "ornekler": [
+   "“لا أَسْتَطيعُ الحُضورَ اليَوْمَ ، وَسَأَحْضُرُ في الغَدِ”",
+   "“سَأُسافِرُ غَداً إِلَى مَكَّةَ”",
+   "﴿ وَلا تَقولَنَّ لِشَيْءٍ إِنّي فاعِلٌ ذَلِكَ غَداً ﴾",
+   "﴿ أَرْسِلْهُ مَعَنا غَداً يَرْتَعْ وَيَلْعَبْ وَإِنّا لَهُ لَحافِظونَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "سَأُسافِرُ غَداً إِلَى مَكَّةَ",
+   "kelime": "غَداً"
+  },
+  "tr": "yarın",
+  "tanim_tr": "İçinde bulunulan günden sonraki gün.",
+  "ornekler_tr": [
+   "“Bugün gelemem, yarın geleceğim.”",
+   "“Yarın Mekke'ye yolculuk edeceğim.”",
+   "﴿ Hiçbir şey için “Bunu yarın yapacağım” deme ﴾",
+   "﴿ Yarın onu bizimle gönder, gezsin oynasın; biz onu elbette koruruz ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَدا",
+  "cogul": null,
+  "metin": "يَغْدو غَدْواً : ذَهَبَ وَسارَ وَقْتَ الغَداةِ ؛ وَهِيَ أَوَّلُ النَّهارِ ، ﴿ وَإِذْ غَدَوْتَ مِنْ أَهْلِكَ تُبَوِّئُ الْمُؤْمِنينَ مَقاعِدَ لِلْقِتالِ ﴾ .",
+  "tanim": "ذَهَبَ وَسارَ وَقْتَ الغَداةِ ؛ وَهِيَ أَوَّلُ النَّهارِ",
+  "ornekler": [
+   "﴿ وَإِذْ غَدَوْتَ مِنْ أَهْلِكَ تُبَوِّئُ الْمُؤْمِنينَ مَقاعِدَ لِلْقِتالِ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَإِذْ غَدَوْتَ مِنْ أَهْلِكَ تُبَوِّئُ الْمُؤْمِنينَ مَقاعِدَ لِلْقِتالِ",
+   "kelime": "غَدَوْتَ"
+  },
+  "tr": "sabah erkenden gitmek",
+  "tanim_tr": "Gadât vaktinde, yani günün başında gitmek, yola çıkmak.",
+  "ornekler_tr": [
+   "﴿ Hani sen müminleri savaş mevzilerine yerleştirmek için sabah erkenden ailenden ayrılmıştın ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَداء",
+  "cogul": null,
+  "metin": "وَجْبَةُ الطَّعامِ في وَسَطِ النَّهارِ . “يَتَناوَلُ المُوَظَّفُ غَداءَهُ في مَكانِ عَمَلِهِ” ، ﴿ فَلَمّا جاوَزا قالَ لِفَتاهُ آتِنا غَداءَنا ﴾ .",
+  "tanim": "وَجْبَةُ الطَّعامِ في وَسَطِ النَّهارِ",
+  "ornekler": [
+   "“يَتَناوَلُ المُوَظَّفُ غَداءَهُ في مَكانِ عَمَلِهِ”",
+   "﴿ فَلَمّا جاوَزا قالَ لِفَتاهُ آتِنا غَداءَنا ﴾"
+  ],
+  "bosluk": {
+   "cumle": "يَتَناوَلُ المُوَظَّفُ غَداءَهُ في مَكانِ عَمَلِهِ",
+   "kelime": "غَداءَهُ"
+  },
+  "tr": "öğle yemeği",
+  "tanim_tr": "Gün ortasında yenen öğün.",
+  "ornekler_tr": [
+   "“Memur öğle yemeğini iş yerinde yer.”",
+   "﴿ (Buluşma yerini) geçtiklerinde Mûsâ genç arkadaşına: Yemeğimizi getir, dedi ﴾"
+  ],
+  "resim": "p244_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَداة",
+  "cogul": null,
+  "metin": "ما بَيْنَ الفَجْرِ وَطُلوعِ الشَّمْسِ ، ﴿ يَدْعونَ رَبَّهُمْ بِالْغَداةِ وَالْعَشِيِّ ﴾ .",
+  "tanim": "ما بَيْنَ الفَجْرِ وَطُلوعِ الشَّمْسِ",
+  "ornekler": [
+   "﴿ يَدْعونَ رَبَّهُمْ بِالْغَداةِ وَالْعَشِيِّ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "يَدْعونَ رَبَّهُمْ بِالْغَداةِ وَالْعَشِيِّ",
+   "kelime": "بِالْغَداةِ"
+  },
+  "tr": "sabah vakti",
+  "tanim_tr": "Fecir ile güneşin doğuşu arasındaki vakit.",
+  "ornekler_tr": [
+   "﴿ Sabah akşam Rablerine dua ederler ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غُدَّة",
+  "cogul": "غُدَد",
+  "metin": "( ج ) غُدَدٌ : عُضْوٌ في الجِسْمِ يُفْرِزُ مَوادَّ نافِعَةً لِلْجِسْمِ ، “عِنْدَ المَريضِ تَضَخُّمٌ في الغُدَدِ” .",
+  "tanim": "عُضْوٌ في الجِسْمِ يُفْرِزُ مَوادَّ نافِعَةً لِلْجِسْمِ",
+  "ornekler": [
+   "“عِنْدَ المَريضِ تَضَخُّمٌ في الغُدَدِ”"
+  ],
+  "bosluk": {
+   "cumle": "عِنْدَ المَريضِ تَضَخُّمٌ في الغُدَدِ",
+   "kelime": "الغُدَدِ"
+  },
+  "tr": "bez, salgı bezi",
+  "tanim_tr": "Vücutta, vücuda yararlı maddeler salgılayan organ.",
+  "ornekler_tr": [
+   "“Hastanın bezlerinde büyüme var.”"
+  ],
+  "resim": "p244_4.jpg",
+  "not": "Resimdeki yazı: الغدة النكفية (tükürük/kulak altı bezi)."
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غُدَد",
+  "yon": "غدة",
+  "iliski": "جمع",
+  "tr": "bezler"
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَدَرَ",
+  "cogul": null,
+  "metin": "يَغْدِرُ غَدْراً : خانَ وَنَقَضَ العَهْدَ ؛ خِلافُ وَفَى ، “غَدَرَ المُعاهِدُ بِعَهْدِهِ” ، “الغَدْرُ مَذْمومٌ في الإِسْلامِ” .",
+  "tanim": "خانَ وَنَقَضَ العَهْدَ ؛ خِلافُ وَفَى",
+  "ornekler": [
+   "“غَدَرَ المُعاهِدُ بِعَهْدِهِ”",
+   "“الغَدْرُ مَذْمومٌ في الإِسْلامِ”"
+  ],
+  "bosluk": {
+   "cumle": "غَدَرَ المُعاهِدُ بِعَهْدِهِ",
+   "kelime": "غَدَرَ"
+  },
+  "tr": "ihanet etmek",
+  "tanim_tr": "Hainlik edip ahdi bozmak; vefa göstermenin zıddı.",
+  "ornekler_tr": [
+   "“Antlaşma yapan, antlaşmasına ihanet etti.”",
+   "“İhanet İslam'da kınanmıştır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غُدْران",
+  "yon": "غدير",
+  "iliski": "جمع",
+  "tr": "gölcükler"
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَدَقَ",
+  "cogul": null,
+  "metin": "يَغْدِقُ غَدْقاً : كَثُرَ وَاتَّسَعَ ، “بَعْدَ نُزولِ المَطَرِ ، غَدَقَتِ المَراعي” .",
+  "tanim": "كَثُرَ وَاتَّسَعَ",
+  "ornekler": [
+   "“بَعْدَ نُزولِ المَطَرِ ، غَدَقَتِ المَراعي”"
+  ],
+  "bosluk": {
+   "cumle": "بَعْدَ نُزولِ المَطَرِ ، غَدَقَتِ المَراعي",
+   "kelime": "غَدَقَتِ"
+  },
+  "tr": "bollaşmak",
+  "tanim_tr": "Çoğalmak ve genişlemek.",
+  "ornekler_tr": [
+   "“Yağmur yağdıktan sonra meralar bollaştı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَدَّى",
+  "cogul": null,
+  "metin": "يُغَدّي غَداءً : زَوَّدَهُ بِالطَّعامِ وَالغَداءِ ، “تُغَدّي الأُمُّ طِفْلَها بِلَبَنِها” .",
+  "tanim": "زَوَّدَهُ بِالطَّعامِ وَالغَداءِ",
+  "ornekler": [
+   "“تُغَدّي الأُمُّ طِفْلَها بِلَبَنِها”"
+  ],
+  "bosluk": {
+   "cumle": "تُغَدّي الأُمُّ طِفْلَها بِلَبَنِها",
+   "kelime": "تُغَدّي"
+  },
+  "tr": "yedirmek, (öğle) yemeği vermek",
+  "tanim_tr": "Ona yiyecek ve öğle yemeği vermek.",
+  "ornekler_tr": [
+   "“Anne çocuğunu sütüyle besler.”"
+  ],
+  "resim": "p244_5.jpg",
+  "not": "Kitapta baştan sona dal ile (غدّى / يغدّي / غداء / تغدّي) basılmış; örnek cümle anlamca غذّى (beslemek) ile uyumlu. Basıldığı gibi aktarıldı."
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَدير",
+  "cogul": "غُدْران",
+  "metin": "( ج ) غُدْرانٌ : مَكانٌ مُنْخَفِضٌ يَجْتَمِعُ فيهِ الماءُ مِنَ السُّيولِ وَغَيْرِها ، “اسْقِنا ماءً مِنْ ذَلِكَ الغَديرِ” .",
+  "tanim": "مَكانٌ مُنْخَفِضٌ يَجْتَمِعُ فيهِ الماءُ مِنَ السُّيولِ وَغَيْرِها",
+  "ornekler": [
+   "“اسْقِنا ماءً مِنْ ذَلِكَ الغَديرِ”"
+  ],
+  "bosluk": {
+   "cumle": "اسْقِنا ماءً مِنْ ذَلِكَ الغَديرِ",
+   "kelime": "الغَديرِ"
+  },
+  "tr": "gölcük, su birikintisi",
+  "tanim_tr": "Sellerden ve başka kaynaklardan gelen suyun toplandığı alçak yer.",
+  "ornekler_tr": [
+   "“Bize şu gölcükten su ver.”"
+  ],
+  "resim": "p244_6.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غِذاء",
+  "cogul": "أَغْذِيَة",
+  "metin": "( ج ) أَغْذِيَة : ما يَكونُ بِهِ نَماءٌ مِنَ الأَطْعِمَةِ وَالأَشْرِبَةِ ، “يَنْصَحُ الأَطِبّاءُ بِالغِذاءِ الصِّحِّيِّ المُتَوازِنِ” .",
+  "tanim": "ما يَكونُ بِهِ نَماءٌ مِنَ الأَطْعِمَةِ وَالأَشْرِبَةِ",
+  "ornekler": [
+   "“يَنْصَحُ الأَطِبّاءُ بِالغِذاءِ الصِّحِّيِّ المُتَوازِنِ”"
+  ],
+  "bosluk": {
+   "cumle": "يَنْصَحُ الأَطِبّاءُ بِالغِذاءِ الصِّحِّيِّ المُتَوازِنِ",
+   "kelime": "بِالغِذاءِ"
+  },
+  "tr": "gıda, besin",
+  "tanim_tr": "Yiyecek ve içeceklerden büyüme sağlayan şey.",
+  "ornekler_tr": [
+   "“Doktorlar sağlıklı ve dengeli beslenmeyi tavsiye eder.”"
+  ],
+  "resim": "p244_7.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَرَّ",
+  "cogul": null,
+  "metin": "يَغُرُّ غَرّاً وَغُروراً : خَدَعَ ، أَغْوَى ، ﴿ غَرَّ هَؤُلاءِ دينُهُمْ ﴾ .",
+  "tanim": "خَدَعَ ، أَغْوَى",
+  "ornekler": [
+   "﴿ غَرَّ هَؤُلاءِ دينُهُمْ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "غَرَّ هَؤُلاءِ دينُهُمْ",
+   "kelime": "غَرَّ"
+  },
+  "tr": "aldatmak",
+  "tanim_tr": "Aldatmak, yoldan çıkarmak.",
+  "ornekler_tr": [
+   "﴿ Bunları dinleri aldattı ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غَرا",
+  "cogul": null,
+  "metin": "يَغْرو غَرْواً : أَلْصَقَهُ بِالغِراءِ ، “تَمَزَّقَ الكِتابُ ؛ فَغَراهُ صاحِبُهُ حَتَّى أَصْلَحَهُ” .",
+  "tanim": "أَلْصَقَهُ بِالغِراءِ",
+  "ornekler": [
+   "“تَمَزَّقَ الكِتابُ ؛ فَغَراهُ صاحِبُهُ حَتَّى أَصْلَحَهُ”"
+  ],
+  "bosluk": {
+   "cumle": "تَمَزَّقَ الكِتابُ ؛ فَغَراهُ صاحِبُهُ حَتَّى أَصْلَحَهُ",
+   "kelime": "فَغَراهُ"
+  },
+  "tr": "tutkalla yapıştırmak",
+  "tanim_tr": "Onu tutkalla yapıştırmak.",
+  "ornekler_tr": [
+   "“Kitap yırtıldı, sahibi de onu tutkallayıp onardı.”"
+  ],
+  "resim": "p244_8.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 244,
+  "baski_no": "٢٤٤",
+  "k": "غِراء",
+  "cogul": null,
+  "metin": "مادَّةٌ لَزِجَةٌ ، تُلْصَقُ بِها الأَشْياءُ ، “خُذْ هَذا الغِراءَ ، وَأَلْصِقْ بِهِ الأَوْراقَ” .",
+  "tanim": "مادَّةٌ لَزِجَةٌ ، تُلْصَقُ بِها الأَشْياءُ",
+  "ornekler": [
+   "“خُذْ هَذا الغِراءَ ، وَأَلْصِقْ بِهِ الأَوْراقَ”"
+  ],
+  "bosluk": {
+   "cumle": "خُذْ هَذا الغِراءَ ، وَأَلْصِقْ بِهِ الأَوْراقَ",
+   "kelime": "الغِراءَ"
+  },
+  "tr": "tutkal, yapıştırıcı",
+  "tanim_tr": "Eşyaların yapıştırıldığı yapışkan madde.",
+  "ornekler_tr": [
+   "“Bu tutkalı al ve kâğıtları onunla yapıştır.”"
+  ],
+  "resim": "p244_9.jpg",
+  "not": null
+ }
+]

@@ -1,0 +1,484 @@
+[
+ {
+  "sayfa": 243,
+  "devam": true,
+  "metin": "“ارْتَفَعَ سِعْرُ الغازِ هَذِهِ الأَيّامَ” ."
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غاصَ",
+  "cogul": null,
+  "metin": "يَغوصُ غَوْصاً : نَزَلَ في الماءِ ، وَدَخَلَ فيهِ ، “غاصَ السَّبّاحُ في البَحْرِ” .",
+  "tanim": "نَزَلَ في الماءِ ، وَدَخَلَ فيهِ",
+  "ornekler": [
+   "“غاصَ السَّبّاحُ في البَحْرِ”"
+  ],
+  "bosluk": {
+   "cumle": "غاصَ السَّبّاحُ في البَحْرِ",
+   "kelime": "غاصَ"
+  },
+  "tr": "dalmak",
+  "tanim_tr": "Suya inmek ve içine girmek.",
+  "ornekler_tr": [
+   "“Yüzücü denize daldı.”"
+  ],
+  "resim": "p243_1.jpg",
+  "not": "Resimde غاص ile طفا (su yüzüne çıkmak) karşılaştırılıyor."
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غاضَ",
+  "cogul": null,
+  "metin": "يَغيضُ غَيْضاً : نَزَلَ في باطِنِ الأَرْضِ ، وَغابَ عَنِ الأَنْظارِ ، قَليل ، ﴿ وَغيضَ الْماءُ وَقُضِيَ الأَمْرُ ﴾ .",
+  "tanim": "نَزَلَ في باطِنِ الأَرْضِ ، وَغابَ عَنِ الأَنْظارِ ، قَليل",
+  "ornekler": [
+   "﴿ وَغيضَ الْماءُ وَقُضِيَ الأَمْرُ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَغيضَ الْماءُ وَقُضِيَ الأَمْرُ",
+   "kelime": "وَغيضَ"
+  },
+  "tr": "(su) yere çekilmek",
+  "tanim_tr": "Yerin içine inip gözden kaybolmak; azalmak.",
+  "ornekler_tr": [
+   "﴿ Su çekildi ve iş bitirildi ﴾"
+  ],
+  "resim": "p243_2.jpg",
+  "not": "Resimde غاض ile فار karşılaştırılıyor. Tanımdaki \"قليل\" kelimesi kitapta bu şekilde."
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غاضِب",
+  "yon": "غضب",
+  "iliski": "اسم فاعل",
+  "tr": "kızgın, öfkeli"
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غاظَ",
+  "cogul": null,
+  "metin": "يَغيظُ غَيْظاً : اشْتَدَّ غَضَبُهُ ، ﴿ لِيَغيظَ بِهِمُ الْكُفّارَ ﴾ ، ﴿ عَضّوا عَلَيْكُمُ الأَنامِلَ مِنَ الْغَيْظِ ﴾ .",
+  "tanim": "اشْتَدَّ غَضَبُهُ",
+  "ornekler": [
+   "﴿ لِيَغيظَ بِهِمُ الْكُفّارَ ﴾",
+   "﴿ عَضّوا عَلَيْكُمُ الأَنامِلَ مِنَ الْغَيْظِ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "لِيَغيظَ بِهِمُ الْكُفّارَ",
+   "kelime": "لِيَغيظَ"
+  },
+  "tr": "öfkelendirmek, kızdırmak",
+  "tanim_tr": "Öfkesi şiddetlenmek; (geçişli) öfkelendirmek.",
+  "ornekler_tr": [
+   "﴿ Onlarla kâfirleri öfkelendirmek için ﴾",
+   "﴿ Size olan öfkelerinden parmak uçlarını ısırırlar ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غالٍ",
+  "cogul": null,
+  "metin": "( الغالي ) : مُرْتَفِعُ الثَّمَنِ ؛ خِلافُ رَخيص ، “هَذا القَميصُ بِمِئَةِ دينارٍ ، فَهُوَ غالٍ ، وَذاكَ القَميصُ بِعِشْرينَ ديناراً ، فَهُوَ رَخيصٌ” ، وفي الحَديثِ : ( أَلا إِنَّ سِلْعَةَ اللهِ غالِيَةٌ ، أَلا إِنَّ سِلْعَةَ اللهِ الجَنَّةُ ) .",
+  "tanim": "مُرْتَفِعُ الثَّمَنِ ؛ خِلافُ رَخيص",
+  "ornekler": [
+   "“هَذا القَميصُ بِمِئَةِ دينارٍ ، فَهُوَ غالٍ ، وَذاكَ القَميصُ بِعِشْرينَ ديناراً ، فَهُوَ رَخيصٌ”",
+   "( أَلا إِنَّ سِلْعَةَ اللهِ غالِيَةٌ ، أَلا إِنَّ سِلْعَةَ اللهِ الجَنَّةُ )"
+  ],
+  "bosluk": {
+   "cumle": "هَذا القَميصُ بِمِئَةِ دينارٍ ، فَهُوَ غالٍ",
+   "kelime": "غالٍ"
+  },
+  "tr": "pahalı",
+  "tanim_tr": "Fiyatı yüksek; ucuzun zıddı.",
+  "ornekler_tr": [
+   "“Bu gömlek yüz dinar, yani pahalı; şu gömlek ise yirmi dinar, yani ucuz.”",
+   "Hadiste: (Dikkat edin, Allah'ın malı pahalıdır; dikkat edin, Allah'ın malı cennettir.)"
+  ],
+  "resim": "p243_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غالَ",
+  "cogul": null,
+  "metin": "يَغولُ غَوْلاً : أَهْلَكَ ، “هَجَمَ عَلَيْهِ مِنَ الخَلْفِ وَغالَهُ” .",
+  "tanim": "أَهْلَكَ",
+  "ornekler": [
+   "“هَجَمَ عَلَيْهِ مِنَ الخَلْفِ وَغالَهُ”"
+  ],
+  "bosluk": {
+   "cumle": "هَجَمَ عَلَيْهِ مِنَ الخَلْفِ وَغالَهُ",
+   "kelime": "وَغالَهُ"
+  },
+  "tr": "helak etmek, öldürmek",
+  "tanim_tr": "Helak etmek.",
+  "ornekler_tr": [
+   "“Ona arkadan saldırıp öldürdü.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غالَبَ",
+  "yon": "غلب",
+  "iliski": "انظر",
+  "tr": "galip gelmeye çalışmak"
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غالَى",
+  "cogul": null,
+  "metin": "يُغالي مُغالاةً : بالَغَ في الأَمْرِ ، “غالَى التّاجِرُ في الأَسْعارِ ؛ فَكَسَدَتْ تِجارَتُهُ” .",
+  "tanim": "بالَغَ في الأَمْرِ",
+  "ornekler": [
+   "“غالَى التّاجِرُ في الأَسْعارِ ؛ فَكَسَدَتْ تِجارَتُهُ”"
+  ],
+  "bosluk": {
+   "cumle": "غالَى التّاجِرُ في الأَسْعارِ ؛ فَكَسَدَتْ تِجارَتُهُ",
+   "kelime": "غالَى"
+  },
+  "tr": "aşırı gitmek, abartmak",
+  "tanim_tr": "Bir işte aşırıya gitmek.",
+  "ornekler_tr": [
+   "“Tüccar fiyatlarda aşırı gitti, bu yüzden ticareti durgunlaştı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غامَ",
+  "cogul": null,
+  "metin": "يَغيمُ غَيْماً : غَطّاها ( الغَيْمُ ) السَّحابُ ، “غامَتِ السَّماءُ فَتَرَقَّبَ النّاسُ المَطَرَ” .",
+  "tanim": "غَطّاها ( الغَيْمُ ) السَّحابُ",
+  "ornekler": [
+   "“غامَتِ السَّماءُ فَتَرَقَّبَ النّاسُ المَطَرَ”"
+  ],
+  "bosluk": {
+   "cumle": "غامَتِ السَّماءُ فَتَرَقَّبَ النّاسُ المَطَرَ",
+   "kelime": "غامَتِ"
+  },
+  "tr": "bulutlanmak",
+  "tanim_tr": "(Gökyüzünü) bulut kaplamak.",
+  "ornekler_tr": [
+   "“Gökyüzü bulutlandı, insanlar yağmuru beklemeye koyuldu.”"
+  ],
+  "resim": "p243_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غامِض",
+  "cogul": null,
+  "metin": "مُبْهَمٌ ، صَعْبٌ ، “هَذا السُّؤالُ غامِضٌ ، لا أَعْرِفُ جَوابَهُ” .",
+  "tanim": "مُبْهَمٌ ، صَعْبٌ",
+  "ornekler": [
+   "“هَذا السُّؤالُ غامِضٌ ، لا أَعْرِفُ جَوابَهُ”"
+  ],
+  "bosluk": {
+   "cumle": "هَذا السُّؤالُ غامِضٌ ، لا أَعْرِفُ جَوابَهُ",
+   "kelime": "غامِضٌ"
+  },
+  "tr": "kapalı, belirsiz",
+  "tanim_tr": "Anlaşılmaz, zor.",
+  "ornekler_tr": [
+   "“Bu soru belirsiz, cevabını bilmiyorum.”"
+  ],
+  "resim": "p243_5.jpg",
+  "not": "Resimde غامض ile واضح karşılaştırılıyor."
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غامِق",
+  "cogul": null,
+  "metin": "يَميلُ إِلَى السَّوادِ ؛ خِلافُ فاتِح ، “هَلْ تُحِبُّ اللَّوْنَ الغامِقَ أَوِ اللَّوْنَ الفاتِحَ ؟” ، “سَيّارَتُهُ سَوْداءُ ، لَوْنُها غامِقٌ” .",
+  "tanim": "يَميلُ إِلَى السَّوادِ ؛ خِلافُ فاتِح",
+  "ornekler": [
+   "“هَلْ تُحِبُّ اللَّوْنَ الغامِقَ أَوِ اللَّوْنَ الفاتِحَ ؟”",
+   "“سَيّارَتُهُ سَوْداءُ ، لَوْنُها غامِقٌ”"
+  ],
+  "bosluk": {
+   "cumle": "سَيّارَتُهُ سَوْداءُ ، لَوْنُها غامِقٌ",
+   "kelime": "غامِقٌ"
+  },
+  "tr": "koyu (renk)",
+  "tanim_tr": "Siyaha çalan; açığın zıddı.",
+  "ornekler_tr": [
+   "“Koyu rengi mi seversin, açık rengi mi?”",
+   "“Arabası siyah, rengi koyu.”"
+  ],
+  "resim": "p243_6.jpg",
+  "not": "Resimde غامق ile فاتح karşılaştırılıyor."
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غانِم",
+  "yon": "غنم",
+  "iliski": "اسم فاعل",
+  "tr": "ganimet elde eden"
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غانِيَة",
+  "cogul": "غَوانٍ",
+  "metin": "( ج ) غَوانٍ : جَميلَة ، “تَزَوَّجَ الفَتَى تِلْكَ الغانِيَةَ” .",
+  "tanim": "جَميلَة",
+  "ornekler": [
+   "“تَزَوَّجَ الفَتَى تِلْكَ الغانِيَةَ”"
+  ],
+  "bosluk": {
+   "cumle": "تَزَوَّجَ الفَتَى تِلْكَ الغانِيَةَ",
+   "kelime": "الغانِيَةَ"
+  },
+  "tr": "güzel kadın",
+  "tanim_tr": "Güzel (kadın).",
+  "ornekler_tr": [
+   "“Genç, o güzel kızla evlendi.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غاوٍ",
+  "yon": "غوى",
+  "iliski": "اسم فاعل",
+  "tr": "azgın, sapkın"
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غايَة",
+  "cogul": null,
+  "metin": "قَصْدٌ وَمُرادٌ ، نِهايَةٌ ، “غايَتي مِنْ سَفَري العُمْرَةُ” ، “بَلَغَ الغايَةَ في دِقَّةِ عَمَلِهِ” .",
+  "tanim": "قَصْدٌ وَمُرادٌ ، نِهايَةٌ",
+  "ornekler": [
+   "“غايَتي مِنْ سَفَري العُمْرَةُ”",
+   "“بَلَغَ الغايَةَ في دِقَّةِ عَمَلِهِ”"
+  ],
+  "bosluk": {
+   "cumle": "غايَتي مِنْ سَفَري العُمْرَةُ",
+   "kelime": "غايَتي"
+  },
+  "tr": "amaç, son nokta",
+  "tanim_tr": "Kasıt ve maksat; son, uç nokta.",
+  "ornekler_tr": [
+   "“Yolculuğumdan amacım umredir.”",
+   "“İşinin titizliğinde son noktaya ulaştı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غُبار",
+  "cogul": null,
+  "metin": "ما دَقَّ مِنَ التُّرابِ أَوْ غَيْرِهِ مِمّا تُثيرُهُ الرِّياحُ وَتَحْمِلُهُ ، “نَزَلَ المَطَرُ فَزالَ الغُبارُ” ، “أَثارَتِ الخُيولُ الغُبارَ ؛ حَتَّى كِدْنا لا نَراها” .",
+  "tanim": "ما دَقَّ مِنَ التُّرابِ أَوْ غَيْرِهِ مِمّا تُثيرُهُ الرِّياحُ وَتَحْمِلُهُ",
+  "ornekler": [
+   "“نَزَلَ المَطَرُ فَزالَ الغُبارُ”",
+   "“أَثارَتِ الخُيولُ الغُبارَ ؛ حَتَّى كِدْنا لا نَراها”"
+  ],
+  "bosluk": {
+   "cumle": "نَزَلَ المَطَرُ فَزالَ الغُبارُ",
+   "kelime": "الغُبارُ"
+  },
+  "tr": "toz",
+  "tanim_tr": "Rüzgârın kaldırıp taşıdığı ince toprak vb. şey.",
+  "ornekler_tr": [
+   "“Yağmur yağdı ve toz kalktı (gitti).”",
+   "“Atlar tozu öyle kaldırdı ki neredeyse onları göremiyorduk.”"
+  ],
+  "resim": "p243_7.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غَبَرَ",
+  "cogul": null,
+  "metin": "يَغْبُرُ غُبوراً : مَضَى ؛ خِلافُ بَقِيَ وَمَكَثَ ، “حَدَثَ ذَلِكَ في الزَّمانِ الغابِرِ” .",
+  "tanim": "مَضَى ؛ خِلافُ بَقِيَ وَمَكَثَ",
+  "ornekler": [
+   "“حَدَثَ ذَلِكَ في الزَّمانِ الغابِرِ”"
+  ],
+  "bosluk": {
+   "cumle": "حَدَثَ ذَلِكَ في الزَّمانِ الغابِرِ",
+   "kelime": "الغابِرِ"
+  },
+  "tr": "geçip gitmek",
+  "tanim_tr": "Geçip gitmek; kalmak ve durmanın zıddı.",
+  "ornekler_tr": [
+   "“Bu, geçmiş zamanda oldu.”"
+  ],
+  "resim": "p243_8.jpg",
+  "not": "Resimde غبر (dinozor) ile بقي (filler) karşılaştırılıyor."
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غَبَّرَ",
+  "cogul": null,
+  "metin": "يُغَبِّرُ تَغْبيراً . أَثارَ الغُبارَ .",
+  "tanim": "أَثارَ الغُبارَ",
+  "ornekler": [],
+  "bosluk": null,
+  "tr": "toz kaldırmak",
+  "tanim_tr": "Toz kaldırmak.",
+  "ornekler_tr": [],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غَبِرَ",
+  "cogul": null,
+  "metin": "يَغْبَرُ غَبَراً وَغَبْرَةً : عَلاهُ الغُبارُ ، “تَرَكَتِ الفَتاةُ كَنْسَ الغُرْفَةِ أُسْبوعاً فَغَبِرَتْ” . انْظُرْ أَيْضاً : غُبار .",
+  "tanim": "عَلاهُ الغُبارُ",
+  "ornekler": [
+   "“تَرَكَتِ الفَتاةُ كَنْسَ الغُرْفَةِ أُسْبوعاً فَغَبِرَتْ”"
+  ],
+  "bosluk": {
+   "cumle": "تَرَكَتِ الفَتاةُ كَنْسَ الغُرْفَةِ أُسْبوعاً فَغَبِرَتْ",
+   "kelime": "فَغَبِرَتْ"
+  },
+  "tr": "tozlanmak",
+  "tanim_tr": "Üzerini toz kaplamak. Ayrıca bkz.: gubâr.",
+  "ornekler_tr": [
+   "“Kız bir hafta odayı süpürmedi, oda tozlandı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غَبَسٌ",
+  "cogul": null,
+  "metin": "ظَلام ، “إِذا قُدْتَ السَّيّارَةَ في الغَبَسِ ، فَأَنِرِ المَصابيحَ لِتَرَى” .",
+  "tanim": "ظَلام",
+  "ornekler": [
+   "“إِذا قُدْتَ السَّيّارَةَ في الغَبَسِ ، فَأَنِرِ المَصابيحَ لِتَرَى”"
+  ],
+  "bosluk": {
+   "cumle": "إِذا قُدْتَ السَّيّارَةَ في الغَبَسِ ، فَأَنِرِ المَصابيحَ لِتَرَى",
+   "kelime": "الغَبَسِ"
+  },
+  "tr": "karanlık (alacakaranlık)",
+  "tanim_tr": "Karanlık.",
+  "ornekler_tr": [
+   "“Karanlıkta araba sürersen, görmek için farları yak.”"
+  ],
+  "resim": "p243_9.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غَبَش",
+  "cogul": null,
+  "metin": "ظُلْمَةٌ في آخِرِ اللَّيْلِ ، “قامَ في الغَبَشِ ، وَأَكَلَ طَعامَ السَّحورِ” .",
+  "tanim": "ظُلْمَةٌ في آخِرِ اللَّيْلِ",
+  "ornekler": [
+   "“قامَ في الغَبَشِ ، وَأَكَلَ طَعامَ السَّحورِ”"
+  ],
+  "bosluk": {
+   "cumle": "قامَ في الغَبَشِ ، وَأَكَلَ طَعامَ السَّحورِ",
+   "kelime": "الغَبَشِ"
+  },
+  "tr": "seher karanlığı",
+  "tanim_tr": "Gecenin sonundaki karanlık.",
+  "ornekler_tr": [
+   "“Seher karanlığında kalktı ve sahur yemeğini yedi.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غَبَطَ",
+  "cogul": null,
+  "metin": "يَغْبِطُ غَبْطاً : تَمَنَّى ما عِنْدَ غَيْرِهِ مِنْ نِعْمَةٍ دونَ تَمَنّي زَوالِها عَنْهُ ، “نالَ الجائِزَةَ فَغَبَطَهُ عَلَيْها أَصْحابُهُ” .",
+  "tanim": "تَمَنَّى ما عِنْدَ غَيْرِهِ مِنْ نِعْمَةٍ دونَ تَمَنّي زَوالِها عَنْهُ",
+  "ornekler": [
+   "“نالَ الجائِزَةَ فَغَبَطَهُ عَلَيْها أَصْحابُهُ”"
+  ],
+  "bosluk": {
+   "cumle": "نالَ الجائِزَةَ فَغَبَطَهُ عَلَيْها أَصْحابُهُ",
+   "kelime": "فَغَبَطَهُ"
+  },
+  "tr": "gıpta etmek",
+  "tanim_tr": "Başkasındaki nimetin onda yok olmasını istemeden benzerini dilemek.",
+  "ornekler_tr": [
+   "“Ödülü kazandı, arkadaşları da ona gıpta etti.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غِبْطَة",
+  "cogul": null,
+  "metin": "سُرورٌ ، وَرِضا ، “شَعَرَ الحاجُّ بِالغِبْطَةِ ، حينَما رَأَى الكَعْبَةَ” .",
+  "tanim": "سُرورٌ ، وَرِضا",
+  "ornekler": [
+   "“شَعَرَ الحاجُّ بِالغِبْطَةِ ، حينَما رَأَى الكَعْبَةَ”"
+  ],
+  "bosluk": {
+   "cumle": "شَعَرَ الحاجُّ بِالغِبْطَةِ ، حينَما رَأَى الكَعْبَةَ",
+   "kelime": "بِالغِبْطَةِ"
+  },
+  "tr": "sevinç, mutluluk",
+  "tanim_tr": "Sevinç ve hoşnutluk.",
+  "ornekler_tr": [
+   "“Hacı Kâbe'yi görünce büyük bir sevinç duydu.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 243,
+  "baski_no": "٢٤٣",
+  "k": "غَبَقَ",
+  "cogul": null,
+  "metin": "يَغْبُقُ غُبوقاً ، الغَبوق : شُرْبُ الحَليبِ / اللَّبَنِ بِالعَشِيِّ ، وفي الحَديثِ : ( وَكُنْتُ لا",
+  "tanim": "شُرْبُ الحَليبِ / اللَّبَنِ بِالعَشِيِّ",
+  "ornekler": [
+   "( وَكُنْتُ لا أَغْبِقُ قَبْلَهُما مالاً وَلا وَلَداً )",
+   "“حَلَبَ الرّاعي الغَنَمَ وَغَبَقَ أَصْحابَهُ وَأَهْلَهُ”"
+  ],
+  "bosluk": {
+   "cumle": "حَلَبَ الرّاعي الغَنَمَ وَغَبَقَ أَصْحابَهُ وَأَهْلَهُ",
+   "kelime": "وَغَبَقَ"
+  },
+  "tr": "akşam süt içirmek",
+  "tanim_tr": "Gabûk: akşamleyin süt içmek (içirmek).",
+  "ornekler_tr": [
+   "Hadiste: (Onlardan [anne-babamdan] önce ne malıma ne de çocuğuma akşam sütü içirirdim.)",
+   "“Çoban koyunları sağdı ve arkadaşlarıyla ailesine akşam sütü içirdi.”"
+  ],
+  "resim": "p243_10.jpg",
+  "not": "Metin 244. sayfanın başında devam ediyor; örnekler oradaki devamla birlikte verildi."
+ }
+]
