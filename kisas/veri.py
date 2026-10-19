@@ -78,6 +78,6 @@ for e in K:
 K.sort(key=lambda e: (e["b"], e["s"] or 0))
 js = lambda v: json.dumps(v, ensure_ascii=False, separators=(",", ":"))
 open(os.path.join(here, "veri.js"), "w", encoding="utf-8").write(
-    "var KITAP = " + js(KITAP) + ";\nvar BOLUM = " + js(BOLUM) + ";\nvar METIN = [\n" + ",\n".join(js(m) for m in METIN) +
+    "var KITAP = " + js(KITAP) + ";\nvar BOLUM = " + js(BOLUM) + ";\nvar METIN = [\n" + ",\n".join(js({k: v for k, v in m.items() if k != "tr"}) for m in METIN) +
     "];\nvar K = [\n" + ",\n".join(js(e) for e in K) + "];\n")
 print(len(KITAP), "kıssa,", len(BOLUM), "bölüm,", len(METIN), "satır,", len(K), "kelime/deyim (", sum(1 for e in K if e["tur"] == "deyim"), "deyim )")

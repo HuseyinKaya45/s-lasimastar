@@ -252,27 +252,25 @@
         return (n === 0 || BOLUM[n - 1].k !== x.k ? '<optgroup label="' + esc(KITAP[x.k].tr) + '">' : "") +
           '<option value="' + n + '"' + (n === okB ? " selected" : "") + ">" + x.no + ". " + esc(x.tr) + "</option>" +
           (n === BOLUM.length - 1 || BOLUM[n + 1].k !== x.k ? "</optgroup>" : "");
-      }).join("") + '</select><label class="anahtar"><input type="checkbox" id="trHep"' + (D.ay.trAcik ? " checked" : "") + "> Türkçesi açık</label></div>" +
-      '<p class="soluk kucuk" style="margin:0">Altı noktalı kelimelere dokun: anlamı, kökü ve örneği açılır. Bir satırın Türkçesi için sağdaki <b>TR</b>’ye dokun.</p>' +
+      }).join("") + '</select></div>' +
+      '<p class="soluk kucuk" style="margin:0">Altı noktalı kelimelere dokun: anlamı, kökü ve örneği açılır.</p>' +
       (yeniKitap ? '<div class="satir-bas kitap-bas"><div class="ar">' + esc(KITAP[b.k].ar) + '</div><div class="tr">' + esc(KITAP[b.k].tr) + "</div></div>" : "") +
       '<div class="satir-bas"><div class="ar">' + esc(b.no + " - " + b.ar) + "</div>" + dinleBtn(b.ar) + '<div class="tr">' + esc(b.tr) + "</div></div>" +
       '<div id="satirlar">' + satirlar.map(function (m, n) {
         var dy = satirDeyimleri(m.ar);
-        return '<div class="satir' + (m.t === "d" ? " dipnot" : "") + '"><button class="tr-dugme" type="button" data-tr="' + n + '">TR</button>' +
+        return '<div class="satir' + (m.t === "d" ? " dipnot" : "") + '">' +
           '<span class="ar">' + satirHTML(m.ar) + "</span>" +
           (dy.length ? '<div class="etiketler2" style="justify-content:flex-end">' + dy.map(function (i) { return '<span class="etk ar k" data-k="' + i + '" title="deyim">' + esc(K[i].ar) + "</span>"; }).join("") + "</div>" : "") +
-          '<div class="tr" data-trm="' + n + '"' + (D.ay.trAcik ? "" : " hidden") + ">" + esc(m.tr) + "</div></div>";
+          "</div>";
       }).join("") + "</div>" +
       '<div class="satir-btn" style="justify-content:space-between;margin-top:14px"><button class="btn" id="onceki" type="button"' + (okB ? "" : " disabled") + '>← Önceki bölüm</button>' +
       '<button class="btn dolu" id="bolumCalis" type="button">Bu bölümün kelimeleri</button>' +
       '<button class="btn" id="sonraki" type="button"' + (okB < BOLUM.length - 1 ? "" : " disabled") + ">Sonraki bölüm →</button></div></section>";
     $("#okb").addEventListener("change", function () { okB = +this.value; okuCiz(); });
-    $("#trHep").addEventListener("change", function () { D.ay.trAcik = this.checked; kaydet(); $$("[data-trm]").forEach(function (t) { t.hidden = !D.ay.trAcik; }); });
     $("#onceki").addEventListener("click", function () { okB--; okuCiz(); window.scrollTo(0, 0); });
     $("#sonraki").addEventListener("click", function () { okB++; okuCiz(); window.scrollTo(0, 0); });
     $("#bolumCalis").addEventListener("click", function () { D.ay.kk = b.k; D.ay.kb = okB; kaydet(); git("kelime"); });
     $("#satirlar").addEventListener("click", function (e) {
-      var t = e.target.closest("[data-tr]"); if (t) { var d = $('[data-trm="' + t.getAttribute("data-tr") + '"]'); d.hidden = !d.hidden; return; }
       var k = e.target.closest(".k"); if (k) { popAc(+k.getAttribute("data-k")); k.classList.add("acik"); }
     });
   }
@@ -546,7 +544,7 @@
     var m = METIN[O.s[O.n]], ks = m.ar.split(/\s+/).filter(Boolean), dizi = [], havuzK = karistir(ks.map(function (w, n) { return n; }));
     if (havuzK.every(function (v, n) { return v === n; }) && ks.length > 1) havuzK.reverse();
     function ciz() {
-      ana.innerHTML = soruUst() + '<section class="kart"><p class="soluk kucuk" style="text-align:center;margin:0">Türkçesi:</p><div class="soru-tr" style="text-align:center">' + esc(m.tr) + "</div>" +
+      ana.innerHTML = soruUst() + '<section class="kart"><p class="soluk kucuk" style="text-align:center;margin:0">' + esc(BOLUM[m.b].no + ". " + BOLUM[m.b].tr) + '</p><div class="soru-tr" style="text-align:center;font-size:1.05rem">Kıssadaki cümleyi doğru sıraya diz.</div>' +
         '<div class="sira-alan" id="alan">' + dizi.map(function (n, k) { return '<button type="button" class="tas" data-geri="' + k + '">' + esc(ks[n]) + "</button>"; }).join("") + "</div>" +
         '<div class="sira-havuz">' + havuzK.map(function (n) { return dizi.indexOf(n) >= 0 ? "" : '<button type="button" class="tas" data-al="' + n + '">' + esc(ks[n]) + "</button>"; }).join("") + "</div>" +
         '<div class="geri-bildirim" id="gb"></div><div class="satir-btn" style="justify-content:center"><button class="btn" id="temizle" type="button">Temizle</button>' +
@@ -575,7 +573,7 @@
   function kurSonuc() {
     var top = O.s.length; rekor("kur", O.d); if (top && O.d / top >= .8) konfeti();
     ana.innerHTML = '<section class="kart bitti"><div class="buyuk-ikon">🔤</div><h2>' + O.d + " / " + top + ' cümle</h2><div class="satir-btn" style="justify-content:center"><button class="btn dolu" id="tekrar" type="button">Yeniden oyna</button><button class="btn" id="geri" type="button">Oyunlara dön</button></div>' +
-      (O.yanlis.length ? '<div class="sonuc-liste" style="text-align:start">' + O.yanlis.map(function (n) { return '<div class="r"><span class="ar">' + esc(METIN[n].ar) + '</span><span class="t">' + esc(METIN[n].tr) + "</span></div>"; }).join("") + "</div>" : "") + "</section>";
+      (O.yanlis.length ? '<div class="sonuc-liste" style="text-align:start">' + O.yanlis.map(function (n) { return '<div class="r"><span class="ar">' + esc(METIN[n].ar) + "</span></div>"; }).join("") + "</div>" : "") + "</section>";
     $("#tekrar").addEventListener("click", kurBasla); $("#geri").addEventListener("click", oyunCiz);
   }
   // doğru mu (60 sn)
