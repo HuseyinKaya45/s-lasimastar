@@ -1272,3 +1272,13 @@ kitaptaki Arapça açıklama, örnek cümle/ayet ve resimleriyle çalıştırır
 yeni sayfalar eklenince kaybolmaz. “جمع … انظر …” yönlendirmeleri hedef maddeye bağlanır; hedefi henüz eklenmemiş olanlar Sözlük’te ayrı listelenir.
 Resimler yayın sayfasında ayrı `resimN.js` dosyalarındadır (16 MB sınırı).
 Düzenleme: sayfa verileri `mucem/kaynak/pNNN.json`, resimler `mucem/resim/` → `python3 mucem/veri.py` → `python3 mucem/yap.py`.
+
+## Uygulama: Kısas Kelime Hazinesi — Nedvî, «قصص النبيين للأطفال» (Hz. İbrahim ve Hz. Yusuf kıssaları)
+
+`kisas/index.html` (yayın sürümü `kisas/sayfa.html`) kitabın 9–61. sayfalarındaki iki kıssanın tam metnini (41 bölüm, 563 satır, her satırın Türkçesiyle) ve
+metinde geçen 792 kelime ve deyimi (122 deyim) verir; tek dosya, internetsiz. **Okuma**: altı noktalı kelimeye dokununca anlamı, kökü, çoğulu / fiil çekimi ve
+örnek cümlesi açılır; satırın Türkçesi bir dokunuşla görünür; deyimler satırın altında listelenir. **Kelimeler**: bölüme ve türe (isim, fiil, sıfat, deyim…) göre
+liste, arama, ★; her kelimede metindeki cümlesi (kelime vurgulu), yeni bir örnek cümle ve Türkçeleri. **Kartlar**: aralıklı tekrar, “bir daha gösterme”.
+**Oyunlar**: eşleştir, anlam testi (iki yönlü), boşluk doldur (metin cümlesiyle), cümle kur (metin cümlesini sıraya dizme), 60 saniyelik “Doğru mu?”; puan ve rekor.
+**İlerleme**: bölüm bölüm öğrenme durumu, seri, yedek. Takdim ve mukaddime (s. 1–8) dahil edilmedi.
+Düzenleme: metin `kisas/kaynak/metin/sNN.json`, kelimeler `kisas/kaynak/kelime/qN.json` → `python3 kisas/veri.py` → `python3 kisas/yap.py`.
