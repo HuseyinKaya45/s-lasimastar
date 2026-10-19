@@ -1,0 +1,64 @@
+[
+ {
+  "tip": "satir",
+  "ar": "الْبِئْرِ، وَلَا فِرَاشَ وَلَا طَعَامَ.",
+  "tr": "... kuyudaydı; ne yatak vardı ne de yemek.",
+  "devam": true
+ },
+ {
+  "tip": "satir",
+  "ar": "وَنَسِيَ الْإِخْوَانُ يُوسُفَ، وَنَامُوا.",
+  "tr": "Kardeşler Yusuf'u unuttular ve uyudular."
+ },
+ {
+  "tip": "satir",
+  "ar": "وَمَا نَامَ يُوسُفُ، وَمَا نَسِيَ أَحَداً.",
+  "tr": "Yusuf ise uyumadı ve hiç kimseyi unutmadı."
+ },
+ {
+  "tip": "satir",
+  "ar": "وَبَقِيَ يَعْقُوبُ يَذْكُرُ يُوسُفَ، وَبَقِيَ يُوسُفُ يَذْكُرُ يَعْقُوبَ.",
+  "tr": "Yakup Yusuf'u anıp durdu, Yusuf da Yakup'u anıp durdu."
+ },
+ {
+  "tip": "satir",
+  "ar": "وَكَانَ يُوسُفُ فِي الْبِئْرِ وَكَانَتِ الْبِئْرُ عَمِيقَةً.",
+  "tr": "Yusuf kuyudaydı ve kuyu derindi."
+ },
+ {
+  "tip": "satir",
+  "ar": "وَكَانَتِ الْبِئْرُ فِي الْغَابَةِ، وَكَانَتِ الْغَابَةُ مُوحِشَةً وَكَانَ ذَلِكَ فِي اللَّيْلِ، وَكَانَ اللَّيْلُ مُظْلِماً.",
+  "tr": "Kuyu ormandaydı, orman da ıssız ve ürkütücüydü; bu da gece vaktiydi ve gece karanlıktı."
+ },
+ {
+  "tip": "baslik",
+  "no": 7,
+  "ar": "مِنَ الْبِئْرِ إِلَى الْقَصْرِ",
+  "tr": "Kuyudan Saraya"
+ },
+ {
+  "tip": "satir",
+  "ar": "وَكَانَتْ جَمَاعَةٌ تُسَافِرُ فِي هَذِهِ الْغَابَةِ.",
+  "tr": "Bu ormanda yolculuk eden bir kafile vardı."
+ },
+ {
+  "tip": "satir",
+  "ar": "وَعَطِشُوا فِي الطَّرِيقِ، وَبَحَثُوا عَنْ بِئْرٍ.",
+  "tr": "Yolda susadılar ve bir kuyu aradılar."
+ },
+ {
+  "tip": "satir",
+  "ar": "وَرَأَوْا بِئْراً، فَأَرْسَلُوا إِلَيْهَا رَجُلاً لِيَأْتِيَ لَهُمْ بِالْمَاءِ.",
+  "tr": "Bir kuyu gördüler ve onlara su getirsin diye oraya bir adam gönderdiler."
+ },
+ {
+  "tip": "satir",
+  "ar": "جَاءَ الرَّجُلُ إِلَى الْبِئْرِ، وَأَدْلَى دَلْوَهُ.",
+  "tr": "Adam kuyuya geldi ve kovasını (kuyuya) sarkıttı."
+ },
+ {
+  "tip": "satir",
+  "ar": "وَنَزَعَ الدَّلْوَ، فَإِذَا الدَّلْوُ ثَقِيلَةٌ!",
+  "tr": "Kovayı çekti; bir de ne görsün, kova ağır!"
+ }
+]
