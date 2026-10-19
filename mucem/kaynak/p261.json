@@ -1,0 +1,370 @@
+[
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَنِّيٌّ",
+  "cogul": null,
+  "metin": "مَنْ يَقومُ بِإِصْلاحِ الأَجْهِزَةِ الكَهْرَبائِيَّةِ وَغَيْرِها ، أَوْ يَعْمَلُ تَجارِبَ عَلَيْها ، “قامَ الفَنِّيُّ بِإِصْلاحِ الثَّلّاجَةِ” .",
+  "tanim": "مَنْ يَقومُ بِإِصْلاحِ الأَجْهِزَةِ الكَهْرَبائِيَّةِ وَغَيْرِها ، أَوْ يَعْمَلُ تَجارِبَ عَلَيْها",
+  "ornekler": [
+   "“قامَ الفَنِّيُّ بِإِصْلاحِ الثَّلّاجَةِ”"
+  ],
+  "bosluk": {
+   "cumle": "قامَ الفَنِّيُّ بِإِصْلاحِ الثَّلّاجَةِ",
+   "kelime": "الفَنِّيُّ"
+  },
+  "tr": "teknisyen",
+  "tanim_tr": "Elektrikli cihazları ve benzerlerini tamir eden ya da onlar üzerinde deneyler yapan kişi.",
+  "ornekler_tr": [
+   "“Teknisyen buzdolabını tamir etti.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَنِيَ",
+  "cogul": null,
+  "metin": "يَفْنَى فَناءً : انْتَهَى وُجودُهُ ، بادَ ، “فَنِيَ الجَدُّ بَعْدَ عُمُرٍ طَويلٍ” .",
+  "tanim": "انْتَهَى وُجودُهُ ، بادَ",
+  "ornekler": [
+   "“فَنِيَ الجَدُّ بَعْدَ عُمُرٍ طَويلٍ”"
+  ],
+  "bosluk": {
+   "cumle": "فَنِيَ الجَدُّ بَعْدَ عُمُرٍ طَويلٍ",
+   "kelime": "فَنِيَ"
+  },
+  "tr": "yok olmak, ölmek",
+  "tanim_tr": "Varlığı sona erdi, yok oldu.",
+  "ornekler_tr": [
+   "“Dede uzun bir ömürden sonra öldü.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَهْمٌ",
+  "cogul": null,
+  "metin": "إِدْراكٌ ، عِلْمٌ ، اسْتيعابٌ ، “في الكِتابِ أَسْئِلَةٌ لِاخْتِبارِ الفَهْمِ” ، “لَمْ أَسْتَطِعْ فَهْمَ ما تَعْني” . “هذا فَهْمٌ خاطِئٌ لِكَلامي” .",
+  "tanim": "إِدْراكٌ ، عِلْمٌ ، اسْتيعابٌ",
+  "ornekler": [
+   "“في الكِتابِ أَسْئِلَةٌ لِاخْتِبارِ الفَهْمِ”",
+   "“لَمْ أَسْتَطِعْ فَهْمَ ما تَعْني”",
+   "“هذا فَهْمٌ خاطِئٌ لِكَلامي”"
+  ],
+  "bosluk": {
+   "cumle": "في الكِتابِ أَسْئِلَةٌ لِاخْتِبارِ الفَهْمِ",
+   "kelime": "الفَهْمِ"
+  },
+  "tr": "anlayış, kavrayış",
+  "tanim_tr": "Kavrama, bilme, idrak etme.",
+  "ornekler_tr": [
+   "“Kitapta anlamayı ölçen sorular var.”",
+   "“Ne demek istediğini anlayamadım.”",
+   "“Bu, sözümün yanlış anlaşılmasıdır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَهِمَ",
+  "cogul": null,
+  "metin": "يَفْهَمُ فَهْماً : أَدْرَكَ ، عَلِمَ ، اسْتَوْعَبَ ، “لَمْ أَفْهَمْ شَرْحَ المُدَرِّسِ” ، “أَرْجو أَنْ تَفْهَمَ قَوْلي” ، “هَلْ فَهِمْتَ مَعْنَى الكَلِمَةِ ؟” .",
+  "tanim": "أَدْرَكَ ، عَلِمَ ، اسْتَوْعَبَ",
+  "ornekler": [
+   "“لَمْ أَفْهَمْ شَرْحَ المُدَرِّسِ”",
+   "“أَرْجو أَنْ تَفْهَمَ قَوْلي”",
+   "“هَلْ فَهِمْتَ مَعْنَى الكَلِمَةِ ؟”"
+  ],
+  "bosluk": {
+   "cumle": "هَلْ فَهِمْتَ مَعْنَى الكَلِمَةِ ؟",
+   "kelime": "فَهِمْتَ"
+  },
+  "tr": "anlamak",
+  "tanim_tr": "Kavradı, bildi, idrak etti.",
+  "ornekler_tr": [
+   "“Öğretmenin açıklamasını anlamadım.”",
+   "“Sözümü anlamanı umarım.”",
+   "“Kelimenin anlamını anladın mı?”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَهَّمَ",
+  "cogul": null,
+  "metin": "يُفَهِّمُ تَفْهيماً : جَعَلَهُ يَفْهَمُ الأَمْرَ ، “حاوَلْتُ أَنْ أُفَهِّمَهُ المَوْضوعَ ، وَلكِنَّهُ لَمْ يَفْهَمْ” ، ﴿ فَفَهَّمْناها سُلَيْمانَ ﴾ .",
+  "tanim": "جَعَلَهُ يَفْهَمُ الأَمْرَ",
+  "ornekler": [
+   "“حاوَلْتُ أَنْ أُفَهِّمَهُ المَوْضوعَ ، وَلكِنَّهُ لَمْ يَفْهَمْ”",
+   "﴿ فَفَهَّمْناها سُلَيْمانَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "حاوَلْتُ أَنْ أُفَهِّمَهُ المَوْضوعَ ، وَلكِنَّهُ لَمْ يَفْهَمْ",
+   "kelime": "أُفَهِّمَهُ"
+  },
+  "tr": "anlatmak, kavratmak",
+  "tanim_tr": "Ona işi anlamasını sağladı.",
+  "ornekler_tr": [
+   "“Ona konuyu anlatmaya çalıştım ama anlamadı.”",
+   "﴿ Biz onu Süleyman'a kavrattık. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَوائِد",
+  "yon": "فائِدَة",
+  "iliski": "جمع",
+  "tr": "faydalar"
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَوات",
+  "cogul": null,
+  "metin": "ذَهابٌ . “جاءَ بَعْدَ فَواتِ الأَوانِ” ، “احْذَرْ فَواتَ العُمُرِ ، فيما لا يَنْفَعُ” .",
+  "tanim": "ذَهابٌ",
+  "ornekler": [
+   "“جاءَ بَعْدَ فَواتِ الأَوانِ”",
+   "“احْذَرْ فَواتَ العُمُرِ ، فيما لا يَنْفَعُ”"
+  ],
+  "bosluk": {
+   "cumle": "جاءَ بَعْدَ فَواتِ الأَوانِ",
+   "kelime": "فَواتِ"
+  },
+  "tr": "kaçırma, geçip gitme",
+  "tanim_tr": "Gidip geçme.",
+  "ornekler_tr": [
+   "“İş işten geçtikten sonra geldi.”",
+   "“Ömrün faydasız şeylerle geçip gitmesinden sakın.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَواتير",
+  "yon": "فاتورَة",
+  "iliski": "جمع",
+  "tr": "faturalar"
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَواجِع",
+  "yon": "فاجِعَة",
+  "iliski": "جمع",
+  "tr": "felaketler, facialar"
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَواحِش",
+  "yon": "فاحِشَة",
+  "iliski": "جمع",
+  "tr": "çirkin işler, hayasızlıklar"
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَوارِس",
+  "yon": "فارِس",
+  "iliski": "جمع",
+  "tr": "süvariler, atlılar"
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَواكِه",
+  "yon": "فاكِهَة",
+  "iliski": "جمع",
+  "tr": "meyveler"
+ },
+ {
+  "sayfa": 261,
+  "levha": true,
+  "baslik": "فَواكِهُ",
+  "resim": "p261_levha2.jpg",
+  "etiketler": [
+   {
+    "ar": "مِشْمِش",
+    "tr": "kayısı"
+   },
+   {
+    "ar": "مَوْز",
+    "tr": "muz"
+   },
+   {
+    "ar": "يوسُفِيّ",
+    "tr": "mandalina"
+   },
+   {
+    "ar": "كُمَّثْرى",
+    "tr": "armut"
+   },
+   {
+    "ar": "مانْجو",
+    "tr": "mango"
+   },
+   {
+    "ar": "لَيْمون",
+    "tr": "limon"
+   },
+   {
+    "ar": "عِنَب",
+    "tr": "üzüm"
+   },
+   {
+    "ar": "فَراوِلَة",
+    "tr": "çilek"
+   },
+   {
+    "ar": "كَرَز",
+    "tr": "kiraz"
+   }
+  ],
+  "not": "Başlık kitapta yazılı değil; meyve resimleri sayfanın sağ sütun altında (فواكه maddesinin altında)."
+ },
+ {
+  "sayfa": 261,
+  "levha": true,
+  "baslik": "فَواكِهُ",
+  "resim": "p261_levha.jpg",
+  "etiketler": [
+   {
+    "ar": "رُمّان",
+    "tr": "nar"
+   },
+   {
+    "ar": "زَيْتون",
+    "tr": "zeytin"
+   },
+   {
+    "ar": "شَمّام",
+    "tr": "kavun"
+   },
+   {
+    "ar": "تين",
+    "tr": "incir"
+   },
+   {
+    "ar": "جَوْزُ الهِنْدِ",
+    "tr": "hindistancevizi"
+   },
+   {
+    "ar": "دُرّاق",
+    "tr": "şeftali"
+   },
+   {
+    "ar": "أَناناس",
+    "tr": "ananas"
+   },
+   {
+    "ar": "تُفّاح",
+    "tr": "elma"
+   },
+   {
+    "ar": "بَطِّيخ",
+    "tr": "karpuz"
+   },
+   {
+    "ar": "بُرْتُقال",
+    "tr": "portakal"
+   },
+   {
+    "ar": "توت",
+    "tr": "dut"
+   },
+   {
+    "ar": "تَمْر",
+    "tr": "hurma"
+   }
+  ],
+  "not": "Başlık kitapta yazılı değil; sol sütunun üst yarısını kaplayan meyve resimleri."
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَوْج",
+  "cogul": "أَفْواج",
+  "metin": "( ج ) أَفْواجٌ : الجَماعَةُ مِنَ النّاسِ تَتَحَرَّكُ في مَجْموعَةٍ واحِدَةٍ إِلى مَوْضِعٍ واحِدٍ ، خِلافُ أَفْرادٍ ، ﴿ كُلَّما أُلْقِيَ فيها فَوْجٌ سَأَلَهُمْ خَزَنَتُها ﴾ ، ﴿ وَرَأَيْتَ النّاسَ يَدْخُلونَ في دينِ اللهِ أَفْواجاً ﴾ .",
+  "tanim": "الجَماعَةُ مِنَ النّاسِ تَتَحَرَّكُ في مَجْموعَةٍ واحِدَةٍ إِلى مَوْضِعٍ واحِدٍ ، خِلافُ أَفْرادٍ",
+  "ornekler": [
+   "﴿ كُلَّما أُلْقِيَ فيها فَوْجٌ سَأَلَهُمْ خَزَنَتُها ﴾",
+   "﴿ وَرَأَيْتَ النّاسَ يَدْخُلونَ في دينِ اللهِ أَفْواجاً ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَرَأَيْتَ النّاسَ يَدْخُلونَ في دينِ اللهِ أَفْواجاً",
+   "kelime": "أَفْواجاً"
+  },
+  "tr": "kafile, bölük",
+  "tanim_tr": "Tek bir yere tek bir grup hâlinde hareket eden insan topluluğu; tek tek olmanın zıddı.",
+  "ornekler_tr": [
+   "﴿ Oraya her bir topluluk atıldıkça bekçileri onlara sorar. ﴾",
+   "﴿ İnsanların bölük bölük Allah'ın dinine girdiğini gördüğünde. ﴾"
+  ],
+  "resim": "p261_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَوْر",
+  "cogul": null,
+  "metin": "فَوْراً : حالَ ، وَقْتَ ، “رَكِبْنا الحافِلَةَ فَوْرَ وُصولِها” ، “طَلَبَ مِنّي الحُضورَ فَوْراً” .",
+  "tanim": "فَوْراً : حالَ ، وَقْتَ",
+  "ornekler": [
+   "“رَكِبْنا الحافِلَةَ فَوْرَ وُصولِها”",
+   "“طَلَبَ مِنّي الحُضورَ فَوْراً”"
+  ],
+  "bosluk": {
+   "cumle": "طَلَبَ مِنّي الحُضورَ فَوْراً",
+   "kelime": "فَوْراً"
+  },
+  "tr": "hemen, derhal",
+  "tanim_tr": "Fevran: hemen, o anda; fevra: …-dığı anda.",
+  "ornekler_tr": [
+   "“Otobüs gelir gelmez bindik.”",
+   "“Benden hemen gelmemi istedi.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 261,
+  "baski_no": "٢٦١",
+  "k": "فَوْز",
+  "cogul": null,
+  "metin": "نَجاحٌ ، نَصْرٌ ، “حَقَّقَ الفَريقُ الفَوْزَ بِصُعوبَةٍ” ، “الفَوْزُ العَظيمُ ، هُوَ الفَوْزُ بِرِضا اللهِ” ، ﴿ ذلِكَ الْفَوْزُ الْعَظيمُ ﴾ .",
+  "tanim": "نَجاحٌ ، نَصْرٌ",
+  "ornekler": [
+   "“حَقَّقَ الفَريقُ الفَوْزَ بِصُعوبَةٍ”",
+   "“الفَوْزُ العَظيمُ ، هُوَ الفَوْزُ بِرِضا اللهِ”",
+   "﴿ ذلِكَ الْفَوْزُ الْعَظيمُ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "حَقَّقَ الفَريقُ الفَوْزَ بِصُعوبَةٍ",
+   "kelime": "الفَوْزَ"
+  },
+  "tr": "zafer, kazanma",
+  "tanim_tr": "Başarı, zafer.",
+  "ornekler_tr": [
+   "“Takım galibiyeti zorlukla elde etti.”",
+   "“Büyük kurtuluş, Allah'ın rızasını kazanmaktır.”",
+   "﴿ İşte büyük kurtuluş budur. ﴾"
+  ],
+  "resim": "p261_2.jpg",
+  "not": "Resimde kazanma (فوز) ve kaybetme (خسارة)."
+ }
+]
