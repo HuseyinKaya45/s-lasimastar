@@ -1,0 +1,265 @@
+[
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظلع",
+  "cogul": null,
+  "metin": "يَظْلَعُ ظَلْعاً : عَرَجَ في مَشْيِهِ ، “أَصْبَحَ يَظْلَعُ في مَشْيِهِ ، بَعْدَ كَسْرِ رِجْلِهِ” .",
+  "tanim": "عَرَجَ في مَشْيِهِ",
+  "ornekler": [
+   "“أَصْبَحَ يَظْلَعُ في مَشْيِهِ ، بَعْدَ كَسْرِ رِجْلِهِ”"
+  ],
+  "bosluk": {
+   "cumle": "أَصْبَحَ يَظْلَعُ في مَشْيِهِ ، بَعْدَ كَسْرِ رِجْلِهِ",
+   "kelime": "يَظْلَعُ"
+  },
+  "tr": "topallamak",
+  "tanim_tr": "Yürürken aksamak, topallamak.",
+  "ornekler_tr": [
+   "“Ayağı kırıldıktan sonra yürürken topallar oldu.”"
+  ],
+  "resim": "p222_1.jpg",
+  "not": "madde başı kitapta harekesiz (ظلع); örneğin kapanış tırnağı basılmamış"
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظِلْف",
+  "cogul": "أَظْلاف",
+  "metin": "(ج) أَظْلاف : الظُّفُرُ المَشْقوقُ في بَعْضِ الحَيَواناتِ كالبَقَرِ وَالغَنَمِ وَغَيْرِها “البَقَرَةُ مِنْ ذَواتِ الأَظْلافِ” .",
+  "tanim": "الظُّفُرُ المَشْقوقُ في بَعْضِ الحَيَواناتِ كالبَقَرِ وَالغَنَمِ وَغَيْرِها",
+  "ornekler": [
+   "“البَقَرَةُ مِنْ ذَواتِ الأَظْلافِ”"
+  ],
+  "bosluk": {
+   "cumle": "البَقَرَةُ مِنْ ذَواتِ الأَظْلافِ",
+   "kelime": "الأَظْلافِ"
+  },
+  "tr": "çatal tırnak",
+  "tanim_tr": "Sığır, koyun vb. bazı hayvanlardaki yarık tırnak.",
+  "ornekler_tr": [
+   "“İnek çatal tırnaklı hayvanlardandır.”"
+  ],
+  "resim": "p222_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظَلَمَ",
+  "cogul": null,
+  "metin": "يَظْلِمُ ظُلْماً : جارَ ، مالَ عَنِ الحَقِّ ؛ خِلافُ عَدَلَ ، “حَكَمَ القاضي في القَضِيَّةِ ؛ فَعَدَلَ وَلَمْ يَظْلِمِ المُتَّهَمَ” ، ﴿ وَمَنْ يَتَعَدَّ حُدُودَ اللهِ فَقَدْ ظَلَمَ نَفْسَهُ ﴾ ، ﴿ إِنَّ الشِّرْكَ لَظُلْمٌ عَظيمٌ ﴾ .",
+  "tanim": "جارَ ، مالَ عَنِ الحَقِّ ؛ خِلافُ عَدَلَ",
+  "ornekler": [
+   "“حَكَمَ القاضي في القَضِيَّةِ ؛ فَعَدَلَ وَلَمْ يَظْلِمِ المُتَّهَمَ”",
+   "﴿ وَمَنْ يَتَعَدَّ حُدُودَ اللهِ فَقَدْ ظَلَمَ نَفْسَهُ ﴾",
+   "﴿ إِنَّ الشِّرْكَ لَظُلْمٌ عَظيمٌ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَمَنْ يَتَعَدَّ حُدُودَ اللهِ فَقَدْ ظَلَمَ نَفْسَهُ",
+   "kelime": "ظَلَمَ"
+  },
+  "tr": "zulmetmek",
+  "tanim_tr": "Haksızlık etmek, haktan sapmak; adaletin zıddı.",
+  "ornekler_tr": [
+   "“Hâkim davada hüküm verdi; adil davrandı ve sanığa haksızlık etmedi.”",
+   "“Kim Allah'ın sınırlarını aşarsa kendine zulmetmiş olur.”",
+   "“Şüphesiz şirk büyük bir zulümdür.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظُلْم",
+  "yon": "ظَلَمَ",
+  "iliski": "مصدر",
+  "tr": "zulüm, haksızlık"
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظَمَأ",
+  "cogul": null,
+  "metin": "عَطَشٌ ، “سافَرَ في الصَّحْراءِ بِلا ماءٍ فَأَهْلَكَهُ الظَّمَأُ” ، ﴿ ذٰلِكَ بِأَنَّهُمْ لا يُصيبُهُمْ ظَمَأٌ وَلا نَصَبٌ ﴾ .",
+  "tanim": "عَطَشٌ",
+  "ornekler": [
+   "“سافَرَ في الصَّحْراءِ بِلا ماءٍ فَأَهْلَكَهُ الظَّمَأُ”",
+   "﴿ ذٰلِكَ بِأَنَّهُمْ لا يُصيبُهُمْ ظَمَأٌ وَلا نَصَبٌ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "سافَرَ في الصَّحْراءِ بِلا ماءٍ فَأَهْلَكَهُ الظَّمَأُ",
+   "kelime": "الظَّمَأُ"
+  },
+  "tr": "susuzluk",
+  "tanim_tr": "Susuzluk, susamışlık.",
+  "ornekler_tr": [
+   "“Çölde susuz yolculuk etti, susuzluk onu helak etti.”",
+   "“Bu, onlara (Allah yolunda) hiçbir susuzluk ve yorgunluk isabet etmemesi sebebiyledir.”"
+  ],
+  "resim": null,
+  "not": "madde başı ظَمَأٌ (tenvinli) olarak basılmış olabilir"
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظَمِئَ",
+  "cogul": null,
+  "metin": "يَظْمَأُ ظَمَأً : عَطِشَ ، “ظَمِئَ المُسافِرُ فَشَرِبَ مِنَ النَّهْرِ” ، ﴿ وَأَنَّكَ لا تَظْمَأُ فيها وَلا تَضْحَى ﴾ .",
+  "tanim": "عَطِشَ",
+  "ornekler": [
+   "“ظَمِئَ المُسافِرُ فَشَرِبَ مِنَ النَّهْرِ”",
+   "﴿ وَأَنَّكَ لا تَظْمَأُ فيها وَلا تَضْحَى ﴾"
+  ],
+  "bosluk": {
+   "cumle": "ظَمِئَ المُسافِرُ فَشَرِبَ مِنَ النَّهْرِ",
+   "kelime": "ظَمِئَ"
+  },
+  "tr": "susamak",
+  "tanim_tr": "Susamak.",
+  "ornekler_tr": [
+   "“Yolcu susadı ve nehirden içti.”",
+   "“Ve sen orada ne susarsın ne de güneşten yanarsın.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظَمْآن",
+  "cogul": null,
+  "metin": "عَطْشانُ ، “رَأَيْتُ مُسافِراً ظَمْآنَ ؛ فَسَقَيْتُهُ ماءً عَذْباً” ، ﴿ كَسَرابٍ بِقيعَةٍ يَحْسَبُهُ الظَّمْآنُ ماءً ﴾ .",
+  "tanim": "عَطْشانُ",
+  "ornekler": [
+   "“رَأَيْتُ مُسافِراً ظَمْآنَ ؛ فَسَقَيْتُهُ ماءً عَذْباً”",
+   "﴿ كَسَرابٍ بِقيعَةٍ يَحْسَبُهُ الظَّمْآنُ ماءً ﴾"
+  ],
+  "bosluk": {
+   "cumle": "رَأَيْتُ مُسافِراً ظَمْآنَ ؛ فَسَقَيْتُهُ ماءً عَذْباً",
+   "kelime": "ظَمْآنَ"
+  },
+  "tr": "susamış",
+  "tanim_tr": "Susuz, susamış.",
+  "ornekler_tr": [
+   "“Susamış bir yolcu gördüm ve ona tatlı su içirdim.”",
+   "“Düz bir arazideki serap gibidir ki susamış kimse onu su sanır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظَنَّ",
+  "cogul": null,
+  "metin": "يَظُنُّ ظَنّاً : الشَّكُّ وَالاعْتِقادُ الرّاجِحُ غَيْرُ الجازِمِ ، ﴿ وَما لَهُمْ بِذٰلِكَ مِنْ عِلْمٍ إِنْ هُمْ إِلّا يَظُنُّونَ ﴾ ، ﴿ وَظَنَّ أَهْلُها أَنَّهُمْ قادِرُونَ عَلَيْها ﴾ ، ﴿ ما لَهُمْ بِهِ مِنْ عِلْمٍ إِلّا اتِّباعَ الظَّنِّ ﴾ .",
+  "tanim": "الشَّكُّ وَالاعْتِقادُ الرّاجِحُ غَيْرُ الجازِمِ",
+  "ornekler": [
+   "﴿ وَما لَهُمْ بِذٰلِكَ مِنْ عِلْمٍ إِنْ هُمْ إِلّا يَظُنُّونَ ﴾",
+   "﴿ وَظَنَّ أَهْلُها أَنَّهُمْ قادِرُونَ عَلَيْها ﴾",
+   "﴿ ما لَهُمْ بِهِ مِنْ عِلْمٍ إِلّا اتِّباعَ الظَّنِّ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَظَنَّ أَهْلُها أَنَّهُمْ قادِرُونَ عَلَيْها",
+   "kelime": "ظَنَّ"
+  },
+  "tr": "sanmak, zannetmek",
+  "tanim_tr": "Şüphe ve kesin olmayan ağır basan kanaat; sanmak.",
+  "ornekler_tr": [
+   "“Onların bu konuda hiçbir bilgisi yoktur; onlar sadece zannediyorlar.”",
+   "“Ve sahipleri onun üzerinde güç sahibi olduklarını sandılar.”",
+   "“Onların buna dair hiçbir bilgisi yoktur, sadece zanna uyarlar.”"
+  ],
+  "resim": null,
+  "not": "tanım isim (masdar) olarak verilmiş"
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظَنّ",
+  "cogul": "ظُنون",
+  "yon": "ظَنَّ",
+  "iliski": "انظر",
+  "tr": "zan, sanı"
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظُهْر",
+  "cogul": null,
+  "metin": "وَقْتُ زَوالِ الشَّمْسِ ، مُنْتَصَفُ النَّهارِ ، “عادَ إِلى البَيْتِ ظُهْراً” ، “أَدَّى الرَّجُلُ صَلاةَ الظُّهْرِ في المَسْجِدِ” .",
+  "tanim": "وَقْتُ زَوالِ الشَّمْسِ ، مُنْتَصَفُ النَّهارِ",
+  "ornekler": [
+   "“عادَ إِلى البَيْتِ ظُهْراً”",
+   "“أَدَّى الرَّجُلُ صَلاةَ الظُّهْرِ في المَسْجِدِ”"
+  ],
+  "bosluk": {
+   "cumle": "أَدَّى الرَّجُلُ صَلاةَ الظُّهْرِ في المَسْجِدِ",
+   "kelime": "الظُّهْرِ"
+  },
+  "tr": "öğle vakti",
+  "tanim_tr": "Güneşin tepe noktasından kaydığı vakit, gün ortası.",
+  "ornekler_tr": [
+   "“Öğleyin eve döndü.”",
+   "“Adam öğle namazını mescitte kıldı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظَهَرَ",
+  "cogul": null,
+  "metin": "يَظْهَرُ ظُهوراً : بانَ وَبَرَزَ ؛ خِلافُ اخْتَفَى وَاحْتَجَبَ وَبَطَنَ ، “زالَ السَّحابُ فَظَهَرَ القَمَرُ” ، ﴿ وَلا تَقْرَبُوا الفَواحِشَ ما ظَهَرَ مِنْها وَما بَطَنَ ﴾ .",
+  "tanim": "بانَ وَبَرَزَ ؛ خِلافُ اخْتَفَى وَاحْتَجَبَ وَبَطَنَ",
+  "ornekler": [
+   "“زالَ السَّحابُ فَظَهَرَ القَمَرُ”",
+   "﴿ وَلا تَقْرَبُوا الفَواحِشَ ما ظَهَرَ مِنْها وَما بَطَنَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "زالَ السَّحابُ فَظَهَرَ القَمَرُ",
+   "kelime": "فَظَهَرَ"
+  },
+  "tr": "görünmek, ortaya çıkmak",
+  "tanim_tr": "Belirmek, ortaya çıkmak; kaybolmanın, gizlenmenin zıddı.",
+  "ornekler_tr": [
+   "“Bulutlar dağıldı ve ay göründü.”",
+   "“Kötülüklerin açığına da gizlisine de yaklaşmayın.”"
+  ],
+  "resim": "p222_3.jpg",
+  "not": "metin sağ sütun sonundan sol sütun başına devam ediyor"
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظَهْر",
+  "cogul": "ظُهورٌ وَأَظْهُرٌ",
+  "metin": "(ج) ظُهورٌ وَأَظْهُرٌ : مُؤَخَّرُ الكائِنِ ، مُقابِلُ البَطْنِ ، “يَشْعُرُ الشَّيْخُ بِأَلَمٍ في ظَهْرِهِ” .",
+  "tanim": "مُؤَخَّرُ الكائِنِ ، مُقابِلُ البَطْنِ",
+  "ornekler": [
+   "“يَشْعُرُ الشَّيْخُ بِأَلَمٍ في ظَهْرِهِ”"
+  ],
+  "bosluk": {
+   "cumle": "يَشْعُرُ الشَّيْخُ بِأَلَمٍ في ظَهْرِهِ",
+   "kelime": "ظَهْرِهِ"
+  },
+  "tr": "sırt",
+  "tanim_tr": "Canlının arka tarafı, karnın karşısı; sırt.",
+  "ornekler_tr": [
+   "“Yaşlı adam sırtında ağrı hissediyor.”"
+  ],
+  "resim": "p222_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 222,
+  "baski_no": "٢٢٢",
+  "k": "ظَواهِر",
+  "yon": "ظاهِرَة",
+  "iliski": "جمع",
+  "tr": "olgular, fenomenler"
+ }
+]

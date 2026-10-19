@@ -1,0 +1,493 @@
+[
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عُضْو",
+  "cogul": "أَعْضاء",
+  "metin": "( ج ) أَعْضاءٌ . جُزْءٌ مِنَ الشَّيْءِ ، “أَعْضاءُ الوُضوءِ هِيَ الأَجْزاءُ مِنَ الجِسْمِ ، الَّتي يَغْسِلُها المُتَوَضِّئُ” .",
+  "tanim": "جُزْءٌ مِنَ الشَّيْءِ",
+  "ornekler": [
+   "“أَعْضاءُ الوُضوءِ هِيَ الأَجْزاءُ مِنَ الجِسْمِ ، الَّتي يَغْسِلُها المُتَوَضِّئُ”"
+  ],
+  "bosluk": {
+   "cumle": "أَعْضاءُ الوُضوءِ هِيَ الأَجْزاءُ مِنَ الجِسْمِ ، الَّتي يَغْسِلُها المُتَوَضِّئُ",
+   "kelime": "أَعْضاءُ"
+  },
+  "tr": "organ, üye",
+  "tanim_tr": "Bir şeyin parçası.",
+  "ornekler_tr": [
+   "“Abdest organları, abdest alanın yıkadığı vücut kısımlarıdır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عُضْوِيَّة",
+  "cogul": null,
+  "metin": "الانْتِسابُ إِلَى هَيْئَةٍ أَوْ جَمْعِيَّةٍ ، “ما شُروطُ العُضْوِيَّةِ في ناديكُمْ ؟” .",
+  "tanim": "الانْتِسابُ إِلَى هَيْئَةٍ أَوْ جَمْعِيَّةٍ",
+  "ornekler": [
+   "“ما شُروطُ العُضْوِيَّةِ في ناديكُمْ ؟”"
+  ],
+  "bosluk": {
+   "cumle": "ما شُروطُ العُضْوِيَّةِ في ناديكُمْ ؟",
+   "kelime": "العُضْوِيَّةِ"
+  },
+  "tr": "üyelik",
+  "tanim_tr": "Bir kuruluşa ya da derneğe mensup olma.",
+  "ornekler_tr": [
+   "“Kulübünüzde üyeliğin şartları nelerdir?”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَطاء",
+  "cogul": "أَعْطِيَة",
+  "metin": "( ج ) أَعْطِيَة : كُلُّ ما يُعْطَى ، “قَبِلَ الغَريبُ عَطاءَ الأَميرِ” ، ﴿ وَما كانَ عَطاءُ رَبِّكَ مَحْظوراً ﴾ .",
+  "tanim": "كُلُّ ما يُعْطَى",
+  "ornekler": [
+   "“قَبِلَ الغَريبُ عَطاءَ الأَميرِ”",
+   "﴿ وَما كانَ عَطاءُ رَبِّكَ مَحْظوراً ﴾"
+  ],
+  "bosluk": {
+   "cumle": "قَبِلَ الغَريبُ عَطاءَ الأَميرِ",
+   "kelime": "عَطاءَ"
+  },
+  "tr": "bağış, ihsan",
+  "tanim_tr": "Verilen her şey.",
+  "ornekler_tr": [
+   "“Yabancı, emirin bağışını kabul etti.”",
+   "﴿ Rabbinin ihsanı kimseye yasaklanmış değildir. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَطِبَ",
+  "cogul": null,
+  "metin": "يَعْطَبُ عَطَباً : فَسَدَ وَخَرِبَ ، “عَطِبَتِ السَّيّارَةُ فَمَشَيْنا عَلَى أَقْدامِنا” .",
+  "tanim": "فَسَدَ وَخَرِبَ",
+  "ornekler": [
+   "“عَطِبَتِ السَّيّارَةُ فَمَشَيْنا عَلَى أَقْدامِنا”"
+  ],
+  "bosluk": {
+   "cumle": "عَطِبَتِ السَّيّارَةُ فَمَشَيْنا عَلَى أَقْدامِنا",
+   "kelime": "عَطِبَتِ"
+  },
+  "tr": "bozulmak, arızalanmak",
+  "tanim_tr": "Bozulmak, işlemez hale gelmek.",
+  "ornekler_tr": [
+   "“Araba arızalandı, biz de yürüdük.”"
+  ],
+  "resim": "p234_1.jpg",
+  "not": "resimde عطب / صلح karşıtlığı"
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عِطْر",
+  "cogul": "عُطور",
+  "metin": "( ج ) عُطور : ما لَهُ رائِحَةٌ طَيِّبَةٌ وَيُتَطَيَّبُ بِهِ ، “اشْتَرَى لِأَخيهِ عِطْراً مِنَ المِسْكِ” .",
+  "tanim": "ما لَهُ رائِحَةٌ طَيِّبَةٌ وَيُتَطَيَّبُ بِهِ",
+  "ornekler": [
+   "“اشْتَرَى لِأَخيهِ عِطْراً مِنَ المِسْكِ”"
+  ],
+  "bosluk": {
+   "cumle": "اشْتَرَى لِأَخيهِ عِطْراً مِنَ المِسْكِ",
+   "kelime": "عِطْراً"
+  },
+  "tr": "parfüm, koku",
+  "tanim_tr": "Güzel kokusu olan ve sürünülen şey.",
+  "ornekler_tr": [
+   "“Kardeşine miskten bir parfüm aldı.”"
+  ],
+  "resim": "p234_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَطَسَ",
+  "cogul": null,
+  "metin": "يَعْطِسُ عَطْساً : انْدَفَعَ الهَواءُ مِنْ فَمِهِ وَأَنْفِهِ مُحْدِثاً صَوْتاً مَسْموعاً ، وَفي الحَديثِ : ( إِذا عَطَسَ أَحَدُكُمْ فَحَمِدَ اللهَ فَشَمِّتوهُ ) .",
+  "tanim": "انْدَفَعَ الهَواءُ مِنْ فَمِهِ وَأَنْفِهِ مُحْدِثاً صَوْتاً مَسْموعاً",
+  "ornekler": [
+   "( إِذا عَطَسَ أَحَدُكُمْ فَحَمِدَ اللهَ فَشَمِّتوهُ )"
+  ],
+  "bosluk": {
+   "cumle": "إِذا عَطَسَ أَحَدُكُمْ فَحَمِدَ اللهَ فَشَمِّتوهُ",
+   "kelime": "عَطَسَ"
+  },
+  "tr": "hapşırmak",
+  "tanim_tr": "Ağzından ve burnundan hava sesli bir şekilde fırlamak.",
+  "ornekler_tr": [
+   "(Hadis) “Biriniz hapşırıp Allah'a hamd ederse ona 'yerhamükallah' deyin.”"
+  ],
+  "resim": "p234_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَطِشَ",
+  "cogul": null,
+  "metin": "يَعْطَشُ عَطَشاً : أَحَسَّ بِالحاجَةِ الشَّديدَةِ إِلَى شُرْبِ الماءِ ، “عَطِشَ الرّاعي ؛ فَشَرِبَ مِنَ البِئْرِ” .",
+  "tanim": "أَحَسَّ بِالحاجَةِ الشَّديدَةِ إِلَى شُرْبِ الماءِ",
+  "ornekler": [
+   "“عَطِشَ الرّاعي ؛ فَشَرِبَ مِنَ البِئْرِ”"
+  ],
+  "bosluk": {
+   "cumle": "عَطِشَ الرّاعي ؛ فَشَرِبَ مِنَ البِئْرِ",
+   "kelime": "عَطِشَ"
+  },
+  "tr": "susamak",
+  "tanim_tr": "Su içmeye şiddetli ihtiyaç duymak.",
+  "ornekler_tr": [
+   "“Çoban susadı; kuyudan içti.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَطَفَ",
+  "cogul": null,
+  "metin": "يَعْطِفُ عَطْفاً : حَنا وَأَشْفَقَ وَتَوَدَّدَ ، “عَطَفَ الشَّيْخُ عَلَى اليَتيمِ” .",
+  "tanim": "حَنا وَأَشْفَقَ وَتَوَدَّدَ",
+  "ornekler": [
+   "“عَطَفَ الشَّيْخُ عَلَى اليَتيمِ”"
+  ],
+  "bosluk": {
+   "cumle": "عَطَفَ الشَّيْخُ عَلَى اليَتيمِ",
+   "kelime": "عَطَفَ"
+  },
+  "tr": "şefkat göstermek",
+  "tanim_tr": "Şefkat ve merhamet göstermek, sevgi göstermek.",
+  "ornekler_tr": [
+   "“Yaşlı adam yetime şefkat gösterdi.”"
+  ],
+  "resim": "p234_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عُطْلَة",
+  "cogul": "عُطَل",
+  "metin": "( ج ) عُطَل : إِجازَةٌ . التَّوَقُّفُ عَنِ العَمَلِ أَوِ الدِّراسَةِ ، “سافَرَ في عُطْلَةِ نِهايَةِ الأُسْبوعِ” ، “زُرْتُهُ في عُطْلَةِ العيدِ” .",
+  "tanim": "إِجازَةٌ . التَّوَقُّفُ عَنِ العَمَلِ أَوِ الدِّراسَةِ",
+  "ornekler": [
+   "“سافَرَ في عُطْلَةِ نِهايَةِ الأُسْبوعِ”",
+   "“زُرْتُهُ في عُطْلَةِ العيدِ”"
+  ],
+  "bosluk": {
+   "cumle": "سافَرَ في عُطْلَةِ نِهايَةِ الأُسْبوعِ",
+   "kelime": "عُطْلَةِ"
+  },
+  "tr": "tatil",
+  "tanim_tr": "İzin; işe ya da derse ara verme.",
+  "ornekler_tr": [
+   "“Hafta sonu tatilinde yolculuğa çıktı.”",
+   "“Bayram tatilinde onu ziyaret ettim.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عُطور",
+  "yon": "عِطْر",
+  "iliski": "جمع",
+  "tr": "parfümler",
+  "metin": "جَمْعُ عِطْر . انْظُرْ : عِطْر ."
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عِظام",
+  "yon": "عَظيم / عَظْم",
+  "iliski": "جمع",
+  "tr": "büyükler; kemikler",
+  "metin": "( ١ ) جَمْعُ عَظيم . انْظُرْ : عَظيم . ( ٢ ) جَمْعُ عَظْم . انْظُرْ : عَظْم ."
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَظُمَ",
+  "cogul": null,
+  "metin": "يَعْظُمُ عَظَمَةً : كَبُرَ وَضَخُمَ ، “وَتَعْظُمُ في عَيْنِ الصَّغيرِ الصَّغائِرُ” .",
+  "tanim": "كَبُرَ وَضَخُمَ",
+  "ornekler": [
+   "“وَتَعْظُمُ في عَيْنِ الصَّغيرِ الصَّغائِرُ”"
+  ],
+  "bosluk": {
+   "cumle": "وَتَعْظُمُ في عَيْنِ الصَّغيرِ الصَّغائِرُ",
+   "kelime": "تَعْظُمُ"
+  },
+  "tr": "büyümek, büyük olmak",
+  "tanim_tr": "Büyük ve iri olmak.",
+  "ornekler_tr": [
+   "“Küçüğün gözünde küçük şeyler büyür.”"
+  ],
+  "resim": "p234_5.jpg",
+  "not": "resimde عظم / صغر karşıtlığı"
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَظْم",
+  "cogul": "عِظام",
+  "metin": "( ج ) عِظام : القَصَبُ الَّذي تَحْتَ اللَّحْمِ ، “سَقَطَ الرَّجُلُ فَانْكَسَرَ عَظْمُ ساقِهِ” ، ﴿ وَمِنَ البَقَرِ وَالغَنَمِ حَرَّمْنا عَلَيْهِمْ شُحومَهُما إِلّا ما حَمَلَتْ ظُهورُهُما أَوِ الحَوايا أَوْ ما اخْتَلَطَ بِعَظْمٍ ﴾ .",
+  "tanim": "القَصَبُ الَّذي تَحْتَ اللَّحْمِ",
+  "ornekler": [
+   "“سَقَطَ الرَّجُلُ فَانْكَسَرَ عَظْمُ ساقِهِ”",
+   "﴿ وَمِنَ البَقَرِ وَالغَنَمِ حَرَّمْنا عَلَيْهِمْ شُحومَهُما إِلّا ما حَمَلَتْ ظُهورُهُما أَوِ الحَوايا أَوْ ما اخْتَلَطَ بِعَظْمٍ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "سَقَطَ الرَّجُلُ فَانْكَسَرَ عَظْمُ ساقِهِ",
+   "kelime": "عَظْمُ"
+  },
+  "tr": "kemik",
+  "tanim_tr": "Etin altındaki sert kısım.",
+  "ornekler_tr": [
+   "“Adam düştü ve bacağının kemiği kırıldı.”",
+   "﴿ Sığır ve koyundan, sırtlarının ya da bağırsaklarının taşıdığı veya kemiğe karışmış olanlar dışında iç yağlarını onlara haram kıldık. ﴾"
+  ],
+  "resim": "p234_6.jpg",
+  "not": "ayetin ortası baskıda bozuk/silik (‘لا ١٠ ٠ ...ملت’); Kur'an metninden tamamlandı"
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عُظَماء",
+  "yon": "عَظيم",
+  "iliski": "جمع",
+  "tr": "büyükler",
+  "metin": "جَمْعُ عَظيم . انْظُرْ : عَظيم ."
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَظَمَة",
+  "cogul": null,
+  "metin": "كِبْرِياءٌ وَزَهْوٌ ، “أَصابَهُ جُنونُ العَظَمَةِ” .",
+  "tanim": "كِبْرِياءٌ وَزَهْوٌ",
+  "ornekler": [
+   "“أَصابَهُ جُنونُ العَظَمَةِ”"
+  ],
+  "bosluk": {
+   "cumle": "أَصابَهُ جُنونُ العَظَمَةِ",
+   "kelime": "العَظَمَةِ"
+  },
+  "tr": "büyüklük, azamet",
+  "tanim_tr": "Büyüklenme ve gurur.",
+  "ornekler_tr": [
+   "“Ona büyüklük hastalığı (megalomani) bulaştı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَظيم",
+  "cogul": "عُظَماء، عِظام",
+  "metin": "( ج ) عُظَماءُ وَعِظامٌ : ( ١ ) فَخْمٌ وَكَبيرٌ ، “يَسْكُنُ المَلِكُ في قَصْرٍ عَظيمٍ” . ( ٢ ) شَديدٌ ، ﴿ وَلَهُمْ عَذابٌ عَظيمٌ ﴾ .",
+  "tanim": "( ١ ) فَخْمٌ وَكَبيرٌ ( ٢ ) شَديدٌ",
+  "ornekler": [
+   "“يَسْكُنُ المَلِكُ في قَصْرٍ عَظيمٍ”",
+   "﴿ وَلَهُمْ عَذابٌ عَظيمٌ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "يَسْكُنُ المَلِكُ في قَصْرٍ عَظيمٍ",
+   "kelime": "عَظيمٍ"
+  },
+  "tr": "büyük, muazzam",
+  "tanim_tr": "(1) Görkemli ve büyük. (2) Şiddetli.",
+  "ornekler_tr": [
+   "“Kral büyük bir sarayda oturur.”",
+   "﴿ Onlar için büyük bir azap vardır. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَفَّ",
+  "cogul": null,
+  "metin": "يَعِفُّ عَفّاً وَعِفَّةً وَعَفافاً : كَفَّ وَتَجَنَّبَ الفَسادَ ، ﴿ وَمَنْ كانَ غَنِيّاً فَلْيَسْتَعْفِفْ ﴾ .",
+  "tanim": "كَفَّ وَتَجَنَّبَ الفَسادَ",
+  "ornekler": [
+   "﴿ وَمَنْ كانَ غَنِيّاً فَلْيَسْتَعْفِفْ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَمَنْ كانَ غَنِيّاً فَلْيَسْتَعْفِفْ",
+   "kelime": "فَلْيَسْتَعْفِفْ"
+  },
+  "tr": "iffetli olmak",
+  "tanim_tr": "Kendini tutmak ve kötülükten kaçınmak.",
+  "ornekler_tr": [
+   "﴿ Zengin olan (yetim malından) kaçınsın. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَفا",
+  "cogul": null,
+  "metin": "يَعْفو عَفْواً : غَفَرَ وَصَفَحَ ، خِلافُ عاقَبَ ، ﴿ عَفا اللَّهُ عَنْكَ لِمَ أَذِنْتَ لَهُمْ ﴾ ، ﴿ فَمَنْ عَفا وَأَصْلَحَ فَأَجْرُهُ عَلَى اللَّهِ ﴾ .",
+  "tanim": "غَفَرَ وَصَفَحَ ، خِلافُ عاقَبَ",
+  "ornekler": [
+   "﴿ عَفا اللَّهُ عَنْكَ لِمَ أَذِنْتَ لَهُمْ ﴾",
+   "﴿ فَمَنْ عَفا وَأَصْلَحَ فَأَجْرُهُ عَلَى اللَّهِ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "عَفا اللَّهُ عَنْكَ لِمَ أَذِنْتَ لَهُمْ",
+   "kelime": "عَفا"
+  },
+  "tr": "affetmek",
+  "tanim_tr": "Bağışlamak ve hoş görmek; cezalandırmanın zıddı.",
+  "ornekler_tr": [
+   "﴿ Allah seni affetsin, niçin onlara izin verdin? ﴾",
+   "﴿ Kim affeder ve barışı sağlarsa, onun mükâfatı Allah'a aittir. ﴾"
+  ],
+  "resim": "p234_7.jpg",
+  "not": "resimde عفا / عاقب karşıtlığı"
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَفاف",
+  "yon": "عَفَّ",
+  "iliski": "مصدر",
+  "tr": "iffet",
+  "metin": "مَصْدَرُ عَفَّ . انْظُرْ : عَفَّ ."
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَفَرَ",
+  "cogul": null,
+  "metin": "يَعْفِرُ عَفْراً : مَرَّغَهُ في التُّرابِ ، “تَقاتَلَ الخَصْمانِ ، فَعَفَرَ أَحَدُهُما رَأْسَ الآخَرِ” .",
+  "tanim": "مَرَّغَهُ في التُّرابِ",
+  "ornekler": [
+   "“تَقاتَلَ الخَصْمانِ ، فَعَفَرَ أَحَدُهُما رَأْسَ الآخَرِ”"
+  ],
+  "bosluk": {
+   "cumle": "تَقاتَلَ الخَصْمانِ ، فَعَفَرَ أَحَدُهُما رَأْسَ الآخَرِ",
+   "kelime": "فَعَفَرَ"
+  },
+  "tr": "toprağa bulamak",
+  "tanim_tr": "Toprakta yuvarlamak, toza bulamak.",
+  "ornekler_tr": [
+   "“İki hasım dövüştü, biri ötekinin başını toprağa buladı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَفِنَ",
+  "cogul": null,
+  "metin": "يَعْفَنُ عَفَناً وَعُفونَةً : فَسَدَ وَتَغَيَّرَتْ رائِحَتُهُ وَأَصْبَحَ غَيْرَ صالِحٍ لِلاسْتِعْمالِ ، “إِذا بَقِيَ اللَّحْمُ خارِجَ الثَّلّاجَةِ طَويلاً عَفِنَ” .",
+  "tanim": "فَسَدَ وَتَغَيَّرَتْ رائِحَتُهُ وَأَصْبَحَ غَيْرَ صالِحٍ لِلاسْتِعْمالِ",
+  "ornekler": [
+   "“إِذا بَقِيَ اللَّحْمُ خارِجَ الثَّلّاجَةِ طَويلاً عَفِنَ”"
+  ],
+  "bosluk": {
+   "cumle": "إِذا بَقِيَ اللَّحْمُ خارِجَ الثَّلّاجَةِ طَويلاً عَفِنَ",
+   "kelime": "عَفِنَ"
+  },
+  "tr": "çürümek, kokuşmak",
+  "tanim_tr": "Bozulup kokusu değişmek ve kullanılamaz hale gelmek.",
+  "ornekler_tr": [
+   "“Et buzdolabı dışında uzun süre kalırsa çürür.”"
+  ],
+  "resim": "p234_8.jpg",
+  "not": "resimde عفن / صلح karşıtlığı"
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَفْو",
+  "yon": "عَفا",
+  "iliski": "مصدر",
+  "tr": "af",
+  "metin": "مَصْدَرُ عَفا . انْظُرْ : عَفا ."
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَفيف",
+  "cogul": null,
+  "metin": "مَنْ يَكُفُّ عَنْ مَسْأَلَةِ النّاسِ ، وَعَمّا في أَيْديهِمْ ، وَيَتَجَنَّبُ السَّيِّئَ مِنَ القَوْلِ وَالفِعْلِ ، “صاحِبْ عَفيفَ النَّفْسِ ، وَلا تُصاحِبْ دَنِيَّ النَّفْسِ” .",
+  "tanim": "مَنْ يَكُفُّ عَنْ مَسْأَلَةِ النّاسِ ، وَعَمّا في أَيْديهِمْ ، وَيَتَجَنَّبُ السَّيِّئَ مِنَ القَوْلِ وَالفِعْلِ",
+  "ornekler": [
+   "“صاحِبْ عَفيفَ النَّفْسِ ، وَلا تُصاحِبْ دَنِيَّ النَّفْسِ”"
+  ],
+  "bosluk": {
+   "cumle": "صاحِبْ عَفيفَ النَّفْسِ ، وَلا تُصاحِبْ دَنِيَّ النَّفْسِ",
+   "kelime": "عَفيفَ"
+  },
+  "tr": "iffetli",
+  "tanim_tr": "İnsanlardan istemekten ve ellerindekine göz dikmekten kaçınan, kötü söz ve davranıştan uzak duran kimse.",
+  "ornekler_tr": [
+   "“İffetli kişiyle arkadaşlık et, alçak ruhlu kişiyle arkadaşlık etme.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَقائِد",
+  "yon": "عَقيدَة",
+  "iliski": "جمع",
+  "tr": "inançlar",
+  "metin": "جَمْعُ عَقيدَة . انْظُرْ : عَقيدَة ."
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عَقائِق",
+  "yon": "عَقيقَة",
+  "iliski": "جمع",
+  "tr": "akikalar",
+  "metin": "جَمْعُ عَقيقَة . انْظُرْ : عَقيقَة"
+ },
+ {
+  "sayfa": 234,
+  "baski_no": "٢٣٤",
+  "k": "عِقاب",
+  "cogul": null,
+  "metin": "جَزاءٌ ، ﴿ إِنَّ رَبَّكَ سَريعُ العِقابِ ﴾ .",
+  "tanim": "جَزاءٌ",
+  "ornekler": [
+   "﴿ إِنَّ رَبَّكَ سَريعُ العِقابِ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "إِنَّ رَبَّكَ سَريعُ العِقابِ",
+   "kelime": "العِقابِ"
+  },
+  "tr": "ceza",
+  "tanim_tr": "Ceza, karşılık.",
+  "ornekler_tr": [
+   "﴿ Şüphesiz Rabbin cezası çabuk olandır. ﴾"
+  ],
+  "resim": null,
+  "not": null
+ }
+]

@@ -1,0 +1,303 @@
+[
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظالِم",
+  "cogul": null,
+  "metin": "جائِرٌ ، غَيْرُ عادِلٍ ، ﴿ وَما ظَلَمْناهُمْ وَلٰكِنْ كانُوا هُمُ الظّالِمِينَ ﴾ . انْظُرْ أَيْضاً : ظَلَمَ .",
+  "tanim": "جائِرٌ ، غَيْرُ عادِلٍ",
+  "ornekler": [
+   "﴿ وَما ظَلَمْناهُمْ وَلٰكِنْ كانُوا هُمُ الظّالِمِينَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَما ظَلَمْناهُمْ وَلٰكِنْ كانُوا هُمُ الظّالِمِينَ",
+   "kelime": "الظّالِمِينَ"
+  },
+  "tr": "zalim",
+  "tanim_tr": "Zulmeden, adaletsiz.",
+  "ornekler_tr": [
+   "“Biz onlara zulmetmedik, fakat zalimler kendileriydi.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظاهِر",
+  "cogul": null,
+  "metin": "واضِحٌ ، بَيِّنٌ ؛ خِلافُ باطِنٍ ، باطِنُهُ أَفْضَلُ مِنْ ظاهِرِهِ ، ﴿ وَذَرُوا ظاهِرَ الإِثْمِ وَباطِنَهُ ﴾ .",
+  "tanim": "واضِحٌ ، بَيِّنٌ ؛ خِلافُ باطِنٍ",
+  "ornekler": [
+   "باطِنُهُ أَفْضَلُ مِنْ ظاهِرِهِ",
+   "﴿ وَذَرُوا ظاهِرَ الإِثْمِ وَباطِنَهُ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "باطِنُهُ أَفْضَلُ مِنْ ظاهِرِهِ",
+   "kelime": "ظاهِرِهِ"
+  },
+  "tr": "açık, dış (görünen)",
+  "tanim_tr": "Açık, belirgin; bâtının (iç) zıddı, dış yüz.",
+  "ornekler_tr": [
+   "İçi dışından daha iyidir.",
+   "“Günahın açığını da gizlisini de bırakın.”"
+  ],
+  "resim": "p221_1.jpg",
+  "not": "'باطنه أفضل من ظاهره' örneği kitapta tırnaksız basılmış"
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظاهِرَة",
+  "cogul": "ظَواهِر",
+  "metin": "(ج) ظَواهِر : أَمْرٌ أَوْ شَيْءٌ عامٌّ وَبارِزٌ ، ما يُدْرَكُ وَيُلاحَظُ ، “التَّدْخينُ مِنَ الظَّواهِرِ الجَديدَةِ في مُجْتَمَعِنا العَرَبِيِّ” .",
+  "tanim": "أَمْرٌ أَوْ شَيْءٌ عامٌّ وَبارِزٌ ، ما يُدْرَكُ وَيُلاحَظُ",
+  "ornekler": [
+   "“التَّدْخينُ مِنَ الظَّواهِرِ الجَديدَةِ في مُجْتَمَعِنا العَرَبِيِّ”"
+  ],
+  "bosluk": {
+   "cumle": "التَّدْخينُ مِنَ الظَّواهِرِ الجَديدَةِ في مُجْتَمَعِنا العَرَبِيِّ",
+   "kelime": "الظَّواهِرِ"
+  },
+  "tr": "olgu, fenomen",
+  "tanim_tr": "Yaygın ve belirgin iş ya da şey; algılanan ve gözlemlenen şey.",
+  "ornekler_tr": [
+   "“Sigara içmek Arap toplumumuzdaki yeni olgulardandır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظَبْي",
+  "cogul": "ظِباء",
+  "metin": "(ج) ظِباء : غَزالٌ ، “اصْطَدْتُ ظَبْياً صَغيراً فَأَطْلَقْتُهُ” .",
+  "tanim": "غَزالٌ",
+  "ornekler": [
+   "“اصْطَدْتُ ظَبْياً صَغيراً فَأَطْلَقْتُهُ”"
+  ],
+  "bosluk": {
+   "cumle": "اصْطَدْتُ ظَبْياً صَغيراً فَأَطْلَقْتُهُ",
+   "kelime": "ظَبْياً"
+  },
+  "tr": "ceylan",
+  "tanim_tr": "Ceylan, geyik yavrusu.",
+  "ornekler_tr": [
+   "“Küçük bir ceylan avladım, sonra onu serbest bıraktım.”"
+  ],
+  "resim": "p221_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظَرْف",
+  "cogul": "ظُروف",
+  "metin": "(ج) ظُروف : وِعاءٌ ، “وَضَعَ رِسالَتَهُ في ظَرْفٍ ، وَأَرْسَلَها بِالبَريدِ” .",
+  "tanim": "وِعاءٌ",
+  "ornekler": [
+   "“وَضَعَ رِسالَتَهُ في ظَرْفٍ ، وَأَرْسَلَها بِالبَريدِ”"
+  ],
+  "bosluk": {
+   "cumle": "وَضَعَ رِسالَتَهُ في ظَرْفٍ ، وَأَرْسَلَها بِالبَريدِ",
+   "kelime": "ظَرْفٍ"
+  },
+  "tr": "zarf, kap",
+  "tanim_tr": "Kap, zarf.",
+  "ornekler_tr": [
+   "“Mektubunu bir zarfa koydu ve postayla gönderdi.”"
+  ],
+  "resim": "p221_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظَرُفَ",
+  "cogul": null,
+  "metin": "يَظْرُفُ ظَرْفاً وَظَرافَةً : بَرَعَ وَحَذِقَ ، “ظَرُفَ الصَّبِيُّ ، فَأَحَبَّهُ أَصْحابُهُ” .",
+  "tanim": "بَرَعَ وَحَذِقَ",
+  "ornekler": [
+   "“ظَرُفَ الصَّبِيُّ ، فَأَحَبَّهُ أَصْحابُهُ”"
+  ],
+  "bosluk": {
+   "cumle": "ظَرُفَ الصَّبِيُّ ، فَأَحَبَّهُ أَصْحابُهُ",
+   "kelime": "ظَرُفَ"
+  },
+  "tr": "zarif ve becerikli olmak",
+  "tanim_tr": "Becerikli ve hünerli olmak, zarif olmak.",
+  "ornekler_tr": [
+   "“Çocuk zarif ve becerikli oldu, arkadaşları onu sevdi.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظُروف",
+  "yon": "ظَرْف",
+  "iliski": "جمع",
+  "tr": "zarflar; şartlar"
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظَريف",
+  "cogul": "ظُرَفاء",
+  "yon": "ظَرُفَ",
+  "iliski": "انظر",
+  "tr": "zarif, hoş"
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظَعَنَ",
+  "cogul": null,
+  "metin": "يَظْعَنُ ظَعْناً : ارْتَحَلَ ، “يَظْعَنُ البَدْوُ مِنْ مَكانٍ إِلى آخَرَ” .",
+  "tanim": "ارْتَحَلَ",
+  "ornekler": [
+   "“يَظْعَنُ البَدْوُ مِنْ مَكانٍ إِلى آخَرَ”"
+  ],
+  "bosluk": {
+   "cumle": "يَظْعَنُ البَدْوُ مِنْ مَكانٍ إِلى آخَرَ",
+   "kelime": "يَظْعَنُ"
+  },
+  "tr": "göçmek",
+  "tanim_tr": "Göç edip yola çıkmak.",
+  "ornekler_tr": [
+   "“Bedeviler bir yerden başka bir yere göçer.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظَفِرَ",
+  "cogul": null,
+  "metin": "يَظْفَرُ ظَفَراً : نالَ وَحَصَلَ عَلَى ، وَغَلَبَ ، “ظَفِرَ التّاجِرُ بِالمالِ الكَثيرِ” .",
+  "tanim": "نالَ وَحَصَلَ عَلَى ، وَغَلَبَ",
+  "ornekler": [
+   "“ظَفِرَ التّاجِرُ بِالمالِ الكَثيرِ”"
+  ],
+  "bosluk": {
+   "cumle": "ظَفِرَ التّاجِرُ بِالمالِ الكَثيرِ",
+   "kelime": "ظَفِرَ"
+  },
+  "tr": "elde etmek, zafer kazanmak",
+  "tanim_tr": "Erişmek, elde etmek; galip gelmek.",
+  "ornekler_tr": [
+   "“Tüccar çok mala kavuştu.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظُفْر",
+  "cogul": "أَظْفار",
+  "metin": "(ج) أَظْفارٌ : مادَّةٌ قَرْنِيَّةٌ في طَرَفِ الإِصْبَعِ ، “مِنَ السُّنَّةِ تَقْليمُ الأَظافِرِ” ، “قَلِّمْ أَظْفارَكَ ؛ فَهِيَ طَويلَةٌ” ، ﴿ وَعَلَى الَّذينَ هادُوا حَرَّمْنا كُلَّ ذي ظُفُرٍ ﴾ .",
+  "tanim": "مادَّةٌ قَرْنِيَّةٌ في طَرَفِ الإِصْبَعِ",
+  "ornekler": [
+   "“مِنَ السُّنَّةِ تَقْليمُ الأَظافِرِ”",
+   "“قَلِّمْ أَظْفارَكَ ؛ فَهِيَ طَويلَةٌ”",
+   "﴿ وَعَلَى الَّذينَ هادُوا حَرَّمْنا كُلَّ ذي ظُفُرٍ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "قَلِّمْ أَظْفارَكَ ؛ فَهِيَ طَويلَةٌ",
+   "kelime": "أَظْفارَكَ"
+  },
+  "tr": "tırnak",
+  "tanim_tr": "Parmağın ucundaki boynuzsu madde, tırnak.",
+  "ornekler_tr": [
+   "“Tırnakları kesmek sünnettendir.”",
+   "“Tırnaklarını kes; çünkü uzunlar.”",
+   "“Yahudilere tırnaklı her hayvanı haram kıldık.”"
+  ],
+  "resim": "p221_4.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظِلّ",
+  "cogul": "ظِلال",
+  "metin": "(ج) ظِلال : (١) الأَثَرُ النّاتِجُ عَنْ حَجْبِ نورِ الشَّمْسِ ، “اجْلِسْ في الظِّلِّ ؛ فَإِنَّ الشَّمْسَ حارَّةٌ” ، ﴿ فَسَقَى لَهُما ثُمَّ تَوَلَّى إِلَى الظِّلِّ ﴾ . (٢) الحِمايَةُ ، “يَعيشُ الصَّبِيُّ في ظِلِّ عَمِّهِ” .",
+  "tanim": "(١) الأَثَرُ النّاتِجُ عَنْ حَجْبِ نورِ الشَّمْسِ (٢) الحِمايَةُ",
+  "ornekler": [
+   "“اجْلِسْ في الظِّلِّ ؛ فَإِنَّ الشَّمْسَ حارَّةٌ”",
+   "﴿ فَسَقَى لَهُما ثُمَّ تَوَلَّى إِلَى الظِّلِّ ﴾",
+   "“يَعيشُ الصَّبِيُّ في ظِلِّ عَمِّهِ”"
+  ],
+  "bosluk": {
+   "cumle": "اجْلِسْ في الظِّلِّ ؛ فَإِنَّ الشَّمْسَ حارَّةٌ",
+   "kelime": "الظِّلِّ"
+  },
+  "tr": "gölge; himaye",
+  "tanim_tr": "(1) Güneş ışığının engellenmesinden oluşan iz, gölge. (2) Koruma, himaye.",
+  "ornekler_tr": [
+   "“Gölgede otur; çünkü güneş sıcak.”",
+   "“Onların hayvanlarını suladı, sonra gölgeye çekildi.”",
+   "“Çocuk amcasının himayesinde yaşıyor.”"
+  ],
+  "resim": "p221_5.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظَلَّ",
+  "cogul": null,
+  "metin": "يَظَلُّ ظَلالاً : بَقِيَ وَمَكَثَ ، فِعْلٌ ماضٍ ناقِصٌ ، “ظَلَّ الرَّجُلُ نائِماً حَتَّى زَوالِ الشَّمْسِ” ، ﴿ قالُوا نَعْبُدُ أَصْناماً فَنَظَلُّ لَها عاكِفينَ ﴾ .",
+  "tanim": "بَقِيَ وَمَكَثَ ، فِعْلٌ ماضٍ ناقِصٌ",
+  "ornekler": [
+   "“ظَلَّ الرَّجُلُ نائِماً حَتَّى زَوالِ الشَّمْسِ”",
+   "﴿ قالُوا نَعْبُدُ أَصْناماً فَنَظَلُّ لَها عاكِفينَ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "ظَلَّ الرَّجُلُ نائِماً حَتَّى زَوالِ الشَّمْسِ",
+   "kelime": "ظَلَّ"
+  },
+  "tr": "(-meye) devam etmek, kalmak",
+  "tanim_tr": "Kalmak, durmak; nakıs mazi fiil.",
+  "ornekler_tr": [
+   "“Adam güneş tepeden kayıncaya kadar uyumaya devam etti.”",
+   "“Dediler ki: Putlara tapıyoruz ve onlara bağlanıp kalıyoruz.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظِلال",
+  "yon": "ظِلّ",
+  "iliski": "جمع",
+  "tr": "gölgeler"
+ },
+ {
+  "sayfa": 221,
+  "baski_no": "٢٢١",
+  "k": "ظَلام",
+  "cogul": null,
+  "metin": "ذَهابُ النّورِ ؛ خِلافُ النّورِ ، “هٰذِهِ القَرْيَةُ تَعيشُ في ظَلامٍ فَلا كَهْرَباءَ فيها” .",
+  "tanim": "ذَهابُ النّورِ ؛ خِلافُ النّورِ",
+  "ornekler": [
+   "“هٰذِهِ القَرْيَةُ تَعيشُ في ظَلامٍ فَلا كَهْرَباءَ فيها”"
+  ],
+  "bosluk": {
+   "cumle": "هٰذِهِ القَرْيَةُ تَعيشُ في ظَلامٍ فَلا كَهْرَباءَ فيها",
+   "kelime": "ظَلامٍ"
+  },
+  "tr": "karanlık",
+  "tanim_tr": "Işığın gitmesi; ışığın zıddı, karanlık.",
+  "ornekler_tr": [
+   "“Bu köy karanlıkta yaşıyor, orada elektrik yok.”"
+  ],
+  "resim": "p221_6.jpg",
+  "not": null
+ }
+]

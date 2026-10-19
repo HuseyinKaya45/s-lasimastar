@@ -1,0 +1,191 @@
+[
+ {
+  "sayfa": 220,
+  "devam": true,
+  "metin": "عَلَيْهِ شَيْئاً مِنَ الطِّيبِ ، “كانَتْ عائِشَةُ تُطَيِّبُ الرَّسولَ ﷺ قَبْلَ خُروجِهِ” ."
+ },
+ {
+  "sayfa": 220,
+  "baski_no": "٢٢٠",
+  "k": "طَيْر",
+  "yon": "طائِر",
+  "iliski": "جمع",
+  "tr": "kuşlar"
+ },
+ {
+  "sayfa": 220,
+  "baski_no": "٢٢٠",
+  "k": "طيران",
+  "yon": "طارَ",
+  "iliski": "مصدر",
+  "tr": "uçma, uçuş"
+ },
+ {
+  "sayfa": 220,
+  "baski_no": "٢٢٠",
+  "k": "طَيْف",
+  "cogul": "أَطْياف",
+  "metin": "(ج) أَطْياف : خَيالٌ يَراهُ النّائِمُ ، ما يَتَوَهَّمُهُ الإِنْسانُ ، وَهُوَ لَيْسَ بِحَقيقَةٍ ، “مَرَّتْ بِخَيالِهِ أَطْيافٌ مِنَ الماضي السَّعيدِ” ، “لَمْ يَرْتَحْ في نَوْمِهِ ؛ لِكَثْرَةِ الأَطْيافِ الَّتي رَآها” .",
+  "tanim": "خَيالٌ يَراهُ النّائِمُ ، ما يَتَوَهَّمُهُ الإِنْسانُ ، وَهُوَ لَيْسَ بِحَقيقَةٍ",
+  "ornekler": [
+   "“مَرَّتْ بِخَيالِهِ أَطْيافٌ مِنَ الماضي السَّعيدِ”",
+   "“لَمْ يَرْتَحْ في نَوْمِهِ ؛ لِكَثْرَةِ الأَطْيافِ الَّتي رَآها”"
+  ],
+  "bosluk": {
+   "cumle": "مَرَّتْ بِخَيالِهِ أَطْيافٌ مِنَ الماضي السَّعيدِ",
+   "kelime": "أَطْيافٌ"
+  },
+  "tr": "hayal, rüyada görülen hayal",
+  "tanim_tr": "Uyuyanın gördüğü hayal; insanın vehmettiği, gerçek olmayan şey.",
+  "ornekler_tr": [
+   "“Hayalinden mutlu geçmişe ait hayaller geçti.”",
+   "“Gördüğü hayallerin çokluğundan uykusunda rahat edemedi.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 220,
+  "baski_no": "٢٢٠",
+  "k": "طِيلَة",
+  "yon": "طول",
+  "iliski": "طولَ (بمعنى)",
+  "tr": "boyunca",
+  "not": "kitapta: طولَ. انْظُرْ : طول."
+ },
+ {
+  "sayfa": 220,
+  "baski_no": "٢٢٠",
+  "k": "طين",
+  "cogul": "أَطْيان",
+  "metin": "(ج) أَطْيان : وَحَلٌ ؛ ما يَنْتُجُ عَنْ خَلْطِ التُّرابِ بِالماءِ ، “كانَتْ مُعْظَمُ البُيوتِ في الماضي تُبْنَى مِنَ الطِّينِ” ، ﴿ قالَ أَنا خَيْرٌ مِنْهُ خَلَقْتَني مِنْ نارٍ وَخَلَقْتَهُ مِنْ طِينٍ ﴾ .",
+  "tanim": "وَحَلٌ ؛ ما يَنْتُجُ عَنْ خَلْطِ التُّرابِ بِالماءِ",
+  "ornekler": [
+   "“كانَتْ مُعْظَمُ البُيوتِ في الماضي تُبْنَى مِنَ الطِّينِ”",
+   "﴿ قالَ أَنا خَيْرٌ مِنْهُ خَلَقْتَني مِنْ نارٍ وَخَلَقْتَهُ مِنْ طِينٍ ﴾"
+  ],
+  "bosluk": {
+   "cumle": "كانَتْ مُعْظَمُ البُيوتِ في الماضي تُبْنَى مِنَ الطِّينِ",
+   "kelime": "الطِّينِ"
+  },
+  "tr": "çamur, balçık",
+  "tanim_tr": "Çamur; toprağın suyla karışmasından oluşan şey.",
+  "ornekler_tr": [
+   "“Geçmişte evlerin çoğu çamurdan (kerpiçten) yapılırdı.”",
+   "“Dedi ki: Ben ondan hayırlıyım; beni ateşten yarattın, onu ise çamurdan yarattın.”"
+  ],
+  "resim": "p220_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 220,
+  "baski_no": "٢٢٠",
+  "k": "طَيَّنَ",
+  "cogul": null,
+  "metin": "يُطَيِّنُ تَطْييناً : عَمِلَ بِالطِّينِ ، لَطَّخَ بِالطِّينِ ، “يُطَيِّنُ الطَّيّانُ البُيوتَ قَبْلَ مَوْسِمِ الأَمْطارِ” .",
+  "tanim": "عَمِلَ بِالطِّينِ ، لَطَّخَ بِالطِّينِ",
+  "ornekler": [
+   "“يُطَيِّنُ الطَّيّانُ البُيوتَ قَبْلَ مَوْسِمِ الأَمْطارِ”"
+  ],
+  "bosluk": {
+   "cumle": "يُطَيِّنُ الطَّيّانُ البُيوتَ قَبْلَ مَوْسِمِ الأَمْطارِ",
+   "kelime": "يُطَيِّنُ"
+  },
+  "tr": "çamurla sıvamak",
+  "tanim_tr": "Çamurla çalışmak, çamura bulamak (çamurla sıvamak).",
+  "ornekler_tr": [
+   "“Sıvacı, yağmur mevsiminden önce evleri çamurla sıvar.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 220,
+  "baski_no": "٢٢٠",
+  "k": "طُيور",
+  "yon": "طائِر",
+  "iliski": "جمع",
+  "tr": "kuşlar"
+ },
+ {
+  "sayfa": 220,
+  "levha": true,
+  "baslik": "طُيُور",
+  "resim": "p220_levha.jpg",
+  "etiketler": [
+   {
+    "ar": "نَسْر",
+    "tr": "akbaba, kartal"
+   },
+   {
+    "ar": "عُصفور",
+    "tr": "serçe"
+   },
+   {
+    "ar": "طاووس",
+    "tr": "tavus kuşu"
+   },
+   {
+    "ar": "هُدهد",
+    "tr": "çavuşkuşu, ibibik"
+   },
+   {
+    "ar": "خُفّاش",
+    "tr": "yarasa"
+   },
+   {
+    "ar": "نَعامَة",
+    "tr": "devekuşu"
+   },
+   {
+    "ar": "صَقْر",
+    "tr": "şahin, doğan"
+   }
+  ]
+ },
+ {
+  "sayfa": 220,
+  "levha": true,
+  "baslik": "طُيُور (تابِع)",
+  "resim": "p220_levha2.jpg",
+  "etiketler": [
+   {
+    "ar": "إِوَزَّة",
+    "tr": "kaz (resimde kuğu)"
+   },
+   {
+    "ar": "بَبَّغاء",
+    "tr": "papağan"
+   },
+   {
+    "ar": "بِطريق",
+    "tr": "penguen"
+   },
+   {
+    "ar": "بومَة",
+    "tr": "baykuş"
+   },
+   {
+    "ar": "بَطَّة",
+    "tr": "ördek"
+   },
+   {
+    "ar": "حَمامَة",
+    "tr": "güvercin"
+   },
+   {
+    "ar": "دَجاجَة",
+    "tr": "tavuk"
+   },
+   {
+    "ar": "ديك",
+    "tr": "horoz"
+   },
+   {
+    "ar": "ديكٌ رُومِيّ",
+    "tr": "hindi"
+   }
+  ],
+  "not": "kuş levhası iki parça: sol sütunun tamamı ve sağ sütunun alt kısmı"
+ }
+]
