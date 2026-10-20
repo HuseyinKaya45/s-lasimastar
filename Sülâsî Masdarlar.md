@@ -1285,10 +1285,10 @@ Düzenleme: metin `kisas/kaynak/metin/sNN.json`, kelimeler `kisas/kaynak/kelime/
 
 ## Uygulama: Buhârî Kelime Hazinesi — İmam Buhârî metninin bölüm kelimeleri (Sözlük Defteri açıklamalarıyla)
 
-`buhari/index.html` (yayın sürümü `buhari/sayfa.html`) “İmam Buhârî” kelime tablolarının 1–4 ve 7–12. bölümlerindeki 197 kelimeyi (5. ve 6. bölüm henüz yok) verir; tek dosya, internetsiz.
+`buhari/index.html` (yayın sürümü `buhari/sayfa.html`) “İmam Buhârî” kelime tablolarının 12 bölümündeki 285 kelimeyi verir; tek dosya, internetsiz.
 Her kelimede tablodaki bilgiler (metindeki hâli, türü, kökü / çoğulu / mastarı, Türkçe anlamı, mezîd fiilse sülâsî kökü ve anlamı) ve Sözlük Defteri’ndeki
-madde (Arapça açıklama, örnekler, resim, Türkçeleri, ilgili diğer maddeler) bir arada durur. Sözlükte bulunmayan 19 kelimeye (غِلاف، خَلا، حَكَى، أَلَّفَ، شَبَح، لِصّ،
-خَيْبَة، كَشْكول، طِلَّسْم، رُوشِتَّة، فَرَج، أَتاحَ، رَتَّبَ، ريموت، شارِع، فَخّ، شَريحَة، إِسْعاف، مَقْلَب) kısa Arapça açıklama ve örnek yazıldı, kartta bu belirtilir. 4. bölüm tablosunda yalnız kelime sütunu doluydu (diğer sütunlar
+madde (Arapça açıklama, örnekler, resim, Türkçeleri, ilgili diğer maddeler) bir arada durur. Sözlükte bulunmayan 30 kelimeye (غِلاف، خَلا، حَكَى، أَلَّفَ، شَبَح، لِصّ،
+خَيْبَة، كَشْكول، طِلَّسْم، رُوشِتَّة، فَرَج، أَتاحَ، رَتَّبَ، ريموت، شارِع، فَخّ، شَريحَة، إِسْعاف، مَقْلَب، مُنْذُ، تَخْلِيَة، حَذارِ، تَبَرَّكَ، دَوَّنَ، لا بُدَّ، لِتَوِّ، زَيَّنَ، اِفْتَرَشَ، خاصَمَ، حَرَج) kısa Arapça açıklama ve örnek yazıldı, kartta bu belirtilir. 4. bölüm tablosunda yalnız kelime sütunu doluydu (diğer sütunlar
 3. bölümden kalmıştı); oradaki 11 kelimenin bilgileri sözlükten dolduruldu. **Kartlar** (aralıklı tekrar), **Tanımdan bul** (Arapça tanım / resim / Türkçe anlam),
 **Boşluk doldur**, **Kökünü bul** (metindeki çekimli hâlinden sözlük maddesini bulma), **Eşleştir**, **Kelimeler** (bölüm bölüm liste, arama, ★), **İstatistik** ve yedek.
 Düzenleme: tablolar `buhari/kaynak/bN.json`, sözlük eşleşmeleri `buhari/kaynak/eslesme.json`, ek açıklamalar `buhari/kaynak/ek.json` → `python3 buhari/veri.py` → `python3 buhari/yap.py`.

@@ -1,0 +1,307 @@
+[
+ {
+  "no": 1,
+  "w": "وأَعِنّي عليه",
+  "tur": "Fiil",
+  "kok": "أَعانَ - إِعانَةٌ على - في",
+  "tr": "Yardımcı olmak, yardım etmek",
+  "sk": "عَنَى - عِنايَةٌ -i / عَنَى - عَنْيٌ -i / عَنِيَ - عَناءٌ -a",
+  "sa": "İlgilendirmek, zihnini meşgul etmek / Tedirgin olmak / Kastetmek",
+  "l": [
+   "أعان",
+   "عون"
+  ],
+  "not": ""
+ },
+ {
+  "no": 2,
+  "w": "الانْضِمامُ",
+  "tur": "Mastar",
+  "kok": "اِنْضَمَّ - اِنْضِمامٌ (إلى)",
+  "tr": "Toplanmak; eklenmek, katılmak",
+  "sk": "ضَمَّ - ضَمٌّ (إلى) -u",
+  "sa": "Birleştirmek; toplamak; (إلى) eklemek",
+  "l": [
+   "انضم",
+   "ضم"
+  ],
+  "not": ""
+ },
+ {
+  "no": 3,
+  "w": "مُتَعَلِّقًا باللهِ",
+  "tur": "İsmi Fail",
+  "kok": "تَعَلَّقَ - تَعَلُّقٌ بـ",
+  "tr": "Asılmak; ilgili olmak; tutunmak",
+  "sk": "عَلِقَ - عَلَقٌ (بـ) -a / عَلِقَ - عُلوقٌ وعَلاقَةٌ -a",
+  "sa": "Asılı olmak; (بـ) yapışmak / Hoşlanmak; … yapmaya başlamak",
+  "l": [
+   "تعلق",
+   "علق"
+  ],
+  "not": ""
+ },
+ {
+  "no": 4,
+  "w": "ومُتَوَكِّلًا عليه",
+  "tur": "İsmi Fail",
+  "kok": "تَوَكَّلَ - تَوَكُّلٌ على",
+  "tr": "Vekil olmak; üstlenmek; güvenmek (tevekkül etmek)",
+  "sk": "وَكَلَ - وَكالَةٌ ووَكْلٌ -i",
+  "sa": "Bırakmak; devretmek",
+  "l": [
+   "توكل",
+   "وكل"
+  ],
+  "not": ""
+ },
+ {
+  "no": 5,
+  "w": "من المُؤَكَّدِ",
+  "tur": "İsmi Meful",
+  "kok": "أَكَّدَ - تَأْكيدٌ لـ - من",
+  "tr": "(لـ) onamak; (من) emin olmak — من المؤكد: kesin olan şu ki",
+  "sk": "Sülâsi hâli kullanılmıyor",
+  "sa": "",
+  "l": [
+   "مؤكد",
+   "أكد"
+  ],
+  "not": ""
+ },
+ {
+  "no": 6,
+  "w": "يُضَيِّعونَ",
+  "tur": "Fiil",
+  "kok": "ضَيَّعَ - تَضْييعٌ",
+  "tr": "Yok etmek, zayi etmek; kaybetmek",
+  "sk": "ضاعَ - ضَوْعٌ -u / ضاعَ - ضَيْعٌ وضَياعٌ على -i",
+  "sa": "Güzel koku yayılmak / Kaybolmak, kayıp olmak",
+  "l": [
+   "ضيع",
+   "ضاع"
+  ],
+  "not": ""
+ },
+ {
+  "no": 7,
+  "w": "ويَسْخَرونَ من",
+  "tur": "Fiil",
+  "kok": "سَخِرَ - سَخَرٌ وسُخْرٌ وسُخْرَةٌ ومَسْخَرٌ من -a",
+  "tr": "Alay etmek; eğlenmek; gülmek",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "سخر"
+  ],
+  "not": ""
+ },
+ {
+  "no": 8,
+  "w": "لَمَحَوْا",
+  "tur": "Fiil",
+  "kok": "مَحا - مَحْوٌ -u",
+  "tr": "Silmek; kazımak; yok etmek",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "محا"
+  ],
+  "not": ""
+ },
+ {
+  "no": 9,
+  "w": "خاصَمَكَ",
+  "tur": "Fiil",
+  "kok": "خاصَمَ - مُخاصَمَةٌ وخِصامٌ",
+  "tr": "Tartışmak; kavga etmek; dava açmak",
+  "sk": "خَصَمَ - خَصْمٌ (من) -i",
+  "sa": "Tartışmada yenmek; (من) çıkarmak",
+  "l": [
+   "خاصم",
+   "خصم"
+  ],
+  "not": ""
+ },
+ {
+  "no": 10,
+  "w": "وتَشْميتُ",
+  "tur": "Mastar",
+  "kok": "شَمَّتَ - تَشْميتٌ",
+  "tr": "Aksırana «يَرْحَمُكَ اللهُ» diyerek dua etmek; (başka anlamı) üzmek",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "تشميت",
+   "شمت"
+  ],
+  "not": ""
+ },
+ {
+  "no": 11,
+  "w": "العاطِسِ",
+  "tur": "İsmi Fail",
+  "kok": "عَطَسَ - عَطْسٌ وعُطاسٌ -i -u",
+  "tr": "Hapşırmak, aksırmak",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "عاطس",
+   "عطس"
+  ],
+  "not": ""
+ },
+ {
+  "no": 12,
+  "w": "نَحْوَكَ",
+  "tur": "İsim-Zarf",
+  "kok": "نَحْوٌ ج أَنْحاءٌ",
+  "tr": "İsim: yön; Zarf: …e doğru; gibi; yaklaşık",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "نحو"
+  ],
+  "not": ""
+ },
+ {
+  "no": 13,
+  "w": "نَبَغوا فيه",
+  "tur": "Fiil",
+  "kok": "نَبَغَ - نَبْغٌ ونُبوغٌ في -a -i -u",
+  "tr": "Kaynaklanmak; ortaya çıkmak; (bir alanda) öne çıkmak, dikkat çekmek",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "نبغ",
+   "نابغ"
+  ],
+  "not": ""
+ },
+ {
+  "no": 14,
+  "w": "وتَتَزَوَّدُ من",
+  "tur": "Fiil",
+  "kok": "تَزَوَّدَ - تَزَوُّدٌ من",
+  "tr": "Öğrenmek; donanmak (azık edinmek)",
+  "sk": "زادَ - زَيْدٌ وزِيادَةٌ",
+  "sa": "Artmak, fazla olmak",
+  "l": [
+   "تزود",
+   "زاد"
+  ],
+  "not": ""
+ },
+ {
+  "no": 15,
+  "w": "أَعْجَبَتْ",
+  "tur": "Fiil",
+  "kok": "أَعْجَبَ - إِعْجابٌ",
+  "tr": "Şaşırtmak; hoşuna gitmek",
+  "sk": "عَجِبَ - عَجَبٌ من - إلى -a",
+  "sa": "Şaşırmak; garipsemek",
+  "l": [
+   "أعجب",
+   "عجب"
+  ],
+  "not": ""
+ },
+ {
+  "no": 16,
+  "w": "مُراجَعَتي",
+  "tur": "Mastar",
+  "kok": "راجَعَ - مُراجَعَةٌ",
+  "tr": "Geri dönmek; tekrarlamak; kontrol etmek",
+  "sk": "رَجَعَ - رُجوعٌ إلى -i",
+  "sa": "Geri dönmek; tekrarlamak; başvurmak",
+  "l": [
+   "مراجعة",
+   "راجع",
+   "رجع"
+  ],
+  "not": "Tabloda türü «İsmi Meful» yazılı."
+ },
+ {
+  "no": 17,
+  "w": "الحَرَجُ",
+  "tur": "İsim",
+  "kok": "حَرَجٌ",
+  "tr": "Darlık; zorluk",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "حرج"
+  ],
+  "not": ""
+ },
+ {
+  "no": 18,
+  "w": "أَرْهَقْتَ نَفْسَكَ",
+  "tur": "Fiil",
+  "kok": "أَرْهَقَ - إِرْهاقٌ",
+  "tr": "Zorlamak; yormak",
+  "sk": "رَهِقَ - رَهَقٌ -a",
+  "sa": "Peşinden yetişmek, yakalamak",
+  "l": [
+   "أرهق",
+   "رهق"
+  ],
+  "not": ""
+ },
+ {
+  "no": 19,
+  "w": "اِنْشَغَلَ عن",
+  "tur": "Fiil",
+  "kok": "اِنْشَغَلَ - اِنْشِغالٌ",
+  "tr": "… yerine … ile meşgul olmak",
+  "sk": "شَغَلَ - شُغْلٌ -a",
+  "sa": "Meşgul etmek; (عن) alıkoymak",
+  "l": [
+   "انشغل",
+   "شغل"
+  ],
+  "not": ""
+ },
+ {
+  "no": 20,
+  "w": "أَتْعَبْتَ نَفْسَكَ",
+  "tur": "Fiil",
+  "kok": "تَعِبَ - تَعَبٌ -a",
+  "tr": "Yorulmak; yorgun düşmek; (من) bıkmak",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "أتعب",
+   "تعب"
+  ],
+  "not": ""
+ },
+ {
+  "no": 21,
+  "w": "أَهابُكَ",
+  "tur": "Fiil",
+  "kok": "أَهابَ - إِهابٌ",
+  "tr": "Seslenmek; davet etmek",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "هاب",
+   "أهاب"
+  ],
+  "not": "Metindeki «أَهابُكَ» büyük ihtimalle هابَ - يَهابُ (heybet duymak, saygıyla çekinmek) fiilindendir: «senden çekinirim»."
+ },
+ {
+  "no": 22,
+  "w": "اِبْتِغاءَ لـ",
+  "tur": "Mastar",
+  "kok": "اِبْتَغَى - اِبْتِغاءٌ لـ",
+  "tr": "Arzulamak; istemek; temenni etmek",
+  "sk": "بَغَى - بُغاءٌ",
+  "sa": "İstemek; peşinde olmak",
+  "l": [
+   "ابتغى",
+   "بغى"
+  ],
+  "not": ""
+ }
+]
