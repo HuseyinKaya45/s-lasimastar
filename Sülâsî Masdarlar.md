@@ -1269,6 +1269,22 @@ Konuşma (133) ve yazı (135) dersleri ile okuma tedrîb 1, 3 ve 5 sessizdir.
 Düzenleme: `k1u15/veri.js`, `k1u15/uygulama.js`, `k1u15/stil.css`; ses parçaları `k1u15/parcalar.json` → `python3 k1u15/ses_yap.py <ham mp3 klasörü>`;
 sonra `python3 k1u15/yap.py`.
 
+## Uygulama: el-Arabiyyetü beyne yedeyk 1, 16. ünite — Tatil (sesli, resimli, çevrimdışı)
+
+`k1u16/index.html` (yayın sürümü `k1u16/sayfa.html`) العُطْلَةُ ünitesini önceki ünitelerle aynı yapıda, tek dosya ve internetsiz verir.
+26 ders kaydı tek `ses.mp3` içinde birleştirilmiş, 188 parçanın yeri `zaman.js`’tedir; kitaptaki fotoğraflar gömülüdür.
+**Diyaloglar** (İslam’da iki bayram; tatilde Mısır’a; yaz tatilini nerede geçireceksiniz — yedi konuşmacılı) ve kitaptaki sorular; **Kelimeler** (ders 136–138, 24 kelime);
+**Hicrî aylar** (12 ay kartı, sırayla eşleştirme, dinle-bul, ders 139’un ay sıralama, قَبْلَ / بَعْدَ ve soru alıştırmaları);
+**Kalıplar** (كَمْ … في …؟ — ikil ـانِ; أَيْنَ سَتَـ…ونَ؟; لِماذا نُسافِرُ …؟ — لِـ…; مَتى يَكونُ …؟ — بَعْدَ …; سَأَقْضي عُطْلَةَ … في … مَعَ …; مَتى …؟ — في …),
+**Sesler** (kamerî ve şemsî ال: 28 kelime çifti ve “kamerî mi, şemsî mi?” oyunu), **Dinleme** (ders 141, dört tedrîb), **Okuma** (iki sesli metin, bir boşluk doldurma, ifade–konuşma eşleştirme),
+**Yazı**, **Konuşma**, **Alıştırmalar** (ders 139 ve 144) ve sesli **Sınav**. Bu ünitede “Kendini sına” ve âyet bölümü yoktur.
+Kayıt notları: kayıt dosyalarının ders numaraları kitaptan bir geridir. Kayda uyulan yerler: 1. diyalogda “مَتى يَكونُ عيدُ الفِطْرِ / الأَضْحى؟”;
+3. diyalogda öğretmen “يا طُلّابُ” der (kitapta “يا أَبْنائي”) ve 4. öğrenci “وَسَنَحُجُّ” der; dinleme tedrîb 1’in 4. konuşmasında “سورِيا” geçer;
+okuma tedrîb 2’de “يَكونُ عيدُ الفِطْرِ …” ve “كَبيرٍ وَصَغيرٍ”. Kalıp tedrîb 2’nin kaydında yalnız sorular okunur.
+Yazı tedrîb 2’nin ilk maddesi (أ ا ع س د) hangi kelimeyi istediği belli olmadığı için alınmadı. Konuşma (142) ve yazı (144) dersleri ile okuma tedrîb 1 ve 5 sessizdir.
+Düzenleme: `k1u16/veri.js`, `k1u16/uygulama.js`, `k1u16/stil.css`; ses parçaları `k1u16/parcalar.json` → `python3 k1u16/ses_yap.py <ham mp3 klasörü>`;
+sonra `python3 k1u16/yap.py`.
+
 ## Uygulama: el-Arabiyyetü beyne yedeyk 1 — “Kendini sına” sınavları ve yarıyıl sınavı
 
 `ihtibar/ihtibar1.html` … `ihtibar5.html` (yayın sürümleri `ihtibar/sayfa1.html` … `sayfa5.html`): kitabın dört “اخْتَبِرْ نَفْسَكَ” sınavı (Ünite 1–2, 3–4, 5–6, 7–8; her biri 40 puan)
