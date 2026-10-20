@@ -1,0 +1,475 @@
+[
+ {
+  "sayfa": 339,
+  "devam": true,
+  "metin": "شَرْطٍ ، “مَنْ سارَ عَلى الدَّرْبِ وَصَلَ” ."
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مِنْ",
+  "cogul": null,
+  "metin": "حَرْفُ جَرٍّ ، “مَشَيْتُ مِنَ البَيْتِ إِلى الجامِعَةِ” ، “العُطْلَةُ مِنْ يَوْمِ الأَحَدِ إِلى يَوْمِ الجُمُعَةِ” .",
+  "tanim": "حَرْفُ جَرٍّ",
+  "ornekler": [
+   "“مَشَيْتُ مِنَ البَيْتِ إِلى الجامِعَةِ”",
+   "“العُطْلَةُ مِنْ يَوْمِ الأَحَدِ إِلى يَوْمِ الجُمُعَةِ”"
+  ],
+  "bosluk": {
+   "cumle": "العُطْلَةُ مِنْ يَوْمِ الأَحَدِ إِلى يَوْمِ الجُمُعَةِ",
+   "kelime": "مِنْ"
+  },
+  "tr": "-den, -dan",
+  "tanim_tr": "Harf-i cer (-den).",
+  "ornekler_tr": [
+   "“Evden üniversiteye yürüdüm.”",
+   "“Tatil pazar gününden cuma gününe kadardır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مَنَّ",
+  "cogul": null,
+  "metin": "يَمُنُّ مَنّاً : أَنْعَمَ عَلَيْهِ ، “مَنَّ اللهُ عَلَيْنا بِنِعَمٍ كَثيرَةٍ” ، ﴿وَنُريدُ أَنْ نَمُنَّ عَلى الَّذينَ اسْتُضْعِفوا في الأَرْضِ﴾ .",
+  "tanim": "أَنْعَمَ عَلَيْهِ",
+  "ornekler": [
+   "“مَنَّ اللهُ عَلَيْنا بِنِعَمٍ كَثيرَةٍ”",
+   "﴿وَنُريدُ أَنْ نَمُنَّ عَلى الَّذينَ اسْتُضْعِفوا في الأَرْضِ﴾"
+  ],
+  "bosluk": {
+   "cumle": "مَنَّ اللهُ عَلَيْنا بِنِعَمٍ كَثيرَةٍ",
+   "kelime": "مَنَّ"
+  },
+  "tr": "lütfetmek, nimet vermek",
+  "tanim_tr": "Birine nimet vermek, lütufta bulunmak.",
+  "ornekler_tr": [
+   "“Allah bize pek çok nimet lütfetti.”",
+   "“Biz ise yeryüzünde zayıf düşürülenlere lütufta bulunmak istiyoruz.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "k": "مَنابِع",
+  "yon": "مَنْبَع",
+  "iliski": "جمع",
+  "tr": "kaynaklar, pınarlar"
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مُناخ",
+  "cogul": null,
+  "metin": "العَوامِلُ الجَوِّيَّةُ الَّتي تُؤَثِّرُ في الطَّقْسِ كَالحَرارَةِ وَالرِّياحِ وَالضَّغْطِ وَالرُّطوبَةِ وَغَيْرِها ، “مِصْرُ مُناخُها مُعْتَدِلٌ” .",
+  "tanim": "العَوامِلُ الجَوِّيَّةُ الَّتي تُؤَثِّرُ في الطَّقْسِ كَالحَرارَةِ وَالرِّياحِ وَالضَّغْطِ وَالرُّطوبَةِ وَغَيْرِها",
+  "ornekler": [
+   "“مِصْرُ مُناخُها مُعْتَدِلٌ”"
+  ],
+  "bosluk": {
+   "cumle": "مِصْرُ مُناخُها مُعْتَدِلٌ",
+   "kelime": "مُناخُها"
+  },
+  "tr": "iklim",
+  "tanim_tr": "Sıcaklık, rüzgâr, basınç, nem gibi havayı etkileyen atmosfer etkenleri.",
+  "ornekler_tr": [
+   "“Mısır'ın iklimi ılımandır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مُنازَعَة",
+  "cogul": null,
+  "metin": "خُصومَةٌ ، نِزاع ، “وَقَعَتْ مُنازَعَةٌ بَيْنَ الأَوْلادِ بِسَبَبِ تَوْزيعِ الميراثِ” ، “كَثُرَتِ المُنازَعاتُ بَيْنَ الشَّرِكاتِ بِسَبَبِ التَّنافُسِ” .",
+  "tanim": "خُصومَةٌ ، نِزاع",
+  "ornekler": [
+   "“وَقَعَتْ مُنازَعَةٌ بَيْنَ الأَوْلادِ بِسَبَبِ تَوْزيعِ الميراثِ”",
+   "“كَثُرَتِ المُنازَعاتُ بَيْنَ الشَّرِكاتِ بِسَبَبِ التَّنافُسِ”"
+  ],
+  "bosluk": {
+   "cumle": "وَقَعَتْ مُنازَعَةٌ بَيْنَ الأَوْلادِ بِسَبَبِ تَوْزيعِ الميراثِ",
+   "kelime": "مُنازَعَةٌ"
+  },
+  "tr": "çekişme, kavga",
+  "tanim_tr": "Husumet, anlaşmazlık.",
+  "ornekler_tr": [
+   "“Mirasın paylaşılması yüzünden çocuklar arasında kavga çıktı.”",
+   "“Rekabet yüzünden şirketler arasındaki anlaşmazlıklar çoğaldı.”"
+  ],
+  "resim": "p339_1.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "k": "مَنازِل",
+  "yon": "مَنْزِل",
+  "iliski": "جمع",
+  "tr": "evler"
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مُناسِب",
+  "cogul": null,
+  "metin": "مُلائِم ، “وَصَلْتُ في مَوْعِدٍ مُناسِبٍ” ، “هٰذا الثَّوْبُ غَيْرُ مُناسِبٍ لَكَ” .",
+  "tanim": "مُلائِم",
+  "ornekler": [
+   "“وَصَلْتُ في مَوْعِدٍ مُناسِبٍ”",
+   "“هٰذا الثَّوْبُ غَيْرُ مُناسِبٍ لَكَ”"
+  ],
+  "bosluk": {
+   "cumle": "هٰذا الثَّوْبُ غَيْرُ مُناسِبٍ لَكَ",
+   "kelime": "مُناسِبٍ"
+  },
+  "tr": "uygun",
+  "tanim_tr": "Uygun, yerinde.",
+  "ornekler_tr": [
+   "“Uygun bir zamanda vardım.”",
+   "“Bu elbise sana uygun değil.”"
+  ],
+  "resim": "p339_2.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مُناسَبَة",
+  "cogul": null,
+  "metin": "حَفْلٌ ، “أَرْسَلْتُ لَهُ تَهْنِئَةً بِمُناسَبَةِ زَواجِهِ” ، “حَضَرَ مُناسَبَةَ الزَّواجِ الأَهْلُ وَالأَصْدِقاءُ” .",
+  "tanim": "حَفْلٌ",
+  "ornekler": [
+   "“أَرْسَلْتُ لَهُ تَهْنِئَةً بِمُناسَبَةِ زَواجِهِ”",
+   "“حَضَرَ مُناسَبَةَ الزَّواجِ الأَهْلُ وَالأَصْدِقاءُ”"
+  ],
+  "bosluk": {
+   "cumle": "أَرْسَلْتُ لَهُ تَهْنِئَةً بِمُناسَبَةِ زَواجِهِ",
+   "kelime": "بِمُناسَبَةِ"
+  },
+  "tr": "vesile; tören",
+  "tanim_tr": "Tören, kutlama; vesile.",
+  "ornekler_tr": [
+   "“Evliliği vesilesiyle ona bir tebrik gönderdim.”",
+   "“Düğün törenine aile ve arkadaşlar katıldı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مَناسِك",
+  "cogul": null,
+  "metin": "جَمْعُ مَنْسَك : شَعائِر / شَعيرَة ، “أَدَّيْنا مَناسِكَ الحَجِّ دونَ مَشَقَّةٍ” ، ﴿لِكُلِّ أُمَّةٍ جَعَلْنا مَنْسَكاً هُمْ ناسِكوهُ﴾ .",
+  "tanim": "جَمْعُ مَنْسَك : شَعائِر / شَعيرَة",
+  "ornekler": [
+   "“أَدَّيْنا مَناسِكَ الحَجِّ دونَ مَشَقَّةٍ”",
+   "﴿لِكُلِّ أُمَّةٍ جَعَلْنا مَنْسَكاً هُمْ ناسِكوهُ﴾"
+  ],
+  "bosluk": {
+   "cumle": "أَدَّيْنا مَناسِكَ الحَجِّ دونَ مَشَقَّةٍ",
+   "kelime": "مَناسِكَ"
+  },
+  "tr": "ibadetler, menasik",
+  "tanim_tr": "Mensek'in çoğulu: dinî ibadetler, şiarlar.",
+  "ornekler_tr": [
+   "“Hac ibadetlerini zahmetsizce yerine getirdik.”",
+   "“Her ümmet için onların uyguladığı bir ibadet yolu belirledik.”"
+  ],
+  "resim": null,
+  "not": "Kitapta 'جمع منسك' yazıyor ama yönlendirme değil, tanım ve örnek içeriyor."
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مَناص",
+  "cogul": null,
+  "metin": "مَلْجَأ ، مَفَرٌّ ، “لا مَناصَ مِنْ عَذابِ اللهِ ، إِنْ عَصَيْتَهُ” ، ﴿وَلاتَ حينَ مَناصٍ﴾ .",
+  "tanim": "مَلْجَأ ، مَفَرٌّ",
+  "ornekler": [
+   "“لا مَناصَ مِنْ عَذابِ اللهِ ، إِنْ عَصَيْتَهُ”",
+   "﴿وَلاتَ حينَ مَناصٍ﴾"
+  ],
+  "bosluk": {
+   "cumle": "لا مَناصَ مِنْ عَذابِ اللهِ ، إِنْ عَصَيْتَهُ",
+   "kelime": "مَناصَ"
+  },
+  "tr": "kaçış, kurtuluş",
+  "tanim_tr": "Sığınak, kaçacak yer.",
+  "ornekler_tr": [
+   "“Ona isyan edersen Allah'ın azabından kaçış yoktur.”",
+   "“Artık kaçıp kurtulma zamanı değildi.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "k": "مَناصِب",
+  "yon": "مَنْصِب",
+  "iliski": "جمع",
+  "tr": "makamlar, görevler"
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مُناضِل",
+  "cogul": null,
+  "metin": "مُدافِع ، مُقاوِم ، “المُسْلِمُ المُناضِلُ لا يَخافُ إِلّا اللهَ” .",
+  "tanim": "مُدافِع ، مُقاوِم",
+  "ornekler": [
+   "“المُسْلِمُ المُناضِلُ لا يَخافُ إِلّا اللهَ”"
+  ],
+  "bosluk": {
+   "cumle": "المُسْلِمُ المُناضِلُ لا يَخافُ إِلّا اللهَ",
+   "kelime": "المُناضِلُ"
+  },
+  "tr": "mücadeleci, savaşan",
+  "tanim_tr": "Savunan, direnen.",
+  "ornekler_tr": [
+   "“Mücadele eden Müslüman Allah'tan başkasından korkmaz.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "k": "مَناطِق",
+  "yon": "مِنْطَقَة",
+  "iliski": "جمع",
+  "tr": "bölgeler"
+ },
+ {
+  "sayfa": 339,
+  "k": "مَناظِر",
+  "yon": "مَنْظَر",
+  "iliski": "جمع",
+  "tr": "manzaralar"
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مُناظَرَة",
+  "cogul": null,
+  "metin": "نِقاشٌ وَجِدال ، “جَرَتْ مُناظَرَةٌ بَيْنَ العالِمَيْنِ ، شَهِدَها عُلَماءُ المَدينَةِ” .",
+  "tanim": "نِقاشٌ وَجِدال",
+  "ornekler": [
+   "“جَرَتْ مُناظَرَةٌ بَيْنَ العالِمَيْنِ ، شَهِدَها عُلَماءُ المَدينَةِ”"
+  ],
+  "bosluk": {
+   "cumle": "جَرَتْ مُناظَرَةٌ بَيْنَ العالِمَيْنِ ، شَهِدَها عُلَماءُ المَدينَةِ",
+   "kelime": "مُناظَرَةٌ"
+  },
+  "tr": "münazara, tartışma",
+  "tanim_tr": "Tartışma ve münakaşa.",
+  "ornekler_tr": [
+   "“İki âlim arasında, şehrin âlimlerinin tanık olduğu bir münazara yapıldı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مَناعَة",
+  "cogul": null,
+  "metin": "قُوَّةٌ تَحْمي الجِسْمَ مِنْ بَعْضِ الأَمْراضِ ، حَصانَة ، “زَوَّدَ اللهُ الجِسْمَ بِمَناعَةٍ تَحْميهِ مِنْ أَمْراضٍ كَثيرَةٍ” ، “إِذا فَقَدَ الجِسْمُ المَناعَةَ ، حَلَّتْ بِهِ أَمْراضٌ كَثيرَةٌ” .",
+  "tanim": "قُوَّةٌ تَحْمي الجِسْمَ مِنْ بَعْضِ الأَمْراضِ ، حَصانَة",
+  "ornekler": [
+   "“زَوَّدَ اللهُ الجِسْمَ بِمَناعَةٍ تَحْميهِ مِنْ أَمْراضٍ كَثيرَةٍ”",
+   "“إِذا فَقَدَ الجِسْمُ المَناعَةَ ، حَلَّتْ بِهِ أَمْراضٌ كَثيرَةٌ”"
+  ],
+  "bosluk": {
+   "cumle": "إِذا فَقَدَ الجِسْمُ المَناعَةَ ، حَلَّتْ بِهِ أَمْراضٌ كَثيرَةٌ",
+   "kelime": "المَناعَةَ"
+  },
+  "tr": "bağışıklık",
+  "tanim_tr": "Vücudu bazı hastalıklardan koruyan güç; dokunulmazlık.",
+  "ornekler_tr": [
+   "“Allah vücudu, onu pek çok hastalıktan koruyan bir bağışıklıkla donattı.”",
+   "“Vücut bağışıklığını kaybederse ona pek çok hastalık gelir.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مُنافَسَة",
+  "cogul": null,
+  "metin": "مُسابَقَةٌ ، مُباراةٌ ، “كانَتِ المُنافَسَةُ شَديدَةً بَيْنَ الفَريقَيْنِ” .",
+  "tanim": "مُسابَقَةٌ ، مُباراةٌ",
+  "ornekler": [
+   "“كانَتِ المُنافَسَةُ شَديدَةً بَيْنَ الفَريقَيْنِ”"
+  ],
+  "bosluk": {
+   "cumle": "كانَتِ المُنافَسَةُ شَديدَةً بَيْنَ الفَريقَيْنِ",
+   "kelime": "المُنافَسَةُ"
+  },
+  "tr": "rekabet, yarışma",
+  "tanim_tr": "Yarışma, karşılaşma.",
+  "ornekler_tr": [
+   "“İki takım arasındaki rekabet çok çetindi.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مُناقَشَة",
+  "cogul": null,
+  "metin": "جِدالٌ بَيْنَ اثْنَيْنِ أَوْ أَكْثَرَ ، لِعَرْضِ وُجُهاتِ النَّظَرِ لِلْوُصولِ إِلى حَلٍّ ، “دارَتْ مُناقَشاتٌ كَثيرَةٌ حَوْلَ المَوْضوعاتِ المَطْروحَةِ” .",
+  "tanim": "جِدالٌ بَيْنَ اثْنَيْنِ أَوْ أَكْثَرَ ، لِعَرْضِ وُجُهاتِ النَّظَرِ لِلْوُصولِ إِلى حَلٍّ",
+  "ornekler": [
+   "“دارَتْ مُناقَشاتٌ كَثيرَةٌ حَوْلَ المَوْضوعاتِ المَطْروحَةِ”"
+  ],
+  "bosluk": {
+   "cumle": "دارَتْ مُناقَشاتٌ كَثيرَةٌ حَوْلَ المَوْضوعاتِ المَطْروحَةِ",
+   "kelime": "مُناقَشاتٌ"
+  },
+  "tr": "tartışma, müzakere",
+  "tanim_tr": "İki ya da daha fazla kişi arasında, bir çözüme ulaşmak için görüşlerin ortaya konduğu tartışma.",
+  "ornekler_tr": [
+   "“Gündemdeki konular etrafında pek çok tartışma yapıldı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "k": "مَناكِب",
+  "yon": "مَنْكِب",
+  "iliski": "جمع",
+  "tr": "omuzlar"
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مَنام",
+  "cogul": null,
+  "metin": "نَوْم ، “وَجَدْتُهُ غارِقاً في مَنامِهِ” ، ﴿إِنّي أَرى في المَنامِ أَنّي أَذْبَحُكَ﴾ .",
+  "tanim": "نَوْم",
+  "ornekler": [
+   "“وَجَدْتُهُ غارِقاً في مَنامِهِ”",
+   "﴿إِنّي أَرى في المَنامِ أَنّي أَذْبَحُكَ﴾"
+  ],
+  "bosluk": {
+   "cumle": "وَجَدْتُهُ غارِقاً في مَنامِهِ",
+   "kelime": "مَنامِهِ"
+  },
+  "tr": "uyku; rüya",
+  "tanim_tr": "Uyku.",
+  "ornekler_tr": [
+   "“Onu derin bir uykuya dalmış buldum.”",
+   "“Rüyamda seni boğazladığımı görüyorum.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مُناوَرَة",
+  "cogul": null,
+  "metin": "عَمَلِيّاتٌ قِتالِيَّةٌ وَهْمِيَّةٌ اسْتِعْداداً لِلْقِتالِ الحَقيقِيِّ ، “بَدَأَ الجَيْشانِ مُناوَراتٍ مُشْتَرَكَةً في البَرِّ وَالبَحْرِ وَالجَوِّ” .",
+  "tanim": "عَمَلِيّاتٌ قِتالِيَّةٌ وَهْمِيَّةٌ اسْتِعْداداً لِلْقِتالِ الحَقيقِيِّ",
+  "ornekler": [
+   "“بَدَأَ الجَيْشانِ مُناوَراتٍ مُشْتَرَكَةً في البَرِّ وَالبَحْرِ وَالجَوِّ”"
+  ],
+  "bosluk": {
+   "cumle": "بَدَأَ الجَيْشانِ مُناوَراتٍ مُشْتَرَكَةً في البَرِّ وَالبَحْرِ وَالجَوِّ",
+   "kelime": "مُناوَراتٍ"
+  },
+  "tr": "manevra, tatbikat",
+  "tanim_tr": "Gerçek savaşa hazırlık için yapılan tatbikat amaçlı savaş operasyonları.",
+  "ornekler_tr": [
+   "“İki ordu karada, denizde ve havada ortak tatbikatlara başladı.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مَنْبَت",
+  "cogul": "مَنابِت",
+  "metin": "(ج) مَنابِت : (١) مَكانُ الإِنْباتِ ، “نَظَّفَ الفَلّاحُ مَنْبَتَ الشَّجَرَةِ” . (٢) أَصْلٌ ، “هُوَ رَجُلٌ طَيِّبُ المَنْبَتِ” .",
+  "tanim": "(١) مَكانُ الإِنْباتِ (٢) أَصْلٌ",
+  "ornekler": [
+   "“نَظَّفَ الفَلّاحُ مَنْبَتَ الشَّجَرَةِ”",
+   "“هُوَ رَجُلٌ طَيِّبُ المَنْبَتِ”"
+  ],
+  "bosluk": {
+   "cumle": "نَظَّفَ الفَلّاحُ مَنْبَتَ الشَّجَرَةِ",
+   "kelime": "مَنْبَتَ"
+  },
+  "tr": "bitme yeri; köken",
+  "tanim_tr": "(1) Bitkinin bittiği yer. (2) Asıl, köken.",
+  "ornekler_tr": [
+   "“Çiftçi ağacın dibini temizledi.”",
+   "“O, iyi bir soydan gelen bir adamdır.”"
+  ],
+  "resim": null,
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مِنْبَر",
+  "cogul": "مَنابِر",
+  "metin": "(ج) مَنابِر : مَكانٌ مُرْتَفِعٌ قَليلاً يَخْطُبُ عَلَيْهِ الخَطيبُ ، “أَحْضُرُ إِلى المَسْجِدِ ، قَبْلَ جُلوسِ الإِمامِ عَلى المِنْبَرِ” ، “صَعِدَ الإِمامُ المِنْبَرَ ، وَأَخَذَ يَخْطُبُ” ، وَفي الحَديثِ : (كانَ إِذا صَعِدَ المِنْبَرَ سَلَّمَ) .",
+  "tanim": "مَكانٌ مُرْتَفِعٌ قَليلاً يَخْطُبُ عَلَيْهِ الخَطيبُ",
+  "ornekler": [
+   "“أَحْضُرُ إِلى المَسْجِدِ ، قَبْلَ جُلوسِ الإِمامِ عَلى المِنْبَرِ”",
+   "“صَعِدَ الإِمامُ المِنْبَرَ ، وَأَخَذَ يَخْطُبُ”",
+   "(كانَ إِذا صَعِدَ المِنْبَرَ سَلَّمَ)"
+  ],
+  "bosluk": {
+   "cumle": "صَعِدَ الإِمامُ المِنْبَرَ ، وَأَخَذَ يَخْطُبُ",
+   "kelime": "المِنْبَرَ"
+  },
+  "tr": "minber",
+  "tanim_tr": "Hatibin üzerinde hutbe okuduğu biraz yüksekçe yer.",
+  "ornekler_tr": [
+   "“İmam minbere oturmadan önce camiye gelirim.”",
+   "“İmam minbere çıktı ve hutbe okumaya başladı.”",
+   "“(Peygamber) minbere çıktığında selam verirdi.”"
+  ],
+  "resim": "p339_3.jpg",
+  "not": null
+ },
+ {
+  "sayfa": 339,
+  "baski_no": "٣٣٩",
+  "k": "مَنْبَع",
+  "cogul": "مَنابِع",
+  "metin": "(ج) مَنابِع : (١) مَخْرَجُ الماءِ وَنَحْوِهِ ، “توجَدُ مَنابِعُ النِّفْطِ",
+  "tanim": "(١) مَخْرَجُ الماءِ وَنَحْوِهِ (٢) مَصْدَر",
+  "ornekler": [
+   "“توجَدُ مَنابِعُ النِّفْطِ في دُوَلِ الخَليجِ”",
+   "“مَنْبَعُ نَهْرِ النّيلِ في شَرْقِ إِفْريقيا”",
+   "“الإِسْلامُ مَنْبَعُ الأَخْلاقِ وَالقِيَمِ”",
+   "“القُرْآنُ المَنْبَعُ الأَوَّلُ لِلشَّرْعِ الإِسْلامِيِّ”"
+  ],
+  "bosluk": {
+   "cumle": "توجَدُ مَنابِعُ النِّفْطِ في دُوَلِ الخَليجِ",
+   "kelime": "مَنابِعُ"
+  },
+  "tr": "kaynak, pınar",
+  "tanim_tr": "(1) Su ve benzerinin çıktığı yer. (2) Kaynak.",
+  "ornekler_tr": [
+   "“Petrol kaynakları Körfez ülkelerinde bulunur.”",
+   "“Nil nehrinin kaynağı Doğu Afrika'dadır.”",
+   "“İslam ahlakın ve değerlerin kaynağıdır.”",
+   "“Kur'an İslam hukukunun birinci kaynağıdır.”"
+  ],
+  "resim": "p339_4.jpg",
+  "not": "Madde sayfa 340'ta devam ediyor; tanim ve ornekler tam yazıldı."
+ }
+]
