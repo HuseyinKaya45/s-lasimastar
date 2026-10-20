@@ -1,0 +1,205 @@
+[
+ {
+  "no": 1,
+  "w": "رَتَّبْتُ",
+  "tur": "Fiil",
+  "kok": "رَتَّبَ - تَرْتيبٌ",
+  "tr": "Hazırlamak; düzenlemek",
+  "sk": "Sülâsi hâli kullanılmıyor",
+  "sa": "",
+  "l": [
+   "رتب"
+  ],
+  "not": ""
+ },
+ {
+  "no": 2,
+  "w": "خالِيًا",
+  "tur": "İsmi Fail",
+  "kok": "خَلَوَ (خَلا) - خَلْوَةٌ وخَلاءٌ",
+  "tr": "Boş olmak; yoksun olmak",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "خال",
+   "خالي",
+   "خلا"
+  ],
+  "not": ""
+ },
+ {
+  "no": 3,
+  "w": "مَخْزَنٍ",
+  "tur": "İsmi Mekân",
+  "kok": "خَزَنَ - خَزْنٌ - مَخْزَنٌ",
+  "tr": "Biriktirmek; toplamak - Mahzen (depo)",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "مخزن",
+   "خزن"
+  ],
+  "not": "Tabloda türü «İsmi Meful» yazılı."
+ },
+ {
+  "no": 4,
+  "w": "المَحَطَّةِ",
+  "tur": "İsim",
+  "kok": "مَحَطَّةٌ ج مَحَطّاتٌ",
+  "tr": "Durak; istasyon",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "محطة"
+  ],
+  "not": ""
+ },
+ {
+  "no": 5,
+  "w": "لَقَدْ فاتَتْني",
+  "tur": "Fiil",
+  "kok": "فاتَ - فَوْتٌ وفَواتٌ -u",
+  "tr": "Geçmişte kalmak, geçip gitmek; kaçırmak",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "فات"
+  ],
+  "not": ""
+ },
+ {
+  "no": 6,
+  "w": "الريموتَ",
+  "tur": "İsim",
+  "kok": "ريموتٌ (Remote)",
+  "tr": "Uzaktan kumanda",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "ريموت"
+  ],
+  "not": ""
+ },
+ {
+  "no": 7,
+  "w": "نَشْرَةَ",
+  "tur": "İsim",
+  "kok": "نَشَرَ - نَشْرٌ -u",
+  "tr": "Yaymak, yayınlamak (bülten, yayın)",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "نشرة",
+   "نشر"
+  ],
+  "not": ""
+ },
+ {
+  "no": 8,
+  "w": "لِيُعَمِّرَ",
+  "tur": "Fiil",
+  "kok": "عَمَّرَ - تَعْميرٌ",
+  "tr": "Çok yaşamak; bina dikmek, kurmak, inşa etmek",
+  "sk": "عَمَرَ - عِمارَةٌ | عُمْرٌ وعَمْرٌ -u -i",
+  "sa": "Bayındır olmak; ömrü uzun olmak",
+  "l": [
+   "عمر"
+  ],
+  "not": ""
+ },
+ {
+  "no": 9,
+  "w": "وَرَثَةَ",
+  "tur": "İsmi Fail",
+  "kok": "وارِثٌ ج وَرَثَةٌ ووُرّاثٌ ووارِثونَ",
+  "tr": "Vâris, mirasçı",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "وارث",
+   "ورث"
+  ],
+  "not": ""
+ },
+ {
+  "no": 10,
+  "w": "صُدْفَةً",
+  "tur": "Zarf",
+  "kok": "صُدْفَةٌ",
+  "tr": "Tesadüfen, kazara",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "صدفة"
+  ],
+  "not": ""
+ },
+ {
+  "no": 11,
+  "w": "شامِلُ",
+  "tur": "İsmi Fail",
+  "kok": "شَمِلَ - شَمَلٌ وشُمولٌ - شامِلٌ",
+  "tr": "Kapsamlı, kapsayan, şâmil",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "شامل",
+   "شمل"
+  ],
+  "not": ""
+ },
+ {
+  "no": 12,
+  "w": "أَحْلُمُ",
+  "tur": "Fiil",
+  "kok": "حَلَمَ - حُلْمٌ",
+  "tr": "Rüya görmek; buluğa ermek; hayal kurmak",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "حلم"
+  ],
+  "not": ""
+ },
+ {
+  "no": 13,
+  "w": "لِإِنْجازِ",
+  "tur": "Mastar",
+  "kok": "أَنْجَزَ - إِنْجازٌ",
+  "tr": "Uygulamak, gerçekleştirmek; başarmak",
+  "sk": "نَجَزَ - نَجْزٌ -u",
+  "sa": "Yerine getirmek, uygulamak",
+  "l": [
+   "أنجز",
+   "إنجاز"
+  ],
+  "not": ""
+ },
+ {
+  "no": 14,
+  "w": "قَبَضَ عَلَيْهِما",
+  "tur": "Fiil",
+  "kok": "قَبَضَ عَلَى -i",
+  "tr": "Tutuklamak; ele geçirmek, kabzetmek",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "قبض"
+  ],
+  "not": ""
+ },
+ {
+  "no": 15,
+  "w": "طُموحُكَ",
+  "tur": "İsim",
+  "kok": "طُموحٌ ج طُموحاتٌ",
+  "tr": "Hırs, tamah, ihtiras; umut, beklenti",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "طموح",
+   "طمح"
+  ],
+  "not": ""
+ }
+]

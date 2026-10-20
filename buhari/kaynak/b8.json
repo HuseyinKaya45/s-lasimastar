@@ -1,0 +1,109 @@
+[
+ {
+  "no": 1,
+  "w": "لَنْ تَسْتَغْرِقَ",
+  "tur": "Fiil",
+  "kok": "اِسْتَغْرَقَ - اِسْتِغْراقٌ في",
+  "tr": "Dalmak; sürmek; tüm vaktini almak",
+  "sk": "غَرِقَ - غَرَقٌ في -a",
+  "sa": "Dalmak; boğulmak",
+  "l": [
+   "استغرق",
+   "غرق"
+  ],
+  "not": ""
+ },
+ {
+  "no": 2,
+  "w": "تَنْفيذُ",
+  "tur": "Mastar",
+  "kok": "نَفَّذَ - تَنْفيذٌ",
+  "tr": "Uygulamak; yapmak; (إلى) göndermek",
+  "sk": "نَفَذَ - نَفاذٌ ونُفوذٌ من - إلى - في",
+  "sa": "من: delmek; إلى: gitmek, varmak; في: iyi olmak, usta olmak",
+  "l": [
+   "نفذ",
+   "تنفيذ"
+  ],
+  "not": ""
+ },
+ {
+  "no": 3,
+  "w": "تَراكَمَ في",
+  "tur": "Fiil",
+  "kok": "تَراكَمَ - تَراكُمٌ في",
+  "tr": "Birikmek; toplanmak",
+  "sk": "رَكَمَ - رَكْمٌ",
+  "sa": "Biriktirmek, yığmak",
+  "l": [
+   "تراكم",
+   "ركم"
+  ],
+  "not": ""
+ },
+ {
+  "no": 4,
+  "w": "لَمْ أُوَفِّرْ",
+  "tur": "Fiil",
+  "kok": "وَفَّرَ - تَوْفيرٌ لـ",
+  "tr": "Çoğaltmak; tutumlu davranmak; (لـ) bol bol vermek; biriktirmek",
+  "sk": "وَفَرَ - يَفِرُ - وَفْرٌ ووُفورٌ / وَفُرَ - يَوْفُرُ - وَفارَةٌ",
+  "sa": "Bol olmak, çok olmak, çoğalmak",
+  "l": [
+   "وفر"
+  ],
+  "not": ""
+ },
+ {
+  "no": 5,
+  "w": "حَجَجْتُ",
+  "tur": "Fiil",
+  "kok": "حَجَّ - حَجٌّ -u",
+  "tr": "Delil ile yenmek; ikna etmek; haccetmek, hacca gitmek",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "حج"
+  ],
+  "not": ""
+ },
+ {
+  "no": 6,
+  "w": "تُتاحُ لَها",
+  "tur": "Fiil",
+  "kok": "أَتاحَ - إِتاحَةٌ لـ",
+  "tr": "Vermek; bağışlamak (imkân tanımak)",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "أتاح"
+  ],
+  "not": ""
+ },
+ {
+  "no": 7,
+  "w": "رَبِحْتُهُ",
+  "tur": "Fiil",
+  "kok": "رَبِحَ - رِبْحٌ ورَبَحٌ -a",
+  "tr": "Kazanmak; elde etmek",
+  "sk": "",
+  "sa": "",
+  "l": [
+   "ربح"
+  ],
+  "not": ""
+ },
+ {
+  "no": 8,
+  "w": "سَيُعَوِّضُنا",
+  "tur": "Fiil",
+  "kok": "عَوَّضَ - تَعْويضٌ",
+  "tr": "Telafi etmek; karşılık olarak vermek",
+  "sk": "Sülâsi hâli kullanılmıyor",
+  "sa": "",
+  "l": [
+   "عوض"
+  ],
+  "not": ""
+ }
+]
