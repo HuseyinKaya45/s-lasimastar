@@ -2554,7 +2554,7 @@ CIZ.kalip = function () {
 
 // ---------- sesler: ط ----------
 var KK = null;
-function hVurgu(s) { return s.replace(/ا/g, '<b class="vurgu-harf">ا</b>'); }
+function hVurgu(s) { return s.replace(/و/g, '<b class="vurgu-harf">و</b>'); }
 CIZ.ses = function () {
   var kel = '<div class="kgrid kucuk-grid">' + SES_KELIME.map(function (k, i) { return '<button type="button" class="kkart" data-cal="h-' + i + '" data-parca="h-' + i + '"><span class="ar kar">' + hVurgu(k) + '</span></button>'; }).join("") + '</div>';
   var cift = '<div class="cift-grid">' + CIFT.map(function (c, i) { return '<div class="cift"><button type="button" class="cbtn kh" data-cal="ha-' + i + '" data-parca="ha-' + i + '"><span class="ar">' + c[0] + '</span></button><button type="button" class="cbtn kf" data-cal="he-' + i + '" data-parca="he-' + i + '"><span class="ar">' + c[1] + '</span></button></div>'; }).join("") + '</div>';
@@ -2563,10 +2563,10 @@ CIZ.ses = function () {
     o.i >= o.s.length ? '<div class="sonuc-buyuk">' + o.puan + ' / ' + o.s.length + '</div><div class="satir-btn" style="justify-content:center"><button type="button" class="btn dolu" data-act="kkBasla">Yeniden oyna</button></div>' :
     (function () { var q = o.s[o.i], c = CIFT[q.c]; return '<div class="soluk kucuk">Soru ' + (o.i + 1) + ' / ' + o.s.length + ' · doğru: ' + o.puan + '</div><div class="satir-btn" style="justify-content:center;margin:8px 0"><button type="button" class="btn dolu" data-cal="' + (q.kh ? "ha-" : "he-") + q.c + '">🔊 Dinle</button></div><div class="secim" style="justify-content:center">' + [0, 1].map(function (j) { var dog = (j === 0) === q.kh, cls = o.cevap === null ? '' : (dog ? ' dogru' : (o.cevap === j ? ' yanlis' : '')); return '<button type="button" class="sec ar' + cls + '" data-kk="' + j + '"' + (o.cevap !== null ? ' disabled' : '') + ' style="font-size:2rem">' + c[j] + '</button>'; }).join("") + '</div>' + (o.cevap !== null ? '<div class="satir-btn" style="justify-content:center"><button type="button" class="btn dolu" data-act="kkSonraki">Sonraki →</button></div>' : ''); })();
   var ayet = AYET.map(function (a, i) { return '<div class="dsat' + (A["ses/ayet/" + i] ? ' duydu' : '') + '" data-parca="ayet-' + i + '"><div class="dmetin"><div class="ar dar">' + hVurgu(a[0]) + '</div><div class="kucuk soluk ar">' + a[1] + '</div></div>' + calBtn("ayet-" + i) + '</div>'; }).join("");
-  return bolumBasi("ses", "Sesler") + kart("1. Uzun “â” (ـا)", "اِسْتَمِعْ وَأَعِدْ", "Üstün (ـَ) kısa bir “a”dır; ardından elif (ا) gelince ses uzar: “â”. Dinle ve tekrar et.", kel) +
-    kart("2. Kısa mı, uzun mu?", "اِسْتَمِعْ وَأَعِدْ", "Her çiftte sağdaki kısa (ـَ), soldaki uzun (ـا). Farkı duy: بَر – بار، سَبَّ – سابَ.", cift) +
+  return bolumBasi("ses", "Sesler") + kart("1. Uzun “û” (ـو)", "اِسْتَمِعْ وَأَعِدْ", "Ötre (ـُ) kısa bir “u”dur; ardından vav (و) gelince ses uzar: “û”. Dinle ve tekrar et.", kel) +
+    kart("2. Kısa mı, uzun mu?", "اِسْتَمِعْ وَأَعِدْ", "Her çiftte sağdaki kısa (ـُ), soldaki uzun (ـو). Farkı duy: بُر – بور، حُت – حوت.", cift) +
     kart("Oyun: Hangisini duydun?", "", "Kelimeyi dinle; kısa mı uzun mu? 10 sorudan en az 8 doğru puan kazandırır.", oyun) +
-    kart("3. Âyetlerde uzun “â”", "اِسْتَمِعْ وَأَعِدْ", "Âyeti dinle, sonra tekrar et.", '<div class="ar-ayet">' + ayet + '</div>');
+    kart("3. Âyetlerde uzun “û”", "اِسْتَمِعْ وَأَعِدْ", "Âyeti dinle, sonra tekrar et.", '<div class="ar-ayet">' + ayet + '</div>');
 };
 
 // ---------- dinleme ----------
