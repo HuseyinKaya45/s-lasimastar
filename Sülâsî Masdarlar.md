@@ -1264,7 +1264,7 @@ sonra `python3 kelime5313/yap.py`.
 
 ## Uygulama: Sözlük Defteri — العربية بين يديك sözlüğü (Arapça açıklamalarla kelime çalışması, çevrimdışı)
 
-`mucem/index.html` (yayın sürümü `mucem/sayfa.html`) sözlüğün taranmış sayfalarından okunan maddeleri (s. 1–357, أ–ن (نطق'a kadar) harfleri; kaynak PDF'lerde bulunmayan s. 76, 255, 292 ve 293 hariç: 5332 madde, 1984 resim, 12 levha)
+`mucem/index.html` (yayın sürümü `mucem/sayfa.html`) sözlüğün taranmış sayfalarından okunan maddeleri (sözlüğün tamamı, s. 1–385, أ–ي; kaynak PDF'lerde bulunmayan s. 76, 255, 292, 293 ve 382 hariç: 5767 madde, 2169 resim, 13 levha)
 kitaptaki Arapça açıklama, örnek cümle/ayet ve resimleriyle çalıştırır; her maddede Türkçe anlam ve açıklama/örnek çevirileri bir düğmenin arkasındadır.
 **Kartlar** (ön yüz: kelime ya da Arapça tanım; aralıklı tekrar, “bir daha gösterme”), **Tanımdan bul** (Arapça açıklama ya da resim → dört kelime),
 **Boşluk doldur** (kitaptaki örnek cümlede eksik kelime), **Eşleştir** (kelime ↔ kısa Arapça açıklama ya da Türkçe), **Sözlük** (sayfa sırasıyla bütün maddeler, arama,
