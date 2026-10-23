@@ -281,8 +281,8 @@ main{padding-block:20px 40px}
 .rootbox span{width:52px;height:56px;border-radius:12px;border:2px dashed var(--line);display:grid;place-items:center;font-family:var(--f-ar);font-size:1.8rem;color:var(--root)}
 .rootbox span.f{border-style:solid;border-color:var(--root);background:var(--root-s)}
 .gen{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
-.gen div{border:1px solid var(--line);border-radius:12px;padding:6px 10px;text-align:center;background:var(--panel2)}
-.gen div .ar{font-size:1.4rem}
+.gen>div{border:1px solid var(--line);border-radius:12px;padding:6px 10px;text-align:center;background:var(--panel2)}
+.gen>div .ar{font-size:1.4rem}
 .steps{display:flex;gap:6px;margin-bottom:10px}
 .steps i{flex:1;height:5px;border-radius:9px;background:var(--panel2)}
 .steps i.on{background:var(--gold)}
@@ -290,6 +290,10 @@ main{padding-block:20px 40px}
 .filter button{border:1px solid var(--line);background:var(--panel2);border-radius:999px;padding:5px 12px;font-size:.82rem;font-weight:600}
 .filter button.on{background:var(--gold);color:var(--gold-ink);border-color:transparent}
 input.search{border:1px solid var(--line);background:var(--panel2);border-radius:12px;padding:9px 12px;min-width:0;flex:1}
+/* Arapça akış: bâblar, çekimler ve Arapça seçenekler sağdan sola dizilir */
+.bcards,.gen,.opts,.mem,#bs,.wins{direction:rtl}
+.bcard,.gen>div,.mc{direction:ltr}
+.opt.tr{direction:ltr}
 </style>
 <header class="top">
   <div class="wrap">
