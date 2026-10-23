@@ -222,18 +222,24 @@ canvas#cf{position:fixed;inset:0;pointer-events:none;z-index:99}
 <header class="top"><div class="top-in">
   <button class="logo" data-go="tezgah" aria-label="Tezgâh"><span class="m"><i style="background:var(--rf)"></i><i style="background:var(--ra)"></i><i style="background:var(--rl)"></i></span><b>Emsile Tezgâhı</b></button>
   <nav class="nav" aria-label="Bölümler">
-    <button data-view="tezgah">Tezgâh</button><button data-view="muttaride">Muttaride</button><button data-view="bablar">Bâblar</button><button data-view="ezber">Ezber</button><button data-view="oyun">Oyunlar</button><button data-view="rehber">Rehber</button>
+    <button data-view="tezgah">Tezgâh</button><button data-view="muttaride">Muttaride</button><button data-view="bablar">Bâblar</button><button data-view="ezber">Ezber</button><button data-view="oyun">Oyunlar</button><button data-view="rehber">Rehber</button><button data-view="program">Program hakkında</button>
   </nav>
   <div class="hud"><span class="chip" id="hudXp">★ 0</span><button class="ib" id="tSound" aria-pressed="true" title="Ses">♪</button><button class="ib" id="tTheme" title="Tema">◐</button></div>
 </div></header>
 <main class="wrap">
   <section id="v-tezgah"></section><section id="v-muttaride" hidden></section><section id="v-bablar" hidden></section>
   <section id="v-ezber" hidden></section><section id="v-oyun" hidden></section><section id="v-rehber" hidden></section>
+<section class="view" id="v-program" hidden><div style="max-width:760px;margin:0 auto">
+<h2 style="margin:8px 0 14px">Program hakkında</h2>
+<div style="border:1px solid var(--line,var(--rule));border-radius:18px;padding:28px 18px;text-align:center">
+<div style="font-family:var(--f-ar,serif);font-size:2rem;direction:rtl;line-height:1.6">الْأَمْثِلَةُ الْمُخْتَلِفَةُ</div>
+<p style="margin:14px 0 6px;font-size:1.05rem"><b>Marmara Üniversitesi İlahiyat Fakültesi Öğretim Görevlisi Hüseyin KAYA tarafından hazırlanmıştır.</b></p>
+<p style="margin:6px 0;color:var(--muted)">Kaynak: <i>Emsile-i Muhtelife</i></p>
+<p style="margin:6px 0;color:var(--muted)">© 2026 Hüseyin KAYA · İstifade edilmesi temennisiyle…</p>
+</div>
+<p style="margin:14px 4px;color:var(--muted);font-size:.9rem">Kök tezgâhı, muttaride tabloları, bâblar, ezber ve oyunlar. Program tek bir dosyadır ve internet bağlantısı olmadan çalışır; ilerlemeniz yalnızca bu cihazda saklanır.</p>
+</div></section>
 </main>
-<footer class="credit-foot" style="border-top:1px solid var(--line);margin-top:8px;padding-block:22px calc(22px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));text-align:center;color:var(--muted);font-size:.9rem;line-height:1.5">
-  <p style="margin:0"><b style="color:var(--ink)">Marmara Üniversitesi İlahiyat Fakültesi Öğretim Görevlisi Hüseyin KAYA tarafından hazırlanmıştır.</b></p>
-  <p style="margin:4px 0 0;font-size:.8rem">© 2026 Hüseyin KAYA · Tüm hakları saklıdır.</p>
-</footer>
 <div id="sheet"></div><div class="toast" id="toast" hidden></div><canvas id="cf" hidden></canvas>
 <script>
 /* ===================== EMSİLE MOTORU =====================
@@ -482,13 +488,13 @@ function muh(rt=R){
 }
 
 /* ===================== YÖNLENDİRME ===================== */
-const VIEWS = ["tezgah","muttaride","bablar","ezber","oyun","rehber"];
+const VIEWS = ["tezgah","muttaride","bablar","ezber","oyun","rehber","program"];
 let VIEW = "tezgah";
 function go(v){
   if (!VIEWS.includes(v)) v = "tezgah"; VIEW = v; stopChant();
   VIEWS.forEach(x => $("#v-"+x).hidden = x!==v);
   $$(".nav button").forEach(b => b.setAttribute("aria-current", b.dataset.view===v ? "page" : "false"));
-  ({tezgah:renderLoom, muttaride:renderTables, bablar:renderBabs, ezber:renderChant, oyun:renderHub, rehber:renderGuide})[v]();
+  ({tezgah:renderLoom, muttaride:renderTables, bablar:renderBabs, ezber:renderChant, oyun:renderHub, rehber:renderGuide, program:()=>{}})[v]();
   try { history.replaceState(null, "", "#"+v); } catch(e){}
   scrollTo({top:0});
 }

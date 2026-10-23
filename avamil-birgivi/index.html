@@ -298,6 +298,7 @@ textarea.io{width:100%;min-height:110px;font-family:ui-monospace,Menlo,monospace
       <button data-view="sinav">Sınav</button>
       <button data-view="sozluk">Sözlük</button>
       <button data-view="hakkinda">Kitap</button>
+      <button data-view="program">Program hakkında</button>
     </nav>
     <div class="tools">
       <div class="search">
@@ -319,11 +320,17 @@ textarea.io{width:100%;min-height:110px;font-family:ui-monospace,Menlo,monospace
   <section class="view" id="v-sinav" hidden></section>
   <section class="view" id="v-sozluk" hidden></section>
   <section class="view" id="v-hakkinda" hidden></section>
+<section class="view" id="v-program" hidden><div style="max-width:760px;margin:0 auto">
+<h2 style="margin:8px 0 14px">Program hakkında</h2>
+<div style="border:1px solid var(--line,var(--rule));border-radius:18px;padding:28px 18px;text-align:center">
+<div style="font-family:var(--f-ar,serif);font-size:2rem;direction:rtl;line-height:1.6">الْعَوَامِلُ لِلْبِرْكِوِيِّ</div>
+<p style="margin:14px 0 6px;font-size:1.05rem"><b>Marmara Üniversitesi İlahiyat Fakültesi Öğretim Görevlisi Hüseyin KAYA tarafından hazırlanmıştır.</b></p>
+<p style="margin:6px 0;color:var(--muted)">Kaynak: İmam Birgivî, <i>el-Avâmil</i> (tahkik: Nidâl b. Muhammed Hayr el-Kerrâd, 2022)</p>
+<p style="margin:6px 0;color:var(--muted)">© 2026 Hüseyin KAYA · İstifade edilmesi temennisiyle…</p>
+</div>
+<p style="margin:14px 4px;color:var(--muted);font-size:.9rem">Dersler, tahkikli metin, i‘râb tabloları, kartlar, sınav ve sözlük. Program tek bir dosyadır ve internet bağlantısı olmadan çalışır; ilerlemeniz yalnızca bu cihazda saklanır.</p>
+</div></section>
 </main>
-<footer class="credit-foot" style="border-top:1px solid var(--rule);margin-top:8px;padding-block:22px calc(22px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));text-align:center;color:var(--muted);font-size:.9rem;line-height:1.5">
-  <p style="margin:0"><b style="color:var(--ink)">Marmara Üniversitesi İlahiyat Fakültesi Öğretim Görevlisi Hüseyin KAYA tarafından hazırlanmıştır.</b></p>
-  <p style="margin:4px 0 0;font-size:.8rem">© 2026 Hüseyin KAYA · Tüm hakları saklıdır.</p>
-</footer>
 <div class="toast" id="toast" hidden></div>
 <script>
 /* ===== VERİ: Avâmil-i Birgivî (tahkik: Nidâl b. Muhammed Hayr el-Kerrâd, 2022) =====
@@ -1291,7 +1298,7 @@ function speak(text){
 
 /* ===================== YÖNLENDİRME ===================== */
 let VIEW = "ana";
-const VIEWS = ["ana","ders","metin","kart","sinav","sozluk","hakkinda"];
+const VIEWS = ["ana","ders","metin","kart","sinav","sozluk","hakkinda","program"];
 function go(view, id, push=true){
   if (BYID[view]) { id = view; view = "ders"; }
   if (!VIEWS.includes(view)) view = "ana";
@@ -1307,7 +1314,7 @@ $$(".nav button").forEach(b => b.onclick = () => go(b.dataset.view));
 document.addEventListener("click", e => {
   const g = e.target.closest("[data-go]"); if (g){ e.preventDefault(); go(g.dataset.go, g.dataset.id); }
 });
-function render(v){ ({ana:renderHome, ders:renderLesson, metin:renderReader, kart:renderCards, sinav:renderQuiz, sozluk:renderDict, hakkinda:renderAbout})[v](); }
+function render(v){ ({ana:renderHome, ders:renderLesson, metin:renderReader, kart:renderCards, sinav:renderQuiz, sozluk:renderDict, hakkinda:renderAbout, program:()=>{}})[v](); }
 function rerender(){ render(VIEW); }
 
 /* ===================== ANA SAYFA ===================== */
