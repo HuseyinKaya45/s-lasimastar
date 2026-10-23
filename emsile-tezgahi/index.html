@@ -322,33 +322,34 @@ const FAIL_TR = ["Müfred müzekker","Tesniye müzekker","Cem'-i müzekker sâli
 const MEF = ["مَFْAُوLٌ","مَFْAُوLَانِ","مَFْAُوLُونَ","مَFَاAِيLُ","مَFْAُوLَةٌ","مَFْAُوLَتَانِ","مَFْAُوLَاتٌ"];
 const MEF_TR = ["Müfred müzekker","Tesniye müzekker","Cem'-i müzekker sâlim","Cem'-i teksîr","Müfred müennes","Tesniye müennes","Cem'-i müennes sâlim"];
 
-/* ---- Emsile-i Muhtelife: ezber sırasıyla ---- */
+/* ---- Emsile-i Muhtelife: 24 sîga, ezber sırasıyla (g = genel Türkçe mânâ kalıbı) ---- */
 const MUH = [
- {id:"mazi", ar:"الْمَاضِي", tr:"Mâzi", d:"Geçmiş zaman: o yaptı.", t:b=> mzStem(b) + V.a, p:()=> mzStemP() + V.a},
- {id:"muz", ar:"الْمُضَارِعُ", tr:"Muzâri", d:"Geniş/şimdiki zaman: o yapar, yapıyor.", t:b=> "يَ" + muStem(b) + V.u, p:()=> "يُ" + muStemP() + V.u},
- {id:"masdar", ar:"الْمَصْدَرُ", tr:"Masdar", d:"Fiilin ismi: yapmak, yapış. Sülâsîde semâîdir (kalıbı ezberlenir).", masdar:true},
- {id:"fail", ar:"اسْمُ الْفَاعِلِ", tr:"İsm-i fâil", d:"Yapan: فَهُوَ نَاصِرٌ — o yardım edendir.", pre:"فَهُوَ ", t:()=> "FَاAِLٌ"},
- {id:"mef", ar:"اسْمُ الْمَفْعُولِ", tr:"İsm-i mef'ûl", d:"Yapılan: وَذَاكَ مَنْصُورٌ — o yardım edilendir.", pre:"وَذَاكَ ", pas:true, t:()=> "مَFْAُوLٌ"},
- {id:"lem", ar:"الْجَحْدُ الْمُطْلَقُ", tr:"Cahd-ı mutlak", d:"Lem: yapmadı.", t:b=> "لَمْ يَ" + muStem(b) + V.o, p:()=> "لَمْ يُ" + muStemP() + V.o},
- {id:"lemma", ar:"الْجَحْدُ الْمُسْتَغْرَقُ", tr:"Cahd-ı müstağrak", d:"Lemmâ: henüz yapmadı.", t:b=> "لَمَّا يَ" + muStem(b) + V.o, p:()=> "لَمَّا يُ" + muStemP() + V.o},
- {id:"nmazi", ar:"نَفْيُ الْمَاضِي", tr:"Nefy-i mâzi", d:"Mâ + mâzi: yapmadı.", t:b=> "مَا " + mzStem(b) + V.a, p:()=> "مَا " + mzStemP() + V.a},
- {id:"nhal", ar:"نَفْيُ الْحَالِ", tr:"Nefy-i hâl", d:"Mâ + muzâri: (şu an) yapmıyor.", t:b=> "مَا يَ" + muStem(b) + V.u, p:()=> "مَا يُ" + muStemP() + V.u},
- {id:"nist", ar:"نَفْيُ الِاسْتِقْبَالِ", tr:"Nefy-i istikbâl", d:"Lâ + muzâri: yapmaz, yapmayacak.", t:b=> "لَا يَ" + muStem(b) + V.u, p:()=> "لَا يُ" + muStemP() + V.u},
- {id:"len", ar:"تَأْكِيدُ نَفْيِ الِاسْتِقْبَالِ", tr:"Te'kîd-i nefy-i istikbâl", d:"Len: asla yapmayacak.", t:b=> "لَنْ يَ" + muStem(b) + V.a, p:()=> "لَنْ يُ" + muStemP() + V.a},
- {id:"nunS", ar:"التَّأْكِيدُ بِالنُّونِ الثَّقِيلَةِ", tr:"Te'kîd (nûn-ı sakîle)", d:"Mutlaka yapacak (şeddeli nûn).", t:b=> "لَيَ" + muStem(b) + V.a + "نَّ", p:()=> "لَيُ" + muStemP() + V.a + "نَّ"},
- {id:"nunH", ar:"التَّأْكِيدُ بِالنُّونِ الْخَفِيفَةِ", tr:"Te'kîd (nûn-ı hafîfe)", d:"Mutlaka yapacak (sâkin nûn).", t:b=> "لَيَ" + muStem(b) + V.a + "نْ", p:()=> "لَيُ" + muStemP() + V.a + "نْ"},
- {id:"emr", ar:"الْأَمْرُ الْحَاضِرُ", tr:"Emr-i hâzır", d:"Yap! (sen)", t:b=> hamz(b) + muStem(b) + V.o},
- {id:"gaib", ar:"الْأَمْرُ الْغَائِبُ", tr:"Emr-i gâib", d:"Yapsın! (o)", t:b=> "لِيَ" + muStem(b) + V.o, p:()=> "لِيُ" + muStemP() + V.o},
- {id:"nehy", ar:"النَّهْيُ", tr:"Nehy", d:"Yapma!", t:b=> "لَا تَ" + muStem(b) + V.o, p:()=> "لَا تُ" + muStemP() + V.o},
- {id:"zarf", ar:"اسْمُ الزَّمَانِ وَالْمَكَانِ", tr:"İsm-i zaman ve mekân", d:"Yapılan yer/zaman. Muzâride ayn esre ise مَفْعِلٌ, değilse مَفْعَلٌ.", pre:"وَالظَّرْفُ مِنْهُ ", t:b=> "مَFْA" + (b.mu==="i" ? V.i : V.a) + "Lٌ"},
- {id:"alet", ar:"اسْمُ الْآلَةِ", tr:"İsm-i âlet", d:"Yapılan araç: مِفْعَلٌ، مِفْعَلَةٌ، مِفْعَالٌ.", pre:"وَالْآلَةُ مِنْهُ ", t:()=> "مِFْAَLٌ", x:["مِFْAَLَةٌ","مِFْAَاLٌ"]},
- {id:"merre", ar:"اسْمُ الْمَرَّةِ", tr:"İsm-i merre", d:"Bir kere yapma: فَعْلَةٌ.", t:()=> "FَAْLَةٌ"},
- {id:"nev", ar:"اسْمُ النَّوْعِ", tr:"İsm-i nev'", d:"Bir tarz yapış: فِعْلَةٌ.", t:()=> "FِAْLَةٌ"},
- {id:"tasgir", ar:"التَّصْغِيرُ", tr:"Tasgîr", d:"Küçültme: فُعَيْلٌ.", pre:"وَالتَّصْغِيرُ مِنْهُ ", t:()=> "FُAَيْLٌ"},
- {id:"tafdil", ar:"اسْمُ التَّفْضِيلِ", tr:"İsm-i tafdîl", d:"Daha çok/en çok yapan: أَفْعَلُ (erkek), فُعْلَى (kadın).", pre:"وَالتَّفْضِيلُ مِنْهُ ", t:()=> "أَFْAَLُ", x:["FُAْLَى"]},
- {id:"taaccub", ar:"فِعْلُ التَّعَجُّبِ", tr:"Taaccüb", d:"Şaşma: ne kadar da …! مَا أَفْعَلَهُ ve أَفْعِلْ بِهِ.", pre:"وَالتَّعَجُّبُ مِنْهُ ", t:()=> "مَا أَFْAَLَهُ", x:["أَFْAِLْ بِهِ"]}
+ {id:"mazi", ar:"الْفِعْلُ الْمَاضِي", tr:"Fiil-i mâzî", g:"Yaptı", d:"Geçmiş zaman fiili.", t:b=> mzStem(b) + V.a, p:()=> mzStemP() + V.a},
+ {id:"muz", ar:"الْفِعْلُ الْمُضَارِعُ", tr:"Fiil-i muzâri", g:"Yapar / yapıyor / yapacak", d:"Geniş, şimdiki ve gelecek zaman fiili; başında eteyne (أ ت ي ن) harflerinden biri bulunur.", t:b=> "يَ" + muStem(b) + V.u, p:()=> "يُ" + muStemP() + V.u},
+ {id:"masdar", ar:"الْمَصْدَرُ غَيْرُ الْمِيمِيِّ", tr:"Masdar-ı gayr-i mîmî", g:"Yapmak", d:"Fiilin ismi; başında mîm olmayan masdar. Sülâsîde semâîdir, yani kalıbı her fiil için ayrıca öğrenilir.", masdar:true},
+ {id:"fail", ar:"اسْمُ الْفَاعِلِ", tr:"İsm-i fâil", g:"Yapan", d:"İşi yapanı bildiren isim: فَاعِلٌ.", t:()=> "FَاAِLٌ"},
+ {id:"mef", ar:"اسْمُ الْمَفْعُولِ", tr:"İsm-i mef'ûl", g:"Yapılan", d:"İşin yapıldığı kimseyi/şeyi bildiren isim: مَفْعُولٌ.", t:()=> "مَFْAُوLٌ"},
+ {id:"lem", ar:"الْجَحْدُ الْمُطْلَقُ", tr:"Fiil-i muzâri cahd-i mutlak", g:"Yapmadı", d:"Lem, muzâriyi cezm eder ve manasını olumsuz geçmişe çevirir.", t:b=> "لَمْ يَ" + muStem(b) + V.o, p:()=> "لَمْ يُ" + muStemP() + V.o},
+ {id:"lemma", ar:"الْجَحْدُ الْمُسْتَغْرَقُ", tr:"Fiil-i muzâri cahd-i müstağrak", g:"Henüz yapmadı", d:"Lemmâ: olumsuzluk konuşma anına kadar uzanır, 'henüz'.", t:b=> "لَمَّا يَ" + muStem(b) + V.o, p:()=> "لَمَّا يُ" + muStemP() + V.o},
+ {id:"nhal", ar:"نَفْيُ الْحَالِ", tr:"Fiil-i muzâri nefy-i hâl", g:"Yapmıyor", d:"Mâ + muzâri: şimdiki zamanın olumsuzu.", t:b=> "مَا يَ" + muStem(b) + V.u, p:()=> "مَا يُ" + muStemP() + V.u},
+ {id:"nist", ar:"نَفْيُ الِاسْتِقْبَالِ", tr:"Fiil-i muzâri nefy-i istikbâl", g:"Yapmayacak", d:"Lâ + muzâri: geleceğin olumsuzu.", t:b=> "لَا يَ" + muStem(b) + V.u, p:()=> "لَا يُ" + muStemP() + V.u},
+ {id:"len", ar:"تَأْكِيدُ نَفْيِ الِاسْتِقْبَالِ", tr:"Fiil-i muzâri te'kîd-i nefy-i istikbâl", g:"Asla yapmayacak", d:"Len muzâriyi nasb eder: geleceğin kesin olumsuzu.", t:b=> "لَنْ يَ" + muStem(b) + V.a, p:()=> "لَنْ يُ" + muStemP() + V.a},
+ {id:"gaib", ar:"الْأَمْرُ الْغَائِبُ", tr:"Emr-i gâib", g:"Yapsın", d:"Emir lâmı (لِـ) gâib muzâriyi cezm eder.", t:b=> "لِيَ" + muStem(b) + V.o, p:()=> "لِيُ" + muStemP() + V.o},
+ {id:"nehyG", ar:"النَّهْيُ الْغَائِبُ", tr:"Nehy-i gâib", g:"Yapmasın", d:"Lâ-yı nâhiye gâib muzâriyi cezm eder.", t:b=> "لَا يَ" + muStem(b) + V.o, p:()=> "لَا يُ" + muStemP() + V.o},
+ {id:"emr", ar:"الْأَمْرُ الْحَاضِرُ", tr:"Emr-i hâzır", g:"Yap", d:"Muhatab muzâriden yapılır: muzâri harfi atılır, başa vasıl hemzesi gelir (ayn ötreliyse اُ, değilse اِ).", t:b=> hamz(b) + muStem(b) + V.o},
+ {id:"nehyH", ar:"النَّهْيُ الْحَاضِرُ", tr:"Nehy-i hâzır", g:"Yapma", d:"Lâ-yı nâhiye muhatab muzâriyi cezm eder.", t:b=> "لَا تَ" + muStem(b) + V.o, p:()=> "لَا تُ" + muStemP() + V.o},
+ {id:"zarf", ar:"اسْمُ الزَّمَانِ وَالْمَكَانِ وَالْمَصْدَرُ الْمِيمِيُّ", tr:"İsm-i zaman · İsm-i mekân · Masdar-ı mîmî", g:"Yapma zamanı · Yapma mekânı · Yapmak", d:"Aynı kalıp üç mana taşır. Muzâride ayn esre olan bâbda ism-i zaman ve mekân مَفْعِلٌ olur (مَضْرِبٌ), diğerlerinde مَفْعَلٌ.", t:b=> "مَFْA" + (b.mu==="i" ? V.i : V.a) + "Lٌ"},
+ {id:"alet", ar:"اسْمُ الْآلَةِ", tr:"İsm-i âlet", g:"Yapma aleti", d:"İşin yapıldığı araç: مِفْعَلٌ.", t:()=> "مِFْAَLٌ"},
+ {id:"merre", ar:"الْمَصْدَرُ بِنَاءُ الْمَرَّةِ", tr:"Masdar binâ-i merre", g:"Bir kere yapmak", d:"İşin bir kere yapıldığını bildirir: فَعْلَةً.", t:()=> "FَAْLَةً"},
+ {id:"nev", ar:"الْمَصْدَرُ بِنَاءُ النَّوْعِ", tr:"Masdar binâ-i nev'i", g:"Bir nevi yapmak", d:"İşin yapılış tarzını bildirir: فِعْلَةً.", t:()=> "FِAْLَةً"},
+ {id:"tasgir", ar:"اسْمُ التَّصْغِيرِ", tr:"İsm-i tasğîr", g:"Küçük bir yapış", d:"Küçültme ismi: فُعَيْلٌ.", t:()=> "FُAَيْLٌ"},
+ {id:"mensub", ar:"الِاسْمُ الْمَنْسُوبُ", tr:"İsm-i mensûb", g:"Yapmaya mensup", d:"Nisbet yâsı (ـِيٌّ) ile yapılır: فَعْلِيٌّ.", t:()=> "FَAْLِيٌّ"},
+ {id:"mubalaga", ar:"مُبَالَغَةُ اسْمِ الْفَاعِلِ", tr:"Mübâlağa-i ism-i fâil", g:"Çok yapan", d:"İşi çokça yapanı bildirir: فَعَّالٌ.", t:()=> "FَAَّاLٌ"},
+ {id:"tafdil", ar:"اسْمُ التَّفْضِيلِ", tr:"İsm-i tafdîl", g:"En (daha) çok yapan", d:"Üstünlük bildiren isim: أَفْعَلُ.", t:()=> "أَFْAَLُ"},
+ {id:"tac1", ar:"فِعْلُ التَّعَجُّبِ الْأَوَّلُ", tr:"Fiil-i taaccüb-i evvel", g:"Acaip yaptı", d:"Birinci taaccüb kalıbı: مَا أَفْعَلَهُ.", t:()=> "مَا أَFْAَLَهُ"},
+ {id:"tac2", ar:"فِعْلُ التَّعَجُّبِ الثَّانِي", tr:"Fiil-i taaccüb-i sânî", g:"Ne acaip yaptı", d:"İkinci taaccüb kalıbı: أَفْعِلْ بِهِ.", t:()=> "أَFْAِLْ بِهِ"}
 ];
-const NASR_TR = {mazi:"Yardım etti.", muz:"Yardım eder / ediyor.", masdar:"Yardım etmek.", fail:"O yardım edendir.", mef:"O yardım edilendir.", lem:"Yardım etmedi.", lemma:"Henüz yardım etmedi.", nmazi:"Yardım etmedi.", nhal:"Yardım etmiyor.", nist:"Yardım etmez / etmeyecek.", len:"Asla yardım etmeyecek.", nunS:"Mutlaka yardım edecek.", nunH:"Mutlaka yardım edecek.", emr:"Yardım et!", gaib:"Yardım etsin!", nehy:"Yardım etme!", zarf:"Yardım yeri / zamanı.", alet:"Yardım aleti.", merre:"Bir kere yardım.", nev:"Bir tür yardım ediş.", tasgir:"Küçük yardım / yardımcık.", tafdil:"Daha çok yardım eden.", taaccub:"Ne kadar da yardımseverdir!"};
+const NASR_TR = {mazi:"Yardım etti", muz:"Yardım eder / ediyor / edecek", masdar:"Yardım etmek", fail:"Yardım eden", mef:"Yardım edilen", lem:"Yardım etmedi", lemma:"Henüz yardım etmedi", nhal:"Yardım etmiyor", nist:"Yardım etmeyecek", len:"Asla yardım etmeyecek", gaib:"Yardım etsin", nehyG:"Yardım etmesin", emr:"Yardım et", nehyH:"Yardım etme", zarf:"Yardım etme zamanı · Yardım etme mekânı · Yardım etmek", alet:"Yardım etme aleti", merre:"Bir kere yardım etmek", nev:"Bir nevi yardım etmek", tasgir:"Küçük bir yardım", mensub:"Yardım etmeye mensup", mubalaga:"Çok yardım eden", tafdil:"En (/daha) çok yardım eden", tac1:"Acaip yardım etti", tac2:"Ne acaip yardım etti"};
 
 /* ---- mezîd bâblar ---- */
 const MAZID = [
@@ -407,8 +408,8 @@ const uniq = a => [...new Set(a)];
 
 /* ---------- durum ---------- */
 const KEY = "emsile-tezgahi-v1";
-let S = {xp:0, best:{}, sound:true, theme:"", root:"نصر", bab:1, miz:true, pas:true, col:true, plays:0};
-try { const raw = localStorage.getItem(KEY); if (raw) Object.assign(S, JSON.parse(raw)); } catch(e){}
+let S = {xp:0, best:{}, sound:true, theme:"", root:"نصر", bab:1, miz:true, pas:false, col:true, plays:0, v:2};
+try { const raw = localStorage.getItem(KEY); if (raw){ const o = JSON.parse(raw); Object.assign(S, o); if (!o.v){ S.pas = false; S.v = 2; } } } catch(e){}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} };
 const toast = m => { const t = $("#toast"); t.textContent = m; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(()=>t.hidden=true, 2200); };
 const hud = () => $("#hudXp").textContent = "★ " + S.xp;
@@ -445,7 +446,7 @@ const lemma = (rt=R) => fill(mzStem(rt.b) + V.a, rt.r) + " " + fill("يَ" + muS
 /* Emsile-i Muhtelife öğeleri */
 function muh(rt=R){
   return MUH.map((m, i) => {
-    const o = {i, id:m.id, tr:m.tr, ar:m.ar, d:m.d, pre:m.pre||"", x:m.x||[]};
+    const o = {i, id:m.id, tr:m.tr, ar:m.ar, d:m.d, g:m.g, pre:"", x:[]};
     if (m.masdar){ o.txt = rt.data ? rt.data.ms : null; return o; }
     o.t = m.t(rt.b);
     if (m.id === "fail" && rt.b.id === 6 && rt.data && rt.data.sf){ o.txt = rt.data.sf; o.t = null; o.note = "Kerume bâbında ism-i fâil yerine sıfat-ı müşebbehe kullanılır."; }
@@ -501,7 +502,7 @@ function renderLoom(){
     <div>
       <span class="eyebrow">Emsile-i Muhtelife · Emsile-i Muttaride · Binâ</span>
       <h1>Kökü tezgâha koy, <span>kalıplar</span> dokusun</h1>
-      <p class="muted" style="max-width:56ch">Medresede sarfın ilk kitabı Emsile'dir: bir kök, yirmiden fazla kalıba dökülür. Burada her kalıp, kökü <b class="rf">fâ</b>, <b class="ra">ayn</b>, <b class="rl">lâm</b> renkleriyle gösterir; <span class="zv">gri harfler</span> kalıbın eklediği harflerdir (zevâid). Altındaki satır mîzandır: aynı kalıp <span class="ar" dir="rtl">ف ع ل</span> harfleriyle.</p>
+      <p class="muted" style="max-width:56ch">Medresede sarfın ilk kitabı Emsile'dir: Emsile-i Muhtelife bir kökü 24 sîgaya döker. Burada her kalıp, kökü <b class="rf">fâ</b>, <b class="ra">ayn</b>, <b class="rl">lâm</b> renkleriyle gösterir; <span class="zv">gri harfler</span> kalıbın eklediği harflerdir (zevâid). Altındaki satır mîzandır: aynı kalıp <span class="ar" dir="rtl">ف ع ل</span> harfleriyle.</p>
       ${picker()}
     </div>
     <div class="panel loom" aria-live="polite">
@@ -535,8 +536,9 @@ function cardHTML(o, k){
   const main = o.t ? W(o.t) : o.txt ? esc(o.txt) : `<span class="muted" style="font-size:1rem">${o.none ? "—" : "semâî"}</span>`;
   const extra = o.x.length ? `<div class="w2">${o.x.map(W).join(" · ")}</div>` : "";
   const mz = S.miz && o.t ? `<div class="mz">${Z(o.t)}${o.x.length ? " · " + o.x.map(Z).join(" · ") : ""}</div>` : "";
+  const mean = `<div class="small" style="color:var(--gold);margin-top:2px">${esc(R.r.join("")==="نصر" ? NASR_TR[o.id] : o.g)}</div>`;
   const ps = S.pas && o.p ? `<div class="ps"><div class="w2">${W(o.p)}</div>${S.miz?`<div class="mz">${Z(o.p)}</div>`:""}</div>` : "";
-  return `<button class="fcard drop" style="animation-delay:${k*18}ms" data-card="${o.i}"><div class="k"><span>${o.i+1}. ${esc(o.tr)}</span><span class="ar">${o.ar}</span></div><div class="w">${main}</div>${extra}${mz}${ps}</button>`;
+  return `<button class="fcard drop" style="animation-delay:${k*18}ms" data-card="${o.i}"><div class="k"><span>${o.i+1}. ${esc(o.tr)}</span><span class="ar">${o.ar}</span></div><div class="w">${main}</div>${extra}${mz}${mean}${ps}</button>`;
 }
 function openCard(i){
   const o = muh()[i]; if (!o) return;
@@ -548,7 +550,7 @@ function openCard(i){
     <p class="muted">${esc(o.d)}</p>
     <div class="panel pad" style="text-align:center"><div class="woven">${o.t?W(o.t):esc(o.txt||"—")}</div>${o.t?`<div class="wmiz">${Z(o.t)}</div>`:""}
       ${word?`<button class="btn ghost sm" data-say="${esc(strip(o.pre + word))}" style="margin-top:10px">🔊 Dinle</button>`:""}
-      ${R.r.join("")==="نصر" && NASR_TR[o.id] ? `<p style="margin:12px 0 0"><b>${esc(NASR_TR[o.id])}</b></p>` : R.data ? `<p class="small muted" style="margin:12px 0 0">Kök anlamı: ${esc(R.data.tr)}</p>` : ""}</div>
+      ${R.r.join("")==="نصر" && NASR_TR[o.id] ? `<p style="margin:12px 0 0"><b>${esc(NASR_TR[o.id])}</b></p>` : `<p style="margin:12px 0 0"><b>${esc(o.g)}</b>${R.data ? ` <span class="small muted">· kök anlamı: ${esc(R.data.tr)}</span>` : ""}</p>`}</div>
     ${parts?`<h3 style="margin:20px 0 10px;font-size:1.05rem">Kelime nasıl dokundu?</h3><div class="parts">${parts}</div><p class="small muted" style="text-align:center">Sağdan sola: kökün harfleri renkli, kalıbın eklediği harfler gri.</p>`:""}
     ${o.p?`<h3 style="margin:20px 0 10px;font-size:1.05rem">Meçhulü</h3><div class="panel pad" style="text-align:center"><div class="woven" style="font-size:2.4rem">${W(o.p)}</div><div class="wmiz">${Z(o.p)}</div></div>`:""}
     ${o.x.length?`<h3 style="margin:20px 0 10px;font-size:1.05rem">Diğer kalıpları</h3><div class="panel pad" style="text-align:center"><div class="woven" style="font-size:2.2rem">${o.x.map(W).join(" · ")}</div><div class="wmiz">${o.x.map(Z).join(" · ")}</div></div>`:""}
@@ -632,14 +634,14 @@ function chantItems(rt=R){
     if (o.txt && !o.t){ out.push({s:o.pre + o.txt, tr:o.tr, h:esc(o.pre + o.txt)}); return; }
     if (!o.t) return;
     out.push({s:o.pre + fill(o.t, rt.r) + (o.x.length ? " وَ" + o.x.map(x=>fill(x, rt.r)).join(" وَ") : ""), tr:o.tr, h:esc(o.pre) + W(o.t) + o.x.map(x => " وَ" + W(x)).join("")});
-    if (o.p) out.push({s:fill(o.p, rt.r), tr:o.tr + " (meçhul)", h:W(o.p)});
+    if (o.p && S.pas) out.push({s:fill(o.p, rt.r), tr:o.tr + " (meçhul)", h:W(o.p)});
   });
   return out;
 }
 function stopChant(){ CH.on = false; clearTimeout(CH.t); if ("speechSynthesis" in window) speechSynthesis.cancel(); }
 function renderChant(){
   const items = chantItems();
-  $("#v-ezber").innerHTML = `<div class="sec-h" style="margin-top:0"><div><span class="eyebrow">Ezber halkası</span><h2>Emsile'yi ritimle oku</h2></div><span class="muted small">Medresedeki gibi: kalıplar sırayla, ma'lûm ve meçhul çift çift</span></div>
+  $("#v-ezber").innerHTML = `<div class="sec-h" style="margin-top:0"><div><span class="eyebrow">Ezber halkası</span><h2>Emsile'yi ritimle oku</h2></div><span class="muted small">Medresedeki gibi: 24 sîga sırayla</span></div>
    <div class="panel pad">${picker()}</div>
    <div class="row" style="margin:16px 0"><button class="btn" id="cPlay">${CH.on?"Durdur":"▶ Okumaya başla"}</button>
      <div class="seg"><button aria-pressed="${CH.speed===1.4}" data-sp="1.4">Yavaş</button><button aria-pressed="${CH.speed===1}" data-sp="1">Normal</button><button aria-pressed="${CH.speed===.7}" data-sp=".7">Hızlı</button></div>
