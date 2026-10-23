@@ -428,8 +428,8 @@ $("#tSound").onclick = () => { S.sound = !S.sound; save(); applyTheme(); };
 let R;
 function setRoot(str, bab){
   const r = rootOf(str); const data = ROOTS.find(x => x.r === (r||[]).join(""));
-  R = {r: r || ["ن","ص","ر"], data: data || null, b: babOf(bab || (data ? data.b : S.bab) || 1)};
-  if (data && !bab) R.b = babOf(data.b);
+  R = {r: r || ["ن","ص","ر"], data: data || null, b: babOf(data ? data.b : (bab || S.bab || 1))};
+  R.locked = !!(data && bab && bab !== data.b);
   R.err = checkRoot(r);
   S.root = R.r.join(""); S.bab = R.b.id; save();
 }
@@ -486,7 +486,7 @@ function bindPicker(){
   const ri = $("#rootIn"), bi = $("#babIn");
   ri.onchange = () => { setRoot(ri.value); render(); };
   ri.onkeydown = e => { if (e.key==="Enter") ri.onchange(); };
-  bi.onchange = () => { setRoot(R.r.join(""), +bi.value); render(); };
+  bi.onchange = () => { setRoot(R.r.join(""), +bi.value); if (R.locked) toast(R.r.join(" ") + " kökü " + R.b.tr + "ndandır; başka bâbda çekilmez. Farklı bâb denemek için kendi kökünü yaz."); render(); };
 }
 
 /* ===================== TEZGÂH ===================== */
@@ -533,7 +533,7 @@ function cardHTML(o, k){
   const extra = o.x.length ? `<div class="w2">${o.x.map(W).join(" · ")}</div>` : "";
   const mz = S.miz && o.t ? `<div class="mz">${Z(o.t)}${o.x.length ? " · " + o.x.map(Z).join(" · ") : ""}</div>` : "";
   const ps = S.pas && o.p ? `<div class="ps"><div class="w2">${W(o.p)}</div>${S.miz?`<div class="mz">${Z(o.p)}</div>`:""}</div>` : "";
-  return `<button class="fcard drop" style="animation-delay:${k*18}ms" data-card="${o.i}"><span class="n">${o.i+1}</span><div class="k"><span>${esc(o.tr)}</span><span class="ar">${o.ar}</span></div><div class="w">${main}</div>${extra}${mz}${ps}</button>`;
+  return `<button class="fcard drop" style="animation-delay:${k*18}ms" data-card="${o.i}"><div class="k"><span>${o.i+1}. ${esc(o.tr)}</span><span class="ar">${o.ar}</span></div><div class="w">${main}</div>${extra}${mz}${ps}</button>`;
 }
 function openCard(i){
   const o = muh()[i]; if (!o) return;
