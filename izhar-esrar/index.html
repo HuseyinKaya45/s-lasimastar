@@ -418,13 +418,10 @@ table.mini td,table.mini th{border:1px solid var(--line);padding:4px 10px;text-a
     <a href="#oyun" data-v="oyun">Oyunlar</a>
     <a href="#kart" data-v="kart">Kartlar</a>
     <a href="#sinav" data-v="sinav">Sınav</a>
+    <a href="#hakkinda" data-v="hakkinda">Program hakkında</a>
   </nav></div>
 </header>
 <main class="wrap" id="app"></main>
-<footer class="credit-foot" style="border-top:1px solid var(--line);margin-top:8px;padding-block:22px calc(22px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));text-align:center;color:var(--muted);font-size:.9rem;line-height:1.5">
-  <p style="margin:0"><b style="color:var(--ink)">Marmara Üniversitesi İlahiyat Fakültesi Öğretim Görevlisi Hüseyin KAYA tarafından hazırlanmıştır.</b></p>
-  <p style="margin:4px 0 0;font-size:.8rem">Kaynak: İmam Birgivî, İzhâru’l-Esrâr fi’n-Nahv (Dâru’l-Minhâc, 2009) · © 2026 Hüseyin KAYA · Tüm hakları saklıdır.</p>
-</footer>
 <div id="sheet"></div><div class="toast" id="toast" hidden></div><canvas id="cf" hidden></canvas>
 
 <script>
@@ -886,7 +883,7 @@ let onResize=null;addEventListener('resize',()=>{if(onResize)onResize();});
 function route(){
   stopTimers();
   const h=(location.hash||'#home').slice(1).split('/');const v=h[0]||'home';
-  const map={home:'home',dersler:'dersler',ders:'dersler',lab:'lab',harita:'harita',oyun:'oyun',kart:'kart',sinav:'sinav'};
+  const map={home:'home',dersler:'dersler',ders:'dersler',lab:'lab',harita:'harita',oyun:'oyun',kart:'kart',sinav:'sinav',hakkinda:'hakkinda'};
   $$('#tabs a').forEach(a=>a.classList.toggle('on',a.dataset.v===(map[v]||'home')));
   (V[v]||V.home)(h.slice(1));
   app.classList.remove('view');void app.offsetWidth;app.classList.add('view');
@@ -1376,6 +1373,22 @@ function examCert(){
   <div class="row noprint" style="justify-content:center;margin-top:14px"><button class="btn pri" id="pr">Yazdır / PDF</button><a class="btn" href="#sinav/sonuc">Sonuca dön</a></div></div>`;
   $('#pr').onclick=()=>window.print();
 }
+/* ===================== PROGRAM HAKKINDA ===================== */
+V.hakkinda=()=>{
+  app.innerHTML=`<div class="sec-h"><div><div class="eyebrow">عَنِ الْبَرْنَامَجِ</div><h2>Program hakkında</h2></div></div>
+  <div class="card" style="text-align:center;padding:28px 18px">
+    <div class="kufi" style="font-family:var(--f-kufi);font-size:2rem;color:var(--gold);direction:rtl">إِظْهَارُ الْأَسْرَارِ</div>
+    <p style="margin-top:14px;font-size:1.05rem"><b>Marmara Üniversitesi İlahiyat Fakültesi Öğretim Görevlisi Hüseyin KAYA tarafından hazırlanmıştır.</b></p>
+    <p class="muted">Kaynak: İmam Birgivî, <i>İzhâru’l-Esrâr fi’n-Nahv</i> (Dâru’l-Minhâc, 2009)</p>
+    <p class="muted">© 2026 Hüseyin KAYA · İstifade edilmesi temennisiyle…</p>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>İçindekiler</h3><ul class="small" style="padding-inline-start:18px;margin:8px 0 0;line-height:1.8">
+    <li><b>${LESSONS.length} ders</b>: kitabın harekeli metni, Türkçe şerh, misaller ve ${LESSONS.reduce((a,l)=>a+l.q.length,0)} soruluk mini sınavlar</li>
+    <li><b>İ‘râb Laboratuvarı</b>: kitabın misallerinden ${LAB.length} cümle, âmil→ma‘mûl okları ve Arapça i‘râb metni</li>
+    <li><b>Taksim haritaları</b>: 60 âmil, 30 ma‘mûl ve i‘râbın dört taksimi</li>
+    <li><b>${GAMES.length} oyun</b>, kart destesi ve raporlu sınav</li></ul>
+    <p class="small muted" style="margin-top:10px">Program tek bir dosyadır ve internet bağlantısı olmadan çalışır. İlerlemeniz yalnızca bu cihazda saklanır.</p></div>`;
+};
 /* ---------- başlat ---------- */
 document.documentElement.lang='tr';
 themeBtn();sndBtn();hud();route();
