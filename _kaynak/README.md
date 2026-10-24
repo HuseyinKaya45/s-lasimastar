@@ -11,5 +11,14 @@ kayıtlı sesler programa gömülür.
 `izhar-esrar`, `usul-lafizlar` ve `maksud-darphanesi` klasörlerinde shell.html, `mkshell.py`
 ile izhar-esrar/shell.html temel alınarak üretilmiştir (pal.css + extra.css).
 
-Yapılacak: Arapça seslendirmeyi cihazın metin okuma motoruna bırakmak yerine,
-önceden üretilmiş ses kayıtlarını programlara gömmek (GOOGLE_TTS_API_KEY ile).
+## Gömülü Arapça ses
+
+1. `node _kaynak/ses_topla.mjs [program ...]` — programları tarayıcıda gezip seslendirilen
+   metinleri `ses/<program>.txt` dosyasına toplar (her çalıştırma öncekilerle birleşir; süre `SURE=saniye`).
+2. `GOOGLE_TTS_API_KEY=... python3 _kaynak/ses_uret.py [program ...]` — eksik metinleri Google
+   Text-to-Speech ile seslendirip `ses/<program>.json` dosyasına ekler (ses: `SES_VOICE`, hız: `SES_HIZ`).
+   Google projesinde faturalandırma açık olmalıdır.
+3. `python3 _kaynak/build.py` — kayıtları programlara gömer.
+
+Kayıt yalnızca toplanan metinler içindir; programın anlık ürettiği (ör. kullanıcının seçtiği
+kökle çekim) metinlerde cihazdaki Arapça sese dönülür, o da yoksa uyarı verilir.
