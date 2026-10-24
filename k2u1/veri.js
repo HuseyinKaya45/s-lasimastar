@@ -44,22 +44,24 @@ var DERSLER = [
 // ---------------- DERS 2 ----------------
 { no: 2, kisa: "الأَلِفُ / الهَمْزَةُ", ar: "الأَصْواتُ: الأَلِفُ / الهَمْزَةُ", tr: "Sesler: elif ve hemze", ozet: "Elif ile hemzeyi ayırt et; dinle ve tekrarla.", bloklar: [
  { t: "kural", metin: "الهَمْزَةُ صَوْتٌ يَقْبَلُ الحَرَكاتِ، بِخِلافِ الأَلِفِ الَّتي تَلْزَمُ السُّكونَ دائِمًا؛ وَلا تَقَعُ في أَوَّلِ الكَلِمَةِ.",
-   tr: "Hemze harekeleri kabul eden bir sestir; elif ise daima sâkindir ve kelimenin başında bulunmaz.", not: "Bu dersin asıl kaydı yok; kelimeler ve cümleler gömülü okunuşla çalar." },
+   tr: "Hemze harekeleri kabul eden bir sestir; elif ise daima sâkindir ve kelimenin başında bulunmaz.", s: "s2-kural" },
  { t: "tablo", baslik: "Kelimenin başında, ortasında, sonunda", bas: ["Başta: elif ا", "Başta: hemze أ", "Ortada: ا", "Ortada: أ", "Sonda: ا", "Sonda: أ"], satir: [
   ["×", "أَخَذَ", "قَراهُ", "قَرَأَهُ", "بَدا", "بَدَأَ"], ["×", "أَكَلَ", "كَفاهُ", "كَفَأَهُ", "نَبا", "نَبَأَ"], ["×", "أَحْمَدُ", "ثارَ", "ثَأَرَ", "خَبا", "خَبَأَ"],
-  ["×", "أَصْدِقاءُ", "سالَ", "سَأَلَ", "كَلا", "كَلَأَ"], ["×", "أَخي", "جارَ", "جَأَرَ", "كَما", "كَمَأَ"]], not: "Bir kelimeye dokun, okunuşunu dinle. Elifte ses uzar; hemzede boğazda kısa bir kesilme olur." },
+  ["×", "أَصْدِقاءُ", "سالَ", "سَأَلَ", "كَلا", "كَلَأَ"], ["×", "أَخي", "جارَ", "جَأَرَ", "كَما", "كَمَأَ"]],
+  ses: [0, 1, 2, 3, 4].map(function (r) { return [null, "s2-b" + r, "s2-oa" + r, "s2-oh" + r, "s2-sa" + r, "s2-sh" + r]; }), not: "Bir kelimeye dokun, okunuşunu dinle. Elifte ses uzar; hemzede boğazda kısa bir kesilme olur." },
  { t: "sessec", ar: "التَّدْريبُ (١): ضَعْ عَلامَةَ (✓) بِجانِبِ الكَلِمَةِ الَّتي تَسْمَعُها", ogeler: [
   ["زارَ", "زَأَرَ"], ["شانَ", "شَأَنَ"], ["فارَ", "فَأَرَ"], ["لامَ", "لَأَمَ"], ["صَبا", "صَبَأَ"], ["سَبى", "سَبَأَ"], ["قَرى", "قَرَأَ"], ["طَرى", "طَرَأَ"]],
+  ses: [0, 1, 2, 3, 4, 5, 6, 7].map(function (i) { return ["s2-t" + i + "a", "s2-t" + i + "b"]; }),
   not: "▶ ile dinle, duyduğun kelimeyi seç; sonra iki kelimeyi de sen söyle." },
- { t: "tekrar", tts: false, ar: "التَّدْريبُ (٢): اسْتَمِعْ، ثُمَّ أَعِدْ", aciklama: "Âyetleri oku; hemzeli ve elifli kelimelere dikkat et (bu âyetlerin kaydı yok).", ogeler: [
-  ["﴿يَا أُخْتَ هَارُونَ مَا كَانَ أَبُوكِ [[امْرَأَ]] سَوْءٍ وَمَا كَانَتْ [[أُمُّكِ]] بَغِيًّا﴾ [مريم: ٢٨]", "Ey Hârûn’un kız kardeşi! Baban kötü bir adam değildi, annen de iffetsiz değildi."],
-  ["﴿[[إِنَّ]] هَٰذَا لَفِي الصُّحُفِ [[الْأُولَىٰ]] ۝ صُحُفِ [[إِبْرَاهِيمَ]] وَمُوسَىٰ﴾ [الأعلى: ١٨-١٩]", "Şüphesiz bu, önceki sayfalarda, İbrâhim’in ve Mûsâ’nın sayfalarında vardır."],
-  ["﴿[[إِنَّمَا]] يَتَذَكَّرُ [[أُولُو]] الْأَلْبَابِ﴾ [الزمر: ٩]", "Ancak akıl sahipleri öğüt alır."],
-  ["﴿[[أُولَٰئِكَ]] جَزَاؤُهُمْ [[أَنَّ]] عَلَيْهِمْ لَعْنَةَ اللَّهِ وَالْمَلَائِكَةِ وَالنَّاسِ [[أَجْمَعِينَ]]﴾ [آل عمران: ٨٧]", "Onların cezası, Allah’ın, meleklerin ve bütün insanların lânetinin üzerlerinde olmasıdır."],
-  ["﴿[[إِنِ]] الْحُكْمُ [[إِلَّا]] لِلَّهِ ۚ [[أَمَرَ]] [[أَلَّا]] تَعْبُدُوا [[إِلَّا]] [[إِيَّاهُ]]﴾ [يوسف: ٤٠]", "Hüküm yalnız Allah’ındır. O, kendisinden başkasına kulluk etmemenizi emretmiştir."]] },
+ { t: "tekrar", tts: false, ar: "التَّدْريبُ (٢): اسْتَمِعْ، ثُمَّ أَعِدْ", aciklama: "Âyetleri dinle ve tekrarla; hemzeli ve elifli kelimelere dikkat et.", ogeler: [
+  ["﴿يَا أُخْتَ هَارُونَ مَا كَانَ أَبُوكِ [[امْرَأَ]] سَوْءٍ وَمَا كَانَتْ [[أُمُّكِ]] بَغِيًّا﴾ [مريم: ٢٨]", "Ey Hârûn’un kız kardeşi! Baban kötü bir adam değildi, annen de iffetsiz değildi.", "s2-a0"],
+  ["﴿[[إِنَّ]] هَٰذَا لَفِي الصُّحُفِ [[الْأُولَىٰ]] ۝ صُحُفِ [[إِبْرَاهِيمَ]] وَمُوسَىٰ﴾ [الأعلى: ١٨-١٩]", "Şüphesiz bu, önceki sayfalarda, İbrâhim’in ve Mûsâ’nın sayfalarında vardır.", "s2-a1"],
+  ["﴿[[إِنَّمَا]] يَتَذَكَّرُ [[أُولُو]] الْأَلْبَابِ﴾ [الزمر: ٩]", "Ancak akıl sahipleri öğüt alır.", "s2-a2"],
+  ["﴿[[أُولَٰئِكَ]] جَزَاؤُهُمْ [[أَنَّ]] عَلَيْهِمْ لَعْنَةَ اللَّهِ وَالْمَلَائِكَةِ وَالنَّاسِ [[أَجْمَعِينَ]]﴾ [آل عمران: ٨٧]", "Onların cezası, Allah’ın, meleklerin ve bütün insanların lânetinin üzerlerinde olmasıdır.", "s2-a3"],
+  ["﴿[[إِنِ]] الْحُكْمُ [[إِلَّا]] لِلَّهِ ۚ [[أَمَرَ]] [[أَلَّا]] تَعْبُدُوا [[إِلَّا]] [[إِيَّاهُ]]﴾ [يوسف: ٤٠]", "Hüküm yalnız Allah’ındır. O, kendisinden başkasına kulluk etmemenizi emretmiştir.", "s2-a4"]] },
  { t: "ornek", ar: "التَّدْريبُ (٣): اسْتَمِعْ وَأَعِدْ. لاحِظْ كَيْفَ تُنْطَقُ الأَلِفُ وَالهَمْزَةُ", ogeler: [
-  ["[[أَ]]مَريضٌ [[أَ]]نْتَ؟", "Hasta mısın?"], ["سَق[[ا]]هُ [[أَ]]رْبَعَ مَرّ[[ا]]تٍ.", "Ona dört kez içirdi."], ["شَف[[ا]]هُ اللهُ، سُبْح[[ا]]نَهُ وَتَع[[ا]]لى.", "Allah ona şifa verdi; O, münezzeh ve yücedir."],
-  ["سَ[[أَ]]ذْهَبُ وَ[[أَ]]شْتَري العَسَلَ وَسَ[[أَ]]تَن[[ا]]وَلُهُ.", "Gidip bal alacağım ve onu yiyeceğim."], ["ق[[ا]]بَلَ ح[[ا]]زِمٌ ع[[ا]]مِرًا الَّذي يَشْعُرُ بِ[[آ]]ل[[ا]]مٍ.", "Hâzım, ağrı hisseden Âmir’le karşılaştı."]] },
+  ["[[أَ]]مَريضٌ [[أَ]]نْتَ؟", "Hasta mısın?", "s2-c0"], ["سَق[[ا]]هُ [[أَ]]رْبَعَ مَرّ[[ا]]تٍ.", "Ona dört kez içirdi.", "s2-c1"], ["شَف[[ا]]هُ اللهُ، سُبْح[[ا]]نَهُ وَتَع[[ا]]لى.", "Allah ona şifa verdi; O, münezzeh ve yücedir.", "s2-c2"],
+  ["سَ[[أَ]]ذْهَبُ وَ[[أَ]]شْتَري العَسَلَ وَسَ[[أَ]]تَن[[ا]]وَلُهُ.", "Gidip bal alacağım ve onu yiyeceğim.", "s2-c3"], ["ق[[ا]]بَلَ ح[[ا]]زِمٌ ع[[ا]]مِرًا الَّذي يَشْعُرُ بِ[[آ]]ل[[ا]]مٍ.", "Hâzım, ağrı hisseden Âmir’le karşılaştı.", "s2-c4"]] },
  { t: "siniflandir", ar: "هَمْزَةٌ أَمْ أَلِفٌ؟", aciklama: "Altı çizili harf hemze mi, elif mi?", soru: "Hemze mi, elif mi?", gruplar: ["هَمْزَةٌ (أ)", "أَلِفٌ (ا)"], ogeler: [
   ["[[أَ]]كَلَ", 0], ["ق[[ا]]لَ", 1], ["سَ[[أَ]]لَ", 0], ["س[[ا]]لَ", 1], ["بَدَ[[أَ]]", 0], ["بَد[[ا]]", 1], ["[[أَ]]صْدِق[[ا]]ءُ", 0], ["ج[[ا]]رَ", 1]] }
 ]},
