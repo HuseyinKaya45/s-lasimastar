@@ -106,10 +106,23 @@ function bYapilan(d, j) {
 }
 function dToplam(d) { return d.bloklar.reduce(function (s, b) { return s + oge(b); }, 0); }
 function dYapilan(d) { return d.bloklar.reduce(function (s, b, j) { return s + bYapilan(d, j); }, 0); }
+// puanlanan öğeler: doğru-yanlış, seçim, boşluk, ses seçme, sınıflandırma (öğe başına); sıralama ve eşleştirme (blok başına)
+var PUANLI = ["dy", "secim", "bosluk", "sessec", "siniflandir"];
+function dPuan(d) {
+  var t = 0, ok = 0;
+  d.bloklar.forEach(function (b, j) {
+    var k = bkey(d, j);
+    if (PUANLI.indexOf(b.t) >= 0) b.ogeler.forEach(function (_, i) { t++; var a = A[k + ":" + i]; if (a && a.ok) ok++; });
+    else if (b.t === "sirala" || b.t === "esle") { t++; if (A[k] === true) ok++; }
+  });
+  return { t: t, ok: ok };
+}
+function dAd(d) { return d.etiket || "Ders " + d.no; }
+function dBas(d) { return dAd(d) + (d.tr && d.tr !== dAd(d) ? " · " + esc(d.tr) : ""); }
 function puan() { var p = 0; Object.keys(A).forEach(function (k) { var v = A[k]; if (v === true || (v && v.ok)) p += 10; else if (v === 1) p += 5; }); return p; }
 function kaydet(k, v, d) {
   var once = d ? dYapilan(d) : 0; A[k] = v; cevapKaydet(); ustGuncelle();
-  if (d && dYapilan(d) === dToplam(d) && once < dToplam(d)) { setTimeout(function () { toast("Tebrikler! Ders " + d.no + " tamamlandı."); bip("win"); }, 500); sekmelerCiz(); }
+  if (d && dYapilan(d) === dToplam(d) && once < dToplam(d)) { setTimeout(function () { toast("Tebrikler! " + dAd(d) + " tamamlandı."); bip("win"); }, 500); sekmelerCiz(); }
 }
 function ilerleme(d) { var t = dToplam(d), y = dYapilan(d); return '<div class="ilerleme" title="' + y + "/" + t + '"><i style="width:' + (t ? Math.round(y / t * 100) : 0) + '%"></i></div>'; }
 
@@ -258,7 +271,8 @@ R.dinle = function (b, k) {
 function img(id, cls) { return RESIM[id] ? '<img class="' + (cls || "rsm") + '" src="' + RESIM[id] + '" alt="" loading="lazy">' : ""; }
 
 // ---------- sekmeler ----------
-var SEKMELER = [["bas", "Başlangıç", "البِدايَةُ"]].concat(DERSLER.map(function (d) { return ["d" + d.no, "Ders " + d.no, d.kisa]; }), [["kelime", "Kelimeler", "المُفْرَداتُ"], ["sinav", "Sınav", "الاخْتِبارُ"]]);
+var SEKMELER = [["bas", "Başlangıç", "البِدايَةُ"]].concat(DERSLER.map(function (d) { return ["d" + d.no, dAd(d), d.kisa]; }),
+  KELIME.length ? [["kelime", "Kelimeler", "المُفْرَداتُ"]] : [], UNITE.sinavYok ? [] : [["sinav", "Sınav", "الاخْتِبارُ"]]);
 var CIZ = {};
 function ayarHtml() {
   return '<div class="ayarlar"><label class="anahtar"><input type="checkbox" data-act="tr-ac"' + (ST.tr ? " checked" : "") + '> Türkçe çeviri</label>' +
@@ -267,16 +281,24 @@ function ayarHtml() {
 CIZ.bas = function () {
   return '<section class="kahraman"><div class="ar">' + esc(UNITE.ar) + "</div><h2>" + esc(UNITE.tr) + "</h2><p>" + AW(UNITE.giris) + "</p></section>" +
     '<div class="kart">' + ayarHtml() + '</div><div class="yol">' + DERSLER.map(function (d) {
-      var t = dToplam(d), y = dYapilan(d);
-      return '<button class="yol-kart" data-sekme="d' + d.no + '"><b>Ders ' + d.no + " · " + esc(d.tr) + '</b><span class="ar">' + esc(d.ar) + '</span><span class="soluk">' + esc(d.ozet) + "</span>" + ilerleme(d) + '<span class="sayi"><span>' + y + "/" + t + "</span>" + (t && y === t ? "<span>✓</span>" : "") + "</span></button>";
-    }).join("") + '<button class="yol-kart" data-sekme="kelime"><b>Kelimeler</b><span class="ar">المُفْرَداتُ</span><span class="soluk">' + KELIME.length + ' kelime: dinle, kartlarla çalış, eşleştir.</span></button><button class="yol-kart" data-sekme="sinav"><b>Sınav</b><span class="ar">الاخْتِبارُ</span><span class="soluk">Bütün derslerden karışık 15 soru.</span></button></div>';
+      var t = dToplam(d), y = dYapilan(d), p = dPuan(d);
+      return '<button class="yol-kart" data-sekme="d' + d.no + '"><b>' + dBas(d) + '</b><span class="ar">' + esc(d.ar) + '</span><span class="soluk">' + esc(d.ozet) + "</span>" + ilerleme(d) + '<span class="sayi"><span>' + y + "/" + t + (y && p.t ? " · doğru " + p.ok + "/" + p.t : "") + "</span>" + (t && y === t ? "<span>✓</span>" : "") + "</span></button>";
+    }).join("") + (KELIME.length ? '<button class="yol-kart" data-sekme="kelime"><b>Kelimeler</b><span class="ar">المُفْرَداتُ</span><span class="soluk">' + KELIME.length + ' kelime: dinle, kartlarla çalış, eşleştir.</span></button>' : "") + (UNITE.sinavYok ? "" : '<button class="yol-kart" data-sekme="sinav"><b>Sınav</b><span class="ar">الاخْتِبارُ</span><span class="soluk">Bütün derslerden karışık 15 soru.</span></button>') + "</div>" + (UNITE.sonuc ? sonucHtml() : "");
 };
+function durum(d) { var p = dPuan(d), y = dYapilan(d); return ilerleme(d) + '<span class="soluk kucuk">' + y + "/" + dToplam(d) + (y && p.t ? " · doğru " + p.ok + "/" + p.t : "") + "</span>"; }
+// toplam sonuç (sınav uygulamaları için)
+function sonucHtml() {
+  var t = 0, ok = 0, y = 0; DERSLER.forEach(function (d) { var p = dPuan(d); t += p.t; ok += p.ok; y += dYapilan(d); });
+  return '<div class="kart" style="text-align:center"><h2 style="justify-content:center">Sonuç <span class="ar">النَّتيجَةُ</span></h2>' + (y ? '<p class="sonuc-buyuk">' + ok + " / " + t + '</p><p class="soluk">' + (ok === t ? "Tam puan, tebrikler!" : "Yanlış yaptığın bölümleri tekrar et.") + "</p>" : '<p class="soluk">Henüz cevap vermedin.</p>') +
+    '<div class="satir-btn" style="justify-content:center"><button class="btn" data-act="sifirla">Baştan başla</button></div></div>';
+}
 function dersCiz(d) {
-  return '<div class="bolum-ust"><div><h2 class="ders-bas">Ders ' + d.no + " · " + esc(d.tr) + ' <span class="ar">' + esc(d.ar) + '</span></h2><p class="soluk kucuk">' + esc(d.ozet) + "</p></div>" + '<div style="min-width:160px">' + ilerleme(d) + '<span class="soluk kucuk">' + dYapilan(d) + "/" + dToplam(d) + "</span></div></div>" +
+  var i = DERSLER.indexOf(d), onc = DERSLER[i - 1], snr = DERSLER[i + 1];
+  return '<div class="bolum-ust"><div><h2 class="ders-bas">' + dBas(d) + ' <span class="ar">' + esc(d.ar) + '</span></h2><p class="soluk kucuk">' + esc(d.ozet) + "</p></div>" + '<div style="min-width:160px">' + durum(d) + "</div></div>" +
     '<div class="kart dar">' + ayarHtml() + "</div>" +
     d.bloklar.map(function (b, j) { var k = bkey(d, j); return '<section class="kart blok-' + b.t + '" id="' + k + '">' + R[b.t](b, k, d) + "</section>"; }).join("") +
-    '<div class="satir-btn" style="justify-content:space-between">' + (d.no > DERSLER[0].no ? '<button class="btn" data-sekme="d' + (d.no - 1) + '">← Ders ' + (d.no - 1) + "</button>" : "<span></span>") +
-    (DERSLER.some(function (x) { return x.no === d.no + 1; }) ? '<button class="btn dolu" data-sekme="d' + (d.no + 1) + '">Ders ' + (d.no + 1) + " →</button>" : '<button class="btn dolu" data-sekme="sinav">Sınav →</button>') + "</div>";
+    '<div class="satir-btn" style="justify-content:space-between">' + (onc ? '<button class="btn" data-sekme="d' + onc.no + '">← ' + dAd(onc) + "</button>" : "<span></span>") +
+    (snr ? '<button class="btn dolu" data-sekme="d' + snr.no + '">' + dAd(snr) + " →</button>" : UNITE.sinavYok ? '<button class="btn dolu" data-sekme="bas">Sonuç →</button>' : '<button class="btn dolu" data-sekme="sinav">Sınav →</button>') + "</div>";
 }
 DERSLER.forEach(function (d) { CIZ["d" + d.no] = function () { return dersCiz(d); }; });
 // kelimeler
@@ -338,7 +360,7 @@ function ciz(basa) {
 function sekmeAc(s) { durdur(); ST.sekme = s; ayarKaydet(); sekmelerCiz(); ciz(true); var b = document.querySelector('.sekme[data-sekme="' + s + '"]'); if (b && b.scrollIntoView) b.scrollIntoView({ block: "nearest", inline: "center" }); }
 function dersOf(k) { var no = +k.split("-")[0].slice(1); return DERSLER.filter(function (d) { return d.no === no; })[0]; }
 function blokOf(k) { return dersOf(k).bloklar[+k.split("-")[1]]; }
-function yeniden(k) { var el = document.getElementById(k); if (!el) return ciz(); var d = dersOf(k), j = +k.split("-")[1]; el.innerHTML = R[d.bloklar[j].t](d.bloklar[j], k, d); var u = document.querySelector(".bolum-ust"); if (u) u.lastChild.innerHTML = ilerleme(d) + '<span class="soluk kucuk">' + dYapilan(d) + "/" + dToplam(d) + "</span>"; }
+function yeniden(k) { var el = document.getElementById(k); if (!el) return ciz(); var d = dersOf(k), j = +k.split("-")[1]; el.innerHTML = R[d.bloklar[j].t](d.bloklar[j], k, d); var u = document.querySelector(".bolum-ust"); if (u) u.lastChild.innerHTML = durum(d); }
 function cevap(k, i, ok, v) { var d = dersOf(k); bip(ok ? "ok" : "no"); kaydet(k + ":" + i, { ok: ok, v: v }, d); yeniden(k); }
 
 document.addEventListener("click", function (e) {
@@ -381,6 +403,7 @@ document.addEventListener("click", function (e) {
     case "sn-bas": SN = { s: karistir(havuz()).slice(0, 15), i: 0, p: 0, c: null }; ciz(true); break;
     case "sn": var q = SN.s[SN.i]; SN.c = el.dataset.v; if (SN.c === q.d) { SN.p++; bip("ok"); } else bip("no"); ciz(); break;
     case "sn-gec": SN.i++; SN.c = null; ciz(true); break;
+    case "sifirla": if (confirm("Bütün cevaplar silinsin mi?")) { A = {}; SIRA = {}; ESLE = {}; cevapKaydet(); ustGuncelle(); sekmelerCiz(); ciz(true); } break;
   }
 });
 // gömülü okunuş listesi (ses_topla.mjs okur)
