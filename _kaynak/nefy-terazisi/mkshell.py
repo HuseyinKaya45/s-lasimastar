@@ -4,7 +4,7 @@ import os,re
 D=os.path.dirname(os.path.abspath(__file__))
 s=open(os.path.join(D,'..','maksud-darphanesi','shell.html'),encoding='utf-8').read()
 s=s.replace('<title>Maksûd Darphânesi</title>','<title>Nefy Terazisi</title>')
-s=re.sub(r'/\* Layout: "Maksûd Darphânesi".*?\*/','/* Layout: "Nefy Terazisi" — muzâri, terazinin ortasında durur; beş edat üç kefeye düşer: mâ ve lâ merfû kefesine, len mansûb kefesine, lem ve lemmâ meczûm kefesine. Tezgâhta 14 sîga yan yana tartılır. */',s,flags=re.S)
+s=re.sub(r'/\* Layout: "Maksûd Darphânesi".*?\*/','/* Layout: "Nefy Terazisi" — muzâri, terazinin ortasında durur; edat seçilince sonu ya değişmez (mâ, lâ), ya üstün kefesine (len) ya cezm kefesine (lem, lemmâ) düşer. Yalnız sâlim fiil, Emsile seviyesi. */',s,flags=re.S)
 s=re.sub(r'<svg width="38" height="38".*?</svg>','<svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--gold-s)" stroke="var(--gold)" stroke-width="1.6"/><path d="M20 9v21M13 30h14M9 14h22" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M9 14l-4 8a4 4 0 0 0 8 0zM31 14l-4 8a4 4 0 0 0 8 0z" fill="var(--gold)" opacity=".85"/></svg>',s,flags=re.S,count=1)
 s=s.replace('<div><b>Maksûd Darphânesi</b><span>Kitâbü’l-Maksûd · Sarf</span></div>','<div><b>Nefy Terazisi</b><span>مَا · لَا · لَنْ · لَمْ · لَمَّا</span></div>')
 s=s.replace('<span id="lvlName">Çırak</span>','<span id="lvlName">Mübtedi</span>')

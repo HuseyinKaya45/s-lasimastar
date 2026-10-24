@@ -59,7 +59,7 @@ details summary{cursor:pointer;color:var(--muted)}
 .cellb{border:none;background:none;font:inherit;color:inherit;padding:2px 4px;border-radius:8px;cursor:pointer}
 .cellb:hover{background:var(--gold-s)}
 .tag{display:inline-block;border-radius:999px;padding:1px 9px;font-size:.72rem;font-weight:700;background:var(--panel2);border:1px solid var(--line)}
-.t-lafz{color:var(--c-r)} .t-takdir{color:var(--c-n)} .t-hazf{color:var(--c-j)} .t-nun{color:var(--c-r)} .t-mebni{color:var(--c-b)}
+.t-ayni{color:var(--c-r)} .t-ustun{color:var(--c-n)} .t-cezm{color:var(--c-j)} .t-nun{color:var(--c-z)}
 /* oyun */
 .blank{display:inline-block;min-width:1.6em;border-bottom:3px dashed var(--gold);color:var(--gold)}
 .opts .opt{min-height:56px}
