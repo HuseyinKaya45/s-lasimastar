@@ -1016,17 +1016,18 @@ R.hazirlik = function (b) {
   return blokBas(b) + '<ol class="hliste">' + b.ogeler.map(function (s) { return "<li>" + AR(s[0], "sar") + trSatir(s[1]) + "</li>"; }).join("") + "</ol>";
 };
 R.kural = function (b) {
-  return blokBas(b) + '<div class="kural-kutu">' + AR(b.metin, "kural-ar") + (b.tr ? '<div class="trline">' + AW(b.tr) + "</div>" : "") + "</div>" + (b.not ? '<p class="not">' + AW(b.not) + "</p>" : "");
+  return blokBas(b) + '<div class="kural-kutu">' + (b.s ? calBtn({ s: b.s, m: b.metin }) + " " : "") + AR(b.metin, "kural-ar") + (b.tr ? '<div class="trline">' + AW(b.tr) + "</div>" : "") + "</div>" + (b.not ? '<p class="not">' + AW(b.not) + "</p>" : "");
 };
 R.tablo = function (b) {
-  var cell = function (c) { return c === "" || c === "×" ? '<td class="soluk">' + esc(c) + "</td>" : '<td><button class="hucre" data-act="cal" data-o="' + esc(JSON.stringify({ m: c, tts: b.tts !== false })) + '">' + arHtml(c) + "</button></td>"; };
+  // b.ses: hücrelerle aynı biçimde asıl kayıt parçaları (isteğe bağlı)
+  var cell = function (c, ri, ci) { var sid = b.ses && b.ses[ri] && b.ses[ri][ci]; return c === "" || c === "×" ? '<td class="soluk">' + esc(c) + "</td>" : '<td><button class="hucre" data-act="cal" data-o="' + esc(JSON.stringify({ m: c, s: sid || undefined, tts: b.tts !== false })) + '">' + arHtml(c) + "</button></td>"; };
   return blokBas(b) + '<div class="tablo-kap"><table class="k2tablo"><thead><tr>' + b.bas.map(function (h) { return "<th>" + AW(h) + "</th>"; }).join("") + "</tr></thead><tbody>" +
-    b.satir.map(function (r) { return "<tr>" + r.map(cell).join("") + "</tr>"; }).join("") + "</tbody></table></div>" + (b.not ? '<p class="not">' + AW(b.not) + "</p>" : "");
+    b.satir.map(function (r, ri) { return "<tr>" + r.map(function (c, ci) { return cell(c, ri, ci); }).join("") + "</tr>"; }).join("") + "</tbody></table></div>" + (b.not ? '<p class="not">' + AW(b.not) + "</p>" : "");
 };
 R.ornek = function (b) {
   return blokBas(b) + '<div class="ornekler">' + b.ogeler.map(function (s, i) {
-    var o = { m: s[0], tts: b.tts !== false };
-    return '<div class="birim" data-act="cal" data-o="' + esc(JSON.stringify(o)) + '">' + (b.tts !== false ? calBtn(o) : '<span class="soru-no">' + (i + 1) + "</span>") + '<div class="bmetin"><p class="ar">' + arHtml(s[0]) + "</p>" + trSatir(s[1]) + "</div></div>";
+    var o = { m: s[0], s: s[2], tts: b.tts !== false };
+    return '<div class="birim" data-act="cal" data-o="' + esc(JSON.stringify(o)) + '">' + (b.tts !== false || (s[2] && ZAMAN[s[2]]) ? calBtn(o) : '<span class="soru-no">' + (i + 1) + "</span>") + '<div class="bmetin"><p class="ar">' + arHtml(s[0]) + "</p>" + trSatir(s[1]) + "</div></div>";
   }).join("") + "</div>" + (b.not ? '<p class="not">' + AW(b.not) + "</p>" : "");
 };
 R.tekrar = R.ornek;
@@ -1065,8 +1066,8 @@ R.bosluk = function (b, k) {
 };
 R.sessec = function (b, k) {
   return blokBas(b) + '<div class="sessec">' + b.ogeler.map(function (s, i) {
-    var a = A[k + ":" + i], hedef = s[hash(k + i) % 2];
-    return '<div class="soru"><div class="satir-btn"><span class="soru-no">' + (i + 1) + "</span>" + calBtn({ m: hedef }, "btn") + '<div class="secim' + (a != null ? " bitti" : "") + '">' + s.map(function (o) {
+    var a = A[k + ":" + i], h = hash(k + i) % 2, hedef = s[h];
+    return '<div class="soru"><div class="satir-btn"><span class="soru-no">' + (i + 1) + "</span>" + calBtn({ m: hedef, s: b.ses ? b.ses[i][h] : undefined }, "btn") + '<div class="secim' + (a != null ? " bitti" : "") + '">' + s.map(function (o) {
       var c = a == null ? "" : o === hedef ? " dogru" : o === a.v ? " yanlis" : "";
       return '<button class="sec ar' + c + '" data-act="sessec" data-k="' + k + '" data-i="' + i + '" data-v="' + esc(o) + '" data-h="' + esc(hedef) + '"' + (a != null ? " disabled" : "") + ">" + esc(o) + "</button>";
     }).join("") + "</div></div></div>";
@@ -1258,10 +1259,10 @@ window.SES_LISTE = function () {
     d.bloklar.forEach(function (b) {
       if (b.t === "diyalog") b.satir.forEach(function (s) { if (!s[3] || !ZAMAN[s[3]]) ekle(s[1]); });
       if (b.t === "metin") b.paragraf.forEach(function (p) { p.forEach(function (s) { if (!s[2] || !ZAMAN[s[2]]) ekle(s[0]); }); });
-      if ((b.t === "ornek" || b.t === "tekrar") && b.tts !== false) b.ogeler.forEach(function (s) { ekle(s[0]); });
-      if (b.t === "tablo" && b.tts !== false) b.satir.forEach(function (r) { r.forEach(function (c) { if (c !== "×") ekle(c); }); });
+      if ((b.t === "ornek" || b.t === "tekrar") && b.tts !== false) b.ogeler.forEach(function (s) { if (!s[2] || !ZAMAN[s[2]]) ekle(s[0]); });
+      if (b.t === "tablo" && b.tts !== false) b.satir.forEach(function (r, ri) { r.forEach(function (c, ci) { if (c !== "×" && !(b.ses && ZAMAN[b.ses[ri][ci]])) ekle(c); }); });
       if (b.t === "acik" || b.t === "resim") (b.ogeler || b.resimler).forEach(function (s) { ekle(s[1]); });
-      if (b.t === "sessec") b.ogeler.forEach(function (s) { ekle(s[0]); ekle(s[1]); });
+      if (b.t === "sessec") b.ogeler.forEach(function (s, i) { [0, 1].forEach(function (j) { if (!(b.ses && ZAMAN[b.ses[i][j]])) ekle(s[j]); }); });
     });
   });
   KELIME.forEach(function (w) { ekle(w[0]); });
