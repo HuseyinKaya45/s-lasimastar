@@ -1,0 +1,30 @@
+:root{
+  --bg:#14100c; --panel:#1d1712; --panel2:#272019; --ink:#f3ebdf; --muted:#b2a28c; --line:#3a2f25;
+  --gold:#e4b55a; --gold-ink:#1c1405; --gold-s:rgb(228 181 90 / .15);
+  --root:#5fd3a0; --root-s:rgb(95 211 160 / .15); --zaid:#ff9f6e; --zaid-s:rgb(255 159 110 / .16);
+  --good:#62d39f; --bad:#ff7d8a; --blue:#86b3ff; --blue-s:rgb(134 179 255 / .15);
+  --c-amil:#e4b55a; --c-mamul:#62c0ea; --c-irab:#bb94f0;
+  --c-r:#5fd3a0; --c-n:#ffb454; --c-j:#7fb2ff; --c-z:#ff7a8a; --c-b:#b8b0d9;
+  --s1:#e0925a; --s2:#6cc6a9; --s3:#93abeb; --s4:#cf90dc; --s5:#f08070;
+  --rf:#ff8f6b; --ra:#5fd3a0; --rl:#86b3ff;
+  --f-ui:"BLex","Segoe UI",system-ui,sans-serif; --f-ar:"BAmiri","Amiri","Traditional Arabic","Times New Roman",serif; --f-kufi:"BKufi","BAmiri",serif;
+  --r:16px; color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#f5efe4; --panel:#fffcf6; --panel2:#efe5d4; --ink:#2a1f15; --muted:#6c5c48; --line:#ddd0ba;
+  --gold:#9a6610; --gold-ink:#fff; --gold-s:rgb(154 102 16 / .12);
+  --root:#16855a; --root-s:rgb(22 133 90 / .11); --zaid:#c4582a; --zaid-s:rgb(196 88 42 / .11);
+  --good:#16855a; --bad:#c43a4e; --blue:#2c5fc4; --blue-s:rgb(44 95 196 / .1);
+  --c-amil:#9a6610; --c-mamul:#1f7fae; --c-irab:#7a4fc0;
+  --c-r:#16855a; --c-n:#b86e08; --c-j:#2c5fc4; --c-z:#c43a4e; --c-b:#6d6690;
+  --s1:#b45a1c; --s2:#13806a; --s3:#3a5fc0; --s4:#8c3fa6; --s5:#c23b2a;
+  --rf:#c2410c; --ra:#047857; --rl:#1d4ed8; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#f5efe4; --panel:#fffcf6; --panel2:#efe5d4; --ink:#2a1f15; --muted:#6c5c48; --line:#ddd0ba;
+  --gold:#9a6610; --gold-ink:#fff; --gold-s:rgb(154 102 16 / .12);
+  --root:#16855a; --root-s:rgb(22 133 90 / .11); --zaid:#c4582a; --zaid-s:rgb(196 88 42 / .11);
+  --good:#16855a; --bad:#c43a4e; --blue:#2c5fc4; --blue-s:rgb(44 95 196 / .1);
+  --c-amil:#9a6610; --c-mamul:#1f7fae; --c-irab:#7a4fc0;
+  --c-r:#16855a; --c-n:#b86e08; --c-j:#2c5fc4; --c-z:#c43a4e; --c-b:#6d6690;
+  --s1:#b45a1c; --s2:#13806a; --s3:#3a5fc0; --s4:#8c3fa6; --s5:#c23b2a;
+  --rf:#c2410c; --ra:#047857; --rl:#1d4ed8; color-scheme:light}
