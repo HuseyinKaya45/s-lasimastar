@@ -6,7 +6,7 @@
 import {createRequire} from 'module';const {chromium}=createRequire(import.meta.url)('playwright');
 import fs from 'fs';import path from 'path';import {fileURLToPath} from 'url';
 const K=path.dirname(fileURLToPath(import.meta.url)),R=path.dirname(K);
-const ALL=['avamil-birgivi','avamil-curcani','bina-ef-al','emsile-tezgahi','izhar-esrar','maksud-darphanesi','usul-lafizlar','nefy-terazisi'];
+const ALL=['avamil-birgivi','avamil-curcani','bina-ef-al','emsile-tezgahi','izhar-esrar','maksud-darphanesi','usul-lafizlar','nefy-terazisi','k2u1','k2u2'];
 const SURE=+(process.env.SURE||240)*1000;
 fs.mkdirSync(path.join(K,'ses'),{recursive:true});
 const br=await chromium.launch();
