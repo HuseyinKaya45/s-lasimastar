@@ -313,7 +313,25 @@ canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:99}
 <div id="sheet"></div>
 <div class="toast" id="toast" hidden></div>
 <canvas id="confetti" hidden></canvas>
+
 <script>
+/* ===== Ses: önce programa gömülü kayıt, yoksa cihazdaki gerçek Arapça ses; başka dilde asla okumaz ===== */
+const SES_AUDIO={/*__SES__*/};
+const sesKey=t=>String(t).normalize('NFC').replace(/[ـ‍]/g,'').replace(/\s+/g,' ').trim();
+let SES_A=null,SES_V=null;
+function sesVoice(){if(!('speechSynthesis' in window))return null;try{return speechSynthesis.getVoices().find(v=>/^ar([-_]|$)/i.test(v.lang))||null;}catch(e){return null;}}
+if('speechSynthesis' in window){try{speechSynthesis.getVoices();speechSynthesis.addEventListener('voiceschanged',()=>{SES_V=sesVoice();});}catch(e){}}
+function sesStop(){try{if(SES_A){SES_A.pause();SES_A=null;}if('speechSynthesis' in window)speechSynthesis.cancel();}catch(e){}}
+function sesPlay(t,onend,warn){
+  sesStop();let done=false;const fin=()=>{if(!done){done=true;if(onend)onend();}};
+  const d=SES_AUDIO[sesKey(t)];
+  if(d){try{SES_A=new Audio('data:audio/mpeg;base64,'+d);SES_A.onended=fin;SES_A.onerror=fin;const p=SES_A.play();if(p&&p.catch)p.catch(fin);if(onend)setTimeout(fin,20000);return true;}catch(e){}}
+  const v=SES_V||sesVoice();
+  if(v){try{const u=new SpeechSynthesisUtterance(t);u.lang=v.lang;u.voice=v;u.rate=.8;if(onend){u.onend=fin;u.onerror=fin;setTimeout(fin,6000);}speechSynthesis.speak(u);return true;}catch(e){}}
+  if(warn)warn('Bu metnin kayıtlı sesi yok ve cihazda Arapça ses bulunamadı; yanlış okunmasın diye seslendirilmedi.');
+  if(onend)setTimeout(fin,1200);return false;
+}
+
 /* ===== VERİ: Cürcânî, el-Avâmilü'l-Mie — "Tavdîhu metni'l-Avâmili'l-Mie" (1442/2021) esas alınmıştır =====
    Örnek alanları: s = cümle, t = Türkçe, a = âmil (cümlede geçtiği biçim), m = ma'mûl(ler), q = âyet/hadis/şiir etiketi */
 const AMEL = {
@@ -682,6 +700,7 @@ const HAREKE = [
  {s:"سِرْتُ وَالنِّيلَ", w:"النِّيلَ", why:"Maiyyet vâvından sonra mef'ûlün maah → mansûb."},
  {s:"رُبَّ رَجُلٍ جَوَادٍ لَقِيتُهُ", w:"رَجُلٍ", why:"Rubbe cer harfi → mecrûr."}
 ];
+
 (function(){
 "use strict";
 const $ = (s, r=document) => r.querySelector(s);
@@ -739,11 +758,7 @@ function confetti(){
   const P = Array.from({length:120}, () => ({x: innerWidth/2, y: innerHeight/3, vx:(Math.random()-.5)*12, vy:Math.random()*-10-3, s:4+Math.random()*5, c:pick(cols), r:Math.random()*6}));
   let t = 0; (function f(){ x.clearRect(0,0,c.width,c.height); P.forEach(p => { p.vy += .35; p.x += p.vx; p.y += p.vy; p.r += .2; x.save(); x.translate(p.x,p.y); x.rotate(p.r); x.fillStyle=p.c; x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6); x.restore(); }); if (++t < 90) requestAnimationFrame(f); else c.hidden = true; })();
 }
-function speak(t){
-  if (!("speechSynthesis" in window)){ toast("Bu tarayıcıda sesli okuma yok."); return; }
-  speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = "ar-SA"; u.rate = .8;
-  const v = speechSynthesis.getVoices().find(v => /^ar/i.test(v.lang)); if (v) u.voice = v; speechSynthesis.speak(u);
-}
+function speak(t){ sesPlay(t, null, toast); }
 
 /* ---------- ayarlar ---------- */
 function applyTheme(){ if (S.theme) document.documentElement.setAttribute("data-theme", S.theme); else document.documentElement.removeAttribute("data-theme"); $("#tSound").setAttribute("aria-pressed", S.sound); }
@@ -1134,4 +1149,5 @@ function renderTable(){
 applyTheme(); hud(); checkBadges();
 go((location.hash||"").slice(1) || "harita");
 })();
+
 </script>

@@ -332,7 +332,25 @@ textarea.io{width:100%;min-height:110px;font-family:ui-monospace,Menlo,monospace
 </div></section>
 </main>
 <div class="toast" id="toast" hidden></div>
+
 <script>
+/* ===== Ses: önce programa gömülü kayıt, yoksa cihazdaki gerçek Arapça ses; başka dilde asla okumaz ===== */
+const SES_AUDIO={/*__SES__*/};
+const sesKey=t=>String(t).normalize('NFC').replace(/[ـ‍]/g,'').replace(/\s+/g,' ').trim();
+let SES_A=null,SES_V=null;
+function sesVoice(){if(!('speechSynthesis' in window))return null;try{return speechSynthesis.getVoices().find(v=>/^ar([-_]|$)/i.test(v.lang))||null;}catch(e){return null;}}
+if('speechSynthesis' in window){try{speechSynthesis.getVoices();speechSynthesis.addEventListener('voiceschanged',()=>{SES_V=sesVoice();});}catch(e){}}
+function sesStop(){try{if(SES_A){SES_A.pause();SES_A=null;}if('speechSynthesis' in window)speechSynthesis.cancel();}catch(e){}}
+function sesPlay(t,onend,warn){
+  sesStop();let done=false;const fin=()=>{if(!done){done=true;if(onend)onend();}};
+  const d=SES_AUDIO[sesKey(t)];
+  if(d){try{SES_A=new Audio('data:audio/mpeg;base64,'+d);SES_A.onended=fin;SES_A.onerror=fin;const p=SES_A.play();if(p&&p.catch)p.catch(fin);if(onend)setTimeout(fin,20000);return true;}catch(e){}}
+  const v=SES_V||sesVoice();
+  if(v){try{const u=new SpeechSynthesisUtterance(t);u.lang=v.lang;u.voice=v;u.rate=.8;if(onend){u.onend=fin;u.onerror=fin;setTimeout(fin,6000);}speechSynthesis.speak(u);return true;}catch(e){}}
+  if(warn)warn('Bu metnin kayıtlı sesi yok ve cihazda Arapça ses bulunamadı; yanlış okunmasın diye seslendirilmedi.');
+  if(onend)setTimeout(fin,1200);return false;
+}
+
 /* ===== VERİ: Avâmil-i Birgivî (tahkik: Nidâl b. Muhammed Hayr el-Kerrâd, 2022) =====
    Kısaltmalar (yükleme sırasında açılır):
    {LM} لا محل له من الإعراب · {KZ} علامة الجر الكسرة · {FZ} علامة النصب الفتحة
@@ -782,6 +800,7 @@ const BAB1 = {
   ]}
  ]
 };
+
 /* ===== BÂB 2: MA'MÛL ===== */
 const BAB2 = {
  id:"b2", no:2, ar:"الْبَابُ الثَّانِي: فِي الْمَعْمُولِ", tr:"İkinci Bâb: Ma'mûl", page:59,
@@ -1148,6 +1167,7 @@ const ABOUT = {
   {ar:"الْأَلْفَاظُ مُغْلَقَةٌ عَلَى مَعَانِيهَا حَتَّى يَكُونَ الْإِعْرَابُ هُوَ الَّذِي يَفْتَحُهَا، وَأَنَّ الْأَغْرَاضَ كَامِنَةٌ فِيهَا حَتَّى يَكُونَ هُوَ الْمُسْتَخْرِجَ لَهَا", who:"İmam Abdülkâhir el-Cürcânî, Delâilü'l-i'câz", tr:"Lafızlar manalarına kapalıdır, ta ki onları açan i'râb olsun; maksatlar onlarda gizlidir, ta ki onları çıkaran i'râb olsun."},
   {ar:"إِنَّ أَخْوَفَ مَا أَخَافُ عَلَى طَالِبِ الْعِلْمِ إِذَا لَمْ يَعْرِفِ النَّحْوَ أَنْ يَدْخُلَ فِي جُمْلَةِ قَوْلِ النَّبِيِّ ﷺ: «مَنْ كَذَبَ عَلَيَّ مُتَعَمِّدًا فَلْيَتَبَوَّأْ مَقْعَدَهُ مِنَ النَّارِ»", who:"el-Asmaî", tr:"Nahvi bilmeyen ilim talebesi için en çok korktuğum şey, Peygamber'in “Kim bana kasten yalan isnat ederse cehennemdeki yerine hazırlansın” sözünün kapsamına girmesidir; çünkü O lahn (dil hatası) yapmazdı, sen ondan bir hadisi lahn ile rivayet edersen ona yalan isnat etmiş olursun."}]
 };
+
 /* ===================== UYGULAMA ===================== */
 (function(){
 "use strict";
@@ -1288,13 +1308,7 @@ function matchIr(ex, word){
 }
 
 /* ---------- konuşma ---------- */
-function speak(text){
-  if (!("speechSynthesis" in window)){ toast("Bu tarayıcı sesli okumayı desteklemiyor."); return; }
-  speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text); u.lang = "ar-SA"; u.rate = .82;
-  const v = speechSynthesis.getVoices().find(v => /^ar/i.test(v.lang)); if (v) u.voice = v; else toast("Arapça ses bulunamadı; cihazın varsayılan sesi kullanılıyor.");
-  speechSynthesis.speak(u);
-}
+function speak(text){ sesPlay(text, null, toast); }
 
 /* ===================== YÖNLENDİRME ===================== */
 let VIEW = "ana";
@@ -1816,4 +1830,5 @@ applySettings();
 const h0 = (location.hash||"").replace("#","");
 go(h0 || "ana", undefined, false);
 })();
+
 </script>

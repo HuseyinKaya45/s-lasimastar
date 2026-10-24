@@ -55,11 +55,7 @@ function confetti(){
   const P = Array.from({length:120}, () => ({x: innerWidth/2, y: innerHeight/3, vx:(Math.random()-.5)*12, vy:Math.random()*-10-3, s:4+Math.random()*5, c:pick(cols), r:Math.random()*6}));
   let t = 0; (function f(){ x.clearRect(0,0,c.width,c.height); P.forEach(p => { p.vy += .35; p.x += p.vx; p.y += p.vy; p.r += .2; x.save(); x.translate(p.x,p.y); x.rotate(p.r); x.fillStyle=p.c; x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6); x.restore(); }); if (++t < 90) requestAnimationFrame(f); else c.hidden = true; })();
 }
-function speak(t){
-  if (!("speechSynthesis" in window)){ toast("Bu tarayıcıda sesli okuma yok."); return; }
-  speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = "ar-SA"; u.rate = .8;
-  const v = speechSynthesis.getVoices().find(v => /^ar/i.test(v.lang)); if (v) u.voice = v; speechSynthesis.speak(u);
-}
+function speak(t){ sesPlay(t, null, toast); }
 
 /* ---------- ayarlar ---------- */
 function applyTheme(){ if (S.theme) document.documentElement.setAttribute("data-theme", S.theme); else document.documentElement.removeAttribute("data-theme"); $("#tSound").setAttribute("aria-pressed", S.sound); }

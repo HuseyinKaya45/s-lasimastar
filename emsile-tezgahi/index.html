@@ -241,7 +241,25 @@ canvas#cf{position:fixed;inset:0;pointer-events:none;z-index:99}
 </div></section>
 </main>
 <div id="sheet"></div><div class="toast" id="toast" hidden></div><canvas id="cf" hidden></canvas>
+
 <script>
+/* ===== Ses: önce programa gömülü kayıt, yoksa cihazdaki gerçek Arapça ses; başka dilde asla okumaz ===== */
+const SES_AUDIO={/*__SES__*/};
+const sesKey=t=>String(t).normalize('NFC').replace(/[ـ‍]/g,'').replace(/\s+/g,' ').trim();
+let SES_A=null,SES_V=null;
+function sesVoice(){if(!('speechSynthesis' in window))return null;try{return speechSynthesis.getVoices().find(v=>/^ar([-_]|$)/i.test(v.lang))||null;}catch(e){return null;}}
+if('speechSynthesis' in window){try{speechSynthesis.getVoices();speechSynthesis.addEventListener('voiceschanged',()=>{SES_V=sesVoice();});}catch(e){}}
+function sesStop(){try{if(SES_A){SES_A.pause();SES_A=null;}if('speechSynthesis' in window)speechSynthesis.cancel();}catch(e){}}
+function sesPlay(t,onend,warn){
+  sesStop();let done=false;const fin=()=>{if(!done){done=true;if(onend)onend();}};
+  const d=SES_AUDIO[sesKey(t)];
+  if(d){try{SES_A=new Audio('data:audio/mpeg;base64,'+d);SES_A.onended=fin;SES_A.onerror=fin;const p=SES_A.play();if(p&&p.catch)p.catch(fin);if(onend)setTimeout(fin,20000);return true;}catch(e){}}
+  const v=SES_V||sesVoice();
+  if(v){try{const u=new SpeechSynthesisUtterance(t);u.lang=v.lang;u.voice=v;u.rate=.8;if(onend){u.onend=fin;u.onerror=fin;setTimeout(fin,6000);}speechSynthesis.speak(u);return true;}catch(e){}}
+  if(warn)warn('Bu metnin kayıtlı sesi yok ve cihazda Arapça ses bulunamadı; yanlış okunmasın diye seslendirilmedi.');
+  if(onend)setTimeout(fin,1200);return false;
+}
+
 /* ===================== EMSİLE MOTORU =====================
    Şablonlarda F, A, L kökün fâ, ayn ve lâm harflerinin yeridir. Aynı şablon
    ف ع ل ile doldurulunca kelimenin mîzanı (vezni) çıkar. */
@@ -427,6 +445,7 @@ function checkRoot(r){
   if (r[1] === r[2]) return "Ayn ve lâm aynı (mudâaf kök); bu motor sâlim kökleri çeker.";
   return "";
 }
+
 (function(){
 "use strict";
 const $ = (s, r=document) => r.querySelector(s);
@@ -448,13 +467,7 @@ const addXp = n => { S.xp += n; save(); hud(); };
 let AC;
 function beep(k){ if (!S.sound) return; try { AC = AC || new (window.AudioContext||window.webkitAudioContext)(); const seq = k==="good"?[587,784]:k==="bad"?[200,150]:[523,659,784,1046]; seq.forEach((f,i)=>{ const o=AC.createOscillator(), g=AC.createGain(); o.type=k==="bad"?"triangle":"sine"; o.frequency.value=f; const t=AC.currentTime+i*.09; g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(.13,t+.02); g.gain.exponentialRampToValueAtTime(.0001,t+.16); o.connect(g).connect(AC.destination); o.start(t); o.stop(t+.18); }); } catch(e){} }
 function confetti(){ if (matchMedia("(prefers-reduced-motion: reduce)").matches) return; const c=$("#cf"), x=c.getContext("2d"); c.hidden=false; c.width=innerWidth; c.height=innerHeight; const cols=[getComputedStyle(document.documentElement).getPropertyValue("--rf"),getComputedStyle(document.documentElement).getPropertyValue("--ra"),getComputedStyle(document.documentElement).getPropertyValue("--rl"),getComputedStyle(document.documentElement).getPropertyValue("--gold")]; const P=Array.from({length:110},()=>({x:innerWidth/2,y:innerHeight/3,vx:(Math.random()-.5)*12,vy:-Math.random()*10-3,s:4+Math.random()*5,c:pick(cols),r:Math.random()*6})); let t=0; (function f(){ x.clearRect(0,0,c.width,c.height); P.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.r+=.2;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);x.restore();}); if(++t<90) requestAnimationFrame(f); else c.hidden=true; })(); }
-function speak(t, onend){
-  if (!("speechSynthesis" in window)){ if (onend) setTimeout(onend, 1400); return false; }
-  speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = "ar-SA"; u.rate = .82;
-  const v = speechSynthesis.getVoices().find(v => /^ar/i.test(v.lang)); if (v) u.voice = v;
-  if (onend){ let done = false; const fin = () => { if (!done){ done = true; onend(); } }; u.onend = fin; u.onerror = fin; setTimeout(fin, 4000); }
-  speechSynthesis.speak(u); return true;
-}
+function speak(t, onend){ return sesPlay(t, onend, typeof toast==='function'?toast:null); }
 function applyTheme(){ if (S.theme) document.documentElement.setAttribute("data-theme", S.theme); else document.documentElement.removeAttribute("data-theme"); $("#tSound").setAttribute("aria-pressed", S.sound); }
 $("#tTheme").onclick = () => { const light = S.theme ? S.theme==="light" : matchMedia("(prefers-color-scheme: light)").matches; S.theme = light ? "dark" : "light"; save(); applyTheme(); };
 $("#tSound").onclick = () => { S.sound = !S.sound; save(); applyTheme(); };
@@ -669,7 +682,7 @@ function chantItems(rt=R){
   });
   return out;
 }
-function stopChant(){ CH.on = false; clearTimeout(CH.t); if ("speechSynthesis" in window) speechSynthesis.cancel(); }
+function stopChant(){ CH.on = false; clearTimeout(CH.t); sesStop(); }
 function renderChant(){
   const items = chantItems();
   $("#v-ezber").innerHTML = `<div class="sec-h" style="margin-top:0"><div><span class="eyebrow">Ezber halkası</span><h2>Emsile'yi ritimle oku</h2></div><span class="muted small">Medresedeki gibi: 24 sîga sırayla</span></div>
@@ -687,7 +700,7 @@ function renderChant(){
     if (CH.i >= its.length){ CH.on = false; CH.i = -1; $("#cPlay").textContent = "▶ Baştan oku"; beep("win"); addXp(10); return; }
     const el = its[CH.i]; el.classList.add("on"); el.classList.add("open"); el.scrollIntoView({block:"nearest", behavior:"smooth"});
     const next = () => { CH.t = setTimeout(step, 250 * CH.speed); };
-    if (CH.voice && "speechSynthesis" in window) speak(strip(items[CH.i].s), next); else CH.t = setTimeout(step, 1500 * CH.speed);
+    if (CH.voice) speak(strip(items[CH.i].s), next); else CH.t = setTimeout(step, 1500 * CH.speed);
   };
   $("#cPlay").onclick = () => { if (CH.on){ stopChant(); $("#cPlay").textContent = "▶ Devam et"; } else { CH.on = true; if (CH.i >= items.length-1) CH.i = -1; CH.i--; if (CH.i < -1) CH.i = -1; $("#cPlay").textContent = "Durdur"; step(); } };
   $$("[data-sp]").forEach(b => b.onclick = () => { CH.speed = +b.dataset.sp; $$("[data-sp]").forEach(x=>x.setAttribute("aria-pressed", x===b)); });
@@ -809,4 +822,5 @@ function renderGuide(){
 applyTheme(); hud();
 go((location.hash||"").slice(1) || "tezgah");
 })();
+
 </script>

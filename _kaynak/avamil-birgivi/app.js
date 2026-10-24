@@ -138,13 +138,7 @@ function matchIr(ex, word){
 }
 
 /* ---------- konuşma ---------- */
-function speak(text){
-  if (!("speechSynthesis" in window)){ toast("Bu tarayıcı sesli okumayı desteklemiyor."); return; }
-  speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text); u.lang = "ar-SA"; u.rate = .82;
-  const v = speechSynthesis.getVoices().find(v => /^ar/i.test(v.lang)); if (v) u.voice = v; else toast("Arapça ses bulunamadı; cihazın varsayılan sesi kullanılıyor.");
-  speechSynthesis.speak(u);
-}
+function speak(text){ sesPlay(text, null, toast); }
 
 /* ===================== YÖNLENDİRME ===================== */
 let VIEW = "ana";
