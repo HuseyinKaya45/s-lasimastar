@@ -61,7 +61,7 @@ const ekol=e=>`style="--c:${e.col}"`;
 /* Programın gömülü sesle okuduğu metinler (ses_topla.mjs bu listeyi okur) */
 function SES_LISTE(){
   const L=[];LESSONS.forEach(l=>{l.m.forEach(m=>L.push(m[1]));l.ex.forEach(x=>L.push(x[0]));});
-  FIIL.forEach(v=>SIGA.forEach((_,i)=>{L.push(muz(v,i));EDAT.forEach(e=>L.push(edatli(v,i,e)));}));
+  FIIL.forEach(v=>SIGA.forEach((_,i)=>{L.push(muz(v,i));KALIP.forEach(k=>{if(k.only.includes(i))L.push(kForm(k,v,i));});}));
   EDAT.forEach(e=>L.push(e.ar));L.push(...KARTLAR.map(k=>k.on));
   return [...new Set(L)];
 }
@@ -83,7 +83,7 @@ V.home=()=>{
   const done=LESSONS.filter(l=>S.les[l.id]).length;
   app.innerHTML=`<section class="hero">
     <div><div class="kufi">مِيزَانُ النَّفْيِ</div><h1>Nefy Terazisi</h1>
-      <p class="muted">Emsile’deki beş olumsuz kalıp: <span class="ar">مَا يَنْصُرُ، لَا يَنْصُرُ، لَنْ يَنْصُرَ، لَمْ يَنْصُرْ، لَمَّا يَنْصُرْ</span>. Her birinin 14 sîgasını, mânâsını ve sonda neyin değiştiğini sâlim fiillerle çalış.</p>
+      <p class="muted">Emsile’deki beş olumsuz kalıp: <span class="ar">مَا يَنْصُرُ، لَا يَنْصُرُ، لَنْ يَنْصُرَ، لَمْ يَنْصُرْ، لَمَّا يَنْصُرْ</span>. Yanında emir ve nehy: <span class="ar">لِيَنْصُرْ، اُنْصُرْ، لَا تَنْصُرْ</span>. Her birinin sîgalarını, mânâsını ve sonda neyin değiştiğini sâlim fiillerle çalış.</p>
       <div class="row" style="margin-top:12px"><a class="btn pri" href="#ders/${(LESSONS.find(l=>!S.les[l.id])||LESSONS[0]).id}">${done?'Kaldığın dersten devam':'Birinci derse başla'} ${ICON.arrow}</a><a class="btn" href="#tezgah">Tezgâh</a><a class="btn" href="#oyun">Oyunlar</a></div>
       <div class="stat"><div><b>${done}/${LESSONS.length}</b><span>ders</span></div><div><b>${FIIL.length}</b><span>sâlim fiil</span></div><div><b>${S.xp}</b><span>puan</span></div><div><b>${S.streak}</b><span>gün seri</span></div></div></div>
     <div class="card terazi"><div class="tz-top"><span class="muted small" id="tzSiga"></span><button class="btn sm ghost" id="tzNew" title="Başka fiil">↻ Başka fiil</button></div>
@@ -102,6 +102,10 @@ V.home=()=>{
   <div class="kefeler">${EDAT.map(e=>`<a class="kefe" href="#ders/${LESSONS.find(l=>l.e===e.id).id}" ${ekol(e)}>
     <div class="row" style="justify-content:space-between"><span class="ed ar">${e.ar}</span><span class="chip" style="color:${e.col}">${YAPI_AD[yapi(0,e.hal).k]}</span></div>
     <b>${e.isim}</b><div class="ar">${esc(edatli(FIIL[0],0,e))}</div><div class="small muted">${esc(trAnlam(FIIL[0],0,e.id))}</div></a>`).join('')}</div>
+  <div class="sec-h"><div><div class="eyebrow">الْأَمْرُ وَالنَّهْيُ</div><h2>Emir ve nehy</h2></div></div>
+  <div class="kefeler">${EMIR.map(k=>{const i=k.only[0];return `<a class="kefe" href="#ders/${LESSONS.find(l=>l.e===k.id).id}" ${ekol(k)}>
+    <div class="row" style="justify-content:space-between"><span class="ed ar">${k.et}</span><span class="chip" style="color:${k.col}">cezm</span></div>
+    <b>${k.isim}</b><div class="ar">${esc(kForm(k,FIIL[0],i))}</div><div class="small muted">${esc(trAnlam(FIIL[0],i,k.id))}</div></a>`;}).join('')}</div>
   <div class="sec-h"><div><div class="eyebrow">الدُّرُوسُ</div><h2>Dersler</h2></div><a class="btn sm" href="#dersler">Hepsi</a></div>
   ${dersListe()}`;
   let v=FIIL[0],i=0,cur='';
@@ -122,7 +126,7 @@ function tilt(to){const from=tiltNow;tiltNow=to;const t0=performance.now();
   const go=now=>{const k=Math.min(1,(now-t0)/450),e=1-Math.pow(1-k,3);set(from+(to-from)*e);if(k<1&&$('#tzBeam'))requestAnimationFrame(go);};
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)set(to);else requestAnimationFrame(go);}
 /* ===================== DERSLER ===================== */
-const lcol=l=>edatOf(l.e)?edatOf(l.e).col:'var(--gold)';
+const lcol=l=>kalipOf(l.e)?kalipOf(l.e).col:'var(--gold)';
 function dersListe(){return `<div class="lgrid">${LESSONS.map((l,k)=>`<a class="lcard" href="#ders/${l.id}" style="--c:${lcol(l)}">
   <div class="row" style="justify-content:space-between"><span class="num">${k+1}</span>${stars(lstar(l.id))}</div><b>${esc(l.t)}</b><div class="ar muted">${esc(l.ar)}</div></a>`).join('')}</div>`;}
 V.dersler=a=>{if(a&&a[0])return V.ders(a);
@@ -130,12 +134,13 @@ V.dersler=a=>{if(a&&a[0])return V.ders(a);
 function dersCekim(L){
   const v=FIIL[0];
   if(L.e==='muz')return `<div class="tscroll">${tabloMuz(v)}</div>`;
-  if(L.e==='all')return `<div class="tscroll">${tabloHepsi(v)}</div>`;
-  if(edatOf(L.e))return `<div class="row" style="justify-content:flex-end;margin-bottom:8px"><button class="btn sm" id="dSay">${ICON.play} 14 sîgayı dinle</button></div><div class="tscroll">${tabloEdat(v,edatOf(L.e))}</div>`;
+  if(L.e==='all')return `<div class="tscroll">${tabloHepsi(v,EDAT)}</div>`;
+  const k=kalipOf(L.e);
+  if(k)return `<div class="row" style="justify-content:flex-end;margin-bottom:8px"><button class="btn sm" id="dSay">${ICON.play} ${k.only.length} sîgayı dinle</button></div><div class="tscroll">${tabloEdat(v,k)}</div>`;
   return '';
 }
 V.ders=a=>{
-  const k=LESSONS.findIndex(l=>l.id===a[0]);if(k<0)return V.dersler([]);const L=LESSONS[k],e=edatOf(L.e);
+  const k=LESSONS.findIndex(l=>l.id===a[0]);if(k<0)return V.dersler([]);const L=LESSONS[k],e=kalipOf(L.e);
   if(!S.les[L.id]){S.les[L.id]={best:0};save();}
   const ck=dersCekim(L);
   app.innerHTML=`<a class="btn sm ghost" href="#dersler">${ICON.back} Dersler</a>
@@ -148,7 +153,7 @@ V.ders=a=>{
   <div class="sec-h"><div><div class="eyebrow">اخْتِبَارٌ</div><h3>Dersin sınavı</h3></div>${stars(lstar(L.id))}</div>
   <div class="card stage" id="lq"></div>
   <div class="row" style="justify-content:space-between;margin-top:16px">${k>0?`<a class="btn" href="#ders/${LESSONS[k-1].id}">${ICON.back} Önceki</a>`:'<span></span>'}${k<LESSONS.length-1?`<a class="btn" href="#ders/${LESSONS[k+1].id}">Sonraki ${ICON.arrow}</a>`:'<a class="btn pri" href="#sinav">Genel sınav</a>'}</div>`;
-  if($('#dSay'))$('#dSay').onclick=()=>speakSeq(SIGA.map((_,i)=>edatli(FIIL[0],i,e)));
+  if($('#dSay'))$('#dSay').onclick=()=>speakSeq(e.only.map(i=>kForm(e,FIIL[0],i)));
   $$('.tbl [data-sig]').forEach(c=>c.onclick=()=>sigaDetay(FIIL[0],+c.dataset.sig));
   let n=0,sc=0;const qs=L.q.map(q=>{const o=shuffle(q[1].map((t,j)=>({t,ok:j===q[2]})));return {q:q[0],o,ex:q[3]};});
   const round=()=>{
@@ -168,72 +173,78 @@ function fiilSec(id){
   return FIIL[+id]||FIIL[0];
 }
 V.tezgah=a=>{
-  const fid=a[0]!=null&&a[0]!==''?a[0]:S.tz.f, eid=edatOf(a[1])||a[1]==='all'?a[1]:(edatOf(S.tz.e)?S.tz.e:'all');const v=fiilSec(fid);S.tz={f:v.id,e:eid};save();
-  const seg=[['all','Hepsi'],...EDAT.map(e=>[e.id,e.ar])];
-  app.innerHTML=`<div class="sec-h"><div><div class="eyebrow">التَّصْرِيفُ</div><h2>Tezgâh</h2></div><span class="muted small">Sâlim bir fiil ve bir edat seç; 14 sîga çekilsin.</span></div>
+  const fid=a[0]!=null&&a[0]!==''?a[0]:S.tz.f, eid=kalipOf(a[1])||a[1]==='all'||a[1]==='emir'?a[1]:(kalipOf(S.tz.e)||S.tz.e==='emir'?S.tz.e:'all');const v=fiilSec(fid);S.tz={f:v.id,e:eid};save();
+  const seg=[['all','Nefy: hepsi'],...EDAT.map(e=>[e.id,e.ar]),['emir','Emir-nehy: hepsi'],...EMIR.map(k=>[k.id,k.et])];
+  app.innerHTML=`<div class="sec-h"><div><div class="eyebrow">التَّصْرِيفُ</div><h2>Tezgâh</h2></div><span class="muted small">Sâlim bir fiil ve bir kalıp seç; sîgaları çekilsin.</span></div>
   <div class="card tz-ctl">
     <label class="small muted">Fiil<select id="fs" class="field">${FIIL.map(f=>`<option value="${f.id}" ${f.id===v.id?'selected':''}>${f.mz} ${muz(f,0)} — ${f.tr}</option>`).join('')}${v.ozel?`<option value="${esc(v.id)}" selected>Kendi kökün: ${v.r.join(' ')}</option>`:''}</select></label>
     <details ${v.ozel?'open':''}><summary class="small">Kendi sâlim kökünü yaz</summary><div class="row" style="margin-top:8px"><input id="kr" class="field ar" placeholder="ن ص ر" value="${v.ozel?v.r.join(' '):''}" style="width:120px"><select id="kv" class="field"><option value="u">يَفْعُلُ</option><option value="i">يَفْعِلُ</option><option value="a">يَفْعَلُ</option></select><button class="btn sm" id="kb">Çek</button><span class="small" id="km" style="color:var(--bad)"></span></div></details>
-    <div class="seg" role="tablist">${seg.map(([id,t])=>`<button class="${id===eid?'on':''}" data-e="${id}" ${id!=='all'?ekol(edatOf(id)):''}><span class="${id==='all'?'':'ar'}">${t}</span></button>`).join('')}</div>
+    <div class="seg" role="tablist">${seg.map(([id,t])=>`<button class="${id===eid?'on':''}${id==='emir'?' brk':''}" data-e="${id}" ${kalipOf(id)?ekol(kalipOf(id)):''}><span class="${kalipOf(id)?'ar':''}">${t}</span></button>`).join('')}</div>
   </div>
-  ${eid==='all'?`<p class="small muted" style="margin:12px 0 0"><span class="chg">Renkli kısım</span> edatın değiştirdiği sondur. Bir sîgaya dokun: beş kalıbı mânâlarıyla gör.</p>`:(()=>{const e=edatOf(eid);return `<div class="card" style="margin-top:12px;border-color:${e.col}"><h3><span class="ar" style="color:${e.col};font-size:1.4rem">${e.ar}</span> ${e.isim}</h3><p class="small">${esc(e.d)}</p><p class="small muted">${e.zaman} · Türkçe: <b>${esc(e.g)}</b></p><button class="btn sm" id="sayAll">${ICON.play} 14 sîgayı dinle</button></div>`;})()}
-  <div class="tscroll" style="margin-top:14px">${eid==='all'?tabloHepsi(v):tabloEdat(v,edatOf(eid))}</div>`;
+  ${eid==='all'||eid==='emir'?`<p class="small muted" style="margin:12px 0 0"><span class="chg">Renkli kısım</span> edatın değiştirdiği sondur. Bir sîgaya dokun: o sîganın bütün kalıplarını mânâlarıyla gör.</p>`:(()=>{const e=kalipOf(eid);return `<div class="card" style="margin-top:12px;border-color:${e.col}"><h3><span class="ar" style="color:${e.col};font-size:1.4rem">${e.et||e.ar}</span> ${e.isim}</h3><p class="small">${esc(e.d)}</p><p class="small muted">${e.zaman} · ${e.only.length} sîga</p><button class="btn sm" id="sayAll">${ICON.play} ${e.only.length} sîgayı dinle</button></div>`;})()}
+  <div class="tscroll" style="margin-top:14px">${eid==='all'?tabloHepsi(v,EDAT):eid==='emir'?tabloHepsi(v,EMIR):tabloEdat(v,kalipOf(eid))}</div>`;
   $('#fs').onchange=e=>location.hash=`#tezgah/${encodeURIComponent(e.target.value)}/${eid}`;
   $$('.seg [data-e]').forEach(b=>b.onclick=()=>location.hash=`#tezgah/${encodeURIComponent(v.id)}/${b.dataset.e}`);
   if(v.ozel)$('#kv').value=v.mu;
   $('#kb').onclick=()=>{const r=rootOf($('#kr').value),m=checkRoot(r);if(m){$('#km').textContent=m;return;}location.hash=`#tezgah/${encodeURIComponent('k-'+r.join('')+'-'+$('#kv').value)}/${eid}`;};
-  if($('#sayAll'))$('#sayAll').onclick=()=>speakSeq(SIGA.map((_,i)=>edatli(v,i,edatOf(eid))));
+  if($('#sayAll'))$('#sayAll').onclick=()=>{const k=kalipOf(eid);speakSeq(k.only.map(i=>kForm(k,v,i)));};
   $$('.tbl [data-sig]').forEach(c=>c.onclick=()=>sigaDetay(v,+c.dataset.sig));
 };
 const sigaHucre=(s,i)=>`<td class="sg"><button class="lk" data-sig="${i}"><span class="ar">${s.z}</span><small>${s.tr}</small></button></td>`;
 function tabloMuz(v){
   return `<table class="tbl tz"><tr><th>Sîga</th><th>Muzâri</th><th>Sonu</th></tr>${SIGA.map((s,i)=>`<tr>${sigaHucre(s,i)}<td class="m">${esc(muz(v,i))} ${sayB(muz(v,i),'ib sm')}</td><td class="trc">${NISVE.includes(i)?'cem‘-i müennes nûnu':NUNLU.includes(i)?'nûn':'ötre'}</td></tr>`).join('')}</table>`;
 }
+const kHucre=(k,v,i)=>{const p=parca(k,v,i);return `<span style="color:${k.col}">${esc(p.on)}</span>${p.ara}${farkBoya(p.taban,p.govde)}`;};
 function tabloEdat(v,e){
-  return `<table class="tbl tz" style="--c:${e.col}"><tr><th>Sîga</th><th>Muzâri</th><th><span class="ar">${e.ar}</span>${e.isim}</th><th>Sona ne oldu?</th><th>Türkçe</th></tr>
-  ${SIGA.map((s,i)=>{const b=muz(v,i),c=cek(v,i,e.hal),y=yapi(i,e.hal);return `<tr>${sigaHucre(s,i)}
-    <td>${esc(b)}</td><td class="m"><span style="color:${e.col}">${e.ar}</span> ${farkBoya(b,c)} ${sayB(e.ar+' '+c,'ib sm')}</td>
+  return `<table class="tbl tz" style="--c:${e.col}"><tr><th>Sîga</th><th>Muzâri</th><th><span class="ar">${e.et||e.ar}</span>${e.isim}</th><th><span dir="ltr">Sona ne oldu?</span></th><th>Türkçe</th></tr>
+  ${SIGA.map((s,i)=>{if(!e.only.includes(i))return '';
+    const f=kForm(e,v,i),y=kYapi(e,i);return `<tr>${sigaHucre(s,i)}
+    <td>${esc(muz(v,i))}</td><td class="m">${kHucre(e,v,i)} ${sayB(f,'ib sm')}</td>
     <td class="ir"><span class="tag t-${y.k}">${YAPI_AD[y.k]}</span><small>${esc(y.t)}</small></td><td class="trc">${esc(trAnlam(v,i,e.id))}</td></tr>`;}).join('')}</table>`;
 }
-function tabloHepsi(v){
-  return `<table class="tbl tz hep"><tr><th>Sîga</th><th>Muzâri</th>${EDAT.map(e=>`<th style="--c:${e.col}"><span class="ar">${e.ar}</span>${e.isim}</th>`).join('')}</tr>
-  ${SIGA.map((s,i)=>{const b=muz(v,i);return `<tr>${sigaHucre(s,i)}<td>${esc(b)}</td>${EDAT.map(e=>{const c=cek(v,i,e.hal);return `<td><button class="cellb" data-say="${esc(e.ar+' '+c)}">${farkBoya(b,c)}</button></td>`;}).join('')}</tr>`;}).join('')}</table>`;
+function tabloHepsi(v,list){
+  return `<table class="tbl tz hep"><tr><th>Sîga</th><th>Muzâri</th>${list.map(e=>`<th style="--c:${e.col}"><span class="ar">${e.et||e.ar}</span>${e.isim}</th>`).join('')}</tr>
+  ${SIGA.map((s,i)=>`<tr>${sigaHucre(s,i)}<td>${esc(muz(v,i))}</td>${list.map(e=>e.only.includes(i)?`<td><button class="cellb" data-say="${esc(kForm(e,v,i))}">${kHucre(e,v,i)}</button></td>`:'<td class="muted">—</td>').join('')}</tr>`).join('')}</table>`;
 }
 function sigaDetay(v,i){
   const b=muz(v,i);
   openSheet(`<div class="row" style="justify-content:space-between"><h3>${SIGA[i].tr} <span class="ar muted">${SIGA[i].z}</span></h3><button class="btn sm ghost" data-close>Kapat</button></div><p class="small muted">${SIGA[i].k} · Muzâri: ${A(b)}</p>
-  <div class="ex">${EDAT.map(e=>{const f=edatli(v,i,e);return `<div style="border-color:${e.col}"><span class="ar">${esc(f)}</span><span class="small" style="flex:1 1 200px"><b style="color:${e.col}">${e.isim}</b> · ${esc(trAnlam(v,i,e.id))}<br><span class="muted">${esc(yapi(i,e.hal).t)}</span></span>${sayB(f)}</div>`;}).join('')}</div>`);
+  <div class="ex">${KALIP.filter(e=>e.only.includes(i)).map(e=>{const f=kForm(e,v,i);return `<div style="border-color:${e.col}"><span class="ar">${esc(f)}</span><span class="small" style="flex:1 1 200px"><b style="color:${e.col}">${e.isim}</b> · ${esc(trAnlam(v,i,e.id))}<br><span class="muted">${esc(kYapi(e,i).t)}</span></span>${sayB(f)}</div>`;}).join('')}</div>`);
 }
 /* ===================== SORU ÜRETİCİLER ===================== */
 const SIG_ALL=[...Array(14).keys()];
-function rastgele(){return {v:pick(FIIL),i:pick(SIG_ALL),e:pick(EDAT)};}
-/* Yanlış şıklar: öteki sonlar ve sık yapılan hatalar */
-function yanlislar(v,i,e){
-  const dogru=cek(v,i,e.hal),out=new Set(),raf=cek(v,i,'raf');
-  ['raf','nasb','jazm'].forEach(h=>out.add(cek(v,i,h)));
-  if(NUNLU.includes(i)){out.add(raf.replace(/[َِ]$/,VW.o));out.add(raf+'ا');}
-  else if(NISVE.includes(i)){out.add(raf.replace(/نَ$/,''));out.add(raf+'ا');}
-  else out.add(raf.replace(/ُ$/,VW.i));
+function rastgele(list=KALIP){const e=pick(list),v=pick(FIIL),i=pick(e.only);return {v,i,e};}
+const etiket=k=>k.id==='eh'?`<span style="color:${k.col}">emr-i hâzır</span> ←`:`<span style="color:${k.col}">${k.et||k.ar}</span>${k.id==='nh'?' <small>(nehy)</small>':k.id==='la'?' <small>(nefy)</small>':''} +`;
+/* Yanlış şıklar: öteki sonlar, hemze hataları ve sık yapılan yanlışlar (tam kelime olarak) */
+function yanlislar(v,i,k){
+  const p=parca(k,v,i),dogru=kForm(k,v,i),out=new Set(),g=v.r[0]+VW.o+v.r[1]+VW[v.mu]+v.r[2];
+  const ek=w=>out.add(p.on+p.ara+w);
+  if(k.id==='eh'){['raf','nasb'].forEach(h=>ek(g+SUF[h][i]));out.add((v.mu==='u'?'اِ':'اُ')+p.govde);out.add(cek(v,i,'jazm'));out.add('اَ'+p.govde);}
+  else{const raf=cek(v,i,'raf');['raf','nasb','jazm'].forEach(h=>ek(cek(v,i,h)));
+    if(NUNLU.includes(i)){ek(raf.replace(/[َِ]$/,VW.o));ek(raf+'ا');}
+    else if(NISVE.includes(i)){ek(raf.replace(/نَ$/,''));ek(raf+'ا');}
+    else ek(raf.replace(/ُ$/,VW.i));
+    if(k.id==='eg')out.add('لَ'+p.govde);}
   out.delete(dogru);
-  for(const j of shuffle(SIG_ALL)){if(out.size>=4)break;out.add(cek(v,j,e.hal));out.delete(dogru);}
+  for(const j of shuffle(k.only)){if(out.size>=4)break;out.add(kForm(k,v,j));out.delete(dogru);}
   return [...out];
 }
 const GEN={
-  cekim(){const {v,i,e}=rastgele(),d=edatli(v,i,e);const o=shuffle([d,...sample(yanlislar(v,i,e),3).map(w=>e.ar+' '+w)]);
-    return {k:'cekim',html:`<p class="muted small" style="text-align:center;margin:0">${SIGA[i].tr} (${A(SIGA[i].z)}) · ${esc(v.mz)}</p><div class="qar"><span style="color:${e.col}">${e.ar}</span> + ${esc(muz(v,i))}</div>`,say:muz(v,i),o,a:o.indexOf(d),ex:`${A(d)} — ${esc(yapi(i,e.hal).t)}`};},
-  mana(){const {v,i,e}=rastgele(),d=edatli(v,i,e);const all=EDAT.map(x=>trAnlam(v,i,x.id));const right=all[EDAT.indexOf(e)];const o=shuffle([right,...sample(all.filter(x=>x!==right),3)]);
-    return {k:'mana',html:`<p class="muted small" style="text-align:center;margin:0">${esc(v.mz)}: ${esc(v.tr)} · ${SIGA[i].k}</p><div class="qar">${esc(d)}</div>`,say:d,o,a:o.indexOf(right),ex:`<b>${e.isim}</b> (${e.ar}): ${esc(e.g)}`};},
-  edat(){const {v,i,e}=rastgele(),c=cek(v,i,e.hal);const o=EDAT.map(x=>x.ar);
+  cekim(){const {v,i,e}=rastgele(),d=kForm(e,v,i);const o=shuffle([d,...sample(yanlislar(v,i,e),3)]);
+    return {k:'cekim',html:`<p class="muted small" style="text-align:center;margin:0">${SIGA[i].tr} (${A(SIGA[i].z)}) · ${esc(v.mz)}</p><div class="qar">${etiket(e)} ${esc(muz(v,i))}</div>`,say:muz(v,i),o,a:o.indexOf(d),ex:`${A(d)} — ${esc(kYapi(e,i).t)}`};},
+  mana(){const {v,i,e}=rastgele(),d=kForm(e,v,i);const all=[...new Set(KALIP.filter(x=>x.only.includes(i)).map(x=>trAnlam(v,i,x.id)))];const right=trAnlam(v,i,e.id);const o=shuffle([right,...sample(all.filter(x=>x!==right),3)]);
+    return {k:'mana',html:`<p class="muted small" style="text-align:center;margin:0">${esc(v.mz)}: ${esc(v.tr)} · ${SIGA[i].k}</p><div class="qar">${esc(d)}</div>`,say:d,o,a:o.indexOf(right),ex:`<b>${e.isim}</b>: ${esc(trAnlam(v,i,e.id))}`};},
+  edat(){const {v,i,e}=rastgele(EDAT),c=cek(v,i,e.hal);const o=EDAT.map(x=>x.ar);
     return {k:'edat',html:`<p class="muted small" style="text-align:center;margin:0">“${esc(trAnlam(v,i,e.id))}” · ${SIGA[i].k}</p><div class="qar"><span class="blank">؟</span> ${esc(c)}</div>`,o,a:EDAT.indexOf(e),cols:5,ex:`${A(e.ar+' '+c)} — ${e.isim}.`};},
-  siga(){const {v,i,e}=rastgele(),d=edatli(v,i,e),f=cek(v,i,e.hal);const ayni=SIG_ALL.filter(j=>cek(v,j,e.hal)===f);const diger=sample(SIG_ALL.filter(j=>!ayni.includes(j)),3);const o=shuffle([i,...diger]);
-    return {k:'siga',html:`<p class="muted small" style="text-align:center;margin:0">Bu çekim hangi sîga?</p><div class="qar">${esc(d)}</div>`,say:d,o:o.map(j=>SIGA[j].tr+' · '+SIGA[j].k),a:o.indexOf(i),cols:2,ex:`${esc(trAnlam(v,i,e.id))}`+(ayni.length>1?` · Aynı lafız: ${ayni.map(j=>SIGA[j].tr).join(' = ')}`:'')};},
-  hata(){const {v,i,e}=rastgele(),d=edatli(v,i,e);const dogrular=new Set(SIG_ALL.map(j=>cek(v,j,e.hal)));const yan=yanlislar(v,i,e).filter(w=>!dogrular.has(w));const ok=Math.random()<.5||!yan.length;const w=ok?d:e.ar+' '+pick(yan);
-    return {k:'hata',html:`<p class="muted small" style="text-align:center;margin:0">${SIGA[i].tr} (${A(SIGA[i].z)}) · ${esc(v.mz)}</p><div class="qar">${esc(w)}</div>`,say:ok?w:null,o:['Doğru','Yanlış'],a:ok?0:1,cols:2,ex:ok?'Doğru çekim.':`Doğrusu: ${A(d)}`};}
+  siga(){const {v,i,e}=rastgele(),d=kForm(e,v,i);const ayni=e.only.filter(j=>kForm(e,v,j)===d);const diger=sample(e.only.filter(j=>!ayni.includes(j)),3);const o=shuffle([i,...diger]);
+    return {k:'siga',html:`<p class="muted small" style="text-align:center;margin:0">${e.isim}: bu çekim hangi sîga?</p><div class="qar">${esc(d)}</div>`,say:d,o:o.map(j=>SIGA[j].tr+' · '+SIGA[j].k),a:o.indexOf(i),cols:2,ex:`${esc(trAnlam(v,i,e.id))}`+(ayni.length>1?` · Aynı lafız: ${ayni.map(j=>SIGA[j].tr).join(' = ')}`:'')};},
+  hata(){const {v,i,e}=rastgele(),d=kForm(e,v,i);const dogrular=new Set(e.only.map(j=>kForm(e,v,j)));const yan=yanlislar(v,i,e).filter(w=>!dogrular.has(w));const ok=Math.random()<.5||!yan.length;const w=ok?d:pick(yan);
+    return {k:'hata',html:`<p class="muted small" style="text-align:center;margin:0">${e.isim} · ${SIGA[i].tr} (${A(SIGA[i].z)}) · ${esc(v.mz)}</p><div class="qar">${esc(w)}</div>`,say:ok?w:null,o:['Doğru','Yanlış'],a:ok?0:1,cols:2,ex:ok?'Doğru çekim.':`Doğrusu: ${A(d)}`};}
 };
 const GAMES=[
- {id:'cekim',t:'Doğru Çekim',d:'Edat ile muzâriyi birleştir; doğru çekimi seç.',ic:'scale'},
+ {id:'cekim',t:'Doğru Çekim',d:'Edatla, emirle veya nehiyle muzâriyi birleştir; doğru çekimi seç.',ic:'scale'},
  {id:'mana',t:'Mânâ Avı',d:'Edatlı fiilin Türkçesini bul.',ic:'eye'},
- {id:'edat',t:'Edatı Bul',d:'Türkçesine ve fiilin sonuna bakıp boşluğa edatı koy.',ic:'key'},
+ {id:'edat',t:'Edatı Bul',d:'Beş nefy edatından hangisi? Türkçesine ve fiilin sonuna bak.',ic:'key'},
  {id:'siga',t:'Sîgayı Bul',d:'Çekim hangi sîga: kim, kaç kişi, erkek mi kadın mı?',ic:'target'},
  {id:'hata',t:'Hata Avı',d:'60 saniye: çekim doğru mu yanlış mı?',ic:'bolt',sure:60}
 ];
@@ -267,7 +278,13 @@ const KARTLAR=[
  {on:"لَمْ تَنْصُرِي",arka:"<b>Müfred müennes muhâtaba</b>: lem gelince nûn düşer (تَنْصُرِينَ ← تَنْصُرِي). Yardım etmedin (kadın)."},
  {on:"لَمْ يَنْصُرْنَ",arka:"<b>Cem‘-i müennes</b>: nûnu düşmez; beş kalıpta da aynı kalır. Yardım etmediler (kadınlar)."},
  {on:"مَا يَنْصُرُونَ",arka:"<b>Mâ</b> sonu değiştirmez: nûn durur. Yardım etmiyorlar."},
- {on:"لَا تَنْصُرْ",arka:"<b>Nehy</b> (yasaklama), nefy değil: cezm eder. “Yardım etme!”"},
+ {on:"لِيَنْصُرْ",arka:"<b>Emr-i gâib</b>: başa emir lâmı (لِـ) gelir, sonu cezm olur. Yardım etsin."},
+ {on:"لِنَنْصُرْ",arka:"<b>Emr-i gâib, mütekellim ma‘a’l-gayr</b>: yardım edelim."},
+ {on:"اُنْصُرْ",arka:"<b>Emr-i hâzır</b>: تَنْصُرُ → muzâri harfi atılır → başa vasıl hemzesi; ayn ötreli olduğu için اُ. Yardım et."},
+ {on:"اِضْرِبْ",arka:"<b>Emr-i hâzır</b>: ayn esreli olduğu için hemze اِ. Vur."},
+ {on:"اُنْصُرُوا",arka:"<b>Emr-i hâzır, cem‘</b>: nûn düşer. Yardım edin."},
+ {on:"لَا تَنْصُرْ",arka:"<b>Nehy-i hâzır</b>: lâ-yı nâhiye cezm eder. Yardım etme. (Nefy olan لَا تَنْصُرُ ile karıştırma.)"},
+ {on:"لَا يَنْصُرْ",arka:"<b>Nehy-i gâib</b>: yardım etmesin."},
  {on:"لَنْ نَنْصُرَ",arka:"<b>Mütekellim ma‘a’l-gayr</b>: sonu üstün. Asla yardım etmeyeceğiz."},
  {on:"لَمَّا أَنْصُرْ",arka:"<b>Mütekellim vahde</b>: sonu cezm. Henüz yardım etmedim."},
  {on:"لَمَّا يَنْفَعْ عُمْرِي",arka:"<b>Lemmâ</b> (Avâmil): “Ömrüm henüz fayda vermedi.”"}
@@ -314,11 +331,11 @@ V.hakkinda=()=>{
   <div class="card" style="text-align:center;padding:28px 18px">
     <div class="kufi" style="font-family:var(--f-kufi);font-size:2rem;color:var(--gold);direction:rtl">مِيزَانُ النَّفْيِ</div>
     <p style="margin-top:14px;font-size:1.05rem"><b>Marmara Üniversitesi İlahiyat Fakültesi Öğretim Görevlisi Hüseyin KAYA tarafından hazırlanmıştır.</b></p>
-    <p class="muted">Dayandığı metin: <i>Emsile</i> (Emsile-i Muttaride ve Emsile-i Muhtelife). Misaller Kur’ân ve <i>Avâmil</i>’den.</p>
+    <p class="muted">Dayandığı metin: <i>Emsile</i> (Emsile-i Muttaride ve Emsile-i Muhtelife): beş nefy kalıbı, emir ve nehy. Misaller Kur’ân ve <i>Avâmil</i>’den.</p>
     <p class="muted">© 2026 Hüseyin KAYA · İstifade edilmesi temennisiyle…</p></div>
   <div class="card" style="margin-top:14px"><h3>İçindekiler</h3><ul class="small" style="padding-inline-start:18px;margin:8px 0 0;line-height:1.8">
-    <li><b>${LESSONS.length} ders</b>: muzârinin 14 sîgası ve beş olumsuz kalıp; her derste نَصَرَ ile 14 sîga çekim, misaller ve ${LESSONS.reduce((a,l)=>a+l.q.length,0)} soruluk ders sınavları</li>
-    <li><b>Tezgâh</b>: ${FIIL.length} sâlim fiil veya kendi sâlim kökün; 14 sîga × 5 kalıp, sona ne olduğu ve Türkçe karşılık</li>
+    <li><b>${LESSONS.length} ders</b>: muzârinin 14 sîgası, beş olumsuz kalıp, emr-i gâib, emr-i hâzır ve nehy; her derste نَصَرَ ile 14 sîga çekim, misaller ve ${LESSONS.reduce((a,l)=>a+l.q.length,0)} soruluk ders sınavları</li>
+    <li><b>Tezgâh</b>: ${FIIL.length} sâlim fiil veya kendi sâlim kökün; beş nefy kalıbı, emir ve nehy; sona ne olduğu ve Türkçe karşılık</li>
     <li><b>Terazi</b>: edat seçildikçe fiilin sonunun nasıl değiştiğini gösteren terazi</li>
     <li><b>${GAMES.length} oyun</b>, ${KARTLAR.length} kart ve 20 soruluk raporlu sınav</li></ul>
     <p class="small muted" style="margin-top:10px">Program tek bir dosyadır ve internet bağlantısı olmadan çalışır. Arapça okunuşlar programa gömülüdür. İlerlemeniz yalnızca bu cihazda saklanır.</p>

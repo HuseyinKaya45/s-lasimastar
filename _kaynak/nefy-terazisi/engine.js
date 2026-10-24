@@ -39,7 +39,20 @@ const EDAT=[
  {id:"lemma",ar:"لَمَّا",ad:"Lemmâ",isim:"Cahd-ı müstağrak",arIsim:"الْجَحْدُ الْمُسْتَغْرَقُ",hal:"jazm",zaman:"Geçmişten şu âna",g:"henüz …medi",col:"var(--c-j)",
   d:"Lem gibi cezm eder; olumsuzluk şu âna kadar sürer: henüz."}
 ];
+const ALL14=[0,1,2,3,4,5,6,7,8,9,10,11,12,13];
+EDAT.forEach(e=>{e.tur="nefy";e.only=ALL14;});
+/* ---- emir ve nehy (Emsile-i muhtelife: لِيَنْصُرْ، اُنْصُرْ، لَا تَنْصُرْ) ---- */
+const EMIR=[
+ {id:"eg",ar:"لِ",et:"لِـ",ad:"Lâm-ı emr",isim:"Emr-i gâib",arIsim:"الْأَمْرُ الْغَائِبُ",hal:"jazm",tur:"emir",only:[0,1,2,3,4,5,12,13],zaman:"Emir (gâib ve mütekellim)",g:"…sın",col:"var(--s4)",
+  d:"Muzârinin başına emir lâmı (لِـ) gelir ve cezm eder: yardım etsin."},
+ {id:"eh",ar:"اُ",et:"اُفْعُلْ",ad:"Emr-i hâzır",isim:"Emr-i hâzır",arIsim:"الْأَمْرُ الْحَاضِرُ",hal:"jazm",tur:"emir",only:[6,7,8,9,10,11],zaman:"Emir (muhâtab)",g:"…",col:"var(--c-z)",
+  d:"Muhâtab muzâriden yapılır: muzâri harfi atılır, sükûnla başlayınca başa vasıl hemzesi gelir (ayn ötreliyse اُ, değilse اِ), sonu cezm olur: yardım et."},
+ {id:"nh",ar:"لَا",et:"لَا",ad:"Lâ-yı nâhiye",isim:"Nehy",arIsim:"النَّهْيُ",hal:"jazm",tur:"emir",only:ALL14,zaman:"Yasaklama",g:"…me",col:"var(--c-b)",
+  d:"Muzârinin başına lâ-yı nâhiye gelir ve cezm eder: yardım etme, yardım etmesin."}
+];
+const KALIP=[...EDAT,...EMIR];
 const edatOf=id=>EDAT.find(e=>e.id===id);
+const kalipOf=id=>KALIP.find(k=>k.id===id);
 const HAL={raf:{tr:"Merfû",col:"var(--c-r)"},nasb:{tr:"Mansûb",col:"var(--c-n)"},jazm:{tr:"Meczûm",col:"var(--c-j)"}};
 /* ---- sâlim fiiller: r kök, mu muzâride aynın harekesi, mz mâzi, tr anlam ---- */
 const FIIL=[
@@ -63,12 +76,26 @@ const FIIL=[
 FIIL.forEach((f,i)=>{f.id=i;f.r=Array.from(f.r);});
 const cek=(v,i,hal)=>PRE[i]+v.r[0]+VW.o+v.r[1]+VW[v.mu]+v.r[2]+SUF[hal][i];
 const muz=(v,i)=>cek(v,i,"raf");
-const edatli=(v,i,e)=>e.ar+" "+cek(v,i,e.hal);
+const hamz=v=>v.mu==="u"?"اُ":"اِ";
+/* Kalıbın parçaları: on (edat/lâm/hemze) + govde; taban, govdenin karşılaştırıldığı muzâri */
+function parca(k,v,i){
+  if(k.id==="eh"){const g=v.r[0]+VW.o+v.r[1]+VW[v.mu]+v.r[2];return {on:hamz(v),ara:"",taban:g+SUF.raf[i],govde:g+SUF.jazm[i]};}
+  return {on:k.ar,ara:k.id==="eg"?"":" ",taban:muz(v,i),govde:cek(v,i,k.hal)};
+}
+const kForm=(k,v,i)=>{const p=parca(k,v,i);return p.on+p.ara+p.govde;};
+const edatli=(v,i,e)=>kForm(e,v,i);
 /* ---- yapı: edat sona ne yaptı? ---- */
 function yapi(i,hal){
   if(NISVE.includes(i))return {k:"ayni",t:"Değişmez: cem‘-i müennesin nûnu hiç düşmez."};
   if(NUNLU.includes(i))return hal==="raf"?{k:"ayni",t:"Değişmez: sondaki nûn durur."}:{k:"nun",t:"Sondaki nûn düşer."};
   return hal==="raf"?{k:"ayni",t:"Değişmez: sonu ötre kalır."}:hal==="nasb"?{k:"ustun",t:"Sonu üstün olur."}:{k:"cezm",t:"Sonu cezm (sâkin) olur."};
+}
+function kYapi(k,i){
+  const y=yapi(i,k.hal),son=y.t.charAt(0).toLowerCase()+y.t.slice(1);
+  if(k.id==="eg")return {k:y.k,t:"Başa emir lâmı (لِـ) gelir; "+son};
+  if(k.id==="eh")return {k:y.k,t:"Muzâri harfi atılır, başa vasıl hemzesi gelir; "+son};
+  if(k.id==="nh")return {k:y.k,t:"Başa lâ-yı nâhiye gelir; "+son};
+  return y;
 }
 const YAPI_AD={ayni:"değişmez",nun:"nûn düşer",ustun:"üstün",cezm:"cezm"};
 /* ---- Türkçe anlam (olumsuz çekim) ---- */
@@ -79,6 +106,11 @@ const dort=c=>({a:"ı",ı:"ı",o:"u",u:"u",e:"i",i:"i",ö:"ü",ü:"ü"})[c];
 function trAnlam(v,i,eid){
   const ilk=v.tr.split(",")[0].trim(), on=ilk.slice(0,ilk.lastIndexOf(" ")+1), fl=ilk.slice(on.length);
   const kok=fl.replace(/m[ae]k$/,""), k=kalin(sonSesli(kok)), ne=kok+(k?"ma":"me"), p=SIGA[i].p;
+  if(!v.tr)return "—";
+  const kokV=/(et|git)$/.test(kok)?kok.slice(0,-1)+"d":kok, sesliSon=SESLI.includes(kok.slice(-1)), x2=k?"ı":"i", ae=k?"a":"e";
+  if(eid==="eg")return on+{"3s":kok+"s"+dort(sonSesli(kok))+"n","3p":kok+"s"+dort(sonSesli(kok))+"n"+(k?"lar":"ler"),"1s":kokV+(sesliSon?"y":"")+ae+"y"+x2+"m","1p":kokV+(sesliSon?"y":"")+ae+"l"+x2+"m"}[p];
+  if(eid==="eh")return on+{"2s":kok,"2p":kokV+(sesliSon?"y":"")+dort(sonSesli(kok))+"n"}[p];
+  if(eid==="nh")return on+{"3s":ne+"s"+x2+"n","3p":ne+"s"+x2+"n"+(k?"lar":"ler"),"2s":ne,"2p":ne+"y"+x2+"n","1s":ne+"y"+ae+"y"+x2+"m","1p":ne+"y"+ae+"l"+x2+"m"}[p];
   let w;
   if(eid==="ma"){const y=kok+"m"+dort(sonSesli(kok))+"yor";w=y+{"1s":"um","2s":"sun","3s":"","1p":"uz","2p":"sunuz","3p":"lar"}[p];}
   else if(eid==="la"||eid==="len"){const c=ne+(k?"yacak":"yecek"),cg=c.slice(0,-1)+"ğ",x=k?"ı":"i";

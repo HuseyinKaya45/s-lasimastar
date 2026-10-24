@@ -98,4 +98,48 @@ const LESSONS=[
     ["Sonu üstün olan hangisi?",["لَنْ يَفْتَحَ","لَمْ يَفْتَحْ","مَا يَفْتَحُ","لَا يَفْتَحُ"],0,"Len nasb eder."],
     ["“Henüz gelmedi” için hangi edat?",["لَمَّا","لَمْ","لَنْ","لَا"],0,"Cahd-ı müstağrak."],
     ["Mânâyı geçmişe çeviren edatlar?",["Lem ve lemmâ","Mâ ve lâ","Len ve lâ","Yalnız len"],0,"Cahd: geçmişin olumsuzu."]]}
+,
+{id:"n9",t:"Emr-i gâib: لِيَنْصُرْ",ar:"الْأَمْرُ الْغَائِبُ",e:"eg",
+ m:[["Emsile-i Muhtelife","لِيَنْصُرْ"],["Avâmil","لِيَعْمَلْ عَمَلًا صَالِحًا"]],
+ tr:`<p><b>Emir lâmı</b> (lâm-ı emr) esrelidir: <span class="ar">لِـ</span>. Muzârinin başına bitişik yazılır ve fiili <b>cezm</b> eder: <i>yardım etsin</i>.</p>
+ <ul><li>Sonu ötre olan sîgalarda <b>cezm</b>: <span class="ar">لِيَنْصُرْ</span>.</li>
+ <li>Nûnlu sîgalarda <b>nûn düşer</b>: <span class="ar">لِيَنْصُرُوا</span>.</li>
+ <li>Cem‘-i müennes <b>değişmez</b>: <span class="ar">لِيَنْصُرْنَ</span>.</li></ul>
+ <p>Emr-i gâib <b>gâib</b> (o, onlar) ve <b>mütekellim</b> (ben, biz) sîgalarında kullanılır: <span class="ar">لِيَنْصُرْ</span> “yardım etsin”, <span class="ar">لِنَنْصُرْ</span> “yardım edelim”. Muhâtaba (sen, siz) emir için emr-i hâzır kullanılır.</p>
+ <p>Başına <span class="ar">وَ</span> veya <span class="ar">فَ</span> gelince lâm çoğunlukla sâkin okunur: <span class="ar">فَلْيَنْصُرْ</span>.</p>`,
+ ex:[["لِيَكْتُبْ","Yazsın"],["لِيَذْهَبُوا","Gitsinler (nûn düştü)"],["لِنَشْكُرْ","Şükredelim"]],
+ q:[["لِ + يَكْتُبُ?",["لِيَكْتُبْ","لِيَكْتُبُ","لِيَكْتُبَ","لِيَكْتُبِ"],0,"Emir lâmı cezm eder."],
+    ["لِيَذْهَبُوا’nın anlamı?",["Gitsinler","Gitmesinler","Gitmediler","Gitmeyecekler"],0,"Emr-i gâib, cem‘."],
+    ["Emr-i gâib hangi sîgalarda kullanılır?",["Gâib ve mütekellim","Yalnız muhâtab","Yalnız müfred","Bütün sîgalar, aynı lafızla"],0,"Muhâtab için emr-i hâzır var."],
+    ["لِ + يَنْصُرْنَ?",["لِيَنْصُرْنَ","لِيَنْصُرْ","لِيَنْصُرْنَا","لِيَنْصُرُوا"],0,"Cem‘-i müennes değişmez."]]},
+{id:"n10",t:"Emr-i hâzır: اُنْصُرْ",ar:"الْأَمْرُ الْحَاضِرُ",e:"eh",
+ m:[["Emsile-i Muhtelife","اُنْصُرْ"]],
+ tr:`<p>Emr-i hâzır, muhâtab (sen, siz) muzâriden <b>üç adımda</b> yapılır:</p>
+ <table class="tbl small"><tr><th>Adım</th><th>Ne yapılır?</th><th>Misal</th></tr>
+ <tr><td>1</td><td>Muhâtab muzâriyi al</td><td><span class="ar">تَنْصُرُ</span></td></tr>
+ <tr><td>2</td><td>Muzâri harfini (<span class="ar">تَ</span>) at</td><td><span class="ar">نْصُرُ</span></td></tr>
+ <tr><td>3</td><td>Sâkinle başlanmaz: başa vasıl hemzesi getir, sonu cezm et</td><td><span class="ar">اُنْصُرْ</span></td></tr></table>
+ <p><b>Hemzenin harekesi</b> aynın harekesine bakar: ayn ötreliyse <span class="ar">اُ</span> (<span class="ar">اُنْصُرْ، اُكْتُبْ</span>); esreli veya üstünse <span class="ar">اِ</span> (<span class="ar">اِضْرِبْ، اِفْتَحْ، اِعْلَمْ</span>).</p>
+ <p>Sonu lem gibidir: nûnlar düşer (<span class="ar">اُنْصُرُوا، اُنْصُرِي</span>), cem‘-i müennes değişmez (<span class="ar">اُنْصُرْنَ</span>). Sadece altı muhâtab sîgası vardır.</p>`,
+ ex:[["اُكْتُبْ","Yaz (ayn ötreli: اُ)"],["اِجْلِسُوا","Oturun (ayn esreli: اِ)"],["اِفْهَمِي","Anla (kadın; ayn üstün: اِ)"]],
+ q:[["تَكْتُبُ’den emr-i hâzır?",["اُكْتُبْ","اِكْتُبْ","تَكْتُبْ","اُكْتُبُ"],0,"Ayn ötreli: اُ; sonu cezm."],
+    ["تَضْرِبُ’dan emr-i hâzır?",["اِضْرِبْ","اُضْرِبْ","اَضْرِبْ","اِضْرِبُ"],0,"Ayn esreli: اِ."],
+    ["تَفْتَحُونَ’dan emr-i hâzır?",["اِفْتَحُوا","اِفْتَحُونَ","اُفْتُحُوا","اِفْتَحْ"],0,"Nûn düşer; ayn üstün: اِ."],
+    ["Emr-i hâzır yapılırken atılan harf?",["Muzâri harfi","Aynü’l-fiil","Lâmü’l-fiil","Fâü’l-fiil"],0,"تَنْصُرُ → نْصُرُ"]]},
+{id:"n11",t:"Nehy: لَا تَنْصُرْ",ar:"النَّهْيُ",e:"nh",
+ m:[["Emsile-i Muhtelife","لَا يَنْصُرْ · لَا تَنْصُرْ"],["Kur’ân · Tevbe 9/40","﴿لَا تَحْزَنْ إِنَّ اللّٰهَ مَعَنَا﴾"]],
+ tr:`<p><b>Nehy</b> yasaklamaktır. <b>Lâ-yı nâhiye</b> muzârinin başına gelir ve fiili <b>cezm</b> eder; sonlar lem’deki gibidir.</p>
+ <ul><li><b>Nehy-i hâzır</b>: <span class="ar">لَا تَنْصُرْ</span> “yardım etme”, <span class="ar">لَا تَنْصُرُوا</span> “yardım etmeyin”.</li>
+ <li><b>Nehy-i gâib</b>: <span class="ar">لَا يَنْصُرْ</span> “yardım etmesin”, <span class="ar">لَا يَنْصُرُوا</span> “yardım etmesinler”.</li></ul>
+ <p><b>Nefy lâsı ile karıştırma:</b> İkisi de <span class="ar">لَا</span> yazılır; farkı sondadır.</p>
+ <table class="tbl small"><tr><th>Nefy (değiştirmez)</th><th>Nehy (cezm eder)</th></tr>
+ <tr><td><span class="ar">لَا تَنْصُرُ</span> yardım etmeyeceksin</td><td><span class="ar">لَا تَنْصُرْ</span> yardım etme</td></tr>
+ <tr><td><span class="ar">لَا تَنْصُرُونَ</span> yardım etmeyeceksiniz</td><td><span class="ar">لَا تَنْصُرُوا</span> yardım etmeyin</td></tr>
+ <tr><td><span class="ar">لَا تَنْصُرْنَ</span> yardım etmeyeceksiniz</td><td><span class="ar">لَا تَنْصُرْنَ</span> yardım etmeyin</td></tr></table>
+ <p>Cem‘-i müennesde ikisi aynı görünür; o zaman cümlenin mânâsına bakılır.</p>`,
+ ex:[["لَا تَحْزَنْ","Üzülme (sonu cezm)"],["لَا تَذْهَبُوا","Gitmeyin (nûn düştü)"],["لَا يَخْرُجْ","Çıkmasın (nehy-i gâib)"]],
+ q:[["لَا تَكْتُبْ’in anlamı?",["Yazma","Yazmayacaksın","Yazmadın","Yazmıyorsun"],0,"Nehy: cezm."],
+    ["“Gitmeyin” hangisidir?",["لَا تَذْهَبُوا","لَا تَذْهَبُونَ","لَمْ تَذْهَبُوا","لَنْ تَذْهَبُوا"],0,"Nehy-i hâzır, cem‘: nûn düşer."],
+    ["لَا يَخْرُجْ hangisidir?",["Nehy-i gâib","Nehy-i hâzır","Nefy-i istikbâl","Emr-i gâib"],0,"Gâib muzâri + lâ-yı nâhiye."],
+    ["لَا تَفْتَحُونَ’deki lâ?",["Nefy lâsı (nûn durmuş)","Nehy lâsı","Emir lâmı","Lem yerine"],0,"Nûn düşmemiş: sonu değişmemiş."]]}
 ];
