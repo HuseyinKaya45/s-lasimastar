@@ -1,0 +1,72 @@
+/* ---- Nefy Terazisi ---- */
+.scorebig{font-size:2.6rem;font-weight:800;line-height:1.1;color:var(--gold)}
+.counter{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-top:14px}
+.counter div{border:1px solid var(--line);border-radius:16px;padding:10px;text-align:center;background:var(--panel)}
+.counter b{display:block;font-size:1.6rem;line-height:1.1}
+/* terazi */
+.terazi{padding:14px}
+.tz-top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+#tzSvg{display:block;width:100%;max-width:420px;margin:4px auto 0;height:auto}
+#tzSvg text{font-family:var(--f-ui)}
+.tz-word{text-align:center;min-height:96px}
+.tz-word .ar{font-size:clamp(1.8rem,7vw,2.5rem);line-height:1.5}
+.tz-edat{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;direction:rtl;margin-top:8px}
+.tz-edat .btn{min-width:62px;border-color:color-mix(in srgb,var(--c,var(--line)) 60%,var(--line))}
+.tz-edat .btn .ar{font-size:1.35rem;line-height:1.2}
+.tz-edat .btn.pri{background:var(--c,var(--gold));color:#fff}
+.chg{color:var(--zaid)}  /* yalnız renk: dolgu/kenar Arapça harf bitişmesini bozar */
+/* beş kefe */
+.kefeler{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.kefe{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:16px;padding:12px 14px;transition:transform .15s,border-color .15s}
+.kefe:hover{transform:translateY(-2px);border-color:var(--c)}
+.kefe .ed{font-size:2rem;line-height:1.2;color:var(--c)}
+.kefe .ar:not(.ed){font-size:1.35rem;text-align:right}
+/* dersler */
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.lcard{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-inline-start:4px solid var(--c);border-radius:14px;padding:12px 14px}
+.lcard:hover{border-color:var(--c)}
+.lcard .ar{font-size:1.05rem;text-align:right}
+.matnler{display:grid;gap:10px;margin-top:12px}
+.matn p.ar{font-size:1.45rem;text-align:right;margin:6px 0 0}
+.serh{margin-top:12px;line-height:1.7}
+.serh ul{padding-inline-start:20px}
+.serh .tbl{margin:10px 0}
+.serh .tbl{direction:ltr}
+.serh .tbl td{font-size:.95rem;font-family:var(--f-ui);text-align:start;padding:6px 8px;line-height:1.5}
+.serh .tbl td .ar{font-size:1.25rem}
+.serh .ar{font-size:1.15em}
+/* tezgâh */
+.tz-ctl{display:grid;gap:10px}
+.field{border:1px solid var(--line);background:var(--panel2);border-radius:10px;padding:8px 10px;min-height:40px;max-width:100%}
+label .field{display:block;width:100%;margin-top:4px}
+input.field.ar{font-size:1.2rem;text-align:center}
+details summary{cursor:pointer;color:var(--muted)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{border:1px solid var(--line);background:var(--panel2);border-radius:999px;padding:5px 14px;font-weight:600;min-height:38px}
+.seg button .ar{font-size:1.3rem;line-height:1.2}
+.seg button.on{background:var(--c,var(--gold));color:#fff;border-color:transparent}
+.tbl.tz td{vertical-align:middle}
+.tbl.tz td.m{white-space:nowrap}
+.tbl.tz .sg{min-width:120px}
+.lk{border:none;background:none;padding:0;color:inherit;display:flex;flex-direction:column;align-items:center;width:100%}
+.lk small{font-family:var(--f-ui);font-size:.68rem;color:var(--muted);line-height:1.2;direction:ltr}
+.lk:hover small{color:var(--gold)}
+.tbl.tz .ir{font-family:var(--f-ui);direction:ltr;text-align:start;min-width:220px;font-size:.78rem;line-height:1.35}
+.tbl.tz .ir small{display:block;color:var(--muted);margin-top:3px}
+.tbl.tz .trc{font-family:var(--f-ui);font-size:.85rem;direction:ltr;min-width:140px}
+.tbl.tz .ib.sm{width:28px;height:28px;display:inline-grid;vertical-align:middle}
+.tbl.hep th{min-width:96px}
+.cellb{border:none;background:none;font:inherit;color:inherit;padding:2px 4px;border-radius:8px;cursor:pointer}
+.cellb:hover{background:var(--gold-s)}
+.tag{display:inline-block;border-radius:999px;padding:1px 9px;font-size:.72rem;font-weight:700;background:var(--panel2);border:1px solid var(--line)}
+.t-lafz{color:var(--c-r)} .t-takdir{color:var(--c-n)} .t-hazf{color:var(--c-j)} .t-nun{color:var(--c-r)} .t-mebni{color:var(--c-b)}
+/* oyun */
+.blank{display:inline-block;min-width:1.6em;border-bottom:3px dashed var(--gold);color:var(--gold)}
+.opts .opt{min-height:56px}
+/* kart */
+.fcard{display:grid;place-items:center;width:100%;min-height:230px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,var(--panel),var(--panel2));padding:20px;color:inherit;text-align:center}
+.fcard .ff{font-size:clamp(2rem,8vw,3rem);line-height:1.5}
+.fcard .fb2{display:none;font-size:1rem;line-height:1.6}
+.fcard.flip .ff{display:none}
+.fcard.flip .fb2{display:block}
+@media print{.top,.noprint{display:none!important}body{background:#fff;color:#000}}

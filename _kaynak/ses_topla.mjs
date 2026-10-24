@@ -1,11 +1,12 @@
 // Programların seslendirdiği Arapça metinleri toplar: node _kaynak/ses_topla.mjs [program ...]
 // Her programı tarayıcıda açar, sesPlay'i dinler, ekranları gezerek tıklar ve
 // data-say metinlerini de alır. Sonuç: _kaynak/ses/<program>.txt (satır başına bir metin;
-// önceki taramalarla birleştirilir, tekrar çalıştırmak kapsamı artırır).
+// önceki taramalarla birleştirilir, tekrar çalıştırmak kapsamı artırır). Program SES_LISTE()
+// tanımlıyorsa onun verdiği metinler de eklenir.
 import {createRequire} from 'module';const {chromium}=createRequire(import.meta.url)('playwright');
 import fs from 'fs';import path from 'path';import {fileURLToPath} from 'url';
 const K=path.dirname(fileURLToPath(import.meta.url)),R=path.dirname(K);
-const ALL=['avamil-birgivi','avamil-curcani','bina-ef-al','emsile-tezgahi','izhar-esrar','maksud-darphanesi','usul-lafizlar'];
+const ALL=['avamil-birgivi','avamil-curcani','bina-ef-al','emsile-tezgahi','izhar-esrar','maksud-darphanesi','usul-lafizlar','nefy-terazisi'];
 const SURE=+(process.env.SURE||240)*1000;
 fs.mkdirSync(path.join(K,'ses'),{recursive:true});
 const br=await chromium.launch();
@@ -16,7 +17,8 @@ for(const p of (process.argv.slice(2).length?process.argv.slice(2):ALL)){
     window.sesPlay=(t,onend)=>{window.__said.add(String(t));if(onend)setTimeout(onend,0);return true;};});
   const said=new Set(),seen=new Map();const t0=Date.now();let n=0;
   const harvest=async()=>{for(const t of await pg.evaluate(()=>{const a=[...window.__said];window.__said.clear();
-    document.querySelectorAll('[data-say]').forEach(e=>a.push(e.dataset.say));return a;}))said.add(t);};
+    document.querySelectorAll('[data-say]').forEach(e=>a.push(e.dataset.say));
+    if(typeof SES_LISTE==='function')a.push(...SES_LISTE());return a;}))said.add(t);};
   while(Date.now()-t0<SURE){
     const c=await pg.evaluate(()=>{const v=e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0;};
       return [...document.querySelectorAll('button,a,[onclick],[data-say],[data-go],[data-i],[role=button],summary,label,.card,.opt,[tabindex]')]

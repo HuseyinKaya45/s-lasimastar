@@ -10,6 +10,7 @@ kayıtlı sesler programa gömülür.
 
 `izhar-esrar`, `usul-lafizlar` ve `maksud-darphanesi` klasörlerinde shell.html, `mkshell.py`
 ile izhar-esrar/shell.html temel alınarak üretilmiştir (pal.css + extra.css).
+`nefy-terazisi/shell.html` ise `nefy-terazisi/mkshell.py` ile Maksûd Darphânesi’nin kabuğundan üretilir (extra.css).
 
 ## Gömülü Arapça ses
 
