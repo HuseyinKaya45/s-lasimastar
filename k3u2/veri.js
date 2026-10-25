@@ -117,8 +117,25 @@ var DERSLER = [
 ]},
 // ---------------- DERS 11 ----------------
 { no: 11, kisa: "فَهْمُ المَسْموعِ", ar: "فَهْمُ المَسْموعِ", tr: "Dinleme", ozet: "Ailedeki çocuklar ve ergenlik çağındaki çocukların eğitimi hakkında iki bölümlük dinleme metni.", bloklar: [
- /*L11A*/
- /*L11B*/
+ { t: "dinle", s: "l11a", ar: "القِسْمُ الأَوَّلُ: الأُمَّهاتُ وَسِنُّ المُراهَقَةِ", aciklama: "Üç anne çocuklarından yakınıyor. Önce dinle, sonra soruları cevapla.", metin: [
+  ["شَكَتْ أُمٌّ فَقالَتْ: ابْني أَكْمَلَ الثّالِثَةَ عَشْرَةَ مِنْ عُمُرِهِ، وَلا نَعْرِفُ كَيْفَ نَجْعَلُهُ يَسْمَعُ كَلامَنا؛ فَهُوَ لا يُنَفِّذُ التَّوْجيهاتِ عِنْدَما نَقولُ لَهُ: صَلِّ، احْفَظِ القُرْآنَ، حُلَّ واجِباتِ المَدْرَسَةِ، اكْنُسْ غُرْفَتَكَ. وَعِنْدَما نَفْرِضُ عَلَيْهِ عَمَلَ شَيْءٍ يَبْكي كَثيرًا، وَنَحْنُ نُعامِلُهُ مُعامَلَةً طَيِّبَةً؛ فَنَأْذَنُ لَهُ بِمُشاهَدَةِ التِّلْفازِ، وَمُمارَسَةِ الرِّياضَةِ، وَزِيارَةِ أَصْدِقائِهِ في بُيوتِهِمْ، وَاسْتِقْبالِهِمْ في البَيْتِ.", "Bir anne yakındı: Oğlum on üç yaşını doldurdu; sözümüzü dinlemesini nasıl sağlayacağımızı bilmiyoruz. Ona “namaz kıl, Kur’ân ezberle, okul ödevlerini yap, odanı süpür” dediğimizde söylediklerimizi yapmıyor. Ona bir iş yüklediğimizde çok ağlıyor; oysa ona iyi davranıyoruz: televizyon izlemesine, spor yapmasına, arkadaşlarını evlerinde ziyaret etmesine ve onları evde ağırlamasına izin veriyoruz."],
+  ["تَشْكو أُمٌّ أُخْرى فَتَقولُ: ابْني يُحِبُّ نَفْسَهُ حُبًّا شَديدًا، وَيَرى نَفْسَهُ أَهَمَّ مِنْ إِخْوَتِهِ وَأَخَواتِهِ؛ فَهُوَ يَشْتَري أَفْضَلَ المَلابِسِ، وَيَلْتَحِقُ بِأَحْسَنِ المَدارِسِ، وَيَذْهَبُ إِلى أَغْلى المَطاعِمِ، وَيَسْكُنُ في أَجْمَلِ غُرْفَةٍ في البَيْتِ، وَقَدِ اشْتَرى قَبْلَ أَيّامٍ هاتِفًا جَوّالًا بِأَلْفِ دينارٍ، وَيَأْخُذُ هذا الابْنُ نُقودًا أَكْثَرَ مِنْ إِخْوَتِهِ. وَتَسْأَلُ هذِهِ الأُمُّ: كَيْفَ أُعالِجُ ابْني؟", "Başka bir anne yakınıyor: Oğlum kendini çok seviyor ve kendini kardeşlerinden önemli görüyor; en iyi elbiseleri alıyor, en iyi okullara giriyor, en pahalı lokantalara gidiyor, evin en güzel odasında kalıyor; birkaç gün önce bin dinara cep telefonu aldı; kardeşlerinden daha çok para alıyor. Bu anne: “Oğlumu nasıl düzelteyim?” diye soruyor."],
+  ["وَتَشْكو أُمٌّ ثالِثَةٌ فَتَقولُ: لي بِنْتانِ، إِحْداهُما في العاشِرَةِ، وَالأُخْرى في الثّانِيَةَ عَشْرَةَ. وَتُضيفُ الأُمُّ قائِلَةً: هُناكَ عَداوَةٌ شَديدَةٌ بَيْنَ الأُخْتَيْنِ، وَبَيْنَهُما شِجارٌ وَخِصامٌ دائِمٌ يَتَحَوَّلُ أَحْيانًا إِلى الضَّرْبِ. وَتَسْأَلُ الأُمُّ: كَيْفَ أَجْعَلُ العَلاقَةَ بَيْنَهُما عَلاقَةَ حُبٍّ لا كُرْهٍ وَبُغْضٍ؟", "Üçüncü bir anne yakınıyor: İki kızım var; biri on, diğeri on iki yaşında. Anne ekliyor: İki kardeş arasında şiddetli bir düşmanlık var; aralarında sürekli kavga ve çekişme var, bazen dövüşe dönüşüyor. Anne soruyor: Aralarındaki ilişkiyi nefret değil sevgi ilişkisi nasıl yaparım?"]],
+  not: "Metin kayıttan yazıya geçirildi; kitapta yalnızca sorular var." },
+ { t: "dy", ar: "تَدْريبٌ (١): أَجِبْ مِمّا سَمِعْتَ بِوَضْعِ عَلامَةِ (✓) أَوْ (✗)", ogeler: [
+  ["الابْنُ الأَوَّلُ عُمْرُهُ أَرْبَعَ عَشْرَةَ سَنَةً.", false, "أَكْمَلَ الابْنُ الأَوَّلُ الثّالِثَةَ عَشْرَةَ مِنْ عُمُرِهِ.", "Birinci oğul on dört yaşında."],
+  ["يُؤَدّي الابْنُ الأَوَّلُ صَلاتَهُ بِانْتِظامٍ.", false, "لا يُنَفِّذُ الابْنُ الأَوَّلُ التَّوْجيهاتِ عِنْدَما يُقالُ لَهُ: صَلِّ.", "Birinci oğul namazını düzenli kılıyor."],
+  ["الابْنُ الثّاني يُحِبُّ نَفْسَهُ كَثيرًا.", true, "", "İkinci oğul kendini çok seviyor."],
+  ["البِنْتُ الصَّغيرَةُ تُحِبُّ البِنْتَ الكَبيرَةَ.", false, "بَيْنَ الأُخْتَيْنِ عَداوَةٌ شَديدَةٌ.", "Küçük kız büyük kızı seviyor."],
+  ["الابْنُ الأَوَّلُ يَزورُ أَصْدِقاءَهُ في بُيوتِهِمْ.", true, "", "Birinci oğul arkadaşlarını evlerinde ziyaret ediyor."]] },
+ { t: "acik", ar: "تَدْريبٌ (٢): أَجِبْ مِمّا سَمِعْتَ عَنِ الأَسْئِلَةِ التّالِيَةِ بِاخْتِصارٍ", aciklama: "Önce kendin cevapla; sonra cevaba bak.", ogeler: [
+  ["مَتى يَبْكي الابْنُ الأَوَّلُ؟", "عِنْدَما يُفْرَضُ عَلَيْهِ عَمَلُ شَيْءٍ.", "Birinci oğul ne zaman ağlıyor?"], ["اذْكُرْ شَيْئَيْنِ لا يَفْعَلُهُما الابْنُ الأَوَّلُ.", "لا يُصَلّي، وَلا يَحُلُّ واجِباتِ المَدْرَسَةِ.", "Birinci oğlun yapmadığı iki şey"],
+  ["اذْكُرْ شَيْئَيْنِ يُمَيِّزُ بِهِما الابْنُ الأَوَّلُ نَفْسَهُ.", "يَشْتَري أَفْضَلَ المَلابِسِ، وَيَسْكُنُ في أَجْمَلِ غُرْفَةٍ في البَيْتِ.", "Kendini ayrıcalıklı kıldığı iki şey", "Kitapta «الأَوَّلُ» yazılmış; kayda göre kendini ayrıcalıklı kılan ikinci oğuldur."],
+  ["مَنِ الابْنُ الَّذي لا يُحِبُّهُ إِخْوَتُهُ وَأَخَواتُهُ؟", "الابْنُ الثّاني؛ لِأَنَّهُ يَرى نَفْسَهُ أَهَمَّ مِنْهُمْ.", "Kardeşlerinin sevmediği oğul hangisi?"],
+  ["أَيُّ الأَبْناءِ مُشْكِلَتُهُ صَعْبَةُ الحَلِّ في رَأْيِكَ؟", "في رَأْيي مُشْكِلَةُ الأُخْتَيْنِ؛ لِأَنَّ العَداوَةَ بَيْنَهُما شَديدَةٌ وَتَصِلُ إِلى الضَّرْبِ.", "Sence hangisinin sorunu zor?"]] },
+ { t: "secim", ar: "تَدْريبٌ (٣): اخْتَرِ الجَوابَ الصَّحيحَ مِمّا سَمِعْتَ", ogeler: [
+  ["اشْتَرى الابْنُ جَوّالَهُ بِـ…", "١٠٠٠ دينارٍ", ["١٠٠٠ رِيالٍ", "٢٠٠٠ دينارٍ"], "Oğul cep telefonunu … aldı."], ["اشْتَرى الابْنُ هاتِفَهُ قَبْلَ …", "أَيّامٍ", ["سَنَةٍ", "أُسْبوعٍ"], "Oğul telefonunu … önce aldı."],
+  ["عُمْرُ البِنْتِ الأولى …", "١٠ سِنينَ", ["١٢ سَنَةً", "١٣ سَنَةً"], "Birinci kızın yaşı …"], ["الأُمُّ الثّالِثَةُ لَها …", "بِنْتانِ", ["٣ بَناتٍ", "بِنْتٌ وَابْنٌ"], "Üçüncü annenin … var."]] },
 ]},
 // ---------------- DERS 12 ----------------
 { no: 12, kisa: "التَّعْبيرُ", ar: "التَّعْبيرُ الشَّفَهِيُّ وَالكِتابِيُّ", tr: "Sözlü ve yazılı anlatım", ozet: "Günlük program hakkında konuşma ve yazma.", bloklar: [
