@@ -74,7 +74,20 @@ var DERSLER = [
 ]},
 // ---------------- DERS 95 ----------------
 { no: 95, kisa: "فَهْمُ المَسْموعِ", ar: "فَهْمُ المَسْموعِ وَالكَلامُ", tr: "Dinleme ve konuşma", ozet: "Ödül alan bir yakın hakkında konuşmayı dinle; ödüller ve bir Kur’ân yarışması üzerine konuş.", bloklar: [
- /*L95*/
+ { t: "dinle", s: "l95", ar: "اسْتَمِعْ إِلى الحِوارِ", aciklama: "Zeyneb, oğlu Abdullah uluslararası Kur’ân yarışmasını kazanan Râdıye’yi tebrike geliyor. Önce dinle, sonra soruları cevapla.", metin: [
+  ["— السَّلامُ عَلَيْكُمْ يا أُخْتي راضِيَةُ. — وَعَلَيْكُمُ السَّلامُ وَرَحْمَةُ اللهِ وَبَرَكاتُهُ، تَفَضَّلي يا أُخْتي زَيْنَبُ، ادْخُلي.", "— Esselâmü aleyküm Râdıye kardeşim. — Ve aleykümüsselâm ve rahmetullahi ve berekâtüh; buyur Zeyneb kardeşim, gir."],
+  ["— حَضَرْنا لِنَقولَ لَكِ: مُبارَكٌ عَلى وَلَدِكِ عَبْدِ اللهِ؛ فَقَدْ فازَ في مُسابَقَةِ القُرْآنِ الكَريمِ الدَّوْلِيَّةِ في مَكَّةَ المُكَرَّمَةِ. هَلْ شاهَدْتِهِ مَساءَ أَمْسِ وَهُوَ يَتْلو القُرْآنَ الكَريمَ بِمَكَّةَ المُكَرَّمَةِ أَمامَ آلافِ النّاسِ؟", "— Oğlun Abdullah için “hayırlı olsun” demeye geldik; Mekke-i Mükerreme’deki uluslararası Kur’ân-ı Kerîm yarışmasını kazandı. Dün akşam onu Mekke’de binlerce insanın önünde Kur’ân okurken izledin mi?"],
+  ["— نَعَمْ، شاهَدْتُهُ مَساءَ أَمْسِ في التِّلْفازِ؛ كانَ يُرَتِّلُ القُرْآنَ تَرْتيلًا.", "— Evet, dün akşam onu televizyonda izledim; Kur’ân’ı tertil ile okuyordu."],
+  ["— عَبْدُ اللهِ وَلَدٌ مُبارَكٌ؛ فَقَدْ حَفِظَ كِتابَ اللهِ وَهُوَ في العاشِرَةِ مِنْ عُمُرِهِ. سَيَحْصُلُ وَلَدُكِ عَلى جائِزَةٍ كَبيرَةٍ في المُسابَقَةِ، إِنْ شاءَ اللهُ.", "— Abdullah mübarek bir çocuk; on yaşındayken Allah’ın kitabını ezberledi. İnşallah oğlun yarışmada büyük bir ödül alacak."],
+  ["— لَيْسَتِ الجائِزَةُ مُهِمَّةً، المُهِمُّ أَنَّهُ حَفِظَ القُرْآنَ الكَريمَ. — أَحْسَنْتِ؛ فَالمالُ يَذْهَبُ، وَكَلامُ اللهِ يَبْقى.", "— Ödül önemli değil; önemli olan Kur’ân-ı Kerîm’i ezberlemiş olması. — Güzel söyledin; mal gider, Allah’ın kelâmı kalır."],
+  ["— سَيَعودُ عَبْدُ اللهِ غَدًا بِالطّائِرَةِ مِنَ السُّعودِيَّةِ، وَسَنَذْهَبُ إِلى المَطارِ لِاسْتِقْبالِهِ. — سَنَذْهَبُ مَعَكُمْ أَيْضًا لِاسْتِقْبالِهِ. — جَزاكُمُ اللهُ خَيْرًا.", "— Abdullah yarın Suudi Arabistan’dan uçakla dönecek; onu karşılamak için havaalanına gideceğiz. — Biz de sizinle onu karşılamaya geleceğiz. — Allah sizden razı olsun."]],
+  not: "Metin kayıttan yazıya geçirildi; kitapta yalnızca sorular var." },
+ { t: "dy", ar: "اسْتَمِعْ إِلى الحِوارِ، ثُمَّ ضَعْ عَلامَةَ (✓) أَوْ (✗)، ثُمَّ صَحِّحِ الخَطَأَ", ogeler: [
+  ["زَيْنَبُ وَراضِيَةُ أُخْتانِ.", true, "", "Zeyneb ve Râdıye kardeştir.", "Birbirlerine «يا أُخْتي» diye hitap ediyorlar."],
+  ["عَبْدُ اللهِ الآنَ في مَكَّةَ المُكَرَّمَةِ.", true, "", "Abdullah şu an Mekke-i Mükerreme’de."],
+  ["حَفِظَ عَبْدُ اللهِ القُرْآنَ وَهُوَ شابٌّ.", false, "حَفِظَ عَبْدُ اللهِ القُرْآنَ وَهُوَ في العاشِرَةِ مِنْ عُمُرِهِ.", "Abdullah Kur’ân’ı gençken ezberledi."],
+  ["سَتَذْهَبُ راضِيَةُ وَحْدَها لِاسْتِقْبالِ عَبْدِ اللهِ.", false, "سَتَذْهَبُ زَيْنَبُ مَعَها لِاسْتِقْبالِ عَبْدِ اللهِ.", "Râdıye Abdullah’ı karşılamaya yalnız gidecek."],
+  ["سَيَرْجِعُ عَبْدُ اللهِ بِالجَوِّ مِنَ السُّعودِيَّةِ.", true, "", "Abdullah Suudi Arabistan’dan hava yoluyla dönecek.", "«بِالطّائِرَةِ» deniyor."]] },
  { t: "acik", ar: "تَكَلَّمْ — التَّدْريبُ (١): تَبادَلِ الأَسْئِلَةَ وَالأَجْوِبَةَ مَعَ زَميلِكَ: ما الجائِزَةُ الَّتي تُعْطيها كُلَّ واحِدٍ مِمّا يَلي؟", aciklama: "İkili etkinlik; sonra örnek cevaba bak.", ogeler: [
   ["الأُمُّ", "أُعْطي أُمّي ثَوْبًا جَميلًا.", "anne"], ["الأَبُ", "أُعْطي أَبي كِتابًا مُفيدًا.", "baba"], ["الأَخُ", "أُعْطي أَخي حاسوبًا.", "erkek kardeş"],
   ["الأُخْتُ", "أُعْطي أُخْتي حَقيبَةً.", "kız kardeş"], ["صَديقُكَ", "أُعْطي صَديقي ساعَةً.", "arkadaşın"], ["المُدَرِّسُ", "أُعْطي المُدَرِّسَ قَلَمًا جَميلًا.", "öğretmen"]] },
