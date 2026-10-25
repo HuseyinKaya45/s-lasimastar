@@ -65,7 +65,18 @@ var DERSLER = [
 ]},
 // ---------------- DERS 69 ----------------
 { no: 69, kisa: "فَهْمُ المَسْموعِ", ar: "فَهْمُ المَسْموعِ وَالكَلامُ", tr: "Dinleme ve konuşma", ozet: "Doktor bir karı-kocanın konuşmasını dinle; üniversite ve meslekler üzerine konuş.", bloklar: [
- /*L69*/
+ { t: "dinle", s: "l69", ar: "اسْتَمِعْ إِلى الحِوارِ", aciklama: "Doktor Târık ve doktor eşi. Önce dinle, sonra soruları cevapla.", metin: [
+  ["— كَيْفَ حالُكَ يا طارِقُ؟ وَما أَخْبارُ الأَوْلادِ؟ — الحَمْدُ لِلّهِ، أَنا بِخَيْرٍ، وَهُمْ بِخَيْرٍ. — وَلكِنَّكَ مُتْعَبٌ جِدًّا، هَلْ أَنْتَ مَريضٌ؟", "— Nasılsın Târık? Çocuklar ne âlemde? — Elhamdülillah, ben iyiyim, onlar da iyi. — Ama çok yorgunsun; hasta mısın?"],
+  ["— أَنْتَ تَعْرِفُ أَنَّني طَبيبٌ، وَزَوْجَتي طَبيبَةٌ كَذلِكَ، وَهذا مُتْعِبٌ جِدًّا. — ماذا تَعْني؟", "— Biliyorsun, ben doktorum, eşim de doktor; bu çok yorucu. — Ne demek istiyorsun?"],
+  ["— أَنا وَزَوْجَتي نَخْرُجُ في الصَّباحِ مَعًا، وَنَعودُ إِلى البَيْتِ في المَساءِ مَعًا. — وَمَتى تَجْلِسانِ مَعَ الأَوْلادِ؟ — نَجْلِسُ مَعَهُمْ ساعَةً أَوْ نِصْفَ ساعَةٍ؛ لَيْسَ لَدَيْنا وَقْتٌ.", "— Eşimle sabah birlikte çıkıyor, akşam birlikte eve dönüyoruz. — Çocuklarla ne zaman oturuyorsunuz? — Onlarla bir ya da yarım saat oturuyoruz; vaktimiz yok."],
+  ["— وَماذا تَفْعَلانِ في عُطْلَةِ الأُسْبوعِ؟ — نَتَحَدَّثُ أَنا وَزَوْجَتي عَنِ الطِّبِّ وَالمَرَضِ وَالمَرْضى. — أَنْتُما مُتْعَبانِ حَقًّا!", "— Hafta sonu ne yapıyorsunuz? — Eşimle tıp, hastalık ve hastalar hakkında konuşuyoruz. — Gerçekten yorgunsunuz!"]],
+  not: "Metin kayıttan yazıya geçirildi; kitapta yalnızca sorular var." },
+ { t: "secim", ar: "اسْتَمِعْ إِلى الحِوارِ، ثُمَّ اخْتَرِ الجَوابَ الصَّحيحَ", ogeler: [
+  ["مَنْ يَعْمَلُ طَبيبًا؟", "الزَّوْجُ وَالزَّوْجَةُ.", ["الزَّوْجُ.", "الزَّوْجَةُ."], "Kim doktor olarak çalışıyor?"],
+  ["كانَ الزَّوْجُ …", "مُتْعَبًا.", ["قَلِقًا.", "مَريضًا."], "Koca … idi."],
+  ["يَجْلِسُ الوالِدانِ مَعَ أَوْلادِهِما …", "ساعَةً.", ["نِصْفَ ساعَةٍ.", "ساعَةً وَنِصْفًا."], "Anne-baba çocuklarıyla … oturuyor.", "Kayıtta «ساعَةً أَوْ نِصْفَ ساعَةٍ» deniyor; en uygun şık “bir saat”tir."],
+  ["يَعْمَلُ الزَّوْجانِ …", "صَباحًا وَمَساءً.", ["صَباحًا.", "مَساءً."], "Eşler … çalışıyor."],
+  ["في العُطْلَةِ يَتَحَدَّثانِ عَنِ …", "المَرَضِ وَالمَرْضى وَالطِّبِّ.", ["الأَوْلادِ وَالعَمَلِ.", "المَرَضِ وَالمَرْضى."], "Tatilde … konuşuyorlar."]] },
  { t: "acik", ar: "تَكَلَّمْ — التَّدْريبُ (١): تَبادَلِ الأَسْئِلَةَ وَالأَجْوِبَةَ مَعَ زَميلِكَ", aciklama: "İkili etkinlik; sonra örnek cevaba bak.", ogeler: [
   ["كَمْ جامِعَةً في بَلَدِكَ؟", "في بَلَدي جامِعاتٌ كَثيرَةٌ، أَكْثَرُ مِنْ مِئَتَيْ جامِعَةٍ.", "Ülkende kaç üniversite var?"], ["ما أَقْدَمُ جامِعَةٍ في بَلَدِكَ؟", "أَقْدَمُ جامِعَةٍ في بَلَدي جامِعَةُ إِسْطَنْبولَ.", "Ülkendeki en eski üniversite hangisi?"],
   ["هَلْ تَخَرَّجْتَ في الجامِعَةِ؟", "نَعَمْ، تَخَرَّجْتُ في الجامِعَةِ قَبْلَ ثَلاثِ سَنَواتٍ.", "Üniversiteden mezun oldun mu?"], ["في أَيِّ كُلِّيَّةٍ تَخَرَّجْتَ؟", "تَخَرَّجْتُ في كُلِّيَّةِ الإِلهِيّاتِ.", "Hangi fakülteden mezun oldun?"],
@@ -182,7 +193,21 @@ var DERSLER = [
 ]},
 // ---------------- DERS 74 ----------------
 { no: 74, kisa: "فَهْمُ المَسْموعِ", ar: "فَهْمُ المَسْموعِ وَالكَلامُ", tr: "Dinleme ve konuşma", ozet: "Devlet işini bırakıp ticarete atılan bir arkadaşın hikâyesini dinle; gurbet üzerine konuş.", bloklar: [
- /*L74*/
+ { t: "dinle", s: "l74", ar: "اسْتَمِعْ إِلى النَّصِّ", aciklama: "Devlet memurluğunu bırakıp tüccar olan bir arkadaş. Önce dinle, sonra soruları cevapla.", metin: [
+  ["كانَ لي صَديقٌ يَعْمَلُ مُوَظَّفًا في الحُكومَةِ، ظَلَّ صَديقي يَعْمَلُ عَشْرَ سَنَواتٍ، كانَ راتِبُهُ قَليلًا، لا يَكْفي أُسْرَتَهُ الَّتي أَصْبَحَتْ كَبيرَةً.", "Devlette memur olarak çalışan bir arkadaşım vardı. On yıl çalıştı; maaşı azdı, kalabalıklaşan ailesine yetmiyordu."],
+  ["لَمْ يَكُنْ لِصَديقي بَيْتٌ، وَلَمْ تَكُنْ لَهُ سَيّارَةٌ، وَلَمْ يَكُنْ يُساعِدُ أَهْلَهُ.", "Arkadaşımın evi yoktu, arabası yoktu, ailesine de yardım edemiyordu."],
+  ["فَكَّرَ صَديقي كَثيرًا: أَنَّهُ إِذا ظَلَّ يَعْمَلُ في الحُكومَةِ عَشْرَ سَنَواتٍ أُخْرى، فَلَنْ يَشْتَرِيَ بَيْتًا، وَلا سَيّارَةً، وَلَنْ يُساعِدَ أَهْلَهُ.", "Arkadaşım çok düşündü: Devlette on yıl daha çalışırsa ne ev ne araba alabilecek, ne de ailesine yardım edebilecekti."],
+  ["فَكَّرَ صَديقي أَنْ يَتْرُكَ العَمَلَ في الحُكومَةِ، وَأَنْ يَعْمَلَ تاجِرًا. وَفِعْلًا فَتَحَ مَحَلًّا صَغيرًا لِبَيْعِ المَلابِسِ،", "Arkadaşım devletteki işi bırakıp tüccar olmayı düşündü. Gerçekten de giyim satan küçük bir dükkân açtı;"],
+  ["وَبَدَأَ يُعامِلُ النّاسَ مُعامَلَةً طَيِّبَةً، يَبيعُ لَهُمُ المَلابِسَ رَخيصَةً، فَاشْتُهِرَ كَثيرًا بَيْنَ النّاسِ.", "insanlara iyi davranmaya başladı, onlara giysileri ucuza satıyordu; böylece insanlar arasında çok tanındı."],
+  ["وَبَعْدَ سَنَةٍ تَرَكَ صَديقي المَحَلَّ الصَّغيرَ، وَفَتَحَ مَحَلًّا كَبيرًا في وَسَطِ المَدينَةِ، وَبَعْدَ ثَلاثِ سَنَواتٍ أَنْشَأَ شَرِكَةً كَبيرَةً لِصِناعَةِ المَلابِسِ.", "Bir yıl sonra küçük dükkânı bırakıp şehrin ortasında büyük bir dükkân açtı; üç yıl sonra da büyük bir giyim üretim şirketi kurdu."],
+  ["أَصْبَحَ صَديقي مِنْ أَغْنِياءِ المَدينَةِ، وَقَدْ أَحَبَّهُ النّاسُ كَثيرًا؛ فَهُوَ رَجُلٌ كَريمٌ يُساعِدُ النّاسَ، وَيَبْني المَساجِدَ وَالمَدارِسَ وَالمُسْتَشْفَياتِ.", "Arkadaşım şehrin zenginlerinden oldu; insanlar onu çok sevdi: cömert bir adam, insanlara yardım ediyor, cami, okul ve hastane yaptırıyor."]],
+  not: "Metin kayıttan yazıya geçirildi; kitapta yalnızca sorular var." },
+ { t: "secim", ar: "اسْتَمِعْ إِلى النَّصِّ، ثُمَّ اخْتَرِ الجَوابَ الصَّحيحَ", ogeler: [
+  ["عَمِلَ الصَّديقُ في الحُكومَةِ …", "١٠ سَنَواتٍ.", ["٨ سَنَواتٍ.", "٩ سَنَواتٍ."], "Arkadaş devlette … çalıştı."],
+  ["بَعْدَ أَنْ تَرَكَ العَمَلَ في الحُكومَةِ عَمِلَ …", "تاجِرًا.", ["مُوَظَّفًا في شَرِكَةٍ.", "طَبيبًا."], "Devletteki işi bıraktıktan sonra … olarak çalıştı."],
+  ["اشْتُهِرَ بَيْنَ النّاسِ …", "لِأَنَّهُ عامَلَهُمْ مُعامَلَةً طَيِّبَةً.", ["لِأَنَّهُ كانَ يَبيعُ المَلابِسَ.", "لِأَنَّ مَحَلَّهُ كَبيرٌ."], "İnsanlar arasında tanındı …"],
+  ["بَعْدَ أَنْ تَرَكَ المَحَلَّ الصَّغيرَ …", "فَتَحَ مَحَلًّا كَبيرًا لِلْمَلابِسِ.", ["أَنْشَأَ شَرِكَةً لِلْمَلابِسِ.", "فَتَحَ مَصْنَعًا لِلْمَلابِسِ."], "Küçük dükkânı bıraktıktan sonra …"],
+  ["أَصْبَحَ الصَّديقُ غَنِيًّا بَعْدَ …", "٤ سَنَواتٍ.", ["٣ سَنَواتٍ.", "سَنَةٍ واحِدَةٍ."], "Arkadaş … sonra zengin oldu.", "Küçük dükkânda bir yıl + büyük dükkândan sonra üç yıl = dört yıl."]] },
  { t: "acik", ar: "تَكَلَّمْ — التَّدْريبُ (١): ناقِشِ المَوْضوعاتِ التّالِيَةَ مَعَ زَميلِكَ", aciklama: "İkili etkinlik; sonra örnek cevaba bak.", ogeler: [
   ["لِماذا يَغْتَرِبُ الإِنْسانُ عَنْ بَلَدِهِ؟", "يَغْتَرِبُ لِلْعَمَلِ، أَوْ لِطَلَبِ العِلْمِ.", "İnsan niçin ülkesinden gurbete gider?"], ["ما البَلَدُ الَّذي تُحِبُّ أَنْ تَغْتَرِبَ إِلَيْهِ؟ لِماذا؟", "أُحِبُّ أَنْ أَغْتَرِبَ إِلى المَدينَةِ المُنَوَّرَةِ؛ لِأَدْرُسَ في جامِعَتِها.", "Gurbete gitmek istediğin ülke hangisi? Niçin?"],
   ["ما البَلَدُ الَّذي لا تُحِبُّ أَنْ تَغْتَرِبَ إِلَيْهِ؟ لِماذا؟", "لا أُحِبُّ أَنْ أَغْتَرِبَ إِلى بَلَدٍ غَريبٍ عَنْ ثَقافَتي.", "Gurbete gitmek istemediğin ülke hangisi? Niçin?"], ["ما المُشْكِلاتُ الَّتي يُقابِلُها مَنْ يَغْتَرِبُ إِلى بَلَدٍ آخَرَ؟", "اللُّغَةُ، وَالبُعْدُ عَنِ الأَهْلِ، وَالثَّقافَةُ المُخْتَلِفَةُ.", "Başka ülkeye gurbete gidenin karşılaştığı sorunlar neler?"],
