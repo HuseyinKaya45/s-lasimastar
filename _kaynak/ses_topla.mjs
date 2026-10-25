@@ -6,7 +6,7 @@
 import {createRequire} from 'module';const {chromium}=createRequire(import.meta.url)('playwright');
 import fs from 'fs';import path from 'path';import {fileURLToPath} from 'url';
 const K=path.dirname(fileURLToPath(import.meta.url)),R=path.dirname(K);
-const ALL=['avamil-birgivi','avamil-curcani','bina-ef-al','emsile-tezgahi','izhar-esrar','maksud-darphanesi','usul-lafizlar','nefy-terazisi','k2u1','k2u2','k2s1','k2u3','k2u4','k2u5','k2u6','k2u7','k2s2','k2s3','k2s4','k2u8','k2u9','k2u10','k2u11','k2u12','k2u13','k2u14','k2u15','k2u16','k2s5','k2s6'];
+const ALL=['avamil-birgivi','avamil-curcani','bina-ef-al','emsile-tezgahi','izhar-esrar','maksud-darphanesi','usul-lafizlar','nefy-terazisi','k2u1','k2u2','k2s1','k2u3','k2u4','k2u5','k2u6','k2u7','k2s2','k2s3','k2s4','k2u8','k2u9','k2u10','k2u11','k2u12','k2u13','k2u14','k2u15','k2u16','k2s5','k2s6','k2s7','k2s8','k2ns','k2nh'];
 const SURE=+(process.env.SURE||240)*1000;
 fs.mkdirSync(path.join(K,'ses'),{recursive:true});
 const br=await chromium.launch();
