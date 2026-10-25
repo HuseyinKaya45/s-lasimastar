@@ -830,7 +830,7 @@ R.bosluk = function (b, k) {
 };
 R.sessec = function (b, k) {
   return blokBas(b) + '<div class="sessec">' + b.ogeler.map(function (s, i) {
-    var a = A[k + ":" + i], h = hash(k + i) % 2, hedef = s[h];
+    var a = A[k + ":" + i], h = hash(k + i) % s.length, hedef = s[h];
     return '<div class="soru"><div class="satir-btn"><span class="soru-no">' + (i + 1) + "</span>" + calBtn({ m: hedef, s: b.ses ? b.ses[i][h] : undefined }, "btn") + '<div class="secim' + (a != null ? " bitti" : "") + '">' + s.map(function (o) {
       var c = a == null ? "" : o === hedef ? " dogru" : o === a.v ? " yanlis" : "";
       return '<button class="sec ar' + c + '" data-act="sessec" data-k="' + k + '" data-i="' + i + '" data-v="' + esc(o) + '" data-h="' + esc(hedef) + '"' + (a != null ? " disabled" : "") + ">" + esc(o) + "</button>";
