@@ -69,7 +69,20 @@ var DERSLER = [
 ]},
 // ---------------- DERS 56 ----------------
 { no: 56, kisa: "فَهْمُ المَسْموعِ", ar: "فَهْمُ المَسْموعِ وَالكَلامُ", tr: "Dinleme ve konuşma", ozet: "Beşîr’in okuma isteğini dinle; neden okuduğumuz ve tercihler üzerine konuş.", bloklar: [
- /*L56*/
+ { t: "dinle", s: "l56", ar: "اسْتَمِعْ إِلى الحِوارِ", aciklama: "Beşîr lise sonucunu babasına gösteriyor. Önce dinle, sonra soruları cevapla.", metin: [
+  ["— هذِهِ نَتيجَةُ شَهادَةِ الثّانَوِيَّةِ يا أَبي: النِّسْبَةُ ٩٨٪، وَالتَّقْديرُ مُمْتازٌ. — مُبارَكٌ عَلَيْكَ يا بَشيرُ، وَمُبارَكٌ عَلَيْنا جَميعًا.", "— Lise diplomamın sonucu bu babacığım: yüzde 98, derece pekiyi. — Tebrikler Beşîr, hepimize hayırlı olsun."],
+  ["— هذا يَوْمٌ سَعيدٌ في حَياتِنا، الحَمْدُ لِلّهِ وَالشُّكْرُ لِلّهِ. كُنْتُ أَدْعو لَكَ يا بَشيرُ في صَلَواتي دائِمًا أَيّامَ الاخْتِباراتِ. وَمَتى تُقَدِّمُ أَوْراقَكَ إِلى كُلِّيَّةِ الطِّبِّ؟", "— Bu hayatımızda mutlu bir gün; hamd ve şükür Allah’a. Sınav günlerinde namazlarımda sana hep dua ediyordum Beşîr. Evraklarını tıp fakültesine ne zaman vereceksin?"],
+  ["— لا أَرْغَبُ في دِراسَةِ الطِّبِّ؛ أُفَضِّلُ دِراسَةَ عُلومِ الحاسوبِ. — افْعَلْ ما تُريدُ يا بَشيرُ، وَالْتَحِقْ بِالكُلِّيَّةِ الَّتي تَرْغَبُ فيها.", "— Tıp okumak istemiyorum; bilgisayar bilimleri okumayı tercih ediyorum. — İstediğini yap Beşîr; istediğin fakülteye gir."],
+  ["— شُكْرًا لَكَ يا أَبي، وَلكِنْ أُريدُ الدِّراسَةَ في الخارِجِ، في أَمْريكا. — هُنا أَخْتَلِفُ مَعَكَ يا وَلَدي. — الدِّراسَةُ هُناكَ أَفْضَلُ مِنَ الدِّراسَةِ هُنا.", "— Teşekkür ederim babacığım; ama yurt dışında, Amerika’da okumak istiyorum. — İşte burada sana katılmıyorum oğlum. — Orada okumak burada okumaktan daha iyi."],
+  ["— لَيْسَ هذا صَحيحًا، وَسَتُواجِهُ هُناكَ مُشْكِلاتٍ كَثيرَةً وَخَطيرَةً. ادْرُسِ الجامِعَةَ هُنا، وَسافِرْ إِلى هُناكَ؛ لِتَحْصُلَ عَلى الدُّكْتوراه، إِذا كانَ هذا ضَرورِيًّا.", "— Bu doğru değil; orada birçok ciddi sorunla karşılaşırsın. Üniversiteyi burada oku; gerekirse doktora için oraya git."],
+  ["— نَصيحَةٌ طَيِّبَةٌ، سَأُقَدِّمُ أَوْراقي غَدًا إِلى كُلِّيَّةِ الحاسوبِ، إِنْ شاءَ اللهُ. — وَفَّقَكَ اللهُ يا وَلَدي.", "— Güzel bir öğüt; inşallah yarın evraklarımı bilgisayar fakültesine vereceğim. — Allah seni başarılı kılsın oğlum."]],
+  not: "Metin kayıttan yazıya geçirildi; kitapta yalnızca sorular var." },
+ { t: "dy", ar: "اسْتَمِعْ إِلى الحِوارِ، ثُمَّ ضَعْ عَلامَةَ (✓) أَوْ (✗)، ثُمَّ صَحِّحِ الخَطَأَ", ogeler: [
+  ["كانَتِ الأُمُّ تَدْعو لِابْنِها بَشيرٍ في صَلَواتِها بِالزَّواجِ.", false, "كانَ الأَبُ يَدْعو لِابْنِهِ بَشيرٍ في صَلَواتِهِ أَيّامَ الاخْتِباراتِ.", "Anne namazlarında oğlu Beşîr için evlilik duası ediyordu."],
+  ["يُفَضِّلُ الابْنُ دِراسَةَ العُلومِ.", false, "يُفَضِّلُ الابْنُ دِراسَةَ عُلومِ الحاسوبِ.", "Oğul fen bilimleri okumayı tercih ediyor."],
+  ["يُريدُ الابْنُ الدِّراسَةَ في الوِلاياتِ المُتَّحِدَةِ.", true, "", "Oğul Amerika’da okumak istiyor."],
+  ["يُفَضِّلُ الأَبُ أَنْ يَدْرُسَ ابْنُهُ في بَلَدِهِ.", true, "", "Baba oğlunun kendi ülkesinde okumasını tercih ediyor."],
+  ["سَيَدْرُسُ الابْنُ المَرْحَلَةَ الجامِعِيَّةَ في بَلَدِهِ.", true, "", "Oğul üniversiteyi kendi ülkesinde okuyacak."]] },
  { t: "acik", ar: "تَكَلَّمْ — التَّدْريبُ (١): تَبادَلِ الأَسْئِلَةَ وَالأَجْوِبَةَ مَعَ زَميلِكَ", aciklama: "İkili etkinlik; sonra örnek cevaba bak.", ogeler: [
   ["لِماذا نَدْرُسُ اللُّغَةَ العَرَبِيَّةَ؟", "لِأَنَّها لُغَةُ القُرْآنِ الكَريمِ، وَلُغَةُ الحَديثِ الشَّريفِ.", "Arapçayı niçin okuruz?"], ["لِماذا نَدْرُسُ الطِّبَّ؟", "لِنُعالِجَ المَرْضى.", "Tıbbı niçin okuruz?"],
   ["لِماذا نَدْرُسُ الهَنْدَسَةَ؟", "لِنَبْنِيَ البُيوتَ وَالمَصانِعَ وَالطُّرُقَ.", "Mühendisliği niçin okuruz?"], ["لِماذا نَدْرُسُ العُلومَ الطَّبيعِيَّةَ؟", "لِنَعْرِفَ خَلْقَ اللهِ في الأَرْضِ وَالسَّماءِ.", "Fen bilimlerini niçin okuruz?"],
@@ -183,7 +196,20 @@ var DERSLER = [
 ]},
 // ---------------- DERS 61 ----------------
 { no: 61, kisa: "فَهْمُ المَسْموعِ", ar: "فَهْمُ المَسْموعِ وَالكَلامُ", tr: "Dinleme ve konuşma", ozet: "İslâm medeniyeti üzerine bir metin dinle; ilim ve eğitim üzerine tartış.", bloklar: [
- /*L61*/
+ { t: "dinle", s: "l61", ar: "اسْتَمِعْ إِلى النَّصِّ", aciklama: "İslâm medeniyeti ve Avrupa. Önce dinle, sonra soruları cevapla.", metin: [
+  ["تَأَثَّرَتْ أوروبّا كَثيرًا بِحَضارَةِ المُسْلِمينَ؛ فَقَدْ كانَ لَدى المُسْلِمينَ حَضارَةٌ عَظيمَةٌ، حَمَلَها المُسْلِمونَ إِلى كُلِّ العالَمِ، مِنَ الصّينِ في الشَّرْقِ إِلى أوروبّا في الغَرْبِ.", "Avrupa, Müslümanların medeniyetinden çok etkilendi; Müslümanların, doğuda Çin’den batıda Avrupa’ya kadar bütün dünyaya taşıdıkları büyük bir medeniyetleri vardı."],
+  ["تَقَدَّمَ المُسْلِمونَ في الرِّياضِيّاتِ وَالطِّبِّ وَالصَّيْدَلَةِ وَغَيْرِها.", "Müslümanlar matematikte, tıpta, eczacılıkta ve başka alanlarda ilerledi."],
+  ["تَعَلَّمَ الطُّلّابُ مِنْ أوروبّا في المَدارِسِ وَالجامِعاتِ عِنْدَ المُسْلِمينَ، وَاتَّصَلَ عُلَماءُ أوروبّا بِالعُلَماءِ المُسْلِمينَ، وَتَرْجَموا كُتُبَ المُسْلِمينَ في الطِّبِّ وَالصَّيْدَلَةِ وَالرِّياضِيّاتِ، ثُمَّ دَرَّسوا هذِهِ الكُتُبَ في مَدارِسِهِمْ وَجامِعاتِهِمْ.", "Avrupalı öğrenciler Müslümanların okul ve üniversitelerinde öğrenim gördü; Avrupa’nın âlimleri Müslüman âlimlerle temas kurdu, Müslümanların tıp, eczacılık ve matematik kitaplarını tercüme etti, sonra bu kitapları kendi okul ve üniversitelerinde okuttu."],
+  ["بَعْدَ ذلِكَ مَرَّتْ عَلى المُسْلِمينَ سِنونَ طَويلَةٌ، تَرَكوا فيها العِلْمَ، فَانْتَشَرَ بَيْنَهُمُ الجَهْلُ، حَتّى وَصَلوا إِلى مَرْحَلَةِ التَّخَلُّفِ.", "Sonra Müslümanların üzerinden uzun yıllar geçti; bu yıllarda ilmi bıraktılar, aralarında cehalet yayıldı ve geri kalmışlık aşamasına ulaştılar."],
+  ["في العَصْرِ الحَديثِ عادَ المُسْلِمونَ مَرَّةً ثانِيَةً إِلى طَلَبِ العِلْمِ، كَما أَمَرَهُمْ بِذلِكَ دينُهُمْ، فَفَتَحوا المَدارِسَ وَالجامِعاتِ في القُرى وَالمُدُنِ.", "Modern çağda Müslümanlar, dinlerinin emrettiği gibi yeniden ilim talebine döndüler; köylerde ve şehirlerde okullar ve üniversiteler açtılar."],
+  ["لَقَدْ عَرَفوا أَنَّ العِلْمَ وَسيلَةُ الإِنْسانِ في هذِهِ الحَياةِ، وَقَرَّروا أَنْ يَهْتَمّوا بِالعِلْمِ وَالعُلَماءِ؛ حَتّى تَتَقَدَّمَ بِلادُهُمْ.", "İlmin insanın bu hayattaki aracı olduğunu anladılar ve ülkeleri ilerlesin diye ilme ve âlimlere önem vermeye karar verdiler."]],
+  not: "Metin kayıttan yazıya geçirildi; kitapta yalnızca sorular var." },
+ { t: "secim", ar: "اسْتَمِعْ إِلى النَّصِّ، ثُمَّ اخْتَرِ الجَوابَ الصَّحيحَ", ogeler: [
+  ["حَمَلَ المُسْلِمونَ حَضارَتَهُمْ إِلى …", "كُلِّ العالَمِ.", ["الصّينِ في الشَّرْقِ.", "أوروبّا في الغَرْبِ."], "Müslümanlar medeniyetlerini … taşıdı."],
+  ["تَقَدَّمَ المُسْلِمونَ في …", "الصَّيْدَلَةِ وَالطِّبِّ وَالرِّياضِيّاتِ.", ["العُلومِ وَالطِّبِّ وَالصَّيْدَلَةِ.", "العُلومِ وَالهَنْدَسَةِ وَالفَلَكِ."], "Müslümanlar … ilerledi."],
+  ["تَعَلَّمَ طُلّابُ أوروبّا في …", "مَدارِسِ المُسْلِمينَ وَجامِعاتِهِمْ.", ["مَدارِسِ المُسْلِمينَ.", "كُلِّيّاتِ المُسْلِمينَ وَمَساجِدِهِمْ."], "Avrupalı öğrenciler … öğrenim gördü."],
+  ["في العَصْرِ الحَديثِ …", "طَلَبَ المُسْلِمونَ العِلْمَ.", ["رَجَعَ المُسْلِمونَ إِلى الدّينِ.", "تَرَكَ المُسْلِمونَ العِلْمَ."], "Modern çağda …"],
+  ["فَتَحَ المُسْلِمونَ مَعاهِدَهُمْ في …", "الرّيفِ وَالمُدُنِ.", ["القُرى.", "الشَّرْقِ وَالغَرْبِ."], "Müslümanlar okullarını … açtı.", "«فَفَتَحوا المَدارِسَ وَالجامِعاتِ في القُرى وَالمُدُنِ»"]] },
  { t: "acik", ar: "تَكَلَّمْ — التَّدْريبُ (١): ناقِشِ المَوْضوعاتِ التّالِيَةَ مَعَ فَريقٍ مِنْ زُمَلائِكَ", aciklama: "Grup etkinliği; sonra örnek cevaba bak.", ogeler: [
   ["تَأَخَّرَ المُسْلِمونَ؛ لِأَنَّهُمْ تَرَكوا العِلْمَ.", "نَعَمْ، عِنْدَما تَرَكَ المُسْلِمونَ العِلْمَ، وَابْتَعَدوا عَنِ الدّينِ، تَأَخَّروا.", "Müslümanlar ilmi bıraktıkları için geri kaldılar."],
   ["تَأَثَّرَتْ حَضارَةُ أوروبّا بِحَضارَةِ المُسْلِمينَ.", "تَرْجَمَ عُلَماءُ أوروبّا كُتُبَ المُسْلِمينَ، وَدَرَّسوها في جامِعاتِهِمْ.", "Avrupa medeniyeti Müslümanların medeniyetinden etkilendi."],
