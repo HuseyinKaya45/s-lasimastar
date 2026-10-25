@@ -90,8 +90,25 @@ var DERSLER = [
 ]},
 // ---------------- DERS 25 ----------------
 { no: 25, kisa: "فَهْمُ المَسْموعِ", ar: "فَهْمُ المَسْموعِ", tr: "Dinleme", ozet: "Sünnetin yeri ve hadislerin yazılması: iki bölümlük dinleme.", bloklar: [
- /*L25A*/
- /*L25B*/
+ { t: "dinle", s: "l25a", ar: "القِسْمُ الأَوَّلُ: سُنَّةُ الرَّسولِ ﷺ", aciklama: "Sünnetin yeri ve korunması. Önce dinle, sonra soruları cevapla.", metin: [
+  ["يَهْتَمُّ المُسْلِمونَ اهْتِمامًا عَظيمًا بِالقُرْآنِ الكَريمِ وَالحَديثِ النَّبَوِيِّ؛ فَيَحْفَظونَ القُرْآنَ في الصُّدورِ، وَيَكْتُبونَهُ في المَصاحِفِ، وَيَحْفَظونَ كَذلِكَ أَقْوالَ نَبِيِّهِمْ ﷺ وَأَفْعالَهُ وَأَحْوالَهُ، وَهذا الاهْتِمامُ لا تَعْرِفُهُ الأُمَمُ الأُخْرى.", "Müslümanlar Kur’ân-ı Kerîm’e ve hadise büyük önem verir: Kur’ân’ı ezberler ve mushaflara yazarlar; Peygamberlerinin ﷺ sözlerini, fiillerini ve hâllerini de ezberlerler. Bu ilgiyi başka milletler bilmez."],
+  ["يَحْتَوي القُرْآنُ عَلى آياتٍ كَثيرَةٍ توجِبُ عَلى المُسْلِمينَ اتِّباعَ الرَّسولِ ﷺ، كَقَوْلِهِ تَعالى: ﴿وَمَا آتَاكُمُ الرَّسُولُ فَخُذُوهُ وَمَا نَهَاكُمْ عَنْهُ فَانْتَهُوا﴾، كَما وَرَدَتْ أَحاديثُ توجِبُ اتِّباعَ الرَّسولِ ﷺ، مِنْها قَوْلُهُ: «مَنْ أَطاعَني دَخَلَ الجَنَّةَ، وَمَنْ عَصاني فَقَدْ أَبى».", "Kur’ân’da müslümanlara Resûlullah’a ﷺ uymayı farz kılan birçok âyet vardır: “Peygamber size ne verdiyse alın, sizi neden men ettiyse ondan kaçının.” Resûlullah’a uymayı farz kılan hadisler de gelmiştir: “Bana itaat eden cennete girer, bana isyan eden ise (cenneti) reddetmiş olur.”"],
+  ["السُّنَّةُ النَّبَوِيَّةُ هِيَ قَوْلُ الرَّسولِ ﷺ وَفِعْلُهُ وَتَقْريرُهُ، وَهِيَ المَصْدَرُ الثّاني لِلتَّشْريعِ الإِسْلامِيِّ. وَيَرْجِعُ العُلَماءُ لِلْبَحْثِ عَنِ الحُكْمِ الشَّرْعِيِّ إِلى القُرْآنِ الكَريمِ وَالحَديثِ النَّبَوِيِّ الشَّريفِ؛ لِأَنَّهُ يُؤَكِّدُ ما جاءَ في القُرْآنِ مِنْ أَحْكامٍ، أَوْ يُبَيِّنُها، أَوْ يُفَصِّلُها، وَقَدْ يَأْتي الحَديثُ بِحُكْمٍ جَديدٍ لَمْ يَرِدْ في كِتابِ اللهِ.", "Sünnet, Resûlullah’ın ﷺ sözü, fiili ve takriridir; İslâm teşrîinin ikinci kaynağıdır. Âlimler şer‘î hükmü ararken Kur’ân’a ve hadise başvurur; çünkü hadis Kur’ân’daki hükümleri pekiştirir, açıklar ya da ayrıntılandırır; bazen de Allah’ın kitabında geçmeyen yeni bir hüküm getirir."],
+  ["لَمْ يُدَوَّنِ الحَديثُ كُلُّهُ في عَهْدِ الرَّسولِ ﷺ، وَإِنَّما كانَ بَعْضُ الأَفْرادِ يَكْتُبونَ بَعْضَ الأَحاديثِ، وَيَحْتَفِظونَ بِها عِنْدَهُمْ. هذا ما يَخُصُّ كِتابَةَ الحَديثِ في عَهْدِ الرَّسولِ ﷺ، أَمّا ما يَخُصُّ الحِفْظَ، فَقَدْ حَفِظَ الصَّحابَةُ أَحاديثَ الرَّسولِ ﷺ في صُدورِهِمْ، وَكانوا يَتَبادَلونَها فيما بَيْنَهُمْ.", "Hadislerin tamamı Resûlullah’ın ﷺ döneminde yazılmadı; bazı kişiler bazı hadisleri yazıp yanlarında saklardı. Bu, onun dönemindeki hadis yazımıyla ilgilidir. Ezberlemeye gelince, sahabe Resûlullah’ın ﷺ hadislerini ezberledi ve birbirlerine aktardı."]],
+  not: "Metin kayıttan yazıya geçirildi; kitapta yalnızca sorular var." },
+ { t: "dy", ar: "تَدْريبٌ (١): أَجِبْ مِمّا سَمِعْتَ بِوَضْعِ عَلامَةِ (✓) أَوْ (✗)", ogeler: [
+  ["اهْتَمَّ المُسْلِمونَ بِالقُرْآنِ أَكْثَرَ مِنَ السُّنَّةِ.", false, "يَهْتَمُّ المُسْلِمونَ بِالقُرْآنِ وَالحَديثِ اهْتِمامًا عَظيمًا.", "Müslümanlar Kur’ân’a sünnetten çok önem verdi."],
+  ["عَلى المُسْلِمِ العَمَلُ بِما جاءَ بِهِ الرَّسولُ ﷺ.", true, "", "Müslüman Resûlullah’ın getirdiğiyle amel etmelidir."],
+  ["حَفِظَ الصَّحابَةُ أَحاديثَ الرَّسولِ ﷺ في صُدورِهِمْ.", true, "", "Sahabe hadisleri ezberledi."],
+  ["كُلُّ ما جاءَ في السُّنَّةِ مَوْجودٌ في القُرْآنِ.", false, "قَدْ يَأْتي الحَديثُ بِحُكْمٍ جَديدٍ لَمْ يَرِدْ في كِتابِ اللهِ.", "Sünnette gelen her şey Kur’ân’da vardır."],
+  ["عِنْدَما تُوُفِّيَ الرَّسولُ ﷺ كانَتْ أَحاديثُهُ مَكْتوبَةً.", false, "لَمْ يُدَوَّنِ الحَديثُ كُلُّهُ في عَهْدِ الرَّسولِ ﷺ.", "Resûlullah vefat ettiğinde hadisleri yazılıydı."]] },
+ { t: "acik", ar: "تَدْريبٌ (٢): أَجِبْ مِمّا سَمِعْتَ عَنِ الأَسْئِلَةِ التّالِيَةِ بِاخْتِصارٍ", aciklama: "Önce kendin cevapla; sonra cevaba bak.", ogeler: [
+  ["كَيْفَ اهْتَمَّ المُسْلِمونَ بِالقُرْآنِ؟", "حَفِظوهُ في الصُّدورِ، وَكَتَبوهُ في المَصاحِفِ.", "Kur’ân’a nasıl önem verdiler?"], ["لِماذا يَجِبُ اتِّباعُ السُّنَّةِ؟", "لِأَنَّ القُرْآنَ وَالأَحاديثَ توجِبُ اتِّباعَ الرَّسولِ ﷺ.", "Sünnete niçin uyulmalı?"],
+  ["ما جَزاءُ مَنْ عَصى الرَّسولَ ﷺ؟", "لا يَدْخُلُ الجَنَّةَ: «وَمَنْ عَصاني فَقَدْ أَبى».", "Resûlullah’a isyan edenin cezası?"], ["ما المَصْدَرُ الأَوَّلُ لِلتَّشْريعِ الإِسْلامِيِّ؟", "القُرْآنُ الكَريمُ.", "Teşrîin birinci kaynağı?"],
+  ["ما عَلاقَةُ الحَديثِ بِالقُرْآنِ؟", "يُؤَكِّدُ أَحْكامَهُ، أَوْ يُبَيِّنُها، أَوْ يُفَصِّلُها، وَقَدْ يَأْتي بِحُكْمٍ جَديدٍ.", "Hadisin Kur’ân’la ilişkisi?"]] },
+ { t: "secim", ar: "تَدْريبٌ (٣): اخْتَرِ الجَوابَ الصَّحيحَ", ogeler: [
+  ["نَفْهَمُ مِمّا سَمِعْنا أَنَّ السُّنَّةَ تَأْتي …", "بَعْدَ القُرْآنِ", ["في مَنْزِلَةِ القُرْآنِ", "قَبْلَ القُرْآنِ أَحْيانًا"], "Sünnet … gelir."], ["في السُّنَّةِ …", "بَعْضُ الأَحْكامِ الجَديدَةِ", ["لا توجَدُ أَحْكامٌ جَديدَةٌ", "كُلُّ الَّذي في القُرْآنِ"], "Sünnette …"],
+  ["نَفْهَمُ مِمّا سَمِعْنا أَنَّ الحَديثَ دُوِّنَ …", "بَعْضُهُ في حَياتِهِ ﷺ", ["في عَهْدِ الرَّسولِ ﷺ", "كَثيرٌ مِنْهُ في حَياةِ الرَّسولِ ﷺ"], "Hadis … yazıldı."]] },
 ]},
 // ---------------- DERS 26 ----------------
 { no: 26, kisa: "التَّعْبيرُ", ar: "التَّعْبيرُ الشَّفَهِيُّ وَالكِتابِيُّ", tr: "Sözlü ve yazılı anlatım", ozet: "Sünnet ve hadisler hakkında konuşma ve yazma.", bloklar: [
