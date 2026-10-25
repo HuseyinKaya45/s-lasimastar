@@ -72,7 +72,20 @@ var DERSLER = [
 ]},
 // ---------------- DERS 82 ----------------
 { no: 82, kisa: "فَهْمُ المَسْموعِ", ar: "فَهْمُ المَسْموعِ وَالكَلامُ", tr: "Dinleme ve konuşma", ozet: "Nâsır’ın diller fakültesine kaydını dinle; diller ve Arapça öğrenme sorunları üzerine konuş.", bloklar: [
- /*L82*/
+ { t: "dinle", s: "l82", ar: "اسْتَمِعْ إِلى الحِوارِ", aciklama: "Nâsır hangi fakülteye gireceğini annesiyle konuşuyor. Önce dinle, sonra soruları cevapla.", metin: [
+  ["— بِأَيِّ كُلِّيَّةٍ سَتَلْتَحِقُ يا ناصِرُ؟ — قَدَّمْتُ أَوْراقي إِلى كُلِّيَّةِ اللُّغاتِ. — كُلِّيَّةِ اللُّغاتِ؟! كُلِّيَّةُ الآدابِ أَفْضَلُ.", "— Hangi fakülteye gireceksin Nâsır? — Evraklarımı diller fakültesine verdim. — Diller fakültesi mi?! Edebiyat fakültesi daha iyi."],
+  ["— أُفَضِّلُ الالْتِحاقَ بِكُلِّيَّةِ اللُّغاتِ؛ فَقَدْ أَصْبَحَتْ دِراسَةُ اللُّغاتِ مُهِمَّةً جِدًّا في العالَمِ اليَوْمَ. — أَعْتَقِدُ أَنَّ الطُّلّابَ لا يَرْغَبونَ في كُلِّيَّةِ اللُّغاتِ.", "— Diller fakültesine girmeyi tercih ediyorum; bugün dünyada dil öğrenmek çok önemli hâle geldi. — Bence öğrenciler diller fakültesini istemiyor."],
+  ["— هذا غَيْرُ صَحيحٍ؛ فَهُناكَ ثَلاثَةُ آلافِ طالِبٍ قَدَّموا أَوْراقَهُمْ إِلى كُلِّيَّةِ اللُّغاتِ، وَقُبِلَ مِنْهُمْ ثَلاثُمِئَةِ طالِبٍ.", "— Bu doğru değil; diller fakültesine üç bin öğrenci başvurdu, bunlardan üç yüzü kabul edildi."],
+  ["— مَا اللُّغاتُ الَّتي تُدَرَّسُ في هذِهِ الكُلِّيَّةِ؟ — لُغاتٌ كَثيرَةٌ، مِنْها: العَرَبِيَّةُ، وَالإِنْجْليزِيَّةُ، وَالفارِسِيَّةُ، وَالأُرْدِيَّةُ، وَالسَّواحِلِيَّةُ.", "— Bu fakültede hangi diller okutuluyor? — Birçok dil: Arapça, İngilizce, Farsça, Urduca ve Svahili."],
+  ["— وَمَا اللُّغاتُ الَّتي سَتَدْرُسُها؟ — سَأَدْرُسُ لُغَتَيْنِ: العَرَبِيَّةَ وَالإِنْجْليزِيَّةَ. — لِماذا اخْتَرْتَ هاتَيْنِ اللُّغَتَيْنِ؟", "— Sen hangi dilleri okuyacaksın? — İki dil okuyacağım: Arapça ve İngilizce. — Niçin bu iki dili seçtin?"],
+  ["— اخْتَرْتُ العَرَبِيَّةَ؛ لِأَنَّ العَرَبِيَّةَ لُغَةُ الإِسْلامِ، وَاخْتَرْتُ الإِنْجْليزِيَّةَ؛ لِأَنَّها لُغَةٌ عالَمِيَّةٌ.", "— Arapçayı seçtim, çünkü Arapça İslâm’ın dilidir; İngilizceyi seçtim, çünkü o bir dünya dilidir."]],
+  not: "Metin kayıttan yazıya geçirildi; kitapta yalnızca sorular var. Kayıtta konuşanların adı söylenmiyor; kitaptaki 5. cümleye göre Nâsır’ın konuştuğu kişi annesidir." },
+ { t: "dy", ar: "اسْتَمِعْ إِلى الحِوارِ، ثُمَّ ضَعْ عَلامَةَ (✓) أَوْ (✗)، ثُمَّ صَحِّحِ الخَطَأَ", ogeler: [
+  ["قَدَّمَ ناصِرٌ أَوْراقَهُ إِلى كُلِّيَّةِ اللُّغَةِ العَرَبِيَّةِ.", false, "قَدَّمَ ناصِرٌ أَوْراقَهُ إِلى كُلِّيَّةِ اللُّغاتِ.", "Nâsır evraklarını Arap dili fakültesine verdi."],
+  ["قُبِلَ ثَلاثُمِئَةِ طالِبٍ في كُلِّيَّةِ اللُّغاتِ.", true, "", "Diller fakültesine üç yüz öğrenci kabul edildi."],
+  ["اللُّغَتانِ الأُرْدِيَّةُ وَالفارِسِيَّةُ مِنَ اللُّغاتِ الَّتي تُدَرَّسُ في كُلِّيَّةِ اللُّغاتِ.", true, "", "Urduca ve Farsça diller fakültesinde okutulan dillerdendir."],
+  ["اخْتارَ ناصِرٌ اللُّغَتَيْنِ العَرَبِيَّةَ وَالسَّواحِلِيَّةَ.", false, "اخْتارَ ناصِرٌ اللُّغَتَيْنِ العَرَبِيَّةَ وَالإِنْجْليزِيَّةَ.", "Nâsır Arapça ve Svahili’yi seçti."],
+  ["الأُمُّ تُفَضِّلُ أَنْ يَلْتَحِقَ ناصِرٌ بِكُلِّيَّةِ الآدابِ.", true, "", "Anne Nâsır’ın edebiyat fakültesine girmesini tercih ediyor."]] },
  { t: "acik", ar: "تَكَلَّمْ — التَّدْريبُ (١): تَبادَلِ الأَسْئِلَةَ وَالأَجْوِبَةَ مَعَ زَميلِكَ", aciklama: "İkili etkinlik; sonra örnek cevaba bak.", ogeler: [
   ["ما لُغَتُكَ الأولى؟ (الأُمُّ)", "لُغَتي الأولى التُّرْكِيَّةُ.", "Ana dilin ne?"], ["كَمْ لُغَةً تَتَحَدَّثُ؟ ما هِيَ؟", "أَتَحَدَّثُ ثَلاثَ لُغاتٍ: التُّرْكِيَّةَ، وَالعَرَبِيَّةَ، وَالإِنْجْليزِيَّةَ.", "Kaç dil konuşuyorsun? Hangileri?"],
   ["كَمْ لُغَةً يَتَحَدَّثُها النّاسُ في بَلَدِكَ؟", "يَتَحَدَّثُ النّاسُ في بَلَدي التُّرْكِيَّةَ، وَالكُرْدِيَّةَ، وَلُغاتٍ أُخْرى.", "Ülkende insanlar kaç dil konuşuyor?"], ["ما لُغَةُ التَّعْليمِ في بَلَدِكَ؟", "لُغَةُ التَّعْليمِ في بَلَدي التُّرْكِيَّةُ.", "Ülkende eğitim dili ne?"],
@@ -187,7 +200,19 @@ var DERSLER = [
 ]},
 // ---------------- DERS 87 ----------------
 { no: 87, kisa: "فَهْمُ المَسْموعِ", ar: "فَهْمُ المَسْموعِ وَالكَلامُ", tr: "Dinleme ve konuşma", ozet: "Reşîde’nin İslâm’ı Arapça okumak için Suudi Arabistan’a gelişini dinle; dillerin birbirinden kelime alması üzerine konuş.", bloklar: [
- /*L87*/
+ { t: "dinle", s: "l87", ar: "اسْتَمِعْ إِلى النَّصِّ", aciklama: "Pakistanlı Reşîde. Önce dinle, sonra soruları cevapla.", metin: [
+  ["رَشيدَةُ فَتاةٌ باكِسْتانِيَّةٌ، جاءَتْ إِلى السُّعودِيَّةِ هِيَ وَأَخوها رَشيدٌ.", "Reşîde Pakistanlı bir kız; kardeşi Reşîd ile birlikte Suudi Arabistan’a geldi."],
+  ["دَرَسَتْ رَشيدَةُ الإِسْلامَ بِاللُّغَةِ الإِنْجْليزِيَّةِ في كُلِّيَّةٍ بِمَدينَةِ إِسْلام آبادَ، وَحَفِظَتِ القُرْآنَ في مَدْرَسَةٍ في الحَيِّ الَّذي تَسْكُنُ فيهِ، بَعْدَ صَلاةِ العَصْرِ، ثَلاثَةَ أَيّامٍ في الأُسْبوعِ.", "Reşîde İslâm’ı İslâmâbâd’da bir fakültede İngilizce okudu; Kur’ân’ı da oturduğu mahalledeki bir okulda, haftada üç gün ikindiden sonra ezberledi."],
+  ["تَعْتَقِدُ رَشيدَةُ أَنَّ دِراسَةَ الإِسْلامِ بِاللُّغَةِ الإِنْجْليزِيَّةِ لا تَكْفي، وَتُريدُ أَنْ تَدْرُسَ الإِسْلامَ بِاللُّغَةِ العَرَبِيَّةِ الَّتي نَزَلَ بِها القُرْآنُ الكَريمُ، وَتُحِبُّ التَّخَصُّصَ في الثَّقافَةِ الإِسْلامِيَّةِ وَاللُّغَةِ العَرَبِيَّةِ.", "Reşîde, İslâm’ı İngilizce okumanın yetmediğini düşünüyor; onu Kur’ân’ın indiği Arapça ile okumak, İslâm kültürü ve Arap dilinde uzmanlaşmak istiyor."],
+  ["رَشيدَةُ سَتَدْرُسُ في جامِعَةِ أُمِّ القُرى في كُلِّيَّةِ الشَّريعَةِ، وَأَخوها سَيَتَعَلَّمُ اللُّغَةَ العَرَبِيَّةَ في مَعْهَدِ اللُّغَةِ العَرَبِيَّةِ، في جامِعَةِ أُمِّ القُرى أَيْضًا.", "Reşîde Ümmü’l-Kurâ Üniversitesi’nde Şeriat Fakültesi’nde okuyacak; kardeşi de yine Ümmü’l-Kurâ Üniversitesi’ndeki Arapça enstitüsünde Arapça öğrenecek."],
+  ["بَعْدَ التَّخَرُّجِ تُحِبُّ أَنْ تَعْمَلَ رَشيدَةُ مُدَرِّسَةً لِلثَّقافَةِ الإِسْلامِيَّةِ وَاللُّغَةِ العَرَبِيَّةِ في مَدينَتِها في شَمالِ باكِسْتانَ.", "Mezun olunca Reşîde, Pakistan’ın kuzeyindeki şehrinde İslâm kültürü ve Arapça öğretmeni olarak çalışmak istiyor."]],
+  not: "Metin kayıttan yazıya geçirildi; kitapta yalnızca sorular var." },
+ { t: "secim", ar: "اسْتَمِعْ إِلى النَّصِّ، ثُمَّ اخْتَرِ الجَوابَ الصَّحيحَ", ogeler: [
+  ["حَضَرَتْ رَشيدَةُ إِلى السُّعودِيَّةِ …", "هِيَ وَأَخوها.", ["وَحْدَها.", "هِيَ وَأَبوها."], "Reşîde Suudi Arabistan’a … geldi."],
+  ["دَرَسَتْ رَشيدَةُ الإِسْلامَ في بَلَدِها بِاللُّغَةِ …", "الإِنْجْليزِيَّةِ.", ["الأُرْدِيَّةِ.", "العَرَبِيَّةِ."], "Reşîde ülkesinde İslâm’ı … okudu."],
+  ["رَشيدَةُ تُريدُ أَنْ تَدْرُسَ الإِسْلامَ بِـ…", "لُغَةِ القُرْآنِ.", ["اللُّغَةِ الأُرْدِيَّةِ.", "اللُّغَةِ الإِنْجْليزِيَّةِ."], "Reşîde İslâm’ı … okumak istiyor."],
+  ["سَتَدْرُسُ رَشيدَةُ في كُلِّيَّةِ …", "الشَّريعَةِ.", ["اللُّغَةِ العَرَبِيَّةِ.", "الآدابِ."], "Reşîde … fakültesinde okuyacak."],
+  ["حَفِظَتْ رَشيدَةُ القُرْآنَ في …", "المَدْرَسَةِ.", ["الكُلِّيَّةِ.", "المَعْهَدِ."], "Reşîde Kur’ân’ı … ezberledi."]] },
  { t: "acik", ar: "تَكَلَّمْ — التَّدْريبُ (١): تَبادَلِ الأَسْئِلَةَ وَالأَجْوِبَةَ مَعَ زَميلِكَ", aciklama: "İkili etkinlik; sonra örnek cevaba bak.", ogeler: [
   ["هَلِ اقْتَرَضَتْ لُغَتُكَ بَعْضَ الأَلْفاظِ مِنَ العَرَبِيَّةِ؟ اذْكُرْ بَعْضًا مِنْها.", "نَعَمْ، مِثْلُ: كِتاب، قَلَم، صَبْر، عِلْم، دَعْوَة.", "Dilin Arapçadan kelime aldı mı? Bazılarını söyle."],
   ["هَلِ اقْتَرَضَتْ لُغَتُكَ أَلْفاظًا مِنْ لُغاتٍ أُخْرى؟ اذْكُرْ بَعْضًا مِنْها.", "نَعَمْ، مِنَ الفارِسِيَّةِ وَالفَرَنْسِيَّةِ، مِثْلُ: Pencere وَ Otobüs.", "Dilin başka dillerden kelime aldı mı?"],
