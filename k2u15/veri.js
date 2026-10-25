@@ -18,7 +18,8 @@ var DERSLER = [
   [1, "وَلِماذا لا تُدْفَنُ في تِلْكَ البِلادِ الصِّناعِيَّةِ؟! أَلَيْسَ لَهُمْ أَرْضٌ مِثْلُنا؟!", "Peki niçin o sanayi ülkelerine gömülmüyor?! Onların da bizim gibi toprağı yok mu?!", "d183-9"],
   [0, "بَلى، لَهُمْ أَرْضٌ مِثْلُنا، وَلكِنَّ لَدَيْهِمْ مُنَظَّماتٍ لا تَسْمَحُ بِتَلَوُّثِ البيئَةِ، وَهُمْ يَخافونَ عَلى شُعوبِهِمْ.", "Elbette, onların da bizim gibi toprağı var; ama onların çevre kirliliğine izin vermeyen kuruluşları var ve halkları için korkuyorlar.", "d183-10"],
   [1, "وَلِماذا لا نَخافُ عَلى شُعوبِنا مِثْلَهُمْ، وَتَكونُ لَنا مُنَظَّماتٌ مِثْلُ مُنَظَّماتِهِمْ؟!", "Peki biz niçin onlar gibi halkımız için korkmuyoruz ve onlarınki gibi kuruluşlarımız olmuyor?!", "d183-11"],
-  [0, "هذا ما يَجِبُ عَمَلُهُ.", "Yapılması gereken de bu.", "d183-12"]] },
+  [0, "هذا ما يَجِبُ عَمَلُهُ.", "Yapılması gereken de bu.", "d183-12"]],
+  not: "Kayıt eski baskıdan: “شَفاهُ اللهُ” sözü yok; “إِنّا لِلّهِ وَإِنّا إِلَيْهِ راجِعونَ” yerine “لا حَوْلَ وَلا قُوَّةَ إِلّا بِاللهِ” denir." },
  { t: "dy", ar: "اسْتيعابٌ — التَّدْريبُ (١): ضَعْ عَلامَةَ (✓) أَوْ (✗)، ثُمَّ صَحِّحِ الخَطَأَ", ogeler: [
   ["صالِحٌ مُصابٌ بِالسَّرَطانِ.", true, "", "Sâlih kanser hastası."],
   ["ماتَ في المَدينَةِ عَدَدٌ كَبيرٌ.", true, "", "Şehirde çok sayıda insan öldü."],
@@ -62,7 +63,20 @@ var DERSLER = [
 ]},
 // ---------------- DERS 186 ----------------
 { no: 186, kisa: "فَهْمُ المَسْموعِ", ar: "فَهْمُ المَسْموعِ وَالكَلامُ", tr: "Dinleme ve konuşma", ozet: "Brisbane şehir meclisinin yeni otobüsleri hakkındaki haberi dinle; çevre kirliliği üzerine konuş.", bloklar: [
- /*L186*/
+ { t: "dinle", s: "l186", ar: "اسْتَمِعْ إِلى الخَبَرِ", aciklama: "Bir şehir meclisinin gazla çalışan otobüsleri. Önce dinle, sonra soruları cevapla.", metin: [
+  ["قَرَّرَ مَجْلِسُ مَدينَةِ بِرِسْبِنَ في فِنْلَنْدا شِراءَ مِئَةٍ وَعِشْرينَ حافِلَةً تَعْمَلُ بِالغازِ لا بِالوَقودِ، وَالهَدَفُ مِنْ هذا القَرارِ تَحْسينُ نَوْعِيَّةِ الهَواءِ في المَدينَةِ.", "Brisbane şehir meclisi, yakıtla değil gazla çalışan yüz yirmi otobüs satın almaya karar verdi; bu kararın amacı şehirdeki havanın kalitesini iyileştirmek."],
+  ["وَسَيُؤَدّي اسْتِخْدامُ الحافِلاتِ الجَديدَةِ الَّتي تَعْمَلُ بِالغازِ إِلى خَفْضِ حَجْمِ الدُّخانِ في الجَوِّ بِنِسْبَةِ ٩٠٪، وَسَيُؤَدّي هذا إِلى راحَةِ الرُّكّابِ.", "Gazla çalışan yeni otobüslerin kullanılması havadaki duman miktarını %90 azaltacak; bu da yolcuları rahatlatacak."],
+  ["وَكانَ عُمْدَةُ المَدينَةِ قَدْ قالَ في خِطابٍ أَلْقاهُ في الأَيّامِ السّابِقَةِ: إِنَّ الهَدَفَ مِنِ اسْتِخْدامِ الحافِلاتِ الَّتي تَعْمَلُ بِالغازِ خَفْضُ الازْدِحامِ، وَتَحْسينُ مُسْتَوى الحافِلاتِ العامَّةِ، وَحِمايَةُ البيئَةِ.", "Şehrin belediye başkanı geçen günlerde yaptığı bir konuşmada, gazla çalışan otobüslerin kullanılmasının amacının trafik sıkışıklığını azaltmak, toplu taşıma otobüslerinin düzeyini yükseltmek ve çevreyi korumak olduğunu söylemişti."],
+  ["وَقَدْ دَرَسَ مَجْلِسُ المَدينَةِ تَجْرِبَةَ اسْتِعْمالِ المِئَةِ وَالعِشْرينَ حافِلَةً الَّتي تَعْمَلُ بِالغازِ، وَالَّتِي اسْتَغْرَقَتْ سَنَةً وَنِصْفَ السَّنَةِ.", "Şehir meclisi, gazla çalışan yüz yirmi otobüsün bir buçuk yıl süren kullanım deneyimini inceledi."],
+  ["وَجاءَتِ النَّتائِجُ بِأَنَّ اسْتِعْمالَ الغازِ في الحافِلاتِ الجَديدَةِ أَدّى إِلى خَفْضِ أَوَّلِ أُكْسيدِ الكَرْبونِ بِنِسْبَةِ ٩٩٪، وَخَفْضِ الأَدْخِنَةِ الأُخْرى بِنِسْبَةِ ٩٣٪. وَبِناءً عَلى ذلِكَ قَرَّرَ المَجْلِسُ اسْتِعْمالَ هذا النَّوْعِ مِنَ الحافِلاتِ مُدَّةَ ثَلاثِ سَنَواتٍ أُخْرى.", "Sonuçlar, yeni otobüslerde gaz kullanılmasının karbon monoksidi %99, diğer dumanları %93 azalttığını gösterdi. Buna dayanarak meclis bu tür otobüsleri üç yıl daha kullanmaya karar verdi."]],
+  not: "Metin kayıttan yazıya geçirildi; kitapta yalnızca sorular var. Kayıtta şehir “Finlandiya’da” denir; gerçekte Brisbane Avustralya’dadır. Soru kayda göre cevaplandı." },
+ { t: "secim", ar: "اسْتَمِعْ إِلى الخَبَرِ، ثُمَّ أَجِبْ عَنِ الأَسْئِلَةِ التّالِيَةِ بِاخْتِصارٍ", ogeler: [
+  ["في أَيِّ بَلَدٍ مَجْلِسُ مَدينَةِ بِرِسْبِنَ؟", "في فِنْلَنْدا (حَسَبَ التَّسْجيلِ).", ["في فَرَنْسا.", "في كَنَدا."], "Brisbane şehir meclisi hangi ülkede?"],
+  ["ما المُشْكِلَةُ الَّتي تُواجِهُها المَدينَةُ؟", "تَلَوُّثُ الهَواءِ بِالدُّخانِ، وَالازْدِحامُ.", ["قِلَّةُ الماءِ.", "كَثْرَةُ النُّفاياتِ."], "Şehrin karşılaştığı sorun ne?"],
+  ["ماذا اشْتَرى المَجْلِسُ؟", "مِئَةً وَعِشْرينَ حافِلَةً تَعْمَلُ بِالغازِ.", ["تِسْعينَ سَيّارَةً.", "ثَلاثَ طائِراتٍ."], "Meclis ne satın aldı?"],
+  ["بِمَ تَعْمَلُ الحافِلاتُ؟", "بِالغازِ.", ["بِالوَقودِ.", "بِالكَهْرَباءِ."], "Otobüsler neyle çalışıyor?"],
+  ["ما الهَدَفُ مِنْ شِراءِ هذِهِ الحافِلاتِ؟", "تَحْسينُ نَوْعِيَّةِ الهَواءِ، وَخَفْضُ الازْدِحامِ، وَحِمايَةُ البيئَةِ.", ["زِيادَةُ عَدَدِ الرُّكّابِ فَقَطْ.", "بَيْعُها لِمُدُنٍ أُخْرى."], "Bu otobüsleri almanın amacı ne?"],
+  ["ما نَتائِجُ اسْتِخْدامِ الحافِلاتِ الجَديدَةِ؟", "خَفْضُ أَوَّلِ أُكْسيدِ الكَرْبونِ بِنِسْبَةِ ٩٩٪، وَالأَدْخِنَةِ الأُخْرى بِنِسْبَةِ ٩٣٪.", ["زِيادَةُ الدُّخانِ في الجَوِّ.", "خَفْضُ أَسْعارِ الوَقودِ."], "Yeni otobüslerin kullanılmasının sonuçları ne?"]] },
  { t: "acik", ar: "تَكَلَّمْ — التَّدْريبُ (١): تَبادَلِ الأَسْئِلَةَ وَالأَجْوِبَةَ مَعَ زَميلِكَ", aciklama: "İkili etkinlik; sonra örnek cevaba bak.", ogeler: [
   ["هَلْ تَعيشُ في المَدينَةِ، أَمْ في الرّيفِ؟", "أَعيشُ في المَدينَةِ.", "Şehirde mi kırsalda mı yaşıyorsun?"], ["هَلْ تَعيشُ في مَدينَةٍ كَبيرَةٍ أَمْ صَغيرَةٍ؟", "أَعيشُ في مَدينَةٍ كَبيرَةٍ.", "Büyük bir şehirde mi küçük bir şehirde mi yaşıyorsun?"], ["هَلْ تَعيشُ في إِحْدى الدُّوَلِ الصِّناعِيَّةِ؟", "نَعَمْ، بَلَدي فيهِ صِناعَةٌ كَثيرَةٌ.", "Sanayi ülkelerinden birinde mi yaşıyorsun?"],
   ["أَيْنَ يَكْثُرُ تَلَوُّثُ البيئَةِ؟", "في المُدُنِ الكَبيرَةِ وَالمَناطِقِ الصِّناعِيَّةِ.", "Çevre kirliliği nerede çok?"], ["مَتى يَنْتَشِرُ مَرَضُ السَّرَطانِ؟ لِماذا؟", "يَنْتَشِرُ إِذا تَلَوَّثَتِ البيئَةُ؛ لِأَنَّ التَّلَوُّثَ يَضُرُّ بِالصِّحَّةِ.", "Kanser ne zaman yayılır? Niçin?"], ["هَلْ تُحِبُّ أَنْ تَعيشَ في بيئَةٍ غَيْرِ نَظيفَةٍ؟ لِماذا؟", "لا؛ لِأَنَّها تُسَبِّبُ الأَمْراضَ.", "Temiz olmayan bir çevrede yaşamak ister misin?"]] },
@@ -156,7 +170,21 @@ var DERSLER = [
 ]},
 // ---------------- DERS 191 ----------------
 { no: 191, kisa: "فَهْمُ المَسْموعِ", ar: "فَهْمُ المَسْموعِ وَالكَلامُ", tr: "Dinleme ve konuşma", ozet: "Küresel ısınma hakkındaki haberi dinle; çevreyi koruyan ve bozanları karşılaştır.", bloklar: [
- /*L191*/
+ { t: "dinle", s: "l191", ar: "اسْتَمِعْ إِلى الخَبَرِ", aciklama: "Yeryüzünün ısınması. Önce dinle, sonra cümleleri tamamla.", metin: [
+  ["يَخافُ العالَمُ الآنَ مِنِ ارْتِفاعِ دَرَجَةِ حَرارَةِ الأَرْضِ، وَقَدْ كُتِبَتْ تَقاريرُ عَديدَةٌ في هذا المَوْضوعِ.", "Dünya şimdi yeryüzünün sıcaklığının yükselmesinden korkuyor; bu konuda birçok rapor yazıldı."],
+  ["قالَ أَحَدُها: إِنَّ دَرَجَةَ الحَرارَةِ رُبَّما تَرْتَفِعُ سِتَّ دَرَجاتٍ مِئَوِيَّةٍ في الوِلاياتِ المُتَّحِدَةِ ابْتِداءً مِنْ سَنَةِ ٢١٠٠م، وَأَنَّ مُسْتَوى سَطْحِ البَحْرِ سَيَرْتَفِعُ سِتّينَ سَنْتيمِتْرًا.", "Bunlardan biri, sıcaklığın 2100 yılından itibaren Amerika Birleşik Devletleri’nde belki altı derece yükseleceğini ve deniz seviyesinin altmış santimetre yükseleceğini söyledi."],
+  ["وَقالَ أَحَدُ العُلَماءِ: إِنَّ تَغَيُّرَ الجَوِّ أَدّى إِلى مَوْتِ مِئَةِ أَلْفِ شَخْصٍ في أَنْحاءِ الأَرْضِ، أَغْلَبُهُمْ مِنَ الدُّوَلِ النّامِيَةِ، مِثْلِ الهِنْدِ وَفِنِزْويلا.", "Bir bilim adamı, iklim değişikliğinin yeryüzünün dört bir yanında, çoğu Hindistan ve Venezuela gibi gelişmekte olan ülkelerden yüz bin kişinin ölümüne yol açtığını söyledi."],
+  ["وَقالَ عالِمٌ آخَرُ: إِنَّ ارْتِفاعَ دَرَجَةِ حَرارَةِ الأَرْضِ أَدّى إِلى هِجْرَةِ ٣٠٠ مِلْيونِ شَخْصٍ مِنْ بِلادِهِمْ مُنْذُ سَنَةِ ١٩٩٧م. وَأَضافَ أَنَّ جَوَّ الأَرْضِ تَغَيَّرَ في السَّنَواتِ الأَخيرَةِ ما بَيْنَ عَشْرٍ وَخَمْسينَ مَرَّةً.", "Başka bir bilim adamı, yeryüzünün ısınmasının 1997’den beri 300 milyon kişinin ülkesinden göç etmesine yol açtığını söyledi; yeryüzünün havasının son yıllarda on ile elli kez arasında değiştiğini de ekledi."],
+  ["وَيَقولُ العُلَماءُ: إِنَّ غازَ ثاني أُكْسيدِ الكَرْبونِ هُوَ السَّبَبُ الرَّئيسُ في تَآكُلِ طَبَقَةِ الأوزونِ، وَهذا يُؤَدّي إِلى تَغَيُّرِ دَرَجَةِ الحَرارَةِ عَلى الأَرْضِ.", "Bilim adamları, karbondioksit gazının ozon tabakasının aşınmasının başlıca sebebi olduğunu, bunun da yeryüzündeki sıcaklığın değişmesine yol açtığını söylüyor."],
+  ["وَمِنْ ناحِيَةٍ أُخْرى يُؤَدّي ارْتِفاعُ دَرَجَةِ حَرارَةِ الأَرْضِ إِلى مَوْتِ النَّباتِ وَالحَيَوانِ، وَوُقوعِ المَجاعاتِ، وَقَدْ يُؤَدّي هذا إِلى القَضاءِ عَلى الإِنْسانِ إِذا قَدَّرَ اللهُ ذلِكَ.", "Öte yandan yeryüzünün ısınması bitkilerin ve hayvanların ölümüne ve kıtlıklara yol açar; Allah takdir ederse bu, insanın yok olmasına da yol açabilir."]],
+  not: "Metin kayıttan yazıya geçirildi; kitapta yalnızca tamamlanacak cümleler var." },
+ { t: "secim", ar: "اسْتَمِعْ إِلى الخَبَرِ، ثُمَّ أَكْمِلِ العِباراتِ التّالِيَةَ", ogeler: [
+  ["أَكْبَرُ مُشْكِلَةٍ تُواجِهُ العالَمَ…", "ارْتِفاعُ دَرَجَةِ حَرارَةِ الأَرْضِ.", ["قِلَّةُ الماءِ.", "الحُروبُ."], "Dünyanın karşılaştığı en büyük sorun …"],
+  ["أَدّى تَغَيُّرُ الجَوِّ إِلى…", "مَوْتِ مِئَةِ أَلْفِ شَخْصٍ.", ["مَوْتِ مِلْيونِ شَخْصٍ.", "هِجْرَةِ مِئَةِ شَخْصٍ."], "İklim değişikliği … yol açtı."],
+  ["مُعْظَمُ الَّذينَ ماتوا مِنْهُ…", "مِنَ الدُّوَلِ النّامِيَةِ، مِثْلِ الهِنْدِ وَفِنِزْويلا.", ["مِنَ الوِلاياتِ المُتَّحِدَةِ.", "مِنْ أوروبّا."], "Ondan ölenlerin çoğu …"],
+  ["عَدَدُ الَّذينَ هاجَروا مِنْ بِلادِهِمْ بِسَبَبِ ارْتِفاعِ الحَرارَةِ…", "٣٠٠ مِلْيونِ شَخْصٍ.", ["٣٠٠ أَلْفِ شَخْصٍ.", "مِئَةُ أَلْفِ شَخْصٍ."], "Sıcaklığın yükselmesi yüzünden ülkesinden göç edenlerin sayısı …"],
+  ["تَغَيَّرَ جَوُّ الأَرْضِ ما بَيْنَ…", "عَشْرٍ وَخَمْسينَ مَرَّةً.", ["سِتٍّ وَسِتّينَ مَرَّةً.", "مِئَةٍ وَمِئَتَيْ مَرَّةٍ."], "Yeryüzünün havası … arasında değişti."],
+  ["قَدْ يُؤَدّي ارْتِفاعُ حَرارَةِ الأَرْضِ إِلى…", "مَوْتِ النَّباتِ وَالحَيَوانِ، وَوُقوعِ المَجاعاتِ.", ["زِيادَةِ الزِّراعَةِ.", "انْخِفاضِ مُسْتَوى البَحْرِ."], "Yeryüzünün ısınması … yol açabilir."]] },
  { t: "resim", ar: "تَكَلَّمْ — التَّدْريبُ (١): قارِنْ بَيْنَ الصّورَتَيْنِ (نَشاطٌ ثُنائِيٌّ)", aciklama: "Resimleri karşılaştır; sonra örnek cümleye bak.", resimler: [
   ["copalan", "هذا مَكانٌ جَميلٌ، وَلكِنَّ النّاسَ أَلْقَوْا فيهِ النُّفاياتِ فَأَفْسَدوهُ.", "Kirletilmiş alan"], ["temizleyen", "هؤُلاءِ الشَّبابُ يَجْمَعونَ النُّفاياتِ، وَيُحافِظونَ عَلى البيئَةِ.", "Temizleyen gençler"]] },
  { t: "acik", ar: "التَّدْريبُ (٢): قارِنْ في فَريقٍ مِنْ زُمَلائِكَ بَيْنَ مَجْموعَةٍ مِنَ النّاسِ تُفْسِدُ البيئَةَ، وَمَجْموعَةٍ أُخْرى تُحافِظُ عَلى البيئَةِ", aciklama: "Grup etkinliği; sonra örnek cevaba bak.", ogeler: [
