@@ -187,7 +187,7 @@ R.dy = function (b, k) {
       [["✓ Doğru", true], ["✗ Yanlış", false]].map(function (o) {
         var c = a == null ? "" : o[1] === s[1] ? " dogru" : o[1] === cv ? " yanlis" : "";
         return '<button class="sec' + c + '" data-act="dy" data-k="' + k + '" data-i="' + i + '" data-v="' + o[1] + '"' + (a != null ? " disabled" : "") + ">" + o[0] + "</button>";
-      }).join("") + "</div>" + (a != null ? '<div class="sonra">' + (s[1] ? "Doğru." : "Doğrusu: " + AR(s[2] || "")) + "</div>" : "") + "</div>";
+      }).join("") + "</div>" + (a != null ? '<div class="sonra">' + (s[1] ? "Doğru." : "Doğrusu: " + AR(s[2] || "")) + (s[4] ? '<div class="trline">' + AW(s[4]) + "</div>" : "") + "</div>" : "") + "</div>";
   }).join("");
 };
 R.secim = function (b, k) {
