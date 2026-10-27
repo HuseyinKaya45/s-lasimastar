@@ -23,3 +23,6 @@ ile izhar-esrar/shell.html temel alınarak üretilmiştir (pal.css + extra.css).
 
 Kayıt yalnızca toplanan metinler içindir; programın anlık ürettiği (ör. kullanıcının seçtiği
 kökle çekim) metinlerde cihazdaki Arapça sese dönülür, o da yoksa uyarı verilir.
+
+## İngilizce (Arapça–İngilizce) sürümler
+`k2ortak/yap.py --en <ünite>` → `en/<ünite>/index.html` (veri.en.js + meta.en.json + k2ortak/en_ui.json). Çeviriyi toplu üretmek için `_kaynak/ceviri_en.py` (kılavuz: `_kaynak/ceviri_en/README.md`).
