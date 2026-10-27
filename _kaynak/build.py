@@ -6,7 +6,7 @@ K=os.path.dirname(os.path.abspath(__file__));R=os.path.dirname(K)
 ORDER={'avamil-birgivi':['data1.js','data2.js','app.js'],'avamil-curcani':['data.js','app.js'],'emsile-tezgahi':['engine.js','app.js'],
  'bina-ef-al':['data.js','app.js'],'izhar-esrar':['lessons.js','data.js','app.js'],'usul-lafizlar':['lessons.js','data.js','app.js'],
  'maksud-darphanesi':['lessons.js','engine.js','data.js','head.js','views.js'],
- 'nefy-terazisi':['engine.js','lessons.js','app.js'],'miras-terazisi':['lessons.js','data.js','engine.js','app.js'],'zaman-makinesi':['engine.js','lessons.js','data.js','app.js'],'yapi-ustasi':['engine.js','lessons1.js','lessons2.js','lessons3.js','data.js','app.js']}
+ 'nefy-terazisi':['engine.js','lessons.js','app.js'],'miras-terazisi':['lessons.js','data.js','engine.js','app.js'],'zaman-makinesi':['engine.js','lessons.js','data.js','app.js'],'yapi-ustasi':['engine.js','lessons1.js','lessons2.js','lessons3.js','lessons4.js','data.js','app.js']}
 fonts=open(os.path.join(K,'fonts.css')).read()
 for p in (sys.argv[1:] or ORDER):
     d=os.path.join(K,p);sh=open(os.path.join(d,'shell.html')).read().replace('/*__FONTS__*/',fonts)

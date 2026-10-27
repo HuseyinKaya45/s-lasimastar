@@ -53,7 +53,7 @@ const partOfU=n=>PARTS.find(p=>p.u.includes(n));
 const partDone=k=>PARTS[k].u.every(n=>S.un[n]);
 const BADGES=[
  ['🌱','İlk ünite',()=>uDone()>=1],['🔑','Modal ustası',()=>partDone(0)],['💭','if & wish',()=>partDone(1)],['🏗️','Edilgen',()=>partDone(2)],['🗣️','Aktarma',()=>partDone(3)],
- ['🧩','-ing & to',()=>partDone(4)],['📦','İsimler',()=>partDone(5)],['🏁','47 ünite',()=>uDone()===UNITS.length],['⭐','141 yıldız',()=>starSum()===UNITS.length*3],
+ ['🧩','-ing & to',()=>partDone(4)],['📦','İsimler',()=>partDone(5)],['🧭','Zamirler',()=>partDone(6)],['🪢','Relative',()=>partDone(7)],['🏁',UNITS.length+' ünite',()=>uDone()===UNITS.length],['⭐',UNITS.length*3+' yıldız',()=>starSum()===UNITS.length*3],
  ['🎯','Fiil ayırıcı',()=>S.best.vs>=10],['🏷️','Article ustası',()=>S.best.art>=10],['🎓','Sınav 90+',()=>S.best.sinav>=90],['📚','50 kelime',()=>Object.keys(S.known).length>=50],['🔥','3 gün seri',()=>S.streak>=3]
 ];
 const blocksSVG=()=>`<svg viewBox="0 0 300 260" role="img" aria-label="Yapı blokları">
@@ -66,7 +66,7 @@ const V={};
 V.home=()=>{
   const nx=UNITS.find(u=>!S.un[u.n])||UNITS[0];
   return `<section class="hero view"><div><p class="eyebrow">English Grammar · Units ${FIRST}–${LAST}</p><h1>Yapı Ustası</h1>
-   <p class="big2" style="color:var(--gold)">Modals · if & wish · Passive · Reported speech · -ing/to · Articles</p>
+   <p class="big2" style="color:var(--gold)">Modals · if & wish · Passive · Reported speech · -ing/to · Articles · Relative clauses</p>
    <p class="muted">İngilizcenin cümle yapılarını blok blok kur: her ünitede Türkçe anlatım, sesli örnekler, sık yapılan hatalar ve alıştırmalar. Dönüştürücü’de cümleyi edilgene, dolaylı anlatıma ve question tag’e çevir; oyunlarla pekiştir.</p>
    <div class="row" style="margin-top:14px"><a class="btn pri" href="#unite/${nx.n}">${uDone()?'Kaldığın yerden devam':'Unit '+FIRST+'’ya başla'} →</a><a class="btn" href="#lab">Dönüştürücü</a></div>
    <div class="stat"><div><b>${uDone()}/${UNITS.length}</b><span>ünite</span></div><div><b>${starSum()}</b><span>yıldız</span></div><div><b>${S.xp}</b><span>puan</span></div><div><b>${Object.keys(S.known).length}</b><span>bilinen kelime</span></div><div><b>${S.streak}</b><span>gün seri</span></div></div></div>
