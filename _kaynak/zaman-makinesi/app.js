@@ -6,7 +6,7 @@ const sample=(a,n)=>shuffle(a).slice(0,n);
 
 /* ---------- İngilizce ses (cihazın İngilizce sesi; internet gerekmez) ---------- */
 let EN_V=null;
-function enVoice(){if(!('speechSynthesis' in window))return null;try{const vs=speechSynthesis.getVoices();return vs.find(v=>/^en[-_](GB|US)/i.test(v.lang)&&/natural|google|samantha|daniel|serena/i.test(v.name))||vs.find(v=>/^en[-_](GB|US)/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang))||null;}catch(e){return null;}}
+function enVoice(){if(!('speechSynthesis' in window))return null;try{const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)),loc=vs.filter(v=>v.localService!==false);/* internetsiz çalışan (cihazdaki) sesler önce */return loc.find(v=>/^en[-_](GB|US)/i.test(v.lang))||loc[0]||vs.find(v=>/^en[-_](GB|US)/i.test(v.lang))||vs[0]||null;}catch(e){return null;}}
 if('speechSynthesis' in window){try{speechSynthesis.getVoices();speechSynthesis.addEventListener('voiceschanged',()=>{EN_V=enVoice();});}catch(e){}}
 function say(t){
   const v=EN_V||enVoice();if(!v){toast('Cihazda İngilizce ses bulunamadı.');return;}
