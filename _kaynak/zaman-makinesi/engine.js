@@ -69,7 +69,9 @@ const TENSES=[
  {k:'papc',ad:'Past Perfect Continuous',tr:'Geçmişte bir ana kadar süren eylem',u:16},
  {k:'ut',ad:'used to',tr:'Eskiden …-irdi',u:18},
  {k:'gt',ad:'going to',tr:'Niyet / kanıta dayalı tahmin',u:20},
- {k:'wi',ad:'will',tr:'Anlık karar, söz, tahmin',u:21}
+ {k:'wi',ad:'will',tr:'Anlık karar, söz, tahmin',u:21},
+ {k:'wb',ad:'Future Continuous',tr:'Gelecekte bir anda devam ediyor olacak',u:24},
+ {k:'wh',ad:'Future Perfect',tr:'Gelecekte bir ana kadar bitmiş olacak',u:24}
 ];
 const TENSE=Object.fromEntries(TENSES.map(t=>[t.k,t]));
 /* parçalar: [tür, metin] tür: s özne, a yardımcı, v fiil, n not/olumsuz */
@@ -92,6 +94,8 @@ function conj(t,s,v,f,short){
     case 'ut': if(neg||q){a='did';main='use to '+v;}else{a=null;main='used to '+v;}break;
     case 'gt': a=beP(s);main='going to '+v;break;
     case 'wi': a='will';main=v;break;
+    case 'wb': a='will';main='be '+ing(v);break;
+    case 'wh': a='will';main='have '+V3(v);break;
   }
   if(q){
     if(a)A(cap(a));out.push(['s',a?S:cap(S)]);if(main)V(main);
@@ -130,6 +134,8 @@ function tlSVG(k){
    papc:bar(70,200,'var(--p9)','had been doing')+dot(205,'var(--p1)','then'),
    ut:bar(40,240,'var(--p5)','I used to do',1)+`<text x="285" y="${y+28}" text-anchor="middle" font-size="12" fill="var(--muted)">artık değil</text>`,
    gt:dot(nx,'var(--p10)','')+`<path d="M${nx} ${y} Q 400 ${y-40} 460 ${y}" stroke="var(--p10)" fill="none" stroke-width="2.5"/>`+dot(460,'var(--p10)','going to do (karar önceden)'),
+   wb:bar(420,510,'var(--p7)','will be doing')+dot(465,'var(--p1)','')+`<text x="465" y="${y+30}" text-anchor="middle" font-size="12" fill="var(--muted)">o anda</text>`,
+   wh:bar(nx+8,440,'var(--p4)','will have done',1)+dot(470,'var(--p1)','o ana kadar'),
    wi:dot(nx,'var(--p3)','')+`<path d="M${nx} ${y} Q 410 ${y-40} 470 ${y}" stroke="var(--p3)" fill="none" stroke-width="2.5" stroke-dasharray="5 4"/>`+dot(470,'var(--p3)','will do (şimdi karar)')
   };
   return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="zaman çizgisi"><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--p6)"/></marker></defs>${base}${D[k]||''}</svg>`;

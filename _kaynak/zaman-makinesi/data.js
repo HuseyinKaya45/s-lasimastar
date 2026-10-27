@@ -20,7 +20,8 @@ const TSENT=[
  ['His clothes were dirty because he had been fixing the car.','papc'],['Did you use to play football?','ut'],['We’re going to buy a new house.','gt'],
  ['Don’t worry, I won’t tell anybody.','wi'],['The earth goes round the sun.','ps'],['Prices are rising every month.','pc'],['Shakespeare wrote many plays.','pas'],
  ['While I was cooking, the lights went out.','pac'],['She has just left.','pp'],['I’m tired. I’ve been working all day.','ppc'],['There used to be a cinema here.','ut'],
- ['Shall I open the window?','wi'],['I’m sure you’ll pass the exam.','wi'],['What are you going to do after school?','gt']
+ ['Shall I open the window?','wi'],['I’m sure you’ll pass the exam.','wi'],['What are you going to do after school?','gt'],
+ ['This time tomorrow I’ll be flying to Paris.','wb'],['By 6 pm I’ll have finished the report.','wh'],['Don’t call at 9 – we’ll be watching the match.','wb'],['They will have left by the time we arrive.','wh']
 ];
 /* Doğru mu yanlış mı? [cümle, doğru mu, düzeltme/açıklama] — her ünitenin “dikkat” maddelerinden de beslenir */
 const DY_EXTRA=[
@@ -38,5 +39,8 @@ const DY_EXTRA=[
  ['I’ve read three books this week.',true,'Doğru: miktar → simple.'],
  ['Look! It’s going to rain.',true,'Doğru: görünen kanıt.'],
  ['I didn’t went to school.',false,'I didn’t go to school.'],
- ['Does she speaks English?',false,'Does she speak English?']
+ ['Does she speaks English?',false,'Does she speak English?'],
+ ['I’ll call you when I will get home.',false,'I’ll call you when I get home.'],
+ ['By next year I’ll have saved enough money.',true,'Doğru: will have done.'],
+ ['If it will be sunny, we’ll go out.',false,'If it is sunny, we’ll go out.']
 ];

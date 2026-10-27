@@ -51,8 +51,8 @@ const stars=n=>`<span class="stars" aria-label="${n} yıldız">${'★'.repeat(n)
 const partOfU=n=>PARTS.find(p=>p.u.includes(n));
 const BADGES=[
  ['🌱','İlk ünite',()=>uDone()>=1],['⏱️','Şimdiki zamanlar',()=>[1,2,3,4].every(n=>S.un[n])],['📜','Geçmiş',()=>[5,6].every(n=>S.un[n])],
- ['🔗','Perfect ustası',()=>[7,8,9,10,11,12,13,14].every(n=>S.un[n])],['🚀','Gelecek',()=>[19,20,21,22].every(n=>S.un[n])],['🏁','22 ünite',()=>uDone()===UNITS.length],
- ['⭐','66 yıldız',()=>starSum()===UNITS.length*3],['🏎️','Fiil yarışı 20+',()=>S.best.race>=20],['🎯','Zaman avcısı',()=>S.best.tense>=10],
+ ['🔗','Perfect ustası',()=>[7,8,9,10,11,12,13,14].every(n=>S.un[n])],['🚀','Gelecek',()=>[19,20,21,22,23,24,25].every(n=>S.un[n])],['🏁','25 ünite',()=>uDone()===UNITS.length],
+ ['⭐','75 yıldız',()=>starSum()===UNITS.length*3],['🏎️','Fiil yarışı 20+',()=>S.best.race>=20],['🎯','Zaman avcısı',()=>S.best.tense>=10],
  ['🎓','Sınav 90+',()=>S.best.sinav>=90],['📚','50 kelime',()=>Object.keys(S.known).length>=50],['🔥','3 gün seri',()=>S.streak>=3]
 ];
 const clockSVG=()=>`<svg viewBox="0 0 300 300" role="img" aria-label="Zaman makinesi saati"><circle cx="150" cy="150" r="128" fill="var(--panel2)" stroke="var(--gold)" stroke-width="6"/>
@@ -65,11 +65,11 @@ let clkT;function spin(){clearInterval(clkT);let a=0;const h=$('#hh'),m=$('#mh')
 const V={};
 V.home=()=>{
   const nx=UNITS.find(u=>!S.un[u.n])||UNITS[0];
-  return `<section class="hero view"><div><p class="eyebrow">English Grammar · Units 1–22</p><h1>Zaman Makinesi</h1>
+  return `<section class="hero view"><div><p class="eyebrow">English Grammar · Units 1–${UNITS.length}</p><h1>Zaman Makinesi</h1>
    <p class="big2" style="color:var(--gold)">Present · Past · Perfect · Future</p>
    <p class="muted">İngilizcenin zamanlarını adım adım öğren: her ünitede Türkçe anlatım, sesli örnek cümleler, zaman çizgisi ve alıştırmalar. Fiil Atölyesi’nde istediğin fiili istediğin zamanda çek, oyunlarla ve kelime kartlarıyla pekiştir.</p>
    <div class="row" style="margin-top:14px"><a class="btn pri" href="#unite/${nx.n}">${uDone()?'Kaldığın yerden devam':'Unit 1’e başla'} →</a><a class="btn" href="#lab">Fiil Atölyesi</a></div>
-   <div class="stat"><div><b>${uDone()}/22</b><span>ünite</span></div><div><b>${starSum()}</b><span>yıldız</span></div><div><b>${S.xp}</b><span>puan</span></div><div><b>${Object.keys(S.known).length}</b><span>bilinen kelime</span></div><div><b>${S.streak}</b><span>gün seri</span></div></div></div>
+   <div class="stat"><div><b>${uDone()}/${UNITS.length}</b><span>ünite</span></div><div><b>${starSum()}</b><span>yıldız</span></div><div><b>${S.xp}</b><span>puan</span></div><div><b>${Object.keys(S.known).length}</b><span>bilinen kelime</span></div><div><b>${S.streak}</b><span>gün seri</span></div></div></div>
    <div class="scalebox">${clockSVG()}</div></section>
   <h2 class="sec-h">Zamanlar haritası</h2><p class="muted small">Bir zamana dokun: o zamanın ünitesine gidersin.</p>
   <div class="grid g3">${TENSES.map(t=>`<a class="gcard" href="#unite/${t.u}"><b>${t.ad}</b><p class="small muted">${t.tr}</p><div class="tl">${tlSVG(t.k)}</div><p class="small"><b>${conjText(conj(t.k,'I','work','+',true))}</b></p></a>`).join('')}</div>
@@ -80,7 +80,7 @@ V.yol=()=>`<div class="view"><h1>Üniteler</h1><p class="muted">Her ünitede anl
 
 let QZ=null;
 V.unite=a=>{
-  const n=Math.min(22,Math.max(1,+a||1)),u=UNITS[n-1],p=partOfU(n),pv=UNITS[n-2],nx=UNITS[n];
+  const n=Math.min(UNITS.length,Math.max(1,+a||1)),u=UNITS[n-1],p=partOfU(n),pv=UNITS[n-2],nx=UNITS[n];
   QZ={u,i:0,ok:0,items:shuffle(u.q),done:false};setTimeout(qShow,0);
   return `<article class="card view" style="--c:${p.c}">
    <div class="lhead"><div><p class="eyebrow" style="color:${p.c}">Unit ${n} · ${p.t}</p><h1>${u.t} <span class="muted">(${u.f})</span></h1><p class="muted">${u.tr}</p></div>${u.k?`<a class="btn sm" href="#lab/${u.k}">Fiil Atölyesi’nde dene →</a>`:''}</div>
@@ -256,7 +256,7 @@ G.match=()=>{
 
 /* ---------- Sınav ---------- */
 let EX=null;
-V.sinav=()=>`<div class="view"><h1>Sınav</h1><p class="muted">22 ünitenin tamamından rastgele 25 soru: seçmeli, boşluk doldurma ve cümle kurma. Sonunda yanlışlarını görürsün.</p><div id="ex" class="q" style="text-align:center"><p class="big2">Rekorun: ${S.best.sinav} / 100</p><button class="btn pri" id="exGo">Sınavı başlat</button></div></div>`;
+V.sinav=()=>`<div class="view"><h1>Sınav</h1><p class="muted">${UNITS.length} ünitenin tamamından rastgele 25 soru: seçmeli, boşluk doldurma ve cümle kurma. Sonunda yanlışlarını görürsün.</p><div id="ex" class="q" style="text-align:center"><p class="big2">Rekorun: ${S.best.sinav} / 100</p><button class="btn pri" id="exGo">Sınavı başlat</button></div></div>`;
 function exStart(){EX={i:0,ok:0,wr:[],items:sample(UNITS.flatMap(u=>u.q.map(q=>[q,u.n])),25)};exShow();}
 function exShow(){
   const z=$('#ex'),n=EX.items.length;z.style.textAlign='start';
@@ -273,8 +273,8 @@ document.addEventListener('click',e=>{if(e.target.id==='exGo')exStart();});
 /* ---------- Hakkında ---------- */
 V.hakkinda=()=>`<div class="view card"><h1>Program hakkında</h1>
  <p><b>Zaman Makinesi</b>, İngilizce zamanları (tenses) Türkçe açıklamalarla adım adım öğreten, internetsiz çalışan tek dosyalık bir programdır.</p>
- <h3 class="sec-h">İçerik</h3><ul><li>22 ünite: present continuous ve simple, past simple ve continuous, present perfect (simple/continuous, for/since, past ile karşılaştırma), past perfect (simple/continuous), have / have got, used to, gelecek için present, going to, will/shall.</li>
- <li>Konu sırası <i>English Grammar in Use</i> (Units 1–22) ile aynıdır; anlatımlar, örnek cümleler ve alıştırmalar bu program için özgün olarak yazılmıştır.</li>
+ <h3 class="sec-h">İçerik</h3><ul><li>${UNITS.length} ünite: present continuous ve simple, past simple ve continuous, present perfect (simple/continuous, for/since, past ile karşılaştırma), past perfect (simple/continuous), have / have got, used to, gelecek için present, going to, will/shall, will be doing / will have done, when I do / when I’ve done.</li>
+ <li>Konu sırası <i>English Grammar in Use</i> (Units 1–${UNITS.length}) ile aynıdır; anlatımlar, örnek cümleler ve alıştırmalar bu program için özgün olarak yazılmıştır.</li>
  <li>Fiil Atölyesi: ${IRR.length} düzensiz fiil, -ing/-s/-ed yazım kuralları ve 11 zaman yapısı.</li></ul>
  <p>▶ düğmeleri cihazınızdaki İngilizce sesi kullanır (Windows, Android, iOS ve macOS’ta genellikle hazırdır).</p>
  <h3 class="sec-h">İlerleme</h3><p>Puanlar, yıldızlar ve rekorlar bu tarayıcıda saklanır.</p><button class="btn" id="reset">İlerlememi sıfırla</button>

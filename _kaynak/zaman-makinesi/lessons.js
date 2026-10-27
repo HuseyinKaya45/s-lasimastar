@@ -1,4 +1,4 @@
-/* ===== Zaman Makinesi — 22 ünite (özgün anlatım ve alıştırmalar; konu sırası English Grammar in Use 1–22)
+/* ===== Zaman Makinesi — 22 ünite (özgün anlatım ve alıştırmalar; konu sırası English Grammar in Use 1–25)
    s: bölümler {h başlık, b anlatım (html), f formül [parça…] (k: vurgulu), ex [[İngilizce, Türkçe]]}
    tip: [[yanlış, doğru, açıklama]]  ·  q: ['c', soru, seçenekler, doğru, açıklama] | ['f', boşluklu cümle, [kabul edilen cevaplar], açıklama] | ['o', [kelimeler], doğru cümle, Türkçesi] */
 const PARTS=[
@@ -6,7 +6,7 @@ const PARTS=[
  {p:2,t:'Geçmiş zamanlar',en:'Past',c:'var(--p1)',u:[5,6]},
  {p:3,t:'Present perfect',en:'Present perfect',c:'var(--p6)',u:[7,8,9,10,11,12,13,14]},
  {p:4,t:'Past perfect, have, used to',en:'Past perfect & more',c:'var(--p8)',u:[15,16,17,18]},
- {p:5,t:'Gelecek',en:'Future',c:'var(--p3)',u:[19,20,21,22]}
+ {p:5,t:'Gelecek',en:'Future',c:'var(--p3)',u:[19,20,21,22,23,24,25]}
 ];
 const UNITS=[
 {n:1,t:'Present continuous',f:'I am doing',tr:'Şimdiki zaman',k:'pc',
@@ -338,4 +338,48 @@ const UNITS=[
   ['f','Next month my grandfather ___ (be) 80.',["'ll be","will be"],'Kesin gelecek bilgisi.'],
   ['c','I ___ my aunt on Sunday. We’ve arranged it.',['’m visiting','’ll visit','visit','visited'],0,'Ayarlanmış plan → continuous.'],
   ['o',['probably','she’ll','late','be'],'She’ll probably be late','Muhtemelen geç kalacak']]}
+,{n:23,t:'I will & I’m going to',f:'will / be going to',tr:'will mi, going to mu?',k:null,
+ s:[{h:'Gelecekteki eylemler',b:'<b>will</b>: karar <b>konuşma anında</b> veriliyor. <b>going to</b>: karar <b>önceden</b> verilmiş, niyet.',
+   ex:[['“We need some bread.” “Oh, I’ll get some.”','“Ekmek lazım.” “Ben alırım.” (şimdi karar)'],['“We need some bread.” “I know. I’m going to get some.”','“Biliyorum, alacağım.” (önceden karar)']]},
+  {h:'Gelecek hakkında tahmin',b:'İkisi de tahmin için olur. <b>going to</b>: şimdi görünen bir işarete dayanır. <b>will</b>: düşünce, tahmin, bilgi (I think, I expect, probably).',
+   ex:[['Look at the sky. It’s going to rain.','Gökyüzüne bak. Yağmur yağacak. (işaret var)'],['I think it’ll rain later.','Sanırım sonra yağmur yağacak. (görüş)'],['Watch out! That ladder is going to fall!','Dikkat! Merdiven düşecek!']]}],
+ tip:[['“The phone’s ringing.” “I’m going to answer it.”','“I’ll answer it.”','Konuşma anında karar → will.'],['I’ll visit my aunt tomorrow; I booked the bus yesterday.','I’m going to visit / I’m visiting my aunt tomorrow.','Önceden plan → going to / present continuous.']],
+ q:[['c','“I’ve got a terrible headache.” “Wait here. I ___ you an aspirin.”',['’ll get','’m going to get','get','got'],0,'Konuşma anında teklif/karar.'],
+  ['c','“Why are you putting on your coat?” “I ___ for a walk.”',['’m going to go','’ll go','go','went'],0,'Önceden karar, ceket giyiyor.'],
+  ['c','Look at those clouds! It ___ soon.',['’s going to rain','will raining','rains','rained'],0,'Görünen işaret.'],
+  ['f','“I need someone to help me move this table.” “OK, I ___ (help) you.”',["'ll help","will help"],'Anlık karar.'],
+  ['f','I ___ (paint) my room this weekend. I’ve already bought the paint.',["'m going to paint","am going to paint"],'Önceden hazırlık → going to.'],
+  ['c','I think Spain ___ the match tonight.',['will win','is winning','wins','won'],0,'Görüş/tahmin → will.'],
+  ['o',['going','I’m','to','her','tomorrow','call'],'I’m going to call her tomorrow','Yarın onu arayacağım (niyet)']]},
+{n:24,t:'will be doing & will have done',f:'Future continuous / perfect',tr:'Gelecekte devam eden ve bitmiş olan',k:'wb',
+ s:[{h:'will be doing',b:'Gelecekte belli bir anda <b>devam ediyor olacak</b> eylem. Türkçe: “-iyor olacağım”.',
+   f:['will be','+',{k:'fiil-ing'}],
+   ex:[['This time tomorrow I’ll be lying on the beach.','Yarın bu saatte kumsalda uzanıyor olacağım.'],['Don’t call at 8 – we’ll be having dinner.','Sekizde arama, yemek yiyor olacağız.']]},
+  {h:'Planlanmış / olağan akışta olacak şeyler',b:'Normal akışta zaten olacak işler için de <b>will be -ing</b>; ayrıca kibar soru: <b>Will you be using the car tonight?</b>',
+   ex:[['I’ll be passing the post office, so I can post your letter.','Postanenin önünden geçiyor olacağım, mektubunu atabilirim.'],['Will you be going out later?','Sonra dışarı çıkıyor olacak mısın?']]},
+  {h:'will have done',b:'Gelecekteki bir ana <b>kadar bitmiş olacak</b> eylem. Türkçe: “-miş olacağım”. Genellikle <b>by</b> (… e kadar) ile.',
+   f:['will have','+',{k:'V3'}],
+   ex:[['By 10 o’clock I’ll have finished my homework.','Saat 10’a kadar ödevimi bitirmiş olacağım.'],['Next year they’ll have been married for 25 years.','Gelecek yıl 25 yıllık evli olmuş olacaklar.']]}],
+ tip:[['At 9 tomorrow I’ll work.','At 9 tomorrow I’ll be working.','O anda devam → will be -ing.'],['By Friday I will finish the report.','By Friday I will have finished the report.','by + bitmiş olacak → will have done.']],
+ q:[['c','Don’t phone me between 7 and 8. We ___ dinner then.',['’ll be having','’ll have had','have','are having had'],0,'O saatlerde devam ediyor olacak.'],
+  ['c','By the time you arrive, the film ___.',['will have started','will be starting','starts','has started'],0,'O ana kadar başlamış olacak.'],
+  ['f','This time next week I ___ (sit) on a plane to Japan.',["'ll be sitting","will be sitting"],'Gelecekte o anda devam.'],
+  ['f','By 2030, scientists ___ (find) a cure, I hope.',["'ll have found","will have found"],'by + will have V3.'],
+  ['c','___ the car this evening? I’d like to borrow it.',['Will you be using','Will you have used','Are you use','Do you use'],0,'Kibar soru: will you be -ing?'],
+  ['o',['finished','have','I’ll','by','six'],'I’ll have finished by six','Altıya kadar bitirmiş olacağım']]},
+{n:25,t:'when I do & when I’ve done · if & when',f:'zaman cümleciklerinde present',tr:'when / if / until … ile gelecek',k:null,
+ s:[{h:'Zaman cümleciğinde will kullanılmaz',b:'<b>when, while, before, after, as soon as, until, if</b> ile gelecekten söz ederken cümlecikte <b>present simple</b> kullanılır; ana cümlede will.',
+   ex:[['I’ll call you when I get home.','Eve varınca seni arayacağım. (when I will get değil)'],['Wait here until I come back.','Ben dönene kadar burada bekle.'],['If it rains, we’ll stay at home.','Yağmur yağarsa evde kalacağız.']]},
+  {h:'when I’ve done',b:'Birinci eylemin <b>bitmiş olması</b> vurgulanırsa <b>present perfect</b>: <b>When I’ve finished, I’ll call you.</b>',
+   ex:[['After I’ve read the book, I’ll lend it to you.','Kitabı okuduktan (bitirdikten) sonra sana ödünç vereceğim.'],['Don’t go until you’ve eaten something.','Bir şey yemeden gitme.']]},
+  {h:'if mi, when mi?',b:'<b>when</b>: olacağından eminiz. <b>if</b>: olup olmayacağı belli değil.',
+   ex:[['When I see Ali, I’ll tell him. (Ali’yi göreceğim)','Ali’yi görünce söyleyeceğim.'],['If I see Ali, I’ll tell him. (belki görürüm)','Ali’yi görürsem söyleyeceğim.']]}],
+ tip:[['I’ll call you when I will arrive.','I’ll call you when I arrive.','when cümleciğinde will yok.'],['If it will rain, we’ll stay in.','If it rains, we’ll stay in.','if cümleciğinde will yok.']],
+ q:[['c','I’ll phone you as soon as I ___ the results.',['get','will get','got','am getting'],0,'Zaman cümleciği → present simple.'],
+  ['f','We’ll start the meeting when everybody ___ (arrive).',['arrives',"has arrived"],'when + present (simple veya perfect).'],
+  ['c','Please don’t leave until I ___ back.',['come','will come','came','am come'],0,'until + present.'],
+  ['c','“Are you going to the shops?” “Yes, ___ I go, I’ll buy some milk.” (kesin gidiyor)',['when','if','unless','until'],0,'Kesin olay → when.'],
+  ['f','If you ___ (need) help, call me.',['need'],'if + present.'],
+  ['c','I’ll lend you the book when I ___ it.',['’ve finished','will finish','finished','will have finished'],0,'Bitmişlik → present perfect.'],
+  ['o',['when','I’ll','you','I','call','arrive'],'I’ll call you when I arrive','Varınca seni arayacağım']]}
 ];
