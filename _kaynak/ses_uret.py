@@ -2,7 +2,7 @@
 """ses/<program>.txt'teki metinleri Google Cloud Text-to-Speech ile seslendirir:
 GOOGLE_TTS_API_KEY=... python3 _kaynak/ses_uret.py [program ...]
 Sonuç ses/<program>.json ({metin: base64-mp3}); var olan kayıtlar yeniden üretilmez.
-Ses: SES_VOICE (varsayılan ar-XA-Wavenet-B), hız: SES_HIZ (varsayılan 0.85)."""
+Ses: SES_VOICE (varsayılan ar-XA-Wavenet-B; dil kodu ses adından alınır, ör. en-GB-Neural2-C), hız: SES_HIZ (varsayılan 0.85)."""
 import base64,json,os,re,shutil,subprocess,sys,time,unicodedata,urllib.request,urllib.error
 K=os.path.dirname(os.path.abspath(__file__));D=os.path.join(K,'ses')
 KEY=os.environ.get('GOOGLE_TTS_API_KEY');VOICE=os.environ.get('SES_VOICE','ar-XA-Wavenet-B');HIZ=float(os.environ.get('SES_HIZ','0.85'))
@@ -16,7 +16,7 @@ def parcala(t,sinir=1200):
         out.append(t[:i].strip());t=t[i:].strip()
     return out+[t] if t else out
 def sentez(t):
-    body=json.dumps({'input':{'text':t},'voice':{'languageCode':'ar-XA','name':VOICE},
+    body=json.dumps({'input':{'text':t},'voice':{'languageCode':VOICE[:5],'name':VOICE},
         'audioConfig':{'audioEncoding':'MP3','speakingRate':HIZ,'sampleRateHertz':24000}}).encode()
     for n in range(5):
         req=urllib.request.Request('https://texttospeech.googleapis.com/v1/text:synthesize',body,

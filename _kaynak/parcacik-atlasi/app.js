@@ -9,6 +9,7 @@ let EN_V=null;
 function enVoice(){if(!('speechSynthesis' in window))return null;try{const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)),loc=vs.filter(v=>v.localService!==false);/* internetsiz çalışan (cihazdaki) sesler önce */return loc.find(v=>/^en[-_](GB|US)/i.test(v.lang))||loc[0]||vs.find(v=>/^en[-_](GB|US)/i.test(v.lang))||vs[0]||null;}catch(e){return null;}}
 if('speechSynthesis' in window){try{speechSynthesis.getVoices();speechSynthesis.addEventListener('voiceschanged',()=>{EN_V=enVoice();});}catch(e){}}
 function say(t){
+  const d=SES_AUDIO[sesKey(t)];if(d){try{sesStop();SES_A=new Audio('data:audio/mpeg;base64,'+d);const pr=SES_A.play();if(pr&&pr.catch)pr.catch(()=>{});return;}catch(e){}}
   const v=EN_V||enVoice();if(!v){toast('Cihazda İngilizce ses bulunamadı.');return;}
   try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/[’‘]/g,"'"));u.lang=v.lang;u.voice=v;u.rate=.92;speechSynthesis.speak(u);}catch(e){}
 }
@@ -90,18 +91,19 @@ V.unite=a=>{
    <div class="row" style="justify-content:space-between;margin-top:16px">${pv?`<a class="btn ghost" href="#unite/${pv.n}">← ${UL(pv.n)}</a>`:'<span></span>'}${nx?`<a class="btn ghost" href="#unite/${nx.n}">${UL(nx.n)} →</a>`:`<a class="btn ghost" href="#sinav">Sınava geç →</a>`}</div></article>`;
 };
 
+const qSay=q=>q[0]==='c'?q[1].replace('___',q[2][q[3]]):q[0]==='f'?q[1].replace(/___/,q[2][0]).replace(/\s*\([^)]*\)/,''):q[2];
 function renderQ(box,q,cb){
   const t=q[0];
   if(t==='c'){
     const o=shuffle(q[2].map((x,j)=>({x,c:j===q[3]})));
     box.innerHTML=`<p class="qt">${q[1]}</p><div class="opts">${o.map((x,j)=>`<button class="opt" data-j="${j}">${x.x}</button>`).join('')}</div><div class="qw"></div>`;
     $$('.opt',box).forEach(b=>b.onclick=()=>{const ok=o[+b.dataset.j].c;$$('.opt',box).forEach((x,j)=>{x.disabled=true;if(o[j].c)x.classList.add('ok');});if(!ok)b.classList.add('no');
-      const full=q[1].replace('___',o.find(x=>x.c).x);$('.qw',box).innerHTML=`<p class="why"><b>${ok?'Doğru.':'Yanlış.'}</b> ${q[4]} ${spk(full)}</p>`;cb(ok);});
+      const full=qSay(q);$('.qw',box).innerHTML=`<p class="why"><b>${ok?'Doğru.':'Yanlış.'}</b> ${q[4]} ${spk(full)}</p>`;cb(ok);});
   }else if(t==='f'){
     box.innerHTML=`<p class="qt">${q[1].replace('___','<b style="color:var(--gold)">_____</b>')}</p><div class="fillin"><input class="inp" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Cevabını yaz…"><button class="btn pri">Kontrol</button></div><div class="qw"></div>`;
     const inp=$('input',box),b=$('button',box);setTimeout(()=>inp.focus(),30);
     const go=()=>{if(!inp.value.trim())return;const ok=matches(inp.value,q[2]);inp.disabled=b.disabled=true;inp.style.borderColor=ok?'var(--good)':'var(--bad)';
-      const full=q[1].replace(/___/,q[2][0]).replace(/\s*\([^)]*\)/,'');$('.qw',box).innerHTML=`<p class="why"><b>${ok?'Doğru.':'Yanlış.'}</b> Cevap: <b>${q[2][0]}</b> — ${q[3]} ${spk(full)}</p>`;cb(ok);};
+      const full=qSay(q);$('.qw',box).innerHTML=`<p class="why"><b>${ok?'Doğru.':'Yanlış.'}</b> Cevap: <b>${q[2][0]}</b> — ${q[3]} ${spk(full)}</p>`;cb(ok);};
     b.onclick=go;inp.onkeydown=e=>{if(e.key==='Enter')go();};
   }else{
     const pool=shuffle(q[1].map((w,i)=>({w,i}))),pick=[];
@@ -217,14 +219,15 @@ G.match=()=>{
 };
 
 const choiceGame=(key,items,q,opts,ans,why)=>seqGame(key,items,(it,res,next)=>{
-  $('#game').innerHTML=`<div class="card"><p class="eyebrow">${q}</p><p class="big2">${it[0].includes('___')?it[0].replace('___','<b style="color:var(--gold)">____</b>'):it[0]} ${spk(it[0].replace('___',ans(it)==='–'?'':ans(it)))}</p><div class="opts">${(opts||(it[2]&&it[2].ing?shuffle([[it[2].ing,it[2].ing],[it[2].ed,it[2].ed]]):shuffle(it[2].map(x=>[x,x])))).map(o=>`<button class="opt" data-o="${o[0]}">${o[1]}</button>`).join('')}</div><div id="gw"></div></div>`;
+  $('#game').innerHTML=`<div class="card"><p class="eyebrow">${q}</p><p class="big2">${it[0].includes('___')?it[0].replace('___','<b style="color:var(--gold)">____</b>'):it[0]} </p><div class="opts">${(opts||(it[2]&&it[2].ing?shuffle([[it[2].ing,it[2].ing],[it[2].ed,it[2].ed]]):shuffle(it[2].map(x=>[x,x])))).map(o=>`<button class="opt" data-o="${o[0]}">${o[1]}</button>`).join('')}</div><div id="gw"></div></div>`;
   $$('#game .opt').forEach(b=>b.onclick=()=>{const ok=b.dataset.o===ans(it);res(ok);$$('#game .opt').forEach(x=>{x.disabled=true;if(x.dataset.o===ans(it))x.classList.add('ok');});if(!ok)b.classList.add('no');
-    $('#gw').innerHTML=`<p class="why"><b>${ok?'Doğru.':'Yanlış.'}</b> ${why(it)}</p>`;nextBtn($('#gw'),next);});
+    const st=cgSay(it,ans);$('#gw').innerHTML=`<p class="why"><b>${ok?'Doğru.':'Yanlış.'}</b> ${why(it)} ${st?spk(st):''}</p>`;nextBtn($('#gw'),next);});
 });
+const cgSay=(it,ans)=>it.say!==undefined?it.say:it[0].replace('___',ans(it)==='–'?'':ans(it)).replace(/\s+/g,' ').trim();
 const blankPV=p=>{const re=new RegExp('\\b'+p[1]+'\\b','i');return re.test(p[3])?p[3].replace(re,'___'):null;};
 G.pfill=()=>choiceGame('pfill',sample(PV.filter(p=>blankPV(p)&&p[0]!=='put up'),12).map(p=>[blankPV(p),p[1],shuffle([p[1],...sample(PARTICLES.filter(x=>x!==p[1]),3)]),p]),'Hangi parçacık?',null,it=>it[1],it=>`<b>${PVN(it[3])}</b> = ${it[3][2]}`);
-G.pmean=()=>choiceGame('pmean',sample(PV,12).map(p=>[PVN(p)+' — ?',p[2],shuffle([p[2],...sample(PV.filter(x=>x[2]!==p[2]),3).map(x=>x[2])]),p]),'Bu phrasal verb ne demek?',null,it=>it[1],it=>`<i>${it[3][3]}</i>`);
-G.pobj=()=>choiceGame('pobj',sample(PV.filter(p=>p[4]==='s'),12).map(p=>{const pr=sample(['it','them'],1)[0],ok=`${p[0]} ${pr} ${p[1]}`,bad=`${p[0]} ${p[1]} ${pr}`;return [`(${p[2]}) — zamir: ${pr}`,ok,shuffle([ok,bad]),p];}),'Doğru sıra hangisi?',null,it=>it[1],it=>'Zamir (it/them…) fiil ile parçacığın <b>arasına</b> girer.');
+G.pmean=()=>choiceGame('pmean',sample(PV,12).map(p=>Object.assign([PVN(p)+' — ?',p[2],shuffle([p[2],...sample(PV.filter(x=>x[2]!==p[2]),3).map(x=>x[2])]),p],{say:PVN(p)})),'Bu phrasal verb ne demek?',null,it=>it[1],it=>`<i>${it[3][3]}</i>`);
+G.pobj=()=>choiceGame('pobj',sample(PV.filter(p=>p[4]==='s'),12).map(p=>{const pr=sample(['it','them'],1)[0],ok=`${p[0]} ${pr} ${p[1]}`,bad=`${p[0]} ${p[1]} ${pr}`;return Object.assign([`(${p[2]}) — zamir: ${pr}`,ok,shuffle([ok,bad]),p],{say:ok});}),'Doğru sıra hangisi?',null,it=>it[1],it=>'Zamir (it/them…) fiil ile parçacığın <b>arasına</b> girer.');
 /* ---------- Sınav ---------- */
 let EX=null;
 V.sinav=()=>`<div class="view"><h1>Sınav</h1><p class="muted">${UNITS.length} ünitenin tamamından rastgele 25 soru: seçmeli, boşluk doldurma ve cümle kurma. Sonunda yanlışlarını görürsün.</p><div id="ex" class="q" style="text-align:center"><p class="big2">Rekorun: ${S.best.sinav} / 100</p><button class="btn pri" id="exGo">Sınavı başlat</button></div></div>`;
@@ -250,6 +253,15 @@ V.hakkinda=()=>`<div class="view card"><h1>Program hakkında</h1>
  <h3 class="sec-h">İlerleme</h3><p>Puanlar, yıldızlar ve rekorlar bu tarayıcıda saklanır.</p><button class="btn" id="reset">İlerlememi sıfırla</button>
  <p class="tiny muted" style="margin-top:16px">Hüseyin KAYA</p></div>`;
 document.addEventListener('click',e=>{if(e.target.id==='reset'&&confirm('Bütün ilerleme silinsin mi?')){S=FRESH();save();hud();toast('İlerleme sıfırlandı.');route();}});
+
+
+/* ---------- gömülü ses listesi (ses_topla.mjs bunu okur) ---------- */
+function SES_LISTE(){const a=new Set(),add=t=>{if(t&&/[a-z]/i.test(t))a.add(String(t).replace(/\s+/g,' ').trim());};
+  UNITS.forEach(u=>{u.s.forEach(s=>(s.ex||[]).forEach(e=>add(e[0])));u.q.forEach(q=>add(qSay(q)));});
+  VOCAB.forEach(g=>g.w.forEach(w=>{add(w[0]);add(w[2]);}));
+  const fill=(t,x)=>t.replace('___',x==='–'?'':x);
+  PV.forEach(p=>{add(PVN(p));add(p[3]);if(p[4]==='s'){add(p[0]+' it '+p[1]);add(p[0]+' them '+p[1]);}});
+  return [...a];}
 
 /* ---------- yönlendirme ---------- */
 document.addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(b){e.preventDefault();e.stopPropagation();say(b.dataset.say);}},true);

@@ -9,6 +9,7 @@ let EN_V=null;
 function enVoice(){if(!('speechSynthesis' in window))return null;try{const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)),loc=vs.filter(v=>v.localService!==false);/* internetsiz çalışan (cihazdaki) sesler önce */return loc.find(v=>/^en[-_](GB|US)/i.test(v.lang))||loc[0]||vs.find(v=>/^en[-_](GB|US)/i.test(v.lang))||vs[0]||null;}catch(e){return null;}}
 if('speechSynthesis' in window){try{speechSynthesis.getVoices();speechSynthesis.addEventListener('voiceschanged',()=>{EN_V=enVoice();});}catch(e){}}
 function say(t){
+  const d=SES_AUDIO[sesKey(t)];if(d){try{sesStop();SES_A=new Audio('data:audio/mpeg;base64,'+d);const pr=SES_A.play();if(pr&&pr.catch)pr.catch(()=>{});return;}catch(e){}}
   const v=EN_V||enVoice();if(!v){toast('Cihazda İngilizce ses bulunamadı.');return;}
   try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/[’‘]/g,"'"));u.lang=v.lang;u.voice=v;u.rate=.92;speechSynthesis.speak(u);}catch(e){}
 }
@@ -92,18 +93,19 @@ V.unite=a=>{
    <div class="row" style="justify-content:space-between;margin-top:16px">${pv?`<a class="btn ghost" href="#unite/${pv.n}">← Unit ${pv.n}</a>`:'<span></span>'}${nx?`<a class="btn ghost" href="#unite/${nx.n}">Unit ${nx.n} →</a>`:`<a class="btn ghost" href="#sinav">Sınava geç →</a>`}</div></article>`;
 };
 /* bir soruyu #qz benzeri kutuya çizer; cb(doğru mu) */
+const qSay=q=>q[0]==='c'?q[1].replace('___',q[2][q[3]]):q[0]==='f'?q[1].replace(/___/,q[2][0]).replace(/\s*\([^)]*\)/,''):q[2];
 function renderQ(box,q,cb){
   const t=q[0];
   if(t==='c'){
     const o=shuffle(q[2].map((x,j)=>({x,c:j===q[3]})));
     box.innerHTML=`<p class="qt">${q[1]}</p><div class="opts">${o.map((x,j)=>`<button class="opt" data-j="${j}">${x.x}</button>`).join('')}</div><div class="qw"></div>`;
     $$('.opt',box).forEach(b=>b.onclick=()=>{const ok=o[+b.dataset.j].c;$$('.opt',box).forEach((x,j)=>{x.disabled=true;if(o[j].c)x.classList.add('ok');});if(!ok)b.classList.add('no');
-      const full=q[1].replace('___',o.find(x=>x.c).x);$('.qw',box).innerHTML=`<p class="why"><b>${ok?'Doğru.':'Yanlış.'}</b> ${q[4]} ${spk(full)}</p>`;cb(ok);});
+      const full=qSay(q);$('.qw',box).innerHTML=`<p class="why"><b>${ok?'Doğru.':'Yanlış.'}</b> ${q[4]} ${spk(full)}</p>`;cb(ok);});
   }else if(t==='f'){
     box.innerHTML=`<p class="qt">${q[1].replace('___','<b style="color:var(--gold)">_____</b>')}</p><div class="fillin"><input class="inp" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Cevabını yaz…"><button class="btn pri">Kontrol</button></div><div class="qw"></div>`;
     const inp=$('input',box),b=$('button',box);setTimeout(()=>inp.focus(),30);
     const go=()=>{if(!inp.value.trim())return;const ok=matches(inp.value,q[2]);inp.disabled=b.disabled=true;inp.style.borderColor=ok?'var(--good)':'var(--bad)';
-      const full=q[1].replace(/___/,q[2][0]).replace(/\s*\([^)]*\)/,'');$('.qw',box).innerHTML=`<p class="why"><b>${ok?'Doğru.':'Yanlış.'}</b> Cevap: <b>${q[2][0]}</b> — ${q[3]} ${spk(full)}</p>`;cb(ok);};
+      const full=qSay(q);$('.qw',box).innerHTML=`<p class="why"><b>${ok?'Doğru.':'Yanlış.'}</b> Cevap: <b>${q[2][0]}</b> — ${q[3]} ${spk(full)}</p>`;cb(ok);};
     b.onclick=go;inp.onkeydown=e=>{if(e.key==='Enter')go();};
   }else{
     const pool=shuffle(q[1].map((w,i)=>({w,i}))),pick=[];
@@ -280,6 +282,15 @@ V.hakkinda=()=>`<div class="view card"><h1>Program hakkında</h1>
  <h3 class="sec-h">İlerleme</h3><p>Puanlar, yıldızlar ve rekorlar bu tarayıcıda saklanır.</p><button class="btn" id="reset">İlerlememi sıfırla</button>
  <p class="tiny muted" style="margin-top:16px">Hüseyin KAYA</p></div>`;
 document.addEventListener('click',e=>{if(e.target.id==='reset'&&confirm('Bütün ilerleme silinsin mi?')){S=FRESH();save();hud();toast('İlerleme sıfırlandı.');route();}});
+
+
+/* ---------- gömülü ses listesi (ses_topla.mjs bunu okur) ---------- */
+function SES_LISTE(){const a=new Set(),add=t=>{if(t&&/[a-z]/i.test(t))a.add(String(t).replace(/\s+/g,' ').trim());};
+  UNITS.forEach(u=>{u.s.forEach(s=>(s.ex||[]).forEach(e=>add(e[0])));u.q.forEach(q=>add(qSay(q)));});
+  VOCAB.forEach(g=>g.w.forEach(w=>{add(w[0]);add(w[2]);}));
+  const fill=(t,x)=>t.replace('___',x==='–'?'':x);
+  IRR.forEach(x=>add(x[0]+', '+x[1].replace('/',', ')+', '+x[2]));TSENT.forEach(x=>add(x[0]));
+  return [...a];}
 
 /* ---------- yönlendirme ---------- */
 document.addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(b){e.preventDefault();e.stopPropagation();say(b.dataset.say);}},true);
