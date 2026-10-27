@@ -238,14 +238,33 @@ def cmd_yaz(a):
         kal = [x for x in re.findall(r'"((?:[^"\\]|\\.)*)"', yeni) if RE_TR_ONLY.search(RE_AR.sub("", dec(x) or ""))]
         yazilan.append(u); print(u, "yazıldı" + (f" — dikkat, {len(kal)} metinde Türkçe harf var" if kal else ""))
     print(f"{len(yazilan)} birim yazıldı." + (f" Eksik/hatalı: {eksik}" if eksik else ""))
+def cmd_goster(a):
+    """Elle çeviri modu: bir ünitenin bekleyen metinlerini numaralı yazdırır ve sırasını durum/bekleyen.json'a kaydeder."""
+    u = a.birim[0]; bek = [o["tr"] for o in bekleyenler() if o["birim"] == u][a.baslangic:a.baslangic + a.sinir]
+    js(os.path.join(S, "bekleyen.json"), bek)
+    for i, t in enumerate(bek): print(f"{i}\t{t}")
+    print(f"--- {len(bek)} metin ({u}); kalan bekleyen toplam: {len(bekleyenler())}", file=sys.stderr)
+def cmd_ekle(a):
+    """Elle çeviri modu: bekleyen.json ile aynı sırada JSON dizisini doğrulayıp sonuc.json'a ekler."""
+    bek = jl(os.path.join(S, "bekleyen.json"), []); tr = jl(a.dosya)
+    if not isinstance(tr, list) or len(tr) != len(bek): sys.exit(f"Uzunluk uyuşmuyor: beklenen {len(bek)}, gelen {len(tr) if isinstance(tr, list) else '?'}")
+    sonuc = jl(os.path.join(S, "sonuc.json"), {}); kabul = 0; ret = []
+    for i, (m, e) in enumerate(zip(bek, tr)):
+        g = dogrula(m, e)
+        if g is None: sonuc[m] = e; kabul += 1
+        else: ret.append((i, g))
+    js(os.path.join(S, "sonuc.json"), sonuc)
+    print(f"{kabul} kabul, {len(ret)} reddedildi." + ("".join(f"\n  #{i}: {g}" for i, g in ret) if ret else ""))
 def cmd_derle(a):
     ub = [u for u in birimler(a.birim, a.kitap) if os.path.exists(os.path.join(R, u, "veri.en.js"))]
     for i in range(0, len(ub), 8): subprocess.run([sys.executable, os.path.join(R, "k2ortak", "yap.py"), "--en", *ub[i:i + 8]], check=True)
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0]); sp = ap.add_subparsers(dest="c", required=True)
-    for ad, f in [("hazirla", cmd_hazirla), ("gonder", cmd_gonder), ("durum", cmd_durum), ("indir", cmd_indir), ("yaz", cmd_yaz), ("derle", cmd_derle)]:
+    for ad, f in [("goster", cmd_goster), ("ekle", cmd_ekle), ("hazirla", cmd_hazirla), ("gonder", cmd_gonder), ("durum", cmd_durum), ("indir", cmd_indir), ("yaz", cmd_yaz), ("derle", cmd_derle)]:
         p = sp.add_parser(ad); p.set_defaults(f=f)
         if ad in ("hazirla", "yaz", "derle"): p.add_argument("--birim", nargs="*"); p.add_argument("--kitap", nargs="*"); p.add_argument("--hepsi", action="store_true", help="çevirisi olan birimleri de yeniden işle")
+        if ad == "goster": p.add_argument("birim", nargs=1); p.add_argument("--sinir", type=int, default=400); p.add_argument("--baslangic", type=int, default=0)
+        if ad == "ekle": p.add_argument("dosya")
         if ad == "gonder": p.add_argument("--evet", action="store_true", help="batch'i gerçekten gönder (ücretli)"); p.add_argument("--kucuk", action="store_true"); p.add_argument("--model"); p.add_argument("--adaptif", action="store_true", help="between_tools yerine uyarlanır düşünme"); p.add_argument("--zorla", action="store_true")
     a = ap.parse_args(); a.f(a)
