@@ -1,0 +1,362 @@
+[
+[
+"el-Arabiyyetü beyne yedeyk · 2. kitap · ' + UNITE.no + \". ünite — çevrimdışı çalışır; ilerlemen bu tarayıcıda saklanır.",
+"al-ʿArabiyya bayna yadayk · ' + (UNITE.pfx||'').replace(/^k(\\d).*/,'Book $1 · ') + 'Unit ' + UNITE.no + \" — works offline; your progress is saved in this browser."
+],
+[
+"Bütün derslerin alıştırmalarından karışık 15 soru. Her soruda tek doğru cevap var.",
+"15 mixed questions from the exercises of all lessons. Each question has one correct answer."
+],
+[
+"Bütün derslerden karışık 15 soru.",
+"15 mixed questions from all lessons."
+],
+[
+"Dersleri tekrar et, sonra yeniden dene.",
+"Review the lessons, then try again."
+],
+[
+"Yanlış yaptığın bölümleri tekrar et.",
+"Review the sections where you made mistakes."
+],
+[
+"Rol bitti. Şimdi öteki rolü dene!",
+"Role finished. Now try the other role!"
+],
+[
+"Sıra doğru değil; tekrar dene.",
+"The order is not right; try again."
+],
+[
+"Önce soldan bir kelime seç.",
+"First choose a word on the left."
+],
+[
+"Bütün cevaplar silinsin mi?",
+"Delete all answers?"
+],
+[
+"Ses efektleri açık",
+"Sound effects on"
+],
+[
+"Ses efektleri kapalı",
+"Sound effects off"
+],
+[
+" kelime: dinle, kartlarla çalış, eşleştir.",
+" words: listen, study with cards, match."
+],
+[
+"Kaydın metni (önce dinle, sonra aç)",
+"Transcript of the recording (listen first, then open)"
+],
+[
+"Örnek cevabı göster",
+"Show model answer"
+],
+[
+"Örnek cümle",
+"Example sentence"
+],
+[
+"Tam puan, tebrikler!",
+"Full marks, congratulations!"
+],
+[
+"Doğru mu, yanlış mı?",
+"True or false?"
+],
+[
+"Doğru cevabı seç",
+"Choose the correct answer"
+],
+[
+"Boşluğu doldur",
+"Fill in the blank"
+],
+[
+"Hangisini duydun?",
+"Which one did you hear?"
+],
+[
+"Dinle ve tekrarla",
+"Listen and repeat"
+],
+[
+"Resimlerle konuş",
+"Talk about the pictures"
+],
+[
+"\"Okuma metni\"",
+"\"Reading text\""
+],
+[
+"\"Hazırlık\"",
+"\"Warm-up\""
+],
+[
+"\"Diyalog\"",
+"\"Dialogue\""
+],
+[
+"\"Sırala\"",
+"\"Put in order\""
+],
+[
+"\"Eşleştir\"",
+"\"Match\""
+],
+[
+"\"Sınıflandır\"",
+"\"Classify\""
+],
+[
+"\"Cevapla\"",
+"\"Answer\""
+],
+[
+"\"Kural\"",
+"\"Rule\""
+],
+[
+"\"İncele\"",
+"\"Study\""
+],
+[
+"\"Dinleme\"",
+"\"Listening\""
+],
+[
+"\"Hat\"",
+"\"Calligraphy\""
+],
+[
+"▶ Hepsini dinle",
+"▶ Listen to all"
+],
+[
+"▶ Metni dinle",
+"▶ Listen to the text"
+],
+[
+"▶ Kaydı dinle",
+"▶ Listen to the recording"
+],
+[
+"■ Durdur",
+"■ Stop"
+],
+[
+"\"✓ Doğru\"",
+"\"✓ True\""
+],
+[
+"\"✗ Yanlış\"",
+"\"✗ False\""
+],
+[
+"\"Doğru.\"",
+"\"Correct.\""
+],
+[
+"\"Doğrusu: \"",
+"\"Correct answer: \""
+],
+[
+">Doğrusu: '",
+">Correct answer: '"
+],
+[
+"\"Tebrikler! \"",
+"\"Congratulations! \""
+],
+[
+"\" tamamlandı.\"",
+"\" completed.\""
+],
+[
+"\"Ders \"",
+"\"Lesson \""
+],
+[
+">Ders '",
+">Lesson '"
+],
+[
+"\"Hepsi\"",
+"\"All\""
+],
+[
+"\"Başlangıç\"",
+"\"Start\""
+],
+[
+"\"Kelimeler\"",
+"\"Vocabulary\""
+],
+[
+">Kelimeler <",
+">Vocabulary <"
+],
+[
+">Kelimeler<",
+">Vocabulary<"
+],
+[
+"\"Sınav\"",
+"\"Test\""
+],
+[
+">Sınav <",
+">Test <"
+],
+[
+">Sınav<",
+">Test<"
+],
+[
+">Sınav →<",
+">Test →<"
+],
+[
+"\"Liste\"",
+"\"List\""
+],
+[
+"\"Kartlar\"",
+"\"Cards\""
+],
+[
+"\"Eşleştirme\"",
+"\"Matching\""
+],
+[
+"\" hata\"",
+"\" mistakes\""
+],
+[
+"\"Hatasız!\"",
+"\"No mistakes!\""
+],
+[
+">Yeni oyun<",
+">New game<"
+],
+[
+"> Türkçe çeviri<",
+"> English translation<"
+],
+[
+">Hız<",
+">Speed<"
+],
+[
+"\"Yavaş\"",
+"\"Slow\""
+],
+[
+" · doğru ",
+" · correct "
+],
+[
+">Sonuç <",
+">Result <"
+],
+[
+">Sonuç →<",
+">Result →<"
+],
+[
+">Baştan başla<",
+">Start again<"
+],
+[
+">Baştan<",
+">Start over<"
+],
+[
+">Yeniden<",
+">Again<"
+],
+[
+">Tamam<",
+">Done<"
+],
+[
+">Son sınav: '",
+">Last test: '"
+],
+[
+">Başla<",
+">Start<"
+],
+[
+">Soru '",
+">Question '"
+],
+[
+"\" · Puan \"",
+"\" · Score \""
+],
+[
+">Devam →<",
+">Continue →<"
+],
+[
+"\"Mükemmel!\"",
+"\"Excellent!\""
+],
+[
+"\"İyi gidiyorsun.\"",
+"\"You’re doing well.\""
+],
+[
+">Rol: '",
+">Role: '"
+],
+[
+"\" sen ol<",
+"\" — your turn<"
+],
+[
+">Dinlendi<",
+">Listened<"
+],
+[
+"\"Dinle\"",
+"\"Listen\""
+],
+[
+"title=\"Açık / koyu tema\"",
+"title=\"Light / dark theme\""
+],
+[
+"title=\"Toplam puan\"",
+"title=\"Total score\""
+],
+[
+"title=\"Ses efektleri\"",
+"title=\"Sound effects\""
+],
+[
+"aria-label=\"Dersler\"",
+"aria-label=\"Lessons\""
+],
+[
+"Bu metnin kayıtlı sesi yok ve cihazda Arapça ses bulunamadı; yanlış okunmasın diye seslendirilmedi.",
+"This text has no recording and no Arabic voice was found on the device, so it was not read aloud (to avoid a wrong pronunciation)."
+],
+[
+"Aşağıdan doğru sırayla seç.",
+"Choose from below in the correct order."
+],
+[
+"Henüz cevap vermedin.",
+"You haven’t answered yet."
+],
+[
+">Çevir<",
+">Flip<"
+]
+]
