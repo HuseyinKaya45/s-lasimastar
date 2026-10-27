@@ -16,7 +16,7 @@ const spk=t=>`<button class="spk" data-say="${esc(t)}" aria-label="Dinle" title=
 
 /* ---------- durum ---------- */
 const KEY='renkli-cumleler-v1';
-const FRESH=()=>({v:1,xp:0,un:{},best:{ed:0,link:0,time:0,dy:0,order:0,match:0,sinav:0},known:{},day:'',streak:0});
+const FRESH=()=>({v:1,xp:0,un:{},best:{ed:0,link:0,time:0,prep:0,dy:0,order:0,match:0,sinav:0},known:{},day:'',streak:0});
 let S=FRESH();
 try{const o=JSON.parse(localStorage.getItem(KEY)||'null');if(o&&o.v===1)S=Object.assign(FRESH(),o,{best:Object.assign(FRESH().best,o.best||{})});}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
@@ -52,7 +52,7 @@ const stars=n=>`<span class="stars" aria-label="${n} yıldız">${'★'.repeat(n)
 const partOfU=n=>PARTS.find(p=>p.u.includes(n));
 const partDone=k=>PARTS[k].u.every(n=>S.un[n]);
 const BADGES=[
- ['🌱','İlk ünite',()=>uDone()>=1],['🎨','Sıfat ustası',()=>partDone(0)],['📈','Karşılaştırma',()=>partDone(1)],['🧭','Kelime sırası',()=>partDone(2)],['🌉','Bağlaçlar',()=>partDone(3)],['⏰','Zaman edatları',()=>partDone(4)],
+ ['🌱','İlk ünite',()=>uDone()>=1],['🎨','Sıfat ustası',()=>partDone(0)],['📈','Karşılaştırma',()=>partDone(1)],['🧭','Kelime sırası',()=>partDone(2)],['🌉','Bağlaçlar',()=>partDone(3)],['⏰','Zaman edatları',()=>partDone(4)],['📍','Yer edatları',()=>partDone(5)],['🧲','Edatlı kalıplar',()=>partDone(6)],
  ['🏁',UNITS.length+' ünite',()=>uDone()===UNITS.length],['⭐',UNITS.length*3+' yıldız',()=>starSum()===UNITS.length*3],['😮','-ing/-ed ustası',()=>S.best.ed>=10],['🔗','Bağlaç avcısı',()=>S.best.link>=10],['🎓','Sınav 90+',()=>S.best.sinav>=90],['🔥','3 gün seri',()=>S.streak>=3]
 ];
 const blocksSVG=()=>`<svg viewBox="0 0 300 260" role="img" aria-label="Renk paleti"><path d="M150 20c-75 0-130 50-130 110 0 50 40 80 85 80 22 0 25-20 15-32-10-14 0-30 20-30h35c45 0 75-25 75-60C250 60 210 20 150 20z" fill="var(--panel2)" stroke="var(--gold)" stroke-width="5"/>
@@ -64,8 +64,8 @@ const V={};
 V.home=()=>{
   const nx=UNITS.find(u=>!S.un[u.n])||UNITS[0];
   return `<section class="hero view"><div><p class="eyebrow">English Grammar · Units ${FIRST}–${LAST}</p><h1>Renkli Cümleler</h1>
-   <p class="big2" style="color:var(--gold)">Adjectives · Adverbs · Comparison · Word order · Linking words · Time</p>
-   <p class="muted">Cümlelerine renk kat: sıfat ve zarflar, karşılaştırma, kelime sırası, bağlaçlar ve zaman edatları. Her ünitede Türkçe anlatım, sesli örnekler, sık yapılan hatalar ve alıştırmalar; Sıfat Makinesi’nde biçimleri üret, oyunlarla pekiştir.</p>
+   <p class="big2" style="color:var(--gold)">Adjectives · Adverbs · Comparison · Word order · Linking words · Prepositions</p>
+   <p class="muted">Cümlelerine renk kat: sıfat ve zarflar, karşılaştırma, kelime sırası, bağlaçlar ve edatlar. Her ünitede Türkçe anlatım, sesli örnekler, sık yapılan hatalar ve alıştırmalar; Sıfat Makinesi’nde biçimleri üret, oyunlarla pekiştir.</p>
    <div class="row" style="margin-top:14px"><a class="btn pri" href="#unite/${nx.n}">${uDone()?'Kaldığın yerden devam':'Unit '+FIRST+'’e başla'} →</a><a class="btn" href="#lab">Sıfat Makinesi</a></div>
    <div class="stat"><div><b>${uDone()}/${UNITS.length}</b><span>ünite</span></div><div><b>${starSum()}</b><span>yıldız</span></div><div><b>${S.xp}</b><span>puan</span></div><div><b>${Object.keys(S.known).length}</b><span>bilinen kelime</span></div><div><b>${S.streak}</b><span>gün seri</span></div></div></div>
    <div class="scalebox">${blocksSVG()}</div></section>
@@ -184,7 +184,7 @@ function kDraw(){
 document.addEventListener('click',e=>{const b=e.target.closest('#kt button');if(b){KT=b.dataset.k;kDraw();}});
 
 /* ---------- Oyunlar ---------- */
-const GAMES=[['ed','😮','-ing mi, -ed mi?','boring mi bored mı? Doğru sıfatı seç.'],['link','🌉','Bağlaç seç','although, despite, unless, in case, as, like…'],['time','⏰','at / on / in','Zaman ifadesine doğru edatı koy.'],['dy','✅','Doğru mu, yanlış mı?','Cümle doğru mu? Yanlışsa düzeltmesini gör.'],['order','🧱','Cümle Kur','Karışık kelimeleri doğru sıraya diz.'],['match','🔗','Eşleştir','İngilizce ifadeyi Türkçesiyle buluştur.']];
+const GAMES=[['ed','😮','-ing mi, -ed mi?','boring mi bored mı? Doğru sıfatı seç.'],['link','🌉','Bağlaç seç','although, despite, unless, in case, as, like…'],['time','⏰','at / on / in','Zaman ifadesine doğru edatı koy.'],['prep','📍','Edat avcısı','in, on, at, to, of, for, with… Doğru edatı bul.'],['dy','✅','Doğru mu, yanlış mı?','Cümle doğru mu? Yanlışsa düzeltmesini gör.'],['order','🧱','Cümle Kur','Karışık kelimeleri doğru sıraya diz.'],['match','🔗','Eşleştir','İngilizce ifadeyi Türkçesiyle buluştur.']];
 
 V.oyun=sub=>{
   if(sub&&G[sub]){setTimeout(()=>G[sub](),0);return `<div class="view"><div class="row" style="justify-content:space-between"><a class="btn ghost sm" href="#oyun">← Oyunlar</a><span class="chip gold" id="gsc"></span></div><div id="game" style="margin-top:12px"></div></div>`;}
@@ -231,6 +231,7 @@ const choiceGame=(key,items,q,opts,ans,why)=>seqGame(key,items,(it,res,next)=>{
     $('#gw').innerHTML=`<p class="why"><b>${ok?'Doğru.':'Yanlış.'}</b> ${why(it)}</p>`;nextBtn($('#gw'),next);});
 });
 G.ed=()=>choiceGame('ed',sample(EDQ,12).map(x=>{const f=edForms(x[1]);return [x[0],x[2]==='ing'?f.ing:f.ed,f];}),'Hangisi?',null,it=>it[1],it=>it[1].endsWith('ing')?'Şeyin/durumun niteliği → -ing.':'Kişinin hissettiği → -ed.');
+G.prep=()=>choiceGame('prep',sample(PREPQ,12),'Boşluğa hangi edat gelir?',null,it=>it[1],it=>it[3]);
 G.link=()=>choiceGame('link',sample(LINKQ,12),'Boşluğa hangisi gelir?',null,it=>it[1],it=>it[3]);
 G.time=()=>choiceGame('time',sample(TIMEQ,12).map(x=>['___ '+x[0],x[1]]),'Doğru edat?',[['at','at'],['on','on'],['in','in'],['–','– (edat yok)']],it=>it[1],it=>({at:'Saatler, kısa anlar, at night/the weekend → at.',on:'Günler ve tarihler → on.',in:'Ay, yıl, mevsim, günün bölümleri → in.','–':'this/next/last/every ile edat yok.'})[it[1]]);
 /* ---------- Sınav ---------- */
