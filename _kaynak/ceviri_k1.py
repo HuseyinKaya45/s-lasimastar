@@ -80,12 +80,21 @@ def bolgeler(s):
         m2 = re.search(r'<[^>]*$', seg)
         if m2: b = a + m2.start()
         if b > a: out.append((a, b))
+    for m in re.finditer(r'(?:aria-label|title|placeholder|alt)="([^"<>+\\\']*)"', s):
+        a, b = m.start(1), m.end(1)
+        if b > a and not any(a < y and x < b for x, y in out): out.append((a, b))
+    out.sort()
     return out
+KOD_EK = {'✓ bitti', '— iyi!'}
+def parca_aday(seg):
+    return seg in (' dinle', ' puan') or kodadayi(seg.strip())
 def kodadayi(x):
+    if x.strip() in KOD_EK: return True
     r = AR.sub('', x)
     if not re.search(r'[A-Za-zÇĞİÖŞÜçğıöşüâîû]', r): return False
     if re.search(r'[çğıöşüÇĞİÖŞÜâîûÂÎÛ]', r): return True
-    return bool(re.match(r'^[A-ZÇĞİÖŞÜ][a-zçğıöşü]', r.strip()))
+    r = re.sub(r'^[^A-Za-zÇĞİÖŞÜ]+', '', r.strip())
+    return bool(re.match(r'^[A-ZÇĞİÖŞÜ][a-zçğıöşü]', r))
 # statik HTML (script/style dışı)
 STAT = re.compile(r'(?:title|aria-label|alt|placeholder)="([^"]*)"|<meta name="description" content="([^"]*)"|<title>([^<]*)</title>|>([^<>]*[A-Za-zçğışöü][^<>]*)<')
 def statik_bolgeler(t):
@@ -119,7 +128,7 @@ def adaylar(u):
         s = m.group(1) if m.group(1) is not None else m.group(2)
         for a, b in bolgeler(s):
             x = s[a:b].strip()
-            if kodadayi(x): out.append(x)
+            if parca_aday(s[a:b]): out.append(x)
     return list(dict.fromkeys(out))
 
 # ---------------------------------------------------------------- komutlar
@@ -188,7 +197,7 @@ def derle_birim(u, izin_eksik=False):
         q = '"' if m.group(1) is not None else "'"; sx = m.group(1) if m.group(1) is not None else m.group(2); parcalar = []; son = 0
         for a, b in bolgeler(sx):
             seg = sx[a:b]; x = seg.strip()
-            if not kodadayi(x): continue
+            if not parca_aday(seg): continue
             lead = seg[:len(seg) - len(seg.lstrip())]; trail = seg[len(seg.rstrip()):]
             parcalar.append((a, b, lead + esc(ceviri(x), q) + trail))
         r = ""; 
