@@ -888,7 +888,7 @@ CIZ.okuma = function () {
 var IZ = { secili: HARF[0][0], cizgi: [] };
 function harfBulHtml(i) {
   var h = HARF_BUL[i], key = "yazi/bul/" + i, d = store.get("hb:" + i, { b: [], h: 0 }), c = A[key];
-  return '<div class="secim" data-hb="' + i + '">' + h[1].map(function (w) { var ok = h[2].indexOf(w) >= 0, bul = d.b.indexOf(w) >= 0 || (c && ok); return '<button type="button" class="sec ar' + (bul ? ' dogru' : '') + '" data-hbw="' + esc(w) + '"' + (bul || c ? ' disabled' : '') + '>' + w + '</button>'; }).join("") + '</div><div class="sonra kucuk">' + (c ? '✓ Done · mistakes: ' + d.h : 'Found: ' + d.b.length + ' / ' + h[2].length + ' · hata: ' + d.h) + '</div>';
+  return '<div class="secim" data-hb="' + i + '">' + h[1].map(function (w) { var ok = h[2].indexOf(w) >= 0, bul = d.b.indexOf(w) >= 0 || (c && ok); return '<button type="button" class="sec ar' + (bul ? ' dogru' : '') + '" data-hbw="' + esc(w) + '"' + (bul || c ? ' disabled' : '') + '>' + w + '</button>'; }).join("") + '</div><div class="sonra kucuk">' + (c ? '✓ Done · mistakes: ' + d.h : 'Found: ' + d.b.length + ' / ' + h[2].length + ' · mistakes: ' + d.h) + '</div>';
 }
 CIZ.yazi = function () {
   var tablo = '<div class="harf-tablo">' + HARF.map(function (h) { return '<div class="harf-kutu"><div class="ar harf-buyuk">' + h[0] + '</div><div class="kucuk soluk">' + h[1] + '</div><div class="ar">' + h[2].join(" &nbsp; ") + '</div><div class="ar kucuk-ar">' + h[3].join(" · ") + '</div></div>'; }).join("") + '</div><p class="not">' + arSar(HARF_NOT) + '</p>';
@@ -1101,7 +1101,7 @@ document.addEventListener("click", function (e) {
     else { hd.h++; bip(false); el.classList.remove("titre"); void el.offsetWidth; el.classList.add("yanlis", "titre"); setTimeout(function () { el.classList.remove("yanlis"); }, 500); }
     store.set("hb:" + hi, hd);
     if (hd.b.length === HARF_BUL[hi][2].length) cevapla(hk, hd.h <= 1, hd.h);
-    el.parentNode.nextElementSibling.textContent = A[hk] ? "✓ Done · mistakes: " + hd.h : "Found: " + hd.b.length + " / " + HARF_BUL[hi][2].length + " · hata: " + hd.h;
+    el.parentNode.nextElementSibling.textContent = A[hk] ? "✓ Done · mistakes: " + hd.h : "Found: " + hd.b.length + " / " + HARF_BUL[hi][2].length + " · mistakes: " + hd.h;
     return;
   }
   if ((el = t.closest("[data-izsec]"))) { IZ.secili = el.dataset.izsec; IZ.cizgi = []; ciz(); return; }

@@ -87,7 +87,9 @@ def bolgeler(s):
     return out
 KOD_EK = {'✓ bitti', '— iyi!'}
 def parca_aday(seg):
-    return seg in (' dinle', ' puan') or kodadayi(seg.strip())
+    if seg in (' dinle', ' puan', ' · hata: '): return True
+    if AR.search(seg) and re.search(r'[a-z]{2,}', AR.sub('', seg)): return True
+    return kodadayi(seg.strip())
 def kodadayi(x):
     if x.strip() in KOD_EK: return True
     r = AR.sub('', x)

@@ -845,7 +845,7 @@ CIZ.ses = function () {
     o.i >= o.s.length ? '<div class="sonuc-buyuk">' + o.puan + ' / ' + o.s.length + '</div><div class="satir-btn" style="justify-content:center"><button type="button" class="btn dolu" data-act="kkBasla">Play again</button></div>' :
     (function () { var q = o.s[o.i], c = CIFT[q.c]; return '<div class="soluk kucuk">Question ' + (o.i + 1) + ' / ' + o.s.length + ' · correct: ' + o.puan + '</div><div class="satir-btn" style="justify-content:center;margin:8px 0"><button type="button" class="btn dolu" data-cal="' + (q.kh ? "ha-" : "he-") + q.c + '">🔊 Listen</button></div><div class="secim" style="justify-content:center">' + [0, 1].map(function (j) { var dog = (j === 0) === q.kh, cls = o.cevap === null ? '' : (dog ? ' dogru' : (o.cevap === j ? ' yanlis' : '')); return '<button type="button" class="sec ar' + cls + '" data-kk="' + j + '"' + (o.cevap !== null ? ' disabled' : '') + ' style="font-size:2rem">' + c[j] + '</button>'; }).join("") + '</div>' + (o.cevap !== null ? '<div class="satir-btn" style="justify-content:center"><button type="button" class="btn dolu" data-act="kkSonraki">Next →</button></div>' : ''); })();
   var ayet = AYET.map(function (a, i) { return '<div class="dsat' + (A["ses/ayet/" + i] ? ' duydu' : '') + '" data-parca="ayet-' + i + '"><div class="dmetin"><div class="ar dar">' + hVurgu(a[0]) + '</div><div class="kucuk soluk ar">' + a[1] + '</div></div>' + calBtn("ayet-" + i) + '</div>'; }).join("");
-  return bolumBasi("ses", "Sounds") + kart("1. ض ve ظ sesleri", "اِسْتَمِعْ وَأَعِدْ", "Both are heavy (full) sounds. ض: the side of the tongue presses against the molars, like a heavy “d”. ظ: the tip of the tongue touches the tips of the upper front teeth, like a heavy “dh” (the th in English “this”). Listen and repeat.", kel) +
+  return bolumBasi("ses", "Sounds") + kart("1. The sounds ض and ظ", "اِسْتَمِعْ وَأَعِدْ", "Both are heavy (full) sounds. ض: the side of the tongue presses against the molars, like a heavy “d”. ظ: the tip of the tongue touches the tips of the upper front teeth, like a heavy “dh” (the th in English “this”). Listen and repeat.", kel) +
     kart("2. ض or ظ?", "اِسْتَمِعْ وَأَعِدْ", "In each pair, ض is on the right and ظ on the left. Listen to both and hear the difference.", cift) +
     kart("Game: Which did you hear?", "", "Listen to the word: is it with ض or ظ? At least 8 correct out of 10 earns points.", oyun) +
     kart("3. ض and ظ in the verses", "اِسْتَمِعْ وَأَعِدْ", "Listen to the verse, then repeat.", '<div class="ar-ayet">' + ayet + '</div>');
@@ -884,7 +884,7 @@ CIZ.okuma = function () {
 var IZ = { secili: HARF[0][0], cizgi: [] };
 function harfBulHtml(i) {
   var h = HARF_BUL[i], key = "yazi/bul/" + i, d = store.get("hb:" + i, { b: [], h: 0 }), c = A[key];
-  return '<div class="secim" data-hb="' + i + '">' + h[1].map(function (w) { var ok = h[2].indexOf(w) >= 0, bul = d.b.indexOf(w) >= 0 || (c && ok); return '<button type="button" class="sec ar' + (bul ? ' dogru' : '') + '" data-hbw="' + esc(w) + '"' + (bul || c ? ' disabled' : '') + '>' + w + '</button>'; }).join("") + '</div><div class="sonra kucuk">' + (c ? '✓ Done · mistakes: ' + d.h : 'Found: ' + d.b.length + ' / ' + h[2].length + ' · hata: ' + d.h) + '</div>';
+  return '<div class="secim" data-hb="' + i + '">' + h[1].map(function (w) { var ok = h[2].indexOf(w) >= 0, bul = d.b.indexOf(w) >= 0 || (c && ok); return '<button type="button" class="sec ar' + (bul ? ' dogru' : '') + '" data-hbw="' + esc(w) + '"' + (bul || c ? ' disabled' : '') + '>' + w + '</button>'; }).join("") + '</div><div class="sonra kucuk">' + (c ? '✓ Done · mistakes: ' + d.h : 'Found: ' + d.b.length + ' / ' + h[2].length + ' · mistakes: ' + d.h) + '</div>';
 }
 CIZ.yazi = function () {
   var tablo = '<div class="harf-tablo">' + HARF.map(function (h) { return '<div class="harf-kutu"><div class="ar harf-buyuk">' + h[0] + '</div><div class="kucuk soluk">' + h[1] + '</div><div class="ar">' + h[2].join(" &nbsp; ") + '</div><div class="ar kucuk-ar">' + h[3].join(" · ") + '</div></div>'; }).join("") + '</div><p class="not">' + arSar(HARF_NOT) + '</p>';
@@ -1096,7 +1096,7 @@ document.addEventListener("click", function (e) {
     else { hd.h++; bip(false); el.classList.remove("titre"); void el.offsetWidth; el.classList.add("yanlis", "titre"); setTimeout(function () { el.classList.remove("yanlis"); }, 500); }
     store.set("hb:" + hi, hd);
     if (hd.b.length === HARF_BUL[hi][2].length) cevapla(hk, hd.h <= 1, hd.h);
-    el.parentNode.nextElementSibling.textContent = A[hk] ? "✓ Done · mistakes: " + hd.h : "Found: " + hd.b.length + " / " + HARF_BUL[hi][2].length + " · hata: " + hd.h;
+    el.parentNode.nextElementSibling.textContent = A[hk] ? "✓ Done · mistakes: " + hd.h : "Found: " + hd.b.length + " / " + HARF_BUL[hi][2].length + " · mistakes: " + hd.h;
     return;
   }
   if ((el = t.closest("[data-izsec]"))) { IZ.secili = el.dataset.izsec; IZ.cizgi = []; ciz(); return; }
