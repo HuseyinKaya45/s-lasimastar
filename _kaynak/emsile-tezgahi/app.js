@@ -271,9 +271,10 @@ const GAMES = [
  {id:"masdar", ico:"مَصْدَر", tr:"Masdar Ustası", d:"Fiilin masdarını bul; masdarı görüp fiili tanı. 130'dan fazla kök."},
  {id:"sigaK", ico:"①⑭", tr:"Sîgadan Kelimeye", d:"Tablo ve sîga söylenir; doğru Arapça çekimi seç."},
  {id:"hata", ico:"✗", tr:"Hatayı Bul", d:"Dört çekimden biri yanlış harekeli: yakala."},
- {id:"doldur", ico:"▢", tr:"Tabloyu Tamamla", d:"Boş hücrelere doğru çekimleri yerleştir."},
+ {id:"doldur", ico:"▢", tr:"Tabloyu Tamamla", d:"Çekimleri sürükleyip boş hücrelere bırak (ya da dokunarak yerleştir)."},
  {id:"diz", ico:"ن‑ص‑ر", tr:"Kelimeyi Diz", d:"Karışık harf parçalarına sırayla dokunarak çekimi kur."},
  {id:"hafiza", ico:"🃏", tr:"Eşli Kartlar", d:"Kelimeyi sîgasıyla eşleştir (hafıza oyunu)."},
+ {id:"cark", ico:"🎡", tr:"Fiil Çarkı", d:"Çarkı çevir; çıkan kök, kip ve sîgaya göre doğru çekimi bul."},
  {id:"karma", ico:"★", tr:"Karma Antrenman", d:"Bütün soru türlerinden 15 soru; günlük çalışma için."}
 ];
 function mutate(w, valid){
@@ -327,6 +328,12 @@ function makeQ(id){
     const d = uniq(muz.filter(x=>x.id!==t.id).map(x=>fill(x.f(rt.b,pick(ok)), rt.r))).filter(w=>!words.includes(w));
     return {k:"fill", rt, t, blanks, rights, chips: shuffle([...blanks.map(i=>rights[i]), ...shuffle(d).slice(0,2)]), why:`${t.tr}: ` + blanks.map(i=>`${SIGA[i].z} ${rights[i]}`).join(" · ")};
   }
+  if (id === "cark"){
+    const kisa = {mazi:"Mâzî", maziP:"Mâzî meçhûl", muz:"Muzâri", muzP:"Muzâri meçhûl", len:"Len", lem:"Lem", emr:"Emir", gaib:"Emr-i gâib", nehy:"Nehy", nun:"Nûn-ı sakîle"};
+    const segs = shuffle(muz.filter(x => kisa[x.id])).slice(0, 8), sel = Math.floor(Math.random()*8), t = segs[sel], ok = okI(t), i = pick(ok), right = fill(t.f(rt.b,i), rt.r);
+    const other = uniq([...ok.filter(j=>j!==i).map(j=>fill(t.f(rt.b,j), rt.r)), ...muz.filter(x=>x.id!==t.id && (!x.only||x.only.includes(i))).map(x=>fill(x.f(rt.b,i), rt.r))]).filter(x=>x!==right);
+    return {k:"cark", rt, segs: segs.map(x=>({id:x.id, ad:kisa[x.id]})), sel, t, i, opts: shuffle([right, ...shuffle(other).slice(0,3)]), right, why:`${t.tr} · ${SIGA[i].z}: ${right}`};
+  }
   if (id === "diz"){
     const t = pick(muz), ok = okI(t), i = pick(ok), tpl = t.f(rt.b,i), w = fill(tpl, rt.r);
     const parts = clusters(w).map(c=>c.s).filter(c=>c!==" ");
@@ -365,6 +372,7 @@ function draw(){
   if (q.k === "root"){ G.sel = G.sel || []; body = `<div class="q">Kökün harflerini sırayla seç: önce <b class="rf">fâ</b>, sonra <b class="ra">ayn</b>, sonra <b class="rl">lâm</b></div><div class="w mono">${esc(q.w)}</div>
       <div class="letters">${q.letters.map((l,i)=>`<button data-l="${i}" class="${G.sel.indexOf(i)>-1?"p"+(G.sel.indexOf(i)+1):""}">${esc(l)}</button>`).join("")}</div>`; }
   if (q.k === "opt") body = `${q.html}<div class="opts">${q.opts.map((o,i)=>`<button class="opt ${q.ar?"ar":""}" data-o="${i}">${esc(o)}</button>`).join("")}</div>`;
+  if (q.k === "cark") body = carkHTML(q);
   if (q.k === "fill") body = fillHTML(q);
   if (q.k === "diz") body = dizHTML(q);
   if (q.k === "mem") body = memHTML(q);
@@ -383,7 +391,28 @@ function draw(){
   }
   if (q.k === "scale") $$("[data-o]").forEach(b => b.onclick = () => { if (G.lock) return; const ok = q.opts[+b.dataset.o] === q.right; G.pan = q.opts[+b.dataset.o]; $("#pan2").textContent = G.pan; $("#beam").style.transform = `rotate(${ok?0:12}deg)`; $$("[data-o]").forEach(x=>{ x.disabled = true; if (q.opts[+x.dataset.o]===q.right) x.classList.add("good"); }); if (!ok) b.classList.add("bad"); answer(ok); });
   if (q.k === "root") $$("[data-l]").forEach(b => b.onclick = () => { if (G.lock) return; const i = +b.dataset.l; const k = G.sel.indexOf(i); if (k > -1) G.sel.splice(k,1); else if (G.sel.length < 3) G.sel.push(i); if (G.sel.length === 3){ const ok = G.sel.map(j => q.base[j]).join("") === q.rt.r.join(""); draw(); answer(ok); } else draw(); });
-  if (q.k === "opt") $$("[data-o]").forEach(b => b.onclick = () => { if (G.lock) return; const ok = q.opts[+b.dataset.o] === q.right; $$("[data-o]").forEach(x=>{ x.disabled = true; if (q.opts[+x.dataset.o]===q.right) x.classList.add("good"); }); if (!ok) b.classList.add("bad"); answer(ok); });
+  if (q.k === "cark") bindCark(q);
+  if (q.k === "opt" || q.k === "cark") $$("[data-o]").forEach(b => b.onclick = () => { if (G.lock) return; const ok = q.opts[+b.dataset.o] === q.right; $$("[data-o]").forEach(x=>{ x.disabled = true; if (q.opts[+x.dataset.o]===q.right) x.classList.add("good"); }); if (!ok) b.classList.add("bad"); answer(ok); });
+}
+/* --- Fiil Çarkı --- */
+function carkHTML(q){
+  G.c = G.c || {spun:false, spinning:false, rot:0};
+  const n = q.segs.length, a = 360/n, R0 = 120, cx = 130, cy = 130, cols = ["var(--rf)","var(--ra)","var(--rl)","var(--gold)"];
+  const pt = (deg, r) => { const rad = (deg-90)*Math.PI/180; return [cx + r*Math.cos(rad), cy + r*Math.sin(rad)]; };
+  const sec = q.segs.map((sg, k) => { const [x1,y1] = pt(k*a, R0), [x2,y2] = pt((k+1)*a, R0), [tx,ty] = pt(k*a + a/2, R0*0.62);
+    return `<path d="M${cx} ${cy} L${x1} ${y1} A${R0} ${R0} 0 0 1 ${x2} ${y2} Z" fill="${cols[k%4]}" fill-opacity=".28" stroke="var(--line)"/><text x="${tx}" y="${ty}" text-anchor="middle" dominant-baseline="middle" transform="rotate(${k*a + a/2} ${tx} ${ty})" style="font:600 11px var(--f-ui);fill:var(--ink)">${esc(sg.ad)}</text>`; }).join("");
+  const wheel = `<svg viewBox="0 0 260 270" style="width:100%;max-width:300px;display:block;margin:0 auto" aria-label="Fiil çarkı"><g id="wheel" style="transform-origin:${cx}px ${cy}px;transform:rotate(${G.c.rot}deg);${G.c.spinning ? "transition:transform 2.8s cubic-bezier(.15,.7,.15,1)" : ""}">${sec}</g><circle cx="${cx}" cy="${cy}" r="14" fill="var(--panel)" stroke="var(--gold)" stroke-width="3"/><path d="M${cx-10} 4 L${cx+10} 4 L${cx} 26 Z" fill="var(--gold)" stroke="var(--gold-ink)"/></svg>`;
+  if (!G.c.spun) return `<div class="q">Çarkı çevir: çıkan kipe göre çekim yapacaksın</div><div class="small muted">Kök: <span class="ar" style="font-size:1.2rem">${esc(lemma(q.rt))}</span></div>${wheel}<div class="row" style="justify-content:center;margin-top:10px"><button class="btn" id="cSpin" ${G.c.spinning?"disabled":""}>🎡 Çevir</button></div>`;
+  return `${wheel}<div class="q" style="margin-top:6px">Çıkan kip: <b>${esc(q.segs[q.sel].ad)}</b> · <span class="ar" style="font-size:1.6rem">${SIGA[q.i].z}</span> <span class="small muted">(${esc(SIGA[q.i].tr)})</span></div><div class="small muted">Kök: <span class="ar" style="font-size:1.2rem">${esc(lemma(q.rt))}</span></div><div class="opts">${q.opts.map((o,i)=>`<button class="opt ar" data-o="${i}">${esc(o)}</button>`).join("")}</div>`;
+}
+function bindCark(q){
+  const b = $("#cSpin"); if (!b) return;
+  b.onclick = () => {
+    if (G.c.spinning) return; const a = 360/q.segs.length, me = G.q;
+    G.c.spinning = true; b.disabled = true; const w = $("#wheel"); void w.getBoundingClientRect();
+    G.c.rot = 360*4 + (360 - (q.sel*a + a/2)); w.style.transition = "transform 2.8s cubic-bezier(.15,.7,.15,1)"; w.style.transform = `rotate(${G.c.rot}deg)`;
+    setTimeout(() => { if (G && G.q === me && G.c){ G.c.spinning = false; G.c.spun = true; draw(); } }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 50 : 3000);
+  };
 }
 /* --- Tabloyu Tamamla --- */
 function fillHTML(q){
@@ -394,21 +423,44 @@ function fillHTML(q){
   };
   const allow = i => i >= 0 && (!q.t.only || q.t.only.includes(i));
   const grid = `<div class="matrix"><div></div><div class="h">Müfred</div><div class="h">Tesniye</div><div class="h">Cem'</div>${ROWS.map(r => `<div class="rh">${figs(r.g, r.p)}<span>${r.tr}</span></div>` + r.idx.map(i => i < 0 ? `<div class="cell x"><span class="small">↔ نَحْنُ</span></div>` : !allow(i) ? `<div class="cell x"><span class="small">—</span></div>` : cell(i)).join("")).join("")}</div>`;
-  return `<div class="q">Boş hücreleri tamamla: <b>${esc(q.t.tr)}</b> · <span class="ar" style="font-size:1.2rem">${esc(lemma(q.rt))}</span></div><div class="small muted">Önce aşağıdan bir kelime seç, sonra boş hücreye dokun. Yerleşmiş kelimeye dokunursan geri döner.</div><div style="margin-top:12px">${grid}</div><div class="tray" style="margin-top:14px">${q.chips.map((w,j)=>used.includes(j) ? "" : `<button data-fc="${j}" aria-pressed="${G.f.sel===j}">${paint(w, q.rt.r)}</button>`).join("")}</div>`;
+  return `<div class="q">Boş hücreleri tamamla: <b>${esc(q.t.tr)}</b> · <span class="ar" style="font-size:1.2rem">${esc(lemma(q.rt))}</span></div><div class="small muted">Aşağıdaki kelimeyi sürükleyip boş hücreye bırak; ya da kelimeye, sonra hücreye dokun. Yerleşmiş kelimeye dokunursan geri döner.</div><div style="margin-top:12px">${grid}</div><div class="tray" style="margin-top:14px">${q.chips.map((w,j)=>used.includes(j) ? "" : `<button data-fc="${j}" aria-pressed="${G.f.sel===j}">${paint(w, q.rt.r)}</button>`).join("")}</div>`;
 }
 function bindFill(q){
-  $$("[data-fc]").forEach(b => b.onclick = () => { if (G.lock) return; G.f.sel = +b.dataset.fc; draw(); });
-  $$("[data-fi]").forEach(b => b.onclick = () => {
-    if (G.lock) return; const i = +b.dataset.fi;
-    if (G.f.sel !== null){ G.f.put[i] = G.f.sel; G.f.sel = null; }
-    else if (G.f.put[i] !== undefined){ delete G.f.put[i]; }
-    else return;
-    draw();
+  const place = (i, j) => {
+    G.f.put[i] = j; G.f.sel = null; draw();
     if (q.blanks.every(k => G.f.put[k] !== undefined)){
       const ok = q.blanks.every(k => q.chips[G.f.put[k]] === q.rights[k]);
       $$("[data-fi]").forEach(x => x.classList.add(q.chips[G.f.put[+x.dataset.fi]] === q.rights[+x.dataset.fi] ? "good" : "bad"));
       answer(ok);
     }
+  };
+  const under = (x, y) => { const e = document.elementFromPoint(x, y); return e ? e.closest("[data-fi]") : null; };
+  $$("[data-fc]").forEach(b => {
+    b.style.touchAction = "none";
+    b.onclick = () => { if (b.dataset.dragged){ delete b.dataset.dragged; return; } if (G.lock) return; G.f.sel = +b.dataset.fc; draw(); };
+    b.onpointerdown = e => {
+      if (G.lock || (e.pointerType === "mouse" && e.button !== 0)) return;
+      const sx = e.clientX, sy = e.clientY, j = +b.dataset.fc; let ghost = null, over = null, px = sx, py = sy, raf = 0;
+      const tick = () => { if (!ghost) return; if (py < 80) scrollBy(0, -Math.ceil((80 - py)/5)); else if (py > innerHeight - 80) scrollBy(0, Math.ceil((py - (innerHeight - 80))/5));
+        const t = under(px, py); if (over && over !== t) over.style.outline = ""; over = t; if (t) t.style.outline = "3px solid var(--gold)"; raf = requestAnimationFrame(tick); };
+      const mv = ev => {
+        px = ev.clientX; py = ev.clientY;
+        if (!ghost){ if (Math.hypot(ev.clientX - sx, ev.clientY - sy) < 8) return; ghost = b.cloneNode(true); ghost.removeAttribute("data-fc"); ghost.style.cssText = "position:fixed;z-index:80;pointer-events:none;opacity:.92;transform:translate(-50%,-50%) scale(1.08);box-shadow:0 8px 24px rgb(0 0 0 / .35)"; document.body.appendChild(ghost); b.style.opacity = ".35"; raf = requestAnimationFrame(tick); }
+        ghost.style.left = ev.clientX + "px"; ghost.style.top = ev.clientY + "px";
+      };
+      const up = ev => {
+        removeEventListener("pointermove", mv); removeEventListener("pointerup", up); removeEventListener("pointercancel", up);
+        cancelAnimationFrame(raf); if (over) over.style.outline = "";
+        if (!ghost) return; ghost.remove(); b.style.opacity = ""; b.dataset.dragged = "1"; setTimeout(() => { delete b.dataset.dragged; }, 400);
+        const t = ev.type === "pointerup" ? under(ev.clientX, ev.clientY) : null; if (t) place(+t.dataset.fi, j);
+      };
+      addEventListener("pointermove", mv); addEventListener("pointerup", up); addEventListener("pointercancel", up);
+    };
+  });
+  $$("[data-fi]").forEach(b => b.onclick = () => {
+    if (G.lock) return; const i = +b.dataset.fi;
+    if (G.f.sel !== null){ place(i, G.f.sel); return; }
+    if (G.f.put[i] !== undefined){ delete G.f.put[i]; draw(); }
   });
 }
 /* --- Kelimeyi Diz --- */
@@ -447,7 +499,7 @@ function answer(ok){
   const fb = $("#fb"); fb.className = "fb " + (ok?"good":"bad"); fb.innerHTML = `${ok?"Doğru!":"Olmadı."} <span class="${G.q.k==="root"?"":""}">${esc(G.q.why)}</span>`;
   if (G.timer) setTimeout(next, ok ? 400 : 1100); else { const n = $("#gNext"); n.hidden = false; n.focus(); }
 }
-function next(){ if (!G || G.done) return; G.i++; G.lock = false; G.b = null; G.f = null; G.m = null; G.sel = null; G.pan = null; G.tilt = undefined; if (!G.timer && G.i >= G.n) return end(); G.q = makeQ(G.id); draw(); }
+function next(){ if (!G || G.done) return; G.i++; G.lock = false; G.b = null; G.c = null; G.f = null; G.m = null; G.sel = null; G.pan = null; G.tilt = undefined; if (!G.timer && G.i >= G.n) return end(); G.q = makeQ(G.id); draw(); }
 if (/[?&]test\b/.test(location.search)) window.__G = () => G;
 function end(){
   if (!G || G.done) return; G.done = true; clearInterval(G.iv); S.plays++; S.best[G.id] = Math.max(S.best[G.id]||0, G.score); save();
