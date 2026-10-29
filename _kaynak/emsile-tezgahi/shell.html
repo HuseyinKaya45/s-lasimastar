@@ -215,10 +215,12 @@ button.cell:hover{border-color:var(--gold)}
 .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem}
 .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;background:currentColor}
 canvas#cf{position:fixed;inset:0;pointer-events:none;z-index:99}
-@media (max-width:900px){.hero{grid-template-columns:minmax(0,1fr)}.matrix{grid-template-columns:92px repeat(3,minmax(0,1fr))}.matrix .rh span{display:none}}
-@media (max-width:560px){.logo b{display:none}.tile{width:54px;height:62px;font-size:1.8rem}.cell .w{font-size:calc(1.15rem * var(--ar))}.cell .mz{display:none}.matrix{gap:5px;grid-template-columns:44px repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){.hero{grid-template-columns:minmax(0,1fr)}.matrix{grid-template-columns:78px repeat(3,minmax(0,1fr))}.matrix .rh{flex-direction:column;gap:2px;justify-content:center;text-align:center}.matrix .rh span{font-size:.68rem;line-height:1.2}}
+@media (max-width:560px){.logo b{display:none}.tile{width:54px;height:62px;font-size:1.8rem}.cell .w{font-size:calc(1.15rem * var(--ar))}.cell .mz{display:none}.matrix{gap:5px;grid-template-columns:60px repeat(3,minmax(0,1fr))}.matrix .rh svg{width:40px;height:auto}.matrix .rh span{font-size:.62rem}}
 
 /* kendini sına, boş kâğıt, yeni oyunlar */
+.opt[aria-pressed="true"]{border-color:var(--gold);background:var(--gold-s)}
+.cell.sel{border-color:var(--gold);background:var(--gold-s)}
 .cell.veil{cursor:pointer}
 .cell.veil:not(.open) .w,.cell.veil:not(.open) .mz{filter:blur(9px)}
 .cell.slotc{border-style:dashed;border-color:var(--gold);background:var(--gold-s);min-height:84px}

@@ -161,6 +161,44 @@ const MASDAR_KALIP = {1:["FَAْLًا","FُAُوLًا","FِAَاLَةً"], 2:["F
 const masdarOf = d => d ? [d.ms].concat(d.m2 ? [d.m2] : []) : null;
 const masdarGuess = rt => (MASDAR_KALIP[rt.b.id] || []).map(t => fill(t, rt.r));
 
+
+/* ---- Türkçe karşılıklar: kökün Türkçe mastarından (tk) 24 kalıbın karşılığı üretilir ---- */
+const TK_ELLE = {"كره":"nefret etmek", "جهل":"cahillik etmek"};
+const trTemiz = d => TK_ELLE[d.r] || d.tr.split(",")[0].replace(/\s*\([^)]*\)/g,"").replace(/(\S+)\/(\S+)/g,"$1").trim();
+const TR_V = "aeıioöuü", TR_SESSIZ = "çfhkpsşt", TR_ISTISNA = ["al","bil","bul","dur","gel","gör","kal","ol","öl","san","var","ver","vur"];
+const trSes = w => Array.from(w).filter(c => TR_V.includes(c));
+const trSon = w => trSes(w).slice(-1)[0] || "a";
+const trH2 = v => "aıou".includes(v) ? "a" : "e";
+const trH4 = v => ({a:"ı", "ı":"ı", o:"u", u:"u", e:"i", i:"i", "ö":"ü", "ü":"ü"})[v];
+function trCek(tk){
+  const kel = tk.split(" "), son = kel.pop(), on = kel.length ? kel.join(" ") + " " : "";
+  const s0 = son.replace(/m[ae]k$/, ""), unlu = TR_V.includes(s0.slice(-1));
+  const yum = /et$/.test(s0) || s0 === "git";            /* et- ve git- yumuşar: eden, edecek, gidecek */
+  const sy = yum ? s0.slice(0,-1) + "d" : s0;
+  const ng = s0 + "m" + trH2(trSon(s0));                  /* olumsuzluk: yazma-, gelme- */
+  const ar = unlu ? s0 + "r" : yum && /et$/.test(s0) ? sy + "er" : s0 === "git" ? sy + "er"
+    : (trSes(s0).length === 1 && !TR_ISTISNA.includes(s0)) ? s0 + trH2(trSon(s0)) + "r" : s0 + trH4(trSon(s0)) + "r";
+  const yor = unlu ? (/[ae]$/.test(s0) ? (() => { const b = s0.slice(0,-1); return b + trH4(trSes(b).slice(-1)[0] || "i") + "yor"; })() : s0 + "yor") : sy + trH4(trSon(s0)) + "yor";
+  const gel = (unlu ? s0 + "y" : sy) + (trH2(trSon(s0)) === "a" ? "acak" : "ecek");
+  const gec = s0 + (TR_SESSIZ.includes(s0.slice(-1)) ? "t" : "d") + trH4(trSon(s0));
+  const ngGec = ng + "d" + trH4(trSon(ng)), ngYor = s0 + "m" + trH4(trSon(s0)) + "yor", ngGel = ng + (trH2(trSon(ng)) === "a" ? "yacak" : "yecek");
+  const fail = (unlu ? s0 + "y" : sy) + (trH2(trSon(s0)) === "a" ? "an" : "en");
+  const ps = /l$/.test(s0) ? sy + trH4(trSon(s0)) + "n" : unlu ? s0 + "n" : sy + trH4(trSon(s0)) + "l";   /* l ile biten kök: -ın (bilinen); ünlüyle biten: -n (okunan); diğerleri: -ıl (yazılan) */
+  const mef = ps + (trH2(trSon(ps)) === "a" ? "an" : "en");
+  const ys = (unlu ? s0 + "y" : sy) + trH4(trSon(s0)) + "ş";
+  const nm = ng + (/[ae]$/.test(ng) ? "y" : "") + trH2(trSon(ng));
+  const b = x => x.charAt(0).toLocaleUpperCase("tr") + x.slice(1);
+  return {
+    mazi: b(on + gec), muz: b(on + ar + " / " + on + yor + " / " + on + gel), masdar: b(tk), fail: b(on + fail), mef: b(on + mef),
+    lem: b(on + ngGec), lemma: b("henüz " + on + ngGec), nhal: b(on + ngYor), nist: b(on + ngGel), len: b("asla " + on + ngGel),
+    gaib: b(on + s0 + "s" + trH4(trSon(s0)) + "n"), nehyG: b(on + ng + "s" + trH4(trSon(ng)) + "n"), emr: b(on + s0), nehyH: b(on + ng),
+    zarf: b(on + ng + " zamanı · " + on + ng + " yeri"), alet: b(on + ng + " aleti"), merre: b("bir kere " + on + tk.split(" ").pop()),
+    nev: b("bir tür " + on + ys), tasgir: b("küçük bir " + on + ys), mensub: b(on + nm + " mensup"),
+    mubalaga: b("çok " + on + fail), tafdil: b("en çok " + on + fail), tac1: b("acayip " + on + gec), tac2: b("ne acayip " + on + gec)
+  };
+}
+ROOTS.forEach(d => { d.tk = trTemiz(d); });
+
 /* ---- 14 sîga ---- */
 const SIGA = [
  {n:1, z:"هُوَ", p:"g", g:"m", c:1, tr:"Müfred müzekker gâib", k:"o (bir erkek)"},
