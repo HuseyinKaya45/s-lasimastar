@@ -29,3 +29,6 @@ kökle çekim) metinlerde cihazdaki Arapça sese dönülür, o da yoksa uyarı v
 
 ## Emsile Tezgâhı: ses kaldırıldı
 Konuşma seslendirmesi (Dinle düğmeleri, "Hepsini dinle", ezberde "Sesli") kaldırıldı: yanlış okuma ve art arda okumada atlama sorunları vardı, sesler dosyayı 23 MB yapıyordu. Üretilmiş kayıtlar ve metin listesi `ses/arsiv/` altında saklıdır; build bu klasörü gömmez. Oyunlardaki doğru/yanlış "bip" sesleri duruyor.
+
+## Binâ Sarayı: ses kaldırıldı
+Aynı gerekçeyle "Dinle" düğmeleri ve gömülü kayıtlar (0,9 MB) kaldırıldı; kayıtlar `ses/arsiv/bina-ef-al.{json,txt}` altında. Oyun efektleri (bip) duruyor.

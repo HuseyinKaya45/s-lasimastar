@@ -48,7 +48,6 @@ function addXP(n){const before=lvl().name;S.xp+=n;save();hud();const after=lvl()
 /* ---------- ses ---------- */
 let AC=null;
 function beep(kind){if(!S.snd)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const seq=kind==='ok'?[[660,.07],[880,.1]]:kind==='no'?[[220,.16]]:kind==='win'?[[523,.08],[659,.08],[784,.08],[1046,.18]]:[[440,.05]];let t=AC.currentTime;seq.forEach(([f,d])=>{const o=AC.createOscillator(),g=AC.createGain();o.type=kind==='no'?'sawtooth':'triangle';o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.18,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g).connect(AC.destination);o.start(t);o.stop(t+d+.02);t+=d;});}catch(e){}}
-function speak(t){sesPlay(t,null,toast);}
 let tT=0;function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(tT);tT=setTimeout(()=>t.hidden=true,2600);}
 function confetti(){const c=$('#cf');c.hidden=false;const x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const cols=['#e7b54a','#4cc38a','#e98a5b','#6fa8ff','#c44f6a'];const P=Array.from({length:120},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,vx:(Math.random()-.5)*3,vy:2+Math.random()*3,s:4+Math.random()*5,r:Math.random()*6,c:pick(cols)}));let f=0;(function go(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.r+=.1;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);x.restore();});if(++f<160)requestAnimationFrame(go);else{c.hidden=true;}})();}
 /* ---------- tema / ses düğmeleri ---------- */
@@ -227,14 +226,14 @@ V.bab=([id])=>{
       <div>${stars(S.stars[id]||0)}</div>
     </div>
     <div style="text-align:center;margin-top:10px"><div class="vbox"><div class="big">${esc(vezinLine(B))}</div></div></div>
-    <div style="text-align:center;margin-top:8px" class="row" ><span class="ar" style="font-size:1.6rem;flex:1">${esc(mevzunLine(B))}</span><button class="btn sm" id="say">${ICON.play} Dinle</button></div>
+    <div style="text-align:center;margin-top:8px" class="row" ><span class="ar" style="font-size:1.6rem;flex:1">${esc(mevzunLine(B))}</span></div>
   </div>
   <div class="info">
     <div class="card"><h3><span class="chip gold">Alâmet</span> عَلَامَتُهُ</h3><p>${B.al}</p><div class="ar">${esc(B.alAr)}</div>
       <div class="tiles" style="justify-content:flex-start;margin:8px 0 0">${mc.map((c,k)=>`<span class="tile ${zi.includes(k)?'pick':'good'}" style="min-width:42px;height:50px;font-size:1.5rem">${esc(c)}</span>`).join('')}</div>
       <p class="tiny muted" style="margin-top:6px">Yeşil: aslî · Turuncu: zâid${zi.length?'':' (zâid harf yok)'}</p></div>
     <div class="card"><h3><span class="chip root">Binâ</span> بِنَاؤُهُ</h3><p>${B.bn}</p><div class="ar">${esc(B.bnAr)}</div></div>
-    <div class="card"><h3><span class="chip">Misaller</span> مِثَالُهُ</h3><div class="ex">${B.ex.map(e=>`<div>${A(e[0])}<span class="small muted">${esc(e[1])}</span><button class="btn sm ghost" data-say="${esc(e[0])}" aria-label="Dinle">${ICON.play}</button></div>`).join('')}</div></div>
+    <div class="card"><h3><span class="chip">Misaller</span> مِثَالُهُ</h3><div class="ex">${B.ex.map(e=>`<div>${A(e[0])}<span class="small muted">${esc(e[1])}</span></div>`).join('')}</div></div>
   </div>
   <div class="sec-h"><div><h2>Ok haritası</h2><p class="muted small" style="margin:2px 0 0">Vezindeki her harf mevzûndaki karşılığına iner. Aslî harfler ف ع ل${nRoot(B)===4?' ل':''}’nin yerini alır; zâid harfler olduğu gibi kalır.</p></div><button class="btn sm" id="other">Başka fiille dene ↻</button></div>
   ${legend}
@@ -246,8 +245,6 @@ V.bab=([id])=>{
     ${set&&set.rows.length?`<a class="btn pri" href="#tat/b-${B.id}">Tatbikata başla (${set.rows.length} fiil) ${ICON.arrow}</a>`:''}
     <a class="btn" href="#oyun/zaid">Zâid Avı</a><a class="btn" href="#atolye/vinc/${B.id}">Vinçte kendi kökünü dene</a>
   </div>`;
-  $('#say').onclick=()=>speak(mevzunLine(B));
-  $$('[data-say]').forEach(b=>b.onclick=()=>speak(b.dataset.say));
   const pool=(set?set.rows:[]).filter(x=>!x.man&&clusters(x.f[0]).length===clusters(fill(B.T.m,VZ_ROOT)).length);let k=0;
   $('#other').onclick=()=>{if(!pool.length){toast('Bu bâbda başka örnek yok.');return;}const row=pool[k++%pool.length];$('#maps').innerHTML=sl.map(s=>mapHTML(B,s,row.r)).join('');$('#mapNote').textContent='Gösterilen kök: '+row.r.join(' ');beep('tap');};
 };
@@ -339,9 +336,8 @@ TOOL.vinc=([bid])=>{
     const B=BAB[cur];
     $('#out').innerHTML=`<div class="card" style="--c:${gcol(B)}"><div class="eyebrow" style="color:${gcol(B)}">${G(B.g).tr} · ${B.n}. bâb</div><div class="ar" style="font-size:1.5rem">${esc(vezinLine(B))}</div>
     <div class="gen" style="margin-top:10px">${babSlots(B).map(sl=>`<div><div class="tiny muted">${sl==='f'?fLabel(B):SLOT_NAMES[sl]}</div><div class="ar">${esc(make(B.id,sl,root))}</div></div>`).join('')}${B.T.s?'':'<div><div class="tiny muted">Masdar</div><div class="small">Semâî: kitaptan / sözlükten öğrenilir</div></div>'}</div>
-    <div class="row" style="margin-top:10px"><button class="btn sm" id="sayv">${ICON.play} Dinle</button><a class="btn sm" href="#bab/${B.id}">Bâb dersi</a></div></div>
+    <div class="row" style="margin-top:10px"><a class="btn sm" href="#bab/${B.id}">Bâb dersi</a></div></div>
     <div class="sec-h"><h3>Ok haritası</h3></div>${legend}<div class="maps">${babSlots(B).map(sl=>mapHTML(B,sl,root)).join('')}</div>`;
-    $('#sayv').onclick=()=>speak(babSlots(B).map(sl=>make(B.id,sl,root)).join('، '));
   };
   $$('#kb [data-l]').forEach(b=>b.onclick=()=>{const l=b.dataset.l;if(l==='del')root.pop();else if(root.length<4)root.push(l);else{root=[l];}beep('tap');draw();});
   draw();
@@ -405,14 +401,14 @@ TOOL.idgam=()=>{
   const draw=()=>{
     const q=qs[qi];
     app.innerHTML=`${backA()}<div class="sec-h" style="margin-top:12px"><div><div class="eyebrow">الإِدْغَامُ</div><h2>İdğam: iki mütecânis harfin birini diğerine katmak</h2></div></div>
-    <div class="grid g2"><div class="card" style="text-align:center"><div class="steps">${frames.map((f,i)=>`<i class="${i<=st?'on':''}"></i>`).join('')}</div><div class="qar" style="font-size:3.4rem">${esc(frames[st][0])}</div><p>${frames[st][1]}</p><div class="row" style="justify-content:center"><button class="btn sm" id="pv" ${st?'':'disabled'}>‹ Geri</button><button class="btn sm pri" id="nx" ${st<2?'':'disabled'}>İleri ›</button><button class="btn sm ghost" id="sy">${ICON.play}</button></div></div>
+    <div class="grid g2"><div class="card" style="text-align:center"><div class="steps">${frames.map((f,i)=>`<i class="${i<=st?'on':''}"></i>`).join('')}</div><div class="qar" style="font-size:3.4rem">${esc(frames[st][0])}</div><p>${frames[st][1]}</p><div class="row" style="justify-content:center"><button class="btn sm" id="pv" ${st?'':'disabled'}>‹ Geri</button><button class="btn sm pri" id="nx" ${st<2?'':'disabled'}>İleri ›</button></div></div>
     <div class="card"><h3>Üç nevi</h3><div class="idg" style="margin-top:8px">
       <span class="tag">Vâcib</span><span>İki mütecânis harf harekeli, ya da birincisi sâkin ikincisi harekeli: ${A('مَدَّ يَمُدُّ مَدًّا')}</span>
       <span class="tag">Câiz</span><span>Birincisi harekeli, ikincisi ârızî sükûnla sâkin: ${A('لَمْ يَمُدَّ')} aslı ${A('لَمْ يَمْدُدْ')}; fetha, damme veya kesra ile harekelenip idğam edilir; fekk de câizdir.</span>
       <span class="tag">Mümteni</span><span>Birincisi harekeli, ikincisi aslî sükûnla sâkin: ${A('مَدَدْتُ إِلَى مَدَدْنَ')}</span></div></div></div>
     <div class="sec-h"><h3>Hangi nevi? <span class="muted small">(${qi+1}/${qs.length} · puan ${sc})</span></h3></div>
     <div class="card stage">${q?`<div class="qar">${esc(q[0])}</div><div class="opts" style="grid-template-columns:repeat(3,1fr)">${['v','c','m'].map(t=>`<button class="opt tr" data-t="${t}">${TY[t]}</button>`).join('')}</div><div class="fb" id="fb"></div>`:`<div style="text-align:center"><p><b>${sc}/${qs.length}</b> doğru.</p><button class="btn pri" id="again">Yeniden</button></div>`}</div>`;
-    $('#pv').onclick=()=>{st--;draw();};$('#nx').onclick=()=>{st++;beep('tap');draw();};$('#sy').onclick=()=>speak('مَدَدَ، مَدَّ');
+    $('#pv').onclick=()=>{st--;draw();};$('#nx').onclick=()=>{st++;beep('tap');draw();};
     if(q)$$('[data-t]').forEach(b=>b.onclick=()=>{const ok=b.dataset.t===q[1];b.classList.add(ok?'ok':'no');$('#fb').className='fb '+(ok?'ok':'no');$('#fb').textContent=ok?'Doğru!':'Doğrusu: '+TY[q[1]];beep(ok?'ok':'no');if(ok){sc++;addXP(2);}$$('[data-t]').forEach(x=>x.disabled=true);setTimeout(()=>{qi++;draw();},1000);});
     else $('#again').onclick=()=>TOOL.idgam();
   };
