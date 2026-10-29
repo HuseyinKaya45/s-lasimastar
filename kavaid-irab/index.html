@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>İ'rabın Anahtarı — Kavâidü'l-İ'râb Çalışma Atölyesi</title>
+<style>:root{--bg:#f6f3ea;--kart:#fffdf7;--yazi:#1f2a2e;--soluk:#5d6b70;--cizgi:#e4dccb;--ana:#0f766e;--ana2:#0d9488;--anaa:#e0f2ef;--altin:#b7791f;--altina:#fdf2d9;--dogru:#15803d;--dogrua:#dcf5e3;--yanlis:#b91c1c;--yanlisa:#fde4e4;--golge:0 2px 10px rgba(60,50,20,.08);--ars:1.55rem}
+:root[data-theme=dark]{--bg:#10181a;--kart:#172224;--yazi:#e8efee;--soluk:#9db0b2;--cizgi:#2a3b3e;--ana:#2dd4bf;--ana2:#14b8a6;--anaa:#12332f;--altin:#f5c04e;--altina:#33290f;--dogru:#4ade80;--dogrua:#10331f;--yanlis:#f87171;--yanlisa:#3a1818;--golge:0 2px 10px rgba(0,0,0,.4)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--yazi);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.ar{font-family:"Amiri","Scheherazade New","Noto Naskh Arabic","Traditional Arabic","Geeza Pro","Times New Roman",serif;direction:rtl;unicode-bidi:isolate;font-size:1.25em;line-height:1.9}
+.arb{display:block;text-align:center;font-size:var(--ars);line-height:2.1;direction:rtl;font-family:"Amiri","Scheherazade New","Noto Naskh Arabic","Traditional Arabic","Geeza Pro",serif;margin:.2rem 0}
+mark{background:var(--altina);color:inherit;border-radius:6px;padding:0 .25em;box-shadow:0 0 0 2px var(--altin) inset}
+.top{position:sticky;top:0;z-index:20;background:var(--kart);border-bottom:1px solid var(--cizgi);box-shadow:var(--golge)}
+.top-in{max-width:920px;margin:auto;padding:.5rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.logo{font-weight:800;font-size:1.05rem;color:var(--ana);line-height:1.2}.logo small{display:block;font-weight:500;font-size:.72rem;color:var(--soluk)}
+.chips{display:flex;gap:.4rem;align-items:center}
+.chip{background:var(--anaa);color:var(--ana);border-radius:999px;padding:.15rem .6rem;font-weight:700;font-size:.85rem;white-space:nowrap}
+.ibtn{border:1px solid var(--cizgi);background:var(--kart);color:var(--yazi);border-radius:10px;padding:.25rem .55rem;font-size:.95rem;cursor:pointer}
+.tabs{max-width:920px;margin:auto;display:flex;gap:.25rem;overflow-x:auto;padding:.25rem 1rem .5rem;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:0;background:transparent;color:var(--soluk);padding:.4rem .75rem;border-radius:999px;font:inherit;font-weight:600;font-size:.9rem;cursor:pointer;white-space:nowrap}
+.tab.on{background:var(--ana);color:#fff}
+main{max-width:920px;margin:auto;padding:1rem 1rem 4rem}
+h1,h2,h3{line-height:1.25;margin:.2rem 0 .6rem}h2{font-size:1.35rem}h3{font-size:1.1rem}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:1rem;margin:.75rem 0;box-shadow:var(--golge)}
+.hero{background:linear-gradient(135deg,#0f766e,#115e59 60%,#134e4a);color:#fff;border-radius:22px;padding:1.2rem;position:relative;overflow:hidden}
+.hero::after{content:"إعراب";position:absolute;right:-.5rem;bottom:-1.6rem;font:900 6rem "Amiri","Traditional Arabic",serif;opacity:.13;direction:rtl}
+.hero h1{font-size:1.5rem;margin:0}.hero p{margin:.3rem 0;opacity:.92}
+.hero .ozet{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin-top:.7rem}
+.halka{width:78px;height:78px;position:relative;flex:0 0 78px}.halka svg{transform:rotate(-90deg)}.halka b{position:absolute;inset:0;display:grid;place-items:center;font-size:1.05rem}
+.btn{display:inline-block;border:0;background:var(--ana);color:#fff;border-radius:12px;padding:.6rem 1rem;font:inherit;font-weight:700;cursor:pointer;box-shadow:var(--golge);margin:.2rem .2rem .2rem 0}
+.btn.ikincil{background:var(--anaa);color:var(--ana)}.btn.altin{background:var(--altin);color:#fff}.btn.sol{background:transparent;color:var(--soluk);border:1px solid var(--cizgi);box-shadow:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}.hero .btn{background:#fff;color:#0f766e}
+.izgara{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.75rem}
+.kutu{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:.9rem;cursor:pointer;text-align:left;font:inherit;color:inherit;box-shadow:var(--golge);transition:transform .12s}
+.kutu:hover{transform:translateY(-2px)}.kutu .i{font-size:1.7rem}.kutu b{display:block}.kutu small{color:var(--soluk)}
+.kutu.bitti{border-color:var(--dogru)}
+.bab{margin-top:1rem}.bab h3{color:var(--ana)}
+.yol{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.dugum{width:54px;height:54px;border-radius:50%;border:3px solid var(--cizgi);background:var(--kart);display:grid;place-items:center;font-size:1.25rem;cursor:pointer;position:relative;color:inherit}
+.dugum.bitti{background:var(--dogrua);border-color:var(--dogru)}.dugum.siradaki{border-color:var(--altin);box-shadow:0 0 0 4px var(--altina)}
+.dugum small{position:absolute;bottom:-.9rem;font-size:.65rem;color:var(--soluk)}
+.kutuk{border-left:5px solid var(--altin);background:var(--altina);padding:.7rem .9rem;border-radius:0 12px 12px 0;margin:.7rem 0}
+.kutuk.ana{border-color:var(--ana);background:var(--anaa)}.kutuk.hata{border-color:var(--yanlis);background:var(--yanlisa)}
+.etiket{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--soluk)}
+ul.nok{padding-left:1.2rem}ul.nok li{margin:.35rem 0}
+details.orn{border:1px solid var(--cizgi);border-radius:14px;margin:.5rem 0;background:var(--kart)}
+details.orn summary{cursor:pointer;padding:.6rem .9rem;list-style:none}details.orn summary::-webkit-details-marker{display:none}
+details.orn summary .tr{display:block;text-align:center;color:var(--soluk);font-size:.9rem}
+details.orn[open] summary{border-bottom:1px dashed var(--cizgi)}.orn .ic{padding:.5rem .9rem .8rem}.orn .ic p{margin:.35rem 0}
+.sec{display:block;width:100%;text-align:left;background:var(--kart);border:2px solid var(--cizgi);border-radius:14px;padding:.7rem .9rem;margin:.45rem 0;font:inherit;color:inherit;cursor:pointer}
+.sec:hover{border-color:var(--ana)}.sec.d{background:var(--dogrua);border-color:var(--dogru)}.sec.y{background:var(--yanlisa);border-color:var(--yanlis);animation:titre .35s}
+.sec:disabled{cursor:default}
+@keyframes titre{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.cevap{padding:.7rem .9rem;border-radius:12px;margin:.5rem 0}.cevap.d{background:var(--dogrua)}.cevap.y{background:var(--yanlisa)}
+.ilerleme{height:9px;background:var(--cizgi);border-radius:9px;overflow:hidden;margin:.4rem 0}.ilerleme i{display:block;height:100%;background:linear-gradient(90deg,var(--ana),var(--ana2));transition:width .3s}
+.rozetler{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.6rem}
+.rozet{border:1px solid var(--cizgi);border-radius:14px;padding:.6rem;text-align:center;background:var(--kart);opacity:.45;filter:grayscale(1)}.rozet.var{opacity:1;filter:none;border-color:var(--altin);background:var(--altina)}.rozet .i{font-size:1.8rem}.rozet small{display:block;color:var(--soluk)}
+.cift{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.cift button{border:2px solid var(--cizgi);background:var(--kart);color:inherit;border-radius:12px;padding:.6rem;font:inherit;cursor:pointer;min-height:56px}
+.cift button.sel{border-color:var(--altin);background:var(--altina)}.cift button.ok{border-color:var(--dogru);background:var(--dogrua);pointer-events:none}.cift button.kotu{animation:titre .35s;border-color:var(--yanlis)}
+.cip{display:inline-block;border:2px solid var(--cizgi);background:var(--kart);border-radius:12px;padding:.45rem .7rem;margin:.25rem;cursor:pointer;font:inherit;color:inherit}.cip.k{opacity:.35;pointer-events:none}
+.sira{display:flex;gap:.5rem;margin:.3rem 0;align-items:flex-start}.sira b{flex:0 0 28px;height:28px;border-radius:50%;background:var(--ana);color:#fff;display:grid;place-items:center;font-size:.85rem}
+.kartca{min-height:150px;display:grid;place-items:center;text-align:center;font-size:1.15rem;padding:1.2rem;cursor:pointer}
+.tablo{width:100%;border-collapse:collapse}.tablo td,.tablo th{border-bottom:1px solid var(--cizgi);padding:.4rem;text-align:left}
+.ara{width:100%;padding:.65rem .9rem;border-radius:12px;border:2px solid var(--cizgi);background:var(--kart);color:inherit;font:inherit}
+.sz{display:flex;gap:.8rem;align-items:baseline;border-bottom:1px solid var(--cizgi);padding:.55rem 0}.sz .ar{min-width:5.5rem;text-align:right}
+.toast{position:fixed;left:50%;bottom:1.2rem;transform:translateX(-50%);background:var(--yazi);color:var(--bg);padding:.6rem 1rem;border-radius:12px;z-index:50;box-shadow:var(--golge);max-width:90vw;text-align:center}
+.konfeti{position:fixed;top:-20px;font-size:1.4rem;z-index:60;pointer-events:none;animation:dus 1.8s ease-in forwards}
+@keyframes dus{to{transform:translateY(105vh) rotate(540deg);opacity:.2}}
+.u{margin-top:.6rem;color:var(--soluk);font-size:.85rem}.orta{text-align:center}.sag{text-align:right}
+.satir{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.kelime{display:inline-block;padding:.05rem .3rem;border-radius:8px}.kelime.on{background:var(--altina);box-shadow:0 0 0 2px var(--altin) inset}.kelime.bit{opacity:.6}
+@media(max-width:520px){.cift{grid-template-columns:1fr}.logo small{display:none}main{padding:.75rem .75rem 4rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.toast{pointer-events:none}a{color:var(--ana)}
+.hero::after{pointer-events:none}.hero>*{position:relative;z-index:1}
+</style></head><body>
+<header class="top"><div class="top-in"><div class="logo">İ'rabın Anahtarı<small>İbn Hişâm · Kavâidü'l-İ'râb çalışma atölyesi</small></div><div class="chips"><span class="chip" id="seri">🔥 0</span><span class="chip" id="xp">⭐ 0</span><button class="ibtn" data-a="yazi" aria-label="Yazı boyutu">Aa</button><button class="ibtn" data-a="tema" aria-label="Koyu/açık tema">🌓</button></div></div><nav class="tabs" id="sek" aria-label="Bölümler"></nav></header>
+<main id="ana"></main>
+<noscript>Bu program JavaScript gerektirir.</noscript>
+<script>/* Dersler: İbn Hişâm, Kavâidü'l-İ'râb (3 bab) — özgün anlatım */
+const DERS=[
+{id:1,bab:1,ad:`Cümle ve Kelâm`,ikon:`🪆`,dk:6,
+kanca:`Matruşka bebeklerini düşün: büyük bebeğin karnında küçük bir bebek yaşar. Dıştaki büyük bebek <b>kübrâ</b>, içteki küçük bebek <b>suğrâ</b> cümledir. İ'rab yaparken önce "hangi bebekle uğraşıyorum?" diye sor.`,
+kurallar:[
+`Faydalı söz (<span class="ar">اللَّفْظُ الْمُفِيدُ</span>) hem <b>kelâm</b> hem <b>cümle</b> diye anılır; İbn Hişâm bu risalede iki adı aynı anlamda kullanır.`,
+`İsimle başlayan cümle <b>ismiyye</b>: <span class="ar">زَيْدٌ قَائِمٌ</span>.`,
+`Fiille başlayan cümle <b>fi'liyye</b>: <span class="ar">قَامَ زَيْدٌ</span>.`,
+`Başka bir cümlenin parçası olarak kurulmuşsa <b>suğrâ</b> (küçük) cümledir.`,
+`İçinde başka bir cümle taşıyan bütün yapı <b>kübrâ</b> (büyük) cümledir.`],
+ornek:[
+{ar:`زَيْدٌ قَائِمٌ`,tr:`Zeyd ayaktadır.`,irab:[`زيدٌ: mübtedâ, merfû'; alâmeti zâhir damme.`,`قائمٌ: haber, merfû'; alâmeti zâhir damme.`,`Bütün yapı: ismiyye cümle (isimle başlıyor).`]},
+{ar:`قَامَ زَيْدٌ`,tr:`Zeyd kalktı.`,irab:[`قامَ: fiil-i mâzî, fetha üzerine mebnî.`,`زيدٌ: fâil, merfû'; alâmeti zâhir damme.`,`Bütün yapı: fi'liyye cümle (fiille başlıyor).`]},
+{ar:`زَيْدٌ قَامَ أَبُوهُ`,tr:`Zeyd'in babası kalktı.`,irab:[`زيدٌ: mübtedâ.`,`قامَ: fiil-i mâzî. أبوهُ: fâil, merfû'; alâmeti vâv (beş isimden biri), aynı zamanda muzâf; ـهُ: muzâf ileyh.`,`<b>قام أبوه</b> = suğrâ (başkasının içine kurulmuş; mübtedânın haberi).`,`<b>زيد قام أبوه</b> bütünü = kübrâ (içinde bir cümle taşıyor).`]},
+{ar:`زَيْدٌ أَبُوهُ قَائِمٌ`,tr:`Zeyd'in babası ayakta.`,irab:[`أبوه قائم: ismiyye ve <b>suğrâ</b>; çünkü haber olmuş, yani başka bir cümleye "bina edilmiş".`,`Bütün yapı: kübrâ.`]}],
+ezber:`<b>Dışı kübrâ, içi suğrâ.</b> Cümle başka bir cümleyi karnında taşıyorsa büyük bebek (kübrâ), kendisi bir yerin parçasıysa küçük bebek (suğrâ).`,
+hata:`"İsmiyye / fi'liyye" ayrımını cümlenin <b>ilk kelimesi</b> belirler; "suğrâ / kübrâ" ayrımını ise cümlenin <b>başka bir cümleyle ilişkisi</b>. İkisi farklı sorulardır; karıştırma.`,
+kontrol:[
+{q:`<span class="ar">قَامَ زَيْدٌ</span> hangi tür cümledir?`,o:[`İsmiyye`,`Fi'liyye`,`Kübrâ`],d:1,a:`Fiille (قام) başladığı için fi'liyye.`},
+{q:`<span class="ar">زَيْدٌ قَامَ أَبُوهُ</span> içinde <span class="ar">قَامَ أَبُوهُ</span> nedir?`,o:[`Kübrâ`,`Suğrâ`,`Mahalli olmayan cümle`],d:1,a:`Başka bir cümleye (mübtedânın haberi olarak) bina edildiği için suğrâ.`},
+{q:`Aşağıdakilerden hangisi cümleyi "isimle başlıyor" diye ismiyye yapar?`,o:[`Cümlenin sonu isim olması`,`Cümlenin ilk kelimesinin isim olması`,`Cümlede fâil bulunması`],d:1,a:`Belirleyici olan, cümlenin başındaki kelimenin isim mi fiil mi olduğudur.`}]},
+
+{id:2,bab:1,ad:`Mahalli Olan 7 Cümle`,ikon:`🏠`,dk:10,
+kanca:`Cümle mahallesini hayal et. Bazı cümleler <b>tapulu</b>dur: bir kelimenin oturduğu eve yerleşmiştir ve o evin sahibi gibi i'rab alır (merfû', mansûb, mecrûr, meczûm). Bunlar "<b>i'rabdan mahalli olan</b>" cümlelerdir. Tapu testi çok kolay: <b>cümlenin yerine tek bir kelime koyabiliyor musun?</b> Koyunca o kelime i'rab alıyorsa cümlenin mahalli vardır.`,
+kurallar:[
+`<b>1. Haber</b> olan cümle (mübtedânın, <span class="ar">إِنَّ</span>'nin, <span class="ar">كَانَ</span> ve <span class="ar">كَادَ</span> kardeşlerinin haberi). Mahalli: rafʿ ya da nasb.`,
+`<b>2. Hâl</b> olan cümle. Mahalli: nasb.`,
+`<b>3. Mef'ûl bih</b> olan cümle (söylenen söz, <i>mekûlü'l-kavl</i>). Mahalli: nasb.`,
+`<b>4. Muzâf ileyh</b> olan cümle (zaman zarfından sonra). Mahalli: cerr.`,
+`<b>5. Câzim şartın cevabı</b>, eğer <b>fâ</b> ya da <b>fücâ'e izâsı</b> ile bağlanmışsa. Mahalli: cezm.`,
+`<b>6. Müfrede tâbi</b> olan cümle (nat gibi). Mahalli: tâbi olduğu kelimeyle aynı.`,
+`<b>7. Mahalli olan bir cümleye tâbi</b> olan cümle (ataf). Mahalli: tâbi olduğu cümleyle aynı.`,
+`Kural testi: <b>müfred testi.</b> Yerine tek kelime koy; i'rab alırsa mahalli var.`],
+ornek:[
+{ar:`زَيْدٌ قَامَ أَبُوهُ`,tr:`Haber olan cümle (mübtedâ).`,irab:[`<b>قام أبوه</b>: mahalli rafʿ, mübtedâ <span class="ar">زيد</span>'in haberi. Yerine "قائم" koyabilirsin: <span class="ar">زيد قائم</span>.`]},
+{ar:`إِنَّ زَيْدًا أَبُوهُ قَائِمٌ`,tr:`İnne'nin haberi olan cümle.`,irab:[`<b>أبوه قائم</b>: mahalli rafʿ, <span class="ar">إنَّ</span>'nin haberi.`]},
+{ar:`كَانَ زَيْدٌ أَبُوهُ قَائِمٌ`,tr:`Kâne'nin haberi olan cümle.`,irab:[`<b>أبوه قائم</b>: mahalli nasb, <span class="ar">كان</span>'nin haberi.`]},
+{ar:`كَادَ زَيْدٌ يَفْعَلُ`,tr:`Kâde'nin haberi olan cümle.`,irab:[`<b>يفعل</b>: mahalli nasb, <span class="ar">كاد</span>'nin haberi.`]},
+{ar:`جَاءَ زَيْدٌ يَضْحَكُ`,tr:`Zeyd güleyerek geldi.`,irab:[`<b>يضحك</b>: mahalli nasb, hâl.`,`Takdir: <span class="ar">جاء زيدٌ ضاحكًا</span>.`]},
+{ar:`قَالَ زَيْدٌ عَمْرٌو مُنْطَلِقٌ`,tr:`Zeyd "Amr yola çıktı" dedi.`,irab:[`<b>عمرو منطلق</b>: <i>mekûlü'l-kavl</i>; mahalli nasb, <span class="ar">قال</span>'nin mef'ûl bih'i.`]},
+{ar:`يَوْمَ هُمْ بَارِزُونَ`,tr:`Onların (ortaya) çıkacağı gün. (Gâfir 16)`,irab:[`<b>هم بارزون</b>: mahalli cerr, muzâf ileyh; çünkü zaman zarfı <span class="ar">يوم</span>'den sonra geldi.`]},
+{ar:`مَن يُضْلِلِ اللَّهُ فَلَا هَادِيَ لَهُ`,tr:`Allah kimi saptırırsa onun yol göstericisi yoktur. (A'râf 186)`,irab:[`<b>فلا هادي له</b>: mahalli cezm, câzim şartın cevabı; <b>fâ</b> ile bağlanmış.`,`<span class="ar">من</span> câzim şart ismidir; şart fiili <span class="ar">يضلل</span> meczûmdur.`]},
+{ar:`وَإِن تُصِبْهُمْ سَيِّئَةٌ بِمَا قَدَّمَتْ أَيْدِيهِمْ إِذَا هُمْ يَقْنَطُونَ`,tr:`Elleriyle yaptıkları yüzünden başlarına bir kötülük gelirse bir de bakarsın ki umutlarını kesmişlerdir. (Rûm 36)`,irab:[`<b>إذا هم يقنطون</b>: mahalli cezm, şartın cevabı; <b>fücâ'e izâsı</b> ile bağlanmış (<span class="ar">إذا</span> burada <span class="ar">فاء</span>'nın yerini tutuyor).`]},
+{ar:`مِن قَبْلِ أَن يَأْتِيَ يَوْمٌ لَّا بَيْعٌ فِيهِ`,tr:`İçinde alışveriş olmayan bir gün gelmeden önce. (Bakara 254)`,irab:[`<b>لا بيع فيه</b>: mahalli rafʿ, <span class="ar">يوم</span>'ün sıfatı (müfrede tâbi).`]},
+{ar:`زَيْدٌ قَامَ أَبُوهُ وَقَعَدَ أَخُوهُ`,tr:`Zeyd'in babası kalktı, kardeşi oturdu.`,irab:[`<b>قعد أخوه</b>: <span class="ar">قام أبوه</span>'ya ataf; o rafʿ mahallinde olduğu için bu da rafʿ mahallinde.`]}],
+ezber:`<b>"Ha-ha, me-mu, şa-na-ma!"</b> Haber, Hâl, Mef'ûl, Muzâf ileyh, Şart cevabı, Nat (müfrede tâbi), Ma'tûf (cümleye tâbi). Yedi tapulu cümle.`,
+hata:`Şart cevabında <b>her cevap cümlesi mahalli olmaz.</b> Yalnız <b>câzim</b> şartın cevabı ve <b>fâ</b> ya da <b>fücâ'e izâsı</b> ile bağlanmışsa mahalli (cezm) vardır. Fâ'sız olsa fiil zaten kendisi meczûm olur, cümle mahalli aranmaz.`,
+kontrol:[
+{q:`<span class="ar">جَاءَ زَيْدٌ يَضْحَكُ</span> cümlesinde <span class="ar">يَضْحَكُ</span> neyin mahallindedir?`,o:[`Rafʿ, haber`,`Nasb, hâl`,`Cerr, muzâf ileyh`],d:1,a:`"Gülerek" anlamıyla fâilin durumunu anlatır; nasb mahallinde hâl.`},
+{q:`Mahalli olan cümleyi bulmanın en pratik testi hangisidir?`,o:[`Cümlenin uzunluğuna bakmak`,`Yerine tek bir kelime koyabilmek`,`Cümlede harf aramak`],d:1,a:`Müfred testi: yerine tek kelime konunca i'rab alıyorsa mahalli vardır.`},
+{q:`Câzim şartın cevabının mahalli (cezm) olabilmesi için ne gerekir?`,o:[`Fâ ya da fücâ'e izâsı ile bağlanması`,`Fiil-i mâzî olması`,`Zarf içermesi`],d:0,a:`Fâ ya da izâ-i fücâ'iyye ile bağlanırsa cümle olarak cezm mahallinde sayılır.`}]},
+
+{id:3,bab:1,ad:`Mahalli Olmayan 7 Cümle`,ikon:`🏕️`,dk:10,
+kanca:`Şimdi <b>tapusuz gezginler</b>: hiçbir kelimenin evine oturmazlar. Yerlerine tek kelime koyamazsın. Ama onların da kendi kimliği var; yedi kimlikten biri olmalı: İbtidâiyye, Sıla, Mu'tarıza, Tefsiriyye, Kasem cevabı, Gayr-i câzim şart cevabı ve Mahalli olmayana tâbi.`,
+kurallar:[
+`<b>1. İbtidâiyye</b> (müsta'nefe): söze yeni başlayan cümle.`,
+`<b>2. Sıla</b>: ism-i mevsûlün sıla cümlesi (<span class="ar">الَّذِي</span> sonrası).`,
+`<b>3. Mu'tarıza</b>: iki birbirine bağlı parçanın arasına giren cümle (araya girme).`,
+`<b>4. Tefsiriyye</b>: öncekini açıklayan cümle.`,
+`<b>5. Kasem cevabı</b>: yemin cümlesinin cevabı.`,
+`<b>6. Câzim olmayan şartın cevabı</b> (<span class="ar">لَوْ</span>, <span class="ar">لَمَّا</span>, <span class="ar">إِذَا</span> gibi).`,
+`<b>7. Mahalli olmayan bir cümleye tâbi</b> olan cümle (ataf).`,
+`Mahalli olmamak, i'rabı olmamak demek değildir; içindeki kelimeler yine i'rab alır. Yalnız cümlenin <b>bütün olarak</b> bir yere oturduğu bir "adresi" yoktur.`],
+ornek:[
+{ar:`إِنَّا أَنزَلْنَاهُ`,tr:`Şüphesiz biz onu indirdik. (Yûsuf 2, Duhân 3, Kadr 1)`,irab:[`<b>إنا أنزلناه</b>: ibtidâiyye (müsta'nefe); mahalli yok.`,`<span class="ar">أنزلناه</span> ise <span class="ar">إنّ</span>'nin haberi olarak rafʿ mahallinde, ama bütün cümle yeni bir söz başlatıyor.`]},
+{ar:`جَاءَ الَّذِي قَامَ أَبُوهُ`,tr:`Babası kalkan kişi geldi.`,irab:[`<b>قام أبوه</b>: sıla cümlesi; mahalli yok.`]},
+{ar:`فَإِن لَّمْ تَفْعَلُوا وَلَن تَفْعَلُوا فَاتَّقُوا النَّارَ`,tr:`Yapamazsanız ki asla yapamayacaksınız, o hâlde ateşten sakının. (Bakara 24)`,irab:[`<b>ولن تفعلوا</b>: mu'tarıza; şart ile cevabı arasına girmiş, mahalli yok.`,`<b>فاتقوا النار</b>: câzim şartın cevabı, cezm mahallinde.`]},
+{ar:`وَلَمَّا يَأْتِكُم مَّثَلُ الَّذِينَ خَلَوْا مِن قَبْلِكُم مَّسَّتْهُمُ الْبَأْسَاءُ وَالضَّرَّاءُ`,tr:`Sizden öncekilerin durumu henüz size gelmedi; onlara sıkıntı ve zorluk dokundu. (Bakara 214)`,irab:[`<b>مستهم البأساء والضراء</b>: tefsiriyye; "nasıl bir durum?" sorusunu açıklıyor; mahalli yok.`]},
+{ar:`قَالَ فَبِعِزَّتِكَ لَأُغْوِيَنَّهُمْ`,tr:`"Senin izzetine yemin olsun ki hepsini azdıracağım" dedi. (Sâd 82)`,irab:[`<b>لأغوينهم</b>: kasem cevabı; mahalli yok.`,`<span class="ar">الباء</span> kasem harfidir; kasem fiili gizli: <span class="ar">أُقْسِمُ</span>.`]},
+{ar:`وَلَوْ شِئْنَا لَرَفَعْنَاهُ بِهَا`,tr:`Dileseydik onu bununla yükseltirdik. (A'râf 176)`,irab:[`<b>لرفعناه بها</b>: câzim olmayan şartın cevabı (<span class="ar">لو</span> câzim değildir); mahalli yok.`]},
+{ar:`قَامَ زَيْدٌ وَقَعَدَ عَمْرٌو`,tr:`Zeyd kalktı, Amr oturdu.`,irab:[`<b>قعد عمرو</b>: <span class="ar">قام زيد</span>'e ataf. <span class="ar">قام زيد</span> mahalli olmayan ibtidâiyye olduğu için bu da mahalli olmayan.`]}],
+ezber:`<b>"İ-sı-mu-te-ka-şa-ta."</b> İbtidâiyye, Sıla, Mu'tarıza, Tefsiriyye, Kasem, Şart (câzim değil), Tâbi. Yedi evsiz kimlik.`,
+hata:`<span class="ar">وَلَنْ تَفْعَلُوا</span> gibi araya giren cümleyi, şartın cevabı sanma. Mu'tarıza <b>aradaki</b> cümledir, cevap ise <b>sonraki</b> cümledir.`,
+kontrol:[
+{q:`<span class="ar">جَاءَ الَّذِي قَامَ أَبُوهُ</span> içindeki <span class="ar">قَامَ أَبُوهُ</span> hangisidir?`,o:[`Hâl`,`Sıla`,`Haber`],d:1,a:`ism-i mevsûl <span class="ar">الذي</span>'den sonra gelen cümle sıla cümlesidir; mahalli yok.`},
+{q:`<span class="ar">وَلَوْ شِئْنَا لَرَفَعْنَاهُ</span> cümlesindeki cevap neden mahalli olmayandır?`,o:[`Fi'liyye olduğu için`,`<span class="ar">لو</span> câzim olmadığı için`,`Zarf içerdiği için`],d:1,a:`Câzim olmayan şartın cevabı mahalli olmayan yedi cümleden biridir.`},
+{q:`Araya girip anlamı pekiştiren cümlenin adı nedir?`,o:[`Mu'tarıza`,`Tefsiriyye`,`Sıla`],d:0,a:`Araya giren cümle mu'tarızadır.`}]},
+
+{id:4,bab:1,ad:`İsimden Sonra Gelen Cümle`,ikon:`🔍`,dk:7,
+kanca:`Bir isimden sonra bir cümle belirdiğinde iki şüpheli vardır: <b>sıfat</b> ve <b>hâl</b>. Karar veren, öndeki ismin <b>nekra mı, ma'rife mi</b> olduğudur. Nekra → sıfat, ma'rife → hâl. İkisi de değilse ikisi de olabilir.`,
+kurallar:[
+`<b>Mahza nekra</b>dan sonra gelen haber cümlesi → <b>sıfat</b> (nat).`,
+`<b>Mahza ma'rife</b>den sonra gelen haber cümlesi → <b>hâl</b>.`,
+`Ne mahza nekra ne mahza ma'rife olan (örneğin sıfatlanmış nekra) → <b>iki ihtimal</b> birden: sıfat da olur, hâl de.`,
+`Sıfat olursa mahalli, öndeki ismin i'rabıyla aynıdır; hâl olursa nasb.`],
+ornek:[
+{ar:`حَتَّىٰ تُنَزِّلَ عَلَيْنَا كِتَابًا نَقْرَؤُهُ`,tr:`...bize okuyacağımız bir kitap indirinceye kadar. (İsrâ 93)`,irab:[`<span class="ar">كتابًا</span> nekra; <b>نقرؤه</b> onun sıfatı, mahalli nasb.`]},
+{ar:`وَلَا تَمْنُن تَسْتَكْثِرُ`,tr:`Çok görerek (karşılık umarak) iyilik yapma. (Müddessir 6)`,irab:[`<b>تستكثر</b>: fâili <span class="ar">أنت</span> zamiri (ma'rife) olduğundan hâl; mahalli nasb.`]},
+{ar:`مَرَرْتُ بِرَجُلٍ صَالِحٍ يُصَلِّي`,tr:`Namaz kılan salih bir adama uğradım.`,irab:[`<span class="ar">رجل</span> sıfatla (<span class="ar">صالح</span>) tahsis edilmiş; mahza nekra değil.`,`<b>يصلي</b>: ya <span class="ar">رجل</span>'in ikinci sıfatı (mahalli cerr) ya da hâl (mahalli nasb). İkisi de caizdir.`]},
+{ar:`وَآيَةٌ لَّهُمُ اللَّيْلُ نَسْلَخُ مِنْهُ النَّهَارَ`,tr:`Onlar için bir delil de geceyi var ki gündüzü ondan soyup çıkarırız. (Yâsîn 37)`,irab:[`Kitap, <b>نسلخ منه النهار</b> cümlesini <b>hâl</b> (nasb mahalli) kabul eder; takdir: <span class="ar">سالخين منه النهار</span>. Çünkü <span class="ar">آية</span> nekra olsa da <span class="ar">لهم</span> ile tahsis edildiği için mahza nekra değildir, hâl ihtimali doğar.`]}],
+ezber:`<b>"Nekra'ya sıfat yakışır, ma'rife'ye hâl."</b> Biri belirsizse elbise (sıfat), biri belirliyse yol arkadaşı (hâl).`,
+hata:`Her cümleyi hemen "hâl" ya da "sıfat" diye damgalama. Önce öndeki ismin <b>mahza</b> olup olmadığına bak. Mahza değilse iki ihtimali de say.`,
+kontrol:[
+{q:`Mahza nekradan sonra gelen haber cümlesi nedir?`,o:[`Hâl`,`Sıfat`,`Mef'ûl bih`],d:1,a:`Nekradan sonra sıfat.`},
+{q:`Mahza ma'rifeden sonra gelen haber cümlesi nedir?`,o:[`Hâl`,`Sıfat`,`Muzâf ileyh`],d:0,a:`Ma'rifeden sonra hâl.`},
+{q:`<span class="ar">مَرَرْتُ بِرَجُلٍ صَالِحٍ يُصَلِّي</span> için ne denir?`,o:[`Yalnız sıfat`,`Yalnız hâl`,`Sıfat ya da hâl`],d:2,a:`<span class="ar">رجل</span> sıfatla tahsis edildiği için mahza nekra değildir; iki ihtimal de var.`}]},
+
+{id:5,bab:2,ad:`Car-Mecrûrun Bağlı Olduğu Yer`,ikon:`🧲`,dk:8,
+kanca:`Zarf ile car-mecrûr (şibh-i cümle) <b>mıknatıs</b> gibidir; yapışacak bir yer (müteallak) arar. Yapışabileceği şeyler: <b>fiil</b> ya da <b>fiil anlamı taşıyan kelime</b> (ism-i fâil, ism-i mef'ûl, masdar…). Yapışacak yer yoksa mahzuf bir kelime tahmin edilir.`,
+kurallar:[
+`Car-mecrûr ve zarf, bir fiile ya da fiil anlamına <b>bağlanmak zorundadır</b>.`,
+`Dört cer harfi bundan müstesnadır, <b>hiçbir şeye bağlanmaz</b>: <b>zâid bâ</b>, <b>لَعَلَّ</b>, <b>لَوْلَا</b>, <b>kâf-ı teşbîh</b>.`,
+`Mıknatıs sayısı birden fazla olabilir: aynı âyette iki ayrı car-mecrûr, iki ayrı kelimeye bağlanabilir.`],
+ornek:[
+{ar:`أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ`,tr:`Kendilerine nimet verdiklerinin yoluna; gazaba uğrayanların değil. (Fâtiha 7)`,irab:[`Birinci <span class="ar">عليهم</span>: fiil <span class="ar">أنعمت</span>'e müteallak.`,`İkinci <span class="ar">عليهم</span>: ism-i mef'ûl <span class="ar">المغضوب</span>'a müteallak (çünkü ism-i mef'ûl fiil gibi çalışır).`]},
+{ar:`وَكَفَىٰ بِاللَّهِ شَهِيدًا`,tr:`Şahit olarak Allah yeter. (Nisâ 79)`,irab:[`<span class="ar">الباء</span> zâid; müteallakı yok.`,`<span class="ar">الله</span> lafzı <span class="ar">كفى</span>'nin fâili, lafzen mecrûr, mahallen merfû'.`]},
+{ar:`لَعَلَّ أَبِي الْمِغْوَارِ مِنْكَ قَرِيبُ`,tr:`Belki Ebu'l-Mıgvâr sana yakındır.`,irab:[`<span class="ar">لعل</span> (Ukayl lehçesi) cer harfi; <b>müteallakı yok</b>, zâid benzeri.`,`<span class="ar">أبي</span>: cer harfinin sebebiyle lafzen mecrûr, mahallen mübtedâ. <span class="ar">منك</span>: <span class="ar">قريب</span>'e müteallak.`]},
+{ar:`لَوْلَاكَ فِي ذَا الْعَامِ لَمْ أَحْجُجِ`,tr:`Sen olmasaydın bu yıl hacca gitmezdim.`,irab:[`<span class="ar">لولا</span>: cer harfi (zamire girdiği için), zâid benzeri; müteallakı yok.`,`<span class="ar">ـك</span>: Sîbeveyh'e göre cer harfinin girdiği zamir (mahalli cerr); el-Ahfeş'e göre mahalli rafʿ mübtedâ. Alimler bu konuda ihtilaf etmiştir.`]},
+{ar:`زَيْدٌ كَعَمْرٍو`,tr:`Zeyd Amr gibidir.`,irab:[`<span class="ar">الكاف</span>: teşbîh cer harfi; müteallakı yok.`,`<span class="ar">عمرو</span>: kâf ile mecrûr.`]}],
+ezber:`<b>"Bâ-zâid, Lealle, Levlâ, Kâf — dördü yalnızdır."</b> Bunlar hiçbir fiile tutunmaz; kalan cer harfleri mıknatıstır.`,
+hata:`<span class="ar">وَكَفَىٰ بِاللَّهِ</span> ifadesindeki bâ'yı <span class="ar">كفى</span>'ye bağlamaya çalışma; bu bâ zâiddir. "Zâid" demek anlamsız demek değil, <b>i'rabda müteallak aranmaz</b> demek.`,
+kontrol:[
+{q:`Hangisi müteallaksız dört cer harfinden biri <b>değildir</b>?`,o:[`Zâid bâ`,`Kâf-ı teşbîh`,`<span class="ar">فِي</span>`],d:2,a:`<span class="ar">في</span> müteallak ister.`},
+{q:`<span class="ar">وَكَفَىٰ بِاللَّهِ شَهِيدًا</span> içindeki bâ nedir?`,o:[`Zâid bâ`,`İstiâne bâ'sı`,`Kasem bâ'sı`],d:0,a:`<span class="ar">كفى</span> fiilinin fâiline girmiş zâid bâ.`},
+{q:`Fâtiha'daki ikinci <span class="ar">عَلَيْهِمْ</span> neye müteallaktır?`,o:[`<span class="ar">أنعمت</span>`,`<span class="ar">المغضوب</span>`,`<span class="ar">غير</span>`],d:1,a:`ism-i mef'ûl fiil anlamı taşıdığı için car-mecrûr ona bağlanır.`}]},
+
+{id:6,bab:2,ad:`Mahzuf Müteallak ve Fâil`,ikon:`👻`,dk:10,
+kanca:`Bazen mıknatısın yapışacağı yer <b>ekranda görünmez</b>: gizli kelime (mahzuf). Takdirini bulmak dedektiflik gibidir: <span class="ar">كَائِنٌ</span> ya da <span class="ar">اسْتَقَرَّ</span>. Sıla cümlesinde ise tek ihtimal vardır: <span class="ar">اسْتَقَرَّ</span>.`,
+kurallar:[
+`Şibh-i cümle; <b>nekradan sonra sıfat</b>, <b>ma'rifeden sonra hâl</b> olur; ikisi de olmayabilir (iki ihtimal).`,
+`Şibh-i cümle <b>sıfat, hâl, haber ya da sıla</b> olarak geldiyse müteallakı mahzuftur. Takdir: <span class="ar">كَائِنٌ</span> ya da <span class="ar">اسْتَقَرَّ</span>.`,
+`Sıla'da sadece <span class="ar">اسْتَقَرَّ</span> takdir edilir (çünkü sıla cümle olmalıdır, ism-i fâil olmaz).`,
+`Şibh-i cümle; sıfat, hâl, haber, sıla olur <b>ya da nefy ya da istifhama dayanırsa</b> fâili merfû' kılabilir.`],
+ornek:[
+{ar:`رَأَيْتُ طَائِرًا عَلَىٰ غُصْنٍ`,tr:`Bir dalın üzerinde bir kuş gördüm.`,irab:[`<span class="ar">طائرًا</span> nekra → <b>على غصن</b> sıfat; müteallakı mahzuf <span class="ar">كائنًا</span>.`]},
+{ar:`فَخَرَجَ عَلَىٰ قَوْمِهِ فِي زِينَتِهِ`,tr:`Süsüyle kavminin karşısına çıktı. (Kasas 79)`,irab:[`<span class="ar">على قومه</span>: <span class="ar">خرج</span>'e müteallak.`,`<span class="ar">في زينته</span>: hâl olan mahzufa müteallak (<span class="ar">متزينًا</span>).`]},
+{ar:`رَأَيْتُ الْهِلَالَ بَيْنَ السَّحَابِ`,tr:`Hilâli bulutların arasında gördüm.`,irab:[`<span class="ar">الهلال</span> ma'rife → <b>بين السحاب</b> hâl; müteallak mahzuf <span class="ar">كائنًا</span> ya da <span class="ar">موجودًا</span>.`]},
+{ar:`هَذَا ثَمَرٌ يَانِعٌ عَلَىٰ أَغْصَانِهِ`,tr:`Bu, dalları üzerinde olgun bir meyvedir.`,irab:[`<span class="ar">على أغصانه</span>: ya <span class="ar">يانع</span>'e ya da mahzuf sıfata/hâle müteallaktır; iki vecih caiz.`]},
+{ar:`الْحَمْدُ لِلَّهِ`,tr:`Hamd Allah'a mahsustur.`,irab:[`<span class="ar">لله</span>: haber olan mahzufa müteallak; takdir: <span class="ar">كَائِنٌ</span> ya da <span class="ar">اسْتَقَرَّ</span>.`]},
+{ar:`وَلَهُ مَن فِي السَّمَاوَاتِ وَالْأَرْضِ`,tr:`Göklerdeki ve yerdekiler O'nundur. (Enbiyâ 19)`,irab:[`<span class="ar">في السماوات</span>: sıla; takdir <b>yalnız</b> <span class="ar">اسْتَقَرَّ</span>.`,`<span class="ar">من</span>: ism-i mevsûl, mahalli rafʿ, muahhar mübtedâ. <span class="ar">له</span>: muakkam haberle müteallak.`]},
+{ar:`أَوْ كَصَيِّبٍ مِّنَ السَّمَاءِ فِيهِ ظُلُمَاتٌ`,tr:`Yahut gökten boşanan bir sağanak gibi; içinde karanlıklar vardır. (Bakara 19)`,irab:[`<span class="ar">فيه</span> sıfat konumunda; <span class="ar">ظلمات</span> o şibh-i cümlenin fâili (ya da muahhar mübtedâ).`]},
+{ar:`أَفِي اللَّهِ شَكٌّ`,tr:`Allah hakkında şüphe mi var? (İbrâhîm 10)`,irab:[`<span class="ar">أَ</span>: istifham; şibh-i cümle <span class="ar">في الله</span> muakkam mahzuf habere müteallak; <span class="ar">شك</span> muahhar mübtedâ.`,`İstifhama dayanan şibh-i cümle, fâili alabilir.`]}],
+ezber:`<b>"Kâ'in ya da İstekarra."</b> Mıknatıs görünmüyorsa iki isimden birini yaz. Sıla'da <b>yalnız İstekarra.</b>`,
+hata:`Sıla'da <span class="ar">كَائِنٌ</span> takdir etme: sıla bir cümledir, yani fiildir. <span class="ar">وَلَهُ مَن فِي السَّمَاوَاتِ</span> → <span class="ar">من استقر</span>, <span class="ar">من كائن</span> değil.`,
+kontrol:[
+{q:`Sıla cümlesindeki şibh-i cümlede müteallak takdiri nedir?`,o:[`<span class="ar">كائن</span> ya da <span class="ar">استقر</span>`,`Yalnız <span class="ar">استقر</span>`,`Yalnız <span class="ar">كائن</span>`],d:1,a:`Sıla cümle olmalıdır; bu yüzden yalnız fiil takdiri uygundur.`},
+{q:`<span class="ar">رَأَيْتُ طَائِرًا عَلَىٰ غُصْنٍ</span> içinde <span class="ar">على غصن</span> nedir?`,o:[`Hâl`,`Sıfat`,`Muzâf ileyh`],d:1,a:`<span class="ar">طائرًا</span> nekra olduğundan şibh-i cümle sıfat.`},
+{q:`<span class="ar">الحمد لله</span> içinde <span class="ar">لله</span> ne ile müteallaktır?`,o:[`Mahzuf haber`,`Mahzuf hâl`,`Fiil <span class="ar">حمد</span>`],d:0,a:`Takdir: <span class="ar">الحمد كائنٌ لله</span> ya da <span class="ar">استقر لله</span>.`}]},
+
+{id:7,bab:3,ad:`Atıf ve Zaman Harfleri`,ikon:`🔗`,dk:7,
+kanca:`Bu ders harflerin <b>kişilik kartları</b>dır. Her harfin bir "mesleği" vardır: Vâv hepsini toplar, <b>fâ</b> hemen ardından getirir, <b>sümme</b> biraz bekletir, <b>hattâ</b> en uca kadar gider.`,
+kurallar:[
+`<span class="ar">الْوَاوُ</span>: mutlak toplama (<b>cem'</b>) için atıf harfi. <span class="ar">جَاءَ زَيْدٌ وَعَمْرٌو</span>.`,
+`<span class="ar">حَتَّىٰ</span>: mutlak cem' ve <b>gâye</b> (son hadd). <span class="ar">أَكَلْتُ السَّمَكَةَ حَتَّىٰ رَأْسَهَا</span>.`,
+`<span class="ar">الْفَاءُ</span>: <b>tertîb ve ta'kîb</b> (sıra + hemen ardından). <span class="ar">جَاءَ زَيْدٌ فَعَمْرٌو</span>.`,
+`<span class="ar">ثُمَّ</span>: <b>tertîb ve mühlet</b> (sıra + biraz sonra). <span class="ar">جَاءَ زَيْدٌ ثُمَّ عَمْرٌو</span>.`,
+`<span class="ar">قَدْ</span>: tahkîk (kesinlik), tevakku' (beklenti), taklîl (azlık). Örnekler: <span class="ar">قَدْ أَفْلَحَ الْمُؤْمِنُونَ</span> / <span class="ar">قَدْ يَنْزِلُ الْمَطَرُ</span> / <span class="ar">قَدْ يَجُودُ الْبَخِيلُ</span>.`,
+`<span class="ar">السِّينُ</span> ve <span class="ar">سَوْفَ</span>: istikbâl; çoğu âlime göre <b>tenfîs</b> harfidir. <span class="ar">كَلَّا سَيَعْلَمُونَ</span> (Nebe 4).`],
+ornek:[
+{ar:`جَاءَ زَيْدٌ وَعَمْرٌو`,tr:`Zeyd ve Amr geldi.`,irab:[`<span class="ar">و</span>: atıf harfi; sıra ya da süre belirtmez, yalnız toplar.`]},
+{ar:`أَكَلْتُ السَّمَكَةَ حَتَّىٰ رَأْسَهَا`,tr:`Balığı başına kadar yedim.`,irab:[`<span class="ar">حتى</span>: atıf; <span class="ar">رأسها</span> gâye (son uç).`]},
+{ar:`جَاءَ زَيْدٌ فَعَمْرٌو`,tr:`Zeyd geldi, hemen ardından Amr.`,irab:[`<span class="ar">ف</span>: tertîb ve ta'kîb.`]},
+{ar:`جَاءَ زَيْدٌ ثُمَّ عَمْرٌو`,tr:`Zeyd geldi, bir süre sonra Amr.`,irab:[`<span class="ar">ثم</span>: tertîb ve mühlet.`]},
+{ar:`قَدْ أَفْلَحَ الْمُؤْمِنُونَ`,tr:`Müminler gerçekten kurtuluşa erdi. (Mü'minûn 1)`,irab:[`<span class="ar">قد</span>: mâzîde <b>tahkîk</b>.`]},
+{ar:`قَدْ يَنْزِلُ الْمَطَرُ`,tr:`Belki yağmur yağar.`,irab:[`<span class="ar">قد</span>: müdâri'de <b>tevakku'</b> (beklenti).`]},
+{ar:`قَدْ يَجُودُ الْبَخِيلُ`,tr:`Cimri de bazen cömertlik eder.`,irab:[`<span class="ar">قد</span>: müdâri'de <b>taklîl</b> (nadirlik).`]},
+{ar:`كَلَّا سَيَعْلَمُونَ ثُمَّ كَلَّا سَيَعْلَمُونَ`,tr:`Hayır! Yakında bilecekler. Yine hayır! Yakında bilecekler. (Nebe 4-5)`,irab:[`<span class="ar">السين</span>: istikbâl harfi (tenfîs); yaklaştırma.`]}],
+ezber:`<b>"Vâv topla, Fâ koş, Sümme bekle, Hattâ ucuna kadar!"</b> Dört atıf harfinin dört mesleği.`,
+hata:`<span class="ar">فَ</span> ile <span class="ar">ثُمَّ</span>'yi karıştırma: ikisi de sıra verir ama fâ <b>hemen</b>, sümme <b>mühletle</b>.`,
+kontrol:[
+{q:`Sıra bildiren ve <b>hemen ardından</b> getiren atıf harfi hangisidir?`,o:[`<span class="ar">و</span>`,`<span class="ar">ف</span>`,`<span class="ar">ثم</span>`],d:1,a:`Fâ: tertîb ve ta'kîb.`},
+{q:`<span class="ar">قَدْ يَجُودُ الْبَخِيلُ</span> cümlesinde <span class="ar">قد</span> ne ifade eder?`,o:[`Tahkîk`,`Tevakku'`,`Taklîl`],d:2,a:`Cimrinin cömertlik yapması nadir; bu taklîl.`},
+{q:`<span class="ar">حَتَّىٰ</span> atıfta neyi bildirir?`,o:[`Mutlak cem' ve gâye`,`Sadece sıra`,`İtiraf`],d:0,a:`Hattâ: mutlak cem' + gâye.`}]},
+
+{id:8,bab:3,ad:`Nefy, Şart ve İmtinâ Harfleri`,ikon:`⛔`,dk:9,
+kanca:`Bu bir <b>trafik levhaları</b> dersidir: <span class="ar">لَمْ</span> geçmişe çevirir, <span class="ar">لَمَّا</span> "henüz ama bekliyoruz" der, <span class="ar">لَنْ</span> geleceğe kapıyı kapatır, <span class="ar">لَوْ</span> ile <span class="ar">لَوْلَا</span> ise "imkânsız" levhalarıdır.`,
+kurallar:[
+`<span class="ar">لَمْ</span>: müdâri'yi <b>nefyeden</b>, <b>kalbeden</b> (geçmişe çeviren) ve <b>cezmeden</b> harf.`,
+`<span class="ar">لَمَّا</span> (nâfiye): olumsuzluğu <b>süregelen</b>, olumlunun ise <b>beklendiği</b> durumu anlatır: <span class="ar">وَلَمَّا يَدْخُلِ الْإِيمَانُ فِي قُلُوبِكُمْ</span>.`,
+`<span class="ar">لَنْ</span>: nefy + nasb + istikbâl.`,
+`<span class="ar">إِذَنْ</span>: <b>cevap ve cezâ</b> harfi: "Yarın seni ziyaret edeceğim" diyene: <span class="ar">إِذَنْ أُكْرِمَكَ</span>.`,
+`<span class="ar">لَوْ</span>: <b>imtinâ li-imtinâ</b>: sonrakinin yokluğu öncekinin yokluğuna bağlı. <span class="ar">لَوْ تُذَاكِرُ تَنْجَحْ</span>.`,
+`<span class="ar">لَوْلَا</span>: <b>imtinâ li-vücûd</b>: bir şeyin varlığı yüzünden diğerinin yokluğu. <span class="ar">لَوْلَا زَيْدٌ لَأَكْرَمْتُكَ</span>.`,
+`<span class="ar">لَمَّا</span> (vücûd): <b>vücûd li-vücûd</b>: bir şeyin varlığı diğerinin varlığına bağlı. <span class="ar">لَمَّا جَاءَ زَيْدٌ أَكْرَمْتُهُ</span>.`],
+ornek:[
+{ar:`قُل لَّمْ تُؤْمِنُوا وَلَكِن قُولُوا أَسْلَمْنَا وَلَمَّا يَدْخُلِ الْإِيمَانُ فِي قُلُوبِكُمْ`,tr:`De ki: İnanmadınız, ama "teslim olduk" deyin; iman henüz kalplerinize girmedi. (Hucurât 14)`,irab:[`<span class="ar">لم</span>: nefy, kalb ve cezm harfi; <span class="ar">تؤمنوا</span> meczûm.`,`<span class="ar">لما</span>: nâfiye, "henüz" anlamı; kalplere girmesi bekleniyor.`]},
+{ar:`لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ`,tr:`Sevdiğiniz şeylerden harcamadıkça iyiliğe ulaşamazsınız. (Âl-i İmrân 92)`,irab:[`<span class="ar">لن</span>: nefy ve nasb harfi, istikbâl.`]},
+{ar:`إِذَنْ أُكْرِمَكَ`,tr:`O hâlde seni ağırlarım.`,irab:[`<span class="ar">إذن</span>: cevap ve cezâ harfi. Birisi "Yarın seni ziyaret edeceğim" demiş, sen cevap verip karşılığını söylüyorsun.`]},
+{ar:`لَوْ تُذَاكِرُ تَنْجَحْ`,tr:`Çalışsaydın başarırdın.`,irab:[`<span class="ar">لو</span>: imtinâ li-imtinâ; çalışma gerçekleşmediği için başarı da gerçekleşmedi: iki yokluk birbirine bağlı.`]},
+{ar:`لَوْلَا زَيْدٌ لَأَكْرَمْتُكَ`,tr:`Zeyd olmasaydı seni ağırlardım.`,irab:[`<span class="ar">لولا</span>: imtinâ li-vücûd; ağırlamamamın sebebi Zeyd'in varlığı.`,`<span class="ar">زيد</span>: mübtedâ, haberi mahzuf (<span class="ar">موجود</span>).`]},
+{ar:`لَمَّا جَاءَ زَيْدٌ أَكْرَمْتُهُ`,tr:`Zeyd gelince onu ağırladım.`,irab:[`<span class="ar">لما</span>: şart harfi (vücûd li-vücûd); câzim değil, cevabı mahalli olmayan <span class="ar">أكرمته</span>.`]}],
+ezber:`<b>"Lem geçmişe, Lemmâ bekle, Len geleceği kapat; Lev iki yok, Levlâ bir var bir yok."</b>`,
+hata:`<span class="ar">لَمَّا</span> iki ayrı kişiliktir: <b>nâfiye</b> (müdâri' alır, "henüz") ve <b>vücûd harfi</b> (mâzî alır, "…ince"). İ'rabdan önce hangisi olduğunu bul.`,
+kontrol:[
+{q:`Müdâri'yi mecz eden ve geçmişe çeviren hangisidir?`,o:[`<span class="ar">لن</span>`,`<span class="ar">لم</span>`,`<span class="ar">إذن</span>`],d:1,a:`<span class="ar">لم</span>: nefy, kalb, cezm.`},
+{q:`<span class="ar">لَوْلَا</span> neyi bildirir?`,o:[`İmtinâ li-imtinâ`,`İmtinâ li-vücûd`,`Vücûd li-vücûd`],d:1,a:`Bir şeyin varlığı yüzünden diğerinin yokluğu.`},
+{q:`<span class="ar">إِذَنْ</span> hangi anlamdadır?`,o:[`Cevap ve cezâ`,`Zarf`,`Atıf`],d:0,a:`Cevap ve cezâ harfi.`}]},
+
+{id:9,bab:3,ad:`Cevap ve Zarf Harfleri`,ikon:`💬`,dk:7,
+kanca:`Üç grup: <b>"evet" ailesi</b> (<span class="ar">نَعَمْ</span>, <span class="ar">أَجَلْ</span>, <span class="ar">بَلَىٰ</span>), <b>zaman zarfları</b> (<span class="ar">إِذَا</span>, <span class="ar">إِذْ</span>) ve <b>"hayır!" bekçisi</b> <span class="ar">كَلَّا</span>.`,
+kurallar:[
+`<span class="ar">نَعَمْ</span>: tasdîk (haberi onaylama), va'd (emirden sonra), i'lâm (istifhamdan sonra).`,
+`<span class="ar">أَجَلْ</span>: yalnız haberi tasdîk (<i>"doğru söyledin"</i>).`,
+`<span class="ar">بَلَىٰ</span>: <b>olumsuzu olumlu yapar</b> (îcâb-ı menfî). <span class="ar">أَلَسْتُ بِرَبِّكُمْ؟ قَالُوا بَلَىٰ</span>.`,
+`<span class="ar">إِذَا</span>: <b>gelecek</b> zarfı, şart içerir, kendi cevabı ile nasbedilir. <span class="ar">إِذَا جَاءَ زَيْدٌ أَكْرَمْتُكَ</span>.`,
+`<span class="ar">إِذْ</span>: <b>geçmiş</b> zarfı. <span class="ar">وَاذْكُرُوا إِذْ كُنتُمْ قَلِيلًا</span>.`,
+`<span class="ar">كَلَّا</span>: redd ve zecr harfi; bazen "<b>hakkan</b>" (gerçekten) anlamına gelir.`],
+ornek:[
+{ar:`أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَىٰ`,tr:`"Ben sizin Rabbiniz değil miyim?" "Evet!" dediler. (A'râf 172)`,irab:[`<span class="ar">بلى</span>: soru olumsuz olduğu için olumlu cevap; cümlenin yerine geçer.`,`Soru takrir (ikrar aldırma) içindir; baba oğluna "Sen benim babam değil misin?" derse oğul <span class="ar">بلى</span> der.`]},
+{ar:`نَعَمْ`,tr:`Üç ayrı durum.`,irab:[`<b>Tasdîk</b>: <span class="ar">جاء زيد</span> diyene <span class="ar">نعم</span> (doğru).`,`<b>Va'd</b>: <span class="ar">أَحْسِنْ إِلَىٰ زَيْدٍ</span> diyene <span class="ar">نعم</span> (yaparım).`,`<b>İ'lâm</b>: <span class="ar">هل جاء زيد؟</span> diyene <span class="ar">نعم</span> (bildiriyorum, evet).`]},
+{ar:`إِذَا جَاءَ زَيْدٌ أَكْرَمْتُكَ`,tr:`Zeyd gelirse seni ağırlarım.`,irab:[`<span class="ar">إذا</span>: gelecek zarfı, şart anlamlı, câzim değil; cevabı <span class="ar">أكرمتك</span>.`,`<span class="ar">إذا</span>: <span class="ar">أكرمتك</span> ile nasb (asıl söz: <span class="ar">أكرمتك إذا جاء زيد</span>).`]},
+{ar:`وَاذْكُرُوا إِذْ كُنتُمْ قَلِيلًا`,tr:`Sayınızın az olduğu zamanı hatırlayın. (A'râf 86)`,irab:[`<span class="ar">إذ</span>: geçmişe ait zarf, <span class="ar">اذكروا</span>'ya mef'ûl bih olarak nasbda.`]},
+{ar:`رَبِّ ارْجِعُونِ لَعَلِّي أَعْمَلُ صَالِحًا فِيمَا تَرَكْتُ كَلَّا`,tr:`Rabbim, beni geri gönderin ki terk ettiğim dünyada salih amel işleyeyim. Hayır! (Mü'minûn 99-100)`,irab:[`<span class="ar">كلا</span>: redd ve zecr harfi; mahalli yok.`]}],
+ezber:`<b>"Nem tasdik, Ecel doğru, Belâ ters-evet."</b> Soru olumsuzsa evet <i>belâ</i>, olumluysa evet <i>ne'am</i>.`,
+hata:`Soru olumsuzsa ("…değil mi?") ve evet diyeceksen <span class="ar">نعم</span> değil <span class="ar">بلى</span> dersin; <span class="ar">نعم</span> burada "evet, değilim" olurdu.`,
+kontrol:[
+{q:`Olumsuz soruyu olumlu cevaplamak için hangi harf kullanılır?`,o:[`<span class="ar">نعم</span>`,`<span class="ar">أجل</span>`,`<span class="ar">بلى</span>`],d:2,a:`<span class="ar">بلى</span> îcâb-ı menfîdir.`},
+{q:`Geçmişe ait zarf hangisidir?`,o:[`<span class="ar">إذا</span>`,`<span class="ar">إذ</span>`,`<span class="ar">كلا</span>`],d:1,a:`<span class="ar">إذ</span>: geçmiş zaman zarfı.`},
+{q:`<span class="ar">كَلَّا</span> ne işe yarar?`,o:[`Atıf`,`Redd ve zecr`,`Şart`],d:1,a:`Reddeden ve uyaran harf.`}]},
+
+{id:10,bab:3,ad:`لا ve إنْ`,ikon:`🎭`,dk:9,
+kanca:`İki oyuncu birçok kılığa girer: <span class="ar">لَا</span> <b>üç</b> kılık, <span class="ar">إِنْ</span> <b>dört</b> kılık. Dedektif sorusu şudur: <b>"Bu sahnede hangi kostümü giymiş?"</b>`,
+kurallar:[
+`<span class="ar">لَا</span> <b>nâfiye</b>: <span class="ar">لَا إِلَٰهَ إِلَّا اللَّهُ</span>.`,
+`<span class="ar">لَا</span> <b>nâhiye</b>: <span class="ar">لَا تَقُمْ</span> (müdâri'yi cezmeder).`,
+`<span class="ar">لَا</span> <b>zâide</b> (te'kîd için): <span class="ar">لِئَلَّا يَعْلَمَ أَهْلُ الْكِتَابِ</span>.`,
+`<span class="ar">إِنْ</span> <b>şartiyye</b>: <span class="ar">إِنْ تَقُمْ أَقُمْ</span> (iki fiili cezmeder).`,
+`<span class="ar">إِنْ</span> <b>nâfiye</b>: <span class="ar">إِنْ عِندَكُم مِّن سُلْطَانٍ بِهَٰذَا</span> (Yûnus 68).`,
+`<span class="ar">إِنْ</span> <b>zâide</b>: <span class="ar">مَا إِنْ زَيْدٌ قَائِمٌ</span>.`,
+`<span class="ar">إِنْ</span> <b>muhaffefe</b> (hafifletilmiş <span class="ar">إنَّ</span>): <span class="ar">وَإِنْ كُلًّا لَمَّا لَيُوَفِّيَنَّهُمْ</span> (Hûd 111, Nâfi' ve İbn Kesîr kıraati).`],
+ornek:[
+{ar:`لَا إِلَٰهَ إِلَّا اللَّهُ`,tr:`Allah'tan başka ilâh yoktur.`,irab:[`<span class="ar">لا</span>: cinsi nefyeden nâfiye; ismi <span class="ar">إله</span> fetha üzerine mebnî, mahalli nasb. Haberi mahzuf: <span class="ar">حق</span>.`,`<span class="ar">إلا</span>: istisna edatı; <span class="ar">الله</span>: haberden bedel.`]},
+{ar:`لَا تَقُمْ`,tr:`Kalkma!`,irab:[`<span class="ar">لا</span>: nâhiye; <span class="ar">تقم</span> meczûm, alâmeti illet harfi olan vâvın hazfi (sükûn yerine).`]},
+{ar:`لِئَلَّا يَعْلَمَ أَهْلُ الْكِتَابِ`,tr:`Kitap ehli bilmesin diye. (Hadîd 29)`,irab:[`<span class="ar">لِ</span>: ta'lîl lâmı; <span class="ar">أن</span>: masdarî nâsıb; <span class="ar">لا</span>: zâid te'kîd için.`,`Mana: <span class="ar">ليعلم أهل الكتاب</span> (bilsinler diye).`]},
+{ar:`إِن تَقُمْ أَقُمْ`,tr:`Sen kalkarsan ben de kalkarım.`,irab:[`<span class="ar">إن</span>: câzim şart harfi, mebnî sükûn, mahalli yok.`,`<span class="ar">تقم</span>: şart fiili meczûm. <span class="ar">أقم</span>: cevap, meczûm. <span class="ar">أقم</span> cümlesi mahalli olmayan.`]},
+{ar:`إِنْ عِندَكُم مِّن سُلْطَانٍ بِهَٰذَا`,tr:`Elinizde bunu destekleyen bir delil yok. (Yûnus 68)`,irab:[`<span class="ar">إن</span>: nâfiye (olumsuzluk).`,`<span class="ar">عندكم</span>: mahzuf muakkam habere müteallak zarf; <span class="ar">سلطان</span>: muahhar mübtedâ; <span class="ar">من</span> zâid.`]},
+{ar:`مَا إِنْ زَيْدٌ قَائِمٌ`,tr:`Zeyd ayakta değil.`,irab:[`<span class="ar">ما</span>: nâfiye; <span class="ar">إن</span> zâid, nefyi pekiştirir; mahalli yok.`]},
+{ar:`وَإِن كُلًّا لَمَّا لَيُوَفِّيَنَّهُمْ`,tr:`Hepsine karşılıklarını mutlaka tam verecek. (Hûd 111)`,irab:[`<span class="ar">إن</span>: <span class="ar">إنّ</span>'nin muhaffefesi, amil; <span class="ar">كلا</span> ismi nasbda.`,`<span class="ar">لما</span>: <span class="ar">اللام</span> ibtidâ lâmı, <span class="ar">ما</span> zâid. <span class="ar">ليوفينهم</span>: kasem cevabı; mahalli yok.`]}],
+ezber:`<b>"Lâ-3 İn-4"</b>: Lâ'nın 3 kostümü (nâfiye, nâhiye, zâide); İn'in 4 kostümü (şart, nefy, zâid, muhaffefe).`,
+hata:`<span class="ar">إِنْ</span> ile <span class="ar">إِنَّ</span> arasındaki farkı gör: birinde şedde yok (muhaffefe ya da şart ya da nefy), diğerinde şedde var ve ismi nasbeder.`,
+kontrol:[
+{q:`<span class="ar">لَا تَقُمْ</span> içindeki <span class="ar">لا</span> hangisidir?`,o:[`Nâfiye`,`Nâhiye`,`Zâide`],d:1,a:`Yasak (nehiy) bildirir ve müdâri'yi cezmeder.`},
+{q:`<span class="ar">إِنْ عِندَكُم مِّن سُلْطَانٍ</span> içindeki <span class="ar">إِنْ</span> hangisidir?`,o:[`Şartiyye`,`Nâfiye`,`Muhaffefe`],d:1,a:`Anlam: "elinizde delil yok".`},
+{q:`Hangisi <span class="ar">لا</span>'nın bir türü <b>değildir</b>?`,o:[`Nâfiye`,`Zâide`,`Masdariyye`],d:2,a:`<span class="ar">لا</span> masdariyye olmaz; masdariyye <span class="ar">ما</span> ve <span class="ar">أن</span> için konuşulur.`}]},
+
+{id:11,bab:3,ad:`أنْ ve مَنْ`,ikon:`🧩`,dk:10,
+kanca:`<span class="ar">أَنْ</span> dört kılıklı bir <b>bağlayıcı</b>, <span class="ar">مَنْ</span> ise dört kılıklı bir <b>kişi</b>. Testi yine aynı: kostüm sorusu.`,
+kurallar:[
+`<span class="ar">أَنْ</span> <b>masdariyye</b>: müdâri'yi nasbeder. <span class="ar">وَالَّذِي أَطْمَعُ أَن يَغْفِرَ لِي</span>`,
+`<span class="ar">أَنْ</span> <b>muhaffefe</b> (hafifletilmiş <span class="ar">أنَّ</span>), ismi şe'n zamiri mahzuf: <span class="ar">عَلِمَ أَن سَيَكُونُ</span>.`,
+`<span class="ar">أَنْ</span> <b>müfessire</b>: kavl anlamlı fiilden sonra gelen cümleyi açıklar. <span class="ar">فَأَوْحَيْنَا إِلَيْهِ أَنِ اصْنَعِ الْفُلْكَ</span>.`,
+`<span class="ar">أَنْ</span> <b>zâide</b>: te'kîd için. <span class="ar">فَلَمَّا أَن جَاءَ الْبَشِيرُ</span>.`,
+`<span class="ar">مَنْ</span> <b>şartiyye</b>: <span class="ar">مَن يَعْمَلْ سُوءًا يُجْزَ بِهِ</span>.`,
+`<span class="ar">مَنْ</span> <b>istifhâmiyye</b>: <span class="ar">مَن بَعَثَنَا مِن مَّرْقَدِنَا</span>.`,
+`<span class="ar">مَنْ</span> <b>mevsûle</b>: <span class="ar">وَمِنَ الشَّيَاطِينِ مَن يَغُوصُونَ لَهُ</span>.`,
+`<span class="ar">مَنْ</span> <b>nekra mevsûfe</b>: <span class="ar">مَرَرْتُ بِمَنْ مُعْجِبٍ لَكَ</span>.`],
+ornek:[
+{ar:`وَالَّذِي أَطْمَعُ أَن يَغْفِرَ لِي خَطِيئَتِي يَوْمَ الدِّينِ`,tr:`Hesap günü hatamı bağışlamasını umduğum Zât. (Şuarâ 82)`,irab:[`<span class="ar">أن</span>: masdarî nâsıb; <span class="ar">يغفر</span> mansûb. <span class="ar">أن يغفر</span> = müevvel masdar; nezʿ-i hâfıd ile mansûb (<span class="ar">في أن يغفر</span> gibi düşün).`]},
+{ar:`عَلِمَ أَن سَيَكُونُ مِنكُم مَّرْضَىٰ`,tr:`Aranızda hastalar olacağını bildi. (Müzzemmil 20)`,irab:[`<span class="ar">أن</span>: muhaffefe; ismi mahzuf şe'n zamiri; haberi <span class="ar">سيكون منكم مرضى</span>.`,`<span class="ar">السين</span> (istikbal) <span class="ar">أن</span>'in muhaffefe olduğunu gösteren ayrıştırıcıdır.`]},
+{ar:`فَأَوْحَيْنَا إِلَيْهِ أَنِ اصْنَعِ الْفُلْكَ`,tr:`Ona şöyle vahyettik: "Gemiyi yap". (Mü'minûn 27)`,irab:[`<span class="ar">أن</span>: müfessire; <span class="ar">أوحينا</span> "söz" anlamlı olduğu için.`,`<span class="ar">اصنع</span>: emir fiili; cümle tefsiriyye, mahalli yok.`]},
+{ar:`فَلَمَّا أَن جَاءَ الْبَشِيرُ أَلْقَاهُ عَلَىٰ وَجْهِهِ`,tr:`Müjdeci gelince onu yüzüne sürdü. (Yûsuf 96)`,irab:[`<span class="ar">أن</span>: zâide; <span class="ar">لما</span> ve <span class="ar">جاء</span> arasında te'kîd.`]},
+{ar:`مَن يَعْمَلْ سُوءًا يُجْزَ بِهِ`,tr:`Kim bir kötülük yaparsa onunla cezalandırılır. (Nisâ 123)`,irab:[`<span class="ar">من</span>: câzim şart ismi, mahalli rafʿ mübtedâ.`,`<span class="ar">يعمل</span>: şart fiili meczûm; <span class="ar">يجز</span>: cevap, meczûm; fâ yok, bu yüzden cümlesi mahalli olmayan.`]},
+{ar:`مَن بَعَثَنَا مِن مَّرْقَدِنَا`,tr:`Bizi yattığımız yerden kim kaldırdı? (Yâsîn 52)`,irab:[`<span class="ar">من</span>: istifham ismi, mahalli rafʿ mübtedâ; <span class="ar">بعثنا</span> haberi (mahalli rafʿ).`]},
+{ar:`وَمِنَ الشَّيَاطِينِ مَن يَغُوصُونَ لَهُ`,tr:`Şeytanlardan da onun için dalanlar vardır. (Enbiyâ 82)`,irab:[`<span class="ar">من</span>: ism-i mevsûl, mahalli rafʿ muahhar mübtedâ.`,`<span class="ar">يغوصون له</span>: sıla; mahalli yok.`]},
+{ar:`مَرَرْتُ بِمَنْ مُعْجِبٍ لَكَ`,tr:`Seni hayran bırakan birine uğradım.`,irab:[`<span class="ar">من</span>: nekra mevsûfe, "<span class="ar">إنسان</span>" anlamında; mahalli cerr.`,`<span class="ar">معجب</span>: onun sıfatı, mecrûr.`]}],
+ezber:`<b>"Ân-masdar-muhaffef-müfessir-zâid; Mîn-şart-soru-sıla-nekra."</b>`,
+hata:`<span class="ar">أَنْ</span> muhaffefe ile masdariyye'yi ayırmak için sonrasına bak: <b>müdâri' mansûb</b> ise masdariyye; araya <span class="ar">سَ</span>, <span class="ar">قَدْ</span> girmişse muhaffefe.`,
+kontrol:[
+{q:`<span class="ar">أَنِ اصْنَعِ الْفُلْكَ</span> içindeki <span class="ar">أَنِ</span> hangisidir?`,o:[`Masdariyye`,`Müfessire`,`Zâide`],d:1,a:`<span class="ar">أوحينا</span> söz anlamlıdır; arkadan gelen cümleyi açıklar.`},
+{q:`<span class="ar">مَن يَعْمَلْ سُوءًا يُجْزَ بِهِ</span> içindeki <span class="ar">مَن</span> nedir?`,o:[`Şartiyye`,`İstifhâmiyye`,`Mevsûle`],d:0,a:`İki fiil cezmedildi (<span class="ar">يعمل</span>, <span class="ar">يجز</span>): şart.`},
+{q:`<span class="ar">مَرَرْتُ بِمَنْ مُعْجِبٍ لَكَ</span> içindeki <span class="ar">مَن</span> nedir?`,o:[`Nekra mevsûfe`,`Şart`,`İstifham`],d:0,a:`Arkasından sıfat (<span class="ar">معجب</span>) gelmiş nekra.`}]},
+
+{id:12,bab:3,ad:`أَيّ ve مَا`,ikon:`🃏`,dk:12,
+kanca:`<span class="ar">مَا</span> Arapçanın <b>joker kartı</b>dır: hem isim hem harf olur ve toplam <b>on kılığı</b> vardır. Ezberlemeye çalışma, <b>testle ayıkla</b>: "Yerine ne koyabilirim? Cümleyi kim gerektirir?"`,
+kurallar:[
+`<span class="ar">أَيّ</span>: <b>şart</b>, <b>istifham</b>, <b>mevsûl</b>, <b>sıfat</b> (kemâl anlamıyla) ve <b>nidâda vasl</b> (<span class="ar">يَا أَيُّهَا</span>).`,
+`<span class="ar">مَا</span> (isim): <b>mevsûl</b>, <b>şart</b>, <b>istifham</b>, <b>ta'accub</b>, <b>nekra mevsûfe</b>, <b>ma'rife tâmme</b> (<span class="ar">فَنِعِمَّا هِيَ</span>).`,
+`<span class="ar">مَا</span> (harf): <b>nâfiye</b>, <b>masdariyye</b>, <b>kâffe</b> (<span class="ar">إِنَّمَا</span>), <b>zâide</b>.`],
+ornek:[
+{ar:`أَيًّا مَّا تَدْعُوا فَلَهُ الْأَسْمَاءُ الْحُسْنَىٰ`,tr:`Hangisiyle çağırırsanız çağırın, en güzel isimler O'nundur. (İsrâ 110)`,irab:[`<span class="ar">أي</span>: câzim şart ismi, <span class="ar">تدعوا</span>'ya mef'ûl bih mansûb.`,`<span class="ar">فله الأسماء</span>: cevap, fâ ile; mahalli cezm.`]},
+{ar:`أَيُّكُمْ زَادَتْهُ هَٰذِهِ إِيمَانًا`,tr:`Hanginizin imanını bu artırdı? (Tevbe 124)`,irab:[`<span class="ar">أي</span>: istifham ismi, mübtedâ.`]},
+{ar:`لَنَنزِعَنَّ مِن كُلِّ شِيعَةٍ أَيُّهُمْ أَشَدُّ`,tr:`Her topluluktan, hangisi daha şiddetliyse onu çıkaracağız. (Meryem 69)`,irab:[`<span class="ar">أيهم</span>: ism-i mevsûl "<span class="ar">الذي</span>" anlamında; <span class="ar">أشد</span>: haber, mahzuf mübtedâ (<span class="ar">هو</span>).`]},
+{ar:`مَرَرْتُ بِرَجُلٍ أَيِّ رَجُلٍ`,tr:`Ne adamdı o, ona uğradım.`,irab:[`<span class="ar">أي</span>: sıfat, kemâl anlamında; yalnız muzâf olarak gelir.`]},
+{ar:`يَا أَيُّهَا الْإِنسَانُ`,tr:`Ey insan! (İnfitâr 6)`,irab:[`<span class="ar">أي</span>: nidâ edilen mebnî; <span class="ar">ها</span> tenbih; <span class="ar">الإنسان</span>: <span class="ar">أي</span>'den bedel/sıfat.`]},
+{ar:`مَا عِندَكُمْ يَنفَدُ`,tr:`Yanınızdaki tükenir. (Nahl 96)`,irab:[`<span class="ar">ما</span>: ism-i mevsûl, mahalli rafʿ mübtedâ; sılası mahzuf (zarf).`]},
+{ar:`وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ`,tr:`Her ne hayır yaparsanız Allah onu bilir. (Bakara 197)`,irab:[`<span class="ar">ما</span>: şart ismi, <span class="ar">تفعلوا</span>'nın mef'ûl bih'i.`]},
+{ar:`وَمَا تِلْكَ بِيَمِينِكَ يَا مُوسَىٰ`,tr:`Sağ elindeki nedir, ey Mûsâ? (Tâhâ 17)`,irab:[`<span class="ar">ما</span>: istifham ismi; <span class="ar">تلك</span>: haber.`]},
+{ar:`مَا أَحْسَنَ زَيْدًا`,tr:`Zeyd ne güzel!`,irab:[`<span class="ar">ما</span>: nekra tâmme (taaccub), mübtedâ; <span class="ar">أحسن</span>: fiil-i taaccub, fâili müstetir <span class="ar">هو</span>.`]},
+{ar:`مَثَلًا مَّا بَعُوضَةً`,tr:`Bir sivrisinek gibi bir örnek. (Bakara 26)`,irab:[`<span class="ar">ما</span>: nekra mevsûfe (sıfat), "<span class="ar">شيء</span>" anlamında; <span class="ar">مثلا</span>'nın sıfatı.`]},
+{ar:`فَنِعِمَّا هِيَ`,tr:`Ne güzel! (Bakara 271)`,irab:[`<span class="ar">ما</span>: ma'rife tâmme (<span class="ar">الشيء</span>), <span class="ar">نعم</span>'in fâili.`]},
+{ar:`مَا هَٰذَا بَشَرًا`,tr:`Bu bir insan değil! (Yûsuf 31)`,irab:[`<span class="ar">ما</span>: nâfiye, Hicâz lehçesinde <span class="ar">ليس</span>'e benzer şekilde amel eder (<span class="ar">ما الحجازية</span>).`]},
+{ar:`وَدُّوا مَا عَنِتُّمْ`,tr:`Sıkıntıya düşmenizi arzu ettiler. (Âl-i İmrân 118)`,irab:[`<span class="ar">ما</span>: masdariyye; <span class="ar">ما عنتم</span> = <span class="ar">عنتكم</span> (müevvel masdar, mef'ûl bih).`]},
+{ar:`إِنَّمَا اللَّهُ إِلَٰهٌ وَاحِدٌ`,tr:`Allah ancak tek bir ilâhtır. (Nisâ 171)`,irab:[`<span class="ar">ما</span>: kâffe; <span class="ar">إنّ</span>'yi amelden keser; artık mübtedâ-haber gelir.`]},
+{ar:`فَبِمَا رَحْمَةٍ مِّنَ اللَّهِ لِنتَ لَهُمْ`,tr:`Allah'tan bir rahmet sayesinde onlara yumuşak davrandın. (Âl-i İmrân 159)`,irab:[`<span class="ar">ما</span>: zâide, te'kîd için; <span class="ar">رحمة</span> bâ ile mecrûr.`]}],
+ezber:`<b>"Ma: ism-6 (Mevsûl, Şart, İstifham, Ta'accub, Nekra, Ma'rife), harf-4 (Nâfiye, Masdar, Kâffe, Zâid)."</b> Joker kart toplamı: 10.`,
+hata:`<span class="ar">ما</span> gördüğünde sakın hemen "nefy" deme. Önce <b>ism mi harf mi</b> sor: yerine "şey" ya da "olan şey" konuyorsa isimdir.`,
+kontrol:[
+{q:`<span class="ar">إِنَّمَا اللَّهُ إِلَٰهٌ وَاحِدٌ</span> içindeki <span class="ar">ما</span> nedir?`,o:[`Kâffe`,`Masdariyye`,`Nâfiye`],d:0,a:`<span class="ar">إنّ</span>'yi amelden kesen <span class="ar">ما</span> kâffe.`},
+{q:`<span class="ar">مَا أَحْسَنَ زَيْدًا</span> içindeki <span class="ar">ما</span> nedir?`,o:[`Mevsûle`,`Ta'accub`,`Zâide`],d:1,a:`Hayret/taaccub kalıbı.`},
+{q:`<span class="ar">أَيّ</span>'in toplam kaç görünümü vardır?`,o:[`3`,`5`,`10`],d:1,a:`Şart, istifham, mevsûl, sıfat, nidâda vasl = 5.`}]}
+];
+
+/* Etkinlik verileri */
+const TUR={
+haber:{ad:`Haber`,m:1},hal:{ad:`Hâl`,m:1},mefulbih:{ad:`Mef'ûl bih (mekûlü'l-kavl)`,m:1},muzaf:{ad:`Muzâf ileyh`,m:1},
+sartcevab:{ad:`Câzim şartın cevabı (fâ / izâ-i fücâ'iyye ile)`,m:1},tabimufred:{ad:`Müfrede tâbi (nat)`,m:1},tabicumle:{ad:`Mahalli olan cümleye tâbi (ataf)`,m:1},
+ibtida:{ad:`İbtidâiyye (müsta'nefe)`,m:0},sila:{ad:`Sıla`,m:0},mutariza:{ad:`Mu'tarıza`,m:0},tefsir:{ad:`Tefsiriyye`,m:0},
+kasem:{ad:`Kasem cevabı`,m:0},sartgayr:{ad:`Câzim olmayan şartın cevabı`,m:0},tabigayr:{ad:`Mahalli olmayana tâbi`,m:0}};
+// [bağlam(ar), vurgulu cümle(ar), tür, açıklama]
+const JUMAL=[
+[`زَيْدٌ قَامَ أَبُوهُ`,`قَامَ أَبُوهُ`,`haber`,`Yerine "قائم" koyabilirsin; mübtedâ <span class="ar">زيد</span>'in haberidir.`],
+[`إِنَّ زَيْدًا أَبُوهُ قَائِمٌ`,`أَبُوهُ قَائِمٌ`,`haber`,`<span class="ar">إنّ</span>'nin haberi olduğu için rafʿ mahallinde.`],
+[`كَانَ زَيْدٌ أَبُوهُ قَائِمٌ`,`أَبُوهُ قَائِمٌ`,`haber`,`<span class="ar">كان</span>'nin haberi olduğu için nasb mahallinde.`],
+[`جَاءَ زَيْدٌ يَضْحَكُ`,`يَضْحَكُ`,`hal`,`Takdir: <span class="ar">ضاحكًا</span>; nasb mahallinde hâl.`],
+[`قَالَ زَيْدٌ عَمْرٌو مُنْطَلِقٌ`,`عَمْرٌو مُنْطَلِقٌ`,`mefulbih`,`Söylenen söz (mekûlü'l-kavl); <span class="ar">قال</span>'nin mef'ûlü olarak nasb mahallinde.`],
+[`يَوْمَ هُمْ بَارِزُونَ`,`هُمْ بَارِزُونَ`,`muzaf`,`Zaman zarfı <span class="ar">يوم</span>'den sonra gelince muzâf ileyh; cerr mahallinde.`],
+[`مَن يُضْلِلِ اللَّهُ فَلَا هَادِيَ لَهُ`,`فَلَا هَادِيَ لَهُ`,`sartcevab`,`Câzim şartın cevabı <b>fâ</b> ile bağlanmış; cezm mahallinde.`],
+[`وَإِن تُصِبْهُمْ سَيِّئَةٌ إِذَا هُمْ يَقْنَطُونَ`,`إِذَا هُمْ يَقْنَطُونَ`,`sartcevab`,`Câzim şartın cevabı <b>fücâ'e izâsı</b> ile bağlanmış; cezm mahallinde.`],
+[`يَوْمٌ لَّا بَيْعٌ فِيهِ`,`لَّا بَيْعٌ فِيهِ`,`tabimufred`,`<span class="ar">يوم</span>'ün sıfatı; müfrede tâbi, rafʿ mahallinde.`],
+[`زَيْدٌ قَامَ أَبُوهُ وَقَعَدَ أَخُوهُ`,`قَعَدَ أَخُوهُ`,`tabicumle`,`Rafʿ mahallindeki <span class="ar">قام أبوه</span>'ya ataf olduğu için o da rafʿ mahallinde.`],
+[`إِنَّا أَنزَلْنَاهُ`,`إِنَّا أَنزَلْنَاهُ`,`ibtida`,`Söze yeni başlıyor; ibtidâiyye, mahalli yok.`],
+[`جَاءَ الَّذِي قَامَ أَبُوهُ`,`قَامَ أَبُوهُ`,`sila`,`<span class="ar">الذي</span> ism-i mevsûlünden sonra sıla cümlesi.`],
+[`فَإِن لَّمْ تَفْعَلُوا وَلَن تَفْعَلُوا فَاتَّقُوا النَّارَ`,`وَلَن تَفْعَلُوا`,`mutariza`,`Şart ile cevabı arasına girmiş araya giren cümle.`],
+[`وَلَمَّا يَأْتِكُم مَّثَلُ الَّذِينَ خَلَوْا مِن قَبْلِكُم مَّسَّتْهُمُ الْبَأْسَاءُ وَالضَّرَّاءُ`,`مَّسَّتْهُمُ الْبَأْسَاءُ وَالضَّرَّاءُ`,`tefsir`,`Öncekini (<span class="ar">مثل</span>) açıklıyor; tefsiriyye.`],
+[`قَالَ فَبِعِزَّتِكَ لَأُغْوِيَنَّهُمْ`,`لَأُغْوِيَنَّهُمْ`,`kasem`,`Yemin (<span class="ar">بعزتك</span>) cümlesinin cevabı.`],
+[`وَلَوْ شِئْنَا لَرَفَعْنَاهُ بِهَا`,`لَرَفَعْنَاهُ بِهَا`,`sartgayr`,`<span class="ar">لو</span> câzim değildir; cevabı mahalli olmayan.`],
+[`قَامَ زَيْدٌ وَقَعَدَ عَمْرٌو`,`وَقَعَدَ عَمْرٌو`,`tabigayr`,`Mahalli olmayan <span class="ar">قام زيد</span>'e ataf; o da mahalli olmayan.`]
+];
+// edat dedektifi: [ar, hedef, doğru tür, seçenekler, açıklama]
+const EDAT_SEC={
+ma:[`Mevsûl (isim)`,`Şart (isim)`,`İstifham (isim)`,`Ta'accub`,`Nekra mevsûfe`,`Nâfiye`,`Masdariyye`,`Kâffe`,`Zâide`],
+min:[`Şartiyye`,`İstifhâmiyye`,`Mevsûle`,`Nekra mevsûfe`],
+en:[`Masdariyye`,`Muhaffefe`,`Müfessire`,`Zâide`],
+in:[`Şartiyye`,`Nâfiye`,`Zâide`,`Muhaffefe`],
+la:[`Nâfiye`,`Nâhiye`,`Zâide`],
+ey:[`Şartiyye`,`İstifhâmiyye`,`Mevsûle`,`Sıfat`,`Nidâda vasl`]};
+const EDAT=[
+[`مَا عِندَكُمْ يَنفَدُ`,`مَا`,`Mevsûl (isim)`,`ma`,`Yanınızdaki şey tükenir; <span class="ar">ما</span> yerine "<span class="ar">الذي</span>" konur.`],
+[`وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ`,`مَا`,`Şart (isim)`,`ma`,`İki fiil cezmedilmiş (<span class="ar">تفعلوا</span>, <span class="ar">يعلمه</span>): şart ismi.`],
+[`وَمَا تِلْكَ بِيَمِينِكَ يَا مُوسَىٰ`,`مَا`,`İstifham (isim)`,`ma`,`"Nedir?" sorusu.`],
+[`مَا أَحْسَنَ زَيْدًا`,`مَا`,`Ta'accub`,`ma`,`Hayret kalıbı: "ne güzel!"`],
+[`مَرَرْتُ بِمَا مُعْجِبٍ لَكَ`,`مَا`,`Nekra mevsûfe`,`ma`,`"<span class="ar">شيء</span>" anlamında nekra, arkasından sıfat gelmiş.`],
+[`مَا هَٰذَا بَشَرًا`,`مَا`,`Nâfiye`,`ma`,`"Bu insan değil": olumsuzluk harfi.`],
+[`وَدُّوا مَا عَنِتُّمْ`,`مَا`,`Masdariyye`,`ma`,`<span class="ar">ما عنتم</span> = <span class="ar">عنتكم</span>.`],
+[`إِنَّمَا اللَّهُ إِلَٰهٌ وَاحِدٌ`,`مَا`,`Kâffe`,`ma`,`<span class="ar">إنّ</span>'yi amelden alıkoyar.`],
+[`فَبِمَا رَحْمَةٍ مِّنَ اللَّهِ لِنتَ لَهُمْ`,`مَا`,`Zâide`,`ma`,`Pekiştirme; çıkarsan cümle bozulmaz.`],
+[`مَن يَعْمَلْ سُوءًا يُجْزَ بِهِ`,`مَن`,`Şartiyye`,`min`,`İki fiil cezmedilmiş.`],
+[`مَن بَعَثَنَا مِن مَّرْقَدِنَا`,`مَن`,`İstifhâmiyye`,`min`,`"Kim?" sorusu.`],
+[`وَمِنَ الشَّيَاطِينِ مَن يَغُوصُونَ لَهُ`,`مَن`,`Mevsûle`,`min`,`"Dalanlar" anlamında, sıla cümlesi var.`],
+[`مَرَرْتُ بِمَنْ مُعْجِبٍ لَكَ`,`مَنْ`,`Nekra mevsûfe`,`min`,`Arkasından sıfat gelmiş nekra.`],
+[`وَالَّذِي أَطْمَعُ أَن يَغْفِرَ لِي`,`أَن`,`Masdariyye`,`en`,`Müdâri' mansûb; <span class="ar">أن يغفر</span> = bağışlama.`],
+[`عَلِمَ أَن سَيَكُونُ مِنكُم مَّرْضَىٰ`,`أَن`,`Muhaffefe`,`en`,`<span class="ar">سيكون</span> öncesinde: şe'n zamiri mahzuf, muhaffefe.`],
+[`فَأَوْحَيْنَا إِلَيْهِ أَنِ اصْنَعِ الْفُلْكَ`,`أَنِ`,`Müfessire`,`en`,`Vahiy "söz" anlamlıdır; arkasından cümle açıklıyor.`],
+[`فَلَمَّا أَن جَاءَ الْبَشِيرُ`,`أَن`,`Zâide`,`en`,`<span class="ar">لما</span> sonrası pekiştirme.`],
+[`إِن تَقُمْ أَقُمْ`,`إِن`,`Şartiyye`,`in`,`İki fiili cezmeder.`],
+[`إِنْ عِندَكُم مِّن سُلْطَانٍ بِهَٰذَا`,`إِنْ`,`Nâfiye`,`in`,`"Elinizde delil yok."`],
+[`مَا إِنْ زَيْدٌ قَائِمٌ`,`إِنْ`,`Zâide`,`in`,`<span class="ar">ما</span> ile birlikte nefyi pekiştirir.`],
+[`وَإِنْ كُلًّا لَمَّا لَيُوَفِّيَنَّهُمْ`,`إِنْ`,`Muhaffefe`,`in`,`<span class="ar">إنّ</span>'nin hafifletilmişi; <span class="ar">كلا</span>'yı nasbeder.`],
+[`لَا إِلَٰهَ إِلَّا اللَّهُ`,`لَا`,`Nâfiye`,`la`,`"İlâh yok."`],
+[`لَا تَقُمْ`,`لَا`,`Nâhiye`,`la`,`"Kalkma!"; müdâri'yi cezmeder.`],
+[`لِئَلَّا يَعْلَمَ أَهْلُ الْكِتَابِ`,`لِئَلَّا`,`Zâide`,`la`,`<span class="ar">ليعلم</span> anlamı; pekiştirme.`],
+[`أَيًّا مَّا تَدْعُوا فَلَهُ الْأَسْمَاءُ الْحُسْنَىٰ`,`أَيًّا`,`Şartiyye`,`ey`,`<span class="ar">تدعوا</span> cezmedilmiş.`],
+[`أَيُّكُمْ زَادَتْهُ هَٰذِهِ إِيمَانًا`,`أَيُّكُمْ`,`İstifhâmiyye`,`ey`,`"Hanginiz?"`],
+[`لَنَنزِعَنَّ مِن كُلِّ شِيعَةٍ أَيُّهُمْ أَشَدُّ`,`أَيُّهُمْ`,`Mevsûle`,`ey`,`"<span class="ar">الذي</span> en şiddetli ise" anlamı.`],
+[`مَرَرْتُ بِرَجُلٍ أَيِّ رَجُلٍ`,`أَيِّ`,`Sıfat`,`ey`,`"Ne adam!" kemâl anlamlı sıfat.`],
+[`يَا أَيُّهَا الْإِنسَانُ`,`أَيُّهَا`,`Nidâda vasl`,`ey`,`<span class="ar">الإنسان</span>'a ulaşmak için köprü.`]
+];
+// müteallak avcısı: [ar, hedef, soru, seçenekler, doğru idx, açıklama]
+const MUT=[
+[`أَنْعَمْتَ عَلَيْهِمْ`,`عَلَيْهِمْ`,[`<span class="ar">أَنْعَمْتَ</span>`,`Mahzuf <span class="ar">كائن</span>`,`Müteallakı yok`],0,`Fiile müteallak.`],
+[`غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ`,`عَلَيْهِمْ`,[`<span class="ar">غير</span>`,`<span class="ar">المغضوب</span> (ism-i mef'ûl)`,`Müteallakı yok`],1,`İsm-i mef'ûl fiil anlamı taşır.`],
+[`رَأَيْتُ طَائِرًا عَلَىٰ غُصْنٍ`,`عَلَىٰ غُصْنٍ`,[`<span class="ar">رأيت</span>`,`Mahzuf sıfat <span class="ar">كائنًا</span>`,`Müteallakı yok`],1,`<span class="ar">طائر</span> nekra, şibh-i cümle sıfat; mahzuf <span class="ar">كائنًا</span>.`],
+[`فَخَرَجَ عَلَىٰ قَوْمِهِ فِي زِينَتِهِ`,`فِي زِينَتِهِ`,[`<span class="ar">خرج</span>`,`Mahzuf hâl <span class="ar">متزينًا</span>`,`Müteallakı yok`],1,`Hâl olduğu için mahzuf hâle müteallak.`],
+[`رَأَيْتُ الْهِلَالَ بَيْنَ السَّحَابِ`,`بَيْنَ السَّحَابِ`,[`Mahzuf hâl <span class="ar">كائنًا</span>`,`Mahzuf sıfat`,`Müteallakı yok`],0,`<span class="ar">الهلال</span> ma'rife: hâl.`],
+[`الْحَمْدُ لِلَّهِ`,`لِلَّهِ`,[`Mahzuf haber <span class="ar">كائن</span> / <span class="ar">استقر</span>`,`<span class="ar">الحمد</span>`,`Müteallakı yok`],0,`Mübtedânın haberi mahzuf.`],
+[`وَلَهُ مَن فِي السَّمَاوَاتِ`,`فِي السَّمَاوَاتِ`,[`<span class="ar">كائن</span> (ism-i fâil)`,`<span class="ar">استقر</span> (fiil)`,`Müteallakı yok`],1,`Sıla'da yalnız fiil takdir edilir.`],
+[`وَكَفَىٰ بِاللَّهِ شَهِيدًا`,`بِاللَّهِ`,[`<span class="ar">كفى</span>`,`Mahzuf <span class="ar">كائن</span>`,`Müteallakı yok (zâid bâ)`],2,`Zâid bâ'nın müteallakı yoktur.`],
+[`زَيْدٌ كَعَمْرٍو`,`كَعَمْرٍو`,[`Mahzuf haber`,`<span class="ar">زيد</span>`,`Müteallakı yok (kâf-ı teşbîh)`],2,`Kâf-ı teşbîhin müteallakı aranmaz.`],
+[`لَوْلَاكَ فِي ذَا الْعَامِ لَمْ أَحْجُجِ`,`لَوْلَاكَ`,[`<span class="ar">أحجج</span>`,`Mahzuf haber`,`Müteallakı yok (<span class="ar">لولا</span>)`],2,`Dört istisnadan biri: <span class="ar">لولا</span>.`]
+];
+// eşleştirme: [harf, anlam]
+const ESLES=[
+[`وَ`,`mutlak toplama (cem')`],[`حَتَّىٰ`,`cem' + gâye`],[`فَ`,`tertîb + hemen ardından`],[`ثُمَّ`,`tertîb + mühlet`],
+[`قَدْ`,`tahkîk, tevakku', taklîl`],[`سَوْفَ`,`istikbâl (tenfîs)`],[`لَمْ`,`müdâri'yi nefy + geçmişe çevirme + cezm`],[`لَنْ`,`nefy + nasb + istikbâl`],
+[`إِذَنْ`,`cevap ve cezâ`],[`لَوْ`,`imtinâ li-imtinâ`],[`لَوْلَا`,`imtinâ li-vücûd`],[`لَمَّا (mâzî ile)`,`vücûd li-vücûd`],
+[`نَعَمْ`,`tasdîk, va'd, i'lâm`],[`أَجَلْ`,`yalnız haberi tasdîk`],[`بَلَىٰ`,`olumsuzu olumlu yapma`],[`إِذَا`,`gelecek zarfı + şart`],
+[`إِذْ`,`geçmiş zaman zarfı`],[`كَلَّا`,`redd ve zecr`]];
+// adım adım i'rab: [cümle, tr, [[kelime, doğru kategori, açıklama]...]]
+const KAT=[`Mübtedâ`,`Haber`,`Fâil`,`Mef'ûl bih`,`Hâl`,`Nat (sıfat)`,`Muzâf ileyh`,`Fiil-i mâzî`,`Fiil-i müdâri'`,`Harf`,`Car-mecrûr`,`Mecrûr isim`,`İsm-i inne`,`İsm-i kâne`,`Atıf harfi`,`Ma'tûf`]
+const KAT_AYR=[[`Car-mecrûr`,`Mecrûr isim`],[`Mübtedâ`,`İsm-i inne`,`İsm-i kâne`],[`Fiil-i mâzî`,`Fiil-i müdâri'`],[`Haber`,`Hâl`]];;
+const IRAB=[
+[`زَيْدٌ قَائِمٌ`,`Zeyd ayaktadır.`,[[`زَيْدٌ`,`Mübtedâ`,`Başta duran, haberi bekleyen isim; merfû'.`],[`قَائِمٌ`,`Haber`,`Mübtedâyı tamamlar; merfû'.`]]],
+[`قَامَ زَيْدٌ`,`Zeyd kalktı.`,[[`قَامَ`,`Fiil-i mâzî`,`Fetha üzerine mebnî.`],[`زَيْدٌ`,`Fâil`,`İşi yapan; merfû'.`]]],
+[`إِنَّ زَيْدًا أَبُوهُ قَائِمٌ`,`Zeyd'in babası ayaktadır.`,[[`إِنَّ`,`Harf`,`Nâsıh harf; mahalli yok.`],[`زَيْدًا`,`İsm-i inne`,`<span class="ar">إنّ</span> ismi nasbeder.`],[`أَبُوهُ`,`Mübtedâ`,`Vâv ile merfû' (beş isimden); aynı zamanda muzâf.`],[`قَائِمٌ`,`Haber`,`<span class="ar">أبوه</span>'nun haberi; <b>أبوه قائم</b> cümlesi <span class="ar">إنّ</span>'nin haberi, rafʿ mahallinde.`]]],
+[`جَاءَ زَيْدٌ يَضْحَكُ`,`Zeyd güleyerek geldi.`,[[`جَاءَ`,`Fiil-i mâzî`,`Fetha üzerine mebnî.`],[`زَيْدٌ`,`Fâil`,`Merfû', damme.`],[`يَضْحَكُ`,`Hâl`,`Cümle olarak nasb mahallinde hâl; kendisi fiil-i müdâri' merfû'.`]]],
+[`قَالَ زَيْدٌ عَمْرٌو مُنْطَلِقٌ`,`Zeyd "Amr yola çıktı" dedi.`,[[`قَالَ`,`Fiil-i mâzî`,`Fetha üzerine mebnî.`],[`زَيْدٌ`,`Fâil`,`Merfû'.`],[`عَمْرٌو`,`Mübtedâ`,`Mekûlü'l-kavl cümlesinin başı.`],[`مُنْطَلِقٌ`,`Haber`,`<b>عمرو منطلق</b> cümlesi <span class="ar">قال</span>'nin mef'ûl bih'i, nasb mahallinde.`]]],
+[`الْحَمْدُ لِلَّهِ`,`Hamd Allah'a mahsustur.`,[[`الْحَمْدُ`,`Mübtedâ`,`Merfû'; haberi mahzuf.`],[`لِلَّهِ`,`Car-mecrûr`,`Mahzuf habere müteallak (<span class="ar">كائن</span> / <span class="ar">استقر</span>).`]]],
+[`مَرَرْتُ بِرَجُلٍ صَالِحٍ`,`Salih bir adama uğradım.`,[[`مَرَرْتُ`,`Fiil-i mâzî`,`Sükûn üzerine mebnî (tâ-i fâil ile); tâ zamiri fâil.`],[`بِرَجُلٍ`,`Car-mecrûr`,`Cer harfi <span class="ar">بِ</span> + mecrûr isim <span class="ar">رَجُلٍ</span>; <span class="ar">مررت</span>'e müteallak.`],[`صَالِحٍ`,`Nat (sıfat)`,`<span class="ar">رجل</span>'in sıfatı; ona tâbi, mecrûr.`]]],
+[`جَاءَ زَيْدٌ وَعَمْرٌو`,`Zeyd ve Amr geldi.`,[[`جَاءَ`,`Fiil-i mâzî`,`Fetha üzerine mebnî.`],[`زَيْدٌ`,`Fâil`,`Merfû'.`],[`وَعَمْرٌو`,`Ma'tûf`,`<span class="ar">و</span> mutlak cem' atıf harfidir (mahalli yok); <span class="ar">عمرو</span> Zeyd'e ma'tûf; ma'tûf, ma'tûf aleyhin i'rabını alır (fâile ma'tûf olduğu için merfû').`]]],
+[`كَانَ زَيْدٌ قَائِمًا`,`Zeyd ayaktaydı.`,[[`كَانَ`,`Fiil-i mâzî`,`Nâkıs fiil; fetha üzerine mebnî.`],[`زَيْدٌ`,`İsm-i kâne`,`Kâne'nin ismi, merfû'.`],[`قَائِمًا`,`Haber`,`Kâne'nin haberi, mansûb.`]]]
+];
+// beyit: [beyit adı, mısra metni, [[cümle, tür, açıklama]]]
+const BEYIT=[
+[`1. Beyit (Zevâvî) — mahalli olan 7 cümle`,[`مَنْ ظَنَّنِي أَعْلَمْتُهُ فَضْلِي ظَهَرْ`,`إِذْ صُغْتُ نَظْمًا اسْتَنَارَ وَزَهَرْ`,`فَاللَّهُ يَعْلَمُ أَكُنْتُ كِدْتُ`,`أَقُولُ أَنْوِي الْخَيْرَ إِنِّي سُدْتُ`],[
+[`ظَنَّنِي`,`haber`,`<span class="ar">من</span> mübtedâsının haberi, rafʿ mahallinde.`],
+[`أَعْلَمْتُهُ`,`mefulbih`,`<span class="ar">ظن</span>'nin ikinci mef'ûlü, nasb mahallinde.`],
+[`ظَهَرْ`,`mefulbih`,`<span class="ar">أعلم</span>'nin üçüncü mef'ûlü, nasb mahallinde.`],
+[`صُغْتُ`,`muzaf`,`<span class="ar">إذ</span> zarfından sonra muzâf ileyh, cerr mahallinde.`],
+[`اسْتَنَارَ`,`tabimufred`,`<span class="ar">نظمًا</span>'nın sıfatı, nasb mahallinde.`],
+[`زَهَرْ`,`tabicumle`,`<span class="ar">استنار</span>'a ma'tûf, nasb mahallinde.`],
+[`اللَّهُ يَعْلَمُ`,`sartcevab`,`<span class="ar">من</span> şartının cevabı, fâ ile bağlı; cezm mahallinde.`],
+[`كُنْتُ`,`mefulbih`,`<span class="ar">يعلم</span>'nin mef'ûl bih'i, nasb mahallinde.`],
+[`كِدْتُ|أَقُولُ`,`haber`,`<span class="ar">كان</span>'nin haberi, nasb mahallinde.`],
+[`أَقُولُ`,`haber`,`<span class="ar">كاد</span>'nin haberi, nasb mahallinde.`],
+[`أَنْوِي`,`hal`,`<span class="ar">أقول</span> fiilinin fâilinden hâl, nasb mahallinde.`],
+[`سُدْتُ`,`haber`,`<span class="ar">إنّ</span>'nin haberi, rafʿ mahallinde.`]]],
+[`2. Beyit (Zevâvî) — mahalli olmayan 7 cümle`,[`آلَيْتُ أَيْ أَقْسَمْتُ وَالْقَسَمُ بَرْ`,`لَوْ تَابَ مَنْ عَصَى لَعَزَّ وَانْتَصَرْ`],[
+[`آلَيْتُ`,`ibtida`,`Söze başlıyor; müsta'nefe.`],
+[`أَقْسَمْتُ`,`tefsir`,`<span class="ar">أي</span> tefsir harfidir; <span class="ar">آليت</span>'yi açıklar.`],
+[`وَالْقَسَمُ بَرْ`,`mutariza`,`Araya girmiş cümle.`],
+[`تَابَ`,`kasem`,`Kitabın i'rabına göre yemin cevabı.`],
+[`عَصَى`,`sila`,`<span class="ar">من</span> ism-i mevsûlünün sılası.`],
+[`لَعَزَّ`,`sartgayr`,`<span class="ar">لو</span> câzim olmayan şart harfidir; cevabı mahalli olmayan.`],
+[`وَانْتَصَرْ`,`tabigayr`,`Mahalli olmayan <span class="ar">عز</span>'e ataf.`]]]
+];
+// sıralama: [başlık, [adımlar doğru sırada]]
+const SIRA=[
+[`Cümlenin mahallini bulma testi`,[`Cümleyi belirle (hangi bölüm?)`,`Yerine tek kelime koymayı dene`,`Kelime i'rab alıyor mu bak`,`Alıyorsa: hangi rolde? (haber, hâl, nat…)`,`Almıyorsa: mahalli olmayan 7 cümleden hangisi?`]],
+[`Car-mecrûrun müteallakını bulma`,[`Car-mecrûrü işaretle`,`Cer harfi dört müstesnadan biri mi? (zâid bâ, lealle, levlâ, kâf)`,`Değilse yakındaki fiil ya da fiil benzerine bak`,`Bulamazsan öndeki ismin nekra mı ma'rife mi olduğuna bak`,`Nekraysa sıfat, ma'rifeyse hâl; takdir <span class="ar">كائن</span> / <span class="ar">استقر</span>`]],
+[`Cümlenin sıfat/hâl tayini`,[`Cümlenin öndeki ismini bul`,`İsmin mahza nekra mı mahza ma'rife mi olduğuna bak`,`Mahza nekraysa: sıfat`,`Mahza ma'rifeyse: hâl`,`İkisi de değilse: iki ihtimali birden yaz`]]
+];
+// doğru / yanlış: [ifade, doğru mu, açıklama]
+const DY=[
+[`Faydalı söz hem kelâm hem cümle diye anılır.`,1,`Müellif iki adı aynı anlamda kullanır.`],
+[`Fiille başlayan cümle ismiyyedir.`,0,`Fiille başlıyorsa fi'liyye.`],
+[`Başka cümleye bina edilmiş cümle kübrâdır.`,0,`O suğrâdır; kübrâ, içinde başka cümle taşıyandır.`],
+[`Hâl olan cümle nasb mahallindedir.`,1,`Hâl daima mansûbdur; cümle ise nasb mahallinde.`],
+[`Sıla cümlesinin i'rabda mahalli vardır.`,0,`Sıla mahalli olmayan yedi cümleden biridir.`],
+[`Mu'tarıza araya giren cümledir.`,1,`Şart ve cevabı gibi iki parça arasına girer.`],
+[`Câzim olmayan şartın cevabının mahalli yoktur.`,1,`<span class="ar">لو</span>, <span class="ar">لما</span>, <span class="ar">إذا</span> cevapları mahalli olmayanlardandır.`],
+[`Her şart cevabının cezm mahalli vardır.`,0,`Yalnız fâ/izâ-i fücâ'e ile gelen câzim şart cevabının vardır.`],
+[`Müfred testi, cümlenin mahalli olup olmadığını anlamaya yarar.`,1,`Yerine tek kelime konunca i'rab alıyorsa mahalli vardır.`],
+[`Zâid bâ'nın müteallakı bulunmalıdır.`,0,`Müteallaksızdır.`],
+[`Sıla cümlesindeki şibh-i cümlede <span class="ar">استقر</span> takdir edilir.`,1,`Sıla cümle olduğundan fiil takdiri gerekir.`],
+[`<span class="ar">بلى</span> olumlu soruya olumlu cevap verir.`,0,`Olumsuz soruyu olumlu yapar.`],
+[`<span class="ar">إذا</span> gelecek, <span class="ar">إذ</span> geçmiş zaman zarfıdır.`,1,`Doğru.`],
+[`<span class="ar">لن</span> müdâri'yi mecz eder.`,0,`<span class="ar">لن</span> nasbeder; mecz eden <span class="ar">لم</span>.`],
+[`<span class="ar">ما</span> hem isim hem harf olabilir.`,1,`İsim: mevsûl, şart…; harf: nâfiye, masdariyye…`],
+[`<span class="ar">لا</span>'nın nâhiye türü müdâri'yi cezmeder.`,1,`<span class="ar">لا تقم</span>.`],
+[`<span class="ar">إنَّمَا</span> içindeki <span class="ar">ما</span> nâfiyedir.`,0,`Kâffedir; <span class="ar">إنّ</span>'yi amelden keser.`],
+[`<span class="ar">أَنِ اصْنَعِ الْفُلْكَ</span> içindeki <span class="ar">أَنِ</span> müfessiredir.`,1,`Vahiy fiilinden sonra açıklama.`],
+[`<span class="ar">أَيّ</span> yalnız istifham için kullanılır.`,0,`Şart, istifham, mevsûl, sıfat ve nidâda vasl olur.`],
+[`<span class="ar">حَتَّىٰ</span> atıfta mutlak cem' ve gâye bildirir.`,1,`Doğru.`],
+[`<span class="ar">فَ</span> sıra bildirir ama mühlet vermez.`,1,`Tertîb ve ta'kîb.`],
+[`<span class="ar">ثُمَّ</span> hemen ardından getirir.`,0,`Mühletle getirir.`]
+];
+
+/* Vakalar: dallanan senaryolar. adım: {s:soru, ar:opsiyonel Arapça, o:[[metin, doğru?, geri bildirim]]} */
+const VAKA=[
+{id:'v1',ad:`Medrese Tahtasındaki Âyet`,ikon:`📜`,ozet:`Hoca tahtaya Bakara 24'ü yazdı ve sana döndü.`,
+giris:`Ders başlamak üzere. Hoca tahtaya şu âyeti yazıyor ve sana dönüp soruyor: "Bu âyette <b>ولن تفعلوا</b> cümlesinin i'rabdaki durumu nedir?"`,
+adim:[
+{ar:`فَإِن لَّمْ تَفْعَلُوا وَلَن تَفْعَلُوا فَاتَّقُوا النَّارَ`,s:`İlk iş: <b>ولن تفعلوا</b> cümlesi şart ile cevabının arasına girmiştir. Bu cümleye ne dersin?`,o:[[`Câzim şartın cevabıdır`,0,`Cevap <b>فاتقوا النار</b>'dır, çünkü <span class="ar">فاء</span> ile bağlanmış. Aradaki cümle cevap olamaz.`],[`Mu'tarıza (araya giren cümle)`,1,`Doğru! Şart ile cevabı arasına girdiği için mu'tarıza.`],[`Sıla cümlesidir`,0,`Sıla ism-i mevsûlden sonra gelir; burada mevsûl yok.`]]},
+{s:`Hoca devam ediyor: "Peki mu'tarıza cümlenin mahalli var mı?"`,o:[[`Var, nasb mahallinde`,0,`Mu'tarıza mahalli olmayan yedi cümleden biridir.`],[`Yok`,1,`Doğru! Mahalli olmayan yedi cümleden biri.`],[`Var, cezm mahallinde`,0,`Cezm mahalli câzim şartın cevabı içindir; mu'tarıza değil.`]]},
+{s:`Son soru: <b>فاتقوا النار</b> cümlesi için ne dersin?`,o:[[`Mu'tarıza`,0,`Hayır, o şartın cevabıdır.`],[`Câzim şartın cevabı; fâ ile bağlı, cezm mahallinde`,1,`Tam isabet. Fâ ile bağlanan câzim şart cevabı cezm mahallindedir.`],[`İbtidâiyye`,0,`Cümle şarta bağlı, yeni bir söz başlatmıyor.`]]}]},
+{id:'v2',ad:`Yolculukta Bir Adam`,ikon:`🧳`,ozet:`Hâl mi, sıfat mı? Yolcu arkadaşın sorar.`,
+giris:`Medreseye dönerken yanındaki arkadaşın şu cümleyi söylüyor: <b>مررت برجل صالح يصلي</b>. "Hocamız bunun <i>يصلي</i> kısmını hem sıfat hem hâl dedi, nasıl olur?" diye soruyor.`,
+adim:[
+{ar:`مَرَرْتُ بِرَجُلٍ صَالِحٍ يُصَلِّي`,s:`Önce kurala bak: <span class="ar">رجل</span> mahza nekra mı?`,o:[[`Evet, mahza nekradır`,0,`<span class="ar">صالح</span> sıfatı ile tahsis edilmiş. Mahza nekra değil.`],[`Hayır, sıfatla tahsis edilmiş`,1,`Doğru! Mahza nekra olmayınca iki ihtimal doğar.`],[`Ma'rifedir`,0,`<span class="ar">رجل</span> nekradır.`]]},
+{s:`Bu durumda <b>يصلي</b> için ne yazarsın?`,o:[[`Yalnız hâl`,0,`İki ihtimali de yazmalısın.`],[`Yalnız sıfat`,0,`İki ihtimali de yazmalısın.`],[`Sıfat (cerr mahalli) ya da hâl (nasb mahalli)`,1,`Doğru! Mahza olmayan nekra/ma'rife arası iki vecih caizdir.`]]},
+{s:`Arkadaşın bir de <span class="ar">رَأَيْتُ طَائِرًا يَطِيرُ</span> der. Burada <b>يطير</b>?`,o:[[`Sıfat`,1,`<span class="ar">طائرًا</span> mahza nekra → sıfat.`],[`Hâl`,0,`Hâl için mahza ma'rife gerek.`],[`İbtidâiyye`,0,`Cümle bir isme bağlı, yeni söz değil.`]]}]},
+{id:'v3',ad:`Kayıp Müteallak`,ikon:`🧲`,ozet:`Hamd cümlesinin mıknatısı nerede?`,
+giris:`Nahiv müsvedden ders çalışırken sayfada <b>الحمد لله</b> yazıyor ve kenarda not: "<i>lillâh müteallak?</i>" Cevabı bulman gerek.`,
+adim:[
+{ar:`الْحَمْدُ لِلَّهِ`,s:`<span class="ar">الحمد</span> mübtedâ. <span class="ar">لله</span> neye bağlanır?`,o:[[`<span class="ar">الحمد</span> kelimesine`,0,`Mübtedâ fiil gibi çalışmaz; müteallak olamaz.`],[`Mahzuf habere (<span class="ar">كائن</span> / <span class="ar">استقر</span>)`,1,`Doğru! Haber mahzuf; car-mecrûr ona müteallak.`],[`Hiçbir şeye`,0,`<span class="ar">لام</span> dört müstesnadan biri değil.`]]},
+{s:`Bu takdirde <span class="ar">كائن</span> ile <span class="ar">استقر</span> arasında seçim hakkın var mı?`,o:[[`Evet, ikisi de olur`,1,`Haber olduğu için ikisi de caiz.`],[`Hayır, yalnız <span class="ar">كائن</span>`,0,`Yalnız sıla'da tek ihtimal vardır: <span class="ar">استقر</span>.`],[`Hayır, yalnız <span class="ar">استقر</span>`,0,`Haberde ikisi de olur.`]]},
+{ar:`وَلَهُ مَن فِي السَّمَاوَاتِ وَالْأَرْضِ`,s:`Not defterinde bir de bu âyet var. <span class="ar">في السماوات</span> sıla ise takdir ne olur?`,o:[[`<span class="ar">كائن</span> ya da <span class="ar">استقر</span>`,0,`Sıla'da bu serbestlik yok.`],[`Yalnız <span class="ar">استقر</span>`,1,`Doğru! Sıla cümle olduğundan fiil takdir edilir.`],[`Hiçbir takdir gerekmez`,0,`Şibh-i cümle mutlaka bir şeye bağlanır.`]]}]},
+{id:'v4',ad:`Joker Kart: Ma`,ikon:`🃏`,ozet:`Aynı harf, üç farklı cümle...`,
+giris:`Kütüphanede üç cümle yan yana yazılı. Hepsi <b>ما</b> içeriyor. Müsvedde yazan arkadaşın kafası karışmış.`,
+adim:[
+{ar:`مَا عِندَكُمْ يَنفَدُ`,s:`Birinci cümlede <span class="ar">ما</span>?`,o:[[`Nâfiye`,0,`Olumsuzluk anlamı yok.`],[`Mevsûl (isim): "yanınızdaki şey"`,1,`Doğru! Yerine "<span class="ar">الذي</span>" koyabilirsin.`],[`Kâffe`,0,`Kâffe <span class="ar">إنّ</span> gibi bir harfin ardından gelir.`]]},
+{ar:`إِنَّمَا اللَّهُ إِلَٰهٌ وَاحِدٌ`,s:`İkinci cümlede <span class="ar">ما</span>?`,o:[[`Kâffe`,1,`Doğru! <span class="ar">إنّ</span>'yi amelden keser; <span class="ar">الله</span> artık mübtedâ.`],[`Masdariyye`,0,`Masdariyye müdâri'yle birlikte kullanılır.`],[`Zâide`,0,`Zâide olsaydı <span class="ar">إنّ</span> amel ederdi.`]]},
+{ar:`مَا أَحْسَنَ زَيْدًا`,s:`Üçüncü cümlede <span class="ar">ما</span>?`,o:[[`İstifham`,0,`"Zeyd'i ne güzelleştirdi?" gibi okunabilirdi ama kalıp taaccubdur.`],[`Ta'accub`,1,`Doğru! "Zeyd ne güzel!"`],[`Şart`,0,`Cezmedilen fiil yok.`]]}]},
+{id:'v5',ad:`Şart Cevabı Tuzağı`,ikon:`🪤`,ozet:`Hangi cevap cezm mahallinde?`,
+giris:`Sınavda iki ayrı şart cümlesi karşına çıkıyor. Hangisinin cevabı cezm mahallindedir?`,
+adim:[
+{ar:`مَن يُضْلِلِ اللَّهُ فَلَا هَادِيَ لَهُ`,s:`Cevap cümlesi <b>فلا هادي له</b>: ne dersin?`,o:[[`Cezm mahallinde, fâ ile bağlı`,1,`Doğru! Câzim şartın cevabı fâ ile gelince cezm mahallinde sayılır.`],[`Mahalli yok`,0,`Fâ ile bağlandığı için mahalli var.`],[`Nasb mahallinde`,0,`Hâl değil, cevap.`]]},
+{ar:`وَلَوْ شِئْنَا لَرَفَعْنَاهُ بِهَا`,s:`Peki <b>لرفعناه بها</b>?`,o:[[`Cezm mahallinde`,0,`<span class="ar">لو</span> câzim değildir.`],[`Mahalli yok, câzim olmayan şartın cevabı`,1,`Doğru!`],[`Hâl`,0,`Bu bir cevap cümlesi.`]]},
+{ar:`وَإِن تُصِبْهُمْ سَيِّئَةٌ بِمَا قَدَّمَتْ أَيْدِيهِمْ إِذَا هُمْ يَقْنَطُونَ`,s:`Son olarak <b>إذا هم يقنطون</b>?`,o:[[`Mahalli yok`,0,`Fücâ'e izâsı fâ gibi iş görür; cezm mahalli var.`],[`Cezm mahallinde, fücâ'e izâsı ile bağlı`,1,`Doğru! <span class="ar">إذا</span> fâ'nın yerini tutar.`],[`Muzâf ileyh`,0,`Zaman zarfı yok.`]]}]},
+{id:'v6',ad:`Zevâvî'nin Bilmecesi`,ikon:`🪶`,ozet:`Beytin içinde üç cümleyi çöz.`,
+giris:`Eski bir defterde Ebû İshâk ez-Zevâvî'nin nazmettiği beyit yazılı: <b>مَنْ ظَنَّنِي أَعْلَمْتُهُ فَضْلِي ظَهَرْ</b>. Üç cümlenin görevini bulmalısın.`,
+adim:[
+{ar:`مَنْ ظَنَّنِي أَعْلَمْتُهُ فَضْلِي ظَهَرْ`,s:`<b>ظنني</b> cümlesi <span class="ar">من</span> şart ismine göre nedir?`,o:[[`<span class="ar">من</span>'in haberi, rafʿ mahallinde`,1,`Doğru! <span class="ar">من</span> mübtedâ, <span class="ar">ظنني</span> haberi.`],[`Hâl`,0,`Hâl değil.`],[`Sıla`,0,`<span class="ar">من</span> burada şart ismi, mevsûl değil.`]]},
+{s:`<b>أعلمته</b> cümlesi <span class="ar">ظن</span> fiilinin neyidir?`,o:[[`İkinci mef'ûl, nasb mahallinde`,1,`Doğru! <span class="ar">ظن</span> iki mef'ûl alır.`],[`Hâl`,0,`Mef'ûl rolünde.`],[`Muzâf ileyh`,0,`Muzâf ileyh değil.`]]},
+{s:`<b>ظهر</b> cümlesi <span class="ar">أعلم</span>'nin neyidir?`,o:[[`Üçüncü mef'ûl, nasb mahallinde`,1,`Doğru! <span class="ar">أعلم</span> üç mef'ûl alır.`],[`İbtidâiyye`,0,`Başlangıç değil; fiile bağlı.`],[`Mu'tarıza`,0,`Araya girmiş değil.`]]}]}
+];
+
+/* Bilgi kartları [soru, cevap, ders-id] */
+const KART=[
+[`Cümle ile kelâm arasında fark var mı? (bu risalede)`,`Hayır; faydalı söz hem kelâm hem cümle diye anılır.`,1],
+[`İsmiyye cümle nedir?`,`İsimle başlayan cümle: <span class="ar">زَيْدٌ قَائِمٌ</span>.`,1],
+[`Fi'liyye cümle nedir?`,`Fiille başlayan cümle: <span class="ar">قَامَ زَيْدٌ</span>.`,1],
+[`Suğrâ cümle nedir?`,`Başka bir cümleye bina edilmiş (parça olmuş) cümle; mesela <span class="ar">قام أبوه</span> (زيد قام أبوه içinde).`,1],
+[`Kübrâ cümle nedir?`,`İçinde başka bir cümle taşıyan bütün: <span class="ar">زيد قام أبوه</span>.`,1],
+[`Mahalli olan cümlelerin sayısı?`,`7 (haber, hâl, mef'ûl bih, muzâf ileyh, şart cevabı, müfrede tâbi, mahalli olan cümleye tâbi).`,2],
+[`Müfred testi nedir?`,`Cümlenin yerine tek kelime koy; i'rab alıyorsa cümlenin mahalli vardır.`,2],
+[`<span class="ar">جَاءَ زَيْدٌ يَضْحَكُ</span> içinde <span class="ar">يضحك</span>?`,`Nasb mahallinde hâl.`,2],
+[`<span class="ar">قَالَ زَيْدٌ عَمْرٌو مُنْطَلِقٌ</span> içinde <span class="ar">عمرو منطلق</span>?`,`Mekûlü'l-kavl; nasb mahallinde mef'ûl bih.`,2],
+[`Cümle ne zaman muzâf ileyh olur?`,`Zaman zarfından (mesela <span class="ar">يوم</span>) sonra gelince; cerr mahallinde.`,2],
+[`Şart cevabının cezm mahalli olması için?`,`Câzim şart olacak ve cevabı <b>fâ</b> ya da <b>fücâ'e izâsı</b> ile bağlanacak.`,2],
+[`Fücâ'e izâsı nedir?`,`<span class="ar">إِذَا</span> sürpriz anlamında, fâ yerine geçer: <span class="ar">إذا هم يقنطون</span>.`,2],
+[`Mahalli olmayan cümlelerin sayısı?`,`7 (ibtidâiyye, sıla, mu'tarıza, tefsiriyye, kasem cevabı, câzim olmayan şart cevabı, mahalli olmayana tâbi).`,3],
+[`İbtidâiyye cümle nedir?`,`Söze yeni başlayan cümle, mahalli yok. <span class="ar">إنا أنزلناه</span>.`,3],
+[`Sıla cümlesi nedir?`,`Ism-i mevsûlün (الذي) sonrasında gelen cümle; mahalli yok.`,3],
+[`Mu'tarıza nedir?`,`İki birbirine bağlı parça arasına girmiş cümle: <span class="ar">ولن تفعلوا</span>.`,3],
+[`Tefsiriyye nedir?`,`Öncekini açıklayan cümle: <span class="ar">مستهم البأساء والضراء</span>.`,3],
+[`Kasem cevabı nedir?`,`Yemin cümlesinin cevabı: <span class="ar">لأغوينهم</span>.`,3],
+[`Câzim olmayan şart cevabı örneği?`,`<span class="ar">وَلَوْ شِئْنَا لَرَفَعْنَاهُ</span>: <span class="ar">لو</span> câzim değil.`,3],
+[`Mahza nekradan sonra gelen cümle?`,`Sıfat.`,4],
+[`Mahza ma'rifeden sonra gelen cümle?`,`Hâl.`,4],
+[`Mahza olmayan isimden sonra gelen cümle?`,`Sıfat ya da hâl (iki ihtimal).`,4],
+[`Zarf/car-mecrûr nereye bağlanır?`,`Fiile veya fiil anlamı taşıyan kelimeye (müteallak).`,5],
+[`Müteallak istemeyen 4 cer harfi?`,`Zâid bâ, <span class="ar">لعل</span>, <span class="ar">لولا</span>, kâf-ı teşbîh.`,5],
+[`İsm-i mef'ûl car-mecrûra müteallak olur mu?`,`Evet, fiil anlamı taşıdığı için: <span class="ar">المغضوب عليهم</span>.`,5],
+[`<span class="ar">وَكَفَىٰ بِاللَّهِ شَهِيدًا</span> içinde bâ?`,`Zâid; müteallakı yok.`,5],
+[`Mahzuf müteallak takdiri?`,`<span class="ar">كائن</span> ya da <span class="ar">استقر</span>.`,6],
+[`Sıla'da müteallak takdiri?`,`Yalnız <span class="ar">استقر</span> (cümle olmalı).`,6],
+[`Şibh-i cümle fâili ne zaman alır?`,`Sıfat, hâl, haber, sıla olunca ya da nefy/istifhama dayanınca.`,6],
+[`<span class="ar">و</span> atıfta neyi ifade eder?`,`Mutlak toplama (cem').`,7],
+[`<span class="ar">حَتَّىٰ</span> atıfta?`,`Cem' ve gâye.`,7],
+[`<span class="ar">فَ</span> atıfta?`,`Tertîb ve ta'kîb (sıra, hemen ardından).`,7],
+[`<span class="ar">ثُمَّ</span> atıfta?`,`Tertîb ve mühlet.`,7],
+[`<span class="ar">قد</span> anlamları?`,`Tahkîk, tevakku', taklîl.`,7],
+[`<span class="ar">س</span> ve <span class="ar">سوف</span>?`,`İstikbâl harfi; çoğu âlime göre tenfîs.`,7],
+[`<span class="ar">لم</span> ne yapar?`,`Müdâri'yi nefyeder, geçmişe çevirir, cezmeder.`,8],
+[`<span class="ar">لما</span> nâfiye?`,`Olumsuzluğu süregelen, olumlunun beklendiği durum.`,8],
+[`<span class="ar">لن</span> ne yapar?`,`Nefy, nasb, istikbâl.`,8],
+[`<span class="ar">إذن</span>?`,`Cevap ve cezâ harfi.`,8],
+[`<span class="ar">لو</span>?`,`İmtinâ li-imtinâ (imkânsızlık).`,8],
+[`<span class="ar">لولا</span>?`,`İmtinâ li-vücûd (varlık yüzünden yokluk).`,8],
+[`<span class="ar">لما</span> vücûd harfi?`,`Vücûd li-vücûd; mâzî alır.`,8],
+[`<span class="ar">نعم</span> ne için?`,`Tasdîk, va'd, i'lâm.`,9],
+[`<span class="ar">أجل</span> ne için?`,`Yalnız haberi tasdîk.`,9],
+[`<span class="ar">بلى</span> ne için?`,`Olumsuzu olumlu yapma (îcâb-ı menfî).`,9],
+[`<span class="ar">إذا</span> ile <span class="ar">إذ</span> farkı?`,`<span class="ar">إذا</span> gelecek, <span class="ar">إذ</span> geçmiş zaman zarfı.`,9],
+[`<span class="ar">كلا</span>?`,`Redd ve zecr; bazen "hakkan".`,9],
+[`<span class="ar">لا</span> türleri?`,`Nâfiye, nâhiye, zâide (3).`,10],
+[`<span class="ar">إن</span> türleri?`,`Şartiyye, nâfiye, zâide, muhaffefe (4).`,10],
+[`<span class="ar">أن</span> türleri?`,`Masdariyye, muhaffefe, müfessire, zâide (4).`,11],
+[`<span class="ar">من</span> türleri?`,`Şart, istifham, mevsûl, nekra mevsûfe (4).`,11],
+[`<span class="ar">أي</span> türleri?`,`Şart, istifham, mevsûl, sıfat, nidâda vasl (5).`,12],
+[`<span class="ar">ما</span> isim türleri?`,`Mevsûl, şart, istifham, ta'accub, nekra mevsûfe, ma'rife tâmme (6).`,12],
+[`<span class="ar">ما</span> harf türleri?`,`Nâfiye, masdariyye, kâffe, zâide (4).`,12],
+[`Kâffe <span class="ar">ما</span> örneği?`,`<span class="ar">إِنَّمَا</span>; <span class="ar">إنّ</span>'yi amelden keser.`,12],
+[`Müfessire <span class="ar">أن</span> hangi fiilden sonra gelir?`,`Söz anlamlı fiilden sonra (<span class="ar">أوحينا</span> gibi).`,11],
+[`Muhaffefe <span class="ar">أن</span>'in ismi?`,`Mahzuf şe'n zamiri.`,11]
+];
+
+/* Sınav havuzu: [soru, [şıklar], doğru idx, ders-id, açıklama] */
+const SINAV=[
+[`<span class="ar">زَيْدٌ قَائِمٌ</span> hangi tür cümledir?`,[`İsmiyye`,`Fi'liyye`,`Şibh-i cümle`],0,1,`İsimle başlıyor.`],
+[`Suğrâ cümleyi en iyi hangisi tanımlar?`,[`Başka bir cümlenin parçası olarak kurulmuş`,`İçinde başka cümle taşıyan`,`Fiille başlayan`],0,1,`Suğrâ başkasına bina edilmiştir.`],
+[`Mahalli olan cümlelerden biri <b>değildir</b>:`,[`Haber`,`Hâl`,`Sıla`],2,2,`Sıla mahalli olmayanlardandır.`],
+[`Müfred testine göre cümlenin yerine tek kelime konunca i'rab alırsa:`,[`Mahalli vardır`,`Mahalli yoktur`,`Zâiddir`],0,2,`Mahalli vardır.`],
+[`<span class="ar">جَاءَ زَيْدٌ يَضْحَكُ</span> içindeki <span class="ar">يَضْحَكُ</span>:`,[`Rafʿ mahallinde haber`,`Nasb mahallinde hâl`,`Cerr mahallinde muzâf ileyh`],1,2,`Hâl.`],
+[`<span class="ar">يَوْمَ هُمْ بَارِزُونَ</span> içinde <span class="ar">هم بارزون</span> neyin mahallindedir?`,[`Rafʿ`,`Nasb`,`Cerr`],2,2,`Zaman zarfından sonra muzâf ileyh; cerr.`],
+[`Câzim şartın cevabı hangi durumda cezm mahallinde olur?`,[`Mâzî fiille gelirse`,`Fâ ya da fücâ'e izâsı ile bağlanırsa`,`Her zaman`],1,2,`Fâ/izâ-i fücâ'iyye gerekir.`],
+[`<span class="ar">وَقَعَدَ أَخُوهُ</span> (<span class="ar">زيد قام أبوه وقعد أخوه</span>) cümlesi:`,[`Mahalli olan cümleye tâbi`,`Sıla`,`Mu'tarıza`],0,2,`Rafʿ mahallindeki cümleye ataf.`],
+[`<span class="ar">إِنَّا أَنزَلْنَاهُ</span> cümlesi hangisidir?`,[`İbtidâiyye (müsta'nefe)`,`Sıla`,`Mu'tarıza`],0,3,`Yeni söz başlatıyor.`],
+[`<span class="ar">وَلَن تَفْعَلُوا</span> (Bakara 24) cümlesi nedir?`,[`Mu'tarıza`,`Tefsiriyye`,`Şart cevabı`],0,3,`Şart ile cevap arasına girmiş.`],
+[`Tefsiriyye cümlenin özelliği?`,[`Öncekini açıklar`,`Söze başlar`,`Araya girer`],0,3,`Açıklama yapar.`],
+[`Kasem cevabının mahalli:`,[`Yoktur`,`Nasbdır`,`Rafʿtır`],0,3,`Mahalli olmayan 7'den biri.`],
+[`<span class="ar">مررت برجل صالح يصلي</span> için doğru ifade:`,[`<span class="ar">يصلي</span> yalnız sıfattır`,`<span class="ar">يصلي</span> yalnız hâldir`,`<span class="ar">يصلي</span> sıfat ya da hâl olabilir`],2,4,`<span class="ar">رجل</span> mahza nekra değil.`],
+[`Mahza nekradan sonra gelen haber cümlesi:`,[`Hâl`,`Sıfat`,`Atıf`],1,4,`Sıfat.`],
+[`Hangisi müteallak <b>istemez</b>?`,[`<span class="ar">في</span>`,`<span class="ar">على</span>`,`Zâid bâ`],2,5,`Zâid bâ'nın müteallakı yok.`],
+[`<span class="ar">زَيْدٌ كَعَمْرٍو</span> içinde kâfın müteallakı:`,[`Yoktur`,`<span class="ar">زيد</span>`,`Mahzuf fiil`],0,5,`Kâf-ı teşbîh müteallak aramaz.`],
+[`Sıla cümlesindeki şibh-i cümlede müteallak takdiri:`,[`<span class="ar">كائن</span>`,`<span class="ar">استقر</span>`,`<span class="ar">موجود</span>`],1,6,`Sıla'da yalnız fiil.`],
+[`<span class="ar">رَأَيْتُ الْهِلَالَ بَيْنَ السَّحَابِ</span> içindeki <span class="ar">بين السحاب</span>:`,[`Sıfat`,`Hâl`,`Haber`],1,6,`<span class="ar">الهلال</span> ma'rife.`],
+[`İstifhama dayanan şibh-i cümle:`,[`Fâili merfû' kılabilir`,`Müteallaksız olur`,`Her zaman sıfat olur`],0,6,`<span class="ar">أفي الله شك</span>.`],
+[`Tertîb ve ta'kîb ifade eden atıf harfi:`,[`<span class="ar">ثم</span>`,`<span class="ar">ف</span>`,`<span class="ar">حتى</span>`],1,7,`Fâ.`],
+[`Tertîb ve mühlet ifade eden harf:`,[`<span class="ar">ف</span>`,`<span class="ar">ثم</span>`,`<span class="ar">و</span>`],1,7,`Sümme.`],
+[`<span class="ar">قَدْ</span> hangi anlamlardadır?`,[`Tahkîk, tevakku', taklîl`,`Yalnız nefy`,`Yalnız şart`],0,7,`Üç anlam.`],
+[`Müdâri'yi nefyedip geçmişe çeviren harf:`,[`<span class="ar">لن</span>`,`<span class="ar">لم</span>`,`<span class="ar">لا</span>`],1,8,`<span class="ar">لم</span>.`],
+[`<span class="ar">لَوْلَا</span> ifade eder:`,[`İmtinâ li-vücûd`,`İmtinâ li-imtinâ`,`Vücûd li-vücûd`],0,8,`Varlık yüzünden yokluk.`],
+[`<span class="ar">إِذَنْ</span> nedir?`,[`Cevap ve cezâ`,`Zarf`,`Şart ismi`],0,8,`Cevap ve cezâ harfi.`],
+[`Olumsuz soruyu olumlu cevaplama harfi:`,[`<span class="ar">بلى</span>`,`<span class="ar">نعم</span>`,`<span class="ar">أجل</span>`],0,9,`<span class="ar">بلى</span>.`],
+[`Geçmiş zaman zarfı:`,[`<span class="ar">إذا</span>`,`<span class="ar">إذ</span>`,`<span class="ar">كلا</span>`],1,9,`<span class="ar">إذ</span>.`],
+[`<span class="ar">لَا تَقُمْ</span> içindeki <span class="ar">لا</span>:`,[`Nâfiye`,`Nâhiye`,`Zâide`],1,10,`Yasak.`],
+[`<span class="ar">لِئَلَّا</span> içindeki <span class="ar">لا</span>:`,[`Zâide`,`Nâhiye`,`Nâfiye`],0,10,`Te'kîd için zâid.`],
+[`<span class="ar">إِنْ عِندَكُم مِّن سُلْطَانٍ</span> içindeki <span class="ar">إن</span>:`,[`Şart`,`Nâfiye`,`Muhaffefe`],1,10,`"Elinizde delil yok."`],
+[`<span class="ar">وَإِنْ كُلًّا لَمَّا لَيُوَفِّيَنَّهُمْ</span> içindeki <span class="ar">إن</span>:`,[`Muhaffefe`,`Şart`,`Zâide`],0,10,`Hafifletilmiş <span class="ar">إنّ</span>.`],
+[`<span class="ar">أَنِ اصْنَعِ الْفُلْكَ</span> içindeki <span class="ar">أَنِ</span>:`,[`Masdariyye`,`Müfessire`,`Zâide`],1,11,`Söz anlamlı fiilden sonra.`],
+[`<span class="ar">فَلَمَّا أَن جَاءَ</span> içindeki <span class="ar">أَن</span>:`,[`Masdariyye`,`Zâide`,`Müfessire`],1,11,`Te'kîd.`],
+[`<span class="ar">مَن بَعَثَنَا مِن مَّرْقَدِنَا</span> içindeki <span class="ar">مَن</span>:`,[`Şartiyye`,`İstifhâmiyye`,`Mevsûle`],1,11,`"Kim?"`],
+[`<span class="ar">مَثَلًا مَّا بَعُوضَةً</span> içindeki <span class="ar">ما</span>:`,[`Nekra mevsûfe (sıfat)`,`Kâffe`,`Nâfiye`],0,12,`<span class="ar">مثلا</span>'nın sıfatı.`],
+[`<span class="ar">فَنِعِمَّا هِيَ</span> içindeki <span class="ar">ما</span>:`,[`Zâide`,`Ma'rife tâmme`,`Kâffe`],1,12,`<span class="ar">نعم</span>'in fâili.`],
+[`<span class="ar">أَيّ</span>'in <b>olmayan</b> türü:`,[`Şart`,`İstifham`,`Nâfiye`],2,12,`<span class="ar">أي</span> nâfiye olmaz.`]
+];
+const KONU={1:`Cümle`,2:`Cümle`,3:`Cümle`,4:`Cümle`,5:`Zarf ve car-mecrûr`,6:`Zarf ve car-mecrûr`,7:`Edatlar`,8:`Edatlar`,9:`Edatlar`,10:`Edatlar`,11:`Edatlar`,12:`Edatlar`};
+
+/* Sözlük [terim, Arapça, açıklama] */
+const SOZLUK=[
+[`Cümle`,`جُمْلَة`,`Faydalı söz; bu risalede kelâmla aynı anlamda.`],
+[`Kelâm`,`كَلَام`,`Faydalı söz.`],
+[`İsmiyye`,`اِسْمِيَّة`,`İsimle başlayan cümle.`],
+[`Fi'liyye`,`فِعْلِيَّة`,`Fiille başlayan cümle.`],
+[`Suğrâ`,`صُغْرَى`,`Başkasının içinde kurulmuş küçük cümle.`],
+[`Kübrâ`,`كُبْرَى`,`İçinde başka cümle taşıyan büyük cümle.`],
+[`Mahalli`,`مَحَلّ`,`Cümlenin, yerine tek kelime konsa alacağı i'rab konumu.`],
+[`Mübtedâ`,`مُبْتَدَأ`,`İsim cümlesinin başı; merfû'.`],
+[`Haber`,`خَبَر`,`Mübtedâyı tamamlayan; ayrıca inne/kâne'nin haberi.`],
+[`Hâl`,`حَال`,`Durumu bildiren mansûb; cümle olarak nasb mahallinde.`],
+[`Nat (sıfat)`,`نَعْت`,`Önceki ismi niteleyen tâbi'.`],
+[`Mef'ûl bih`,`مَفْعُولٌ بِه`,`Fiilin üzerine geçtiği kelime; mansûb.`],
+[`Muzâf ileyh`,`مُضَافٌ إِلَيْه`,`İzâfetle bağlanan sonraki kelime; mecrûr.`],
+[`Mekûlü'l-kavl`,`مَقُولُ الْقَوْل`,`"Dedi" fiilinden sonra söylenen söz.`],
+[`Ataf`,`عَطْف`,`Bağlama; ma'tûf, ma'tûf aleyhin i'rabını alır.`],
+[`Câzim şart`,`شَرْط جَازِم`,`İki fiili cezmeden şart (إن، من، ما...).`],
+[`Cevâbü'ş-şart`,`جَوَابُ الشَّرْط`,`Şartın sonucu.`],
+[`Fücâ'e izâsı`,`إِذَا الْفُجَائِيَّة`,`Ani oluşu bildirir; fâ yerine geçer.`],
+[`İbtidâiyye`,`اِبْتِدَائِيَّة`,`Söze yeni başlayan cümle (müsta'nefe).`],
+[`Sıla`,`صِلَة`,`Mevsûlün tamamlayıcı cümlesi.`],
+[`Mu'tarıza`,`مُعْتَرِضَة`,`İki ilişkili parça arasına giren cümle.`],
+[`Tefsiriyye`,`تَفْسِيرِيَّة`,`Öncekini açıklayan cümle.`],
+[`Kasem`,`قَسَم`,`Yemin.`],
+[`Cevâbü'l-kasem`,`جَوَابُ الْقَسَم`,`Yeminin cevabı.`],
+[`Müteallak`,`مُتَعَلَّق`,`Car-mecrûr/zarfın bağlandığı fiil ya da fiil benzeri.`],
+[`Şibh-i cümle`,`شِبْهُ الْجُمْلَة`,`Zarf ile car-mecrûr.`],
+[`Zâid`,`زَائِد`,`Anlam pekiştiren, i'rab alamayan ek.`],
+[`Mebnî`,`مَبْنِيّ`,`Sonu değişmeyen kelime.`],
+[`Mu'reb`,`مُعْرَب`,`Sonu değişen, i'rab alan kelime.`],
+[`Merfû'`,`مَرْفُوع`,`Damme/vâv/elif/nûn alâmetli.`],
+[`Mansûb`,`مَنْصُوب`,`Fetha/elif/kesre/yâ alâmetli.`],
+[`Mecrûr`,`مَجْرُور`,`Kesre/yâ/fetha alâmetli.`],
+[`Meczûm`,`مَجْزُوم`,`Sükûn/hazf alâmetli.`],
+[`Nâfiye`,`نَافِيَة`,`Olumsuzluk bildiren.`],
+[`Nâhiye`,`نَاهِيَة`,`Yasak (nehiy) bildiren.`],
+[`Masdariyye`,`مَصْدَرِيَّة`,`Cümleyi masdar yapan.`],
+[`Muhaffefe`,`مُخَفَّفَة`,`Şeddesi kaldırılmış (hafifletilmiş) إنّ / أنّ.`],
+[`Müfessire`,`مُفَسِّرَة`,`Arkasındaki cümleyi açıklayan أن.`],
+[`Kâffe`,`كَافَّة`,`Önündeki harfin amelini kesen ما.`],
+[`Mevsûl`,`مَوْصُول`,`Sıla gerektiren isim (الذي، من، ما).`],
+[`Nekra mevsûfe`,`نَكِرَة مَوْصُوفَة`,`Sıfatlanan belirsiz isim anlamında من/ما.`],
+[`Ta'accub`,`تَعَجُّب`,`Hayret kalıbı (ما أحسن زيدًا).`],
+[`Nidâ`,`نِدَاء`,`Seslenme.`],
+[`Tenfîs`,`تَنْفِيس`,`Zamanı uzatma/genişletme (س، سوف).`],
+[`Tertîb`,`تَرْتِيب`,`Sıra.`],
+[`Ta'kîb`,`تَعْقِيب`,`Hemen ardından gelme.`],
+[`Mühlet`,`مُهْلَة`,`Aradaki süre.`],
+[`İmtinâ`,`اِمْتِنَاع`,`Gerçekleşmeme.`],
+[`Vücûd`,`وُجُود`,`Var olma.`]
+];
+
+/* İ'rabın Anahtarı — uygulama */
+const KEY=`irab:durum`;
+const INT=[0,1,3,7,14,30];
+const SEK=[[`yol`,`🧭 Yol`],[`ders`,`📚 Dersler`],[`atolye`,`🛠️ Atölye`],[`vaka`,`🎭 Vakalar`],[`kart`,`🗂️ Kartlar`],[`sinav`,`📝 Sınav`],[`sozluk`,`📖 Sözlük`],[`ben`,`🏅 Ben`]];
+const BAB=[``,`Cümle ve Hükümleri`,`Zarf, Car ve Mecrûr`,`Sık Kullanılan Edatlar`];
+const SEVIYE=[[0,`Yeni Talebe`],[100,`Müştâk`],[250,`Müteallim`],[500,`Nahiv Yolcusu`],[900,`Mu'rib`],[1400,`Nahivci`],[2000,`Allâme`]];
+const OYUN=[
+[`mahal`,`Mahalli Var mı?`,`🏠`,`Önce var/yok, sonra yedi türden hangisi.`],
+[`edat`,`Edat Dedektifi`,`🕵️`,`ما, من, أن, إن, لا, أي — hangi kostümde?`],
+[`mut`,`Müteallak Avcısı`,`🧲`,`Car-mecrûr kime yapışır?`],
+[`irab`,`Adım Adım İ'rab`,`🧩`,`Kelime kelime i'rab: ne rolü oynuyor?`],
+[`beyit`,`Zevâvî Beyit Çözücü`,`🪶`,`İki beyitteki on dokuz cümleyi çöz.`],
+[`esles`,`Harf Eşleştirme`,`🔗`,`Harfi anlamıyla eşleştir.`],
+[`sirala`,`Adımları Sırala`,`🔢`,`Doğru yöntem sırası.`],
+[`dy`,`Doğru mu, Yanlış mı?`,`⚡`,`Hızlı yanlış-avı.`]];
+const ROZET=[
+[`ilk`,`İlk Adım`,`🌱`,`İlk dersi tamamla`,s=>Object.keys(s.bitti).length>=1],
+[`bab1`,`Cümle Ustası`,`🏠`,`1. babın derslerini bitir`,s=>[1,2,3,4].every(i=>s.bitti[i])],
+[`bab2`,`Müteallak Avcısı`,`🧲`,`2. babın derslerini bitir`,s=>[5,6].every(i=>s.bitti[i])],
+[`bab3`,`Edat Üstadı`,`🎭`,`3. babın derslerini bitir`,s=>[7,8,9,10,11,12].every(i=>s.bitti[i])],
+[`hepsi`,`Kitabı Bitirdin`,`📘`,`12 dersin hepsi`,s=>Object.keys(s.bitti).length>=12],
+[`seri3`,`3 Gün Üst Üste`,`🔥`,`3 günlük seri`,s=>s.seri>=3],
+[`seri7`,`7 Gün Üst Üste`,`🌋`,`7 günlük seri`,s=>s.seri>=7],
+[`xp250`,`250 Puan`,`⭐`,`250 XP topla`,s=>s.xp>=250],
+[`xp1000`,`1000 Puan`,`🌟`,`1000 XP topla`,s=>s.xp>=1000],
+[`dogru50`,`50 Doğru`,`🎯`,`Toplam 50 doğru cevap`,s=>s.say>=50],
+[`mukemmel`,`Kusursuz Tur`,`💎`,`Bir etkinlikte %100`,s=>Object.values(s.oyun).some(o=>o.en>=100)],
+[`kart20`,`Kart Kurdu`,`🗂️`,`20 kart tekrarı`,s=>s.tekr>=20],
+[`vaka3`,`Dedektif`,`🎭`,`3 vakayı bitir`,s=>Object.keys(s.vaka).length>=3],
+[`sinav80`,`Sertifikalı`,`🎓`,`Sınavda %80+`,s=>s.sinav.some(x=>x.puan>=80)]];
+const VARS={xp:0,seri:0,son:``,bitti:{},kart:{},oyun:{},vaka:{},sinav:[],yanlis:{},tema:``,yazi:1,rozet:{},gun:{t:``,ders:0,oyun:0,kart:0},say:0,tekr:0};
+let S=JSON.parse(JSON.stringify(VARS));
+try{const k=JSON.parse(localStorage.getItem(KEY)||`null`);if(k)S=Object.assign(S,k)}catch(e){}
+const kaydet=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+let T=`yol`,R={};
+const $=s=>document.querySelector(s);
+const kar=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const sec=(a,n)=>kar(a).slice(0,n);
+const bugun=()=>{const d=new Date();return d.getFullYear()+`-`+(d.getMonth()+1)+`-`+d.getDate()};
+const gunNo=()=>Math.floor(Date.now()/864e5);
+const seviye=()=>{let r=SEVIYE[0];for(const s of SEVIYE)if(S.xp>=s[0])r=s;return r};
+const sonraki=()=>SEVIYE.find(s=>s[0]>S.xp);
+function toast(m){const t=document.createElement(`div`);t.className=`toast`;t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),2600)}
+function konfeti(){if(matchMedia(`(prefers-reduced-motion:reduce)`).matches)return;const e=[`🎉`,`✨`,`⭐`,`🌟`,`📘`];for(let i=0;i<22;i++){const s=document.createElement(`span`);s.className=`konfeti`;s.textContent=e[i%e.length];s.style.left=Math.random()*100+`vw`;s.style.animationDelay=Math.random()*.6+`s`;document.body.appendChild(s);setTimeout(()=>s.remove(),2600)}}
+function gunYenile(){const b=bugun();if(S.gun.t!==b){S.gun={t:b,ders:0,oyun:0,kart:0}}}
+function etkin(){gunYenile();const b=bugun();if(S.son!==b){const d=new Date();d.setDate(d.getDate()-1);const dun=d.getFullYear()+`-`+(d.getMonth()+1)+`-`+d.getDate();S.seri=S.son===dun?S.seri+1:1;S.son=b}}
+function xpEkle(n,ne){etkin();S.xp+=n;if(ne&&S.gun[ne]!==undefined)S.gun[ne]++;rozetKontrol();kaydet();ust()}
+function rozetKontrol(){for(const r of ROZET){if(!S.rozet[r[0]]&&r[4](S)){S.rozet[r[0]]=1;toast(`Yeni rozet: ${r[2]} ${r[1]}`);konfeti()}}}
+function ust(){$(`#xp`).textContent=`⭐ `+S.xp;$(`#seri`).textContent=`🔥 `+S.seri;document.documentElement.style.setProperty(`--ars`,[1.25,1.55,1.9,2.3][S.yazi]+`rem`)}
+function sekmeler(){$(`#sek`).innerHTML=SEK.map(x=>`<button class="tab ${T===x[0]?`on`:``}" data-a="git" data-v="${x[0]}">${x[1]}</button>`).join(``)}
+function yukari(){window.scrollTo(0,0)}
+function tema(){const t=S.tema||(matchMedia(`(prefers-color-scheme:dark)`).matches?`dark`:`light`);document.documentElement.dataset.theme=t}
+const halka=(p,r=30)=>{const c=2*Math.PI*r;return `<div class="halka"><svg width="78" height="78" viewBox="0 0 78 78"><circle cx="39" cy="39" r="${r}" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="8"/><circle cx="39" cy="39" r="${r}" fill="none" stroke="#fde68a" stroke-width="8" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-p)}"/></svg><b>${Math.round(p*100)}%</b></div>`};
+const bitenSay=()=>Object.keys(S.bitti).length;
+const ilerle=(p)=>`<div class="ilerleme"><i style="width:${Math.round(p*100)}%"></i></div>`;
+
+/* ---------- YOL ---------- */
+function vYol(){
+ gunYenile();const p=bitenSay()/DERS.length,sv=seviye(),sn=sonraki();
+ const siradaki=DERS.find(d=>!S.bitti[d.id]);
+ const zayif=Object.entries(S.yanlis).sort((a,b)=>b[1]-a[1])[0];
+ const g=S.gun;
+ let h=`<section class="hero"><h1>İ'rabın Anahtarı</h1><p>İbn Hişâm'ın <span class="ar" style="font-size:1.1em">قواعد الإعراب</span> risalesini oyunla, vakayla ve tekrarla öğren.</p>
+ <div class="ozet">${halka(p)}<div><b>${sv[1]}</b><div style="opacity:.9">${S.xp} XP${sn?` · sonraki seviye için ${sn[0]-S.xp} XP`:``}</div><div style="opacity:.9">${bitenSay()}/${DERS.length} ders tamam</div></div></div>
+ <div style="margin-top:.8rem">${siradaki?`<button class="btn" data-a="ders" data-v="${siradaki.id}">▶ ${bitenSay()?`Devam et`:`Başla`}: ${siradaki.ad}</button>`:`<button class="btn" data-a="git" data-v="sinav">🎓 Sınava gir</button>`}<button class="btn" style="background:rgba(255,255,255,.18);color:#fff" data-a="gunluk">⚡ Günün meydan okuması</button></div></section>`;
+ h+=`<div class="kart"><h3>📅 Bugünün planı</h3><div class="satir"><span class="chip">${g.ders?`✅`:`⬜`} 1 ders</span><span class="chip">${g.oyun>=2?`✅`:`⬜`} 2 etkinlik turu (${Math.min(g.oyun,2)}/2)</span><span class="chip">${g.kart>=5?`✅`:`⬜`} 5 kart (${Math.min(g.kart,5)}/5)</span></div>`+(zayif?`<p class="u">Zayıf nokta: <b>${DERS.find(d=>d.id==zayif[0]).ad}</b>. <a href="#" data-a="ders" data-v="${zayif[0]}">Tekrar et</a></p>`:`<p class="u">Etkinliklerde yanlış yaptıkça zayıf noktaların burada görünecek.</p>`)+`</div>`;
+ for(let b=1;b<=3;b++){h+=`<div class="bab"><h3>${b}. Bab — ${BAB[b]}</h3><div class="yol">`+DERS.filter(d=>d.bab===b).map(d=>`<button class="dugum ${S.bitti[d.id]?`bitti`:siradaki&&siradaki.id===d.id?`siradaki`:``}" data-a="ders" data-v="${d.id}" title="${d.ad}" aria-label="${d.ad}">${S.bitti[d.id]?`✓`:d.ikon}<small>${d.id}</small></button>`).join(``)+`</div></div>`}
+ h+=`<div class="kutuk ana" style="margin-top:1.3rem"><b>Nasıl çalışmalı?</b> Her ders: benzetme → altın kural → örnekler → hafıza kancası → hızlı kontrol. Sonra Atölye'de oyna, Vakalar'da uygula, Kartlar'da tekrar et, Sınav'da ölç. Kural basit: <b>önce testle düşün, sonra ezberle.</b></div>`;
+ h+=`<p class="u">İçerik, İbn Hişâm'ın Kavâidü'l-İ'râb ve Nüzhetü't-Tullâb (Şibrâvî tahkikli) metninden özgün anlatımla hazırlanmıştır; Arapça örnekler metindeki gibidir. Resmî ders materyalinin yerini tutmaz.</p>`;
+ return h}
+
+/* ---------- DERS ---------- */
+function vDers(){
+ if(R.ders){const d=DERS.find(x=>x.id===R.ders);return dersAc(d)}
+ let h=`<h2>📚 Dersler</h2><p class="u">12 ders · 3 bab</p>`;
+ for(let b=1;b<=3;b++){h+=`<div class="bab"><h3>${b}. Bab — ${BAB[b]}</h3><div class="izgara">`+DERS.filter(d=>d.bab===b).map(d=>`<button class="kutu ${S.bitti[d.id]?`bitti`:``}" data-a="ders" data-v="${d.id}"><span class="i">${d.ikon}</span><b>${d.id}. ${d.ad}</b><small>${d.dk} dk${S.bitti[d.id]?` · ✅ tamam`:``}</small></button>`).join(``)+`</div></div>`}
+ return h}
+function dersAc(d){
+ R.kc=R.kc||{};const kc=R.kc[d.id]=R.kc[d.id]||{};
+ const onc=DERS.find(x=>x.id===d.id-1),son=DERS.find(x=>x.id===d.id+1);
+ let h=`<button class="btn sol" data-a="dersler">← Dersler</button><div class="etiket">${d.bab}. bab · ${BAB[d.bab]} · ${d.dk} dk</div><h2>${d.ikon} ${d.id}. ${d.ad}</h2>`;
+ h+=`<div class="kutuk"><span class="etiket">💡 Benzetme</span><br>${d.kanca}</div>`;
+ h+=`<div class="kart"><span class="etiket">📌 Altın kurallar</span><ul class="nok">`+d.kurallar.map(k=>`<li>${k}</li>`).join(``)+`</ul></div>`;
+ h+=`<h3>🔍 Örnekler <small class="u">(dokun, i'rabı aç)</small></h3>`+d.ornek.map(o=>`<details class="orn"><summary><span class="arb">${o.ar}</span><span class="tr">${o.tr}</span></summary><div class="ic">`+o.irab.map(x=>`<p>• ${x}</p>`).join(``)+`</div></details>`).join(``);
+ h+=`<div class="kutuk ana"><span class="etiket">🧠 Hafıza kancası</span><br>${d.ezber}</div>`;
+ h+=`<div class="kutuk hata"><span class="etiket">⚠️ Sık yapılan hata</span><br>${d.hata}</div>`;
+ h+=`<div class="kart"><h3>✅ Hızlı kontrol</h3>`+d.kontrol.map((q,i)=>{const c=kc[i];return `<div style="margin:.8rem 0"><div><b>${i+1}.</b> ${q.q}</div>`+q.o.map((o,j)=>`<button class="sec ${c!==undefined?(j===q.d?`d`:j===c?`y`:``):``}" ${c!==undefined?`disabled`:``} data-a="kc" data-v="${d.id}:${i}:${j}">${o}</button>`).join(``)+(c!==undefined?`<div class="cevap ${c===q.d?`d`:`y`}">${c===q.d?`✔ Doğru. `:`✘ `}${q.a}</div>`:``)+`</div>`}).join(``)+`</div>`;
+ const hepsi=d.kontrol.every((q,i)=>kc[i]!==undefined);
+ h+=`<div class="orta">${S.bitti[d.id]?`<p>✅ Bu dersi tamamladın.</p>`:`<button class="btn altin" data-a="bitir" data-v="${d.id}" ${hepsi?``:`disabled`}>🎉 Dersi tamamla (+25 XP)</button>${hepsi?``:`<p class="u">Önce üç soruyu cevapla.</p>`}`}</div>`;
+ h+=`<div class="satir" style="justify-content:space-between">${onc?`<button class="btn sol" data-a="ders" data-v="${onc.id}">← ${onc.ad}</button>`:`<span></span>`}${son?`<button class="btn sol" data-a="ders" data-v="${son.id}">${son.ad} →</button>`:`<span></span>`}</div>`;
+ return h}
+
+/* ---------- ETKİNLİK MOTORU (MCQ) ---------- */
+function mk(q,o,d,a,ders,ar){const m=o.map((x,i)=>[x,i===d]);const k=kar(m);return {q,ar,o:k.map(x=>x[0]),d:k.findIndex(x=>x[1]),a,ders}}
+function isaret(bag,hedef){let r=bag;(hedef||``).split(`|`).forEach(x=>{if(x&&r.includes(x)&&!r.includes(`<mark>${x}`))r=r.replace(x,`<mark>${x}</mark>`)});return r}
+const GRUP=(t)=>TUR[t].m;
+function turSecenek(t,n=4){const ayni=Object.keys(TUR).filter(x=>x!==t&&GRUP(x)===GRUP(t)),dig=Object.keys(TUR).filter(x=>GRUP(x)!==GRUP(t));const s=[t,...sec(ayni,2),...sec(dig,n-3)];return kar(s)}
+function gMahal(){const it=[];sec(JUMAL,7).forEach(j=>{const [bag,v,t,a]=j;const ar=`<span class="arb">${isaret(bag,v)}</span>`;
+ it.push(mk(`Vurgulu cümlenin i'rabda mahalli var mı?`,[`Mahalli VAR`,`Mahalli YOK`],TUR[t].m?0:1,a,t==`haber`||t==`hal`||t==`mefulbih`||t==`muzaf`||t==`sartcevab`||t==`tabimufred`||t==`tabicumle`?2:3,ar));
+ const ss=turSecenek(t);it.push(mk(`Peki hangi tür?`,ss.map(x=>TUR[x].ad),ss.indexOf(t),a,TUR[t].m?2:3,ar))});return it}
+function gEdat(){return sec(EDAT,10).map(e=>{const [bag,h,t,g,a]=e;const secs=EDAT_SEC[g];const o=sec(secs.filter(x=>x!==t),3);o.push(t);return mk(`Vurgulu <span class="ar">${h}</span> hangi türdür?`,o,o.length-1,a,g===`ma`||g===`ey`?12:g===`min`||g===`en`?11:10,`<span class="arb">${isaret(bag,h)}</span>`)})}
+function gMut(){return sec(MUT,8).map(m=>{const [bag,h,o,d,a]=m;return mk(`<span class="ar">${h}</span> neye müteallaktır?`,o,d,a,m[0].includes(`كَفَىٰ`)||m[1]===`كَعَمْرٍو`||m[1]===`لَوْلَاكَ`?5:6,`<span class="arb">${isaret(bag,h)}</span>`)})}
+function gDY(){return sec(DY,10).map(x=>mk(x[0],[`Doğru`,`Yanlış`],x[1]?0:1,x[2],2))}
+function gBeyit(){const p=BEYIT[Math.floor(Math.random()*BEYIT.length)];const it=[];const metin=p[1].join(`<br>`);p[2].forEach(c=>{const ss=turSecenek(c[1]);it.push(mk(`<b>${p[0]}</b><br>Vurgulu cümle hangi türdür?`,ss.map(x=>TUR[x].ad),ss.indexOf(c[1]),c[2],c[1]&&TUR[c[1]].m?2:3,`<span class="arb">${p[1].map(m=>isaret(m,c[0])).join(`<br>`)}</span>`))});return it}
+function gIrab(){const it=[];sec(IRAB,4).forEach(s=>{const [c,tr,tk]=s;tk.forEach((k,i)=>{const ayr=KAT_AYR.find(g=>g.includes(k[1]))||[];const hav=KAT.filter(x=>x!==k[1]&&!ayr.includes(x));const o=sec(hav,3);o.push(k[1]);const sh=c.split(` `).map(w=>w===k[0]?`<mark>${w}</mark>`:w).join(` `);it.push(mk(`<i>${tr}</i><br><span class="ar">${k[0]}</span> kelimesinin i'rabdaki görevi?`,o,o.length-1,k[2],1,`<span class="arb">${sh}</span>`))})});return it}
+function gSinav(){const a=sec(SINAV,14).map(s=>mk(s[0],s[1],s[2],s[4],s[3]));const b=gMut().slice(0,2).concat(gEdat().slice(0,4));return kar(a.concat(b)).slice(0,20)}
+function gGunluk(){const a=[];a.push(...sec(gMahal(),2),...sec(gEdat(),1),...sec(gMut(),1),...sec(gDY(),1));return a}
+function oyunBasla(k){
+ if(k===`esles`)return eslesBasla();if(k===`sirala`)return siraBasla();
+ const g={mahal:gMahal,edat:gEdat,mut:gMut,irab:gIrab,beyit:gBeyit,dy:gDY,sinav:gSinav,gunluk:gGunluk}[k];
+ const it=g();R.oyun={k,it,i:0,dogru:0,seri:0,sec:null,xp:0,sinav:k===`sinav`,yan:[],gn:[]};T=k===`sinav`?`sinav`:`atolye`;
+}
+function oyunEkran(){
+ const o=R.oyun,q=o.it[o.i];
+ let h=`<button class="btn sol" data-a="oyunCik">← Çık</button><div class="satir" style="justify-content:space-between"><b>${o.i+1} / ${o.it.length}</b><span class="chip">🔥 ${o.seri} · ⭐ ${o.xp}</span></div>${ilerle(o.i/o.it.length)}`;
+ h+=`<div class="kart">${q.ar||``}<div style="margin:.5rem 0"><b>${q.q}</b></div>`+q.o.map((x,i)=>`<button class="sec ${o.sec!==null&&!o.sinav?(i===q.d?`d`:i===o.sec?`y`:``):``} ${o.sinav&&o.sec===i?`sel`:``}" ${o.sec!==null?`disabled`:``} data-a="oyunSec" data-v="${i}">${x}</button>`).join(``);
+ if(o.sec!==null&&!o.sinav)h+=`<div class="cevap ${o.sec===q.d?`d`:`y`}">${o.sec===q.d?`✔ Doğru! `:`✘ `}${q.a}</div>`;
+ if(o.sec!==null)h+=`<button class="btn" data-a="oyunIleri">${o.i+1<o.it.length?`Sonraki →`:`Sonucu gör`}</button>`;
+ return h+`</div>`}
+function oyunSec(i){
+ const o=R.oyun,q=o.it[o.i];if(o.sec!==null)return;o.sec=i;
+ const ok=i===q.d;o.gn.push(ok);
+ if(ok){o.dogru++;o.seri++;const x=10+Math.min(10,(o.seri-1)*2);if(!o.sinav){o.xp+=x}S.say++}else{o.seri=0;o.yan.push(q);if(q.ders)S.yanlis[q.ders]=(S.yanlis[q.ders]||0)+1}
+ kaydet()}
+function oyunBitir(){
+ const o=R.oyun;const p=Math.round(100*o.dogru/o.it.length);o.bitti=true;o.p=p;
+ if(o.sinav){const kn={};o.it.forEach((q,i)=>{const kk=KONU[q.ders]||`Genel`;kn[kk]=kn[kk]||[0,0];kn[kk][1]++;if(o.gn[i])kn[kk][0]++});o.konu=kn;S.sinav.push({t:Date.now(),puan:p});S.sinav=S.sinav.slice(-8);xpEkle(Math.round(p/2),null);if(p>=80)konfeti()}
+ else if(o.k===`gunluk`){xpEkle(o.xp+20,`oyun`);if(p>=80)konfeti()}
+ else{const b=S.oyun[o.k]||{en:0,n:0};b.en=Math.max(b.en,p);b.n++;S.oyun[o.k]=b;xpEkle(o.xp+(p===100?30:0),`oyun`);if(p===100)konfeti()}
+ kaydet()}
+function sonucEkran(){
+ const o=R.oyun;const y=o.yan;const yildiz=o.p>=90?`⭐⭐⭐`:o.p>=70?`⭐⭐`:o.p>=40?`⭐`:`💪`;
+ let h=`<div class="kart orta"><div style="font-size:2.4rem">${yildiz}</div><h2>${o.sinav?`Sınav sonucu`:`Tur bitti`}: %${o.p}</h2><p>${o.dogru} / ${o.it.length} doğru${o.sinav?``:` · +${o.xp+(o.p===100?30:0)} XP`}</p>`;
+ if(o.sinav){h+=`<table class="tablo"><tr><th>Konu</th><th>Doğru</th><th style="width:40%"></th></tr>`+Object.entries(o.konu).map(([k,v])=>`<tr><td>${k}</td><td>${v[0]}/${v[1]}</td><td>${ilerle(v[0]/v[1])}</td></tr>`).join(``)+`</table><p>${o.p>=80?`Harika! Sertifika sınavına hazır görünüyorsun.`:o.p>=60?`İyi gidiyorsun. Yanlış konuları tekrar et.`:`Henüz erken; dersleri ve kartları tekrar edip yeniden dene.`}</p>`}
+ h+=`</div>`;
+ if(y.length){h+=`<div class="kart"><h3>🔁 Çalışılacak noktalar</h3>`+y.map(q=>`<div style="margin:.6rem 0;padding-bottom:.5rem;border-bottom:1px dashed var(--cizgi)">${q.ar||``}<div>${q.q}</div><div class="cevap d">✔ ${q.o[q.d]}<br>${q.a}</div>${q.ders?`<a href="#" data-a="ders" data-v="${q.ders}">📚 İlgili dersi aç</a>`:``}</div>`).join(``)+`</div>`}
+ h+=`<div class="orta"><button class="btn" data-a="${o.sinav?`sinavBasla`:`oyunTekrar`}" data-v="${o.k}">🔄 Yeniden</button><button class="btn ikincil" data-a="oyunCik">Geri dön</button></div>`;
+ return h}
+
+/* ---------- Eşleştirme ve Sıralama ---------- */
+function eslesBasla(){const p=sec(ESLES,6);R.oyun={k:`esles`,tip:`esles`,p,sol:kar(p.map((_,i)=>i)),sag:kar(p.map((_,i)=>i)),secL:null,eslesen:{},hata:0};T=`atolye`}
+function eslesEkran(){
+ const o=R.oyun;let h=`<button class="btn sol" data-a="oyunCik">← Çık</button><h2>🔗 Harf Eşleştirme</h2><p class="u">Önce soldan bir harf, sonra sağdan anlamını seç. Hata: ${o.hata}</p><div class="cift"><div>`+o.sol.map(i=>`<button class="${o.eslesen[i]!==undefined?`ok`:o.secL===i?`sel`:``}" data-a="elSol" data-v="${i}"><span class="ar">${o.p[i][0]}</span></button>`).join(``)+`</div><div>`+o.sag.map(i=>`<button class="${Object.values(o.eslesen).includes(i)?`ok`:``}" data-a="elSag" data-v="${i}">${o.p[i][1]}</button>`).join(``)+`</div></div>`;
+ if(Object.keys(o.eslesen).length===o.p.length){const x=Math.max(10,60-o.hata*10);h+=`<div class="kart orta"><h3>🎉 Tamam!</h3><p>${o.hata} hata · +${o.bitti?0:x} XP</p><button class="btn" data-a="oyunTekrar" data-v="esles">🔄 Yeni tur</button></div>`}
+ return h}
+function elSag(i){const o=R.oyun;if(o.secL===null)return;if(o.secL===i){o.eslesen[i]=i;o.secL=null;if(Object.keys(o.eslesen).length===o.p.length&&!o.bitti){o.bitti=true;const x=Math.max(10,60-o.hata*10);const pu=Math.round(100*(6-Math.min(6,o.hata))/6);const b=S.oyun.esles||{en:0,n:0};b.en=Math.max(b.en,pu);b.n++;S.oyun.esles=b;S.say+=6;xpEkle(x,`oyun`);if(!o.hata)konfeti()}}else{o.hata++;toast(`Olmadı, tekrar dene.`);o.secL=null}}
+function siraBasla(){const t=SIRA[Math.floor(Math.random()*SIRA.length)];R.oyun={k:`sirala`,tip:`sira`,t,kar:kar(t[1].map((_,i)=>i)),yan:[],kont:false}}
+function siraEkran(){
+ const o=R.oyun,n=o.t[1].length;let h=`<button class="btn sol" data-a="oyunCik">← Çık</button><h2>🔢 Adımları Sırala</h2><p><b>${o.t[0]}</b></p><p class="u">Adımlara doğru sırayla dokun.</p>`;
+ h+=`<div class="kart">`+o.yan.map((i,k)=>`<div class="sira"><b style="${o.kont?`background:${o.t[1][i]===o.t[1][k]?`var(--dogru)`:`var(--yanlis)`}`:``}">${k+1}</b><div>${o.t[1][i]}</div></div>`).join(``)||``;
+ h+=`</div><div>`+o.kar.map(i=>`<button class="cip ${o.yan.includes(i)?`k`:``}" data-a="siraSec" data-v="${i}">${o.t[1][i]}</button>`).join(``)+`</div>`;
+ if(o.yan.length===n&&!o.kont)h+=`<button class="btn" data-a="siraKont">Kontrol et</button>`;
+ if(o.yan.length)h+=`<button class="btn sol" data-a="siraSifir">Sıfırla</button>`;
+ if(o.kont){const dg=o.yan.every((x,k)=>x===k);h+=`<div class="cevap ${dg?`d`:`y`}"><b>${dg?`✔ Mükemmel! +30 XP`:`Doğru sıra:`}</b>${dg?``:`<ol>${o.t[1].map(x=>`<li>${x}</li>`).join(``)}</ol>`}</div><button class="btn" data-a="oyunTekrar" data-v="sirala">🔄 Başka sıralama</button>`}
+ return h}
+
+/* ---------- ATÖLYE ---------- */
+function vAtolye(){
+ const o=R.oyun;
+ if(o){if(o.tip===`esles`)return eslesEkran();if(o.tip===`sira`)return siraEkran();if(o.bitti)return sonucEkran();return oyunEkran()}
+ let h=`<h2>🛠️ Atölye</h2><p class="u">Hatalarından öğrenirsin; yanlışlar ilgili derse yönlendirir.</p><div class="izgara">`+OYUN.map(g=>{const b=S.oyun[g[0]];return `<button class="kutu" data-a="oyun" data-v="${g[0]}"><span class="i">${g[2]}</span><b>${g[1]}</b><small>${g[3]}</small><br><small>${b?`En iyi: %${b.en} · ${b.n} tur`:`Henüz oynanmadı`}</small></button>`}).join(``)+`</div>`;
+ return h}
+
+/* ---------- VAKA ---------- */
+function vVaka(){
+ const v=R.vaka;
+ if(!v){let h=`<h2>🎭 Vakalar</h2><p class="u">Küçük hikâyeler: kararlarını ver, geri bildirimi oku.</p><div class="izgara">`+VAKA.map(x=>`<button class="kutu ${S.vaka[x.id]!==undefined?`bitti`:``}" data-a="vakaAc" data-v="${x.id}"><span class="i">${x.ikon}</span><b>${x.ad}</b><small>${x.ozet}</small><br><small>${S.vaka[x.id]!==undefined?`✅ Skor: ${S.vaka[x.id]}/${x.adim.length}`:`Yeni`}</small></button>`).join(``)+`</div>`;return h}
+ const x=VAKA.find(y=>y.id===v.id);
+ let h=`<button class="btn sol" data-a="vakaCik">← Vakalar</button><h2>${x.ikon} ${x.ad}</h2>`;
+ if(v.i===-1)return h+`<div class="kart"><p>${x.giris}</p><button class="btn" data-a="vakaBasla">Başla →</button></div>`;
+ if(v.i>=x.adim.length){return h+`<div class="kart orta"><div style="font-size:2.2rem">${v.puan===x.adim.length?`🏆`:`📜`}</div><h3>Vaka tamam: ${v.puan} / ${x.adim.length}</h3><p>+${v.puan*10+15} XP</p><button class="btn" data-a="vakaAc" data-v="${x.id}">🔄 Tekrar</button><button class="btn ikincil" data-a="vakaCik">Diğer vakalar</button></div>`}
+ const a=x.adim[v.i];
+ h+=ilerle(v.i/x.adim.length)+`<div class="kart">${a.ar?`<span class="arb">${a.ar}</span>`:``}<p>${a.s}</p>`+v.perm.map((j,k)=>`<button class="sec ${v.s!==null?(a.o[j][1]?`d`:v.s===j?`y`:``):``}" ${v.s!==null?`disabled`:``} data-a="vakaSec" data-v="${j}">${a.o[j][0]}</button>`).join(``);
+ if(v.s!==null){h+=`<div class="cevap ${a.o[v.s][1]?`d`:`y`}">${a.o[v.s][1]?`✔ `:`✘ `}${a.o[v.s][2]}</div><button class="btn" data-a="vakaIleri">${v.i+1<x.adim.length?`Devam →`:`Bitir`}</button>`}
+ return h+`</div>`}
+function vakaAdim(){const x=VAKA.find(y=>y.id===R.vaka.id),a=x.adim[R.vaka.i];R.vaka.perm=kar(a.o.map((_,i)=>i));R.vaka.s=null}
+
+/* ---------- KART ---------- */
+function kartSeti(){
+ const now=gunNo();const id=KART.map((_,i)=>i);
+ let due=id.filter(i=>S.kart[i]&&S.kart[i].d<=now).sort((a,b)=>S.kart[a].k-S.kart[b].k).slice(0,12);
+ if(!due.length)due=id.filter(i=>!S.kart[i]).slice(0,8);
+ return due}
+function vKart(){
+ const kt=R.kart||(R.kart={set:kartSeti(),i:0,acik:false});
+ const bil=Object.keys(S.kart).length,usta=Object.values(S.kart).filter(x=>x.k>=4).length;
+ let h=`<h2>🗂️ Tekrar Kartları</h2><p class="u">Aralıklı tekrar: bildikçe kart seyrekleşir. ${bil}/${KART.length} kart görüldü · ${usta} kart ustalaşıldı.</p>`+ilerle(usta/KART.length);
+ if(kt.i>=kt.set.length)return h+`<div class="kart orta"><div style="font-size:2.2rem">${kt.set.length?`🎉`:`😌`}</div><h3>${kt.set.length?`Set bitti!`:`Bugünlük tüm kartlar tamam.`}</h3><p class="u">Yeni kartlar için ders ve etkinliklere devam et; vadesi gelen kartlar yarın seni bekler.</p><button class="btn" data-a="kartYeni">${kt.set.length?`Yeni set`:`Kontrol et`}</button></div>`;
+ const k=KART[kt.set[kt.i]];
+ h+=`<div class="satir" style="justify-content:space-between"><b>${kt.i+1}/${kt.set.length}</b><span class="u">Ders ${k[2]}</span></div><div class="kart kartca" data-a="kartAc"><div>${kt.acik?`<div class="etiket">Cevap</div><div>${k[1]}</div>`:`<div class="etiket">Soru</div><div>${k[0]}</div><p class="u">Cevabı görmek için dokun</p>`}</div></div>`;
+ if(kt.acik)h+=`<div class="satir" style="justify-content:center"><button class="btn" style="background:var(--yanlis)" data-a="kartPuan" data-v="0">Bilemedim</button><button class="btn altin" data-a="kartPuan" data-v="1">Zor</button><button class="btn" data-a="kartPuan" data-v="2">Bildim</button></div>`;
+ return h}
+
+/* ---------- SINAV ---------- */
+function vSinav(){
+ if(R.oyun&&R.oyun.sinav){return R.oyun.bitti?sonucEkran():oyunEkran()}
+ const s=S.sinav;
+ let h=`<h2>📝 Deneme Sınavı</h2><div class="kart"><p>20 soru: cümle, car-mecrûr ve edat konularından karışık. Sınav sırasında anında geri bildirim yok; sonunda konu bazlı sonuç ve çalışılacak noktalar gelir.</p><button class="btn" data-a="sinavBasla">▶ Sınava başla</button></div>`;
+ if(s.length)h+=`<div class="kart"><h3>Geçmiş sonuçlar</h3><table class="tablo">`+s.slice().reverse().map(x=>`<tr><td>${new Date(x.t).toLocaleDateString(`tr-TR`)}</td><td>%${x.puan}</td><td style="width:50%">${ilerle(x.puan/100)}</td></tr>`).join(``)+`</table></div>`;
+ return h}
+
+/* ---------- SÖZLÜK ---------- */
+function vSozluk(){
+ const q=(R.sq||``).toLowerCase();
+ const l=SOZLUK.filter(s=>!q||s[0].toLowerCase().includes(q)||s[2].toLowerCase().includes(q)||s[1].includes(q));
+ return `<h2>📖 Sözlük</h2><input class="ara" id="sara" placeholder="Terim ara (Türkçe ya da Arapça)" value="${R.sq||``}" aria-label="Ara"><p class="u">${l.length} terim</p><div id="szl">`+l.map(s=>`<div class="sz"><span class="ar">${s[1]}</span><div><b>${s[0]}</b><br><small>${s[2]}</small></div></div>`).join(``)+`</div>`}
+
+/* ---------- BEN ---------- */
+function vBen(){
+ const sv=seviye();const n=ROZET.filter(r=>S.rozet[r[0]]).length;
+ return `<h2>🏅 Ben</h2><div class="kart"><div class="satir"><span class="chip">${sv[1]}</span><span class="chip">⭐ ${S.xp} XP</span><span class="chip">🔥 ${S.seri} gün seri</span><span class="chip">🎯 ${S.say} doğru</span></div><p>Ders: <b>${bitenSay()}/12</b> · Vaka: <b>${Object.keys(S.vaka).length}/${VAKA.length}</b> · Kart tekrarı: <b>${S.tekr}</b></p></div><h3>Rozetler (${n}/${ROZET.length})</h3><div class="rozetler">`+ROZET.map(r=>`<div class="rozet ${S.rozet[r[0]]?`var`:``}"><div class="i">${r[2]}</div><b>${r[1]}</b><small>${r[3]}</small></div>`).join(``)+`</div><div class="kart"><h3>Ayarlar</h3><button class="btn ikincil" data-a="yazi">Arapça yazı boyutu</button><button class="btn ikincil" data-a="tema">Koyu/açık tema</button><button class="btn sol" data-a="sifirla">İlerlemeyi sıfırla</button></div>`}
+
+/* ---------- ÇİZİM ve OLAYLAR ---------- */
+function ciz(){sekmeler();ust();const m={yol:vYol,ders:vDers,atolye:vAtolye,vaka:vVaka,kart:vKart,sinav:vSinav,sozluk:vSozluk,ben:vBen};$(`#ana`).innerHTML=m[T]();}
+function git(t){T=t;if(t!==`ders`)R.ders=null;if(t!==`kart`)R.kart=null;if(t===`atolye`||t===`sinav`){if(R.oyun&&((t===`atolye`)===!!R.oyun.sinav))R.oyun=null}ciz();yukari()}
+document.addEventListener(`click`,e=>{
+ const t=e.target.closest(`[data-a]`);if(!t)return;const a=t.dataset.a,v=t.dataset.v;
+ if(t.tagName===`A`)e.preventDefault();
+ switch(a){
+ case `git`:R.oyun=null;git(v);return;
+ case `tema`:S.tema=document.documentElement.dataset.theme===`dark`?`light`:`dark`;kaydet();tema();return;
+ case `yazi`:S.yazi=(S.yazi+1)%4;kaydet();ust();return;
+ case `ders`:T=`ders`;R.ders=+v;R.kart=null;ciz();yukari();return;
+ case `dersler`:R.ders=null;ciz();yukari();return;
+ case `kc`:{const [d,i,j]=v.split(`:`).map(Number);R.kc=R.kc||{};R.kc[d]=R.kc[d]||{};if(R.kc[d][i]===undefined){R.kc[d][i]=j;const ok=DERS.find(x=>x.id===d).kontrol[i].d===j;if(ok){S.say++;xpEkle(5,null)}else{S.yanlis[d]=(S.yanlis[d]||0)+1;kaydet()}}const y=window.scrollY;ciz();window.scrollTo(0,y);return}
+ case `bitir`:S.bitti[+v]=1;xpEkle(25,`ders`);konfeti();toast(`Ders tamam! +25 XP`);ciz();yukari();return;
+ case `oyun`:oyunBasla(v);ciz();yukari();return;
+ case `gunluk`:oyunBasla(`gunluk`);T=`atolye`;ciz();yukari();return;
+ case `oyunSec`:oyunSec(+v);ciz();return;
+ case `oyunIleri`:{const o=R.oyun;o.i++;o.sec=null;if(o.i>=o.it.length)oyunBitir();ciz();yukari();return}
+ case `oyunTekrar`:oyunBasla(v);ciz();yukari();return;
+ case `sinavBasla`:oyunBasla(`sinav`);T=`sinav`;ciz();yukari();return;
+ case `oyunCik`:R.oyun=null;ciz();yukari();return;
+ case `elSol`:if(R.oyun.eslesen[+v]===undefined){R.oyun.secL=+v;ciz()}return;
+ case `elSag`:elSag(+v);ciz();return;
+ case `siraSec`:{const o=R.oyun;if(!o.kont&&!o.yan.includes(+v)){o.yan.push(+v);ciz()}return}
+ case `siraSifir`:R.oyun.yan=[];R.oyun.kont=false;ciz();return;
+ case `siraKont`:{const o=R.oyun;o.kont=true;const dg=o.yan.every((x,k)=>x===k);if(dg){S.say+=o.yan.length;const b=S.oyun.sirala||{en:0,n:0};b.en=100;b.n++;S.oyun.sirala=b;xpEkle(30,`oyun`);konfeti()}else{xpEkle(5,`oyun`)}ciz();return}
+ case `vakaAc`:T=`vaka`;R.vaka={id:v,i:-1,puan:0,s:null,perm:[]};ciz();yukari();return;
+ case `vakaCik`:R.vaka=null;ciz();yukari();return;
+ case `vakaBasla`:R.vaka.i=0;vakaAdim();ciz();yukari();return;
+ case `vakaSec`:{const r=R.vaka;if(r.s!==null)return;r.s=+v;const x=VAKA.find(y=>y.id===r.id);if(x.adim[r.i].o[+v][1]){r.puan++;S.say++}kaydet();ciz();return}
+ case `vakaIleri`:{const r=R.vaka;r.i++;const x=VAKA.find(y=>y.id===r.id);if(r.i>=x.adim.length){S.vaka[r.id]=Math.max(S.vaka[r.id]||0,r.puan);xpEkle(r.puan*10+15,null);if(r.puan===x.adim.length)konfeti()}else vakaAdim();ciz();yukari();return}
+ case `kartAc`:R.kart.acik=!R.kart.acik;ciz();return;
+ case `kartPuan`:{const kt=R.kart,id=kt.set[kt.i],s=S.kart[id]||{k:0,d:0};s.k=+v===2?Math.min(5,s.k+1):+v===1?s.k:0;s.d=gunNo()+INT[s.k];S.kart[id]=s;S.tekr++;xpEkle(3,`kart`);kt.i++;kt.acik=false;ciz();return}
+ case `kartYeni`:R.kart=null;ciz();return;
+ case `sifirla`:if(confirm(`Tüm ilerleme silinsin mi?`)){S=JSON.parse(JSON.stringify(VARS));kaydet();R={};T=`yol`;tema();ciz()}return}
+});
+document.addEventListener(`input`,e=>{if(e.target.id===`sara`){R.sq=e.target.value;const p=e.target.selectionStart;ciz();const n=$(`#sara`);n.focus();n.setSelectionRange(p,p)}});
+tema();gunYenile();ciz();
+
+</script></body></html>
