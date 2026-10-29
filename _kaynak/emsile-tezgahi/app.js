@@ -484,10 +484,10 @@ function draw(){
       <div class="row" style="justify-content:center;margin-top:14px"><button class="btn" id="bCheck" ${(G.b.p!==null && G.b.s)?"":"disabled"}>Kontrol et</button></div>`; }
   if (q.k === "scale") body = `<div class="q">Bu kelimenin mîzanı (vezni) hangisi?</div><div class="w">${paint(q.o.t, q.rt.r)}</div>
       <svg class="scale" viewBox="0 0 360 140" aria-hidden="true"><path d="M180 60 V130 M140 130 h80" stroke="var(--muted)" stroke-width="4" stroke-linecap="round"/><g class="beam" id="beam" style="transform:rotate(${G.tilt??-8}deg)"><path d="M50 60 H310" stroke="var(--gold)" stroke-width="5" stroke-linecap="round"/><path d="M50 60 l-24 36 h48 z M310 60 l-24 36 h48 z" fill="var(--panel2)" stroke="var(--gold)" stroke-width="2"/><text x="50" y="92" text-anchor="middle" font-size="15" fill="var(--ink)" font-family="Noto Naskh Arabic">${esc(strip(q.w))}</text><text x="310" y="92" text-anchor="middle" font-size="15" fill="var(--ink)" font-family="Noto Naskh Arabic" id="pan2">${esc(G.pan||"؟")}</text></g><circle cx="180" cy="60" r="7" fill="var(--gold)"/></svg>
-      <div class="opts">${q.opts.map((o,i)=>`<button class="opt ar" data-o="${i}">${esc(o)}</button>`).join("")}</div>`;
+      <div class="opts rtl">${q.opts.map((o,i)=>`<button class="opt ar" data-o="${i}">${esc(o)}</button>`).join("")}</div>`;
   if (q.k === "root"){ G.sel = G.sel || []; body = `<div class="q">Kökün harflerini sırayla seç: önce <b class="rf">fâ</b>, sonra <b class="ra">ayn</b>, sonra <b class="rl">lâm</b></div><div class="w mono">${esc(q.w)}</div>
       <div class="letters">${q.letters.map((l,i)=>`<button data-l="${i}" class="${G.sel.indexOf(i)>-1?"p"+(G.sel.indexOf(i)+1):""}">${esc(l)}</button>`).join("")}</div>`; }
-  if (q.k === "opt") body = `${q.html}<div class="opts">${q.opts.map((o,i)=>`<button class="opt ${q.ar?"ar":""}" data-o="${i}">${esc(o)}</button>`).join("")}</div>`;
+  if (q.k === "opt") body = `${q.html}<div class="opts ${q.ar?"rtl":""}">${q.opts.map((o,i)=>`<button class="opt ${q.ar?"ar":""}" data-o="${i}">${esc(o)}</button>`).join("")}</div>`;
   if (q.k === "deste") body = desteHTML(q);
   if (q.k === "duzelt") body = duzeltHTML(q);
   if (q.k === "coklu") body = cokluHTML(q);
@@ -519,7 +519,7 @@ function duzeltHTML(q){
   G.d = G.d || {a:null, b:null, res:false};
   const st = (g, i, ok) => G.d.res ? (ok ? "good" : G.d[g] === i ? "bad" : "") : "";
   return `<div class="q">Hatalı çekim: <span class="ar" style="font-size:1.9rem;color:var(--bad)">${esc(q.wrong)}</span></div><div class="small muted">kök: <span class="ar" style="font-size:1.2rem">${esc(lemma(q.rt))}</span></div>
-  <div class="q" style="margin-top:12px"><b>1)</b> Doğrusu hangisi?</div><div class="opts">${q.forms.map((f,i)=>`<button class="opt ar ${st("a", i, f===q.right)}" ${G.d.a===i?'aria-pressed="true"':""} data-da="${i}">${esc(f)}</button>`).join("")}</div>
+  <div class="q" style="margin-top:12px"><b>1)</b> Doğrusu hangisi?</div><div class="opts rtl">${q.forms.map((f,i)=>`<button class="opt ar ${st("a", i, f===q.right)}" ${G.d.a===i?'aria-pressed="true"':""} data-da="${i}">${esc(f)}</button>`).join("")}</div>
   <div class="q" style="margin-top:14px"><b>2)</b> Hangi kural nedeniyle?</div><div class="opts" style="grid-template-columns:1fr">${q.reasons.map((r,i)=>`<button class="opt ${st("b", i, r===q.rightReason)}" style="text-align:left" ${G.d.b===i?'aria-pressed="true"':""} data-db="${i}">${esc(r)}</button>`).join("")}</div>
   <div class="row" style="justify-content:center;margin-top:14px"><button class="btn" id="dChk" ${G.d.a!==null && G.d.b!==null && !G.d.res ? "" : "disabled"}>Kontrol et</button></div>`;
 }
