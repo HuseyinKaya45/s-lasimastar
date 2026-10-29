@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>__BASLIK__</title><meta name="description" content="__ALT__">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" content="__RENK__"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="__BASLIK__">
+<style>
+:root{--bg:#f4f1ea;--kart:#fffdf8;--yazi:#1f2a2e;--soluk:#5d6b70;--cizgi:#e3dccb;--ana:__RENK__}
+@media (prefers-color-scheme:dark){:root{--bg:#10181a;--kart:#172224;--yazi:#e8efee;--soluk:#9db0b2;--cizgi:#2a3b3e}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--yazi);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.ar{font-family:"Noto Naskh Arabic","Amiri","Traditional Arabic","Geeza Pro",serif;direction:rtl;font-size:1.25rem;line-height:1.8;color:var(--soluk)}
+header{background:linear-gradient(135deg,var(--ana),#134e4a);color:#fff;padding:calc(28px + env(safe-area-inset-top)) 20px 32px}
+.in{max-width:760px;margin:auto}
+h1{margin:0;font-size:1.9rem;line-height:1.2}header p{margin:.4rem 0 0;opacity:.92}
+main{max-width:760px;margin:auto;padding:18px 16px 60px}
+.kart{display:flex;gap:14px;background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:16px;margin:14px 0;box-shadow:0 2px 10px rgba(0,0,0,.06);border-left:6px solid var(--r,var(--ana))}
+.kart img{border-radius:16px;flex:0 0 64px;height:64px}.kart h2{margin:0;font-size:1.25rem}.kart p{margin:.3rem 0 .6rem;color:var(--soluk)}
+.satir{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:0;border-radius:12px;padding:.55rem 1rem;background:var(--ana);color:#fff;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.btn.ikincil{background:transparent;color:var(--ana);border:1.5px solid var(--ana)}
+.dur{font-size:.85rem;color:var(--soluk);margin-top:.4rem;min-height:1.2em}
+details{background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;padding:.7rem 1rem;margin:12px 0}summary{cursor:pointer;font-weight:700}
+details ol{margin:.5rem 0 0;padding-left:1.2rem}
+footer{max-width:760px;margin:auto;padding:0 16px 40px;color:var(--soluk);font-size:.9rem;text-align:center}
+</style></head><body>
+<header><div class="in"><h1>__BASLIK__</h1><p>__ALT__</p></div></header>
+<main>
+__KARTLAR__
+<details><summary>📱 Telefona uygulama gibi nasıl eklenir?</summary>
+<p><b>Android (Chrome):</b></p><ol><li>Programı aç.</li><li>Sağ üst ⋮ menüsüne dokun.</li><li>“Uygulamayı yükle” ya da “Ana ekrana ekle”yi seç.</li></ol>
+<p><b>iPhone (Safari):</b></p><ol><li>Programı Safari'de aç.</li><li>Alttaki Paylaş düğmesine (□↑) dokun.</li><li>“Ana Ekrana Ekle”yi seç.</li></ol>
+<p>Ardından “Çevrimdışı hazırla”ya bir kez dokun; program internetsiz de çalışır.</p></details>
+<details><summary>ℹ️ Çevrimdışı çalışma hakkında</summary><p>Program ilk açılışta cihaza indirilir (büyük olabilir; Wi‑Fi önerilir). Bundan sonra internet olmadan çalışır. İlerlemen yalnızca bu cihazda saklanır. Program güncellenirse bir sonraki internetli açılışta yenilenir. iPhone, uzun süre açılmayan siteleri önbellekten silebilir; o zaman bir kez internetle açman yeterlidir.</p></details>
+</main>
+<footer><div>__KREDI__</div><div>__DUA__</div></footer>
+<script>
+const IDLER=__IDLER__;
+const dur=(id,t)=>{const e=document.getElementById("d-"+id);if(e)e.textContent=t};
+if("serviceWorker"in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{})}
+async function kontrol(){for(const id of IDLER){try{if(await caches.match(id+"/",{ignoreSearch:true}))dur(id,"✓ Çevrimdışı hazır")}catch(e){}}}
+async function hazirla(id){
+  if(!("serviceWorker"in navigator)){dur(id,"Bu tarayıcı çevrimdışı önbelleği desteklemiyor.");return}
+  dur(id,"Hazırlanıyor…");
+  try{
+    await navigator.serviceWorker.ready;
+    if(!navigator.serviceWorker.controller)await new Promise(r=>{navigator.serviceWorker.addEventListener("controllerchange",r,{once:true});setTimeout(r,4000)});
+    if(navigator.storage&&navigator.storage.persist)navigator.storage.persist();
+    for(const u of [id+"/manifest.webmanifest",id+"/icon-180.png",id+"/icon-192.png"])await fetch(u);
+    const r=await fetch(id+"/");const tot=+r.headers.get("content-length")||0;const rd=r.body.getReader();let n=0;
+    for(;;){const x=await rd.read();if(x.done)break;n+=x.value.length;dur(id,"İndiriliyor… "+(tot?Math.round(100*n/tot)+"%":Math.round(n/1048576)+" MB"))}
+    dur(id,(await caches.match(id+"/",{ignoreSearch:true}))?"✓ Çevrimdışı hazır":"İndirildi; sayfayı yenileyip tekrar dene.");
+  }catch(e){dur(id,"İndirilemedi: internet bağlantını kontrol et.")}
+}
+document.addEventListener("click",async e=>{
+  const h=e.target.closest("[data-hazir]");if(h)hazirla(h.dataset.hazir);
+  const p=e.target.closest("[data-paylas]");if(p){const url=new URL(p.dataset.paylas+"/",location.href).href;const d={title:p.dataset.ad,text:p.dataset.ad+" — çevrimdışı çalışan öğrenme programı",url};
+    try{if(navigator.share)await navigator.share(d);else{await navigator.clipboard.writeText(url);dur(p.dataset.paylas,"Bağlantı kopyalandı.")}}catch(x){}}
+});
+kontrol();
+</script></body></html>

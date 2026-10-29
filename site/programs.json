@@ -1,0 +1,22 @@
+{
+  "site": {
+    "baslik": "İlim Atölyesi",
+    "alt": "Çevrimdışı çalışan öğrenme programları",
+    "kredi": "Hazırlayan: Hüseyin KAYA · Marmara Üniversitesi İlahiyat Fakültesi",
+    "dua": "İstifade edilmesi temennisiyle…",
+    "renk": "#0f766e",
+    "ikon": {"glyph": "علم", "bg": "#0f766e", "fg": "#ffffff"}
+  },
+  "programlar": [
+    {
+      "id": "emsile",
+      "klasor": "emsile-tezgahi",
+      "ad": "Emsile Tezgâhı",
+      "kisa": "Emsile",
+      "arapca": "الْأَمْثِلَةُ الْمُخْتَلِفَةُ",
+      "aciklama": "Sarf: kök tezgâhı, 14 sîga, bâblar, ezber halkası ve 14 oyun. 133 kök, harekeli sesli.",
+      "renk": "#d6336c",
+      "ikon": {"glyph": "ف ع ل", "bg": "#161e24", "fg": "#ffc857"}
+    }
+  ]
+}
