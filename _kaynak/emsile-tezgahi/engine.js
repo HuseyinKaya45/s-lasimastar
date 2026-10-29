@@ -59,7 +59,7 @@ const ROOTS = [
  {r:"صرف", b:2, ms:"صَرْفًا", tr:"çevirmek, harcamak"},
  {r:"هدم", b:2, ms:"هَدْمًا", tr:"yıkmak"},
  {r:"حبس", b:2, ms:"حَبْسًا", tr:"hapsetmek"},
- {r:"غلب", b:2, ms:"غَلَبًا", m2:"غَلَبَةً", tr:"galip gelmek"},
+ {r:"غلب", b:2, ms:"غَلَبًا", m2:"غَلَبَةً", tr:"yenmek, galip gelmek"},
  {r:"ملك", b:2, ms:"مِلْكًا", m2:"مُلْكًا", tr:"sahip olmak"},
  {r:"خلط", b:2, ms:"خَلْطًا", tr:"karıştırmak"},
  {r:"قصد", b:2, ms:"قَصْدًا", tr:"kastetmek, yönelmek"},
@@ -130,7 +130,7 @@ const ROOTS = [
  {r:"طمع", b:4, ms:"طَمَعًا", tr:"tamah etmek"},
  {r:"غرق", b:4, ms:"غَرَقًا", tr:"boğulmak", lz:true},
  /* 5. bâb: حَسِبَ يَحْسِبُ */
- {r:"حسب", b:5, ms:"حِسْبَانًا", m2:"حُسْبَانًا", tr:"sanmak"},
+ {r:"حسب", b:5, ms:"حِسْبَانًا", tr:"sanmak"},   /* "saymak, hesaplamak" anlamı حَسَبَ يَحْسُبُ (1. bâb) ve حُسْبَانًا ayrı bir fiildir */
  {r:"نعم", b:5, ms:"نَعِيمًا", m2:"نِعْمَةً", tr:"bolluk içinde olmak", lz:true},
  /* 6. bâb: كَرُمَ يَكْرُمُ */
  {r:"كرم", b:6, ms:"كَرَمًا", tr:"cömert olmak", lz:true, sf:"كَرِيمٌ"},
@@ -162,7 +162,7 @@ const MASDAR_KALIP = {1:["FَAْLًا","FُAُوLًا","FِAَاLَةً"], 2:["F
 const SIFAT = {"مرض":"مَرِيضٌ", "عطش":"عَطْشَانُ", "سعد":"سَعِيدٌ", "حزن":"حَزِينٌ", "غضب":"غَضْبَانُ", "كسل":"كَسْلَانُ", "بخل":"بَخِيلٌ", "نشط":"نَشِيطٌ", "فرح":"فَرِحٌ", "تعب":"تَعِبٌ", "غرق":"غَرِيقٌ"};
 ROOTS.forEach(d => { if (SIFAT[d.r]) d.sf = SIFAT[d.r]; });
 /* Lâzım fiillerde ism-i mef'ûl yalnız harf-i cerle kullanılır; bunlar için kullanım örneği (programa elle girilmiştir, sözlükten doğrulanmalıdır). Listede olmayan lâzım fiillerde ism-i mef'ûl kullanılmaz ya da pek kullanılmaz. */
-const MEF_CER = {"جلس":"عَلَيْهِ", "خرج":"مِنْهُ", "ذهب":"إِلَيْهِ", "سجد":"لَهُ", "نظر":"إِلَيْهِ", "رجع":"إِلَيْهِ", "سكن":"فِيهِ", "هرب":"مِنْهُ", "صبر":"عَلَيْهِ", "نطق":"بِهِ", "عدل":"عَنْهُ", "ضحك":"مِنْهُ"};
+const MEF_CER = {"جلس":"عَلَيْهِ", "خرج":"مِنْهُ", "ذهب":"إِلَيْهِ", "سجد":"لَهُ", "نظر":"إِلَيْهِ", "رجع":"إِلَيْهِ", "سكن":"فِيهِ", "هرب":"مِنْهُ", "صبر":"عَلَيْهِ", "نطق":"بِهِ", "ضحك":"مِنْهُ", "غضب":"عَلَيْهِ", "فرح":"بِهِ", "لعب":"بِهِ"};   /* عَدَلَ: "adaletli olmak" anlamında örnek verilmedi; عَدَلَ عَنْ (vazgeçmek) ayrı bir anlamdır */
 ROOTS.forEach(d => { if (d.lz && MEF_CER[d.r]) d.mc = MEF_CER[d.r]; });
 const masdarOf = d => d ? [d.ms].concat(d.m2 ? [d.m2] : []) : null;
 const masdarGuess = rt => (MASDAR_KALIP[rt.b.id] || []).map(t => fill(t, rt.r));
@@ -203,7 +203,10 @@ function trCek(tk){
     mubalaga: b("çok " + on + fail), tafdil: b("en çok " + on + fail), tac1: b("acayip " + on + gec), tac2: b("ne acayip " + on + gec)
   };
 }
+/* Türkçe edilgen sıfat-fiil bazı fiillerde düzensizdir (ünlü düşmesi, anlaşılmak…) ya da Arapça mef'ûlün anlamı farklıdır */
+const TR_MEF = {"فهم":"Anlaşılan", "صرف":"Çevrilen", "فصل":"Ayrılan", "جهل":"Bilinmeyen", "عمل":"Yapılan"};
 ROOTS.forEach(d => { d.tk = trTemiz(d); });
+const trCekD = d => { const c = trCek(d.tk); if (TR_MEF[d.r]) c.mef = TR_MEF[d.r]; return c; };
 
 /* ---- 14 sîga ---- */
 const SIGA = [

@@ -1,8 +1,8 @@
 // Motor testi: node _kaynak/emsile-tezgahi/test_motor.mjs  (hata varsa çıkış kodu 1)
 import fs from 'fs';import path from 'path';import {fileURLToPath} from 'url';
 const D=path.dirname(fileURLToPath(import.meta.url));
-const E=new Function(fs.readFileSync(path.join(D,'engine.js'),'utf8')+';return {ROOTS,BABS,TABLES,MUH,SIGA,babOf,fill,checkRoot,masdarOf,trCek};')();
-const {ROOTS,BABS,TABLES,MUH,SIGA,babOf,fill,checkRoot,masdarOf,trCek}=E;
+const E=new Function(fs.readFileSync(path.join(D,'engine.js'),'utf8')+';return {ROOTS,BABS,TABLES,MUH,SIGA,babOf,fill,checkRoot,masdarOf,trCek,trCekD};')();
+const {ROOTS,BABS,TABLES,MUH,SIGA,babOf,fill,checkRoot,masdarOf,trCek,trCekD}=E;
 let hata=0;const t=(ok,m)=>{if(!ok){hata++;console.log('HATA:',m)}};
 const N=x=>x.normalize('NFC');const strip=s=>s.replace(/[ً-ْٰ]/g,'');
 // 1) Klasik örnekler (Emsile'nin bilinen çekimleri)
@@ -25,13 +25,16 @@ const TC={ 'yazmak':{mazi:'Yazdı',muz:'Yazar / yazıyor / yazacak',fail:'Yazan'
  'istemek':{mazi:'İstedi',muz:'İster / istiyor / isteyecek',fail:'İsteyen',mef:'İstenen'},
  'kaçmak':{mazi:'Kaçtı',muz:'Kaçar / kaçıyor / kaçacak'},'düşmek':{mazi:'Düştü',muz:'Düşer / düşüyor / düşecek'},'toplamak':{mazi:'Topladı',muz:'Toplar / topluyor / toplayacak',mef:'Toplanan'}};
 for(const [tk,ex] of Object.entries(TC)){const o=trCek(tk);for(const [id,w] of Object.entries(ex))t(o[id]===w,`Türkçe ${tk} ${id}: ${o[id]} ≠ ${w}`)}
+const R1=r=>ROOTS.find(x=>x.r===r);
+t(trCekD(R1('فهم')).mef==='Anlaşılan','فهم mef Anlaşılan');t(trCekD(R1('غلب')).mef==='Yenilen','غلب mef Yenilen');t(trCekD(R1('جهل')).mef==='Bilinmeyen','جهل mef');t(trCekD(R1('صرف')).mef==='Çevrilen','صرف mef');t(trCekD(R1('فصل')).mef==='Ayrılan','فصل mef');
+t(!R1('عدل').mc,'عدل: عَنْهُ ayrı anlam, örnek verilmedi');t(R1('غضب').mc==='عَلَيْهِ','غضب مَغْضُوبٌ عَلَيْهِ');t(!R1('حسب').m2,'حسب tek masdar');
 // 2c) İsm-i zaman/mekân ve masdar-ı mîmî ayrımı
 const z=MUH.find(m=>m.id==='zarf');t(N(fill(z.t(babOf(2)),[...'ضرب']))===N('مَضْرِبٌ'),'ضرب zaman/mekân مَضْرِبٌ');t(N(fill(z.t(babOf(1)),nsr))===N('مَنْصَرٌ'),'نصر zaman/mekân مَنْصَرٌ');
 // 3) Kök listesi tutarlılığı
 const gor=new Set();
 for(const d of ROOTS){t(!gor.has(d.r),'tekrar kök '+d.r);gor.add(d.r);t(!checkRoot([...d.r]),'geçersiz kök '+d.r);t(babOf(d.b),'bâb yok '+d.r);
   t(/[ً-ٍ]/.test(d.ms),'masdar harekesiz '+d.r);t(masdarOf(d).every(m=>strip(m).length>=3),'masdar kısa '+d.r);
-  t(d.tr&&d.tr.length>2,'anlam yok '+d.r);t(d.tk&&/m[ae]k$/.test(d.tk),'Türkçe mastar yok '+d.r);for(const [id,w] of Object.entries(trCek(d.tk)))t(w&&!/undefined|NaN/.test(w),'Türkçe bozuk '+d.r+' '+id);if(d.b===6)t(d.sf,'kerume sıfatı yok '+d.r);
+  t(d.tr&&d.tr.length>2,'anlam yok '+d.r);t(d.tk&&/m[ae]k$/.test(d.tk),'Türkçe mastar yok '+d.r);for(const [id,w] of Object.entries(trCekD(d)))t(w&&!/undefined|NaN/.test(w),'Türkçe bozuk '+d.r+' '+id);if(d.b===6)t(d.sf,'kerume sıfatı yok '+d.r);
   // masdar kökün harflerini içermeli (sülâsî)
   const k=[...d.r];t(masdarOf(d).every(m=>k.every(h=>strip(m).includes(h))),'masdar kökü içermiyor '+d.r);
   // 24 kalıp: hiçbiri boş üretmemeli
