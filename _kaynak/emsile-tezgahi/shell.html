@@ -219,6 +219,12 @@ canvas#cf{position:fixed;inset:0;pointer-events:none;z-index:99}
 @media (max-width:560px){.logo b{display:none}.tile{width:54px;height:62px;font-size:1.8rem}.cell .w{font-size:calc(1.15rem * var(--ar))}.cell .mz{display:none}.matrix{gap:5px;grid-template-columns:60px repeat(3,minmax(0,1fr))}.matrix .rh svg{width:40px;height:auto}.matrix .rh span{font-size:.62rem}}
 
 /* kendini sına, boş kâğıt, yeni oyunlar */
+.deck{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;max-width:420px;margin:14px auto}
+.dk{aspect-ratio:3/4;border:2px solid var(--gold);border-radius:14px;background:repeating-linear-gradient(135deg,var(--gold-s) 0 8px,transparent 8px 16px),var(--panel2);display:grid;place-items:center;font-weight:700;padding:4px;text-align:center;color:var(--gold);transition:transform .35s}
+.dk:hover:not(:disabled){transform:translateY(-4px)}
+.dk.up{background:var(--panel);color:var(--ink);border-color:var(--good);transform:rotateY(0) scale(1.04)}
+.dk.up .ad{font-size:.78rem;line-height:1.2}
+.dk.dim{opacity:.35}
 .opt[aria-pressed="true"]{border-color:var(--gold);background:var(--gold-s)}
 .cell.sel{border-color:var(--gold);background:var(--gold-s)}
 .cell.veil{cursor:pointer}

@@ -316,7 +316,7 @@ const GAMES = [
  {id:"coklu", ico:"☰", tr:"Bütün İhtimalleri Bul", d:"Aynı biçim birden fazla sîgaya uyar: hepsini işaretle."},
  {id:"anlam", ico:"TR", tr:"Anlamdan Kalıba", d:"Türkçe anlam verilir; doğru Arapça kalıbı seç."},
  {id:"tekrar", ico:"↻", tr:"Yanlışlarımı Tekrar Et", d:"Yanlış yaptığın kalıplar farklı kökle yeniden sorulur; doğru bilince listeden çıkar."},
- {id:"cark", ico:"🎡", tr:"Fiil Çarkı", d:"Çarkı çevir; çıkan kök, kip ve sîgaya göre doğru çekimi bul."},
+ {id:"deste", ico:"🎴", tr:"Fiil Destesi", d:"Kapalı kartlardan birini aç; çıkan kök, kip ve sîgaya göre doğru çekimi bul."},
  {id:"karma", ico:"★", tr:"Karma Antrenman", d:"Bütün soru türlerinden 15 soru; günlük çalışma için."}
 ];
 const mkey = d => JSON.stringify(d);
@@ -338,6 +338,7 @@ function renderHub(){
   $$("[data-g]").forEach(b => b.onclick = () => start(b.dataset.g));
 }
 function makeQ(id, force){
+  if (id === "cark") id = "deste";   /* eski kayıtlı yanlışlarla uyum */
   const rt = RT();
   const muz = TABLES.filter(t => !(t.pas && rt.data.lz));
   const okI = t => SIGA.map((s,i)=>i).filter(i=>!t.only||t.only.includes(i));
@@ -425,13 +426,13 @@ function makeQ(id, force){
     const d = uniq(muz.filter(x=>x.id!==t.id).map(x=>fill(x.f(rt.b,pick(ok)), rt.r))).filter(w=>!words.includes(w));
     return {k:"fill", rt, t, blanks, rights, chips: shuffle([...blanks.map(i=>rights[i]), ...shuffle(d).slice(0,2)]), why:`${t.tr}: ` + blanks.map(i=>`${SIGA[i].z} ${rights[i]}`).join(" · ")};
   }
-  if (id === "cark"){
+  if (id === "deste"){
     const kisa = {mazi:"Mâzî", maziP:"Mâzî meçhûl", muz:"Muzâri", muzP:"Muzâri meçhûl", len:"Len", lem:"Lem", emr:"Emir", gaib:"Emr-i gâib", nehy:"Nehy", nun:"Nûn-ı sakîle"};
     const av = muz.filter(x => kisa[x.id]), tf = force && av.find(x => x.id === force.t);
     let segs = shuffle(av.filter(x => !tf || x !== tf)).slice(0, tf ? 7 : 8); if (tf) segs.push(tf); segs = shuffle(segs);
     const sel = tf ? segs.indexOf(tf) : Math.floor(Math.random()*8), t = segs[sel], ok = okI(t), i = tf && force.i != null ? force.i : pick(ok), right = fill(t.f(rt.b,i), rt.r);
     const other = uniq([...ok.filter(j=>j!==i).map(j=>fill(t.f(rt.b,j), rt.r)), ...muz.filter(x=>x.id!==t.id && (!x.only||x.only.includes(i))).map(x=>fill(x.f(rt.b,i), rt.r))]).filter(x=>x!==right);
-    return {k:"cark", rt, segs: segs.map(x=>({id:x.id, ad:kisa[x.id]})), sel, t, i, opts: shuffle([right, ...shuffle(other).slice(0,3)]), right, why:`${t.tr} · ${SIGA[i].z}: ${right}`, desc:{g:"cark", t:t.id, i}};
+    return {k:"deste", rt, segs: segs.map(x=>({id:x.id, ad:kisa[x.id]})), sel, t, i, opts: shuffle([right, ...shuffle(other).slice(0,3)]), right, why:`${t.tr} · ${SIGA[i].z}: ${right}`, desc:{g:"deste", t:t.id, i}};
   }
   if (id === "diz"){
     const t = pick(muz), ok = okI(t), i = pick(ok), tpl = t.f(rt.b,i), w = fill(tpl, rt.r);
@@ -483,7 +484,7 @@ function draw(){
   if (q.k === "root"){ G.sel = G.sel || []; body = `<div class="q">Kökün harflerini sırayla seç: önce <b class="rf">fâ</b>, sonra <b class="ra">ayn</b>, sonra <b class="rl">lâm</b></div><div class="w mono">${esc(q.w)}</div>
       <div class="letters">${q.letters.map((l,i)=>`<button data-l="${i}" class="${G.sel.indexOf(i)>-1?"p"+(G.sel.indexOf(i)+1):""}">${esc(l)}</button>`).join("")}</div>`; }
   if (q.k === "opt") body = `${q.html}<div class="opts">${q.opts.map((o,i)=>`<button class="opt ${q.ar?"ar":""}" data-o="${i}">${esc(o)}</button>`).join("")}</div>`;
-  if (q.k === "cark") body = carkHTML(q);
+  if (q.k === "deste") body = desteHTML(q);
   if (q.k === "duzelt") body = duzeltHTML(q);
   if (q.k === "coklu") body = cokluHTML(q);
   if (q.k === "fill") body = fillHTML(q);
@@ -504,10 +505,10 @@ function draw(){
   }
   if (q.k === "scale") $$("[data-o]").forEach(b => b.onclick = () => { if (G.lock) return; const ok = q.opts[+b.dataset.o] === q.right; G.pan = q.opts[+b.dataset.o]; $("#pan2").textContent = G.pan; $("#beam").style.transform = `rotate(${ok?0:12}deg)`; $$("[data-o]").forEach(x=>{ x.disabled = true; if (q.opts[+x.dataset.o]===q.right) x.classList.add("good"); }); if (!ok) b.classList.add("bad"); answer(ok); });
   if (q.k === "root") $$("[data-l]").forEach(b => b.onclick = () => { if (G.lock) return; const i = +b.dataset.l; const k = G.sel.indexOf(i); if (k > -1) G.sel.splice(k,1); else if (G.sel.length < 3) G.sel.push(i); if (G.sel.length === 3){ const ok = G.sel.map(j => q.base[j]).join("") === q.rt.r.join(""); draw(); answer(ok); } else draw(); });
-  if (q.k === "cark") bindCark(q);
+  if (q.k === "deste") bindDeste(q);
   if (q.k === "duzelt") bindDuzelt(q);
   if (q.k === "coklu") bindCoklu(q);
-  if (q.k === "opt" || q.k === "cark") $$("[data-o]").forEach(b => b.onclick = () => { if (G.lock) return; const ok = q.opts[+b.dataset.o] === q.right; $$("[data-o]").forEach(x=>{ x.disabled = true; if (q.opts[+x.dataset.o]===q.right) x.classList.add("good"); }); if (!ok) b.classList.add("bad"); answer(ok); });
+  if (q.k === "opt" || q.k === "deste") $$("[data-o]").forEach(b => b.onclick = () => { if (G.lock) return; const ok = q.opts[+b.dataset.o] === q.right; $$("[data-o]").forEach(x=>{ x.disabled = true; if (q.opts[+x.dataset.o]===q.right) x.classList.add("good"); }); if (!ok) b.classList.add("bad"); answer(ok); });
 }
 /* --- Hatayı Düzelt, Sebebini Seç --- */
 function duzeltHTML(q){
@@ -537,25 +538,18 @@ function bindCoklu(q){
     cells.forEach(c => { const i = +c.dataset.i; if (q.right.includes(i)) c.classList.add("good"); else if (G.cs.includes(i)) c.classList.add("bad"); });
     answer(ok); };
 }
-/* --- Fiil Çarkı --- */
-function carkHTML(q){
-  G.c = G.c || {spun:false, spinning:false, rot:0};
-  const n = q.segs.length, a = 360/n, R0 = 120, cx = 130, cy = 130, cols = ["var(--rf)","var(--ra)","var(--rl)","var(--gold)"];
-  const pt = (deg, r) => { const rad = (deg-90)*Math.PI/180; return [cx + r*Math.cos(rad), cy + r*Math.sin(rad)]; };
-  const sec = q.segs.map((sg, k) => { const [x1,y1] = pt(k*a, R0), [x2,y2] = pt((k+1)*a, R0), [tx,ty] = pt(k*a + a/2, R0*0.62);
-    return `<path d="M${cx} ${cy} L${x1} ${y1} A${R0} ${R0} 0 0 1 ${x2} ${y2} Z" fill="${cols[k%4]}" fill-opacity=".28" stroke="var(--line)"/><text x="${tx}" y="${ty}" text-anchor="middle" dominant-baseline="middle" transform="rotate(${k*a + a/2} ${tx} ${ty})" style="font:600 11px var(--f-ui);fill:var(--ink)">${esc(sg.ad)}</text>`; }).join("");
-  const wheel = `<svg viewBox="0 0 260 270" style="width:100%;max-width:300px;display:block;margin:0 auto" aria-label="Fiil çarkı"><g id="wheel" style="transform-origin:${cx}px ${cy}px;transform:rotate(${G.c.rot}deg);${G.c.spinning ? "transition:transform 2.8s cubic-bezier(.15,.7,.15,1)" : ""}">${sec}</g><circle cx="${cx}" cy="${cy}" r="14" fill="var(--panel)" stroke="var(--gold)" stroke-width="3"/><path d="M${cx-10} 4 L${cx+10} 4 L${cx} 26 Z" fill="var(--gold)" stroke="var(--gold-ink)"/></svg>`;
-  if (!G.c.spun) return `<div class="q">Çarkı çevir: çıkan kipe göre çekim yapacaksın</div><div class="small muted">Kök: <span class="ar" style="font-size:1.2rem">${esc(lemma(q.rt))}</span></div>${wheel}<div class="row" style="justify-content:center;margin-top:10px"><button class="btn" id="cSpin" ${G.c.spinning?"disabled":""}>🎡 Çevir</button></div>`;
-  return `${wheel}<div class="q" style="margin-top:6px">Çıkan kip: <b>${esc(q.segs[q.sel].ad)}</b> · <span class="ar" style="font-size:1.6rem">${SIGA[q.i].z}</span> <span class="small muted">(${esc(SIGA[q.i].tr)})</span></div><div class="small muted">Kök: <span class="ar" style="font-size:1.2rem">${esc(lemma(q.rt))}</span></div><div class="opts">${q.opts.map((o,i)=>`<button class="opt ar" data-o="${i}">${esc(o)}</button>`).join("")}</div>`;
+/* --- Fiil Destesi: kapalı kartlardan birini aç --- */
+function desteHTML(q){
+  G.c = G.c || {open:null};
+  const n = q.segs.length, cards = q.segs.map((sg, k) => {
+    const up = G.c.open === k;
+    return `<button class="dk ${up ? "up" : G.c.open !== null ? "dim" : ""}" data-dk="${k}" ${G.c.open !== null ? "disabled" : ""} aria-label="${up ? esc(sg.ad) : "Kapalı kart " + (k+1)}">${up ? `<span class="ad">${esc(q.segs[q.sel].ad)}</span>` : `<span class="ar" style="font-size:1.6rem">؟</span>`}</button>`; }).join("");
+  const deck = `<div class="deck">${cards}</div>`;
+  if (G.c.open === null) return `<div class="q">Bir kart aç: çıkan kipe göre çekim yapacaksın</div><div class="small muted">Kök: <span class="ar" style="font-size:1.2rem">${esc(lemma(q.rt))}</span></div>${deck}`;
+  return `${deck}<div class="q" style="margin-top:12px">Çıkan kip: <b>${esc(q.segs[q.sel].ad)}</b> · <span class="ar" style="font-size:1.6rem">${SIGA[q.i].z}</span> <span class="small muted">(${esc(SIGA[q.i].tr)})</span></div><div class="small muted">Kök: <span class="ar" style="font-size:1.2rem">${esc(lemma(q.rt))}</span></div><div class="opts">${q.opts.map((o,i)=>`<button class="opt ar" data-o="${i}">${esc(o)}</button>`).join("")}</div>`;
 }
-function bindCark(q){
-  const b = $("#cSpin"); if (!b) return;
-  b.onclick = () => {
-    if (G.c.spinning) return; const a = 360/q.segs.length, me = G.q;
-    G.c.spinning = true; b.disabled = true; const w = $("#wheel"); void w.getBoundingClientRect();
-    G.c.rot = 360*4 + (360 - (q.sel*a + a/2)); w.style.transition = "transform 2.8s cubic-bezier(.15,.7,.15,1)"; w.style.transform = `rotate(${G.c.rot}deg)`;
-    setTimeout(() => { if (G && G.q === me && G.c){ G.c.spinning = false; G.c.spun = true; draw(); } }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 50 : 3000);
-  };
+function bindDeste(q){
+  $$("[data-dk]").forEach(b => b.onclick = () => { if (G.c.open !== null) return; G.c.open = +b.dataset.dk; draw(); });
 }
 /* --- Tabloyu Tamamla --- */
 function fillHTML(q){
