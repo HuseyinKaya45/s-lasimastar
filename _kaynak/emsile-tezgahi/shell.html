@@ -236,6 +236,13 @@ canvas#cf{position:fixed;inset:0;pointer-events:none;z-index:99}
  body.pb .cell.veil .w,body.pb .cell.veil .mz{filter:none}
 }
 @media (max-width:560px){.memg{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* dar ekran: menü kendi satırında, hepsi görünür ve yana kaydırılır */
+@media (max-width:700px){
+ .top-in{flex-wrap:wrap;row-gap:2px;padding-block:6px}
+ .nav{order:3;flex:1 0 100%;margin:0;padding:2px 0 4px;gap:4px}
+ .nav button{padding:7px 11px;border:1px solid var(--line);background:var(--panel2)}
+ .nav button[aria-current="page"]{border-color:var(--gold)}
+}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 <header class="top"><div class="top-in">

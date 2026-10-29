@@ -236,6 +236,13 @@ canvas#cf{position:fixed;inset:0;pointer-events:none;z-index:99}
  body.pb .cell.veil .w,body.pb .cell.veil .mz{filter:none}
 }
 @media (max-width:560px){.memg{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* dar ekran: menü kendi satırında, hepsi görünür ve yana kaydırılır */
+@media (max-width:700px){
+ .top-in{flex-wrap:wrap;row-gap:2px;padding-block:6px}
+ .nav{order:3;flex:1 0 100%;margin:0;padding:2px 0 4px;gap:4px}
+ .nav button{padding:7px 11px;border:1px solid var(--line);background:var(--panel2)}
+ .nav button[aria-current="page"]{border-color:var(--gold)}
+}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 <header class="top"><div class="top-in">
@@ -621,7 +628,7 @@ function muh(rt=R){
     if (m.masdar){ if (rt.data){ o.txt = masdarOf(rt.data).join(" · "); } else { o.guess = masdarGuess(rt); o.gt = MASDAR_KALIP[rt.b.id]; o.note = "Sülâsîde masdar semâîdir: bu kök programın listesinde yok. Gösterilenler bâbın en yaygın kalıplarıdır (olası); gerçek masdarı sözlükten doğrula."; } return o; }
     o.t = m.t(rt.b);
     if (m.id === "fail" && rt.b.id === 6 && rt.data && rt.data.sf){ o.txt = rt.data.sf; o.t = null; o.note = "Kerume bâbında ism-i fâil yerine sıfat-ı müşebbehe kullanılır."; }
-    if (m.id === "mef" && rt.data && rt.data.lz){ o.t = null; o.none = "Lâzım fiilin ism-i mef'ûlü harf-i cerle yapılır (مَجْلُوسٌ فِيهِ gibi)."; }
+    if (m.id === "mef" && rt.data && rt.data.lz){ o.note = rt.b.id === 6 ? "Kerume bâbı lâzımdır: ism-i mef'ûl kıyâsî kalıpla gösterilir ama bu fiillerde pek kullanılmaz; sıfat-ı müşebbehe tercih edilir." : "Lâzım (geçişsiz) fiilin ism-i mef'ûlü harf-i cerle birlikte kullanılır (مَجْلُوسٌ فِيهِ, مَخْرُوجٌ مِنْهُ gibi)."; }
     if (m.p && !(rt.data && rt.data.lz)) o.p = m.p();
     return o;
   });
@@ -762,7 +769,7 @@ function renderTables(){
       <div class="row"><div class="seg"><button aria-pressed="${S.miz}" id="tMiz2">Mîzan</button><button aria-pressed="${S.col}" id="tCol2">Renkler</button><button aria-pressed="${TBHIDE}" id="tHide">Kendini sına</button></div><button class="btn ghost sm" id="sayAll">🔊 Hepsini dinle</button><button class="btn ghost sm" id="tPrint">🖨 Boş çalışma kâğıdı</button></div></div>
     <p class="muted" style="margin-top:-6px">${TB==="fail"?"Yapan anlamında. Müfred, tesniye ve sâlim cemiler kıyâsîdir; teksîr cemileri (فُعَّلٌ، فُعَّالٌ، فَعَلَةٌ، فَوَاعِلُ) Emsile'de kalıp olarak sayılır, her kökte kullanılmaz.":TB==="mef"?"Yapılan anlamında: مَفْعُولٌ kalıbı.":esc(t.d)}</p>
     ${TB==="fail" ? `<div class="list">${FAIL.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(FAIL_TR[i])}</span></div>`).join("")}</div>`
-      : TB==="mef" ? (lz() ? `<div class="panel pad">Bu kök lâzım (geçişsiz); ism-i mef'ûlü harf-i cerle yapılır.</div>` : `<div class="list">${MEF.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(MEF_TR[i])}</span></div>`).join("")}</div>`)
+      : TB==="mef" ? (`${lz() ? `<div class="panel pad" style="margin-bottom:12px">${R.b.id===6 ? "Kerume bâbı lâzımdır: kıyâsî kalıp gösterilir ama bu fiillerde ism-i mef'ûl pek kullanılmaz." : "Bu kök lâzım (geçişsiz): ism-i mef'ûl harf-i cerle birlikte kullanılır (مَجْلُوسٌ فِيهِ gibi)."}</div>` : ""}<div class="list">${MEF.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(MEF_TR[i])}</span></div>`).join("")}</div>`)
       : dis ? `<div class="panel pad">Bu kök lâzım (geçişsiz) olduğu için meçhulü doğrudan yapılmaz. Müteaddî bir kök seç (ör. نصر، ضرب، فتح).</div>` : matrixHTML(t)}
     <div class="panel pad" style="margin-top:18px"><span class="eyebrow">Hatırlatma</span><p style="margin:6px 0 0">Muzâri harfleri <b class="ar" style="font-size:1.15rem">أَتَيْنَ</b> (eteyne): <span class="ar">أَ</span> ben, <span class="ar">تَ</span> sen/o (kadın), <span class="ar">يَ</span> o (erkek), <span class="ar">نَ</span> biz. Aynı görünen sîgalar vardır: <span class="ar">تَنْصُرُ</span> hem 4. (o kadın) hem 7. (sen erkek) sîgadır.</p></div>`;
   bindPicker();
