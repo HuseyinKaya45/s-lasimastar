@@ -6,7 +6,7 @@ const E=new Function(src+';return {ROOTS,BABS,babOf,fill,mzStem,muStem,V,MUH,trC
 const {ROOTS,BABS,babOf,fill,mzStem,muStem,V,trCek}=E;
 const satir=(d,i)=>{const b=babOf(d.b),r=[...d.r];
   const maz=fill(mzStem(b)+V.a,r),muz=fill('يَ'+muStem(b)+V.u,r);
-  const fail=d.sf&&d.b===6?d.sf+' <i>(sıfat-ı müşebbehe)</i>':fill('FَاAِLٌ',r),mef=d.lz?(d.mc?fill('مَFْAُوLٌ ',r)+d.mc+' <i>(harf-i cerle)</i>':'<i>kullanılmaz / pek kullanılmaz</i>'):fill('مَFْAُوLٌ',r);
+  const fail=d.sf?d.sf+' <i>(sıfat-ı müşebbehe)</i>':fill('FَاAِLٌ',r),mef=d.lz?(d.mc?fill('مَFْAُوLٌ ',r)+d.mc+' <i>(harf-i cerle)</i>':'<i>kullanılmaz / pek kullanılmaz</i>'):fill('مَFْAُوLٌ',r);
   return `<tr><td>${i+1}</td><td class="ar">${d.r.split('').join(' ')}</td><td>${b.id}</td><td class="ar">${maz} ${muz}</td><td class="ar">${[d.ms,d.m2].filter(Boolean).join(' · ')}</td><td class="ar">${fail}</td><td class="ar">${mef}</td><td>${d.tr}${d.lz?' <i>(lâzım)</i>':''}</td><td>${(c=>[c.mazi,c.muz.split(' / ')[0],c.fail,d.lz?'—':c.mef].join(' · '))(trCek(d.tk))}</td><td></td></tr>`};
 const gruplar=BABS.map(b=>`<h2>${b.id}. bâb — ${b.tr} <span class="ar">${b.ar}</span></h2><table><tr><th>#</th><th>Kök</th><th>Bâb</th><th>Mâzî · Muzâri</th><th>Masdar</th><th>İsm-i fâil</th><th>İsm-i mef'ûl</th><th>Anlam</th><th>Türkçe (mâzî · muzâri · fâil · mef'ûl)</th><th>Düzeltme</th></tr>${ROOTS.filter(x=>x.b===b.id).map((d,i)=>satir(d,i)).join('')}</table>`).join('');
 const html=`<!doctype html><meta charset="utf-8"><title>Emsile Tezgâhı — kök listesi doğrulama kâğıdı</title><style>
