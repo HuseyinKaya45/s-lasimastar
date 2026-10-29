@@ -1,0 +1,31 @@
+/* Sınav havuzu [soru,[şıklar],doğru idx,ders,açıklama] */
+const SINAV=[
+[`Aşağıdakilerden hangisi fiziksel gelişimi sağlıklı kılan dört şarttan biri <b>değildir</b>?`,[`Yeterli ve dengeli beslenme`,`Düzenli uyku`,`Ekran başında uzun oturma`],2,1,`Dört şart: beslenme, uyku-dinlenme, temizlik-hastalıktan korunma, açık hava-bedensel etkinlik.`],
+[`6 yaşında tek ayak üzerinde sıçrama hangi gelişime örnektir?`,[`Nicel`,`Niteliksel`,`Duygusal`],1,1,`Niteliksel.`],
+[`Yenidoğanın boyu hangi aralıktadır?`,[`40-45 cm`,`48-53 cm`,`55-60 cm`],1,2,`48-53 cm.`],
+[`Büyümenin en hızlı olduğu dönem?`,[`İlk iki yıl`,`Okul çağı`,`Yetişkinlik`],0,2,`Doğumu izleyen ilk iki yıl.`],
+[`Kasların beden ağırlığına oranı yetişkinde?`,[`1/5`,`1/3`,`2/5`],2,3,`2/5.`],
+[`Hangisi istemsiz kastır?`,[`Parmak kası`,`Kalp kası`,`Boyun kası`],1,3,`Kalp.`],
+[`Hangi beceri önce gelişir?`,[`Düğme ilikleme`,`Zıplama`,`Makas kullanma`],1,3,`Önce büyük kaslar.`],
+[`Yenidoğanda kemik sayısı?`,[`206`,`270`,`300`],1,4,`270.`],
+[`Yenidoğanda baş beden büyüklüğünün kaçta kaçıdır?`,[`1/2`,`1/4`,`1/8`],1,4,`1/4.`],
+[`Yenidoğanın kafatasındaki bıngıldak sayısı?`,[`6`,`4`,`8`],0,4,`6.`],
+[`Bıngıldağın geç kapanması hangisiyle ilişkili olabilir?`,[`D vitamini eksikliği`,`C vitamini fazlalığı`,`Kalsiyum fazlalığı`],0,4,`D vitamini eksikliği, hipotiroidi.`],
+[`Süt dişi sayısı?`,[`16`,`20`,`28`],1,5,`20.`],
+[`İlk dişler yaklaşık hangi ayda çıkar?`,[`6-10`,`12-18`,`24-30`],0,5,`6-10. ay.`],
+[`12 yaşında ağızda kaç kalıcı diş bulunur?`,[`20`,`28`,`32`],1,5,`28.`],
+[`Hangisi kalıtımla belirlenir?`,[`Göz rengi`,`Beslenme düzeni`,`Spor alışkanlığı`],0,6,`Göz rengi.`],
+[`Çevresel faktör hangisidir?`,[`Annenin yetersiz beslenmesi`,`Cinsiyet`,`Saç biçimi`],0,6,`Annenin beslenmesi.`],
+[`Hücrelerden sisteme doğru sıra?`,[`Doku-hücre-organ-sistem`,`Hücre-doku-organ-sistem`,`Organ-doku-hücre-sistem`],1,7,`Hücre-doku-organ-sistem.`],
+[`Sindirime yardımcı organlar?`,[`Karaciğer ve pankreas`,`Kalp ve böbrek`,`Akciğer ve diyafram`],0,8,`Karaciğer, pankreas.`],
+[`Yenidoğanın dakikadaki nefes sayısı?`,[`10-20`,`40-60`,`70-90`],1,8,`40-60.`],
+[`Oksijenin hücrede kullanılmasına ne denir?`,[`Dış solunum`,`İç solunum`,`Sindirim`],1,8,`İç solunum.`],
+[`Yenidoğanın kalp atım hızı?`,[`60-70`,`120-140`,`200-220`],1,9,`120-140.`],
+[`Küçük dolaşım hangisidir?`,[`Kalp-akciğer-kalp`,`Kalp-vücut-kalp`,`Beyin-kalp-beyin`],0,9,`Kalp-akciğer-kalp.`],
+[`Antikorlar bebeği yaklaşık ne kadar korur?`,[`İlk 2-3 ay`,`İlk 2 yıl`,`Hayat boyu`],0,9,`İlk 2-3 ay.`],
+[`Boşaltım yolu sırası?`,[`Böbrek-üreter-mesane-üretra`,`Böbrek-mesane-üretra-üreter`,`Üretra-mesane-üreter-böbrek`],0,9,`Böbrek-üreter-mesane-üretra.`],
+[`Merkezi sinir sisteminden çıkan sinir çifti sayısı?`,[`31`,`43`,`12`],1,10,`43.`],
+[`Hangisi merkezi sinir sisteminde yer alır?`,[`Beyincik`,`Sinir lifi`,`Kas`],0,10,`Beyincik.`],
+[`Baş dik tutma hangi ayda görülür?`,[`1.`,`3.`,`9.`],1,10,`3. ay.`]
+];
+const KONU={1:`Temel kavramlar`,2:`Temel kavramlar`,3:`Beden yapıları`,4:`Beden yapıları`,5:`Beden yapıları`,6:`Temel kavramlar`,7:`Sistemler`,8:`Sistemler`,9:`Sistemler`,10:`Sistemler ve beyin`};

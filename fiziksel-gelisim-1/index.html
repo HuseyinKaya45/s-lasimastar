@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Minik Adımlar — 0-72 Ay Fiziksel Gelişim</title>
+<style>:root{--bg:#fff7f1;--kart:#fffdfb;--yazi:#2b2a33;--soluk:#6b6677;--cizgi:#efdfd3;--ana:#e0603f;--ana2:#f08a5d;--anaa:#fde7de;--altin:#b7791f;--altina:#fdf0d0;--dogru:#15803d;--dogrua:#dcf5e3;--yanlis:#b91c1c;--yanlisa:#fde4e4;--golge:0 2px 10px rgba(60,50,20,.08);--ars:1.55rem}
+:root[data-theme=dark]{--bg:#1a1517;--kart:#241d20;--yazi:#f3ecea;--soluk:#b5a8aa;--cizgi:#3a2e31;--ana:#ff8a65;--ana2:#ffab91;--anaa:#3a221b;--altin:#f5c04e;--altina:#33290f;--dogru:#4ade80;--dogrua:#10331f;--yanlis:#f87171;--yanlisa:#3a1818;--golge:0 2px 10px rgba(0,0,0,.4)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--yazi);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.ar{font-family:"Amiri","Scheherazade New","Noto Naskh Arabic","Traditional Arabic","Geeza Pro","Times New Roman",serif;direction:rtl;unicode-bidi:isolate;font-size:1.25em;line-height:1.9}
+.arb{display:block;text-align:center;font-size:var(--ars);line-height:2.1;direction:rtl;font-family:"Amiri","Scheherazade New","Noto Naskh Arabic","Traditional Arabic","Geeza Pro",serif;margin:.2rem 0}
+mark{background:var(--altina);color:inherit;border-radius:6px;padding:0 .25em;box-shadow:0 0 0 2px var(--altin) inset}
+.top{position:sticky;top:0;z-index:20;background:var(--kart);border-bottom:1px solid var(--cizgi);box-shadow:var(--golge)}
+.top-in{max-width:920px;margin:auto;padding:.5rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.logo{font-weight:800;font-size:1.05rem;color:var(--ana);line-height:1.2}.logo small{display:block;font-weight:500;font-size:.72rem;color:var(--soluk)}
+.chips{display:flex;gap:.4rem;align-items:center}
+.chip{background:var(--anaa);color:var(--ana);border-radius:999px;padding:.15rem .6rem;font-weight:700;font-size:.85rem;white-space:nowrap}
+.ibtn{border:1px solid var(--cizgi);background:var(--kart);color:var(--yazi);border-radius:10px;padding:.25rem .55rem;font-size:.95rem;cursor:pointer}
+.tabs{max-width:920px;margin:auto;display:flex;gap:.25rem;overflow-x:auto;padding:.25rem 1rem .5rem;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:0;background:transparent;color:var(--soluk);padding:.4rem .75rem;border-radius:999px;font:inherit;font-weight:600;font-size:.9rem;cursor:pointer;white-space:nowrap}
+.tab.on{background:var(--ana);color:#fff}
+main{max-width:920px;margin:auto;padding:1rem 1rem 4rem}
+h1,h2,h3{line-height:1.25;margin:.2rem 0 .6rem}h2{font-size:1.35rem}h3{font-size:1.1rem}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:1rem;margin:.75rem 0;box-shadow:var(--golge)}
+.hero{background:linear-gradient(135deg,#e0603f,#c2410c 60%,#9a3412);color:#fff;border-radius:22px;padding:1.2rem;position:relative;overflow:hidden}
+.hero::after{content:"🌱";position:absolute;right:-.5rem;bottom:-1.6rem;font-size:6rem;opacity:.2}
+.hero h1{font-size:1.5rem;margin:0}.hero p{margin:.3rem 0;opacity:.92}
+.hero .ozet{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin-top:.7rem}
+.halka{width:78px;height:78px;position:relative;flex:0 0 78px}.halka svg{transform:rotate(-90deg)}.halka b{position:absolute;inset:0;display:grid;place-items:center;font-size:1.05rem}
+.btn{display:inline-block;border:0;background:var(--ana);color:#fff;border-radius:12px;padding:.6rem 1rem;font:inherit;font-weight:700;cursor:pointer;box-shadow:var(--golge);margin:.2rem .2rem .2rem 0}
+.btn.ikincil{background:var(--anaa);color:var(--ana)}.btn.altin{background:var(--altin);color:#fff}.btn.sol{background:transparent;color:var(--soluk);border:1px solid var(--cizgi);box-shadow:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}.hero .btn{background:#fff;color:#c2410c}
+.izgara{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.75rem}
+.kutu{background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:.9rem;cursor:pointer;text-align:left;font:inherit;color:inherit;box-shadow:var(--golge);transition:transform .12s}
+.kutu:hover{transform:translateY(-2px)}.kutu .i{font-size:1.7rem}.kutu b{display:block}.kutu small{color:var(--soluk)}
+.kutu.bitti{border-color:var(--dogru)}
+.bab{margin-top:1rem}.bab h3{color:var(--ana)}
+.yol{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.dugum{width:54px;height:54px;border-radius:50%;border:3px solid var(--cizgi);background:var(--kart);display:grid;place-items:center;font-size:1.25rem;cursor:pointer;position:relative;color:inherit}
+.dugum.bitti{background:var(--dogrua);border-color:var(--dogru)}.dugum.siradaki{border-color:var(--altin);box-shadow:0 0 0 4px var(--altina)}
+.dugum small{position:absolute;bottom:-.9rem;font-size:.65rem;color:var(--soluk)}
+.kutuk{border-left:5px solid var(--altin);background:var(--altina);padding:.7rem .9rem;border-radius:0 12px 12px 0;margin:.7rem 0}
+.kutuk.ana{border-color:var(--ana);background:var(--anaa)}.kutuk.hata{border-color:var(--yanlis);background:var(--yanlisa)}
+.etiket{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--soluk)}
+ul.nok{padding-left:1.2rem}ul.nok li{margin:.35rem 0}
+details.orn{border:1px solid var(--cizgi);border-radius:14px;margin:.5rem 0;background:var(--kart)}
+details.orn summary{cursor:pointer;padding:.6rem .9rem;list-style:none}details.orn summary::-webkit-details-marker{display:none}
+details.orn summary .tr{display:block;text-align:center;color:var(--soluk);font-size:.9rem}
+details.orn[open] summary{border-bottom:1px dashed var(--cizgi)}.orn .ic{padding:.5rem .9rem .8rem}.orn .ic p{margin:.35rem 0}
+.sec{display:block;width:100%;text-align:left;background:var(--kart);border:2px solid var(--cizgi);border-radius:14px;padding:.7rem .9rem;margin:.45rem 0;font:inherit;color:inherit;cursor:pointer}
+.sec:hover{border-color:var(--ana)}.sec.d{background:var(--dogrua);border-color:var(--dogru)}.sec.y{background:var(--yanlisa);border-color:var(--yanlis);animation:titre .35s}
+.sec:disabled{cursor:default}
+@keyframes titre{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.cevap{padding:.7rem .9rem;border-radius:12px;margin:.5rem 0}.cevap.d{background:var(--dogrua)}.cevap.y{background:var(--yanlisa)}
+.ilerleme{height:9px;background:var(--cizgi);border-radius:9px;overflow:hidden;margin:.4rem 0}.ilerleme i{display:block;height:100%;background:linear-gradient(90deg,var(--ana),var(--ana2));transition:width .3s}
+.rozetler{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.6rem}
+.rozet{border:1px solid var(--cizgi);border-radius:14px;padding:.6rem;text-align:center;background:var(--kart);opacity:.45;filter:grayscale(1)}.rozet.var{opacity:1;filter:none;border-color:var(--altin);background:var(--altina)}.rozet .i{font-size:1.8rem}.rozet small{display:block;color:var(--soluk)}
+.cift{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.cift button{border:2px solid var(--cizgi);background:var(--kart);color:inherit;border-radius:12px;padding:.6rem;font:inherit;cursor:pointer;min-height:56px}
+.cift button.sel{border-color:var(--altin);background:var(--altina)}.cift button.ok{border-color:var(--dogru);background:var(--dogrua);pointer-events:none}.cift button.kotu{animation:titre .35s;border-color:var(--yanlis)}
+.cip{display:inline-block;border:2px solid var(--cizgi);background:var(--kart);border-radius:12px;padding:.45rem .7rem;margin:.25rem;cursor:pointer;font:inherit;color:inherit}.cip.k{opacity:.35;pointer-events:none}
+.sira{display:flex;gap:.5rem;margin:.3rem 0;align-items:flex-start}.sira b{flex:0 0 28px;height:28px;border-radius:50%;background:var(--ana);color:#fff;display:grid;place-items:center;font-size:.85rem}
+.kartca{min-height:150px;display:grid;place-items:center;text-align:center;font-size:1.15rem;padding:1.2rem;cursor:pointer}
+.tablo{width:100%;border-collapse:collapse}.tablo td,.tablo th{border-bottom:1px solid var(--cizgi);padding:.4rem;text-align:left}
+.ara{width:100%;padding:.65rem .9rem;border-radius:12px;border:2px solid var(--cizgi);background:var(--kart);color:inherit;font:inherit}
+.sz{display:flex;gap:.8rem;align-items:baseline;border-bottom:1px solid var(--cizgi);padding:.55rem 0}.sz .ar{min-width:5.5rem;text-align:right}
+.toast{position:fixed;left:50%;bottom:1.2rem;transform:translateX(-50%);background:var(--yazi);color:var(--bg);padding:.6rem 1rem;border-radius:12px;z-index:50;box-shadow:var(--golge);max-width:90vw;text-align:center}
+.konfeti{position:fixed;top:-20px;font-size:1.4rem;z-index:60;pointer-events:none;animation:dus 1.8s ease-in forwards}
+@keyframes dus{to{transform:translateY(105vh) rotate(540deg);opacity:.2}}
+.u{margin-top:.6rem;color:var(--soluk);font-size:.85rem}.orta{text-align:center}.sag{text-align:right}
+.satir{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.kelime{display:inline-block;padding:.05rem .3rem;border-radius:8px}.kelime.on{background:var(--altina);box-shadow:0 0 0 2px var(--altin) inset}.kelime.bit{opacity:.6}
+@media(max-width:520px){.cift{grid-template-columns:1fr}.logo small{display:none}main{padding:.75rem .75rem 4rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.toast{pointer-events:none}a{color:var(--ana)}
+.hero::after{pointer-events:none}.hero>*{position:relative;z-index:1}
+
+.hero h1{font-size:1.6rem}
+.cb{display:flex;gap:.5rem;align-items:center;margin:.2rem 0;font-size:.85rem}.cb span{flex:0 0 7.5rem;color:var(--soluk)}.cb>div{flex:1;height:14px;background:var(--cizgi);border-radius:8px;position:relative;overflow:hidden}.cb i{display:block;height:100%;border-radius:8px}.cb b{flex:0 0 3.2rem;text-align:right}
+.cb .aral i{position:absolute;top:0}
+.gk{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;justify-content:center}.gb{background:var(--altina);border:2px solid var(--altin);border-radius:14px;padding:.5rem .8rem;text-align:center;min-width:120px}
+.bas{width:40px;height:40px;border-radius:50%;background:#f6c9a8;margin:0 auto .3rem;display:grid;place-items:center}.bas.b4{width:46px;height:46px}.bas.b8{width:26px;height:26px;font-size:.6rem}
+.yolcu{display:flex;flex-wrap:wrap;align-items:center;gap:.2rem;margin:.3rem 0}.yolcu>:not(i){background:var(--anaa);color:var(--ana);border-radius:10px;padding:.25rem .55rem;font-weight:600;font-size:.88rem}.yolcu i{font-style:normal;color:var(--soluk)}
+.svg{width:100%;max-width:420px;display:block;margin:.3rem auto;color:var(--yazi)}
+.gr{width:100%;height:auto;background:var(--kart);border:1px solid var(--cizgi);border-radius:14px}
+.gr text{fill:var(--soluk);font-size:10px}
+.cht{display:flex;gap:.4rem;align-items:center;margin:.3rem 0}.cht input,.cht select{padding:.4rem;border-radius:10px;border:2px solid var(--cizgi);background:var(--kart);color:inherit;font:inherit;width:6rem}
+label.ck{display:flex;gap:.5rem;align-items:flex-start;padding:.4rem 0;cursor:pointer}label.ck input{margin-top:.35rem;width:1.1rem;height:1.1rem}
+</style></head><body>
+<header class="top"><div class="top-in"><div class="logo">Minik Adımlar<small>0-72 ay fiziksel gelişim · etkinlikli çalışma programı</small></div><div class="chips"><span class="chip" id="seri">🔥 0</span><span class="chip" id="xp">⭐ 0</span><button class="ibtn" data-a="yazi" aria-label="Yazı boyutu">Aa</button><button class="ibtn" data-a="tema" aria-label="Koyu/açık tema">🌓</button></div></div><nav class="tabs" id="sek" aria-label="Bölümler"></nav></header>
+<main id="ana"></main>
+<noscript>Bu program JavaScript gerektirir.</noscript>
+<script>/* 0-72 Ay Fiziksel Gelişim — 1. bölüm: özgün anlatım */
+const BOLUM=[``,`Temel Kavramlar`,`Beden Yapıları`,`Sistemler`,`Büyük Resim`];
+const bar=(a,v,mx,r)=>`<div class="cb"><span>${a}</span><div><i style="width:${Math.round(100*v/mx)}%;background:${r}"></i></div><b>${v}</b></div>`;
+const DERS=[
+{id:1,bolum:1,ad:`Fiziksel Gelişim Nedir?`,ikon:`🌱`,dk:6,
+kanca:`Fiziksel gelişimi bir <b>bina inşaatı</b> gibi düşün: önce temel ve iskelet (kemikler), sonra duvarlar (kaslar), sonra elektrik, su ve havalandırma (organlar ve sistemler). Sadece "kat sayısı" (boy-kilo) değil, her katın <b>çalışır hâle gelmesi</b> de gelişimdir.`,
+kurallar:[
+`Fiziksel gelişim; boyun uzaması ve kilonun artması yanında kemiklerin, kasların, beynin, organların ve iç salgı bezlerinin büyüyüp olgunlaşmasını da kapsar.`,
+`<b>Nicel (sayısal):</b> ağırlık ve boydaki rakamsal artış. <b>Niteliksel:</b> sistemlerin çalışmasındaki değişim; örnek: 6 yaşında tek ayak üzerinde sıçrayabilmek.`,
+`Gelişim <b>baştan ayağa</b> ve <b>merkezden dışa</b> doğru ilerler. Önce baş-boyun-gövde kasları, sonra kol-bacak, en son parmaklar.`,
+`Psikomotor gelişim basit reflekslerle başlar: baş-boyun-gövde kontrolü → oturma, emekleme, yürüme, koşma, atlama → tutma, bırakma, fırlatma gibi el becerileri.`,
+`Hız dönemleri: bebeklikte çok hızlı, oyun çocukluğunda yavaş, ergenlikte yine hızlı.`,
+`Sağlıklı gelişim için gereken dört şey: <b>yeterli-dengeli beslenme, düzenli uyku ve dinlenme, temizlik ve hastalıklardan korunma, açık hava ve bedensel etkinlikler.</b>`,
+`Bebeklikte erkekler boy-kilo artışında daha hızlıdır; ergenlikte kızlar erken ergenliğe girdiği için bir süre erkeklerden ileride olur; ergenlik sonunda erkekler farkı kapatır.`],
+gorsel:`<div class="gk"><div class="gb"><b>Nicel</b><br>🔢 "Boyu 3 cm uzadı"</div><div class="gb"><b>Niteliksel</b><br>🦘 "Tek ayak üstünde sıçrayabiliyor"</div></div>`,
+ezber:`<b>BUTA:</b> <u>B</u>eslenme, <u>U</u>yku, <u>T</u>emizlik, <u>A</u>çık hava. "Bebek BUTA kalmasın!" İkinci ezber: <b>"Baş önce, ayak sonra; gövde önce, parmak sonra."</b>`,
+hata:`"Gelişim = sadece boy ve kilo" değildir. Boy-kilo nicel kısımdır; tek ayakla sıçrama gibi beceriler niteliksel gelişimdir.`,
+kontrol:[
+{q:`"6 yaşındaki çocuğun tek ayak üzerinde sıçrayabilmesi" hangi gelişime örnektir?`,o:[`Nicel`,`Niteliksel`,`Kalıtsal`],d:1,a:`Sistemlerin çalışmasındaki değişimi anlatır, yani niteliksel.`},
+{q:`Gelişim hangi yönde ilerler?`,o:[`Ayaktan başa, dıştan merkeze`,`Baştan ayağa, merkezden dışa`,`Rastgele`],d:1,a:`Baştan ayağa ve merkezden dışa.`},
+{q:`BUTA ezberindeki "T" ne demektir?`,o:[`Temizlik ve hastalıklardan korunma`,`Tuz`,`Takvim`],d:0,a:`Beslenme, Uyku, Temizlik, Açık hava.`}]},
+
+{id:2,bolum:1,ad:`Boy ve Kilo`,ikon:`📏`,dk:8,
+kanca:`Bebeğin büyümesi bir <b>roket kalkışı</b> gibidir: ilk iki yıl motorlar tam güçte, sonra hız düşer, ergenlikte bir kez daha ateşleme olur.`,
+kurallar:[
+`Büyüme: vücuttaki hücre sayısının ve hücre büyüklüğünün artmasıdır.`,
+`Yenidoğanın boyu <b>48-53 cm</b>, kilosu <b>2500-3500 g</b> arasındadır.`,
+`Doğumu izleyen <b>ilk iki yıl</b>, yaşamın bütün dönemlerine göre büyümenin en hızlı olduğu dönemdir. İki yaştan sonra büyüme yavaşlar ama sürer.`,
+`İki yaşına kadar bebeğin karnı büyük, görüntüsü kamburumsudur; iki yaştan sonra duruş yetişkine benzemeye başlar.`,
+`Gövde ve bacaklar hızla uzar; yaklaşık <b>6 yaş</b> civarında vücut yetişkin görünümüne benzer.`,
+`Düzenli kilo almak, bebeğin sağlıklı gelişiminin kanıtıdır; anne sütünün yararı tartışılmaz.`,
+`Erkeklerin kızlara oranla daha çok kemik ve kas kütlesi vardır. Kitaba göre yaklaşık 11 yaşta büyümede yavaşlama görülmeye başlar; kızlarda bu dönemde ilk âdet, erkeklerde 15-16 yaşta ikincil cinsiyet belirtileri görülür.`],
+gorsel:`<div class="gk" style="flex-direction:column;align-items:stretch">${bar(`Boy (yenidoğan, üst sınır)`,53,53,`var(--ana)`)}${bar(`Boy (yenidoğan, alt sınır)`,48,53,`var(--ana2)`)}</div><p class="u">Yenidoğan: 48-53 cm · 2500-3500 g</p>`,
+ezber:`<b>"48-53, 25-35:"</b> santimetre ve yüzlerce gram. İlk iki yıl <b>roket</b>, 6 yaşta <b>küçük yetişkin</b> silueti.`,
+hata:`Büyümenin "ilk yıl en hızlı" olduğunu söylemek eksiktir: kitap <b>ilk iki yılı</b> en hızlı dönem olarak verir.`,
+kontrol:[
+{q:`Yenidoğanın boy aralığı hangisidir?`,o:[`48-53 cm`,`35-40 cm`,`60-70 cm`],d:0,a:`Boy 48-53 cm, kilo 2500-3500 g.`},
+{q:`Büyümenin en hızlı olduğu dönem hangisidir?`,o:[`Ergenlik`,`Doğumu izleyen ilk iki yıl`,`6-10 yaş`],d:1,a:`İlk iki yıl.`},
+{q:`Vücut yaklaşık hangi yaşta yetişkin görünümüne benzer?`,o:[`2`,`6`,`12`],d:1,a:`Yaklaşık 6 yaş.`}]},
+
+{id:3,bolum:2,ad:`Kaslar`,ikon:`💪`,dk:8,
+kanca:`Kaslar <b>vücudun motorları ve yakıt tankıdır</b>. Büyük motorlar (bacak, kol) önce çalışır, minik hassas motorlar (parmaklar) sonra devreye girer.`,
+kurallar:[
+`Kaslar kemiklerin üzerini örter; iskelet-hareket sistemini oluşturur. Vücut hareketini kaslar sayesinde yapar.`,
+`Kasların beden ağırlığına oranı: doğumda <b>1/5 – 1/4</b>, ergenlikte <b>1/3</b>, yetişkinlikte <b>2/5</b>.`,
+`Önce <b>büyük kaslar</b>, sonra <b>küçük kaslar</b> gelişir. Çocuk koşup zıplarken düğme ilikleme ve makas kullanmada zorlanır (kaba motor → ince motor).`,
+`Kızlar ince motor hareketlerde, erkekler kaba motor becerilerde daha iyi gözlenmiştir.`,
+`<b>İstemli kaslar:</b> istediğimiz zaman çalıştırırız (kol, boyun, baş, bacak, parmak, göz kapağı). <b>İstemsiz kaslar:</b> biz karışmadan çalışır (mide, kalp, karaciğer, dalak, bağırsaklar).`,
+`Görevleri: iskeleti hareket ettirir, enerji deposudur, dilin hareketiyle konuşmaya yardım eder, organların çalışmasını etkiler, kalp ve dolaşımda rol oynar, solunuma yardımcı olur.`],
+gorsel:`<div class="gk" style="flex-direction:column;align-items:stretch">${bar(`Doğum (1/5-1/4)`,22,40,`var(--ana2)`)}${bar(`Ergenlik (1/3)`,33,40,`var(--altin)`)}${bar(`Yetişkin (2/5)`,40,40,`var(--yanlis)`)}</div><p class="u">Beden ağırlığındaki kas payı (yaklaşık yüzde) · doğum ortalaması gösterim içindir</p>`,
+ezber:`<b>"Beşte bir doğarsın, üçte bir gençsin, beşte iki kocasın."</b> (1/5 → 1/3 → 2/5). İstemli = "isteyince", istemsiz = "kalp bile sormadan atar".`,
+hata:`Kalp ve mide kasları istemsizdir; "kalbi istersem durdurabilirim" diye düşünmek yanlıştır. Ayrıca kaba motorun ince motordan önce geldiğini unutma.`,
+kontrol:[
+{q:`Yetişkinde kasların beden ağırlığına oranı nedir?`,o:[`1/5`,`1/3`,`2/5`],d:2,a:`Yetişkinlikte 2/5.`},
+{q:`Aşağıdakilerden hangisi istemsiz kastır?`,o:[`Kol kası`,`Kalp kası`,`Göz kapağı kası`],d:1,a:`Kalp, mide, karaciğer vb. istemsiz çalışır.`},
+{q:`Hangi beceri önce gelişir?`,o:[`Düğme ilikleme`,`Koşup zıplama`,`Makas kullanma`],d:1,a:`Önce büyük kaslar: kaba motor.`}]},
+
+{id:4,bolum:2,ad:`Kemikler ve Bıngıldak`,ikon:`🦴`,dk:10,
+kanca:`Yenidoğanın kemikleri <b>fırından yeni çıkmış ekmek</b> gibi yumuşaktır; zamanla kalsiyum ve fosfat ile sertleşir. Kafatasındaki boşluklar (bıngıldak) ise <b>büyümeye bırakılmış pencere payı</b>dır.`,
+kurallar:[
+`Yenidoğanın kemikleri kıkırdaktır; kalsiyum, fosfat ve diğer minerallerle zamanla <b>kemikleşir</b>.`,
+`Yenidoğanda toplam <b>270 kemik</b> vardır. İlk yıllarda hızlı gelişir, ilk çocuklukta hız düşer, ergenlikte tekrar hızlanır.`,
+`İskelet gelişimi kızlarda erkeklerden daha ileridir.`,
+`Baş, yenidoğanda beden büyüklüğünün yaklaşık <b>1/4</b>'üdür; yetişkinde <b>1/8</b>.`,
+`<b>Baş çevresi:</b> yenidoğanda ≈35 cm, 3. ayda 40,5 cm, 6. ayda 43 cm, 1 yaşında 46 cm. Beyin büyümesini yansıttığı için dikkatle izlenmelidir.`,
+`<b>Göğüs çevresi:</b> doğumda 33 cm (baş çevresine yakın). 1 yaşından sonra baş çevresini geçer: 1 yaşında 47 cm, 5 yaşında 55 cm.`,
+`<b>Bıngıldak (fontonel):</b> kafatasında altı boşluk vardır; beşi doğumun ilk günlerinde kapanır, tepedeki 12-18 ay arasında kapanır.`,
+`Bıngıldak ön kapanırsa (3 aydan önce) doktora gidilmeli; geç kapanırsa D vitamini eksikliği veya tiroid yetmezliği (hipotiroidi) düşünülür. Bıngıldağın içe çökük olması, yetersiz beslenme ya da sıvı kaybı ile ilişkilidir.`,
+`Tüm ölçümler yaklaşık değerlerdir; büyük sapmalarda en kısa sürede uzmana gidilir.`],
+gorsel:`<div class="gk"><div class="gb"><div class="bas b4">🙂</div><b>Yenidoğan</b><br>Baş ≈ 1/4</div><div class="gb"><div class="bas b8">🙂</div><b>Yetişkin</b><br>Baş ≈ 1/8</div></div><div class="gk" style="flex-direction:column;align-items:stretch;margin-top:.6rem">${bar(`Baş: doğum`,35,47,`var(--ana)`)}${bar(`Baş: 3. ay`,40.5,47,`var(--ana)`)}${bar(`Baş: 6. ay`,43,47,`var(--ana)`)}${bar(`Baş: 1 yaş`,46,47,`var(--ana)`)}${bar(`Göğüs: doğum`,33,47,`var(--altin)`)}${bar(`Göğüs: 1 yaş`,47,47,`var(--altin)`)}</div><p class="u">Baş ve göğüs çevresi (cm). 1 yaşta göğüs, başı geçer.</p>`,
+ezber:`<b>"35-40-43-46"</b> (baş çevresi: doğum, 3. ay, 6. ay, 1 yaş). <b>"6 pencere, 5 erken kapanır, 1 tepede 12-18 ay."</b> Göğüs "1 yaşta başı geçer".`,
+hata:`Geç kapanan bıngıldak ile erken kapanan bıngıldak farklı nedenlere işaret eder: geç → D vitamini/tiroid; ön (3 aydan önce) → doktora başvur, kafa çevresi izlenmeli.`,
+kontrol:[
+{q:`Yenidoğanda kaç tane bıngıldak (boşluk) vardır?`,o:[`6`,`8`,`10`],d:0,a:`6 tane; 5'i ilk günlerde, tepedeki 12-18 ayda kapanır.`},
+{q:`Yenidoğanda toplam kemik sayısı?`,o:[`206`,`270`,`300`],d:1,a:`270 kemik.`},
+{q:`Göğüs çevresi ne zaman baş çevresini geçer?`,o:[`1 yaşından sonra`,`Doğumda`,`6. ayda`],d:0,a:`1 yaşından sonra.`}]},
+
+{id:5,bolum:2,ad:`Süt ve Kalıcı Dişler`,ikon:`🦷`,dk:9,
+kanca:`Dişler bir <b>takvim</b> gibidir: her diş kendi "randevu" saatinde çıkar. Süt dişleri geçici kiracı, kalıcı dişler ise evin asıl sahibidir.`,
+kurallar:[
+`Diş tabakalarının gelişimi doğum öncesinde başlar; olgunlaşan dişler doğumdan sonra diş etini delerek çıkar.`,
+`İlk dişler yaklaşık <b>6-10. ayda</b> çıkar; bazı bebeklerde 12. aya kadar sürebilir, bazılarında doğuştan diş olabilir.`,
+`<b>Süt dişi sayısı 20</b>; <b>2-2,5 yaşa</b> kadar tamamlanır.`,
+`<b>7 yaşta</b> süt dişleri düşmeye başlar, yerini kalıcılara bırakır. <b>12 yaşta ağızda 28 kalıcı diş</b> vardır. İlk düşen diş genellikle alt ön kesicilerdir.`,
+`Diş gelişiminde kızlar yaklaşık bir yıl önde gider.`,
+`Anne ve bebeğin yeterli, dengeli beslenmesi diş sağlığının temelidir.`,
+`<b>Diş sağlığı:</b> emzirmeden sonra diş etini bezle sil; süt dişi çıkınca fırçalama ve diş ipi alışkanlığı ver; şekerli gıdalardan kaçın; fırçayı 3-5 ayda bir değiştir; sert yiyecekleri dişle kırma; dişleri iğne-kürdanla karıştırma; kalsiyum ve vitaminden zengin beslen; düzenli diş hekimi kontrolü.`],
+gorsel:`<h4>Süt dişleri çıkış takvimi (ay)</h4><div class="gk" style="flex-direction:column;align-items:stretch">${[[`Alt ön`,6,10],[`Üst ön`,8,12],[`Üst yan`,9,13],[`Alt yan`,10,16],[`Üst 1. azı`,13,19],[`Alt 1. azı`,14,18],[`Üst köpek`,16,22],[`Alt köpek`,17,23],[`Alt 2. azı`,23,31],[`Üst 2. azı`,25,33]].map(d=>`<div class="cb"><span>${d[0]}</span><div class="aral"><i style="left:${d[1]/33*100}%;width:${(d[2]-d[1])/33*100}%"></i></div><b>${d[1]}-${d[2]}</b></div>`).join(``)}</div><p class="u">Kitaptaki şemaya göre. Önce kesiciler, sonra azılar ve köpek dişleri.</p>`,
+ezber:`<b>"6-10 ilk diş, 20 süt dişi, 2-2,5 yaşta tamam; 7'de düşer, 12'de 28 kalıcı."</b> Kızlar bir yıl önde.`,
+hata:`Dişin çıkma yaşı "hasta" ya da "geç" demek değildir; bebeklerde 6 ay ile 12 ay arasında değişir. Ancak büyük sapmada diş hekimi/uzman görüşü alınır.`,
+kontrol:[
+{q:`Süt dişleri kaç adettir?`,o:[`20`,`28`,`32`],d:0,a:`20 adet.`},
+{q:`12 yaşında ağızda kaç kalıcı diş bulunur?`,o:[`20`,`28`,`32`],d:1,a:`Kitaba göre 28.`},
+{q:`İlk düşen diş genellikle hangisidir?`,o:[`Üst azı`,`Alt ön kesici`,`Köpek diş`],d:1,a:`Alt ön kesiciler.`}]},
+
+{id:6,bolum:2,ad:`Kalıtım ve Çevre`,ikon:`🧬`,dk:6,
+kanca:`Gelişim iki <b>mimarın</b> ortak projesidir: <b>kalıtım</b> planı çizer (genler), <b>çevre</b> malzemeyi sağlar (beslenme, bakım, uyarım). Plan ne kadar iyi olursa olsun malzeme yoksa bina eksik kalır.`,
+kurallar:[
+`<b>Kalıtım:</b> anne-babadan genler yoluyla gelen özellikler. Cinsiyet, göz-ten-saç rengi ve biçimi, boy ve genetik hastalıklar kalıtımla belirlenir.`,
+`<b>Çevre:</b> doğum öncesi, sırası ve sonrasında yaşananlar; kazalar, annenin yetersiz beslenmesi, alkol-uyuşturucu-sigara gibi etkenler gelişimi etkiler.`,
+`Bebeklikte beslenme, çevre koşulları, ailenin sosyoekonomik düzeyi ve yeterli uyarım gelişimde rol oynar.`,
+`Kuşaklar arasında fark vardır: Bebekler 50-60 yıl öncesine göre daha iri doğmakta; çocuklar anne-babalarının aynı yaşlardaki hâlinden daha ağır ve uzun boyludur. Nedenleri: sağlık koşullarının düzelmesi, daha iyi beslenme, hijyen, tıbbi yardım ve bilinçli ebeveynler.`,
+`Bazı çocuklar bir dönem hızlı uzar, sonra duraklayabilir; <b>duraklama ve sıçrama dönemleri normaldir</b> ama sapma büyükse uzmana gidilir.`,
+`Ülkemizdeki ortalama doğum ağırlığı değerleri Batı Avrupa ve ABD standartlarıyla uyumludur.`],
+gorsel:`<div class="gk"><div class="gb"><b>🧬 Kalıtım</b><br>cinsiyet · göz/ten/saç rengi · boy · genetik hastalıklar</div><div class="gb"><b>🌍 Çevre</b><br>beslenme · bakım · uyarım · kazalar · sigara-alkol</div></div>`,
+ezber:`<b>"Plan gen, malzeme çevre."</b> Gen: rengini, boyunu, hastalığını verir. Çevre: beslenmeyi, bakımı, sevgiyi verir.`,
+hata:`"Boy tamamen geneğtir" demek yanlıştır; kuşaklar arası boy ve kilo artışı çevresel koşulların (beslenme, sağlık, hijyen) iyileşmesiyle açıklanır.`.replace(`geneğtir`,`gendir`),
+kontrol:[
+{q:`Hangisi kalıtımla ilgilidir?`,o:[`Göz rengi`,`Annenin sigara içmesi`,`Kaza`],d:0,a:`Göz rengi genlerle gelir; diğerleri çevresel faktör.`},
+{q:`Çocukların anne-babalarından daha uzun ve ağır olmasının başlıca nedeni?`,o:[`Sağlık ve beslenme koşullarının iyileşmesi`,`Güneşin artması`,`Tamamen şans`],d:0,a:`Beslenme, hijyen, tıbbi yardım ve bilinçli ebeveynler.`},
+{q:`Hangisi çevresel faktördür?`,o:[`Saç biçimi`,`Annenin yetersiz beslenmesi`,`Cinsiyet`],d:1,a:`Annenin beslenmesi çevresel faktör.`}]},
+
+{id:7,bolum:3,ad:`Sistemler ve Organlar`,ikon:`🧩`,dk:5,
+kanca:`Vücut bir <b>şehir</b>: hücreler tuğla, dokular duvar, organlar bina, sistemler de mahalleler. Mahallelerin hepsi birlikte çalışmazsa şehir durur.`,
+kurallar:[
+`İnsan vücudu fiziksel ve kimyasal yapılardan oluşan bir sistemler bütünüdür.`,
+`Ana birim <b>hücre</b>; hücreler ve aralarındaki maddeler <b>doku</b>; dokular <b>organ</b>; aynı işlevli organlar <b>sistemleri</b> oluşturur.`,
+`Sistemler: <b>sindirim, solunum, kalp ve kan dolaşımı, boşaltım, beyin ve sinir</b> (ayrıca hareket sistemi).`,
+`Bu sistemler duyu, hareket ve beslenme gereksinimlerini karşılar; büyüme, her organın görevini yerine getirmesine bağlıdır.`],
+gorsel:`<div class="gk" style="flex-direction:column;align-items:center"><div class="gb">🔬 Hücre</div>⬇<div class="gb">🧱 Doku</div>⬇<div class="gb">❤️ Organ</div>⬇<div class="gb">🏙️ Sistem</div></div>`,
+ezber:`<b>"Hücre-Doku-Organ-Sistem" = "HaDOS".</b> Beş sistem: <b>"Sessiz Sınıfta Kıpırdayan Bir Bebek"</b>: <u>S</u>indirim, <u>S</u>olunum, <u>K</u>alp-kan, <u>B</u>oşaltım, <u>B</u>eyin-sinir.`,
+hata:`Organlar sistemden büyüktür sanma; sıra küçükten büyüğe: hücre → doku → organ → sistem.`,
+kontrol:[
+{q:`Vücudun ana birimi nedir?`,o:[`Doku`,`Hücre`,`Organ`],d:1,a:`Hücre.`},
+{q:`Küçükten büyüğe doğru sıra hangisidir?`,o:[`Doku-hücre-organ-sistem`,`Hücre-doku-organ-sistem`,`Organ-doku-sistem-hücre`],d:1,a:`Hücre-doku-organ-sistem.`},
+{q:`Aşağıdakilerden hangisi kitaptaki sistemlerden biri değildir?`,o:[`Boşaltım`,`Solunum`,`Gözlem`],d:2,a:`Gözlem bir sistem değildir.`}]},
+
+{id:8,bolum:3,ad:`Sindirim ve Solunum`,ikon:`🫁`,dk:10,
+kanca:`Sindirim bir <b>fabrikanın montaj hattı</b>, solunum ise <b>havalandırma sistemi</b>dir. İkisi de "yutak" kavşağında buluşur.`,
+kurallar:[
+`<b>Sindirim:</b> sindirimi sağlayan organlar: ağız, yutak, yemek borusu, mide, ince bağırsak, kalın bağırsak. Yardımcı organlar: karaciğer, pankreas.`,
+`Bebeğin sindirim sistemi anne sütü ve ona yakın gıdaları sindirecek niteliktedir. Midesi küçük olduğundan <b>az ve sık</b> beslenmeli; yaşla mide kapasitesi büyüdükçe miktar artar.`,
+`Ergenlikte mide büyüyüp kapasite arttığından yemek yeme fazlalaşır.`,
+`<b>Solunum:</b> oksijenin hücre düzeyinde kullanımı <b>iç solunum</b>, dış ortamdan alınması <b>dış solunum</b>.`,
+`Solunum yolu: burun (nemlendirir, ısıtır, koku alır) → yutak → gırtlak → soluk borusu (toz ve mikroplar temizlenir) → bronşlar → akciğerler. <b>Diyafram</b> kasılıp gevşeyerek göğüs boşluğunun hacmini değiştirir.`,
+`<b>Bebeğin nefes sayısı (dakikada):</b> yenidoğan 40-60, 3 aylık 35-40, 1 yaşında 30-35. Bebek daha çok karın kaslarıyla nefes alır (kaburgalar yatay).`,
+`4 yaşından sonra çocuk hareketli etkinliklerle doğru nefes alıp vermeyi öğrenir.`],
+gorsel:`<h4>Sindirim yolu</h4><div class="yolcu">${[`👄 Ağız`,`Yutak`,`Yemek borusu`,`🫃 Mide`,`İnce bağırsak`,`Kalın bağırsak`].join(`<i>→</i>`)}</div><h4>Solunum yolu</h4><div class="yolcu">${[`👃 Burun`,`Yutak`,`Gırtlak`,`Soluk borusu`,`Bronşlar`,`🫁 Akciğerler`].join(`<i>→</i>`)}</div><div class="gk" style="flex-direction:column;align-items:stretch;margin-top:.6rem">${bar(`Yenidoğan (en çok)`,60,60,`var(--yanlis)`)}${bar(`3 aylık (en çok)`,40,60,`var(--altin)`)}${bar(`1 yaş (en çok)`,35,60,`var(--ana)`)}</div><p class="u">Dakikadaki nefes sayısının üst sınırı</p>`,
+ezber:`<b>Solunum:</b> "40-60, 35-40, 30-35" — yaş büyüdükçe nefes yavaşlar. <b>Yol:</b> "Burun-Yutak-Gırtlak-Soluk borusu-Bronş-Akciğer". Sindirim: "Ağız-Yutak-Yemek borusu-Mide-İnce-Kalın".`,
+hata:`Yutak hem sindirim hem solunum yolunun ortak parçasıdır; ama bebeğin hızlı nefes almasının nedeni dar ve kısa solunum yolları ile yatay kaburgalardır.`,
+kontrol:[
+{q:`Yenidoğanın dakikadaki nefes sayısı?`,o:[`10-20`,`40-60`,`80-100`],d:1,a:`40-60.`},
+{q:`Bebek nefes alırken ağırlıklı olarak hangi kasları kullanır?`,o:[`Karın kasları`,`Boyun kasları`,`Bacak kasları`],d:0,a:`Kaburgalar yatay olduğu için karın kasları.`},
+{q:`Oksijenin hücre düzeyinde kullanılmasına ne denir?`,o:[`Dış solunum`,`İç solunum`,`Terleme`],d:1,a:`İç solunum.`}]},
+
+{id:9,bolum:3,ad:`Dolaşım ve Boşaltım`,ikon:`❤️`,dk:10,
+kanca:`Kalp bir <b>pompa istasyonu</b>, damarlar <b>boru hattı</b>, böbrekler ise <b>arıtma tesisi</b>dir.`,
+kurallar:[
+`Kalp, herkesin kendi yumruğu büyüklüğünde bir organdır; vücuttaki en güçlü kas kalp kasıdır.`,
+`Kalp dakikada ortalama <b>70</b> kez atar; bir günde yaklaşık <b>20 ton</b> kan pompalar. Yenidoğanın kalbi dakikada <b>120-140</b> atar; sonra düşer. Yetişkin 60-70.`,
+`<b>Küçük dolaşım:</b> kalpten akciğerlere gidip oksijenlenen kanın kalbe dönüşü. <b>Büyük dolaşım:</b> oksijenli kanın vücuda yayılıp geri dönüşü.`,
+`Kan besin maddeleri ve oksijeni hücrelere taşır; artıkları uzaklaştırır.`,
+`Yenidoğan kanındaki <b>antikorlar</b> plasenta yoluyla geçer; ilk 2-3 ay kızamık, kızıl, kabakulak, çocuk felci gibi hastalıklardan korur. 3. aydan sonra etkisi azaldığı için <b>aşılar zamanında yapılmalıdır</b>.`,
+`<b>Boşaltım:</b> zararlı ya da fazla maddelerin hücrelerden ve vücut sıvısından uzaklaştırılmasıdır. Organlar: <b>böbrek → üreter → idrar kesesi (mesane) → üretra</b>.`,
+`İdrarın %95'i sudur. Su ve karbondioksit fazlası solunumla, su ve tuz terlemeyle atılır; üre, ürik asit, su ve tuz idrarla atılır.`,
+`İlk yıllarda böbrekler düzensiz çalışır; bebeğin idrar sayısı beslenmeyle değişir. Bez ıslak bırakılmamalı (idrar yolu enfeksiyonu), kız çocuklarda alt temizliği önden arkaya yapılmalıdır (kirlilik üreme organlarına yayılmasın).`],
+gorsel:`<h4>Küçük dolaşım ve büyük dolaşım</h4><svg viewBox="0 0 300 150" class="svg"><defs><marker id="o" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#d1495b"/></marker></defs><circle cx="150" cy="75" r="22" fill="#d1495b"/><text x="150" y="80" fill="#fff" text-anchor="middle" font-size="14">❤️</text><path d="M128 66 C60 20 30 20 30 40 C30 60 100 55 128 68" fill="none" stroke="#3b82c4" stroke-width="3" marker-end="url(#o)"/><text x="50" y="35" font-size="11" fill="currentColor">akciğerler</text><path d="M172 84 C250 130 280 120 270 90 C260 70 200 80 172 82" fill="none" stroke="#d1495b" stroke-width="3" marker-end="url(#o)"/><text x="215" y="130" font-size="11" fill="currentColor">tüm vücut</text></svg><h4>Boşaltım yolu</h4><div class="yolcu">${[`🫘 Böbrek`,`Üreter`,`İdrar kesesi`,`Üretra`].join(`<i>→</i>`)}</div>`,
+ezber:`<b>"70 atar, 20 ton taşır."</b> Yenidoğan 120-140, yetişkin 60-70. Boşaltım: <b>"Bö-Ür-Me-Üt"</b> (Böbrek-Üreter-Mesane-Üretra). 3. aydan sonra antikor biter, aşı başlar.`,
+hata:`"Antikor bebeği hep korur" yanlıştır: 3. aydan sonra etkisini yitirir; bu yüzden aşı takvimine uymak gerekir.`,
+kontrol:[
+{q:`Yenidoğanın kalbi dakikada kaç kez atar?`,o:[`60-70`,`120-140`,`200`],d:1,a:`120-140.`},
+{q:`Boşaltım yolunun doğru sırası?`,o:[`Böbrek-üreter-mesane-üretra`,`Böbrek-üretra-mesane-üreter`,`Mesane-böbrek-üreter-üretra`],d:0,a:`Böbrek-üreter-mesane-üretra.`},
+{q:`İdrarın yüzde kaçı sudur?`,o:[`50`,`70`,`95`],d:2,a:`%95.`}]},
+
+{id:10,bolum:4,ad:`Beyin ve Sinir Sistemi`,ikon:`🧠`,dk:8,
+kanca:`Sinir sistemi <b>vücudun kablo ağı ve genel merkezi</b>dir: beyin yönetim odası, omurilik ana kablo, sinirler de evlere giden hatlardır.`,
+kurallar:[
+`<b>Merkezi sinir sistemi:</b> beyin, beyincik, omurilik soğanı, omurilik. <b>Çevresel sinir sistemi:</b> sinir lifleri; merkezi sistem ile organlar arasındaki iletimi sağlar.`,
+`Merkezi sinir sisteminden <b>43 çift</b> sinir çıkar: <b>12 çift beyinden</b> (kafa çiftleri: ses duyma, söz söyleme, tat alma, okuma-yazma, dengeli yürüme), <b>31 çift omurilikten</b> (kaslara ve iç organlara gider).`,
+`Merkezi sinir sistemi ilk çocuklukta hızlı büyür, erinlik döneminden sonra durur. Çocuklukta beyin ölçüsünde son derece yavaşlama olur. Doğum öncesi ve sonrasındaki hızlı gelişmeye <b>beynin büyüme hamlesi</b> denir.`,
+`Doğumda tüm nöron hücreleri vardır; hücre kaybolursa yerine yenisi oluşmaz.`,
+`Yaşamın ilk yıllarında çocuk çoğu zaman uyur; <b>2. aydan</b> itibaren çevreyle yavaş yavaş etkileşir. Başını <b>3. ayda dik tutar</b>, <b>5. ayda dönme</b>, <b>6. aya doğru oturma</b> gerçekleşir; sonra ayakta durma, yürüme, koşma.`,
+`<b>Diğer alanlarla ilişki:</b> Fiziksel gelişim tüm alanların temelidir. Bilişsel (nesnelerin adlarını, kavramları gözleyerek-deneyerek öğrenme), sosyal (akranlarla iletişim, sıra bekleme, paylaşma, kurallara uyma) ve duygusal (enerjiyi boşaltma, sıkıntıdan kurtulma) alanlarla yakından bağlıdır. Açık hava oyun alanı, okul öncesi çocuğu için canlı bir laboratuvardır.`],
+gorsel:`<div class="gk" style="flex-direction:column;align-items:stretch"><div class="gb"><b>Sinir Sistemi</b></div><div class="gk"><div class="gb"><b>Merkezi</b><br>Beyin · Beyincik · Omurilik soğanı · Omurilik</div><div class="gb"><b>Çevresel</b><br>Sinir lifleri</div></div></div><div class="gk" style="margin-top:.6rem"><div class="gb"><b>12</b> çift<br>beyinden</div><b>+</b><div class="gb"><b>31</b> çift<br>omurilikten</div><b>=</b><div class="gb"><b>43</b> çift</div></div><h4>Motor yol haritası</h4><div class="yolcu">${[`2. ay çevreyle etkileşim`,`3. ay baş dik`,`5. ay dönme`,`6. ay oturma`].join(`<i>→</i>`)}</div>`,
+ezber:`<b>"43 = 12 + 31."</b> "3 baş, 5 dön, 6 otur." Nöron: "doğuşta tamam, kaybolan geri gelmez."`,
+hata:`"Beyin hücreleri yenilenir" yanlıştır: kitaba göre hücre kaybında yerine yeni hücre oluşmaz.`,
+kontrol:[
+{q:`Kafa çiftleri kaç çifttir?`,o:[`12`,`31`,`43`],d:0,a:`12 çift beyinden çıkar.`},
+{q:`Bebek başını genellikle hangi ayda dik tutar?`,o:[`1.`,`3.`,`9.`],d:1,a:`3. ayda.`},
+{q:`Aşağıdakilerden hangisi merkezi sinir sistemine ait değildir?`,o:[`Beyincik`,`Omurilik soğanı`,`Sinir lifleri`],d:2,a:`Sinir lifleri çevresel sinir sistemidir.`}]}
+];
+
+/* Etkinlik verileri */
+// doğru/yanlış [ifade, doğru?, açıklama, ders]
+const DY=[
+[`Fiziksel gelişim yalnızca boy ve kilo artışıdır.`,0,`Kemik, kas, beyin, organ ve iç salgı bezlerinin gelişimini de kapsar.`,1],
+[`Gelişim baştan ayağa ve merkezden dışa doğru ilerler.`,1,`Önce baş-boyun-gövde, sonra kol-bacak, en son parmaklar.`,1],
+[`6 yaşında tek ayak üzerinde sıçrayabilmek niteliksel gelişime örnektir.`,1,`Sistemlerin çalışmasındaki değişimi gösterir.`,1],
+[`Sağlıklı gelişim için açık hava ve bedensel etkinlikler gerekir.`,1,`BUTA'nın "A"sı: açık hava.`,1],
+[`Ergenlikte her zaman erkekler kızlardan ileridedir.`,0,`Kızlar erken ergenliğe girdiği için bir süre ileridedir; sonunda erkekler farkı kapatır.`,1],
+[`Büyümenin en hızlı olduğu dönem doğumu izleyen ilk iki yıldır.`,1,`İlk iki yıl.`,2],
+[`Yenidoğanın kilosu 2500-3500 g arasındadır.`,1,`Boy 48-53 cm.`,2],
+[`Yaklaşık 12 yaşında vücut yetişkin görünümüne benzer.`,0,`Yaklaşık 6 yaş civarında.`,2],
+[`Kaslar doğumda beden ağırlığının 1/5-1/4'ü kadardır.`,1,`Ergenlikte 1/3, yetişkinde 2/5.`,3],
+[`Önce küçük kaslar, sonra büyük kaslar gelişir.`,0,`Önce büyük kaslar.`,3],
+[`Mide ve kalp istemsiz kaslarla çalışır.`,1,`İstemsiz kaslar kişiye bağlı olmadan çalışır.`,3],
+[`Kızlar kaba motorda, erkekler ince motorda daha iyidir.`,0,`Kızlar ince motorda, erkekler kaba motorda daha iyi gözlenmiştir.`,3],
+[`Yenidoğanda toplam 270 kemik vardır.`,1,`Evet.`,4],
+[`Yenidoğanda kafatasında 6 bıngıldak vardır.`,1,`5'i ilk günlerde kapanır.`,4],
+[`Tepedeki bıngıldak 12-18 ay arasında kapanır.`,1,`Evet.`,4],
+[`Bıngıldağın geç kapanması D vitamini eksikliğiyle ilişkili olabilir.`,1,`Hipotiroidi de neden olabilir.`,4],
+[`Yenidoğanda baş, beden büyüklüğünün 1/8'idir.`,0,`Yenidoğanda 1/4, yetişkinde 1/8.`,4],
+[`1 yaşından sonra göğüs çevresi baş çevresini geçer.`,1,`Evet.`,4],
+[`İlk dişler yaklaşık 16-19. ayda çıkar.`,0,`Yaklaşık 6-10. ayda.`,5],
+[`Süt dişleri 20 adettir.`,1,`2-2,5 yaşa kadar tamamlanır.`,5],
+[`12 yaşında ağızda 28 kalıcı diş bulunur.`,1,`Kitabın verdiği değer.`,5],
+[`Diş fırçaları 3-5 ayda bir değiştirilmelidir.`,1,`Evet.`,5],
+[`Kalıtım ve boşanma fiziksel gelişimi etkileyen faktörlerdir.`,0,`Doğrusu kalıtım ve çevre.`,6],
+[`Cinsiyet ve göz rengi kalıtımla belirlenir.`,1,`Genler yoluyla.`,6],
+[`Hücre ile doku aynı şeydir.`,0,`Hücreler birleşerek dokuları oluşturur.`,7],
+[`Bebeğin midesi küçük olduğundan az ve sık beslenmelidir.`,1,`Evet.`,8],
+[`Yenidoğanın dakikadaki nefes sayısı 10-20'dir.`,0,`40-60.`,8],
+[`Oksijenin hücre düzeyinde kullanımına iç solunum denir.`,1,`Evet.`,8],
+[`Kalp dakikada ortalama 70 kez atar.`,1,`Yenidoğanda 120-140.`,9],
+[`Yenidoğandaki antikorlar 3. aydan sonra da tam koruma sağlar.`,0,`3. aydan sonra etkisini yitirir; aşı gerekir.`,9],
+[`Bebeklerin böbrekleri doğuştan itibaren en düzenli çalışan organlardır.`,0,`İlk yıllarda böbreklerin çalışması düzensizdir.`,9],
+[`İdrarın yaklaşık %95'i sudur.`,1,`Evet.`,9],
+[`Merkezi sinir sisteminden 43 çift sinir çıkar.`,1,`12 çift beyinden, 31 çift omurilikten.`,10],
+[`Beyindeki hücre kaybolunca yerine yenisi oluşur.`,0,`Yeni hücre oluşmaz.`,10],
+[`Bebek 3. ayda başını dik tutar.`,1,`5. ayda dönme, 6. aya doğru oturma.`,10]
+];
+// rakam avı [soru, [şıklar], doğru idx, açıklama, ders]
+const RAKAM=[
+[`Yenidoğanın boyu kaç cm?`,[`48-53`,`30-35`,`60-65`],0,`48-53 cm.`,2],
+[`Yenidoğanın kilosu kaç gram?`,[`2500-3500`,`1500-2000`,`4500-5000`],0,`2500-3500 g.`,2],
+[`Yenidoğanda toplam kemik sayısı?`,[`206`,`270`,`320`],1,`270.`,4],
+[`Yenidoğanın baş çevresi yaklaşık kaç cm?`,[`35`,`28`,`46`],0,`≈35 cm.`,4],
+[`3. ayda baş çevresi?`,[`40,5`,`43`,`46`],0,`40,5 cm.`,4],
+[`6. ayda baş çevresi?`,[`40,5`,`43`,`46`],1,`43 cm.`,4],
+[`1 yaşında baş çevresi?`,[`43`,`46`,`55`],1,`46 cm.`,4],
+[`Doğumda göğüs çevresi?`,[`28`,`33`,`47`],1,`33 cm.`,4],
+[`1 yaşında göğüs çevresi?`,[`47`,`43`,`55`],0,`47 cm.`,4],
+[`5 yaşında göğüs çevresi?`,[`47`,`55`,`60`],1,`55 cm.`,4],
+[`Yenidoğanda baş, beden büyüklüğünün kaçta kaçıdır?`,[`1/2`,`1/4`,`1/8`],1,`1/4; yetişkinde 1/8.`,4],
+[`Yenidoğanda bıngıldak sayısı?`,[`3`,`6`,`9`],1,`6.`,4],
+[`İlk dişler kaçıncı aylarda çıkar?`,[`6-10`,`12-16`,`18-24`],0,`6-10. aylar.`,5],
+[`Süt dişi sayısı?`,[`16`,`20`,`28`],1,`20.`,5],
+[`12 yaşında kalıcı diş sayısı?`,[`20`,`28`,`32`],1,`28.`,5],
+[`Süt dişleri kaç yaşında düşmeye başlar?`,[`3`,`7`,`10`],1,`7 yaş.`,5],
+[`Yenidoğanın dakikadaki nefes sayısı?`,[`10-20`,`40-60`,`80-100`],1,`40-60.`,8],
+[`1 yaşında dakikadaki nefes sayısı?`,[`30-35`,`40-60`,`60-80`],0,`30-35.`,8],
+[`Yenidoğanda kalp atımı (dk)?`,[`60-70`,`120-140`,`180-200`],1,`120-140.`,9],
+[`Kalp bir günde yaklaşık kaç ton kan pompalar?`,[`2`,`20`,`200`],1,`≈20 ton.`,9],
+[`İdrarın yüzde kaçı su?`,[`50`,`80`,`95`],2,`%95.`,9],
+[`Merkezi sinir sisteminden kaç çift sinir çıkar?`,[`12`,`31`,`43`],2,`43 çift.`,10],
+[`Beyinden kaç çift sinir çıkar (kafa çiftleri)?`,[`12`,`31`,`43`],0,`12 çift.`,10]
+];
+// eşleştirme setleri [başlık, [[sol, sağ]...]]
+const ESLES=[
+[`Organ ↔ görev`,[[`Böbrek`,`kanı süzer, atığı uzaklaştırır`],[`Üreter`,`idrarı mesaneye taşır`],[`İdrar kesesi`,`idrarı bir süre depolar`],[`Üretra`,`idrarı vücut dışına atar`],[`Diyafram`,`göğüs hacmini artırıp azaltır`],[`Soluk borusu`,`havadaki toz ve mikropları temizler`],[`Burun`,`havayı ısıtır, nemlendirir`],[`Bronşlar`,`soluk borusunun ikiye ayrılmasıyla oluşur`]]],
+[`Sistem ↔ organ`,[[`Sindirim`,`mide, ince bağırsak`],[`Solunum`,`akciğer, bronş`],[`Dolaşım`,`kalp, damarlar`],[`Boşaltım`,`böbrek, mesane`],[`Sinir`,`beyin, omurilik`],[`Sindirime yardımcı`,`karaciğer, pankreas`]]],
+[`Kavram ↔ anlam`,[[`Nicel`,`boy-kilo gibi rakamsal artış`],[`Niteliksel`,`sistemlerin çalışmasındaki değişim`],[`İç solunum`,`oksijenin hücrede kullanılması`],[`Dış solunum`,`oksijenin dış ortamdan alınması`],[`Küçük dolaşım`,`kalp-akciğer-kalp`],[`Büyük dolaşım`,`kalp-vücut-kalp`],[`Bıngıldak`,`kafatasındaki boşluk`],[`İstemsiz kas`,`kişiye bağlı olmadan çalışır`]]]
+];
+// sıralama [başlık, [adımlar doğru sırada]]
+const SIRA=[
+[`Sindirim yolu`,[`Ağız`,`Yutak`,`Yemek borusu`,`Mide`,`İnce bağırsak`,`Kalın bağırsak`]],
+[`Solunum yolu`,[`Burun`,`Yutak`,`Gırtlak`,`Soluk borusu`,`Bronşlar`,`Akciğerler`]],
+[`Boşaltım yolu`,[`Böbrek`,`Üreter`,`İdrar kesesi`,`Üretra`]],
+[`Hücreden sisteme`,[`Hücre`,`Doku`,`Organ`,`Sistem`]],
+[`Baş çevresi artışı (küçükten büyüğe)`,[`Doğum (≈35)`,`3. ay (40,5)`,`6. ay (43)`,`1 yaş (46)`]],
+[`Kas payının büyümesi`,[`Doğum (1/5-1/4)`,`Ergenlik (1/3)`,`Yetişkin (2/5)`]],
+[`Süt dişi çıkışı (başlangıç ayına göre)`,[`Alt ön dişler (6-10)`,`Üst ön dişler (8-12)`,`Köpek dişleri (16-22)`,`İkinci azılar (25-33)`]],
+[`Bebeğin hareket yol haritası`,[`2. ay: çevreyle etkileşim`,`3. ay: baş dik`,`5. ay: dönme`,`6. ay: oturma`]]
+];
+// kutulama: [başlık, [kategoriler], [[öğe, kategori idx, açıklama]]]
+const KUTU=[
+[`İstemli mi, istemsiz mi?`,[`İstemli kas`,`İstemsiz kas`],[[`Kol kası`,0,`İstediğimiz zaman çalıştırırız.`],[`Kalp kası`,1,`Biz karışmadan çalışır.`],[`Göz kapağı`,0,`İstemli.`],[`Mide kası`,1,`İstemsiz.`],[`Bacak kası`,0,`İstemli.`],[`Bağırsaklar`,1,`İstemsiz.`],[`Parmak kası`,0,`İstemli.`],[`Karaciğer`,1,`İstemsiz çalışan organ.`],[`Boyun kası`,0,`İstemli.`],[`Dalak`,1,`İstemsiz.`]]],
+[`Merkezi mi, çevresel mi?`,[`Merkezi sinir sistemi`,`Çevresel sinir sistemi`],[[`Beyin`,0,`Merkezi.`],[`Beyincik`,0,`Merkezi.`],[`Omurilik`,0,`Merkezi.`],[`Omurilik soğanı`,0,`Merkezi.`],[`Sinir lifleri`,1,`Çevresel.`]]],
+[`Nicel mi, niteliksel mi?`,[`Nicel`,`Niteliksel`],[[`Boy 3 cm uzadı`,0,`Rakamsal artış.`],[`Tek ayakla sıçrayabiliyor`,1,`Beceri / işlev.`],[`Kilosu 600 g arttı`,0,`Rakamsal.`],[`Düğme ilikleyebiliyor`,1,`Beceri.`],[`Baş çevresi 46 cm`,0,`Ölçüm.`],[`Koşarken yön değiştirebiliyor`,1,`Beceri.`]]],
+[`Hangi sisteme ait?`,[`Sindirim`,`Solunum`,`Dolaşım`,`Boşaltım`],[[`Mide`,0,`Sindirim.`],[`Akciğer`,1,`Solunum.`],[`Kalp`,2,`Dolaşım.`],[`Böbrek`,3,`Boşaltım.`],[`Pankreas`,0,`Sindirime yardımcı organ.`],[`Diyafram`,1,`Solunum.`],[`Damar`,2,`Dolaşım.`],[`Mesane`,3,`Boşaltım.`],[`Soluk borusu`,1,`Solunum.`],[`İnce bağırsak`,0,`Sindirim.`]]]
+];
+// boşluk doldurma [cümle(___), [şıklar], doğru, ders]
+const BOSLUK=[
+[`___, bedeni oluşturan tüm organların gelişmesi, boyun uzaması, kilonun artışı, kemiklerin gelişimi, dişlerin çıkması ve kasların gelişmesidir.`,[`Fiziksel gelişim`,`Sosyal gelişim`,`Dil gelişimi`],0,1],
+[`Vücudun hareket sisteminin aktif elemanları olup kemiklerin üzerini örten bölüme ___ denir.`,[`kaslar`,`sinirler`,`damarlar`],0,3],
+[`Oksijenin hücre düzeyinde kullanılmasına ___ denir.`,[`iç solunum`,`dış solunum`,`boşaltım`],0,8],
+[`Doğumu takip eden ___, yaşamın tüm dönemlerine oranla büyümenin en hızlı olduğu dönemdir.`,[`ilk iki yıl`,`ilk altı ay`,`ergenlik`],0,2],
+[`Yaklaşık ___ yaş civarında vücudun genel görünümü yetişkine benzer.`,[`6`,`2`,`12`],0,2],
+[`___ mide, kalp, karaciğer, dalak, bağırsaklar gibi organlardaki, kişiye bağlı olmadan çalışan kaslardır.`,[`İstemsiz kaslar`,`İstemli kaslar`,`Kemik kasları`],0,3],
+[`Yenidoğan bebekte toplam ___ kemik vardır.`,[`270`,`206`,`180`],0,4],
+[`Süt dişleri ___ adet olup 2-2,5 yaşına kadar tamamlanır.`,[`20`,`28`,`32`],0,5],
+[`Yenidoğan bebeğin kafatasında ___ tane bıngıldak vardır.`,[`6`,`8`,`10`],0,4],
+[`Kalp dakikada ortalama ___ kez kasılır.`,[`70`,`40`,`150`],0,9],
+[`Merkezi sinir sisteminden ___ çift sinir çıkar.`,[`43`,`31`,`12`],0,10],
+[`Bebek başını ___ ayda dik tutmaya başlar.`,[`3.`,`1.`,`8.`],0,10]
+];
+
+/* Etkinlik kütüphanesi: kitaptaki 11 oyun/etkinlik (özgün özet) */
+const ETK=[
+{id:1,ad:`Top oyunu`,ikon:`⚽`,amac:`Büyük ve küçük kas gelişimi`,yas:`Bebeklik`,arac:`Top`,ozet:`Oturabilen bebeğin önüne top yuvarla; tutmaya ve yuvarlamaya çalışır. Emekleyen bebek topu yakalamak için ona doğru sürünür.`,tur:`kas`},
+{id:2,ad:`Zıp zıp zıpla`,ikon:`🐸`,amac:`Büyük kas gelişimi`,yas:`Okul öncesi`,arac:`—`,ozet:`Çocuklar tekerlemeyi söyleyip hareketleri yapar: zıp zıp zıpla (tek ayakla zıpla), hop hop hopla (iki ayakla hopla), top top topla (son iki hecede yere çömel).`,tur:`kas`},
+{id:3,ad:`Büyü büyü, küçül küçül`,ikon:`🌳`,amac:`Büyük kas gelişimi`,yas:`Okul öncesi`,arac:`—`,ozet:`"Büyü" kısmında kollar yukarı, parmak ucuna yüksel; "Küçül" kısmında kollar iner, çömelerek küçül. İki bölüm ara vermeden birbirine geçer.`,tur:`kas`},
+{id:4,ad:`On parmak`,ikon:`🖐️`,amac:`Büyük ve küçük kas gelişimi`,yas:`Okul öncesi`,arac:`—`,ozet:`Parmak oyunu tekerlemesi: eller açılır, yumruk yapılır, kavuşturulur, arkaya saklanır, yukarı kalkar, aşağı iner ve kucakta dinlenir.`,tur:`kas`},
+{id:5,ad:`Hızlı mandallar`,ikon:`📎`,amac:`Küçük kas gelişimi`,yas:`4-5 yaş`,arac:`Mandal`,ozet:`İki grup karşılıklı sıraya girer; her çocuk sırayla mandalları ebenin üstüne takıp sıranın arkasına geçer. En hızlı bitiren grup birinci olur.`,tur:`kas`},
+{id:6,ad:`Kemik ve diş afişi`,ikon:`🖼️`,amac:`Kemik ve diş sağlığı bilinci`,yas:`Öğrenci uygulaması`,arac:`Karton, boya`,ozet:`Kemik ve diş sağlığına yönelik bir afiş hazırla; sınıfta arkadaşlarınla tartışarak incele.`,tur:`bilgi`},
+{id:7,ad:`Günaydın (benimle gelme)`,ikon:`🏃`,amac:`Solunumu destekleme`,yas:`Okul öncesi`,arac:`—`,ozet:`Halkada çocuklar durur; ebe dışarıdan koşarken birinin sırtına dokunup "Benimle gelme" der. İki oyuncu ters yönde koşar, karşılaşınca eğilip selamlaşır ve boş yere önce varmaya çalışır; kapamayan ebe olur.`,tur:`solunum`},
+{id:8,ad:`Bahçedeki midilli`,ikon:`🐴`,amac:`Solunum organlarının düzgün çalışması`,yas:`Okul öncesi`,arac:`—`,ozet:`Çocuklar el ele halka olur, midilli ortadadır. "Bahçemize nasıl girdin?" "İçeriye atladım." "Nasıl çıkacaksın?" "İşte böyle!" Midilli kolların altından çıkmaya çalışır; çıkınca 3-4 koşucu onu yakalamaya gider.`,tur:`solunum`},
+{id:9,ad:`Ağaçlardaki sincaplar`,ikon:`🐿️`,amac:`Büyük ve küçük kas gelişimi`,yas:`Okul öncesi`,arac:`—`,ozet:`7-8 kişilik gruplar daire olup ağaç olur, ortadaki çocuk sincaptır, dışta ebe vardır. Düdükle sincaplar kendi ağacından çıkıp başka ağaca koşar; dışarıda kalan ebe sincap olur.`,tur:`kas`},
+{id:10,ad:`Sıkı sıkı sarılalım`,ikon:`🤗`,amac:`Büyük ve küçük kas gelişimi`,yas:`Okul öncesi`,arac:`Düdük`,ozet:`Çocuklar bahçede dağınık dolaşır; öğretmen düdük çalıp parmakla bir sayı gösterir. Çocuklar o sayıda grup olup sıkıca sarılır; sayıyı tamamlayamayan ya da tek kalan elenir.`,tur:`kas`},
+{id:11,ad:`Yağmur - kar - fırtına`,ikon:`🌧️`,amac:`Büyük ve küçük kas gelişimi`,yas:`Okul öncesi`,arac:`—`,ozet:`Yağmur: parmakları yere doğru çevirerek kollar aşağı yukarı. Kar: eller göğse vurulur. Fırtına: "vuuuu" sesi ve el çırpma. Önce deneme, sonra oyun; yanılan seyirci olur.`,tur:`kas`}
+];
+// uygulama faaliyeti işlem basamakları
+const GOZLEM=[
+`Okul öncesi eğitim kurumuna (anaokulu/kreş) git.`,
+`Boy, kilo, diş gibi 0-72 ay gelişim bilgilerini hazırla.`,
+`Gözlem yapacağın etkinliğin zamanını öğretmenle belirle.`,
+`Etkinlik sırasında çocukları gözlemle; izin alarak fotoğraf/kamera kaydı yap.`,
+`Çektiklerinle çocukların boy, kilo, diş gelişimini karşılaştır.`,
+`Edindiğin bilgilerden yola çıkarak bir grafik hazırla.`,
+`Grafiğini sınıfa getirip arkadaşlarınla paylaş.`,
+`Raporlarını arkadaşlarınla benzerlik ve farklılık yönünden objektif biçimde tartış.`];
+
+/* Vakalar: {s, ar?, o:[[metin, doğru?, geri bildirim]]} */
+const VAKA=[
+{id:'v1',ad:`Geç Kapanan Bıngıldak`,ikon:`👶`,ozet:`10 aylık Elif'in bıngıldağı hâlâ geniş.`,
+giris:`Kreşte çalışıyorsun. Aile, 10 aylık Elif'in tepesindeki yumuşak boşluğun hâlâ açık olduğunu fark etmiş ve sana soruyor.`,
+adim:[
+{s:`Önce bilgiyi hatırla: tepedeki bıngıldak ne zaman kapanır?`,o:[[`12-18 ay arasında`,1,`Doğru. Beş bıngıldak ilk günlerde kapanır; tepedeki 12-18 ayda kapanır.`],[`İlk haftada`,0,`İlk günlerde kapananlar diğer beş boşluktur.`],[`3. ayda`,0,`3 aydan önce kapanma doktora başvurulması gereken durumdur.`]]},
+{s:`Elif 10 aylık. Bu durum için ne söylersin?`,o:[[`Henüz normal sınırlar içinde; yine de izlenir`,1,`Evet, 12-18 ay aralığı var. Baş çevresi ve genel gelişim izlenmeli.`],[`Kesin hastalık var`,0,`Acele yargı yok; aralık henüz dolmadı.`],[`Hiç önemli değil, hiç bakılmasın`,0,`Büyüme izlenmeli, belirgin sapma olursa uzmana gidilir.`]]},
+{s:`Aile bıngıldak 20. ayda da açıksa ne yapmalı?`,o:[[`Doktora başvurup D vitamini ve tiroid hormonları açısından değerlendirilmeli`,1,`Geç kapanma D vitamini eksikliği ya da hipotiroidi ile ilişkili olabilir.`],[`Evde bekleyip bir yıl daha izlemek`,0,`Geç kapanma uzman değerlendirmesi gerektirir.`],[`Bebeği bol tuzlu beslemek`,0,`İlgisiz ve zararlı.`]]}]},
+{id:'v2',ad:`Düğme İlikleyemeyen Mert`,ikon:`🧒`,ozet:`3 yaşındaki Mert koşuyor ama düğmeyi ilikleyemiyor.`,
+giris:`Anaokulunda öğretmen Zeynep, 3 yaşındaki Mert'in çok iyi koşup zıpladığını, ama düğme ilikleyemediğini görüyor. Ailesi endişeli.`,
+adim:[
+{s:`Bu durumu hangi bilgi açıklar?`,o:[[`Önce büyük kaslar, sonra küçük kaslar gelişir`,1,`Kaba motor beceriler ince motordan önce gelişir.`],[`Önce küçük kaslar gelişir`,0,`Tam tersi.`],[`Kaslar hiç gelişmez`,0,`Gelişir; sıra önemli.`]]},
+{s:`Zeynep ince motor için hangi etkinliği önerir?`,o:[[`Hızlı mandallar ya da on parmak parmak oyunu`,1,`Küçük kasları çalıştıran etkinlikler.`],[`Sadece koşma yarışı`,0,`Büyük kasları çalıştırır.`],[`Hiçbir şey, beklenir`,0,`Destekleyici etkinlik yapmak yararlıdır.`]]},
+{s:`Anneye ne söylersin?`,o:[[`Gelişim sırası normal; destekleyici oyunlarla ilerler`,1,`Sorun yok ama destek olunur.`],[`Mert geri kalmış`,0,`Yanlış yargı.`],[`Okulu bıraksın`,0,`Alakasız.`]]}]},
+{id:'v3',ad:`Bebeğin Nefes Hızı`,ikon:`😮‍💨`,ozet:`Yenidoğanın nefesi neden hızlı?`,
+giris:`Yeni anne olan Ayşe, bebeğinin çok hızlı ve karnıyla nefes aldığını görüp korkuyor.`,
+adim:[
+{s:`Yenidoğanın dakikada normal nefes sayısı?`,o:[[`40-60`,1,`Doğru.`],[`10-20`,0,`Yetişkin düzeyi.`],[`80-100`,0,`Çok yüksek.`]]},
+{s:`Karnıyla nefes almasının nedeni?`,o:[[`Kaburgalar yatay olduğu için karın kaslarını kullanır`,1,`Evet, bebek solunumu daha çok karın kaslarıyla yapar.`],[`Hasta olduğu için`,0,`Normal bir özelliktir.`],[`Uyuduğu için`,0,`Uykuyla ilgili değil.`]]},
+{s:`Nefes yollarının özellikleri?`,o:[[`Dar ve kısa; bu yüzden daha sık nefes alır`,1,`Doğru.`],[`Geniş ve uzun`,0,`Tersi.`],[`Yok`,0,`Vardır.`]]}]},
+{id:'v4',ad:`Diş Fırçası Savaşı`,ikon:`🪥`,ozet:`2 yaşındaki Deniz dişlerini fırçalamak istemiyor.`,
+giris:`2 yaşındaki Deniz'in süt dişleri çıkmış ama fırçalama saatinde ağlıyor. Aile ne yapacağını bilmiyor.`,
+adim:[
+{s:`Fırçalama alışkanlığı ne zaman kazandırılır?`,o:[[`Süt dişleri çıkar çıkmaz`,1,`Doğru; fırça ve diş ipi alışkanlığı erken başlar.`],[`Kalıcı dişler çıkınca`,0,`Çok geç.`],[`Hiç gerek yok`,0,`Süt dişleri de korunmalıdır.`]]},
+{s:`Fırça ne sıklıkta değiştirilir?`,o:[[`3-5 ayda bir`,1,`Doğru.`],[`Yılda bir`,0,`Çok seyrek.`],[`Hiç değiştirilmez`,0,`Yanlış.`]]},
+{s:`Hangisi diş sağlığını korur?`,o:[[`Şekerli gıdaları sık yememek, kalsiyum/vitaminli beslenme`,1,`Doğru.`],[`Sert yiyecekleri dişle kırmak`,0,`Kırılabilir.`],[`Dişleri iğneyle temizlemek`,0,`Zararlı.`]]}]},
+{id:'v5',ad:`Hareketsiz Çocuk`,ikon:`🛋️`,ozet:`Bahçeye çıkmak istemeyen bir çocuk.`,
+giris:`5 yaşındaki Tuna bahçeye çıkmak istemiyor; sürekli oturuyor ve arkadaşlarıyla oynamıyor. Öğretmen çok endişeli.`,
+adim:[
+{s:`Fiziksel gelişim diğer alanlarla nasıl ilişkilidir?`,o:[[`Fiziksel gelişim bilişsel, sosyal ve duygusal alanları doğrudan etkiler`,1,`Doğru; temelidir.`],[`Hiçbir ilişki yok`,0,`Yakın ilişki var.`],[`Sadece boyla ilgili`,0,`Hayır.`]]},
+{s:`Açık hava oyunu ne sağlar?`,o:[[`Kas çalışır, kan dolaşımı hızlanır, sosyalleşme ve enerji boşalması olur`,1,`Doğru.`],[`Sadece yorulma`,0,`Çok daha fazlası var.`],[`Hiçbir şey`,0,`Yanlış.`]]},
+{s:`Öğretmen ne yapmalı?`,o:[[`Esnek, yalın kurallı, grup ya da bireysel oynayabileceği oyunlar sunmalı`,1,`Çocuğa özgürlük tanınmalı.`],[`Zorla oynatmalı`,0,`Baskı yarardan çok zarar getirir.`],[`Ceza vermeli`,0,`Uygun değil.`]]}]}
+];
+
+/* Kartlar [soru, cevap, ders] */
+const KART=[
+[`Nicel gelişim nedir?`,`Ağırlık ve boydaki rakamsal artış.`,1],
+[`Niteliksel gelişim nedir?`,`Sistemlerin çalışmasındaki değişim; ör. 6 yaşında tek ayakla sıçrama.`,1],
+[`Gelişimin yönü nedir?`,`Baştan ayağa, merkezden dışa.`,1],
+[`BUTA nedir?`,`Beslenme, Uyku, Temizlik, Açık hava: sağlıklı gelişimin dört şartı.`,1],
+[`Psikomotor gelişim neyle başlar?`,`Basit reflekslerle; sonra baş-boyun-gövde kontrolü, oturma, emekleme, yürüme...`,1],
+[`Yenidoğan boyu?`,`48-53 cm.`,2],
+[`Yenidoğan kilosu?`,`2500-3500 g.`,2],
+[`En hızlı büyüme dönemi?`,`Doğumu izleyen ilk iki yıl.`,2],
+[`Vücut hangi yaşta yetişkin görünümüne benzer?`,`Yaklaşık 6 yaş.`,2],
+[`Kasların beden ağırlığına oranı?`,`Doğumda 1/5-1/4, ergenlikte 1/3, yetişkinde 2/5.`,3],
+[`Kaslar hangi sırayla gelişir?`,`Önce büyük, sonra küçük kaslar (kaba motor → ince motor).`,3],
+[`İstemli kas örneği?`,`Kol, boyun, baş, bacak, parmak, göz kapağı.`,3],
+[`İstemsiz kas örneği?`,`Mide, kalp, karaciğer, dalak, bağırsaklar.`,3],
+[`Kaslar neden önemlidir?`,`İskeleti hareket ettirir, enerji deposudur, konuşmaya, dolaşıma ve solunuma yardımcı olur.`,3],
+[`Kızlar ve erkekler motor beceride nasıl farklıdır?`,`Kızlar ince motorda, erkekler kaba motorda daha iyi gözlenmiştir.`,3],
+[`Yenidoğanda kemik sayısı?`,`270.`,4],
+[`Yenidoğanda baş, beden büyüklüğünün kaçta kaçıdır?`,`1/4 (yetişkinde 1/8).`,4],
+[`Baş çevresi (doğum, 3. ay, 6. ay, 1 yaş)?`,`≈35, 40,5, 43, 46 cm.`,4],
+[`Göğüs çevresi (doğum, 1 yaş, 5 yaş)?`,`33, 47, 55 cm; 1 yaşından sonra baş çevresini geçer.`,4],
+[`Bıngıldak sayısı ve kapanması?`,`6 adet; 5'i ilk günlerde, tepedeki 12-18 ay arasında kapanır.`,4],
+[`Bıngıldak geç kapanırsa ne düşünülür?`,`D vitamini eksikliği veya hipotiroidi.`,4],
+[`Çökük bıngıldağın olası nedeni?`,`Yetersiz beslenme veya sıvı kaybı.`,4],
+[`İlk diş ne zaman çıkar?`,`Yaklaşık 6-10. ay (bazen 12. aya kadar).`,5],
+[`Süt dişi sayısı ve tamamlanma yaşı?`,`20 adet; 2-2,5 yaş.`,5],
+[`Süt dişleri ne zaman düşmeye başlar?`,`Yaklaşık 7 yaş.`,5],
+[`12 yaşında kalıcı diş sayısı?`,`28.`,5],
+[`İlk düşen diş?`,`Genellikle alt ön kesiciler.`,5],
+[`Diş gelişiminde kızlar mı erkekler mi önde?`,`Kızlar yaklaşık bir yıl önde.`,5],
+[`Diş fırçası kaç ayda bir değişir?`,`3-5 ayda bir.`,5],
+[`Fiziksel gelişimi etkileyen iki ana faktör?`,`Kalıtım ve çevre.`,6],
+[`Kalıtımla belirlenenler?`,`Cinsiyet, göz-ten-saç rengi ve biçimi, boy, genetik hastalıklar.`,6],
+[`Çevresel faktör örnekleri?`,`Doğum olayları, kazalar, annenin yetersiz beslenmesi, sigara-alkol-uyuşturucu.`,6],
+[`Kuşaklar neden daha iri ve uzun?`,`Sağlık koşulları, beslenme, hijyen, tıbbi yardım, bilinçli ebeveynler.`,6],
+[`Hücre → ? → ? → ?`,`Doku → organ → sistem.`,7],
+[`Kitaptaki sistemler?`,`Sindirim, solunum, kalp-kan dolaşımı, boşaltım, beyin-sinir.`,7],
+[`Sindirime yardımcı organlar?`,`Karaciğer ve pankreas.`,8],
+[`Bebek neden az ve sık beslenmelidir?`,`Midesi küçük olduğu ve çabuk acıkacağı için.`,8],
+[`İç solunum / dış solunum?`,`İç: oksijenin hücrede kullanımı; dış: oksijenin dış ortamdan alınması.`,8],
+[`Bebeklerde dakikadaki nefes sayısı?`,`Yenidoğan 40-60, 3 aylık 35-40, 1 yaşında 30-35.`,8],
+[`Bebek nefesi neden hızlı ve yüzeyseldir?`,`Solunum yolları dar-kısa, kaburgalar yatay; karın kaslarıyla soluma.`,8],
+[`Diyafram ne yapar?`,`Kasılıp gevşeyerek göğüs hacmini artırıp azaltır; akciğerlere hava dolar.`,8],
+[`Kalp dakikada kaç kez atar?`,`Ortalama 70 (yenidoğan 120-140, yetişkin 60-70).`,9],
+[`Kalp günde kaç ton kan pompalar?`,`Yaklaşık 20 ton.`,9],
+[`Küçük ve büyük dolaşım?`,`Küçük: kalp-akciğer-kalp. Büyük: kalp-vücut-kalp.`,9],
+[`Antikorlar bebeği kaç ay korur?`,`İlk 2-3 ay; 3. aydan sonra etkisi azalır, aşı gerekir.`,9],
+[`Boşaltım yolu?`,`Böbrek → üreter → idrar kesesi → üretra.`,9],
+[`İdrarın içeriği?`,`%95 su; üre, ürik asit, tuz.`,9],
+[`Merkezi sinir sistemi organları?`,`Beyin, beyincik, omurilik soğanı, omurilik.`,10],
+[`43 çift sinir nasıl ayrılır?`,`12 çift beyinden (kafa çiftleri), 31 çift omurilikten.`,10],
+[`Nöron hücreleri hakkında kitap ne der?`,`Doğumda hepsi vardır; kaybolan hücrenin yerine yenisi oluşmaz.`,10],
+[`Motor yol haritası?`,`2. ay çevre ile etkileşim, 3. ay baş dik, 5. ay dönme, 6. ay oturma.`,10]
+];
+
+/* Sınav havuzu [soru,[şıklar],doğru idx,ders,açıklama] */
+const SINAV=[
+[`Aşağıdakilerden hangisi fiziksel gelişimi sağlıklı kılan dört şarttan biri <b>değildir</b>?`,[`Yeterli ve dengeli beslenme`,`Düzenli uyku`,`Ekran başında uzun oturma`],2,1,`Dört şart: beslenme, uyku-dinlenme, temizlik-hastalıktan korunma, açık hava-bedensel etkinlik.`],
+[`6 yaşında tek ayak üzerinde sıçrama hangi gelişime örnektir?`,[`Nicel`,`Niteliksel`,`Duygusal`],1,1,`Niteliksel.`],
+[`Yenidoğanın boyu hangi aralıktadır?`,[`40-45 cm`,`48-53 cm`,`55-60 cm`],1,2,`48-53 cm.`],
+[`Büyümenin en hızlı olduğu dönem?`,[`İlk iki yıl`,`Okul çağı`,`Yetişkinlik`],0,2,`Doğumu izleyen ilk iki yıl.`],
+[`Kasların beden ağırlığına oranı yetişkinde?`,[`1/5`,`1/3`,`2/5`],2,3,`2/5.`],
+[`Hangisi istemsiz kastır?`,[`Parmak kası`,`Kalp kası`,`Boyun kası`],1,3,`Kalp.`],
+[`Hangi beceri önce gelişir?`,[`Düğme ilikleme`,`Zıplama`,`Makas kullanma`],1,3,`Önce büyük kaslar.`],
+[`Yenidoğanda kemik sayısı?`,[`206`,`270`,`300`],1,4,`270.`],
+[`Yenidoğanda baş beden büyüklüğünün kaçta kaçıdır?`,[`1/2`,`1/4`,`1/8`],1,4,`1/4.`],
+[`Yenidoğanın kafatasındaki bıngıldak sayısı?`,[`6`,`4`,`8`],0,4,`6.`],
+[`Bıngıldağın geç kapanması hangisiyle ilişkili olabilir?`,[`D vitamini eksikliği`,`C vitamini fazlalığı`,`Kalsiyum fazlalığı`],0,4,`D vitamini eksikliği, hipotiroidi.`],
+[`Süt dişi sayısı?`,[`16`,`20`,`28`],1,5,`20.`],
+[`İlk dişler yaklaşık hangi ayda çıkar?`,[`6-10`,`12-18`,`24-30`],0,5,`6-10. ay.`],
+[`12 yaşında ağızda kaç kalıcı diş bulunur?`,[`20`,`28`,`32`],1,5,`28.`],
+[`Hangisi kalıtımla belirlenir?`,[`Göz rengi`,`Beslenme düzeni`,`Spor alışkanlığı`],0,6,`Göz rengi.`],
+[`Çevresel faktör hangisidir?`,[`Annenin yetersiz beslenmesi`,`Cinsiyet`,`Saç biçimi`],0,6,`Annenin beslenmesi.`],
+[`Hücrelerden sisteme doğru sıra?`,[`Doku-hücre-organ-sistem`,`Hücre-doku-organ-sistem`,`Organ-doku-hücre-sistem`],1,7,`Hücre-doku-organ-sistem.`],
+[`Sindirime yardımcı organlar?`,[`Karaciğer ve pankreas`,`Kalp ve böbrek`,`Akciğer ve diyafram`],0,8,`Karaciğer, pankreas.`],
+[`Yenidoğanın dakikadaki nefes sayısı?`,[`10-20`,`40-60`,`70-90`],1,8,`40-60.`],
+[`Oksijenin hücrede kullanılmasına ne denir?`,[`Dış solunum`,`İç solunum`,`Sindirim`],1,8,`İç solunum.`],
+[`Yenidoğanın kalp atım hızı?`,[`60-70`,`120-140`,`200-220`],1,9,`120-140.`],
+[`Küçük dolaşım hangisidir?`,[`Kalp-akciğer-kalp`,`Kalp-vücut-kalp`,`Beyin-kalp-beyin`],0,9,`Kalp-akciğer-kalp.`],
+[`Antikorlar bebeği yaklaşık ne kadar korur?`,[`İlk 2-3 ay`,`İlk 2 yıl`,`Hayat boyu`],0,9,`İlk 2-3 ay.`],
+[`Boşaltım yolu sırası?`,[`Böbrek-üreter-mesane-üretra`,`Böbrek-mesane-üretra-üreter`,`Üretra-mesane-üreter-böbrek`],0,9,`Böbrek-üreter-mesane-üretra.`],
+[`Merkezi sinir sisteminden çıkan sinir çifti sayısı?`,[`31`,`43`,`12`],1,10,`43.`],
+[`Hangisi merkezi sinir sisteminde yer alır?`,[`Beyincik`,`Sinir lifi`,`Kas`],0,10,`Beyincik.`],
+[`Baş dik tutma hangi ayda görülür?`,[`1.`,`3.`,`9.`],1,10,`3. ay.`]
+];
+const KONU={1:`Temel kavramlar`,2:`Temel kavramlar`,3:`Beden yapıları`,4:`Beden yapıları`,5:`Beden yapıları`,6:`Temel kavramlar`,7:`Sistemler`,8:`Sistemler`,9:`Sistemler`,10:`Sistemler ve beyin`};
+
+/* Sözlük [terim, açıklama] */
+const SOZLUK=[
+[`Fiziksel gelişim`,`Bedenin ağırlıkça ve boyca büyümesi ile alt sistemlerinin büyüyüp olgunlaşması.`],
+[`Nicel gelişim`,`Ağırlık ve boydaki rakamsal artış.`],
+[`Niteliksel gelişim`,`Sistem ve bedeni oluşturan unsurların çalışmasındaki değişim.`],
+[`Psikomotor gelişim`,`Hareketlerin reflekslerden beceriye doğru ilerlemesi.`],
+[`Kaba motor`,`Büyük kasların kullanıldığı koşma, zıplama gibi hareketler.`],
+[`İnce motor`,`Küçük kasların kullanıldığı düğme ilikleme, makas kullanma gibi hareketler.`],
+[`İstemli kas`,`İstenilen zamanda çalıştırılan kas.`],
+[`İstemsiz kas`,`Kişiye bağlı olmadan çalışan kas.`],
+[`Kemikleşme`,`Kıkırdak dokunun mineraller (kalsiyum, fosfat) ile kemiğe dönüşmesi.`],
+[`Bıngıldak (fontonel)`,`Yenidoğan kafatasındaki kemikler arası boşluk.`],
+[`Hipotiroidi`,`Tiroid bezinin az çalışması.`],
+[`Süt dişi`,`İlk çıkan 20 geçici diş.`],
+[`Kalıcı diş`,`Süt dişlerinin yerini alan dişler; 12 yaşta 28.`],
+[`Kalıtım`,`Anne-babadan genler yoluyla geçen özellikler.`],
+[`Çevre`,`Doğum öncesi, sırası ve sonrasındaki etkenlerin tümü.`],
+[`Hücre`,`Vücudun ana birimi.`],
+[`Doku`,`Hücreler ve aralarındaki maddenin birleşmesi.`],
+[`Organ`,`Biçimsel ve işlevsel birimler.`],
+[`Sistem`,`Aynı işlevi gören organ topluluğu.`],
+[`İç solunum`,`Oksijenin hücre düzeyinde kullanımı.`],
+[`Dış solunum`,`Oksijenin dış ortamdan alınması.`],
+[`Diyafram`,`Göğüs boşluğunun hacmini değiştiren kas.`],
+[`Küçük dolaşım`,`Kalp → akciğer → kalp.`],
+[`Büyük dolaşım`,`Kalp → vücut → kalp.`],
+[`Antikor`,`Mikroplara karşı koruyan madde; plasenta yoluyla geçer.`],
+[`Boşaltım`,`Zararlı/fazla maddelerin vücuttan uzaklaştırılması.`],
+[`Üreter`,`Böbrekten mesaneye idrar taşıyan boru.`],
+[`Üretra`,`İdrarı vücut dışına atan kanal.`],
+[`Mesane`,`İdrar kesesi.`],
+[`Merkezi sinir sistemi`,`Beyin, beyincik, omurilik soğanı, omurilik.`],
+[`Çevresel sinir sistemi`,`Sinir lifleri.`],
+[`Kafa çiftleri`,`Beyinden çıkan 12 çift sinir.`],
+[`Nöron`,`Sinir hücresi.`]
+];
+
+/* Minik Adımlar — uygulama */
+const KEY=`fizgel1:durum`;
+const INT=[0,1,3,7,14,30];
+const SEK=[[`yol`,`🧭 Yol`],[`ders`,`📚 Dersler`],[`oyun`,`🎮 Oyunlar`],[`vaka`,`🎭 Vakalar`],[`etkinlik`,`🧸 Etkinlik`],[`kart`,`🗂️ Kartlar`],[`sinav`,`📝 Sınav`],[`sozluk`,`📖 Sözlük`],[`ben`,`🏅 Ben`]];
+const SEVIYE=[[0,`Minik Gözlemci`],[100,`Meraklı Bakıcı`],[250,`Gelişim Takipçisi`],[500,`Çocuk Dostu`],[900,`Uzman Adayı`],[1400,`Gelişim Uzmanı`],[2000,`Usta Eğitimci`]];
+const OYUN=[
+[`dy`,`Doğru mu, Yanlış mı?`,`⚡`,`Hızlı mit avı: kitaptaki bilgileri sına.`],
+[`rakam`,`Rakam Avı`,`🔢`,`Kaç cm, kaç adet, kaç ay? Sayıları akılda tut.`],
+[`esles`,`Eşleştirme`,`🔗`,`Organ-görev, sistem-organ, kavram-anlam.`],
+[`sirala`,`Yolu Sırala`,`🛤️`,`Sindirim, solunum, boşaltım ve gelişim yolları.`],
+[`kutu`,`Kutulara Ayır`,`📦`,`İstemli/istemsiz, merkezi/çevresel, nicel/niteliksel...`],
+[`bosluk`,`Boşluğu Doldur`,`✏️`,`Eksik kelimeyi bul.`],
+[`etk`,`Etkinlik Dedektifi`,`🧸`,`Bu oyun hangi gelişimi destekler?`]];
+const ROZET=[
+[`ilk`,`İlk Adım`,`🌱`,`İlk dersi tamamla`,s=>Object.keys(s.bitti).length>=1],
+[`yari`,`Yolun Yarısı`,`🚶`,`5 ders bitir`,s=>Object.keys(s.bitti).length>=5],
+[`hepsi`,`Bölümü Bitirdin`,`📘`,`10 dersin hepsi`,s=>Object.keys(s.bitti).length>=10],
+[`seri3`,`3 Gün Üst Üste`,`🔥`,`3 günlük seri`,s=>s.seri>=3],
+[`seri7`,`7 Gün Üst Üste`,`🌋`,`7 günlük seri`,s=>s.seri>=7],
+[`xp250`,`250 Puan`,`⭐`,`250 XP topla`,s=>s.xp>=250],
+[`xp1000`,`1000 Puan`,`🌟`,`1000 XP topla`,s=>s.xp>=1000],
+[`dogru50`,`50 Doğru`,`🎯`,`Toplam 50 doğru cevap`,s=>s.say>=50],
+[`mukemmel`,`Kusursuz Tur`,`💎`,`Bir etkinlikte %100`,s=>Object.values(s.oyun).some(o=>o.en>=100)],
+[`kart20`,`Kart Kurdu`,`🗂️`,`20 kart tekrarı`,s=>s.tekr>=20],
+[`vaka3`,`Dedektif`,`🎭`,`3 vakayı bitir`,s=>Object.keys(s.vaka).length>=3],
+[`grafik`,`Grafikçi`,`📈`,`Grafiğe 3 gözlem noktası ekle`,s=>s.gor.length>=3],
+[`gozlem`,`Saha Görevlisi`,`📋`,`Gözlem planının 8 adımı`,s=>Object.keys(s.goz).length>=8],
+[`sinav80`,`Sertifikalı`,`🎓`,`Sınavda %80+`,s=>s.sinav.some(x=>x.puan>=80)]];
+const VARS={xp:0,seri:0,son:``,bitti:{},kart:{},oyun:{},vaka:{},sinav:[],yanlis:{},tema:``,yazi:1,rozet:{},gun:{t:``,ders:0,oyun:0,kart:0},say:0,tekr:0,gor:[],goz:{}};
+let S=JSON.parse(JSON.stringify(VARS));
+try{const k=JSON.parse(localStorage.getItem(KEY)||`null`);if(k)S=Object.assign(S,k)}catch(e){}
+const kaydet=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+let T=`yol`,R={};
+const $=s=>document.querySelector(s);
+const kar=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const sec=(a,n)=>kar(a).slice(0,n);
+const bugun=()=>{const d=new Date();return d.getFullYear()+`-`+(d.getMonth()+1)+`-`+d.getDate()};
+const gunNo=()=>Math.floor(Date.now()/864e5);
+const seviye=()=>{let r=SEVIYE[0];for(const s of SEVIYE)if(S.xp>=s[0])r=s;return r};
+const sonraki=()=>SEVIYE.find(s=>s[0]>S.xp);
+function toast(m){const t=document.createElement(`div`);t.className=`toast`;t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),2600)}
+function konfeti(){if(matchMedia(`(prefers-reduced-motion:reduce)`).matches)return;const e=[`🎉`,`✨`,`⭐`,`🌟`,`🧸`];for(let i=0;i<22;i++){const s=document.createElement(`span`);s.className=`konfeti`;s.textContent=e[i%e.length];s.style.left=Math.random()*100+`vw`;s.style.animationDelay=Math.random()*.6+`s`;document.body.appendChild(s);setTimeout(()=>s.remove(),2600)}}
+function gunYenile(){const b=bugun();if(S.gun.t!==b){S.gun={t:b,ders:0,oyun:0,kart:0}}}
+function etkin(){gunYenile();const b=bugun();if(S.son!==b){const d=new Date();d.setDate(d.getDate()-1);const dun=d.getFullYear()+`-`+(d.getMonth()+1)+`-`+d.getDate();S.seri=S.son===dun?S.seri+1:1;S.son=b}}
+function xpEkle(n,ne){etkin();S.xp+=n;if(ne&&S.gun[ne]!==undefined)S.gun[ne]++;rozetKontrol();kaydet();ust()}
+function rozetKontrol(){for(const r of ROZET){if(!S.rozet[r[0]]&&r[4](S)){S.rozet[r[0]]=1;toast(`Yeni rozet: ${r[2]} ${r[1]}`);konfeti()}}}
+function ust(){$(`#xp`).textContent=`⭐ `+S.xp;$(`#seri`).textContent=`🔥 `+S.seri;document.documentElement.style.fontSize=[15,16,18,20][S.yazi]+`px`}
+function sekmeler(){$(`#sek`).innerHTML=SEK.map(x=>`<button class="tab ${T===x[0]?`on`:``}" data-a="git" data-v="${x[0]}">${x[1]}</button>`).join(``)}
+const yukari=()=>window.scrollTo(0,0);
+function tema(){const t=S.tema||(matchMedia(`(prefers-color-scheme:dark)`).matches?`dark`:`light`);document.documentElement.dataset.theme=t}
+const halka=(p,r=30)=>{const c=2*Math.PI*r;return `<div class="halka"><svg width="78" height="78" viewBox="0 0 78 78"><circle cx="39" cy="39" r="${r}" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="8"/><circle cx="39" cy="39" r="${r}" fill="none" stroke="#fde68a" stroke-width="8" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-p)}"/></svg><b>${Math.round(p*100)}%</b></div>`};
+const bitenSay=()=>Object.keys(S.bitti).length;
+const ilerle=p=>`<div class="ilerleme"><i style="width:${Math.round(p*100)}%"></i></div>`;
+
+/* ---------- YOL ---------- */
+function vYol(){
+ gunYenile();const p=bitenSay()/DERS.length,sv=seviye(),sn=sonraki();
+ const siradaki=DERS.find(d=>!S.bitti[d.id]);
+ const zayif=Object.entries(S.yanlis).sort((a,b)=>b[1]-a[1])[0];const g=S.gun;
+ let h=`<section class="hero"><h1>Minik Adımlar</h1><p>0-72 ay fiziksel gelişimi hikâyeyle, oyunla ve tekrarla öğren.</p>
+ <div class="ozet">${halka(p)}<div><b>${sv[1]}</b><div style="opacity:.9">${S.xp} XP${sn?` · sonraki seviye için ${sn[0]-S.xp} XP`:``}</div><div style="opacity:.9">${bitenSay()}/${DERS.length} ders tamam</div></div></div>
+ <div style="margin-top:.8rem">${siradaki?`<button class="btn" data-a="ders" data-v="${siradaki.id}">▶ ${bitenSay()?`Devam et`:`Başla`}: ${siradaki.ad}</button>`:`<button class="btn" data-a="git" data-v="sinav">🎓 Sınava gir</button>`}<button class="btn" style="background:rgba(255,255,255,.2);color:#fff" data-a="gunluk">⚡ Günün meydan okuması</button></div></section>`;
+ h+=`<div class="kart"><h3>📅 Bugünün planı</h3><div class="satir"><span class="chip">${g.ders?`✅`:`⬜`} 1 ders</span><span class="chip">${g.oyun>=2?`✅`:`⬜`} 2 oyun turu (${Math.min(g.oyun,2)}/2)</span><span class="chip">${g.kart>=5?`✅`:`⬜`} 5 kart (${Math.min(g.kart,5)}/5)</span></div>`+(zayif?`<p class="u">Zayıf nokta: <b>${DERS.find(d=>d.id==zayif[0]).ad}</b>. <a href="#" data-a="ders" data-v="${zayif[0]}">Tekrar et</a></p>`:`<p class="u">Oyunlarda yanlış yaptıkça zayıf noktaların burada görünecek.</p>`)+`</div>`;
+ for(let b=1;b<=4;b++){const ds=DERS.filter(d=>d.bolum===b);h+=`<div class="bab"><h3>${b}. Durak — ${BOLUM[b]}</h3><div class="yol">`+ds.map(d=>`<button class="dugum ${S.bitti[d.id]?`bitti`:siradaki&&siradaki.id===d.id?`siradaki`:``}" data-a="ders" data-v="${d.id}" title="${d.ad}" aria-label="${d.ad}">${S.bitti[d.id]?`✓`:d.ikon}<small>${d.id}</small></button>`).join(``)+`</div></div>`}
+ h+=`<div class="kutuk ana" style="margin-top:1.3rem"><b>Nasıl çalışmalı?</b> Her ders: benzetme → temel bilgiler → görsel → hafıza kancası → hızlı kontrol. Sonra Oyunlar'da pekiştir, Vakalar'da gerçek durumlara uygula, Etkinlik sekmesinde grafik çiz ve gözlem yap, Kartlar'la tekrar et, Sınav'da ölç.</div>`;
+ h+=`<p class="u">İçerik, "0-72 Ay Fiziksel Gelişim — Öğrenme Faaliyeti 1" ders kitabı bölümünden özgün anlatımla hazırlanmıştır. Sayısal değerler kitaptaki yaklaşık ortalamalardır; bireysel farklılıklar normaldir. Tıbbi tavsiye yerine geçmez.</p>`;
+ return h}
+
+/* ---------- DERS ---------- */
+function vDers(){
+ if(R.ders){return dersAc(DERS.find(x=>x.id===R.ders))}
+ let h=`<h2>📚 Dersler</h2><p class="u">${DERS.length} ders · 4 durak</p>`;
+ for(let b=1;b<=4;b++){const ds=DERS.filter(d=>d.bolum===b);h+=`<div class="bab"><h3>${b}. Durak — ${BOLUM[b]}</h3><div class="izgara">`+ds.map(d=>`<button class="kutu ${S.bitti[d.id]?`bitti`:``}" data-a="ders" data-v="${d.id}"><span class="i">${d.ikon}</span><b>${d.id}. ${d.ad}</b><small>${d.dk} dk${S.bitti[d.id]?` · ✅ tamam`:``}</small></button>`).join(``)+`</div></div>`}
+ return h}
+function dersAc(d){
+ R.kc=R.kc||{};const kc=R.kc[d.id]=R.kc[d.id]||{};
+ const onc=DERS.find(x=>x.id===d.id-1),son=DERS.find(x=>x.id===d.id+1);
+ let h=`<button class="btn sol" data-a="dersler">← Dersler</button><div class="etiket">${d.bolum}. durak · ${BOLUM[d.bolum]} · ${d.dk} dk</div><h2>${d.ikon} ${d.id}. ${d.ad}</h2>`;
+ h+=`<div class="kutuk"><span class="etiket">💡 Benzetme</span><br>${d.kanca}</div>`;
+ h+=`<div class="kart"><span class="etiket">📌 Temel bilgiler</span><ul class="nok">`+d.kurallar.map(k=>`<li>${k}</li>`).join(``)+`</ul></div>`;
+ if(d.gorsel)h+=`<div class="kart"><span class="etiket">👁️ Görsel</span>${d.gorsel}</div>`;
+ h+=`<div class="kutuk ana"><span class="etiket">🧠 Hafıza kancası</span><br>${d.ezber}</div>`;
+ h+=`<div class="kutuk hata"><span class="etiket">⚠️ Sık yapılan hata</span><br>${d.hata}</div>`;
+ h+=`<div class="kart"><h3>✅ Hızlı kontrol</h3>`+d.kontrol.map((q,i)=>{const c=kc[i];return `<div style="margin:.8rem 0"><div><b>${i+1}.</b> ${q.q}</div>`+q.o.map((o,j)=>`<button class="sec ${c!==undefined?(j===q.d?`d`:j===c?`y`:``):``}" ${c!==undefined?`disabled`:``} data-a="kc" data-v="${d.id}:${i}:${j}">${o}</button>`).join(``)+(c!==undefined?`<div class="cevap ${c===q.d?`d`:`y`}">${c===q.d?`✔ Doğru. `:`✘ `}${q.a}</div>`:``)+`</div>`}).join(``)+`</div>`;
+ const hepsi=d.kontrol.every((q,i)=>kc[i]!==undefined);
+ h+=`<div class="orta">${S.bitti[d.id]?`<p>✅ Bu dersi tamamladın.</p>`:`<button class="btn altin" data-a="bitir" data-v="${d.id}" ${hepsi?``:`disabled`}>🎉 Dersi tamamla (+25 XP)</button>${hepsi?``:`<p class="u">Önce üç soruyu cevapla.</p>`}`}</div>`;
+ h+=`<div class="satir" style="justify-content:space-between">${onc?`<button class="btn sol" data-a="ders" data-v="${onc.id}">← ${onc.ad}</button>`:`<span></span>`}${son?`<button class="btn sol" data-a="ders" data-v="${son.id}">${son.ad} →</button>`:`<span></span>`}</div>`;
+ return h}
+
+/* ---------- OYUN MOTORU ---------- */
+function mk(q,o,d,a,ders,ar){const m=o.map((x,i)=>[x,i===d]);const k=kar(m);return {q,ar,o:k.map(x=>x[0]),d:k.findIndex(x=>x[1]),a,ders}}
+function gDY(){return sec(DY,10).map(x=>mk(x[0],[`Doğru`,`Yanlış`],x[1]?0:1,x[2],x[3]))}
+function gRakam(){return sec(RAKAM,10).map(x=>mk(x[0],x[1],x[2],x[3],x[4]))}
+function gBosluk(){return sec(BOSLUK,10).map(x=>mk(x[0].replace(`___`,`<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>`),x[1],x[2],`Doğru cevap: <b>${x[1][x[2]]}</b>`,x[3]))}
+function gKutu(){const k=KUTU[Math.floor(Math.random()*KUTU.length)];return sec(k[2],10).map(x=>mk(`<b>${k[0]}</b><br>"${x[0]}"`,k[1],x[1],x[2],k[0].includes(`sinir`)||k[0].includes(`Merkezi`)?10:k[0].includes(`sistem`)?7:k[0].includes(`Nicel`)?1:3))}
+const ETKOP=[`Büyük/küçük kas gelişimi`,`Solunum`,`Kemik ve diş sağlığı bilinci`];
+function gEtk(){return sec(ETK,8).map(e=>{const i=e.tur===`kas`?0:e.tur===`solunum`?1:2;return mk(`<b>${e.ikon} ${e.ad}</b><br><small>${e.ozet}</small><br>Bu etkinliğin ana amacı hangisidir?`,ETKOP,i,`Kitaba göre amaç: ${e.amac}.`,3)})}
+function gSinav(){return sec(SINAV,20).map(s=>mk(s[0],s[1],s[2],s[4],s[3]))}
+function gGunluk(){return [...sec(gDY(),2),...sec(gRakam(),2),...sec(gBosluk(),1)]}
+function oyunBasla(k){
+ if(k===`esles`)return eslesBasla();if(k===`sirala`)return siraBasla();
+ const g={dy:gDY,rakam:gRakam,bosluk:gBosluk,kutu:gKutu,etk:gEtk,sinav:gSinav,gunluk:gGunluk}[k];
+ R.oyun={k,it:g(),i:0,dogru:0,seri:0,sec:null,xp:0,sinav:k===`sinav`,yan:[],gn:[]};T=k===`sinav`?`sinav`:`oyun`;
+}
+function oyunEkran(){
+ const o=R.oyun,q=o.it[o.i];
+ let h=`<button class="btn sol" data-a="oyunCik">← Çık</button><div class="satir" style="justify-content:space-between"><b>${o.i+1} / ${o.it.length}</b><span class="chip">🔥 ${o.seri} · ⭐ ${o.xp}</span></div>${ilerle(o.i/o.it.length)}`;
+ h+=`<div class="kart">${q.ar||``}<div style="margin:.5rem 0"><b>${q.q}</b></div>`+q.o.map((x,i)=>`<button class="sec ${o.sec!==null&&!o.sinav?(i===q.d?`d`:i===o.sec?`y`:``):``}" ${o.sec!==null?`disabled`:``} data-a="oyunSec" data-v="${i}">${x}</button>`).join(``);
+ if(o.sec!==null&&!o.sinav)h+=`<div class="cevap ${o.sec===q.d?`d`:`y`}">${o.sec===q.d?`✔ Doğru! `:`✘ `}${q.a}</div>`;
+ if(o.sec!==null)h+=`<button class="btn" data-a="oyunIleri">${o.i+1<o.it.length?`Sonraki →`:`Sonucu gör`}</button>`;
+ return h+`</div>`}
+function oyunSec(i){
+ const o=R.oyun,q=o.it[o.i];if(o.sec!==null)return;o.sec=i;
+ const ok=i===q.d;o.gn.push(ok);
+ if(ok){o.dogru++;o.seri++;if(!o.sinav)o.xp+=10+Math.min(10,(o.seri-1)*2);S.say++}else{o.seri=0;o.yan.push(q);if(q.ders)S.yanlis[q.ders]=(S.yanlis[q.ders]||0)+1}
+ kaydet()}
+function oyunBitir(){
+ const o=R.oyun;const p=Math.round(100*o.dogru/o.it.length);o.bitti=true;o.p=p;
+ if(o.sinav){const kn={};o.it.forEach((q,i)=>{const kk=KONU[q.ders]||`Genel`;kn[kk]=kn[kk]||[0,0];kn[kk][1]++;if(o.gn[i])kn[kk][0]++});o.konu=kn;S.sinav.push({t:Date.now(),puan:p});S.sinav=S.sinav.slice(-8);xpEkle(Math.round(p/2),null);if(p>=80)konfeti()}
+ else if(o.k===`gunluk`){xpEkle(o.xp+20,`oyun`);if(p>=80)konfeti()}
+ else{const b=S.oyun[o.k]||{en:0,n:0};b.en=Math.max(b.en,p);b.n++;S.oyun[o.k]=b;xpEkle(o.xp+(p===100?30:0),`oyun`);if(p===100)konfeti()}
+ kaydet()}
+function sonucEkran(){
+ const o=R.oyun,y=o.yan,yildiz=o.p>=90?`⭐⭐⭐`:o.p>=70?`⭐⭐`:o.p>=40?`⭐`:`💪`;
+ let h=`<div class="kart orta"><div style="font-size:2.4rem">${yildiz}</div><h2>${o.sinav?`Sınav sonucu`:`Tur bitti`}: %${o.p}</h2><p>${o.dogru} / ${o.it.length} doğru${o.sinav?``:` · +${o.xp+(o.p===100?30:0)} XP`}</p>`;
+ if(o.sinav){h+=`<table class="tablo"><tr><th>Konu</th><th>Doğru</th><th style="width:40%"></th></tr>`+Object.entries(o.konu).map(([k,v])=>`<tr><td>${k}</td><td>${v[0]}/${v[1]}</td><td>${ilerle(v[0]/v[1])}</td></tr>`).join(``)+`</table><p>${o.p>=80?`Harika! Konulara hâkimsin.`:o.p>=60?`İyi gidiyorsun. Yanlış konuları tekrar et.`:`Dersleri ve kartları tekrar edip yeniden dene.`}</p>`}
+ h+=`</div>`;
+ if(y.length){h+=`<div class="kart"><h3>🔁 Çalışılacak noktalar</h3>`+y.map(q=>`<div style="margin:.6rem 0;padding-bottom:.5rem;border-bottom:1px dashed var(--cizgi)">${q.ar||``}<div>${q.q}</div><div class="cevap d">✔ ${q.o[q.d]}<br>${q.a}</div>${q.ders?`<a href="#" data-a="ders" data-v="${q.ders}">📚 İlgili dersi aç</a>`:``}</div>`).join(``)+`</div>`}
+ h+=`<div class="orta"><button class="btn" data-a="${o.sinav?`sinavBasla`:`oyunTekrar`}" data-v="${o.k}">🔄 Yeniden</button><button class="btn ikincil" data-a="oyunCik">Geri dön</button></div>`;
+ return h}
+
+/* ---------- Eşleştirme ve sıralama ---------- */
+function eslesBasla(){const set=ESLES[Math.floor(Math.random()*ESLES.length)];const p=sec(set[1],6);R.oyun={k:`esles`,tip:`esles`,baslik:set[0],p,sol:kar(p.map((_,i)=>i)),sag:kar(p.map((_,i)=>i)),secL:null,eslesen:{},hata:0};T=`oyun`}
+function eslesEkran(){
+ const o=R.oyun;let h=`<button class="btn sol" data-a="oyunCik">← Çık</button><h2>🔗 ${o.baslik}</h2><p class="u">Önce soldan, sonra sağdan eşini seç. Hata: ${o.hata}</p><div class="cift"><div>`+o.sol.map(i=>`<button class="${o.eslesen[i]!==undefined?`ok`:o.secL===i?`sel`:``}" data-a="elSol" data-v="${i}">${o.p[i][0]}</button>`).join(``)+`</div><div>`+o.sag.map(i=>`<button class="${Object.values(o.eslesen).includes(i)?`ok`:``}" data-a="elSag" data-v="${i}">${o.p[i][1]}</button>`).join(``)+`</div></div>`;
+ if(Object.keys(o.eslesen).length===o.p.length){const x=Math.max(10,o.p.length*10-o.hata*10);h+=`<div class="kart orta"><h3>🎉 Tamam!</h3><p>${o.hata} hata · +${x} XP</p><button class="btn" data-a="oyunTekrar" data-v="esles">🔄 Yeni tur</button></div>`}
+ return h}
+function elSag(i){const o=R.oyun;if(o.secL===null)return;if(o.secL===i){o.eslesen[i]=i;o.secL=null;if(Object.keys(o.eslesen).length===o.p.length&&!o.bitti){o.bitti=true;const n=o.p.length;const x=Math.max(10,n*10-o.hata*10);const pu=Math.round(100*(n-Math.min(n,o.hata))/n);const b=S.oyun.esles||{en:0,n:0};b.en=Math.max(b.en,pu);b.n++;S.oyun.esles=b;S.say+=n;xpEkle(x,`oyun`);if(!o.hata)konfeti()}}else{o.hata++;toast(`Olmadı, tekrar dene.`);o.secL=null}}
+function siraBasla(){const t=SIRA[Math.floor(Math.random()*SIRA.length)];R.oyun={k:`sirala`,tip:`sira`,t,kar:kar(t[1].map((_,i)=>i)),yan:[],kont:false};T=`oyun`}
+function siraEkran(){
+ const o=R.oyun,n=o.t[1].length;let h=`<button class="btn sol" data-a="oyunCik">← Çık</button><h2>🛤️ Yolu Sırala</h2><p><b>${o.t[0]}</b></p><p class="u">Adımlara doğru sırayla dokun.</p>`;
+ h+=`<div class="kart">`+(o.yan.map((i,k)=>`<div class="sira"><b style="${o.kont?`background:${o.t[1][i]===o.t[1][k]?`var(--dogru)`:`var(--yanlis)`}`:``}">${k+1}</b><div>${o.t[1][i]}</div></div>`).join(``)||`<span class="u">Henüz seçmedin</span>`);
+ h+=`</div><div>`+o.kar.map(i=>`<button class="cip ${o.yan.includes(i)?`k`:``}" data-a="siraSec" data-v="${i}">${o.t[1][i]}</button>`).join(``)+`</div>`;
+ if(o.yan.length===n&&!o.kont)h+=`<button class="btn" data-a="siraKont">Kontrol et</button>`;
+ if(o.yan.length)h+=`<button class="btn sol" data-a="siraSifir">Sıfırla</button>`;
+ if(o.kont){const dg=o.yan.every((x,k)=>x===k);h+=`<div class="cevap ${dg?`d`:`y`}"><b>${dg?`✔ Mükemmel! +30 XP`:`Doğru sıra:`}</b>${dg?``:`<ol>${o.t[1].map(x=>`<li>${x}</li>`).join(``)}</ol>`}</div><button class="btn" data-a="oyunTekrar" data-v="sirala">🔄 Başka sıralama</button>`}
+ return h}
+
+/* ---------- OYUN SEKMESİ ---------- */
+function vOyun(){
+ const o=R.oyun;
+ if(o){if(o.tip===`esles`)return eslesEkran();if(o.tip===`sira`)return siraEkran();if(o.bitti)return sonucEkran();return oyunEkran()}
+ return `<h2>🎮 Oyunlar</h2><p class="u">Yanlışların ilgili derse yönlendirir.</p><div class="izgara">`+OYUN.map(g=>{const b=S.oyun[g[0]];return `<button class="kutu" data-a="oyun" data-v="${g[0]}"><span class="i">${g[2]}</span><b>${g[1]}</b><small>${g[3]}</small><br><small>${b?`En iyi: %${b.en} · ${b.n} tur`:`Henüz oynanmadı`}</small></button>`}).join(``)+`</div>`}
+
+/* ---------- VAKA ---------- */
+function vVaka(){
+ const v=R.vaka;
+ if(!v)return `<h2>🎭 Vakalar</h2><p class="u">Küçük hikâyeler: kararlarını ver, geri bildirimi oku.</p><div class="izgara">`+VAKA.map(x=>`<button class="kutu ${S.vaka[x.id]!==undefined?`bitti`:``}" data-a="vakaAc" data-v="${x.id}"><span class="i">${x.ikon}</span><b>${x.ad}</b><small>${x.ozet}</small><br><small>${S.vaka[x.id]!==undefined?`✅ Skor: ${S.vaka[x.id]}/${x.adim.length}`:`Yeni`}</small></button>`).join(``)+`</div>`;
+ const x=VAKA.find(y=>y.id===v.id);
+ let h=`<button class="btn sol" data-a="vakaCik">← Vakalar</button><h2>${x.ikon} ${x.ad}</h2>`;
+ if(v.i===-1)return h+`<div class="kart"><p>${x.giris}</p><button class="btn" data-a="vakaBasla">Başla →</button></div>`;
+ if(v.i>=x.adim.length)return h+`<div class="kart orta"><div style="font-size:2.2rem">${v.puan===x.adim.length?`🏆`:`📜`}</div><h3>Vaka tamam: ${v.puan} / ${x.adim.length}</h3><p>+${v.puan*10+15} XP</p><button class="btn" data-a="vakaAc" data-v="${x.id}">🔄 Tekrar</button><button class="btn ikincil" data-a="vakaCik">Diğer vakalar</button></div>`;
+ const a=x.adim[v.i];
+ h+=ilerle(v.i/x.adim.length)+`<div class="kart"><p>${a.s}</p>`+v.perm.map(j=>`<button class="sec ${v.s!==null?(a.o[j][1]?`d`:v.s===j?`y`:``):``}" ${v.s!==null?`disabled`:``} data-a="vakaSec" data-v="${j}">${a.o[j][0]}</button>`).join(``);
+ if(v.s!==null)h+=`<div class="cevap ${a.o[v.s][1]?`d`:`y`}">${a.o[v.s][1]?`✔ `:`✘ `}${a.o[v.s][2]}</div><button class="btn" data-a="vakaIleri">${v.i+1<x.adim.length?`Devam →`:`Bitir`}</button>`;
+ return h+`</div>`}
+function vakaAdim(){const x=VAKA.find(y=>y.id===R.vaka.id),a=x.adim[R.vaka.i];R.vaka.perm=kar(a.o.map((_,i)=>i));R.vaka.s=null}
+
+/* ---------- ETKİNLİK (grafik + kütüphane + gözlem) ---------- */
+const SERI={bas:{ad:`Baş çevresi`,r:`#e0603f`,n:[[0,35],[3,40.5],[6,43],[12,46]]},gog:{ad:`Göğüs çevresi`,r:`#2b7bb9`,n:[[0,33],[12,47],[60,55]]}};
+function grafik(){
+ const W=320,H=200,L=34,B=24,mx=72,y0=30,y1=60;const X=a=>L+a/mx*(W-L-8),Y=v=>H-B-(v-y0)/(y1-y0)*(H-B-10);
+ let s=`<svg viewBox="0 0 ${W} ${H}" class="gr">`;
+ for(let v=30;v<=60;v+=10)s+=`<line x1="${L}" x2="${W-8}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--cizgi)"/><text x="4" y="${Y(v)+3}">${v}</text>`;
+ for(let a=0;a<=72;a+=12)s+=`<text x="${X(a)-6}" y="${H-8}">${a}</text>`;
+ s+=`<text x="${W-30}" y="12">ay →</text>`;
+ const çiz=(pts,r,kes)=>{if(pts.length>1)s+=`<polyline fill="none" stroke="${r}" stroke-width="2.5" ${kes?`stroke-dasharray="4 3"`:``} points="${pts.map(p=>X(p[0])+`,`+Y(p[1])).join(` `)}"/>`;pts.forEach(p=>s+=`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="${kes?3:4}" fill="${r}"><title>${p[0]}. ay: ${p[1]} cm</title></circle>`)};
+ çiz(SERI.bas.n,SERI.bas.r);çiz(SERI.gog.n,SERI.gog.r);
+ ['bas','gog'].forEach(k=>{const u=S.gor.filter(g=>g.seri===k).sort((a,b)=>a.ay-b.ay).map(g=>[g.ay,g.v]);çiz(u,SERI[k].r,true)});
+ return s+`</svg>`}
+function vEtkinlik(){
+ let h=`<h2>🧸 Etkinlik Atölyesi</h2>`;
+ h+=`<div class="kart"><h3>📈 Büyüme grafiği</h3><p class="u"><span style="color:#e0603f">●</span> Baş çevresi · <span style="color:#2b7bb9">●</span> Göğüs çevresi (düz çizgi: kitaptaki değerler, kesikli: senin gözlemin). 1 yaştan sonra göğüs başı geçer!</p>${grafik()}
+ <p class="u">Gözlem noktası ekle (kreşte/ailede ölçtüğün değer):</p><div class="cht"><input id="gay" type="number" min="0" max="72" placeholder="ay"><input id="gcm" type="number" step="0.5" min="25" max="70" placeholder="cm"><select id="gsr"><option value="bas">Baş</option><option value="gog">Göğüs</option></select><button class="btn ikincil" data-a="gEkle">Ekle</button></div>`;
+ if(S.gor.length)h+=`<div class="satir">`+S.gor.map((g,i)=>`<span class="chip">${g.seri===`bas`?`Baş`:`Göğüs`} ${g.ay}. ay: ${g.v} cm <a href="#" data-a="gSil" data-v="${i}">✕</a></span>`).join(``)+`</div>`;
+ h+=`</div>`;
+ h+=`<div class="kart"><h3>📋 Saha görevi: gözlem planı</h3><p class="u">Kitaptaki uygulama faaliyeti adımları. Tamamladıkça işaretle.</p>`+GOZLEM.map((g,i)=>`<label class="ck"><input type="checkbox" data-a="goz" data-v="${i}" ${S.goz[i]?`checked`:``}><span>${g}</span></label>`).join(``)+`<p class="u">${Object.keys(S.goz).length}/${GOZLEM.length} adım</p></div>`;
+ h+=`<h3>🎲 Etkinlik kütüphanesi (11)</h3><p class="u">Dokun ve nasıl oynandığını oku. Oyun oynamak da bir ders!</p>`+ETK.map(e=>`<details class="orn"><summary><b>${e.ikon} ${e.id}. ${e.ad}</b><span class="tr">${e.amac} · ${e.yas}${e.arac!==`—`?` · ${e.arac}`:``}</span></summary><div class="ic"><p>${e.ozet}</p></div></details>`).join(``);
+ return h}
+
+/* ---------- KART ---------- */
+function kartSeti(){
+ const now=gunNo(),id=KART.map((_,i)=>i);
+ let due=id.filter(i=>S.kart[i]&&S.kart[i].d<=now).sort((a,b)=>S.kart[a].k-S.kart[b].k).slice(0,12);
+ if(!due.length)due=id.filter(i=>!S.kart[i]).slice(0,8);
+ return due}
+function vKart(){
+ const kt=R.kart||(R.kart={set:kartSeti(),i:0,acik:false});
+ const bil=Object.keys(S.kart).length,usta=Object.values(S.kart).filter(x=>x.k>=4).length;
+ let h=`<h2>🗂️ Tekrar Kartları</h2><p class="u">Aralıklı tekrar: bildikçe kart seyrekleşir. ${bil}/${KART.length} kart görüldü · ${usta} kart ustalaşıldı.</p>`+ilerle(usta/KART.length);
+ if(kt.i>=kt.set.length)return h+`<div class="kart orta"><div style="font-size:2.2rem">${kt.set.length?`🎉`:`😌`}</div><h3>${kt.set.length?`Set bitti!`:`Bugünlük tüm kartlar tamam.`}</h3><button class="btn" data-a="kartYeni">${kt.set.length?`Yeni set`:`Kontrol et`}</button></div>`;
+ const k=KART[kt.set[kt.i]];
+ h+=`<div class="satir" style="justify-content:space-between"><b>${kt.i+1}/${kt.set.length}</b><span class="u">Ders ${k[2]}</span></div><div class="kart kartca" data-a="kartAc"><div>${kt.acik?`<div class="etiket">Cevap</div><div>${k[1]}</div>`:`<div class="etiket">Soru</div><div>${k[0]}</div><p class="u">Cevabı görmek için dokun</p>`}</div></div>`;
+ if(kt.acik)h+=`<div class="satir" style="justify-content:center"><button class="btn" style="background:var(--yanlis)" data-a="kartPuan" data-v="0">Bilemedim</button><button class="btn altin" data-a="kartPuan" data-v="1">Zor</button><button class="btn" style="background:var(--dogru)" data-a="kartPuan" data-v="2">Bildim</button></div>`;
+ return h}
+
+/* ---------- SINAV / SÖZLÜK / BEN ---------- */
+function vSinav(){
+ if(R.oyun&&R.oyun.sinav)return R.oyun.bitti?sonucEkran():oyunEkran();
+ const s=S.sinav;
+ let h=`<h2>📝 Deneme Sınavı</h2><div class="kart"><p>20 soru, 4 konu grubundan karışık. Sınav sırasında anında geri bildirim yok; sonunda konu bazlı sonuç ve çalışılacak noktalar gelir.</p><button class="btn" data-a="sinavBasla">▶ Sınava başla</button></div>`;
+ if(s.length)h+=`<div class="kart"><h3>Geçmiş sonuçlar</h3><table class="tablo">`+s.slice().reverse().map(x=>`<tr><td>${new Date(x.t).toLocaleDateString(`tr-TR`)}</td><td>%${x.puan}</td><td style="width:50%">${ilerle(x.puan/100)}</td></tr>`).join(``)+`</table></div>`;
+ return h}
+function vSozluk(){
+ const q=(R.sq||``).toLowerCase();
+ const l=SOZLUK.filter(s=>!q||s[0].toLowerCase().includes(q)||s[1].toLowerCase().includes(q));
+ return `<h2>📖 Sözlük</h2><input class="ara" id="sara" placeholder="Terim ara" value="${R.sq||``}" aria-label="Ara"><p class="u">${l.length} terim</p><div>`+l.map(s=>`<div class="sz"><b style="min-width:9rem">${s[0]}</b><span>${s[1]}</span></div>`).join(``)+`</div>`}
+function vBen(){
+ const sv=seviye(),n=ROZET.filter(r=>S.rozet[r[0]]).length;
+ return `<h2>🏅 Ben</h2><div class="kart"><div class="satir"><span class="chip">${sv[1]}</span><span class="chip">⭐ ${S.xp} XP</span><span class="chip">🔥 ${S.seri} gün seri</span><span class="chip">🎯 ${S.say} doğru</span></div><p>Ders: <b>${bitenSay()}/${DERS.length}</b> · Vaka: <b>${Object.keys(S.vaka).length}/${VAKA.length}</b> · Kart tekrarı: <b>${S.tekr}</b></p></div><h3>Rozetler (${n}/${ROZET.length})</h3><div class="rozetler">`+ROZET.map(r=>`<div class="rozet ${S.rozet[r[0]]?`var`:``}"><div class="i">${r[2]}</div><b>${r[1]}</b><small>${r[3]}</small></div>`).join(``)+`</div><div class="kart"><h3>Ayarlar</h3><button class="btn ikincil" data-a="yazi">Yazı boyutu</button><button class="btn ikincil" data-a="tema">Koyu/açık tema</button><button class="btn sol" data-a="sifirla">İlerlemeyi sıfırla</button></div>`}
+
+/* ---------- ÇİZİM ve OLAYLAR ---------- */
+function ciz(){sekmeler();ust();const m={yol:vYol,ders:vDers,oyun:vOyun,vaka:vVaka,etkinlik:vEtkinlik,kart:vKart,sinav:vSinav,sozluk:vSozluk,ben:vBen};$(`#ana`).innerHTML=m[T]()}
+function git(t){T=t;if(t!==`ders`)R.ders=null;if(t!==`kart`)R.kart=null;if(t===`oyun`||t===`sinav`){if(R.oyun&&((t===`oyun`)===!!R.oyun.sinav))R.oyun=null}ciz();yukari()}
+document.addEventListener(`change`,e=>{const t=e.target;if(t.dataset&&t.dataset.a===`goz`){const i=+t.dataset.v;if(t.checked)S.goz[i]=1;else delete S.goz[i];if(t.checked)xpEkle(3,null);rozetKontrol();kaydet();const y=window.scrollY;ciz();window.scrollTo(0,y)}});
+document.addEventListener(`click`,e=>{
+ const t=e.target.closest(`[data-a]`);if(!t)return;const a=t.dataset.a,v=t.dataset.v;
+ if(t.tagName===`A`)e.preventDefault();if(a===`goz`)return;
+ switch(a){
+ case `git`:R.oyun=null;git(v);return;
+ case `tema`:S.tema=document.documentElement.dataset.theme===`dark`?`light`:`dark`;kaydet();tema();return;
+ case `yazi`:S.yazi=(S.yazi+1)%4;kaydet();ust();return;
+ case `ders`:T=`ders`;R.ders=+v;R.kart=null;ciz();yukari();return;
+ case `dersler`:R.ders=null;ciz();yukari();return;
+ case `kc`:{const [d,i,j]=v.split(`:`).map(Number);R.kc=R.kc||{};R.kc[d]=R.kc[d]||{};if(R.kc[d][i]===undefined){R.kc[d][i]=j;const ok=DERS.find(x=>x.id===d).kontrol[i].d===j;if(ok){S.say++;xpEkle(5,null)}else{S.yanlis[d]=(S.yanlis[d]||0)+1;kaydet()}}const y=window.scrollY;ciz();window.scrollTo(0,y);return}
+ case `bitir`:S.bitti[+v]=1;xpEkle(25,`ders`);konfeti();toast(`Ders tamam! +25 XP`);ciz();yukari();return;
+ case `oyun`:oyunBasla(v);ciz();yukari();return;
+ case `gunluk`:oyunBasla(`gunluk`);T=`oyun`;ciz();yukari();return;
+ case `oyunSec`:oyunSec(+v);ciz();return;
+ case `oyunIleri`:{const o=R.oyun;o.i++;o.sec=null;if(o.i>=o.it.length)oyunBitir();ciz();yukari();return}
+ case `oyunTekrar`:oyunBasla(v);ciz();yukari();return;
+ case `sinavBasla`:oyunBasla(`sinav`);T=`sinav`;ciz();yukari();return;
+ case `oyunCik`:R.oyun=null;ciz();yukari();return;
+ case `elSol`:if(R.oyun.eslesen[+v]===undefined){R.oyun.secL=+v;ciz()}return;
+ case `elSag`:elSag(+v);ciz();return;
+ case `siraSec`:{const o=R.oyun;if(!o.kont&&!o.yan.includes(+v)){o.yan.push(+v);ciz()}return}
+ case `siraSifir`:R.oyun.yan=[];R.oyun.kont=false;ciz();return;
+ case `siraKont`:{const o=R.oyun;o.kont=true;const dg=o.yan.every((x,k)=>x===k);if(dg){S.say+=o.yan.length;const b=S.oyun.sirala||{en:0,n:0};b.en=100;b.n++;S.oyun.sirala=b;xpEkle(30,`oyun`);konfeti()}else{xpEkle(5,`oyun`)}ciz();return}
+ case `vakaAc`:T=`vaka`;R.vaka={id:v,i:-1,puan:0,s:null,perm:[]};ciz();yukari();return;
+ case `vakaCik`:R.vaka=null;ciz();yukari();return;
+ case `vakaBasla`:R.vaka.i=0;vakaAdim();ciz();yukari();return;
+ case `vakaSec`:{const r=R.vaka;if(r.s!==null)return;r.s=+v;const x=VAKA.find(y=>y.id===r.id);if(x.adim[r.i].o[+v][1]){r.puan++;S.say++}kaydet();ciz();return}
+ case `vakaIleri`:{const r=R.vaka;r.i++;const x=VAKA.find(y=>y.id===r.id);if(r.i>=x.adim.length){S.vaka[r.id]=Math.max(S.vaka[r.id]||0,r.puan);xpEkle(r.puan*10+15,null);if(r.puan===x.adim.length)konfeti()}else vakaAdim();ciz();yukari();return}
+ case `kartAc`:R.kart.acik=!R.kart.acik;ciz();return;
+ case `kartPuan`:{const kt=R.kart,id=kt.set[kt.i],s=S.kart[id]||{k:0,d:0};s.k=+v===2?Math.min(5,s.k+1):+v===1?s.k:0;s.d=gunNo()+INT[s.k];S.kart[id]=s;S.tekr++;xpEkle(3,`kart`);kt.i++;kt.acik=false;ciz();return}
+ case `kartYeni`:R.kart=null;ciz();return;
+ case `gEkle`:{const ay=parseFloat($(`#gay`).value),v2=parseFloat($(`#gcm`).value);if(isNaN(ay)||isNaN(v2)||ay<0||ay>72){toast(`Ay (0-72) ve cm değeri gir.`);return}S.gor.push({ay,v:v2,seri:$(`#gsr`).value});xpEkle(5,null);ciz();return}
+ case `gSil`:S.gor.splice(+v,1);kaydet();ciz();return;
+ case `sifirla`:if(confirm(`Tüm ilerleme silinsin mi?`)){S=JSON.parse(JSON.stringify(VARS));kaydet();R={};T=`yol`;tema();ciz()}return}
+});
+document.addEventListener(`input`,e=>{if(e.target.id===`sara`){R.sq=e.target.value;const p=e.target.selectionStart;ciz();const n=$(`#sara`);n.focus();n.setSelectionRange(p,p)}});
+tema();gunYenile();ciz();
+
+</script></body></html>

@@ -1,0 +1,181 @@
+/* 0-72 Ay Fiziksel Gelişim — 1. bölüm: özgün anlatım */
+const BOLUM=[``,`Temel Kavramlar`,`Beden Yapıları`,`Sistemler`,`Büyük Resim`];
+const bar=(a,v,mx,r)=>`<div class="cb"><span>${a}</span><div><i style="width:${Math.round(100*v/mx)}%;background:${r}"></i></div><b>${v}</b></div>`;
+const DERS=[
+{id:1,bolum:1,ad:`Fiziksel Gelişim Nedir?`,ikon:`🌱`,dk:6,
+kanca:`Fiziksel gelişimi bir <b>bina inşaatı</b> gibi düşün: önce temel ve iskelet (kemikler), sonra duvarlar (kaslar), sonra elektrik, su ve havalandırma (organlar ve sistemler). Sadece "kat sayısı" (boy-kilo) değil, her katın <b>çalışır hâle gelmesi</b> de gelişimdir.`,
+kurallar:[
+`Fiziksel gelişim; boyun uzaması ve kilonun artması yanında kemiklerin, kasların, beynin, organların ve iç salgı bezlerinin büyüyüp olgunlaşmasını da kapsar.`,
+`<b>Nicel (sayısal):</b> ağırlık ve boydaki rakamsal artış. <b>Niteliksel:</b> sistemlerin çalışmasındaki değişim; örnek: 6 yaşında tek ayak üzerinde sıçrayabilmek.`,
+`Gelişim <b>baştan ayağa</b> ve <b>merkezden dışa</b> doğru ilerler. Önce baş-boyun-gövde kasları, sonra kol-bacak, en son parmaklar.`,
+`Psikomotor gelişim basit reflekslerle başlar: baş-boyun-gövde kontrolü → oturma, emekleme, yürüme, koşma, atlama → tutma, bırakma, fırlatma gibi el becerileri.`,
+`Hız dönemleri: bebeklikte çok hızlı, oyun çocukluğunda yavaş, ergenlikte yine hızlı.`,
+`Sağlıklı gelişim için gereken dört şey: <b>yeterli-dengeli beslenme, düzenli uyku ve dinlenme, temizlik ve hastalıklardan korunma, açık hava ve bedensel etkinlikler.</b>`,
+`Bebeklikte erkekler boy-kilo artışında daha hızlıdır; ergenlikte kızlar erken ergenliğe girdiği için bir süre erkeklerden ileride olur; ergenlik sonunda erkekler farkı kapatır.`],
+gorsel:`<div class="gk"><div class="gb"><b>Nicel</b><br>🔢 "Boyu 3 cm uzadı"</div><div class="gb"><b>Niteliksel</b><br>🦘 "Tek ayak üstünde sıçrayabiliyor"</div></div>`,
+ezber:`<b>BUTA:</b> <u>B</u>eslenme, <u>U</u>yku, <u>T</u>emizlik, <u>A</u>çık hava. "Bebek BUTA kalmasın!" İkinci ezber: <b>"Baş önce, ayak sonra; gövde önce, parmak sonra."</b>`,
+hata:`"Gelişim = sadece boy ve kilo" değildir. Boy-kilo nicel kısımdır; tek ayakla sıçrama gibi beceriler niteliksel gelişimdir.`,
+kontrol:[
+{q:`"6 yaşındaki çocuğun tek ayak üzerinde sıçrayabilmesi" hangi gelişime örnektir?`,o:[`Nicel`,`Niteliksel`,`Kalıtsal`],d:1,a:`Sistemlerin çalışmasındaki değişimi anlatır, yani niteliksel.`},
+{q:`Gelişim hangi yönde ilerler?`,o:[`Ayaktan başa, dıştan merkeze`,`Baştan ayağa, merkezden dışa`,`Rastgele`],d:1,a:`Baştan ayağa ve merkezden dışa.`},
+{q:`BUTA ezberindeki "T" ne demektir?`,o:[`Temizlik ve hastalıklardan korunma`,`Tuz`,`Takvim`],d:0,a:`Beslenme, Uyku, Temizlik, Açık hava.`}]},
+
+{id:2,bolum:1,ad:`Boy ve Kilo`,ikon:`📏`,dk:8,
+kanca:`Bebeğin büyümesi bir <b>roket kalkışı</b> gibidir: ilk iki yıl motorlar tam güçte, sonra hız düşer, ergenlikte bir kez daha ateşleme olur.`,
+kurallar:[
+`Büyüme: vücuttaki hücre sayısının ve hücre büyüklüğünün artmasıdır.`,
+`Yenidoğanın boyu <b>48-53 cm</b>, kilosu <b>2500-3500 g</b> arasındadır.`,
+`Doğumu izleyen <b>ilk iki yıl</b>, yaşamın bütün dönemlerine göre büyümenin en hızlı olduğu dönemdir. İki yaştan sonra büyüme yavaşlar ama sürer.`,
+`İki yaşına kadar bebeğin karnı büyük, görüntüsü kamburumsudur; iki yaştan sonra duruş yetişkine benzemeye başlar.`,
+`Gövde ve bacaklar hızla uzar; yaklaşık <b>6 yaş</b> civarında vücut yetişkin görünümüne benzer.`,
+`Düzenli kilo almak, bebeğin sağlıklı gelişiminin kanıtıdır; anne sütünün yararı tartışılmaz.`,
+`Erkeklerin kızlara oranla daha çok kemik ve kas kütlesi vardır. Kitaba göre yaklaşık 11 yaşta büyümede yavaşlama görülmeye başlar; kızlarda bu dönemde ilk âdet, erkeklerde 15-16 yaşta ikincil cinsiyet belirtileri görülür.`],
+gorsel:`<div class="gk" style="flex-direction:column;align-items:stretch">${bar(`Boy (yenidoğan, üst sınır)`,53,53,`var(--ana)`)}${bar(`Boy (yenidoğan, alt sınır)`,48,53,`var(--ana2)`)}</div><p class="u">Yenidoğan: 48-53 cm · 2500-3500 g</p>`,
+ezber:`<b>"48-53, 25-35:"</b> santimetre ve yüzlerce gram. İlk iki yıl <b>roket</b>, 6 yaşta <b>küçük yetişkin</b> silueti.`,
+hata:`Büyümenin "ilk yıl en hızlı" olduğunu söylemek eksiktir: kitap <b>ilk iki yılı</b> en hızlı dönem olarak verir.`,
+kontrol:[
+{q:`Yenidoğanın boy aralığı hangisidir?`,o:[`48-53 cm`,`35-40 cm`,`60-70 cm`],d:0,a:`Boy 48-53 cm, kilo 2500-3500 g.`},
+{q:`Büyümenin en hızlı olduğu dönem hangisidir?`,o:[`Ergenlik`,`Doğumu izleyen ilk iki yıl`,`6-10 yaş`],d:1,a:`İlk iki yıl.`},
+{q:`Vücut yaklaşık hangi yaşta yetişkin görünümüne benzer?`,o:[`2`,`6`,`12`],d:1,a:`Yaklaşık 6 yaş.`}]},
+
+{id:3,bolum:2,ad:`Kaslar`,ikon:`💪`,dk:8,
+kanca:`Kaslar <b>vücudun motorları ve yakıt tankıdır</b>. Büyük motorlar (bacak, kol) önce çalışır, minik hassas motorlar (parmaklar) sonra devreye girer.`,
+kurallar:[
+`Kaslar kemiklerin üzerini örter; iskelet-hareket sistemini oluşturur. Vücut hareketini kaslar sayesinde yapar.`,
+`Kasların beden ağırlığına oranı: doğumda <b>1/5 – 1/4</b>, ergenlikte <b>1/3</b>, yetişkinlikte <b>2/5</b>.`,
+`Önce <b>büyük kaslar</b>, sonra <b>küçük kaslar</b> gelişir. Çocuk koşup zıplarken düğme ilikleme ve makas kullanmada zorlanır (kaba motor → ince motor).`,
+`Kızlar ince motor hareketlerde, erkekler kaba motor becerilerde daha iyi gözlenmiştir.`,
+`<b>İstemli kaslar:</b> istediğimiz zaman çalıştırırız (kol, boyun, baş, bacak, parmak, göz kapağı). <b>İstemsiz kaslar:</b> biz karışmadan çalışır (mide, kalp, karaciğer, dalak, bağırsaklar).`,
+`Görevleri: iskeleti hareket ettirir, enerji deposudur, dilin hareketiyle konuşmaya yardım eder, organların çalışmasını etkiler, kalp ve dolaşımda rol oynar, solunuma yardımcı olur.`],
+gorsel:`<div class="gk" style="flex-direction:column;align-items:stretch">${bar(`Doğum (1/5-1/4)`,22,40,`var(--ana2)`)}${bar(`Ergenlik (1/3)`,33,40,`var(--altin)`)}${bar(`Yetişkin (2/5)`,40,40,`var(--yanlis)`)}</div><p class="u">Beden ağırlığındaki kas payı (yaklaşık yüzde) · doğum ortalaması gösterim içindir</p>`,
+ezber:`<b>"Beşte bir doğarsın, üçte bir gençsin, beşte iki kocasın."</b> (1/5 → 1/3 → 2/5). İstemli = "isteyince", istemsiz = "kalp bile sormadan atar".`,
+hata:`Kalp ve mide kasları istemsizdir; "kalbi istersem durdurabilirim" diye düşünmek yanlıştır. Ayrıca kaba motorun ince motordan önce geldiğini unutma.`,
+kontrol:[
+{q:`Yetişkinde kasların beden ağırlığına oranı nedir?`,o:[`1/5`,`1/3`,`2/5`],d:2,a:`Yetişkinlikte 2/5.`},
+{q:`Aşağıdakilerden hangisi istemsiz kastır?`,o:[`Kol kası`,`Kalp kası`,`Göz kapağı kası`],d:1,a:`Kalp, mide, karaciğer vb. istemsiz çalışır.`},
+{q:`Hangi beceri önce gelişir?`,o:[`Düğme ilikleme`,`Koşup zıplama`,`Makas kullanma`],d:1,a:`Önce büyük kaslar: kaba motor.`}]},
+
+{id:4,bolum:2,ad:`Kemikler ve Bıngıldak`,ikon:`🦴`,dk:10,
+kanca:`Yenidoğanın kemikleri <b>fırından yeni çıkmış ekmek</b> gibi yumuşaktır; zamanla kalsiyum ve fosfat ile sertleşir. Kafatasındaki boşluklar (bıngıldak) ise <b>büyümeye bırakılmış pencere payı</b>dır.`,
+kurallar:[
+`Yenidoğanın kemikleri kıkırdaktır; kalsiyum, fosfat ve diğer minerallerle zamanla <b>kemikleşir</b>.`,
+`Yenidoğanda toplam <b>270 kemik</b> vardır. İlk yıllarda hızlı gelişir, ilk çocuklukta hız düşer, ergenlikte tekrar hızlanır.`,
+`İskelet gelişimi kızlarda erkeklerden daha ileridir.`,
+`Baş, yenidoğanda beden büyüklüğünün yaklaşık <b>1/4</b>'üdür; yetişkinde <b>1/8</b>.`,
+`<b>Baş çevresi:</b> yenidoğanda ≈35 cm, 3. ayda 40,5 cm, 6. ayda 43 cm, 1 yaşında 46 cm. Beyin büyümesini yansıttığı için dikkatle izlenmelidir.`,
+`<b>Göğüs çevresi:</b> doğumda 33 cm (baş çevresine yakın). 1 yaşından sonra baş çevresini geçer: 1 yaşında 47 cm, 5 yaşında 55 cm.`,
+`<b>Bıngıldak (fontonel):</b> kafatasında altı boşluk vardır; beşi doğumun ilk günlerinde kapanır, tepedeki 12-18 ay arasında kapanır.`,
+`Bıngıldak ön kapanırsa (3 aydan önce) doktora gidilmeli; geç kapanırsa D vitamini eksikliği veya tiroid yetmezliği (hipotiroidi) düşünülür. Bıngıldağın içe çökük olması, yetersiz beslenme ya da sıvı kaybı ile ilişkilidir.`,
+`Tüm ölçümler yaklaşık değerlerdir; büyük sapmalarda en kısa sürede uzmana gidilir.`],
+gorsel:`<div class="gk"><div class="gb"><div class="bas b4">🙂</div><b>Yenidoğan</b><br>Baş ≈ 1/4</div><div class="gb"><div class="bas b8">🙂</div><b>Yetişkin</b><br>Baş ≈ 1/8</div></div><div class="gk" style="flex-direction:column;align-items:stretch;margin-top:.6rem">${bar(`Baş: doğum`,35,47,`var(--ana)`)}${bar(`Baş: 3. ay`,40.5,47,`var(--ana)`)}${bar(`Baş: 6. ay`,43,47,`var(--ana)`)}${bar(`Baş: 1 yaş`,46,47,`var(--ana)`)}${bar(`Göğüs: doğum`,33,47,`var(--altin)`)}${bar(`Göğüs: 1 yaş`,47,47,`var(--altin)`)}</div><p class="u">Baş ve göğüs çevresi (cm). 1 yaşta göğüs, başı geçer.</p>`,
+ezber:`<b>"35-40-43-46"</b> (baş çevresi: doğum, 3. ay, 6. ay, 1 yaş). <b>"6 pencere, 5 erken kapanır, 1 tepede 12-18 ay."</b> Göğüs "1 yaşta başı geçer".`,
+hata:`Geç kapanan bıngıldak ile erken kapanan bıngıldak farklı nedenlere işaret eder: geç → D vitamini/tiroid; ön (3 aydan önce) → doktora başvur, kafa çevresi izlenmeli.`,
+kontrol:[
+{q:`Yenidoğanda kaç tane bıngıldak (boşluk) vardır?`,o:[`6`,`8`,`10`],d:0,a:`6 tane; 5'i ilk günlerde, tepedeki 12-18 ayda kapanır.`},
+{q:`Yenidoğanda toplam kemik sayısı?`,o:[`206`,`270`,`300`],d:1,a:`270 kemik.`},
+{q:`Göğüs çevresi ne zaman baş çevresini geçer?`,o:[`1 yaşından sonra`,`Doğumda`,`6. ayda`],d:0,a:`1 yaşından sonra.`}]},
+
+{id:5,bolum:2,ad:`Süt ve Kalıcı Dişler`,ikon:`🦷`,dk:9,
+kanca:`Dişler bir <b>takvim</b> gibidir: her diş kendi "randevu" saatinde çıkar. Süt dişleri geçici kiracı, kalıcı dişler ise evin asıl sahibidir.`,
+kurallar:[
+`Diş tabakalarının gelişimi doğum öncesinde başlar; olgunlaşan dişler doğumdan sonra diş etini delerek çıkar.`,
+`İlk dişler yaklaşık <b>6-10. ayda</b> çıkar; bazı bebeklerde 12. aya kadar sürebilir, bazılarında doğuştan diş olabilir.`,
+`<b>Süt dişi sayısı 20</b>; <b>2-2,5 yaşa</b> kadar tamamlanır.`,
+`<b>7 yaşta</b> süt dişleri düşmeye başlar, yerini kalıcılara bırakır. <b>12 yaşta ağızda 28 kalıcı diş</b> vardır. İlk düşen diş genellikle alt ön kesicilerdir.`,
+`Diş gelişiminde kızlar yaklaşık bir yıl önde gider.`,
+`Anne ve bebeğin yeterli, dengeli beslenmesi diş sağlığının temelidir.`,
+`<b>Diş sağlığı:</b> emzirmeden sonra diş etini bezle sil; süt dişi çıkınca fırçalama ve diş ipi alışkanlığı ver; şekerli gıdalardan kaçın; fırçayı 3-5 ayda bir değiştir; sert yiyecekleri dişle kırma; dişleri iğne-kürdanla karıştırma; kalsiyum ve vitaminden zengin beslen; düzenli diş hekimi kontrolü.`],
+gorsel:`<h4>Süt dişleri çıkış takvimi (ay)</h4><div class="gk" style="flex-direction:column;align-items:stretch">${[[`Alt ön`,6,10],[`Üst ön`,8,12],[`Üst yan`,9,13],[`Alt yan`,10,16],[`Üst 1. azı`,13,19],[`Alt 1. azı`,14,18],[`Üst köpek`,16,22],[`Alt köpek`,17,23],[`Alt 2. azı`,23,31],[`Üst 2. azı`,25,33]].map(d=>`<div class="cb"><span>${d[0]}</span><div class="aral"><i style="left:${d[1]/33*100}%;width:${(d[2]-d[1])/33*100}%"></i></div><b>${d[1]}-${d[2]}</b></div>`).join(``)}</div><p class="u">Kitaptaki şemaya göre. Önce kesiciler, sonra azılar ve köpek dişleri.</p>`,
+ezber:`<b>"6-10 ilk diş, 20 süt dişi, 2-2,5 yaşta tamam; 7'de düşer, 12'de 28 kalıcı."</b> Kızlar bir yıl önde.`,
+hata:`Dişin çıkma yaşı "hasta" ya da "geç" demek değildir; bebeklerde 6 ay ile 12 ay arasında değişir. Ancak büyük sapmada diş hekimi/uzman görüşü alınır.`,
+kontrol:[
+{q:`Süt dişleri kaç adettir?`,o:[`20`,`28`,`32`],d:0,a:`20 adet.`},
+{q:`12 yaşında ağızda kaç kalıcı diş bulunur?`,o:[`20`,`28`,`32`],d:1,a:`Kitaba göre 28.`},
+{q:`İlk düşen diş genellikle hangisidir?`,o:[`Üst azı`,`Alt ön kesici`,`Köpek diş`],d:1,a:`Alt ön kesiciler.`}]},
+
+{id:6,bolum:2,ad:`Kalıtım ve Çevre`,ikon:`🧬`,dk:6,
+kanca:`Gelişim iki <b>mimarın</b> ortak projesidir: <b>kalıtım</b> planı çizer (genler), <b>çevre</b> malzemeyi sağlar (beslenme, bakım, uyarım). Plan ne kadar iyi olursa olsun malzeme yoksa bina eksik kalır.`,
+kurallar:[
+`<b>Kalıtım:</b> anne-babadan genler yoluyla gelen özellikler. Cinsiyet, göz-ten-saç rengi ve biçimi, boy ve genetik hastalıklar kalıtımla belirlenir.`,
+`<b>Çevre:</b> doğum öncesi, sırası ve sonrasında yaşananlar; kazalar, annenin yetersiz beslenmesi, alkol-uyuşturucu-sigara gibi etkenler gelişimi etkiler.`,
+`Bebeklikte beslenme, çevre koşulları, ailenin sosyoekonomik düzeyi ve yeterli uyarım gelişimde rol oynar.`,
+`Kuşaklar arasında fark vardır: Bebekler 50-60 yıl öncesine göre daha iri doğmakta; çocuklar anne-babalarının aynı yaşlardaki hâlinden daha ağır ve uzun boyludur. Nedenleri: sağlık koşullarının düzelmesi, daha iyi beslenme, hijyen, tıbbi yardım ve bilinçli ebeveynler.`,
+`Bazı çocuklar bir dönem hızlı uzar, sonra duraklayabilir; <b>duraklama ve sıçrama dönemleri normaldir</b> ama sapma büyükse uzmana gidilir.`,
+`Ülkemizdeki ortalama doğum ağırlığı değerleri Batı Avrupa ve ABD standartlarıyla uyumludur.`],
+gorsel:`<div class="gk"><div class="gb"><b>🧬 Kalıtım</b><br>cinsiyet · göz/ten/saç rengi · boy · genetik hastalıklar</div><div class="gb"><b>🌍 Çevre</b><br>beslenme · bakım · uyarım · kazalar · sigara-alkol</div></div>`,
+ezber:`<b>"Plan gen, malzeme çevre."</b> Gen: rengini, boyunu, hastalığını verir. Çevre: beslenmeyi, bakımı, sevgiyi verir.`,
+hata:`"Boy tamamen geneğtir" demek yanlıştır; kuşaklar arası boy ve kilo artışı çevresel koşulların (beslenme, sağlık, hijyen) iyileşmesiyle açıklanır.`.replace(`geneğtir`,`gendir`),
+kontrol:[
+{q:`Hangisi kalıtımla ilgilidir?`,o:[`Göz rengi`,`Annenin sigara içmesi`,`Kaza`],d:0,a:`Göz rengi genlerle gelir; diğerleri çevresel faktör.`},
+{q:`Çocukların anne-babalarından daha uzun ve ağır olmasının başlıca nedeni?`,o:[`Sağlık ve beslenme koşullarının iyileşmesi`,`Güneşin artması`,`Tamamen şans`],d:0,a:`Beslenme, hijyen, tıbbi yardım ve bilinçli ebeveynler.`},
+{q:`Hangisi çevresel faktördür?`,o:[`Saç biçimi`,`Annenin yetersiz beslenmesi`,`Cinsiyet`],d:1,a:`Annenin beslenmesi çevresel faktör.`}]},
+
+{id:7,bolum:3,ad:`Sistemler ve Organlar`,ikon:`🧩`,dk:5,
+kanca:`Vücut bir <b>şehir</b>: hücreler tuğla, dokular duvar, organlar bina, sistemler de mahalleler. Mahallelerin hepsi birlikte çalışmazsa şehir durur.`,
+kurallar:[
+`İnsan vücudu fiziksel ve kimyasal yapılardan oluşan bir sistemler bütünüdür.`,
+`Ana birim <b>hücre</b>; hücreler ve aralarındaki maddeler <b>doku</b>; dokular <b>organ</b>; aynı işlevli organlar <b>sistemleri</b> oluşturur.`,
+`Sistemler: <b>sindirim, solunum, kalp ve kan dolaşımı, boşaltım, beyin ve sinir</b> (ayrıca hareket sistemi).`,
+`Bu sistemler duyu, hareket ve beslenme gereksinimlerini karşılar; büyüme, her organın görevini yerine getirmesine bağlıdır.`],
+gorsel:`<div class="gk" style="flex-direction:column;align-items:center"><div class="gb">🔬 Hücre</div>⬇<div class="gb">🧱 Doku</div>⬇<div class="gb">❤️ Organ</div>⬇<div class="gb">🏙️ Sistem</div></div>`,
+ezber:`<b>"Hücre-Doku-Organ-Sistem" = "HaDOS".</b> Beş sistem: <b>"Sessiz Sınıfta Kıpırdayan Bir Bebek"</b>: <u>S</u>indirim, <u>S</u>olunum, <u>K</u>alp-kan, <u>B</u>oşaltım, <u>B</u>eyin-sinir.`,
+hata:`Organlar sistemden büyüktür sanma; sıra küçükten büyüğe: hücre → doku → organ → sistem.`,
+kontrol:[
+{q:`Vücudun ana birimi nedir?`,o:[`Doku`,`Hücre`,`Organ`],d:1,a:`Hücre.`},
+{q:`Küçükten büyüğe doğru sıra hangisidir?`,o:[`Doku-hücre-organ-sistem`,`Hücre-doku-organ-sistem`,`Organ-doku-sistem-hücre`],d:1,a:`Hücre-doku-organ-sistem.`},
+{q:`Aşağıdakilerden hangisi kitaptaki sistemlerden biri değildir?`,o:[`Boşaltım`,`Solunum`,`Gözlem`],d:2,a:`Gözlem bir sistem değildir.`}]},
+
+{id:8,bolum:3,ad:`Sindirim ve Solunum`,ikon:`🫁`,dk:10,
+kanca:`Sindirim bir <b>fabrikanın montaj hattı</b>, solunum ise <b>havalandırma sistemi</b>dir. İkisi de "yutak" kavşağında buluşur.`,
+kurallar:[
+`<b>Sindirim:</b> sindirimi sağlayan organlar: ağız, yutak, yemek borusu, mide, ince bağırsak, kalın bağırsak. Yardımcı organlar: karaciğer, pankreas.`,
+`Bebeğin sindirim sistemi anne sütü ve ona yakın gıdaları sindirecek niteliktedir. Midesi küçük olduğundan <b>az ve sık</b> beslenmeli; yaşla mide kapasitesi büyüdükçe miktar artar.`,
+`Ergenlikte mide büyüyüp kapasite arttığından yemek yeme fazlalaşır.`,
+`<b>Solunum:</b> oksijenin hücre düzeyinde kullanımı <b>iç solunum</b>, dış ortamdan alınması <b>dış solunum</b>.`,
+`Solunum yolu: burun (nemlendirir, ısıtır, koku alır) → yutak → gırtlak → soluk borusu (toz ve mikroplar temizlenir) → bronşlar → akciğerler. <b>Diyafram</b> kasılıp gevşeyerek göğüs boşluğunun hacmini değiştirir.`,
+`<b>Bebeğin nefes sayısı (dakikada):</b> yenidoğan 40-60, 3 aylık 35-40, 1 yaşında 30-35. Bebek daha çok karın kaslarıyla nefes alır (kaburgalar yatay).`,
+`4 yaşından sonra çocuk hareketli etkinliklerle doğru nefes alıp vermeyi öğrenir.`],
+gorsel:`<h4>Sindirim yolu</h4><div class="yolcu">${[`👄 Ağız`,`Yutak`,`Yemek borusu`,`🫃 Mide`,`İnce bağırsak`,`Kalın bağırsak`].join(`<i>→</i>`)}</div><h4>Solunum yolu</h4><div class="yolcu">${[`👃 Burun`,`Yutak`,`Gırtlak`,`Soluk borusu`,`Bronşlar`,`🫁 Akciğerler`].join(`<i>→</i>`)}</div><div class="gk" style="flex-direction:column;align-items:stretch;margin-top:.6rem">${bar(`Yenidoğan (en çok)`,60,60,`var(--yanlis)`)}${bar(`3 aylık (en çok)`,40,60,`var(--altin)`)}${bar(`1 yaş (en çok)`,35,60,`var(--ana)`)}</div><p class="u">Dakikadaki nefes sayısının üst sınırı</p>`,
+ezber:`<b>Solunum:</b> "40-60, 35-40, 30-35" — yaş büyüdükçe nefes yavaşlar. <b>Yol:</b> "Burun-Yutak-Gırtlak-Soluk borusu-Bronş-Akciğer". Sindirim: "Ağız-Yutak-Yemek borusu-Mide-İnce-Kalın".`,
+hata:`Yutak hem sindirim hem solunum yolunun ortak parçasıdır; ama bebeğin hızlı nefes almasının nedeni dar ve kısa solunum yolları ile yatay kaburgalardır.`,
+kontrol:[
+{q:`Yenidoğanın dakikadaki nefes sayısı?`,o:[`10-20`,`40-60`,`80-100`],d:1,a:`40-60.`},
+{q:`Bebek nefes alırken ağırlıklı olarak hangi kasları kullanır?`,o:[`Karın kasları`,`Boyun kasları`,`Bacak kasları`],d:0,a:`Kaburgalar yatay olduğu için karın kasları.`},
+{q:`Oksijenin hücre düzeyinde kullanılmasına ne denir?`,o:[`Dış solunum`,`İç solunum`,`Terleme`],d:1,a:`İç solunum.`}]},
+
+{id:9,bolum:3,ad:`Dolaşım ve Boşaltım`,ikon:`❤️`,dk:10,
+kanca:`Kalp bir <b>pompa istasyonu</b>, damarlar <b>boru hattı</b>, böbrekler ise <b>arıtma tesisi</b>dir.`,
+kurallar:[
+`Kalp, herkesin kendi yumruğu büyüklüğünde bir organdır; vücuttaki en güçlü kas kalp kasıdır.`,
+`Kalp dakikada ortalama <b>70</b> kez atar; bir günde yaklaşık <b>20 ton</b> kan pompalar. Yenidoğanın kalbi dakikada <b>120-140</b> atar; sonra düşer. Yetişkin 60-70.`,
+`<b>Küçük dolaşım:</b> kalpten akciğerlere gidip oksijenlenen kanın kalbe dönüşü. <b>Büyük dolaşım:</b> oksijenli kanın vücuda yayılıp geri dönüşü.`,
+`Kan besin maddeleri ve oksijeni hücrelere taşır; artıkları uzaklaştırır.`,
+`Yenidoğan kanındaki <b>antikorlar</b> plasenta yoluyla geçer; ilk 2-3 ay kızamık, kızıl, kabakulak, çocuk felci gibi hastalıklardan korur. 3. aydan sonra etkisi azaldığı için <b>aşılar zamanında yapılmalıdır</b>.`,
+`<b>Boşaltım:</b> zararlı ya da fazla maddelerin hücrelerden ve vücut sıvısından uzaklaştırılmasıdır. Organlar: <b>böbrek → üreter → idrar kesesi (mesane) → üretra</b>.`,
+`İdrarın %95'i sudur. Su ve karbondioksit fazlası solunumla, su ve tuz terlemeyle atılır; üre, ürik asit, su ve tuz idrarla atılır.`,
+`İlk yıllarda böbrekler düzensiz çalışır; bebeğin idrar sayısı beslenmeyle değişir. Bez ıslak bırakılmamalı (idrar yolu enfeksiyonu), kız çocuklarda alt temizliği önden arkaya yapılmalıdır (kirlilik üreme organlarına yayılmasın).`],
+gorsel:`<h4>Küçük dolaşım ve büyük dolaşım</h4><svg viewBox="0 0 300 150" class="svg"><defs><marker id="o" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#d1495b"/></marker></defs><circle cx="150" cy="75" r="22" fill="#d1495b"/><text x="150" y="80" fill="#fff" text-anchor="middle" font-size="14">❤️</text><path d="M128 66 C60 20 30 20 30 40 C30 60 100 55 128 68" fill="none" stroke="#3b82c4" stroke-width="3" marker-end="url(#o)"/><text x="50" y="35" font-size="11" fill="currentColor">akciğerler</text><path d="M172 84 C250 130 280 120 270 90 C260 70 200 80 172 82" fill="none" stroke="#d1495b" stroke-width="3" marker-end="url(#o)"/><text x="215" y="130" font-size="11" fill="currentColor">tüm vücut</text></svg><h4>Boşaltım yolu</h4><div class="yolcu">${[`🫘 Böbrek`,`Üreter`,`İdrar kesesi`,`Üretra`].join(`<i>→</i>`)}</div>`,
+ezber:`<b>"70 atar, 20 ton taşır."</b> Yenidoğan 120-140, yetişkin 60-70. Boşaltım: <b>"Bö-Ür-Me-Üt"</b> (Böbrek-Üreter-Mesane-Üretra). 3. aydan sonra antikor biter, aşı başlar.`,
+hata:`"Antikor bebeği hep korur" yanlıştır: 3. aydan sonra etkisini yitirir; bu yüzden aşı takvimine uymak gerekir.`,
+kontrol:[
+{q:`Yenidoğanın kalbi dakikada kaç kez atar?`,o:[`60-70`,`120-140`,`200`],d:1,a:`120-140.`},
+{q:`Boşaltım yolunun doğru sırası?`,o:[`Böbrek-üreter-mesane-üretra`,`Böbrek-üretra-mesane-üreter`,`Mesane-böbrek-üreter-üretra`],d:0,a:`Böbrek-üreter-mesane-üretra.`},
+{q:`İdrarın yüzde kaçı sudur?`,o:[`50`,`70`,`95`],d:2,a:`%95.`}]},
+
+{id:10,bolum:4,ad:`Beyin ve Sinir Sistemi`,ikon:`🧠`,dk:8,
+kanca:`Sinir sistemi <b>vücudun kablo ağı ve genel merkezi</b>dir: beyin yönetim odası, omurilik ana kablo, sinirler de evlere giden hatlardır.`,
+kurallar:[
+`<b>Merkezi sinir sistemi:</b> beyin, beyincik, omurilik soğanı, omurilik. <b>Çevresel sinir sistemi:</b> sinir lifleri; merkezi sistem ile organlar arasındaki iletimi sağlar.`,
+`Merkezi sinir sisteminden <b>43 çift</b> sinir çıkar: <b>12 çift beyinden</b> (kafa çiftleri: ses duyma, söz söyleme, tat alma, okuma-yazma, dengeli yürüme), <b>31 çift omurilikten</b> (kaslara ve iç organlara gider).`,
+`Merkezi sinir sistemi ilk çocuklukta hızlı büyür, erinlik döneminden sonra durur. Çocuklukta beyin ölçüsünde son derece yavaşlama olur. Doğum öncesi ve sonrasındaki hızlı gelişmeye <b>beynin büyüme hamlesi</b> denir.`,
+`Doğumda tüm nöron hücreleri vardır; hücre kaybolursa yerine yenisi oluşmaz.`,
+`Yaşamın ilk yıllarında çocuk çoğu zaman uyur; <b>2. aydan</b> itibaren çevreyle yavaş yavaş etkileşir. Başını <b>3. ayda dik tutar</b>, <b>5. ayda dönme</b>, <b>6. aya doğru oturma</b> gerçekleşir; sonra ayakta durma, yürüme, koşma.`,
+`<b>Diğer alanlarla ilişki:</b> Fiziksel gelişim tüm alanların temelidir. Bilişsel (nesnelerin adlarını, kavramları gözleyerek-deneyerek öğrenme), sosyal (akranlarla iletişim, sıra bekleme, paylaşma, kurallara uyma) ve duygusal (enerjiyi boşaltma, sıkıntıdan kurtulma) alanlarla yakından bağlıdır. Açık hava oyun alanı, okul öncesi çocuğu için canlı bir laboratuvardır.`],
+gorsel:`<div class="gk" style="flex-direction:column;align-items:stretch"><div class="gb"><b>Sinir Sistemi</b></div><div class="gk"><div class="gb"><b>Merkezi</b><br>Beyin · Beyincik · Omurilik soğanı · Omurilik</div><div class="gb"><b>Çevresel</b><br>Sinir lifleri</div></div></div><div class="gk" style="margin-top:.6rem"><div class="gb"><b>12</b> çift<br>beyinden</div><b>+</b><div class="gb"><b>31</b> çift<br>omurilikten</div><b>=</b><div class="gb"><b>43</b> çift</div></div><h4>Motor yol haritası</h4><div class="yolcu">${[`2. ay çevreyle etkileşim`,`3. ay baş dik`,`5. ay dönme`,`6. ay oturma`].join(`<i>→</i>`)}</div>`,
+ezber:`<b>"43 = 12 + 31."</b> "3 baş, 5 dön, 6 otur." Nöron: "doğuşta tamam, kaybolan geri gelmez."`,
+hata:`"Beyin hücreleri yenilenir" yanlıştır: kitaba göre hücre kaybında yerine yeni hücre oluşmaz.`,
+kontrol:[
+{q:`Kafa çiftleri kaç çifttir?`,o:[`12`,`31`,`43`],d:0,a:`12 çift beyinden çıkar.`},
+{q:`Bebek başını genellikle hangi ayda dik tutar?`,o:[`1.`,`3.`,`9.`],d:1,a:`3. ayda.`},
+{q:`Aşağıdakilerden hangisi merkezi sinir sistemine ait değildir?`,o:[`Beyincik`,`Omurilik soğanı`,`Sinir lifleri`],d:2,a:`Sinir lifleri çevresel sinir sistemidir.`}]}
+];
