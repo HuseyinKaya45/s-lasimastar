@@ -294,6 +294,11 @@ input.search{border:1px solid var(--line);background:var(--panel2);border-radius
 .bcards,.gen,.opts,.mem,#bs,.wins{direction:rtl}
 .bcard,.gen>div,.mc{direction:ltr}
 .opt.tr{direction:ltr}
+.dslots{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:12px 0}
+.dslot{border:2px dashed var(--line);border-radius:14px;padding:8px;text-align:center;min-height:78px;display:grid;gap:4px;align-content:center;background:var(--panel2);cursor:pointer}
+.dslot .ar{font-size:1.5rem;direction:rtl}.dslot.full{border-style:solid}.dslot.ok{background:var(--root-s);border-color:var(--root)}.dslot.no{background:color-mix(in srgb,var(--bad) 15%,transparent);border-color:var(--bad)}
+.dchip{touch-action:none;user-select:none;cursor:grab}.dchip.ghost{opacity:.35}
+.dghost{position:fixed;z-index:200;pointer-events:none;transform:translate(-50%,-50%);box-shadow:0 8px 24px rgba(0,0,0,.35)}
 </style>
 <header class="top">
   <div class="wrap">
@@ -744,7 +749,7 @@ const BADGES=[
  ['bin','Bin Tuğla','500 tatbikat hücresi doldur',()=>S.cells>=500],
  ['mutel','Mu‘tel Ustası','Altı mu‘tel tablosunu bitir',()=>MUTEL.every(m=>tatPct('m-'+m.id)>=1)],
  ['sinav','Mümtaz','Bir sınavdan %90 ve üstü al',()=>S.exams.some(e=>e.pct>=90)],
- ['oyun','Oyun Ehli','Yedi oyunun hepsini oyna',()=>GAMES.every(g=>S.played[g.id])],
+ ['oyun','Oyun Ehli','Bütün oyunları oyna',()=>GAMES.every(g=>S.played[g.id])],
  ['seri','Devamlılık','3 gün üst üste çalış',()=>S.streak>=3],
  ['saray','Saray Tamam','35 pencerenin hepsini yak',()=>BABS.every(b=>S.stars[b.id])]
 ];
@@ -1120,7 +1125,12 @@ const GAMES=[
  {id:'asansor',ic:'elev',t:'Asansör',d:'60 saniye: gelen fiili sarayın doğru katına çıkar.'},
  {id:'hafiza',ic:'mem',t:'Hafıza Sarayı',d:'Vezin ile mevzûnunu eşleştir; en az hamlede bitir.'},
  {id:'kapi',ic:'door',t:'Yedi Kapı',d:'60 saniye: fiili yedi kısımdan doğru kapıya gönder.'},
- {id:'mana',ic:'bulb',t:'Mânâ Avcısı',d:'Örnek cümleye bak: bu bâb ta‘diye mi, mutâvaat mı, müşâreket mi?'}
+ {id:'mana',ic:'bulb',t:'Mânâ Avcısı',d:'Örnek cümleye bak: bu bâb ta‘diye mi, mutâvaat mı, müşâreket mi?'},
+ {id:'hizli',ic:'elev',t:'Hızlı Kalıp',d:'60 saniye: istenen kalıbı dört seçenekten kap. Yanlış 3 saniye götürür.'},
+ {id:'hata',ic:'hunt',t:'Hatayı Bul',d:'Dört kalıptan biri yanlış harekeli: yakala.'},
+ {id:'duzelt',ic:'brick',t:'Hatayı Düzelt',d:'Yanlış harekelenmiş kalıbın doğrusunu bul.'},
+ {id:'doldur',ic:'mem',t:'Tabloyu Tamamla',d:'Beş çekimi sürükleyip yuvalara bırak (ya da seçip dokun).'},
+ {id:'tekrar',ic:'scale',t:'Yanlışlarımı Tekrar Et',d:'Yanlış yaptığın kalıplar yeniden sorulur; doğru bilince listeden çıkar.'}
 ];
 V.oyun=([g])=>{
   if(g&&GAME[g]){S.played[g]=1;save();return GAME[g]();}
@@ -1224,6 +1234,76 @@ GAME.mana=()=>{
     card.innerHTML=`<p class="q" style="text-align:center">Bu cümledeki fiilin bâbı hangi mânâ için kurulmuştur? <span class="muted small">(${n}/10)</span></p><div class="qar" style="font-size:2rem">${esc(e[0])}</div><p class="tiny muted" style="text-align:center">${A(vzPair(B))}</p><div class="opts">${shuffle(kinds).map(k=>`<button class="opt tr" data-k="${k}">${BINA_KIND[k]}</button>`).join('')}</div><div class="fb" id="fb"></div>`;
     $('#gi').textContent='Puan '+sc;
     $$('[data-k]').forEach(b=>b.onclick=()=>{const ok=b.dataset.k===B.bk;$$('[data-k]').forEach(x=>{x.disabled=true;if(x.dataset.k===B.bk)x.classList.add('ok');});if(!ok)b.classList.add('no');sc+=ok?10:0;beep(ok?'ok':'no');$('#fb').className='fb '+(ok?'ok':'no');$('#fb').innerHTML=`${esc(e[1])}<div class="small muted" style="font-weight:400">${B.bn}</div>`;TIMERS.push(setTimeout(round,1900));});
+  };round();
+};
+/* ---------- Emsile Tezgâhı'ndan uyarlanan oyunlar ---------- */
+if(!Array.isArray(S.mist))S.mist=[];
+const rowIdx=r=>ALL_ROWS.indexOf(r);
+const addM=(row,k)=>{const i=rowIdx(row);if(i<0||S.mist.some(x=>x.i===i&&x.k===k))return;S.mist.push({i,k});if(S.mist.length>40)S.mist.shift();save();};
+const delM=(row,k)=>{const i=rowIdx(row);S.mist=S.mist.filter(x=>!(x.i===i&&x.k===k));save();};
+const fullRow=r=>r.set.startsWith('b-')&&r.f.length>=5&&r.f.slice(0,5).every(x=>x&&!x.includes('?'));
+const slotName=(row,k)=>{const B=BAB[row.b];return SK[k]==='f'?fLabel(B):SLOT_NAMES[SK[k]];};
+/* ortak çoktan seçmeli oyun iskeleti: mk() → {row,k,prompt,show,right,opts,why?} */
+function choiceGame(id,title,total,mk,{timed=false,again,bad=true}={}){
+  app.innerHTML=gHead(title);const card=app.querySelector('.stage .card');
+  let n=0,sc=0,streak=0,left=60;const fin=()=>{stopTimers();gameEnd(id,sc,timed?`60 saniyede ${sc/10} doğru.`:`${total} turda ${sc} puan.`,again);};
+  const round=()=>{
+    if(!timed&&n>=total)return fin();
+    const q=mk();if(!q){card.innerHTML='<p class="muted" style="text-align:center">Henüz çalışılacak yanlışın yok. Önce diğer oyunları oyna.</p>';return;}
+    n++;
+    card.innerHTML=`${timed?`<div class="hud"><span class="timer ${left<=10?'low':''}" id="tm">⏱ ${left} sn</span><b>Puan ${sc}</b></div>`:''}<p class="q" style="text-align:center">${q.prompt}${timed?'':` <span class="muted small">(${n}/${total})</span>`}</p>${q.show?`<div class="qar" style="font-size:2rem">${esc(q.show)}</div>`:''}<div class="opts">${q.opts.map((o,i)=>`<button class="opt" data-o="${i}">${esc(o)}</button>`).join('')}</div><div class="fb" id="fb"></div>`;
+    if(!timed)$('#gi').textContent='Puan '+sc+' · Seri '+streak;
+    $$('[data-o]').forEach(b=>b.onclick=()=>{const ok=q.opts[+b.dataset.o]===q.right;$$('[data-o]').forEach(x=>{x.disabled=true;if(q.opts[+x.dataset.o]===q.right)x.classList.add('ok');});
+      if(ok){streak++;sc+=10+(timed?0:Math.min(streak,5)*2);beep('ok');delM(q.row,q.k);}else{streak=0;b.classList.add('no');beep('no');addM(q.row,q.k);if(timed)left=Math.max(0,left-3);}
+      $('#fb').className='fb '+(ok?'ok':'no');$('#fb').innerHTML=(ok?'Doğru! ':'Doğrusu: ')+A(q.right)+(q.why?`<div class="small muted" style="font-weight:400">${q.why}</div>`:'');
+      TIMERS.push(setTimeout(round,ok?(timed?350:1000):(timed?1100:1800)));});
+  };
+  round();
+  if(timed)TIMERS.push(setInterval(()=>{left--;const t=$('#tm');if(t){t.textContent='⏱ '+left+' sn';t.classList.toggle('low',left<=10);}if(left<=0)fin();},1000));
+}
+const kalipQ=(row,k)=>({row,k,prompt:`${A(row.f[0])} fiilinin <b>${slotName(row,k)}</b> kalıbı hangisi?`,right:row.f[k],opts:shuffle([row.f[k],...distract(row,k,3)]),why:`${A(vzPair(BAB[row.b]))} · ${BAB[row.b].n}. bâb`});
+GAME.hizli=()=>choiceGame('hizli','Hızlı Kalıp',0,()=>{const row=randomRow(fullRow);return kalipQ(row,1+rnd(4));},{timed:true,again:GAME.hizli});
+GAME.hata=()=>choiceGame('hata','Hatayı Bul',10,()=>{
+  const row=randomRow(fullRow);const ks=shuffle([0,1,2,3,4]).slice(0,4);const bk=pick(ks);let w=null;for(let i=0;i<14&&(!w||w===row.f[bk]);i++)w=mutate(row.f[bk]);
+  if(!w||w===row.f[bk])return kalipQ(row,1+rnd(4));
+  const opts=ks.map(k=>k===bk?w:row.f[k]);
+  return {row,k:bk,prompt:'Dört kalıptan biri yanlış harekeli: hangisi?',right:w,opts,why:`Doğrusu: ${A(row.f[bk])} (${slotName(row,bk)})`};
+},{again:GAME.hata});
+GAME.duzelt=()=>choiceGame('duzelt','Hatayı Düzelt',10,()=>{
+  const row=randomRow(fullRow);const k=rnd(5);let w=null;for(let i=0;i<14&&(!w||w===row.f[k]);i++)w=mutate(row.f[k]);
+  if(!w||w===row.f[k])return kalipQ(row,1+rnd(4));
+  return {row,k,prompt:`${A(w)} yanlış harekelenmiş bir <b>${slotName(row,k)}</b>. Doğrusu hangisi?`,right:row.f[k],opts:shuffle([row.f[k],...distract(row,k,3).filter(x=>x!==w)].slice(0,4)),why:`${A(vzPair(BAB[row.b]))} · ${BAB[row.b].n}. bâb`};
+},{again:GAME.duzelt});
+GAME.tekrar=()=>{
+  if(!S.mist.length){app.innerHTML=gHead('Yanlışlarımı Tekrar Et')+'';app.querySelector('.stage .card').innerHTML='<p class="muted" style="text-align:center">Henüz yanlışın yok. Hızlı Kalıp, Hatayı Bul veya Hatayı Düzelt oyna; yanlış yaptıkların burada toplanır.</p>';return;}
+  const total=Math.min(8,S.mist.length);let order=shuffle(S.mist).slice(0,total),j=0;
+  choiceGame('tekrar','Yanlışlarımı Tekrar Et',total,()=>{const d=order[j++%order.length];const row=ALL_ROWS[d.i];return row?kalipQ(row,d.k):null;},{again:GAME.tekrar});
+};
+/* Tabloyu Tamamla: beş kalıbı yerine sürükle ya da seçip yuvaya dokun */
+GAME.doldur=()=>{
+  app.innerHTML=gHead('Tabloyu Tamamla');const card=app.querySelector('.stage .card');let n=0,sc=0;
+  const round=()=>{
+    if(n>=4)return gameEnd('doldur',sc,'4 tabloda '+sc+' puan.',GAME.doldur);
+    const row=randomRow(fullRow);const B=BAB[row.b];n++;let sel=null;const put={};const chips=shuffle([0,1,2,3,4].map(k=>({k,t:row.f[k]})));
+    const draw=()=>{
+      card.innerHTML=`<p class="q" style="text-align:center">${A(vzPair(B))} · ${B.n}. bâb — <b>${A(row.r.join(' '))}</b> kökünün çekimlerini yerine koy <span class="muted small">(${n}/4)</span></p>
+      <div class="dslots">${[0,1,2,3,4].map(k=>`<div class="dslot ${put[k]?'full':''}" data-s="${k}"><span class="tiny muted">${slotName(row,k)}</span><span class="ar">${put[k]?esc(put[k].t):'؟'}</span></div>`).join('')}</div>
+      <div class="tiles dchips">${chips.map((c,i)=>`<button class="tile dchip ${Object.values(put).includes(c)?'ghost':''} ${sel===c?'pick':''}" data-c="${i}">${esc(c.t)}</button>`).join('')}</div>
+      <div class="row" style="justify-content:center"><button class="btn pri" id="ck" ${Object.keys(put).length===5?'':'disabled'}>Kontrol</button></div><div class="fb" id="fb"></div>`;
+      const place=(c,k)=>{Object.keys(put).forEach(x=>{if(put[x]===c)delete put[x];});put[k]=c;sel=null;beep('tap');draw();};
+      $$('[data-s]').forEach(el=>el.onclick=()=>{const k=+el.dataset.s;if(sel)place(sel,k);else if(put[k]){delete put[k];draw();}});
+      $$('[data-c]').forEach(el=>{const c=chips[+el.dataset.c];let sx,sy,gh=null,moved=false;
+        el.onpointerdown=e=>{sx=e.clientX;sy=e.clientY;moved=false;el.setPointerCapture(e.pointerId);};
+        el.onpointermove=e=>{if(sx==null)return;if(!moved&&Math.hypot(e.clientX-sx,e.clientY-sy)<8)return;if(!moved){moved=true;gh=el.cloneNode(true);gh.className='tile dghost';document.body.appendChild(gh);}gh.style.left=e.clientX+'px';gh.style.top=e.clientY+'px';};
+        el.onpointerup=e=>{const was=sx!=null;sx=null;if(gh){gh.remove();gh=null;}
+          if(moved){const t=document.elementFromPoint(e.clientX,e.clientY);const s=t&&t.closest('[data-s]');if(s)place(c,+s.dataset.s);return;}
+          if(was){sel=sel===c?null:c;beep('tap');draw();}};
+        el.onpointercancel=()=>{sx=null;if(gh){gh.remove();gh=null;}};});
+      $('#ck').onclick=()=>{let good=0;[0,1,2,3,4].forEach(k=>{const ok=put[k].k===k;if(ok)good++;else addM(row,k);if(ok)delM(row,k);});
+        sc+=good*4+(good===5?5:0);beep(good===5?'ok':'no');$$('[data-s]').forEach(el=>{const k=+el.dataset.s;el.classList.add(put[k].k===k?'ok':'no');});
+        $('#fb').className='fb '+(good===5?'ok':'no');$('#fb').innerHTML=`${good}/5 doğru. `+(good===5?'Tam isabet!':'Doğrusu: '+[0,1,2,3,4].map(k=>A(row.f[k])).join(' · '));
+        $('#gi').textContent='Puan '+sc;$('#ck').textContent='Sonraki';$('#ck').onclick=round;};
+    };draw();
   };round();
 };
 /* ---------- SINAV ---------- */
@@ -1361,7 +1441,7 @@ V.hakkinda=()=>{app.innerHTML=`<div style="max-width:760px;margin:0 auto">
 <p style="margin:6px 0;color:var(--muted)">Kaynak: <i>Tavdîhu Metni Binâi’l-Ef‘âl</i> (1442/2021)</p>
 <p style="margin:6px 0;color:var(--muted)">© 2026 Hüseyin KAYA · İstifade edilmesi temennisiyle…</p>
 </div>
-<p style="margin:14px 4px;color:var(--muted);font-size:.9rem">35 bâb dersi, tatbikat tabloları, atölye, yedi oyun ve raporlu sınav. Program tek bir dosyadır ve internet bağlantısı olmadan çalışır; ilerlemeniz yalnızca bu cihazda saklanır.</p>
+<p style="margin:14px 4px;color:var(--muted);font-size:.9rem">35 bâb dersi, tatbikat tabloları, atölye, on iki oyun ve raporlu sınav. Program tek bir dosyadır ve internet bağlantısı olmadan çalışır; ilerlemeniz yalnızca bu cihazda saklanır.</p>
 </div>`;};
 /* ---------- başlat ---------- */
 document.documentElement.lang='tr';
