@@ -618,7 +618,7 @@ const lemma = (rt=R) => fill(mzStem(rt.b) + V.a, rt.r) + " " + fill("يَ" + muS
 function muh(rt=R){
   return MUH.map((m, i) => {
     const o = {i, id:m.id, tr:m.tr, ar:m.ar, d:m.d, g:m.g, pre:"", x:[]};
-    if (m.masdar){ if (rt.data){ o.txt = masdarOf(rt.data).join(" · "); } else { o.guess = masdarGuess(rt); o.note = "Sülâsîde masdar semâîdir: bu kök programın listesinde yok. Gösterilenler bâbın en yaygın kalıplarıdır (olası); gerçek masdarı sözlükten doğrula."; } return o; }
+    if (m.masdar){ if (rt.data){ o.txt = masdarOf(rt.data).join(" · "); } else { o.guess = masdarGuess(rt); o.gt = MASDAR_KALIP[rt.b.id]; o.note = "Sülâsîde masdar semâîdir: bu kök programın listesinde yok. Gösterilenler bâbın en yaygın kalıplarıdır (olası); gerçek masdarı sözlükten doğrula."; } return o; }
     o.t = m.t(rt.b);
     if (m.id === "fail" && rt.b.id === 6 && rt.data && rt.data.sf){ o.txt = rt.data.sf; o.t = null; o.note = "Kerume bâbında ism-i fâil yerine sıfat-ı müşebbehe kullanılır."; }
     if (m.id === "mef" && rt.data && rt.data.lz){ o.t = null; o.none = "Lâzım fiilin ism-i mef'ûlü harf-i cerle yapılır (مَجْلُوسٌ فِيهِ gibi)."; }
@@ -694,8 +694,8 @@ function renderLoom(){
   $("#tPas").onclick = () => { S.pas = !S.pas; save(); renderLoom(); };
   $("#tCol").onclick = () => { S.col = !S.col; save(); renderLoom(); };
   $$("[data-card]").forEach(b => b.onclick = () => openCard(+b.dataset.card));
-  const cyc = M.filter(o => o.t);
-  const show = () => { const o = cyc[loomI % cyc.length]; const wv = $("#wv"); if (!wv) return; wv.classList.remove("anim"); void wv.offsetWidth; wv.classList.add("anim"); wv.innerHTML = W(o.t); $("#wz").innerHTML = Z(o.t); $("#wn").textContent = o.tr + " · " + o.ar; };
+  const cyc = M.filter(o => o.t || o.txt || o.guess);
+  const show = () => { const o = cyc[loomI % cyc.length]; const wv = $("#wv"); if (!wv) return; wv.classList.remove("anim"); void wv.offsetWidth; wv.classList.add("anim"); if (o.t){ wv.innerHTML = W(o.t); $("#wz").innerHTML = Z(o.t); } else if (o.guess){ wv.innerHTML = o.gt.map(W).join(" · "); $("#wz").innerHTML = o.gt.map(Z).join(" · "); } else { wv.textContent = o.txt; $("#wz").textContent = ""; } $("#wn").textContent = o.tr + " · " + o.ar; };
   clearInterval(loomTimer); loomI = 0; show();
   const play = () => { clearInterval(loomTimer); loomTimer = setInterval(() => { if (VIEW!=="tezgah") return clearInterval(loomTimer); loomI++; show(); }, 2400); };
   if (!matchMedia("(prefers-reduced-motion: reduce)").matches) play(); else $("#wPlay").textContent = "Oynat";
