@@ -169,7 +169,9 @@ button.cell:hover{border-color:var(--gold)}
 .hub{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
 .gcard{padding:18px;text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:18px;display:flex;flex-direction:column;gap:6px;width:100%;position:relative}
 .gcard:hover{border-color:var(--gold)}
-.gcard .ico{font-family:var(--f-ar);font-size:1.7rem;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--panel2);font-weight:700}
+.gcard .ico{font-family:var(--f-ar);font-size:1.7rem;min-width:52px;width:max-content;max-width:100%;height:52px;padding:0 12px;border-radius:14px;display:grid;place-items:center;background:var(--panel2);font-weight:700;line-height:1.2;white-space:nowrap;overflow:hidden}
+.gcard .ico.u{font-size:1.15rem}
+.gcard h3{margin-top:2px}
 .gcard h3{font-size:1.12rem}
 .gcard .best{position:absolute;top:14px;right:14px}
 .stage{max-width:860px;margin:0 auto}
@@ -978,7 +980,7 @@ let G = null;
 function renderHub(){
   if (G && !G.done){ resumeTimer(); draw(); return; }
   $("#v-oyun").innerHTML = `<div class="sec-h" style="margin-top:0"><div><span class="eyebrow">Oyun odası</span><h2>Çekimi oynayarak pekiştir</h2></div><span class="muted small">Sorular ${ROOTS.length} kökten her seferinde yeniden üretilir</span></div>
-   <div class="hub">${GAMES.map(g=>`<button class="gcard" data-g="${g.id}"><span class="ico">${g.ico}</span><h3>${g.tr}</h3><span class="muted small">${g.d}</span>${g.id==="tekrar" ? `<span class="chip best">${S.mist.length} bekliyor</span>` : S.best[g.id]?`<span class="chip best">En iyi ${S.best[g.id]}</span>`:""}</button>`).join("")}</div>`;
+   <div class="hub">${GAMES.map(g=>`<button class="gcard" data-g="${g.id}"><span class="ico ${Array.from(g.ico).length > 3 ? "u" : ""}">${g.ico}</span><h3>${g.tr}</h3><span class="muted small">${g.d}</span>${g.id==="tekrar" ? `<span class="chip best">${S.mist.length} bekliyor</span>` : S.best[g.id]?`<span class="chip best">En iyi ${S.best[g.id]}</span>`:""}</button>`).join("")}</div>`;
   $$("[data-g]").forEach(b => b.onclick = () => start(b.dataset.g));
 }
 function makeQ(id, force){

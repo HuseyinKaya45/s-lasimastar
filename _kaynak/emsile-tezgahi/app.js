@@ -338,7 +338,7 @@ let G = null;
 function renderHub(){
   if (G && !G.done){ resumeTimer(); draw(); return; }
   $("#v-oyun").innerHTML = `<div class="sec-h" style="margin-top:0"><div><span class="eyebrow">Oyun odası</span><h2>Çekimi oynayarak pekiştir</h2></div><span class="muted small">Sorular ${ROOTS.length} kökten her seferinde yeniden üretilir</span></div>
-   <div class="hub">${GAMES.map(g=>`<button class="gcard" data-g="${g.id}"><span class="ico">${g.ico}</span><h3>${g.tr}</h3><span class="muted small">${g.d}</span>${g.id==="tekrar" ? `<span class="chip best">${S.mist.length} bekliyor</span>` : S.best[g.id]?`<span class="chip best">En iyi ${S.best[g.id]}</span>`:""}</button>`).join("")}</div>`;
+   <div class="hub">${GAMES.map(g=>`<button class="gcard" data-g="${g.id}"><span class="ico ${Array.from(g.ico).length > 3 ? "u" : ""}">${g.ico}</span><h3>${g.tr}</h3><span class="muted small">${g.d}</span>${g.id==="tekrar" ? `<span class="chip best">${S.mist.length} bekliyor</span>` : S.best[g.id]?`<span class="chip best">En iyi ${S.best[g.id]}</span>`:""}</button>`).join("")}</div>`;
   $$("[data-g]").forEach(b => b.onclick = () => start(b.dataset.g));
 }
 function makeQ(id, force){
