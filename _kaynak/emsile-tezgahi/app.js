@@ -19,12 +19,6 @@ const addXp = n => { S.xp += n; save(); hud(); };
 let AC;
 function beep(k){ if (!S.sound) return; try { AC = AC || new (window.AudioContext||window.webkitAudioContext)(); const seq = k==="good"?[587,784]:k==="bad"?[200,150]:[523,659,784,1046]; seq.forEach((f,i)=>{ const o=AC.createOscillator(), g=AC.createGain(); o.type=k==="bad"?"triangle":"sine"; o.frequency.value=f; const t=AC.currentTime+i*.09; g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(.13,t+.02); g.gain.exponentialRampToValueAtTime(.0001,t+.16); o.connect(g).connect(AC.destination); o.start(t); o.stop(t+.18); }); } catch(e){} }
 function confetti(){ if (matchMedia("(prefers-reduced-motion: reduce)").matches) return; const c=$("#cf"), x=c.getContext("2d"); c.hidden=false; c.width=innerWidth; c.height=innerHeight; const cols=[getComputedStyle(document.documentElement).getPropertyValue("--rf"),getComputedStyle(document.documentElement).getPropertyValue("--ra"),getComputedStyle(document.documentElement).getPropertyValue("--rl"),getComputedStyle(document.documentElement).getPropertyValue("--gold")]; const P=Array.from({length:110},()=>({x:innerWidth/2,y:innerHeight/3,vx:(Math.random()-.5)*12,vy:-Math.random()*10-3,s:4+Math.random()*5,c:pick(cols),r:Math.random()*6})); let t=0; (function f(){ x.clearRect(0,0,c.width,c.height); P.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.r+=.2;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);x.restore();}); if(++t<90) requestAnimationFrame(f); else c.hidden=true; })(); }
-/* Seslendirme harekeli metinle yapılır (harekesiz metni okuyucu tahmin eder ve yanlış okur). Harekeli kayıt da cihazdaki Arapça ses de yoksa eski (harekesiz) kayda düşülür. */
-function speak(t, onend){
-  t = String(t).replace(/ · /g, "، ");
-  if (typeof SES_AUDIO !== "undefined" && !SES_AUDIO[sesKey(t)] && !(SES_V || sesVoice()) && SES_AUDIO[sesKey(strip(t))]) t = strip(t);
-  return sesPlay(t, onend, typeof toast==='function'?toast:null);
-}
 function applyTheme(){ if (S.theme) document.documentElement.setAttribute("data-theme", S.theme); else document.documentElement.removeAttribute("data-theme"); $("#tSound").setAttribute("aria-pressed", S.sound); }
 $("#tTheme").onclick = () => { const light = S.theme ? S.theme==="light" : matchMedia("(prefers-color-scheme: light)").matches; S.theme = light ? "dark" : "light"; save(); applyTheme(); };
 $("#tSound").onclick = () => { S.sound = !S.sound; save(); applyTheme(); };
@@ -73,7 +67,6 @@ document.addEventListener("click", e => {
   const rc = e.target.closest("[data-root]");
   if (rc){ setRoot(rc.dataset.root); toast("Kök: " + rc.dataset.root.split("").join(" ") + " · " + R.b.tr); if (rc.dataset.go) go(rc.dataset.go); else render(); return; }
   const g = e.target.closest("[data-go]"); if (g){ e.preventDefault(); closeSheet(); go(g.dataset.go); return; }
-  const s = e.target.closest("[data-say]"); if (s){ e.stopPropagation(); speak(s.dataset.say); return; }
 });
 addEventListener("hashchange", () => { const h = location.hash.slice(1); if (h && h !== VIEW) go(h); });
 const render = () => ({tezgah:renderLoom, muttaride:renderTables, bablar:renderBabs, ezber:renderChant, oyun:renderHub, rehber:renderGuide})[VIEW]();
@@ -150,7 +143,6 @@ function openCard(i){
     <h2 style="margin-top:8px">${esc(o.tr)} <span class="ar muted" style="font-size:1.2rem">${o.ar}</span></h2>
     <p class="muted">${esc(o.d)}</p>
     <div class="panel pad" style="text-align:center"><div class="woven">${o.t?W(o.t):o.guess?`<span style="font-size:2rem">${o.guess.map(esc).join(" · ")}</span>`:esc(o.txt||"—")}</div>${o.t?`<div class="wmiz">${Z(o.t)}</div>`:""}
-      ${word?`<button class="btn ghost sm" data-say="${esc(o.pre + word)}" style="margin-top:10px">🔊 Dinle</button>`:""}
       ${R.r.join("")==="نصر" && NASR_TR[o.id] ? `<p style="margin:12px 0 0"><b>${esc(NASR_TR[o.id])}</b></p>` : `<p style="margin:12px 0 0"><b>${esc(o.g)}</b>${R.data ? ` <span class="small muted">· kök anlamı: ${esc(R.data.tr)}</span>` : ""}</p>`}</div>
     ${parts?`<h3 style="margin:20px 0 10px;font-size:1.05rem">Kelime nasıl dokundu?</h3><div class="parts">${parts}</div><p class="small muted" style="text-align:center">Sağdan sola: kökün harfleri renkli, kalıbın eklediği harfler gri.</p>`:""}
     ${o.p?`<h3 style="margin:20px 0 10px;font-size:1.05rem">Meçhulü</h3><div class="panel pad" style="text-align:center"><div class="woven" style="font-size:2.4rem">${W(o.p)}</div><div class="wmiz">${Z(o.p)}</div></div>`:""}
@@ -189,7 +181,7 @@ function renderTables(){
     <div class="panel pad">${picker()}</div>
     <div class="row" style="margin-top:16px"><div class="seg" role="tablist">${TABLES.map(x=>`<button aria-pressed="${x.id===t.id}" data-tb="${x.id}">${esc(x.tr)}</button>`).join("")}<button aria-pressed="${TB==="fail"}" data-tb="fail">İsm-i fâil</button><button aria-pressed="${TB==="mef"}" data-tb="mef">İsm-i mef'ûl</button></div></div>
     <div class="sec-h"><div><span class="eyebrow ar" style="font-size:1rem;letter-spacing:0">${TB==="fail"?"اسْمُ الْفَاعِلِ":TB==="mef"?"اسْمُ الْمَفْعُولِ":t.ar}</span><h2>${TB==="fail"?"İsm-i fâil":TB==="mef"?"İsm-i mef'ûl":esc(t.tr)} · <span class="ar" style="font-size:1.3rem">${esc(lemma())}</span></h2></div>
-      <div class="row"><div class="seg"><button aria-pressed="${S.miz}" id="tMiz2">Mîzan</button><button aria-pressed="${S.col}" id="tCol2">Renkler</button><button aria-pressed="${TBHIDE}" id="tHide">Kendini sına</button></div><button class="btn ghost sm" id="sayAll">🔊 Hepsini dinle</button><button class="btn ghost sm" id="tPrint">🖨 Boş çalışma kâğıdı</button></div></div>
+      <div class="row"><div class="seg"><button aria-pressed="${S.miz}" id="tMiz2">Mîzan</button><button aria-pressed="${S.col}" id="tCol2">Renkler</button><button aria-pressed="${TBHIDE}" id="tHide">Kendini sına</button></div><button class="btn ghost sm" id="tPrint">🖨 Boş çalışma kâğıdı</button></div></div>
     <p class="muted" style="margin-top:-6px">${TB==="fail"?"Yapan anlamında. Müfred, tesniye ve sâlim cemiler kıyâsîdir; teksîr cemileri (فُعَّلٌ، فُعَّالٌ، فَعَلَةٌ، فَوَاعِلُ) Emsile'de kalıp olarak sayılır, her kökte kullanılmaz.":TB==="mef"?"Yapılan anlamında: مَفْعُولٌ kalıbı.":esc(t.d)}</p>
     ${TB==="fail" ? `<div class="list">${FAIL.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(FAIL_TR[i])}</span></div>`).join("")}</div>`
       : TB==="mef" ? (`${lz() ? `<div class="panel pad" style="margin-bottom:12px">${R.b.id===6 ? "Kerume bâbı lâzımdır: kıyâsî kalıp gösterilir ama bu fiillerde ism-i mef'ûl pek kullanılmaz." : "Bu kök lâzım (geçişsiz): ism-i mef'ûl harf-i cerle birlikte kullanılır (مَجْلُوسٌ فِيهِ gibi)."}</div>` : ""}<div class="list">${MEF.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(MEF_TR[i])}</span></div>`).join("")}</div>`)
@@ -202,7 +194,6 @@ function renderTables(){
   $("#tHide").onclick = () => { TBHIDE = !TBHIDE; renderTables(); };
   $("#tPrint").onclick = () => { document.body.classList.add("pb"); try { window.print(); } catch(e){} setTimeout(() => document.body.classList.remove("pb"), 600); };
   if (TBHIDE){ $$("#v-muttaride .cell:not(.x)").forEach(c => { c.classList.add("veil"); c.onclick = () => c.classList.toggle("open"); }); }
-  $("#sayAll").onclick = () => { const forms = TB==="fail" ? FAIL : TB==="mef" ? MEF : SIGA.map((s,i)=>i).filter(i=>!t.only||t.only.includes(i)).map(i=>tableForm(t,i)); speak(forms.map(f=>fill(f,R.r)).join("، ")); };
 }
 
 /* ===================== BÂBLAR ===================== */
@@ -223,7 +214,7 @@ function renderBabs(){
      <div class="row" style="justify-content:space-between"><div><h2 style="font-size:1.4rem">${esc(mb.tr)} <span class="ar" style="font-size:1.3rem">${mb.ar}</span></h2><div class="ar muted" style="font-size:1.2rem">${mb.vz}</div></div>
        <div class="rootchips">${mb.roots.map(x=>`<button data-mr="${x}" aria-pressed="${x===MZR}">${x}</button>`).join("")}</div></div>
      <p>${esc(mb.m)} <b>${esc(r.join(" "))}</b>: ${esc((MZ_MEAN_BY[mb.id]||{})[MZR]||"")}</p>
-     <div class="mzgrid">${Object.keys(MZ_TR).map(k => mb.f[k] ? `<div class="cell"><span class="z" style="font-family:var(--f-ui)">${MZ_TR[k]}</span><span class="w">${P(mb.f[k])}</span><span class="mz">${Z(mb.f[k])}</span><button class="btn ghost sm" style="align-self:center;margin-top:4px" data-say="${esc(fill(mb.f[k], r))}">🔊</button></div>` : `<div class="cell x"><span class="z" style="font-family:var(--f-ui)">${MZ_TR[k]}</span><span class="small">yok (lâzım)</span></div>`).join("")}</div>
+     <div class="mzgrid">${Object.keys(MZ_TR).map(k => mb.f[k] ? `<div class="cell"><span class="z" style="font-family:var(--f-ui)">${MZ_TR[k]}</span><span class="w">${P(mb.f[k])}</span><span class="mz">${Z(mb.f[k])}</span></div>` : `<div class="cell x"><span class="z" style="font-family:var(--f-ui)">${MZ_TR[k]}</span><span class="small">yok (lâzım)</span></div>`).join("")}</div>
      <p class="small muted" style="margin-bottom:0">Gri harfler bu bâbın köke eklediği harflerdir: ${esc(mb.tr)} bâbının imzası.</p>
    </div>`;
   $$("[data-mb]").forEach(b => b.onclick = () => { MZB = b.dataset.mb; renderBabs(); });
@@ -231,7 +222,7 @@ function renderBabs(){
 }
 
 /* ===================== EZBER ===================== */
-let CH = {on:false, i:-1, hide:false, speed:1, voice:true, t:null};
+let CH = {on:false, i:-1, hide:false, speed:1, t:null};
 function chantItems(rt=R){
   const out = [];
   muh(rt).forEach(o => {
@@ -242,14 +233,14 @@ function chantItems(rt=R){
   });
   return out;
 }
-function stopChant(){ CH.on = false; clearTimeout(CH.t); sesStop(); }
+function stopChant(){ CH.on = false; clearTimeout(CH.t); }
 function renderChant(){
   const items = chantItems();
   $("#v-ezber").innerHTML = `<div class="sec-h" style="margin-top:0"><div><span class="eyebrow">Ezber halkası</span><h2>Emsile'yi ritimle oku</h2></div><span class="muted small">Medresedeki gibi: 24 sîga sırayla</span></div>
    <div class="panel pad">${picker()}</div>
    <div class="row" style="margin:16px 0"><button class="btn" id="cPlay">${CH.on?"Durdur":"▶ Okumaya başla"}</button>
      <div class="seg"><button aria-pressed="${CH.speed===1.4}" data-sp="1.4">Yavaş</button><button aria-pressed="${CH.speed===1}" data-sp="1">Normal</button><button aria-pressed="${CH.speed===.7}" data-sp=".7">Hızlı</button></div>
-     <div class="seg"><button aria-pressed="${CH.voice}" id="cVoice">Sesli</button><button aria-pressed="${CH.hide}" id="cHide">Kendini sına</button></div></div>
+     <div class="seg"><button aria-pressed="${CH.hide}" id="cHide">Kendini sına</button></div></div>
    ${CH.hide?`<p class="small muted">Kendini sına: kalıplar gizli. Sıradakini ezberden söyle, sonra dokunarak kontrol et.</p>`:""}
    <div class="panel pad chant" id="chant">${items.map((x,i)=>`<span class="it ${CH.hide?"hid":""} ${i===CH.i?"on":""}" data-ci="${i}" title="${esc(x.tr)}">${x.h}</span>`).join(" ")}</div>
    <p class="small muted" style="margin-top:10px">${items.length} parça · bir parçaya dokununca o parçadan okunur.</p>`;
@@ -260,11 +251,10 @@ function renderChant(){
     if (CH.i >= its.length){ CH.on = false; CH.i = -1; $("#cPlay").textContent = "▶ Baştan oku"; beep("win"); addXp(10); return; }
     const el = its[CH.i]; el.classList.add("on"); el.classList.add("open"); el.scrollIntoView({block:"nearest", behavior:"smooth"});
     const next = () => { CH.t = setTimeout(step, 250 * CH.speed); };
-    if (CH.voice) speak(items[CH.i].s, next); else CH.t = setTimeout(step, 1500 * CH.speed);
+    CH.t = setTimeout(step, 1500 * CH.speed);
   };
   $("#cPlay").onclick = () => { if (CH.on){ stopChant(); $("#cPlay").textContent = "▶ Devam et"; } else { CH.on = true; if (CH.i >= items.length-1) CH.i = -1; CH.i--; if (CH.i < -1) CH.i = -1; $("#cPlay").textContent = "Durdur"; step(); } };
   $$("[data-sp]").forEach(b => b.onclick = () => { CH.speed = +b.dataset.sp; $$("[data-sp]").forEach(x=>x.setAttribute("aria-pressed", x===b)); });
-  $("#cVoice").onclick = () => { CH.voice = !CH.voice; $("#cVoice").setAttribute("aria-pressed", CH.voice); };
   $("#cHide").onclick = () => { CH.hide = !CH.hide; stopChant(); renderChant(); };
   $$("#chant .it").forEach(el => el.onclick = () => { if (CH.hide && !el.classList.contains("open")){ el.classList.add("open"); return; } stopChant(); CH.i = +el.dataset.ci - 1; CH.on = true; $("#cPlay").textContent = "Durdur"; step(); });
 }
