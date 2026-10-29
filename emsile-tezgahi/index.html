@@ -323,7 +323,7 @@ const ROOTS = [
  {r:"سجد", b:1, ms:"سُجُودًا", tr:"secde etmek", lz:true},
  {r:"دخل", b:1, ms:"دُخُولًا", tr:"girmek"},
  {r:"قعد", b:1, ms:"قُعُودًا", tr:"oturmak", lz:true},
- {r:"كفر", b:1, ms:"كُفْرًا", m2:"كُفْرَانًا", tr:"inkâr etmek, nankörlük etmek", lz:true},
+ {r:"كفر", b:1, ms:"كُفْرًا", m2:"كُفْرَانًا", tr:"inkâr etmek, nankörlük etmek"},
  {r:"نظر", b:1, ms:"نَظَرًا", tr:"bakmak", lz:true},
  {r:"ذكر", b:1, ms:"ذِكْرًا", tr:"anmak, zikretmek"},
  {r:"خلق", b:1, ms:"خَلْقًا", tr:"yaratmak"},
@@ -404,7 +404,7 @@ const ROOTS = [
  {r:"لعب", b:4, ms:"لَعِبًا", tr:"oynamak", lz:true},
  {r:"سمع", b:4, ms:"سَمْعًا", m2:"سَمَاعًا", tr:"işitmek"},
  {r:"لبس", b:4, ms:"لُبْسًا", tr:"giymek"},
- {r:"حزن", b:4, ms:"حُزْنًا", tr:"üzülmek", lz:true},
+ {r:"حزن", b:4, ms:"حُزْنًا", m2:"حَزَنًا", tr:"üzülmek", lz:true},
  {r:"ندم", b:4, ms:"نَدَمًا", tr:"pişman olmak", lz:true},
  {r:"شهد", b:4, ms:"شَهَادَةً", m2:"شُهُودًا", tr:"şahitlik etmek, tanık olmak"},
  {r:"خسر", b:4, ms:"خُسْرًا", m2:"خُسْرَانًا", tr:"zarar etmek, kaybetmek"},
@@ -454,6 +454,9 @@ const ROOTS = [
 ];
 /* Masdar semâîdir: hazır köklerde kayıtlı masdar(lar) gösterilir; özel kökte bâbın en yaygın üç kalıbı "olası" diye önerilir. */
 const MASDAR_KALIP = {1:["FَAْLًا","FُAُوLًا","FِAَاLَةً"], 2:["FَAْLًا","FُAُوLًا","FِAَاLَةً"], 3:["FَAْLًا","FُAُوLًا","FَAَاLًا"], 4:["FَAَLًا","FِAْLًا","FَAَاLَةً"], 5:["FِAْLًا","FِAْLَانًا","FُAْLًا"], 6:["FَAَاLَةً","FُAُوLَةً","FُAْLًا"]};
+/* Lâzım fiillerde ism-i mef'ûl yalnız harf-i cerle kullanılır; bunlar için kullanım örneği (programa elle girilmiştir, sözlükten doğrulanmalıdır). Listede olmayan lâzım fiillerde ism-i mef'ûl kullanılmaz ya da pek kullanılmaz. */
+const MEF_CER = {"جلس":"عَلَيْهِ", "خرج":"مِنْهُ", "ذهب":"إِلَيْهِ", "سجد":"لَهُ", "نظر":"إِلَيْهِ", "رجع":"إِلَيْهِ", "سكن":"فِيهِ", "هرب":"مِنْهُ", "صبر":"عَلَيْهِ", "نطق":"بِهِ", "عدل":"عَنْهُ", "ضحك":"مِنْهُ"};
+ROOTS.forEach(d => { if (d.lz && MEF_CER[d.r]) d.mc = MEF_CER[d.r]; });
 const masdarOf = d => d ? [d.ms].concat(d.m2 ? [d.m2] : []) : null;
 const masdarGuess = rt => (MASDAR_KALIP[rt.b.id] || []).map(t => fill(t, rt.r));
 
@@ -685,12 +688,16 @@ function muh(rt=R){
     if (m.masdar){ if (rt.data){ o.txt = masdarOf(rt.data).join(" · "); } else { o.guess = masdarGuess(rt); o.gt = MASDAR_KALIP[rt.b.id]; o.note = "Sülâsîde masdar semâîdir: bu kök programın listesinde yok. Gösterilenler bâbın en yaygın kalıplarıdır (olası); gerçek masdarı sözlükten doğrula."; } return o; }
     o.t = m.t(rt.b);
     if (m.id === "fail" && rt.b.id === 6 && rt.data && rt.data.sf){ o.txt = rt.data.sf; o.t = null; o.note = "Kerume bâbında ism-i fâil yerine sıfat-ı müşebbehe kullanılır."; }
-    if (m.id === "mef" && rt.data && rt.data.lz){ o.note = rt.b.id === 6 ? "Kerume bâbı lâzımdır: ism-i mef'ûl kıyâsî kalıpla gösterilir ama bu fiillerde pek kullanılmaz; sıfat-ı müşebbehe tercih edilir." : "Lâzım (geçişsiz) fiilin ism-i mef'ûlü harf-i cerle birlikte kullanılır (مَجْلُوسٌ فِيهِ, مَخْرُوجٌ مِنْهُ gibi)."; }
+    if (m.id === "mef" && rt.data && rt.data.lz){
+      o.kalip = true;
+      if (rt.data.mc){ o.t = "مَFْAُوLٌ " + rt.data.mc; o.mean = "Harf-i cerle kullanılır"; o.note = "Lâzım (geçişsiz) fiilin ism-i mef'ûlü harf-i cerle birlikte kullanılır: " + fill(o.t, rt.r) + ". (Kullanım örneği elle girilmiştir; sözlükten doğrulanmalıdır.)"; }
+      else { o.mean = "Kullanılmaz / pek kullanılmaz"; o.note = rt.b.id === 6 ? "Kerume bâbı lâzımdır: ism-i mef'ûl kıyâsî kalıpla gösterilir ama kullanılmaz; sıfat-ı müşebbehe tercih edilir." : "Lâzım (geçişsiz) fiilin ism-i mef'ûlü kullanılmaz ya da pek kullanılmaz; kıyâsî kalıp yalnız kalıbı görmek için gösterilir."; }
+    }
     if (m.id === "zarf"){
       if (rt.b.mu === "i"){ o.x = ["مَFْAَLٌ"]; o.gtr = "İsm-i zaman · İsm-i mekân"; o.note = "Bu bâbda üç başlık ikiye ayrılır: ism-i zaman ve ism-i mekân مَفْعِلٌ (muzâride ayn esre olduğu için), masdar-ı mîmî ise kıyâsî olarak مَفْعَلٌ olur. Kartta ilk kelime zaman/mekân, ikinci kelime masdar-ı mîmîdir."; }
       else o.note = "Bu bâbda ism-i zaman, ism-i mekân ve masdar-ı mîmî aynı biçimdedir: مَفْعَلٌ.";
     }
-    if (o.kalip) o.note = (o.note ? o.note + " " : "") + "Kalıp örneği: bu biçim kalıba uygulanarak üretildi; bu kökte kullanılıp kullanılmadığı sözlükten doğrulanmalıdır.";
+    if (o.kalip && m.id !== "mef") o.note = (o.note ? o.note + " " : "") + "Kalıp örneği: bu biçim kalıba uygulanarak üretildi; bu kökte kullanılıp kullanılmadığı sözlükten doğrulanmalıdır.";
     if (m.p && !(rt.data && rt.data.lz)) o.p = m.p();
     return o;
   });
@@ -829,7 +836,7 @@ function renderTables(){
       <div class="row"><div class="seg"><button aria-pressed="${S.miz}" id="tMiz2">Mîzan</button><button aria-pressed="${S.col}" id="tCol2">Renkler</button><button aria-pressed="${TBHIDE}" id="tHide">Kendini sına</button></div><button class="btn ghost sm" id="tPrint">🖨 Boş çalışma kâğıdı</button></div></div>
     <p class="muted" style="margin-top:-6px">${TB==="fail"?"Yapan anlamında. Müfred, tesniye ve sâlim cemiler kıyâsîdir; teksîr cemileri (فُعَّلٌ، فُعَّالٌ، فَعَلَةٌ، فَوَاعِلُ) Emsile'de kalıp olarak sayılır, her kökte kullanılmaz.":TB==="mef"?"Yapılan anlamında: مَفْعُولٌ kalıbı.":esc(t.d)}</p>
     ${TB==="fail" ? `${R.b.id===6 && R.data && R.data.sf ? `<div class="panel pad" style="margin-bottom:12px"><b>Kerume bâbı lâzımdır:</b> ism-i fâil yerine <b>sıfat-ı müşebbehe</b> kullanılır: <span class="ar" style="font-size:1.6rem">${esc(R.data.sf)}</span>. Aşağıdaki kıyâsî ism-i fâil kalıbı bu kökte kullanılmaz; yalnız kalıbı görmek için gösterilir.</div>` : R.b.id===6 ? `<div class="panel pad" style="margin-bottom:12px">Kerume bâbında ism-i fâil yerine genellikle sıfat-ı müşebbehe (فَعِيلٌ, فَعْلٌ, أَفْعَلُ gibi) kullanılır; aşağıdaki kıyâsî kalıp çoğu kökte kullanılmaz.</div>` : ""}<div class="list" ${R.b.id===6 ? 'style="opacity:.55"' : ""}>${FAIL.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(FAIL_TR[i])}</span></div>`).join("")}</div>`
-      : TB==="mef" ? (`${lz() ? `<div class="panel pad" style="margin-bottom:12px">${R.b.id===6 ? "Kerume bâbı lâzımdır: kıyâsî kalıp gösterilir ama bu fiillerde ism-i mef'ûl pek kullanılmaz." : "Bu kök lâzım (geçişsiz): ism-i mef'ûl harf-i cerle birlikte kullanılır (مَجْلُوسٌ فِيهِ gibi)."}</div>` : ""}<div class="list">${MEF.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(MEF_TR[i])}</span></div>`).join("")}</div>`)
+      : TB==="mef" ? (`${lz() ? `<div class="panel pad" style="margin-bottom:12px">${R.data.mc ? `Bu kök lâzım (geçişsiz): ism-i mef'ûl harf-i cerle kullanılır: <span class="ar" style="font-size:1.4rem">${esc(fill("مَFْAُوLٌ " + R.data.mc, R.r))}</span>. Aşağıdaki kıyâsî kalıplar yalnız biçimi gösterir.` : "Bu kök lâzım (geçişsiz): ism-i mef'ûl kullanılmaz ya da pek kullanılmaz. Aşağıdaki kıyâsî kalıp yalnız biçimi göstermek içindir."}</div>` : ""}<div class="list">${MEF.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(MEF_TR[i])}</span></div>`).join("")}</div>`)
       : dis ? `<div class="panel pad">Bu kök lâzım (geçişsiz) olduğu için meçhulü doğrudan yapılmaz. Müteaddî bir kök seç (ör. نصر، ضرب، فتح).</div>` : matrixHTML(t)}
     <div class="panel pad" style="margin-top:18px"><span class="eyebrow">Hatırlatma</span><p style="margin:6px 0 0">Muzâri harfleri <b class="ar" style="font-size:1.15rem">أَتَيْنَ</b> (eteyne): <span class="ar">أَ</span> ben, <span class="ar">تَ</span> sen/o (kadın), <span class="ar">يَ</span> o (erkek), <span class="ar">نَ</span> biz. Aynı görünen sîgalar vardır: <span class="ar">تَنْصُرُ</span> hem 4. (o kadın) hem 7. (sen erkek) sîgadır.</p></div>`;
   bindPicker();

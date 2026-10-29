@@ -27,7 +27,7 @@ const ROOTS = [
  {r:"سجد", b:1, ms:"سُجُودًا", tr:"secde etmek", lz:true},
  {r:"دخل", b:1, ms:"دُخُولًا", tr:"girmek"},
  {r:"قعد", b:1, ms:"قُعُودًا", tr:"oturmak", lz:true},
- {r:"كفر", b:1, ms:"كُفْرًا", m2:"كُفْرَانًا", tr:"inkâr etmek, nankörlük etmek", lz:true},
+ {r:"كفر", b:1, ms:"كُفْرًا", m2:"كُفْرَانًا", tr:"inkâr etmek, nankörlük etmek"},
  {r:"نظر", b:1, ms:"نَظَرًا", tr:"bakmak", lz:true},
  {r:"ذكر", b:1, ms:"ذِكْرًا", tr:"anmak, zikretmek"},
  {r:"خلق", b:1, ms:"خَلْقًا", tr:"yaratmak"},
@@ -108,7 +108,7 @@ const ROOTS = [
  {r:"لعب", b:4, ms:"لَعِبًا", tr:"oynamak", lz:true},
  {r:"سمع", b:4, ms:"سَمْعًا", m2:"سَمَاعًا", tr:"işitmek"},
  {r:"لبس", b:4, ms:"لُبْسًا", tr:"giymek"},
- {r:"حزن", b:4, ms:"حُزْنًا", tr:"üzülmek", lz:true},
+ {r:"حزن", b:4, ms:"حُزْنًا", m2:"حَزَنًا", tr:"üzülmek", lz:true},
  {r:"ندم", b:4, ms:"نَدَمًا", tr:"pişman olmak", lz:true},
  {r:"شهد", b:4, ms:"شَهَادَةً", m2:"شُهُودًا", tr:"şahitlik etmek, tanık olmak"},
  {r:"خسر", b:4, ms:"خُسْرًا", m2:"خُسْرَانًا", tr:"zarar etmek, kaybetmek"},
@@ -158,6 +158,9 @@ const ROOTS = [
 ];
 /* Masdar semâîdir: hazır köklerde kayıtlı masdar(lar) gösterilir; özel kökte bâbın en yaygın üç kalıbı "olası" diye önerilir. */
 const MASDAR_KALIP = {1:["FَAْLًا","FُAُوLًا","FِAَاLَةً"], 2:["FَAْLًا","FُAُوLًا","FِAَاLَةً"], 3:["FَAْLًا","FُAُوLًا","FَAَاLًا"], 4:["FَAَLًا","FِAْLًا","FَAَاLَةً"], 5:["FِAْLًا","FِAْLَانًا","FُAْLًا"], 6:["FَAَاLَةً","FُAُوLَةً","FُAْLًا"]};
+/* Lâzım fiillerde ism-i mef'ûl yalnız harf-i cerle kullanılır; bunlar için kullanım örneği (programa elle girilmiştir, sözlükten doğrulanmalıdır). Listede olmayan lâzım fiillerde ism-i mef'ûl kullanılmaz ya da pek kullanılmaz. */
+const MEF_CER = {"جلس":"عَلَيْهِ", "خرج":"مِنْهُ", "ذهب":"إِلَيْهِ", "سجد":"لَهُ", "نظر":"إِلَيْهِ", "رجع":"إِلَيْهِ", "سكن":"فِيهِ", "هرب":"مِنْهُ", "صبر":"عَلَيْهِ", "نطق":"بِهِ", "عدل":"عَنْهُ", "ضحك":"مِنْهُ"};
+ROOTS.forEach(d => { if (d.lz && MEF_CER[d.r]) d.mc = MEF_CER[d.r]; });
 const masdarOf = d => d ? [d.ms].concat(d.m2 ? [d.m2] : []) : null;
 const masdarGuess = rt => (MASDAR_KALIP[rt.b.id] || []).map(t => fill(t, rt.r));
 
