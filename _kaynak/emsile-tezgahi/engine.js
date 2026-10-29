@@ -266,10 +266,18 @@ const MZ_TR = {mazi:"Mâzi", muz:"Muzâri", masdar:"Masdar", fail:"İsm-i fâil"
 const MZ_MEAN_BY = {ifal:{كرم:"ikram etti",خرج:"çıkardı",نزل:"indirdi",سلم:"Müslüman oldu"}, tafil:{علم:"öğretti",صرف:"evirip çevirdi",كسر:"paramparça etti",قدم:"öne sürdü"}, mufaala:{قتل:"savaştı",كتب:"yazıştı",سفر:"yolculuk etti",جهد:"cihad etti"}, iftial:{جمع:"toplandı",جنب:"kaçındı",كسب:"elde etti",فتح:"başlattı"}, infial:{كسر:"kırıldı",قطع:"kesildi",فتح:"açıldı",صرف:"ayrılıp gitti"}, tafaul2:{علم:"öğrendi",كلم:"konuştu",كسر:"kırılıp döküldü",قدم:"ilerledi"}, tafaul:{بعد:"birbirinden uzaklaştı",قتل:"birbirini öldürdü",كتب:"mektuplaştı",شرك:"ortak oldu"}, istifal:{غفر:"bağışlanma diledi",خرج:"çıkardı (istihraç etti)",عمل:"kullandı",حسن:"güzel buldu"}, ifilal:{حمر:"kızardı",صفر:"sarardı",خضر:"yeşerdi",زرق:"maviye döndü"}};
 
 /* ---- yardımcılar ---- */
-function fill(t, r){ return t.replace(/F/g, r[0]).replace(/A/g, r[1]).replace(/L/g, r[2]); }
+/* İdğam: lâm harfi, kendisiyle aynı harfle başlayan ekin önüne gelince (ör. lâmı ن olan kökte "نْنَا") iki harf tek şeddeli harfe dönüşür: سَكَنْنَا değil سَكَنَّا. */
+function fill(t, r){
+  const w = t.replace(/F/g, r[0]).replace(/A/g, r[1]).replace(/L/g, r[2]);
+  return w.split(r[2] + "ْ" + r[2]).join(r[2] + "ّ");
+}
 function clusters(t){ const out = []; for (const ch of t){ if (MARKS.test(ch) && out.length) out[out.length-1].s += ch; else out.push({s:ch}); } return out; }
 function paint(t, r){
-  return clusters(t).map(c => {
+  const cl = clusters(t);
+  for (let i = 0; i < cl.length - 1; i++){  /* idğam: lâm + sükûn, ardından aynı harf → tek şeddeli lâm */
+    if (cl[i].s === "L" + "ْ" && cl[i+1].s[0] === r[2]){ cl[i] = {s:"L" + "ّ" + cl[i+1].s.slice(1)}; cl.splice(i+1, 1); }
+  }
+  return cl.map(c => {
     const b = c.s[0], rest = c.s.slice(1);
     if (b === "F") return `<span class="rf">${r[0]}${rest}</span>`;
     if (b === "A") return `<span class="ra">${r[1]}${rest}</span>`;
