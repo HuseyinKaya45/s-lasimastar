@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CEH Bölüm 1 — Etkinlikli Çalışma Programı</title>
+<style>:root{--bg:#F5F6FA;--card:#fff;--fg:#1B2233;--mut:#5B647A;--line:#DDE1EC;--pri:#26478F;--pri2:#E5ECFA;--acc:#E39B25;--acc2:#FFF3DC;--ok:#1F7A4D;--ok2:#DDF3E7;--bad:#B3322F;--bad2:#FBE3E2;--shadow:0 1px 3px rgba(20,30,60,.08),0 6px 20px rgba(20,30,60,.05);--fs:17px;color-scheme:light}
+:root[data-theme=dark]{--bg:#12151F;--card:#1B2030;--fg:#E8EBF5;--mut:#9CA6C0;--line:#2D3550;--pri:#8FB0F5;--pri2:#222C4A;--acc:#F2B650;--acc2:#3A2F18;--ok:#6AD39A;--ok2:#17382A;--bad:#F08A86;--bad2:#401D1C;--shadow:none;color-scheme:dark}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#12151F;--card:#1B2030;--fg:#E8EBF5;--mut:#9CA6C0;--line:#2D3550;--pri:#8FB0F5;--pri2:#222C4A;--acc:#F2B650;--acc2:#3A2F18;--ok:#6AD39A;--ok2:#17382A;--bad:#F08A86;--bad2:#401D1C;--shadow:none;color-scheme:dark}}
+*{box-sizing:border-box}html{font-size:var(--fs)}body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+button{font:inherit;color:inherit;cursor:pointer}code{background:var(--pri2);padding:1px 6px;border-radius:5px;font-size:.9em}
+header.top{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.top-in{max-width:1000px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:1.1rem;color:var(--pri);margin-right:auto}.logo small{display:block;font-weight:500;color:var(--mut);font-size:.72rem}
+.chips{display:flex;gap:8px;align-items:center}.chip{background:var(--pri2);color:var(--pri);border-radius:999px;padding:3px 12px;font-weight:700;font-size:.85rem;white-space:nowrap}
+.ibtn{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:38px;height:38px}
+nav.tabs{max-width:1000px;margin:auto;display:flex;gap:6px;padding:0 12px 10px;overflow-x:auto}
+nav.tabs button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;font-weight:600;white-space:nowrap;min-height:40px}
+nav.tabs button[aria-current=true]{background:var(--pri);color:#fff;border-color:var(--pri)}
+:root[data-theme=dark] nav.tabs button[aria-current=true]{color:#12151F}
+main{max-width:1000px;margin:auto;padding:18px 16px 70px}
+h1{font-size:1.6rem;margin:.2em 0 .3em}h2{font-size:1.25rem;margin:1.2em 0 .4em}h3{font-size:1.05rem;margin:.2em 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}.grid .card{margin:0}
+.muted{color:var(--mut)}.small{font-size:.86rem}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 16px;font-weight:700;min-height:44px}
+.btn.pri{background:var(--pri);border-color:var(--pri);color:#fff}:root[data-theme=dark] .btn.pri{color:#12151F}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pill{display:inline-block;border-radius:999px;padding:1px 10px;font-size:.78rem;font-weight:700;background:var(--pri2);color:var(--pri)}.pill.ok{background:var(--ok2);color:var(--ok)}.pill.acc{background:var(--acc2);color:var(--acc)}
+.bar{height:9px;background:var(--pri2);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--pri);border-radius:99px;transition:width .4s}
+.tip{border-left:5px solid var(--acc);background:var(--acc2);padding:9px 14px;border-radius:10px;margin:10px 0}
+.trap{border-left:5px solid var(--bad);background:var(--bad2);padding:9px 14px;border-radius:10px;margin:10px 0}
+.analoji{border-left:5px solid var(--pri);background:var(--pri2);padding:12px 16px;border-radius:12px;margin:12px 0}
+.opt{display:block;width:100%;text-align:left;border:2px solid var(--line);background:var(--card);border-radius:12px;padding:11px 14px;margin:8px 0;min-height:46px}
+.opt:hover:not(:disabled){border-color:var(--pri)}.opt.ok{border-color:var(--ok);background:var(--ok2)}.opt.bad{border-color:var(--bad);background:var(--bad2)}.opt.half{border-color:var(--acc);background:var(--acc2)}
+.fb{padding:10px 14px;border-radius:10px;margin:10px 0}.fb.ok{background:var(--ok2)}.fb.bad{background:var(--bad2)}.fb.half{background:var(--acc2)}
+.chipbar{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.cb{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;font-weight:600}.cb[aria-pressed=true]{background:var(--pri);color:#fff;border-color:var(--pri)}
+:root[data-theme=dark] .cb[aria-pressed=true]{color:#12151F}
+.pool{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.tile{border:2px solid var(--line);background:var(--card);border-radius:12px;padding:8px 14px;font-weight:600;min-height:44px}.tile.sel{border-color:var(--pri);background:var(--pri2)}.tile.ok{border-color:var(--ok);background:var(--ok2)}.tile.bad{border-color:var(--bad);background:var(--bad2)}.tile.used{opacity:.35}
+ol.ans{padding-left:0;list-style:none;counter-reset:n}ol.ans li{counter-increment:n;display:flex;gap:10px;align-items:center;margin:6px 0}ol.ans li:before{content:counter(n);background:var(--pri);color:#fff;border-radius:50%;width:28px;height:28px;display:grid;place-items:center;font-weight:800;flex:none}:root[data-theme=dark] ol.ans li:before{color:#12151F}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:620px){.two{grid-template-columns:1fr}}
+.flash{min-height:190px;display:grid;place-items:center;text-align:center;font-size:1.2rem;font-weight:700;cursor:pointer;padding:24px}
+.hide{display:none}.big{font-size:2.2rem}.center{text-align:center}
+.stat{display:flex;gap:14px;flex-wrap:wrap}.stat div{background:var(--pri2);border-radius:14px;padding:10px 16px;min-width:110px}.stat b{display:block;font-size:1.5rem;color:var(--pri)}
+.badge{display:inline-flex;gap:6px;align-items:center;border:1px dashed var(--line);border-radius:12px;padding:6px 12px;margin:4px;font-weight:600;opacity:.45}.badge.on{opacity:1;border-style:solid;background:var(--acc2)}
+input[type=search],select{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:10px;padding:9px 12px;min-height:44px;width:100%}
+dl dt{font-weight:800;color:var(--pri);margin-top:12px}dl dd{margin:0}
+.timer{font-variant-numeric:tabular-nums;font-weight:800}
+.nav-q{display:flex;gap:4px;flex-wrap:wrap}.nav-q button{width:34px;height:34px;border:1px solid var(--line);background:var(--card);border-radius:8px;font-size:.8rem}.nav-q .cur{border-color:var(--pri);background:var(--pri2)}.nav-q .ans{background:var(--ok2)}.nav-q .flag{outline:2px solid var(--acc)}
+.pop{animation:pop .35s}@keyframes pop{0%{transform:scale(.9)}60%{transform:scale(1.04)}100%{transform:scale(1)}}
+@media print{header.top,nav.tabs{display:none}}
+</style></head><body>
+<header class="top"><div class="top-in"><div class="logo">CEH Bölüm 1<small>Ethical Hacking · etkinlikli çalışma programı</small></div><div class="chips"><span class="chip" id="seri">🔥 0</span><span class="chip" id="xp">⭐ 0</span><button class="ibtn" data-a="yazi" aria-label="Yazı boyutu">Aa</button><button class="ibtn" data-a="tema" aria-label="Koyu/açık tema">🌓</button></div></div><nav class="tabs" id="sek" aria-label="Bölümler"></nav></header>
+<main id="ana"></main>
+<noscript>Bu program JavaScript gerektirir.</noscript>
+<script>/* CEH Bölüm 1 çalışma programı — ders içerikleri (özgün anlatım) */
+var DERSLER = {
+  etik: {
+    ad: "Etik Kodu", ikon: "⚖️",
+    giris: "Kelime “ethical hacking”: vurgu <b>ethical</b> kısmında. Sınavda ve meslekte seni ayakta tutan şey teknik bilgiden önce etik çizgindir.",
+    analoji: { b: "Kilit ustası benzetmesi", m: "Bir apartman yönetimi seni <b>binanın kilitlerini sınaman</b> için tutuyor. Yönetim <b>yazılı izin</b> veriyor (kapsam). Yalnızca kendi binasında çalışırsın; komşu binanın kapısını denemezsin. Bulduğun zayıf kilidi mahallede bağırarak duyurmazsın; önce yönetime ve kilit üreticisine haber verirsin. Gördüğün dairelerin içini anlatmazsın. İşte etik hacker budur." },
+    kartlar: [
+      { b: "Etik evrensel değildir", m: "İnsanlar neyin etik olduğunda farklı düşünebilir. Bu yüzden CEH’te senden <b>EC-Council’in etik kuralları</b>na uyman beklenir. Sana hassas bilgiler ve kritik sistemler emanet edilir; mesleğinde kalmanın şartı bu emanete sadık olmaktır.", ip: "Önce ETHICAL, sonra HACKING.", tr: "“Hacking ethically” değil “ethical hacking” — önemli olan öndeki kelime." },
+      { b: "Gizlilik (Confidentiality)", m: "Çalışırken öğrendiğin <b>özel bilgileri</b> ve müşterinin/işverenin <b>fikri mülkiyetini</b> korursun. Sızdırmak, bilginin gizliliğini bozmak demektir ve etik kuralın ihlalidir.", ip: "Gördüğün şey seninle kalır.", tr: "Bulduğun hassas veriyi başkalarıyla paylaşmak = etik ihlali." },
+      { b: "Açıklama yükümlülüğü (Disclosure)", m: "Seni tutan kişilere <b>açıklanması gerekenleri</b> açıklarsın: bulduğun sorunlar ve varsa <b>çıkar çatışmaları</b> (conflict of interest). Şeffaf olmak, müşterini ve onun işini korumak demektir.", ip: "Bulguyu da, çıkar çatışmasını da söyle.", tr: "Çıkar çatışmasını saklamak etik değildir." },
+      { b: "Sorumlu ifşa (Responsible disclosure)", m: "İnternette çok sayıda insanı etkileyebilecek bir açık bulduysan bunu <b>herkese açık bir forumda</b> yayımlamazsın. İşverenle, ilgili <b>üreticiyle (vendor)</b> ve yetkili <b>CERT</b> ile birlikte çalışırsın ki açık kapanmadan saldırganların eline geçmesin.", ip: "İşveren + Vendor + CERT. Forum değil!", tr: "Responsible disclosure ≠ public forum’a atmak." },
+      { b: "RFPolicy: Rain Forest Puppy", m: "1990’larda araştırmacı <b>Rain Forest Puppy</b> bir ifşa politikası yazdı (RFPolicy). Fikir: üreticiye düzeltmesi için <b>zaman tanı</b>; ama üretici ayak sürürse sen de açıklayabilirsin. Hem “şöhret için hemen yayınlayanlar” hem “umursamayan firmalar” sorununa çözümdü.", ip: "RFP = Rain Forest Puppy.", tr: "Politika, araştırmacı ile üretici arasındaki iş birliğini artırdı." },
+      { b: "Dan Kaminsky örneği", m: "2000’lerin ortasında <b>Dan Kaminsky</b>, DNS (Domain Name System) uygulamalarında ciddi açıklar buldu. Önce üreticilerle çalıştı, yamalar hazır olduktan sonra kamuya açıkladı. Sorumlu ifşanın ders kitabı örneği.", ip: "Kaminsky = DNS + sorumlu ifşa.", tr: "Önce düzelt, sonra duyur." },
+      { b: "Ekipman ve zarar", m: "İşin gereği eriştiğin <b>kaynakları kötüye kullanmazsın</b>, hiçbir şeye zarar vermezsin. Testin bir hizmeti beklenmedik şekilde aksatması mümkündür; <b>istemeden</b> olduysa ya da şirketle <b>kabul edilebilir diye anlaşılmışsa</b> sorun değildir. Çözüm: <b>iletişim kanalı hep açık</b>; kesinti olursa doğru kişiler hemen bilsin.", ip: "Kazara olabilir, saklamak olmaz.", tr: "Beklenmedik kesintide hemen bildir." },
+      { b: "Yasallık ve geçmiş", m: "Bir sızma testi sırasında <b>yasa dışı eylem</b> yapamazsın. Ayrıca <b>felony (ağır suç) mahkûmiyetin olmamalı</b> ve “<b>black hat</b>” sayılabilecek (kötü amaçlı, potansiyel olarak yasa dışı faaliyet yürüten) gruplarla ilişkin olmamalı.", ip: "Yasa + temiz sicil + kötü grup yok.", tr: "Doğrudan yasa dışı olmasa bile black-hat gruplarla bağlantı yasaktır." },
+      { b: "Renkli terminoloji", m: "<b>White hat</b>: hep iyi amaçla çalışır. <b>Black hat</b>: kötü, genelde yasa dışı işler yapar. <b>Gray hat</b>: iyi amaçla çalışır ama <b>black-hat tekniklerini</b> kullanır. Bu terimler ırkla çağrışımı nedeniyle gözden düşüyor; yeni kullanım: <b>authorized, unauthorized, semi-authorized</b> varlıklar. EC-Council eski terimleri hâlâ kullanabilir.", ip: "Gray = iyi niyet + kara teknik.", tr: "Hem eski hem yeni terimleri bil." },
+      { b: "Kapsam ve iletişim", m: "Göreve başlarken beklentileri netleştirirsin; <b>kapsamı yazılı</b> alırsan her şey belgelidir. Yasa dışı olmayan ve <b>işverenin sistemleri</b> içinde kalan işler etiktir. Sistem, ağ veya hizmet olarak kapsamın <b>dışına çıkarsan etik dışı</b> davranmış olursun.", ip: "Yazılı kapsam = emniyet kemerin.", tr: "Kapsam dışına çıkmak = etik dışı." }
+    ]
+  },
+  hackleme: {
+    ad: "Etik Hackleme", ikon: "🛡️",
+    giris: "Etik hackleme, saldırıyı <b>anlamak için taklit etmek</b> ve savunmayı güçlendirmektir. Amaç zarar vermek değil, güvenlik duruşunu (security posture) iyileştirmektir.",
+    analoji: { b: "Yangın tatbikatı benzetmesi", m: "Bir bina yangın çıkmadan önce <b>tatbikat</b> yapar. Tatbikat sırasında kimse kasıtlı yangın çıkarmaz; amaç gerçek yangında insanların nasıl davranacağını ve alarmın çalışıp çalışmadığını görmektir. Sızma testi de gerçek saldırı gelmeden <b>savunmanın tatbikatıdır</b>." },
+    kartlar: [
+      { b: "Neden gerekli?", m: "Her yıl milyonlarca yeni zararlı yazılım çıkıyor. Kitaptaki örnekler: <b>Mirai botnet</b> (gömülü Linux çalıştıran küçük cihazları ele geçirdi; 100.000’in çok üzerinde, belki 1 milyonu aşkın cihaz). 2005’ten beri her yıl en az <b>10 milyon</b> kayıt ele geçirildi; 2017’de yaklaşık <b>200 milyon</b> (yalnızca ABD verisi).", ip: "Mirai = IoT/gömülü Linux botnet’i.", tr: "Sayıları ezberleme; büyüklük sırasını bil." },
+      { b: "Saldırıyı anlamak için taklit et", m: "Saldırılara karşı korunmak için onları <b>anlamak</b>, hatta <b>yeniden üretmek</b> gerekir. Şirketler kendi altyapılarına karşı saldırıyı <b>erken ve sık</b> test ederse gerçek saldırganları dışarıda tutma şansı artar.", ip: "Erken ve sık test et.", tr: "Amaç sorun bulmak ve güvenlik duruşunu iyileştirmek." },
+      { b: "İsimler: Ethical hacking = Penetration testing", m: "İş ilanlarında genelde <b>penetration testing</b> (sızma testi) görürsün; temelde aynı şeydir. Hedef, kuruluşun savunmasını delmeyi denemektir. Yazılımda hata bulmak için yapılan test de bunun parçasıdır (ticari veya açık kaynak).", ip: "Ethical hacker ≈ pentester.", tr: "İsim farklı olabilir, iş aynıdır." },
+      { b: "Red teaming", m: "<b>Red team</b>, sızma testinin özel bir türü sayılır: testçiler kuruluşa karşı <b>düşmanca</b> davranır ve gerçek saldırgan gibi <b>gizli (stealthy)</b> kalmaya, yakalanmamaya çalışır.", ip: "Red team = gerçek saldırgan gibi + gizli.", tr: "Sınav tuzağı: red team her sızma testi değil; gizlilik vurgusu var." },
+      { b: "Metodoloji neden önemli?", m: "Bir metodoloji işini <b>tutarlı (consistency)</b>, <b>tekrarlanabilir (repeatability)</b> ve <b>doğrulanabilir</b> yapar; süreç iyileştirmeye yardım eder. Aynı müşteri ikinci kez geldiğinde aynı testler çalışmalı ki “düzeldi” sonucu testin değişmesinden kaynaklanmasın. Takımdaki herkes aynı test setini çalıştırabilmeli.", ip: "Tutarlılık · Tekrarlanabilirlik · İyileştirme.", tr: "Metodoloji = güvenilir karşılaştırma." },
+      { b: "Bilinen test standartları", m: "<b>PTES</b> (Penetration Testing Execution Standard) ve <b>OSSTMM</b> (Open Source Security Testing Methodology Manual) sektörde kullanılır. Saldırganların nasıl çalıştığına dair beklentilere dayanırlar; gerçekle birebir örtüşmeseler de kapsam ve tutarlılık sağlarlar.", ip: "PTES + OSSTMM.", tr: "Saldırgan modelleri: Kill Chain, Attack Life Cycle, MITRE ATT&CK." },
+      { b: "Saldırgan gibi düşünmek", m: "Zor olan taraf, <b>saldırgan gibi düşünmek</b>tir. Deneyimli uzmanların kendi tarzı olur ama genelde ortak adımları izlerler; bu bölümde göreceğin beş aşama bunların özetidir.", ip: "Düşün, sonra uygula.", tr: "Her şey koruma/önleme değil; tespit de önemlidir." },
+      { b: "CEH davranış kodu", m: "CEH sahipleri EC-Council’in <b>davranış kuralları</b>nı kabul eder: zarar verme, işverenin yararına çalış, güvenlik duruşunu <b>iyileştir</b>, bozma.", ip: "İyileştir, bozma.", tr: "Kod, sertifikanın ayrılmaz parçasıdır." }
+    ]
+  },
+  model: {
+    ad: "Saldırı Modelleri", ikon: "🧭",
+    giris: "Saldırganların nasıl ilerlediğini anlatan üç model: <b>Cyber Kill Chain</b>, <b>Attack Life Cycle</b>, <b>MITRE ATT&CK</b>. Beş aşamalı etik hackleme metodolojisi bunlara çok benzer.",
+    analoji: { b: "Soygun filmi benzetmesi", m: "Soygun filmi düşün (savunma gözüyle öğreniyorsun): önce <b>keşif</b>, sonra <b>alet hazırlığı</b>, girişe <b>ulaşma</b>, kilidi <b>açma</b>, içeride <b>yerleşme</b>, dışarıyla <b>haberleşme</b>, en sonda asıl <b>hedefe</b> varma. Kill chain bu hikâyenin siber karşılığıdır; savunmacı zinciri <b>herhangi bir halkada kırarak</b> saldırıyı durdurur." },
+    kartlar: [
+      { b: "Cyber Kill Chain (Lockheed Martin)", m: "Askerî “kill chain” fikrinin siber güvenliğe uyarlanmasıdır. Amaç, saldırganın <b>hangi aşamada</b> olduğunu görüp karşı hamleni ona göre ayarlamaktır. 7 aşama: <b>1 Reconnaissance → 2 Weaponization → 3 Delivery → 4 Exploitation → 5 Installation → 6 Command &amp; Control (C2) → 7 Actions on Objectives</b>.", ip: "R-W-D-E-I-C-A: “Rüzgâr Wi-Fi’yi Dün Evde İyice Coşturdu, Anladım”.", tr: "Doğrusal bir zincir; tek yönlü ilerler." },
+      { b: "Kill chain aşamaları açıklaması", m: "<b>Recon</b>: hedef ve zayıf noktalar. <b>Weaponization</b>: özel ya da hazır (COTS) zararlı hazırlamak. <b>Delivery</b>: silahı ortama sokmak (e-posta eki, zararlı site, açık servis). <b>Exploitation</b>: zararlı sistemi enfekte eder. <b>Installation</b>: kalıcı erişim için ek yazılım/backdoor. <b>C2</b>: uzaktan komut/erişim. <b>Actions on Objectives</b>: asıl amaç (veri çalma, para kazanma, fikri mülkiyet, yıkım).", ip: "Delivery = “getirme”, Exploitation = “tetiklenme”.", tr: "Sınav tuzağı: Delivery ile Exploitation karıştırılır." },
+      { b: "Attack Life Cycle (Mandiant)", m: "Kill chain’den fark: saldırı <b>tek seferlik değil</b>, ortada bir <b>döngü</b> var. 8 adım: <b>Initial Recon → Initial Compromise → Establish Foothold → Escalate Privileges → Internal Recon → Move Laterally → Maintain Presence → Complete Mission</b>. Ele geçirilen sistem bir sonraki sistem için fırlatma rampası olur.", ip: "Döngü: Yetki yükselt → İç keşif → Yanal hareket → Kalıcılık.", tr: "Complete mission’a tekrar tekrar dönülür." },
+      { b: "Yanal hareket: doğu-batı", m: "Ağ şemasında dış dünyaya bağlantı genelde üsttedir (kuzey). İçeri-dışarı trafiği <b>north-south</b>, kuruluş <b>içindeki</b> yan yana hareket <b>east-west</b> (lateral movement) olarak anılır. Saldırgan ele geçirdiği kimlik bilgileriyle başka iş istasyonlarına geçer.", ip: "Kuzey-güney = dışarı/içeri; Doğu-batı = ağ içi.", tr: "Lateral movement = east-west." },
+      { b: "Kalıcılık (persistence)", m: "Her ele geçirilen sistemde saldırgan <b>maintain presence</b> yapar: Windows registry, zamanlanmış görevler vb. ile zararlı yeniden başlatmadan sonra da çalışır. Saldırılar günlerce/haftalarca sürebilir ve ekipler farklı aşamalarda çalışabilir.", ip: "Reboot’tan sağ çıkmak = persistence.", tr: "Saldırgan = organizasyon, tek kişi değil." },
+      { b: "MITRE ATT&CK: TTP sınıflaması", m: "Attack life cycle süreci anlatır; <b>ATT&CK</b> ise saldırganın <b>davranışlarını</b> — <b>TTP</b>: tactics, techniques, procedures — kategorize eden bir <b>taksonomidir</b>. Gerçek dünyada gözlenen TTP’ler kategorilere ayrılır. İçinde <b>adım adım saldırı talimatı yoktur</b>; yüksek seviye, genel tanımlar vardır (ör. network sniffing).", ip: "ATT&CK = davranış kataloğu, tarif kitabı değil.", tr: "Sürekli yeni TTP’lerle güncellenir." },
+      { b: "ATT&CK taktikleri (14)", m: "Reconnaissance · Resource Development · Initial Access · Execution · Persistence · Privilege Escalation · Defense Evasion · Credential Access · Discovery · Lateral Movement · Collection · Command and Control · Exfiltration · Impact.", ip: "Önce keşif–kaynak–giriş–çalıştırma; sonra yerleş–yüksel–gizlen–şifre–keşfet–yürü–topla–komuta–çıkar–etki.", tr: "Kitap, Execution’ı “tek başına bir aşama değil, davranışlar serisi” diye vurgular." },
+      { b: "Üç model nasıl karşılaştırılır?", m: "<b>Kill Chain</b>: askerî kökenli, 7 doğrusal aşama. <b>Attack Life Cycle</b>: gerçek saldırgan akışı, ortada döngü, 8 adım. <b>ATT&CK</b>: TTP taksonomisi, 14 taktik, paralel/çoklu aşamaya yayılan davranışlar (ör. Execution, Resource Development). Üçü de etik hackleme aşamalarıyla benzerlik taşır.", ip: "7 · 8 · 14 — Kill · Life · ATT&CK.", tr: "Sayıları sorabilirler: 7, 8, 14." }
+    ]
+  },
+  faz: {
+    ad: "5 Aşama", ikon: "🧩",
+    giris: "EC-Council’in etik hackleme metodolojisi beş aşamadır: <b>Reconnaissance &amp; Footprinting → Scanning &amp; Enumeration → Gaining Access → Maintaining Access → Covering Tracks</b>.",
+    analoji: { b: "Bina güvenlik denetimi benzetmesi", m: "Yetkili bir denetçi bir binayı şöyle sınar: (1) Dışarıdan <b>bakar</b>: kaç kapı, kim çalışıyor? (2) Kapıları <b>yoklar</b>: hangisi açık, arkasında ne var? (3) Zayıf bir kapıdan <b>içeri girdiğini kanıtlar</b>. (4) <b>Tekrar girebileceğini</b> gösterir. (5) Güvenlik kameralarının <b>izini fark edip etmediğini</b> sınar. Her adımı yazılı rapora koyar." },
+    kartlar: [
+      { b: "1) Reconnaissance &amp; Footprinting", m: "Hedef hakkında bilgi toplarsın: <b>ağ blokları, hostlar, konumlar, kişiler</b>. Amaç testin <b>boyutunu ve kapsamını</b> anlamak; “ayak izi (footprint)” kuruluşun görünen büyüklüğüdür. Herkese açık bilgi çoktur; bazısı yanlışlıkla sızmış olabilir. Çalışanların kişisel bilgileri <b>sosyal mühendislik</b> için kullanılır.", ip: "Önce kapsamı bil, sonra bak.", tr: "Tahminlere göre sızmaların %80–90’ı sosyal mühendislikle başlar." },
+      { b: "2) Scanning &amp; Enumeration", m: "Ağ bloklarındaki <b>erişilebilir sistemleri</b> ve özellikle <b>çalışan servisleri</b> belirlersin: açık portlar + her portun arkasındaki <b>yazılım/servis</b> (NGINX, Apache, IIS…). Bazı servisler iç bilgi sızdırır: SMTP sunucusu geçerli <b>kullanıcı adları</b>, SMB/CIFS <b>paylaşımlar, kullanıcılar, politika bilgisi</b> verebilir.", ip: "Port + servis + sızan bilgi.", tr: "Zaman alıcıdır; ne kadar çok detay, sonraki aşama o kadar kolay." },
+      { b: "3) Gaining Access", m: "Birçok kişi için en ilgi çekici aşama: servisi <b>sömürerek (exploit)</b> savunmasız olduğunu gösterirsin. Sistemi ele geçirip kanıtlarsan <b>yanlış pozitif yoktur</b>. Ama “yaptım” demek yetmez: <b>belgeleme/kanıt</b> şart. Gerçekte saldırganlar çoğunlukla <b>sosyal mühendislik</b> (e-posta, zararlı site) kullanır; yine de bunu yalnızca kapsama dahilse yaparsın.", ip: "Kanıtla ve belgele.", tr: "Her müşteri sosyal mühendislik testi istemez; kapsama bak." },
+      { b: "4) Maintaining Access", m: "İçeri girdikten sonra erişimi <b>sürdürmen</b> gerekir: kullanıcı makineyi kapatırsa erişim kaybolur, exploit her zaman tekrar çalışmaz, zafiyet yamalanmış olabilir. <b>Persistence</b>: rootkit, backdoor, ek yazılım. Çoğu zaman yazılım dışarıdaki bir sisteme <b>beacon</b> atar; çünkü <b>gelen bağlantı</b> firewall’da engellidir, <b>giden</b> genelde serbesttir.", ip: "İçeri kapalı, dışarı açık: beacon dışarı çıkar.", tr: "İşletim sistemi ve yama düzeyi teknikleri değiştirir." },
+      { b: "5) Covering Tracks", m: "Delilleri gizler/silersin; ayrıca <b>devam eden erişimi</b> örtersin (ör. loglanmayan eylemler, yanlış bilgi veren zararlı). Dikkat: eylemin kendisi <b>iz bırakabilir</b>; Windows’ta logları silmek “loglar silindi” kaydı bırakır. Bu bazen tam istenen şeydir: operasyon ekibinin <b>tespit ve müdahale</b> yeteneğini sınamak. Hep <b>görev hedefini</b> hatırla.", ip: "Silmek de iz bırakır.", tr: "Log wipe → log wipe girdisi." },
+      { b: "Aşamalar ↔ modeller", m: "Recon ↔ Kill chain Recon ↔ ATT&CK Reconnaissance. Gaining Access ↔ Delivery+Exploitation ↔ Initial Access. Maintaining ↔ Installation ↔ Persistence. Covering Tracks ↔ Defense Evasion. Benzerlikleri görmek sınavda bağlamı çözmeni sağlar.", ip: "Aynı hikâye, farklı etiketler.", tr: "Etiketleri değil mantığı öğren." }
+    ]
+  }
+};
+
+/* Etkinlikler: sıralama, eşleştirme, sınıflandırma */
+var SIRALAMA = [
+  { id: "ord-kill", konu: "model", b: "Kill Chain’i sıraya diz", t: "Cyber Kill Chain’in 7 aşamasını doğru sıraya koy (ilk sıradan başla).",
+    items: ["Reconnaissance", "Weaponization", "Delivery", "Exploitation", "Installation", "Command & Control", "Actions on Objectives"],
+    not: ["Hedef ve zayıf noktaları araştırma", "Zararlıyı hazırlama (özel ya da hazır)", "Silahı hedef ortama ulaştırma", "Zararlının sistemi enfekte etmesi", "Kalıcı erişim için backdoor/ek yazılım", "Uzaktan komut ve erişim", "Veri çalma, yıkım, para kazanma…"] },
+  { id: "ord-life", konu: "model", b: "Attack Life Cycle’ı sıraya diz", t: "Mandiant’ın saldırı yaşam döngüsünün 8 adımını sırala (döngüye girmeden önceki adımlar önce).",
+    items: ["Initial Recon", "Initial Compromise", "Establish Foothold", "Escalate Privileges", "Internal Recon", "Move Laterally", "Maintain Presence", "Complete Mission"],
+    not: ["Kurban ve OSINT ile ilk keşif", "Çoğunlukla phishing ile ilk giriş", "Erişimi koruma, geri dönüş yolu", "Yönetici yetkisi kazanma", "Ağdaki bağlantıları ve kimlik bilgilerini inceleme", "East-west: başka sistemlere geçiş", "Zararlıyı çalışır tutma (persistence)", "Veri sızdırma; çoğu zaman tekrar tekrar"] },
+  { id: "ord-faz", konu: "faz", b: "5 aşamayı sıraya diz", t: "EC-Council etik hackleme aşamalarını doğru sıraya koy.",
+    items: ["Reconnaissance & Footprinting", "Scanning & Enumeration", "Gaining Access", "Maintaining Access", "Covering Tracks"],
+    not: ["Ağ blokları, hostlar, kişiler", "Açık portlar, servisler, sızan bilgi", "Sömür ve kanıtla", "Persistence, beacon, rootkit", "Log ve izleri örtme"] },
+  { id: "ord-atk1", konu: "model", b: "ATT&CK’ın ilk yarısı", t: "ATT&CK taktiklerinin ilk 7’sini sırala.",
+    items: ["Reconnaissance", "Resource Development", "Initial Access", "Execution", "Persistence", "Privilege Escalation", "Defense Evasion"],
+    not: ["Kurban ve giriş yolları arama", "Altyapı, exploit, kimlik toplama", "İlk erişim", "Zararlı davranışların çalıştırılması", "Yeniden başlatmadan sağ çıkma", "Yönetici yetkisi", "Korumaları atlatma"] },
+  { id: "ord-atk2", konu: "model", b: "ATT&CK’ın ikinci yarısı", t: "ATT&CK taktiklerinin son 7’sini sırala.",
+    items: ["Credential Access", "Discovery", "Lateral Movement", "Collection", "Command and Control", "Exfiltration", "Impact"],
+    not: ["Kullanıcı adı/şifre toplama", "Ortam hakkında bilgi toplama", "Sistemler arası geçiş", "Verileri bir araya getirme", "Uzaktan komuta altyapısı", "Veriyi dışarı taşıma", "Yıkım, şifreleme (ransomware)"] }
+];
+
+var ESLESTIRME = [
+  { id: "mat-kill", konu: "model", b: "Kill Chain: aşama ↔ anlam", t: "Her aşamayı doğru açıklamayla eşleştir.",
+    p: [["Reconnaissance", "Hedefi araştırma, seçme ve zayıf noktaları belirleme"], ["Weaponization", "Zararlıyı teslim edilebilir paket hâline getirme"], ["Delivery", "Zararlıyı ya da zararlı bağlantıyı kurbanın ortamına ulaştırma"], ["Exploitation", "Zararlının hedefi fiilen enfekte etmesi"], ["Installation", "Kalıcı erişim için backdoor kurma"], ["Command & Control", "Dışarıdan “elle klavye” erişimi sağlama"], ["Actions on Objectives", "Veri sızdırma, yıkım ya da başka hedefe geçiş"]] },
+  { id: "mat-life", konu: "model", b: "Attack Life Cycle: adım ↔ anlam", t: "Mandiant döngüsünün adımlarını eşleştir.",
+    p: [["Initial Compromise", "İlk sisteme sızma (çoğunlukla phishing)"], ["Establish Foothold", "Sisteme geri dönme yolu garanti altına alınır"], ["Escalate Privileges", "Yönetici düzeyine çıkma, kimlik bilgisi toplama"], ["Internal Recon", "Sistemin diğer bağlantılarını ve hesapları inceleme"], ["Move Laterally", "Ağ içinde east-west hareket"], ["Maintain Presence", "Registry/zamanlanmış görev ile kalıcılık"], ["Complete Mission", "Veri çıkarma; çoğu zaman tekrar eden ziyaret"]] },
+  { id: "mat-atk", konu: "model", b: "ATT&CK: taktik ↔ davranış", t: "ATT&CK taktiklerini davranışlarla eşleştir.",
+    p: [["Persistence", "Her açılışta ya da oturum açılışında çalışan program kurmak"], ["Privilege Escalation", "Kısıtlı kullanıcıdan yönetici düzeyine çıkmak"], ["Defense Evasion", "Maskeleme, korumaları kurcalama"], ["Credential Access", "Eski saldırılardan ya da sistemden kullanıcı adı/şifre toplamak"], ["Discovery", "Kurban ortamı hakkında bilgi toplayan her faaliyet"], ["Exfiltration", "Toplanan veriyi saldırgana taşımak"], ["Impact", "Verinin şifrelenmesi/yıkımı (ransomware dâhil)"]] },
+  { id: "mat-sapka", konu: "tur", b: "Şapka terimleri", t: "Terimleri tanımlarıyla eşleştir.",
+    p: [["White hat", "Her zaman iyi amaçla çalışır"], ["Black hat", "Genellikle yasaya aykırı kötü işler yapar"], ["Gray hat", "İyi amaçlı ama black-hat tekniklerini kullanır"], ["Authorized", "İzinli (yeni terminolojideki “white” karşılığı)"], ["Unauthorized", "İzinsiz (yeni terminolojideki “black” karşılığı)"], ["Semi-authorized", "Yarı izinli (yeni terminolojideki “gray” karşılığı)"]] },
+  { id: "mat-kisaltma", konu: "tur", b: "Kısaltma çözme", t: "Kısaltmaları çöz.",
+    p: [["PTES", "Penetration Testing Execution Standard"], ["OSSTMM", "Open Source Security Testing Methodology Manual"], ["TTP", "Tactics, Techniques and Procedures"], ["CERT", "Computer Emergency Response Team"], ["C2", "Command & Control"], ["COTS", "Common Off-The-Shelf (hazır) yazılım"]] },
+  { id: "mat-tarih", konu: "etik", b: "İsimler ve olaylar", t: "Kişi/kurumu doğru bilgiyle eşleştir.",
+    p: [["Rain Forest Puppy", "1990’larda RFPolicy’yi yazan araştırmacı"], ["Dan Kaminsky", "DNS açıklarını önce üreticilerle çözüp sonra duyurdu"], ["Lockheed Martin", "Cyber Kill Chain’i uyarlayan savunma şirketi"], ["Mandiant", "Attack Life Cycle’ı sık kullanan güvenlik firması"], ["MITRE", "ATT&CK taksonomisini yayımlar"], ["Mirai", "Gömülü Linux cihazlardan oluşan botnet"]] }
+];
+
+/* sınıflandırma: aşama kovası seçilir */
+var SINIFLA = [
+  { id: "sort-faz", konu: "faz", b: "Hangi aşama? (5 aşama)", t: "Her eylemin hangi etik hackleme aşamasına ait olduğunu seç.",
+    kovalar: ["Recon & Footprinting", "Scanning & Enumeration", "Gaining Access", "Maintaining Access", "Covering Tracks"],
+    items: [
+      ["Şirketin ağ bloklarını ve çalışan adlarını açık kaynaklardan listelemek", 0],
+      ["Bir hostta hangi portların açık olduğunu belirlemek", 1],
+      ["SMTP sunucusundan geçerli kullanıcı adlarını öğrenmek", 1],
+      ["SMB paylaşımlarını ve kullanıcıları listelemek", 1],
+      ["Yazılımın hangi sürümde çalıştığını (ör. Apache/NGINX/IIS) öğrenmek", 1],
+      ["Açık bir servisi sömürüp sistemde kod çalıştırmak", 2],
+      ["Sızdığını rapor için kanıtlayacak ekran görüntüsü almak", 2],
+      ["İzinli bir phishing kampanyasıyla kullanıcıdan şifre almak", 2],
+      ["Yeniden başlatmadan sonra da çalışacak zamanlanmış görev eklemek", 3],
+      ["Dışarıdaki bir sunucuya düzenli “beacon” gönderen yazılım bırakmak", 3],
+      ["Backdoor sağlayan bir rootkit kurmak", 3],
+      ["Eylemlerin loglanmasını engellemek", 4],
+      ["Windows olay günlüklerini temizlemek", 4],
+      ["Ağ bağlantılarını yanlış raporlayan zararlı kullanmak", 4],
+      ["Şirketin çalışanlarının e-posta biçimini (ad.soyad@) tahmin etmek", 0],
+      ["Hedefin konum ve ofis bilgilerini derlemek", 0]
+    ] },
+  { id: "sort-kill", konu: "model", b: "Hangi Kill Chain aşaması?", t: "Her olayı Kill Chain aşamasıyla eşleştir.",
+    kovalar: ["Reconnaissance", "Weaponization", "Delivery", "Exploitation", "Installation", "C2", "Actions on Obj."],
+    items: [
+      ["Saldırgan hedef şirketin çalışanlarını LinkedIn’den derliyor", 0],
+      ["Zararlı makro, bir PDF/Office dosyasına gömülüyor", 1],
+      ["Hazırlanan dosya e-posta ekiyle kurbana gönderiliyor", 2],
+      ["Kurban eki açıyor ve zafiyet tetikleniyor", 3],
+      ["Sistemde kalıcı backdoor oluşuyor", 4],
+      ["Dışarıdaki sunucu içerideki makineye komut gönderiyor", 5],
+      ["Müşteri veritabanı dışarı sızdırılıyor", 6],
+      ["Zararlı bir web sitesi kurban ziyaret edince enfekte ediyor (sitenin hazırlanması)", 1],
+      ["Kurbanın zararlı siteyi ziyaret etmesi sağlanıyor", 2],
+      ["Saldırgan hedef için hangi VPN cihazını kullandıklarını araştırıyor", 0]
+    ] },
+  { id: "sort-etik", konu: "etik", b: "Etik mi, değil mi?", t: "Her davranışı <b>Etik</b> ya da <b>Etik dışı</b> olarak işaretle.",
+    kovalar: ["Etik", "Etik dışı"],
+    items: [
+      ["Yazılı kapsamdaki sistemlerde test yapmak", 0],
+      ["Bulduğun açığı sosyal medyada herkese duyurmak", 1],
+      ["Üretici ve CERT ile iletişime geçip düzeltmeleri beklemek", 0],
+      ["Müşteri verisini tanıdığına “göstermek için” paylaşmak", 1],
+      ["Çıkar çatışmanı işverene bildirmek", 0],
+      ["Kapsam dışındaki komşu şirket sunucusunu “bir bakmak için” taramak", 1],
+      ["Beklenmedik kesinti olduğunda ilgilileri hemen bilgilendirmek", 0],
+      ["Bir black-hat grubuyla bağlantını sürdürmek", 1],
+      ["Kazara oluşan kesintiyi gizlemek", 1],
+      ["İzin verilmeyen bir sosyal mühendislik testini “kolay yol” diye yapmak", 1],
+      ["Sözleşmeye uygun şekilde gizli bilgiyi korumak", 0],
+      ["Kapsamı yazılı olarak netleştirmek", 0]
+    ] },
+  { id: "sort-tur", konu: "tur", b: "Pentest mi, red team mi?", t: "Her tanımı doğru kavramla eşleştir.",
+    kovalar: ["Penetration testing / Ethical hacking", "Red teaming"],
+    items: [
+      ["Kuruluşun savunmasını delmeyi deneyen izinli test", 0],
+      ["Testçiler düşmanca davranır, gerçek saldırgan gibi gizli kalmaya çalışır", 1],
+      ["İş ilanlarında “ethical hacker” yerine sık görülen ad", 0],
+      ["Tespit edilmemek öncelikli hedeftir", 1],
+      ["Yazılımda hata bulma testini de kapsar", 0],
+      ["Sızma testinin özel, adversarial bir türü", 1]
+    ] }
+];
+
+/* Dallanan senaryolar ve vaka çalışmaları (özgün kurgu) */
+var SENARYOLAR = [
+  { id: "sn-kapsam", konu: "etik", b: "Kapsam dışı sunucu", ikon: "🧭",
+    giris: "<b>Elif</b> bir perakende firmasının <i>yalnızca</i> dış IP aralığını (203.0.113.0/28) test etmek üzere yazılı sözleşme imzaladı. Taramada aralığa çok yakın, listede olmayan bir sunucu (203.0.113.40) yanıt veriyor. Üzerinde eski bir yönetim paneli görünüyor.",
+    adimlar: [
+      { s: "Elif ne yapmalı?", o: [
+        ["Panele bir bakıp zayıf şifre denemek; sonuçta müşterinin yararına", 0, "Kapsam dışı sistemlere dokunmak etik dışıdır, yasal sorun da çıkarabilir. “Müşterinin yararına” demek yazılı kapsamı değiştirmez."],
+        ["Durup durumu belgelemek, müşteriye yazılı bildirmek ve kapsam genişletme onayı beklemek", 2, "Doğru. Kapsam yazılı olmalı; kapsam dışına çıkmadan önce yazılı onay alınır, iletişim açık tutulur."],
+        ["Sunucuyu sessizce kapsamdaymış gibi test etmek, raporda “aralığa yakın” yazmak", 0, "Saklamak ve gerçeği çarpıtmak şeffaflık ilkesini bozar."],
+        ["Konuyu kimseye söylememek ama sunucuya hiç dokunmamak", 1, "Dokunmamak iyi, ama açıklama yükümlülüğü var: müşterinin bu sunucudan haberi olmayabilir; bunu bildirmelisin."]
+      ] }
+    ] },
+  { id: "sn-kesinti", konu: "etik", b: "Gece yarısı yavaşlama", ikon: "🌙",
+    giris: "<b>Murat</b> bir bankanın test ortamında yük testi yaparken canlı sisteme bağlı bir servisin yanıt süresinin beklenmedik şekilde yükseldiğini fark eder. Kimse henüz şikâyet etmemiştir.",
+    adimlar: [
+      { s: "İlk hamlesi ne olmalı?", o: [
+        ["Testi hızla bitirip raporda hiç bahsetmemek", 0, "Beklenmedik etkiyi saklamak etik değildir."],
+        ["Testi durdurup sözleşmedeki iletişim kişisine hemen haber vermek", 2, "Doğru: kazara olabilir; saklamamak ve doğru kişilerin hızla bilmesi esastır."],
+        ["Kendi başına canlı sistemde “düzeltmeye” çalışmak", 0, "Kapsam ve yetki dışı müdahale yeni bir risk yaratır."],
+        ["Sabah olunca haber vermeyi planlamak", 1, "Beklemek zararı büyütebilir; iletişim hemen kurulmalı."]
+      ] },
+      { s: "Müşteri “kazara olduğunu anlıyoruz, devam edin ama yük düşük olsun” diyor. Murat ne yapar?", o: [
+        ["Onayı yazılı hâle getirir, yük sınırını sözleşme ekine/e-postaya yazar", 2, "Doğru: anlaşılmış kabul edilebilir risk belgelenir."],
+        ["Sözlü onay yetmiş diye hiç yazmaz", 1, "Belgelemek önemli; sözlü anlaşma sonra tartışma yaratabilir."],
+        ["Yük sınırını yok sayıp daha agresif devam eder", 0, "Anlaşılan sınırı aşmak etik dışıdır."]
+      ] }
+    ] },
+  { id: "sn-ifsa", konu: "etik", b: "Milyonları etkileyen açık", ikon: "📡",
+    giris: "<b>Deniz</b> boş zamanında yaygın bir ev modem yazılımında uzaktan kod çalıştırmaya izin veren bir açık buluyor. Binlerce ev etkileniyor olabilir.",
+    adimlar: [
+      { s: "En doğru yol hangisi?", o: [
+        ["Sosyal medyada ayrıntılarıyla paylaşıp şöhret kazanmak", 0, "Düzeltme yokken kamuya açmak saldırganlara kapıyı açar."],
+        ["Açığı karaborsada satmak", 0, "Kötü amaçlı kullanım riski; etik kodunu ihlal eder."],
+        ["Üreticiyi ve gerekirse yetkili CERT’i bilgilendirip düzeltme için makul zaman tanımak", 2, "Doğru: responsible disclosure (RFPolicy ruhu; Kaminsky örneği)."],
+        ["Kimseye söylememek; “bana bulaşmasın”", 1, "Zararsız gibi görünse de sorumlu ifşa, bu tür açıkları düzelttirmeyi bekler."]
+      ] },
+      { s: "Üretici aylarca yanıt vermiyor. Deniz ne yapmalı?", o: [
+        ["RFPolicy mantığıyla süreyi belgeleyip CERT ile birlikte kamuya açıklamayı planlamak", 2, "Doğru: politika, üretici ayak sürürse açıklamaya da izin veren dengeyi kurar."],
+        ["Açığı hemen ayrıntılı sömürü koduyla yayımlamak", 0, "İfşa sorumlu olmalı; kullanıcıları gereksiz riske atmaz."],
+        ["Açığı unutmak", 1, "Sorumluluk kaçmak değildir."]
+      ] }
+    ] },
+  { id: "sn-cikar", konu: "etik", b: "Çıkar çatışması", ikon: "🤝",
+    giris: "<b>Kerem</b> bir lojistik firmasına sızma testi yapacak. Firmanın en büyük rakibinde kardeşinin ortaklığı var; ayrıca rakip firmadan danışmanlık ücreti de almıştı.",
+    adimlar: [
+      { s: "Kerem ne yapmalı?", o: [
+        ["Hiç söylememek; kendi profesyonelliğine güvenmek", 0, "Çıkar çatışmasını açıklamak etik yükümlülüktür."],
+        ["Durumu işverene/müşteriye başlamadan açıklamak ve birlikte karar vermek", 2, "Doğru: şeffaflık."],
+        ["Testin sonunda raporun en altına küçük punto ile yazmak", 0, "Açıklama zamanında ve açıkça yapılmalı."],
+        ["Teste başlayıp rakiple ilgili bilgi çıkarsa saklamak", 0, "Gizlilik ve çıkar çatışması burada çarpışır; en başta açıklamak gerekir."]
+      ] }
+    ] },
+  { id: "sn-veri", konu: "etik", b: "Maaş listesi", ikon: "📄",
+    giris: "<b>Aslı</b> bir dosya sunucusunda tüm çalışanların maaşlarının bulunduğu bir tablo buluyor. Bu, testin kanıtı olabilir; ama kişisel veri içerir.",
+    adimlar: [
+      { s: "Aslı ne yapar?", o: [
+        ["Kendine kopyalar, arkadaşına “bak ne buldum” diye gösterir", 0, "Müşteri verisini paylaşmak gizlilik ihlalidir."],
+        ["Dosyaya erişimi raporda kanıtlar (gereken en az düzeyde), içeriği yaymadan korur", 2, "Doğru: kanıt göster ama hassas veriyi koru."],
+        ["Dosyayı silip izini kapatır", 0, "Müşterinin verisine zarar vermek ve kanıtı yok etmek yanlıştır."],
+        ["Raporda hiç bahsetmez", 1, "Açık bulgu müşteriye açıklanmalı."]
+      ] }
+    ] },
+  { id: "sn-phish", konu: "faz", b: "Phishing izni yok", ikon: "🎣",
+    giris: "<b>Burak</b> bir şirket testinde teknik servis açığı bulamıyor. Sözleşmede sosyal mühendislik <i>belirtilmemiş</i>. Kolay yol: çalışanlara phishing e-postası göndermek.",
+    adimlar: [
+      { s: "Burak ne yapmalı?", o: [
+        ["“Zaten saldırganlar yapar” diyerek phishing göndermek", 0, "Kapsam dışı. Şirketin farkındalık eğitimi başka yöntemlerle yürüyor olabilir; izin olmadan yapmak etik dışı."],
+        ["Müşteriye kapsam değişikliğini önermek, yazılı onay gelirse yapmak", 2, "Doğru: kapsam yazılı olarak genişletilir."],
+        ["Çalışanları kişisel telefonlarından aramak", 0, "Aynı sorun: izinsiz sosyal mühendislik ve ek gizlilik riski."],
+        ["Test bitti diye raporu yazıp bulamadıklarını belirtmek", 1, "Kabul edilebilir ama kapsam önerisini sunmak da müşteriye değer katar."]
+      ] }
+    ] },
+  { id: "sn-iz", konu: "faz", b: "Logları silmek", ikon: "🧹",
+    giris: "<b>Zeynep</b> bir red team çalışmasında operasyon ekibinin tespit yeteneğini ölçmek istiyor. Windows’ta olay günlüklerini temizlemeyi düşünüyor.",
+    adimlar: [
+      { s: "Log temizliği hakkında hangisi doğrudur?", o: [
+        ["Log silmek hiç iz bırakmaz", 0, "Yanlış: Windows’ta logları silmek “loglar silindi” kaydı bırakır."],
+        ["Log temizliği bir iz bırakır; bu da operasyon ekibinin dikkatini çekebilir, test amacı olabilir", 2, "Doğru: covering tracks bazen tam olarak savunmayı sınamak içindir."],
+        ["Covering tracks aşaması hiçbir zaman gerekli değildir", 1, "Gerçek saldırganlar yapar; görev hedefine bağlıdır."]
+      ] },
+      { s: "Bu çalışmada hangi unsur belirleyicidir?", o: [
+        ["Müşterinin yazılı hedefleri ve kapsamı", 2, "Her zaman: görev hedefini hatırla."],
+        ["Testçinin kendi merakı", 0, "Hedefler müşteriye aittir."],
+        ["Mümkün olduğunca fazla sistemi etkilemek", 0, "Zarar verme ilkesine aykırı."]
+      ] }
+    ] },
+  { id: "sn-kanit", konu: "faz", b: "“Yaptım” yetmez", ikon: "🧾",
+    giris: "<b>Can</b> bir web sunucusunda kod çalıştırmayı başardı. Toplantıda yöneticiler “emin misiniz, yanlış alarm olabilir mi?” diye soruyor.",
+    adimlar: [
+      { s: "Can’ın en güçlü cevabı nedir?", o: [
+        ["“Bana güvenin, başardım.”", 0, "Gaining access aşamasında belgeleme/kanıt şarttır."],
+        ["Kanıt gösterir: zaman damgalı ekran görüntüleri, komut çıktıları ve adım adım tekrar edilebilir notlar", 2, "Doğru: sömürü yanlış pozitif olamaz ama kanıtlanmalıdır."],
+        ["“Nmap öyle gösterdi.”", 1, "Tarama sonucu zafiyeti kanıtlamaz; sömürü kanıtı gerekir."],
+        ["Sistemi çökertip herkesin görmesini sağlamak", 0, "Zarar verme ilkesine aykırı."]
+      ] }
+    ] },
+  { id: "sn-sapka", konu: "tur", b: "Üç kişi, üç şapka", ikon: "🎩",
+    giris: "<b>Ali</b> izinli çalışan bir pentester. <b>Bora</b> izin almadan bir şirketin açığını bulup şirketi bilgilendiriyor, yöntemleri black-hat tekniklerine benziyor. <b>Cem</b> fidye için sistem şifreliyor.",
+    adimlar: [
+      { s: "Klasik terminolojiye göre sırasıyla Ali, Bora, Cem?", o: [
+        ["White hat · Gray hat · Black hat", 2, "Doğru. Gray hat: iyi niyetli ama black-hat teknikleri."],
+        ["Gray hat · White hat · Black hat", 0, "Ali izinli ve iyi: white."],
+        ["White hat · Black hat · Gray hat", 0, "Bora’nın niyeti iyi; gray."],
+        ["Black hat · Gray hat · White hat", 0, "Sıralama tersine."]
+      ] },
+      { s: "Yeni terminoloji ile Ali nasıl adlandırılır?", o: [
+        ["Authorized", 2, "Doğru: authorized / unauthorized / semi-authorized."],
+        ["Unauthorized", 0, "Ali izinli."],
+        ["Semi-authorized", 0, "Bora’ya daha yakın."]
+      ] }
+    ] },
+  { id: "sn-sicil", konu: "etik", b: "Sertifika adayı", ikon: "🎓",
+    giris: "<b>Ece</b> CEH’e hazırlanıyor. Eskiden bir gençlik arkadaş grubu şirketlere zarar verecek eylemlerde bulunurdu; Ece bu grupla hâlâ yakın ve bazen sohbet ediyor.",
+    adimlar: [
+      { s: "Etik kodu açısından en isabetli yaklaşım?", o: [
+        ["Hiçbir sorun yok, sohbet etmek yasal bir şey değil", 0, "Kitap: doğrudan yasa dışı olmasa da “black hat” sayılan gruplarla ilişki kurmak kurallara aykırıdır."],
+        ["İlişkiyi kesmek; zararlı faaliyet yürüten gruplarla bağını bırakmak", 2, "Doğru."],
+        ["Gruba “üye değilim, sadece izliyorum” demek", 1, "Belirsiz bir tutum; temiz çizgi gerekir."]
+      ] }
+    ] }
+];
+
+/* vaka: saldırı hikâyesi → aşama eşleme */
+var VAKALAR = [
+  { id: "vk-aylin", b: "Aylin’in Cuma e-postası", ikon: "📬",
+    giris: "Bir sağlık firmasında muhasebe uzmanı <b>Aylin</b>, Cuma öğleden önce “fatura düzeltmesi” konulu bir e-posta alır. Hikâyeyi adım adım izle ve her adımı doğru etiketle. (Savunma gözüyle öğreniyorsun.)",
+    adimlar: [
+      { m: "Saldırgan grup, firmanın çalışanlarını sosyal ağlardan derler; hangi muhasebe yazılımını kullandıklarını öğrenir.", s: "Bu adım Cyber Kill Chain’de neye denk gelir?", o: ["Reconnaissance", "Weaponization", "Delivery", "C2"], a: 0, e: "Hedef ve zayıf noktaları araştırma = Reconnaissance (OSINT)." },
+      { m: "Saldırgan, bu yazılımın PDF fatura formatına benzeyen zararlı bir doküman hazırlar.", s: "Bu adım nedir?", o: ["Reconnaissance", "Weaponization", "Exploitation", "Installation"], a: 1, e: "Zararlıyı teslim edilebilir paket hâline getirmek = Weaponization." },
+      { m: "Doküman Aylin’e e-posta eki olarak gider.", s: "Bu adım nedir?", o: ["Delivery", "Exploitation", "Actions on Objectives", "Installation"], a: 0, e: "Silahı kurbanın ortamına ulaştırma = Delivery." },
+      { m: "Aylin eki açar; dokümandaki zafiyet tetiklenir, zararlı çalışır.", s: "Bu adım nedir?", o: ["Delivery", "Exploitation", "Reconnaissance", "C2"], a: 1, e: "Zafiyetin tetiklenip sistemin enfekte olması = Exploitation (Initial Compromise)." },
+      { m: "Zararlı, yeniden başlatmada da çalışsın diye zamanlanmış görev ekler.", s: "Bu adım Kill Chain’de nedir? ATT&CK’taki karşılığı hangisi?", o: ["Installation · Persistence", "Delivery · Initial Access", "C2 · Execution", "Exploitation · Discovery"], a: 0, e: "Kalıcı erişim = Installation; ATT&CK taktiği Persistence (Life Cycle’da Establish Foothold/Maintain Presence)." },
+      { m: "Zararlı, dışarıdaki bir sunucuya düzenli bağlanıp talimat bekler.", s: "Bu adım nedir?", o: ["Command & Control", "Weaponization", "Delivery", "Impact"], a: 0, e: "Dışarıdan komut ve erişim = C2. Giden bağlantı olduğu için firewall genelde izin verir." },
+      { m: "Saldırgan Aylin’in makinesinden elde ettiği kimlik bilgileriyle bir dosya sunucusuna geçer.", s: "Attack Life Cycle’da bu adım hangisi?", o: ["Move Laterally", "Initial Recon", "Initial Compromise", "Complete Mission"], a: 0, e: "Ağ içinde yan yana hareket = Move Laterally (east-west)." },
+      { m: "Müşteri kayıtlarını toplayıp dışarıya aktarır.", s: "Kill Chain / ATT&CK karşılığı?", o: ["Actions on Objectives · Exfiltration", "Delivery · Collection", "Installation · Impact", "Recon · Discovery"], a: 0, e: "Asıl hedefe varış: Actions on Objectives; ATT&CK’ta Collection + Exfiltration." }
+    ] },
+  { id: "vk-kamera", b: "Garip kamera sunucusu (5 aşama)", ikon: "📹",
+    giris: "Yetkili bir pentester, kapsamı yazılı bir müşteri için 5 aşamayı yürütüyor. Eylemleri aşamalarla eşleştir.",
+    adimlar: [
+      { m: "Şirketin ağ bloklarını ve ofis lokasyonlarını derler.", s: "Aşama?", o: ["Reconnaissance & Footprinting", "Scanning & Enumeration", "Gaining Access", "Covering Tracks"], a: 0, e: "Boyut ve kapsamı anlamak için bilgi toplama." },
+      { m: "Bir host üzerinde açık portlar ve arkasındaki servis sürümleri belirlenir.", s: "Aşama?", o: ["Scanning & Enumeration", "Maintaining Access", "Reconnaissance & Footprinting", "Gaining Access"], a: 0, e: "Port + servis keşfi = Scanning & Enumeration." },
+      { m: "Eski sürüm bir servis sömürülür, kanıt olarak komut çıktısı kaydedilir.", s: "Aşama?", o: ["Gaining Access", "Scanning & Enumeration", "Covering Tracks", "Maintaining Access"], a: 0, e: "Sömürü + belgeleme = Gaining Access." },
+      { m: "Sistem yeniden başlatıldığında da erişim sürsün diye zamanlanmış görev bırakılır; dışarıya beacon atılır.", s: "Aşama?", o: ["Maintaining Access", "Gaining Access", "Reconnaissance & Footprinting", "Covering Tracks"], a: 0, e: "Persistence. Beacon dışarı çıkar çünkü gelen bağlantı engelli." },
+      { m: "Müşteri tespit yeteneğini görmek istediği için olay günlükleri silinir (anlaşılan kapsamda).", s: "Aşama? Ne olur?", o: ["Covering Tracks · “logs cleared” kaydı oluşur", "Gaining Access · iz kalmaz", "Scanning · yeni port açılır", "Maintaining Access · kullanıcı oturumu kapanır"], a: 0, e: "Log silmek de kendi izini bırakır." }
+    ] }
+];
+
+/* Giriş testi (Assessment Test) konuları: mini ders + özgün soru */
+var KONULAR = [
+ { id:"k-frag", b:"IP parçalanması (fragmentation)", m:"Büyük paketler küçük parçalara bölünebilir. Aynı paketin parçalarını hedefte birleştirmek için hepsi aynı <b>IP Identification</b> numarasını taşır. <b>Don’t Fragment (DF)</b> biti ağ cihazlarına “bölme” der; ToS alanı hizmet kalitesi içindir.", ip:"Parçalar aynı ID ile birleşir.", q:"Parçalanmış IP paketinin parçalarını hedefte yeniden birleştirmek için hangi alan kullanılır?", o:["IP Identification","Don’t Fragment biti","ToS alanı","Hedef adres"], a:0, e:"Aynı paketin tüm parçaları aynı Identification değerini taşır; hedef bu değere göre birleştirir." },
+ { id:"k-sqli", b:"SQL injection", m:"Saldırgan, uygulamanın SQL sorgusuna kendi mantığını ekler. Klasik örnek, her zaman doğru olan bir koşul (<code>' or 1=1</code>) eklemektir. Tırnak, mevcut sorgudan “kaçmak” içindir.", ip:"Tırnak + hep-doğru koşul = SQLi.", q:"Bir paket kaydında <code>' or '1'='1</code> ifadesini görüyorsun. Büyük ihtimalle ne oluyor?", o:["Cross-site scripting","SQL injection","Komut enjeksiyonu","XML external entity"], a:1, e:"Sorgunun sonucunu hep doğru yapmaya çalışan bu söz dizimi SQL injection’a özgüdür." },
+ { id:"k-mobil", b:"Mobil cihaza zararlı bulaşması", m:"Resmî mağazalar (Apple App Store, Google Play) uygulamaları denetler; zararlı sokmak zordur. <b>Üçüncü taraf mağazalar</b> çoğu zaman denetlemez, bu yüzden zararlı yayılımının yaygın yoludur. Jailbreak riski artırır ama zararlıyı <i>getiren</i> yol değildir.", ip:"Denetimsiz mağaza = açık kapı.", q:"Mobil cihaza zararlı yazılım yüklemenin en olası yollarından biri hangisidir?", o:["Resmî mağazadan indirme","Üçüncü taraf uygulama mağazası","Cihazı şarj etmek","Ekran kilidini değiştirmek"], a:1, e:"Denetimsiz üçüncü taraf mağazalarda zararlı uygulamalar bulunabilir." },
+ { id:"k-arp", b:"ARP", m:"Yerel ağda iletişim <b>MAC adresiyle</b> olur. <b>ARP</b>, bilinen IP adresinden MAC adresini bulur. <b>RARP</b> tersini yapar. DHCP IP ayarı verir; DNS ad çözümler.", ip:"ARP: IP → MAC.", q:"Aynı yerel ağdaki bir hedefe paket göndermek için IP adresinden MAC adresini bulan protokol hangisidir?", o:["DNS","DHCP","ARP","RARP"], a:2, e:"ARP, IP→MAC çözer; RARP ters yöndedir." },
+ { id:"k-bof", b:"Buffer overflow", m:"Bir değişken için ayrılan bellekten <b>fazla veri</b> yazılırsa komşu belleğin üzerine taşar: <b>buffer overflow</b>. Heap spraying ise dinamik bellekte saldırı kodu yaymaktır; slowloris bağlantıları açık tutar.", ip:"Kutuya sığmayan veri taşar.", q:"8 baytlık alana 40 karakterlik veri yazılması hangi saldırı/hata türüne örnektir?", o:["Heap spraying","SQL injection","Buffer overflow","Slowloris"], a:2, e:"Ayrılan alandan fazlasını yazmak buffer overflow’dur." },
+ { id:"k-cidr", b:"Alt ağ maskesi ve CIDR", m:"Maskedeki 1 bitlerinin sayısı <b>önek uzunluğudur</b>. 255.255.255.0 = /24; 255.255.254.0 = /23; 255.255.252.0 = /22; 255.255.248.0 = /21; 255.255.240.0 = /20. Her adımda üçüncü bayt 2’nin katı büyür/azalır.", ip:"248→/21, 240→/20, 224→/19.", q:"255.255.240.0 maskesinin CIDR karşılığı nedir?", o:["/19","/20","/21","/22"], a:1, e:"255.255 = 16 bit; 240 = 11110000 → 4 bit; toplam 20 → /20." },
+ { id:"k-wv", b:"Virüs ve solucan", m:"Her ikisi de polimorfik olabilir. Fark: <b>solucan kendi kendine yayılabilir (self-propagate)</b>; virüs genellikle kullanıcı etkileşimi (açma/çalıştırma) ister.", ip:"Worm = kendi başına yayılır.", q:"Solucan ile virüs arasındaki temel fark nedir?", o:["Solucan polimorfiktir, virüs değildir","Virüs kendi kendine yayılır","Solucan kendi kendine yayılabilir","Solucan yalnızca mobilde çalışır"], a:2, e:"Solucan kullanıcı müdahalesi olmadan yayılabilir." },
+ { id:"k-risk", b:"Risk hesabı", m:"Kitaptaki basit nicel yaklaşım: <b>Risk = olasılık × kayıp (impact)</b>. Nicelleştirilmiş bir “azaltma faktörü” olmadığı için formülde yoktur.", ip:"Olasılık × Kayıp.", q:"Kitaptaki yaklaşıma göre risk nasıl hesaplanır?", o:["Olasılık × kayıp","Olasılık × azaltma faktörü","Kayıp + olasılık","Kayıp ÷ olasılık"], a:0, e:"Risk, bir olayın olasılığı ile parasal kaybın çarpımıdır." },
+ { id:"k-evil", b:"Evil twin saldırısı", m:"Saldırgan, meşru ağ gibi görünen bir <b>sahte erişim noktası</b> (aynı SSID’i taklit) kurar; istasyonlar buna bağlanır. SSID’ler değiştirilmez; dört yönlü el sıkışma enjekte edilmez.", ip:"İkiz SSID, sahte AP.", q:"Evil twin saldırısı nasıl çalışır?", o:["Kullanıcılara kimlik avı e-postası gönderir","Meşru ağ gibi görünen sahte bir erişim noktası (SSID taklidi) kurar","Meşru ağın şifresini kırar","Tüm SSID’leri değiştirir"], a:1, e:"Sahte AP meşru SSID’i taklit ederek istemcileri kendine çeker." },
+ { id:"k-utm", b:"UTM cihazı", m:"<b>UTM (Unified Threat Management)</b>, güvenlik duvarının üstüne antivirüs vb. ek işlevler ekler; zararlıyı ağda <i>uç noktaya ulaşmadan</i> temizleyebilir. Stateful firewall bağlantı durumunu izler; ALG uygulama katmanını bilir; antivirüs uç noktadadır.", ip:"UTM = firewall + ekstralar.", q:"Zararlı yazılımı uç noktaya ulaşmadan ağda temizlemek için en uygun seçenek hangisidir?", o:["Yalnızca uç nokta antivirüsü","Stateful firewall","UTM cihazı","Parola politikası"], a:2, e:"UTM, firewall işlevlerine antivirüs gibi ek yetenekler ekler." },
+ { id:"k-pol", b:"Politika, standart, prosedür", m:"<b>Politika</b> üst düzey rehberdir (güvenliğin rolü). <b>Standartlar ve uygulamalar</b> politikadan türer. <b>Prosedürler</b> adım adım yönergelerdir.", ip:"Politika = “neden/ne”; prosedür = “nasıl”.", q:"Güvenlik politikasının amacı nedir?", o:["Çalışanlara adım adım talimat vermek","Güvenliğin rolü hakkında üst düzey rehberlik sağlamak","Şirket kârını artırmak","Ağ cihazlarını yapılandırmak"], a:1, e:"Politika üst düzey rehberdir; prosedürler ayrıntıdır." },
+ { id:"k-enc", b:"Kodlama, şifreleme, özet", m:"<b>URL encoding</b>: karakterler %xx onaltılık. <b>Base64</b>: yazdırılamayan baytları metne çevirir. <b>Şifreleme</b>: okunamaz hâle getirir. <b>Hash</b>: sabit uzunlukta özet.", ip:"%3C = “<” → URL encoding.", q:"<code>%3Cscript%3E</code> hangi işlemin sonucudur?", o:["Base64 kodlama","URL kodlama","Şifreleme","Kriptografik özet"], a:1, e:"%xx biçimi URL encoding’in izidir." },
+ { id:"k-dig", b:"dig ve DNS kayıtları", m:"<code>dig ns alan.com</code> → <b>ad sunucusu (NS) kayıtları</b>. MX = posta, A = IPv4 adresi, AAAA = IPv6.", ip:"NS = name server.", q:"<code>dig ns ornek.com</code> komutu ne döndürür?", o:["Posta sunucuları","Ad sunucusu kayıtları","IP adresi","TXT kayıtları"], a:1, e:"ns tipi, alanın yetkili ad sunucularını listeler." },
+ { id:"k-zone", b:"Zone transfer", m:"Bir alanın tüm kayıtlarını bir kerede almak için <b>zone transfer</b> (AXFR) kullanılır. Sorgu tek tek yapılır; zone transfer hepsini verir. Normalde yalnızca yetkili ikincil sunuculara açık olmalıdır.", ip:"Hepsini birden = zone transfer.", q:"Bir alan adına ait tüm host adlarını ideal olarak almak için hangi teknik kullanılır?", o:["Tek tek A kaydı sorgulamak","Zone transfer","Ping sweep","Banner grabbing"], a:1, e:"Zone transfer, alanın tüm içeriğini aktarır (izin verilmişse)." },
+ { id:"k-tun", b:"DNS tünelleme", m:"Bir protokolü başka bir protokolün içine gizlemeye <b>tunneling</b> denir. DNS isteklerinde işletim sistemi komutları görürsen DNS tüneli olabilir. DNS amplification ise küçük sorguyla büyük cevap üretmektir.", ip:"DNS içinde komut = tünel.", q:"DNS sorgularının içinde işletim sistemi komutları görürsen ne olabilir?", o:["Tünelleme (tunneling)","DNS amplification","Normal DNS recursion","XML entity injection"], a:0, e:"Veriyi/komutu DNS içine gizlemek tünellemedir." },
+ { id:"k-ping", b:"Ping sweep", m:"Bir ağ aralığındaki <b>yanıt veren hostları</b> bulmak için ICMP echo atılır. Hafiftir ve güvenlik duvarlarından sıklıkla geçebilir; tam port taraması gerektirmez.", ip:"Ping sweep = “kim ayakta?”.", q:"Ping sweep neden kullanılır?", o:["Yanıt veren hostları port taraması yapmadan bulmak","Parola kırmak","Trafiği şifrelemek","Güvenlik duvarını kapatmak"], a:0, e:"Hafif ve çoğu zaman izinli bir ICMP ile canlı hostlar keşfedilir." },
+ { id:"k-nist", b:"NIST siber güvenlik çerçevesi", m:"NIST CSF <b>5 işlev</b> tanımlar: <b>Identify, Protect, Detect, Respond, Recover</b>.", ip:"Tanı–Koru–Tespit–Karşılık–Kurtar.", q:"NIST siber güvenlik çerçevesi kaç işlev tanımlar?", o:["3","4","5","6"], a:2, e:"Identify, Protect, Detect, Respond, Recover." },
+ { id:"k-py", b:"Python ile zararlı yazmanın dezavantajı", m:"Python öğrenmesi kolay ve kütüphane zengindir; hız önemli değildir. Asıl sorun: hedefte <b>Python yorumlayıcısı yoktur</b> (özellikle Windows), derleyip taşımak ek iş ister.", ip:"Interpreter hedefte olmayabilir.", q:"Python ile zararlı yazmaya karşı makul bir gerekçe hangisidir?", o:["Python çok yavaştır","Hedef sistemde yorumlayıcı olmayabilir","Kütüphane desteği yoktur","Python öğrenmesi çok zordur"], a:1, e:"Yorumlayıcı yoksa betik çalışmaz; derlemek gerekir." },
+ { id:"k-tcpdump", b:"tcpdump host filtresi", m:"<code>host 10.0.0.5</code> BPF filtresi, <b>hem gelen hem giden</b> trafiği yakalar. Yalnızca kaynak için <code>src host</code>, yalnızca hedef için <code>dst host</code>.", ip:"host = iki yön.", q:"<code>tcpdump -i eth0 host 10.0.0.5</code> neyi yakalar?", o:["Yalnızca 10.0.0.5’ten çıkanı","Yalnızca 10.0.0.5’e gideni","10.0.0.5’e giden ve ondan gelen trafiği","10.0.0.5 dışındaki her şeyi"], a:2, e:"host ifadesi her iki yönü kapsar." },
+ { id:"k-dh", b:"Diffie-Hellman", m:"DH, iki tarafın ortak bir anahtarı <b>karşılıklı türetmesini</b> sağlar: <b>anahtar değişimi (key exchange)</b>. Anahtar yönetimi daha geniş bir konudur.", ip:"DH = key exchange.", q:"Diffie-Hellman ne için kullanılır?", o:["Anahtar iptali","Anahtar değişimi","Anahtar izolasyonu","Sertifika imzalama"], a:1, e:"Taraflar aynı gizli anahtarı iletmeden türetir." },
+ { id:"k-otorite", b:"Sosyal mühendislik: otorite", m:"Yardım masasından arayan sahte kişi <b>otorite</b> ilkesinden yararlanır. Diğer ilkeler: sosyal kanıt, kıtlık, aciliyet, sevgi/benzerlik.", ip:"Üniforma/ünvan = otorite.", q:"“Biz BT yönetimiyiz, şifrenizi hemen doğrulayın.” araması hangi ilkeyi kullanır?", o:["Kıtlık","Otorite","Sosyal kanıt","Taklit"], a:1, e:"Yetkili biri gibi davranmak otorite ilkesidir." },
+ { id:"k-snmp", b:"SNMPv1 kimlik doğrulama", m:"SNMPv1 ve v2c <b>community string</b> ile (düz metin) doğrular; <b>SNMPv3</b> kullanıcı adı/parola ve gizlilik özellikleri getirir.", ip:"v1 = community string.", q:"SNMPv1’de kimlik doğrulama nasıl yapılır?", o:["Kullanıcı adı/parola","Özet (hash)","Community string","Sertifika"], a:2, e:"v1 düz metin community string kullanır." },
+ { id:"k-rmi", b:"Java RMI registry", m:"Ağ üzerinden paylaşılan Java yöntemleri (<b>RMI</b>) kendilerini <b>RMI registry</b>’ye kaydeder; istemci hangi hizmetlerin olduğunu buradan öğrenir.", ip:"Kayıt defteri = registry.", q:"Ağda yöntem paylaşan Java programları kendilerini nereye kaydeder?", o:["RMI registry","RMI mapper","RMI database","RMI process"], a:0, e:"Hizmetleri keşfetmek için sorgulanan bileşen RMI registry’dir." },
+ { id:"k-garp", b:"Gratuitous ARP", m:"Karşılığında bir ARP isteği olmadan gönderilen ARP yanıtına <b>gratuitous ARP</b> denir; IP çakışması tespiti ya da (kötüye kullanımda) ARP zehirleme için görülebilir.", ip:"İstek yok, yanıt var.", q:"Karşılığında istek olmayan ARP yanıtına ne denir?", o:["Who-has","Is-at","Gratuitous ARP","Proxy ARP"], a:2, e:"İsteksiz ARP yanıtı = gratuitous ARP." },
+ { id:"k-mac", b:"Dosya zamanları (MAC)", m:"Dosya meta verisinde üç zaman: <b>Modified, Accessed, Created</b> (MAC times). Adli bilişimde önemlidir; log silmek bile zaman damgası bırakabilir.", ip:"M-A-C: Modified, Accessed, Created.", q:"Dosya meta verisinde tipik olarak tutulan üç zaman hangisidir?", o:["Moved, Added, Changed","Modified, Accessed, Created","Modified, Accessed, Deleted","Moved, Accessed, Changed"], a:1, e:"Değiştirme, erişim ve oluşturma zamanları." },
+ { id:"k-local", b:"Yerel zafiyet", m:"<b>Yerel zafiyet</b> ağdan dinlemeyen uygulamalarda olur; önce sisteme “yerel” erişim ister. En sık amaç <b>yetki yükseltme (privilege escalation)</b>.", ip:"Local → privesc.", q:"Yerel (local) bir zafiyetten yararlanmanın tipik amacı nedir?", o:["Pivoting","Log manipülasyonu","Yetki yükseltme","Parola toplama"], a:2, e:"Zaten içeridesin; yüksek yetki istersin." },
+ { id:"k-nonrep", b:"Nonrepudiation (inkâr edilemezlik)", m:"İmzalı bir mesajın, imza anahtarının sahibinden geldiğini kanıtlayan ilke: <b>nonrepudiation</b>. Gönderen “ben göndermedim” diyemez.", ip:"İmza = inkâr yok.", q:"İmzalı bir mesajın anahtar sahibinden geldiğini göstermeye hangi ilke yarar?", o:["Nonrepudiation","Integrity","Authority","Availability"], a:0, e:"İnkâr edilemezlik, imzalayanı mesaja bağlar." },
+ { id:"k-man", b:"Man trap ve tailgating", m:"<b>Tailgating</b>: yetkili birinin arkasından izinsiz girmek. <b>Man trap</b> (hava kilidi) aynı anda yalnızca bir kişiyi geçirdiği için buna karşı etkilidir.", ip:"Man trap = tek tek geçiş.", q:"Tailgating’e karşı etkili bir fiziksel önlem hangisidir?", o:["Biyometrik okuyucu","Rozetli kapı","Man trap","Telefonla doğrulama"], a:2, e:"Man trap tek seferde tek kişiyi geçirir." },
+ { id:"k-bt", b:"Bluesnarfing ve bluejacking", m:"<b>Bluejacking</b>: cihaza istenmeyen mesaj <i>göndermek</i>. <b>Bluesnarfing</b>: Bluetooth cihazdan veri <i>çekmek</i> — daha tehlikelidir.", ip:"Jack = gönder; snarf = çal.", q:"Bluesnarfing neden bluejacking’den daha tehlikelidir?", o:["Bluejacking veri çalar","Bluesnarfing cihazdan veri alır","Bluejacking keylogger kurar","İkisi aynıdır"], a:1, e:"Bluesnarfing, kurbanın verisini saldırgana aktarır." },
+ { id:"k-biba", b:"Biba güvenlik modeli", m:"<b>Biba</b>: veri <b>bütünlüğü (integrity)</b> modeli. Gizlilik için Bell–LaPadula gibi modeller kullanılır. CIA = Confidentiality, Integrity, Availability.", ip:"Biba = B(ütünlük).", q:"Biba güvenlik modeli CIA üçlüsünden hangisiyle ilgilidir?", o:["Confidentiality","Integrity","Availability","Hepsi"], a:1, e:"Biba veri bütünlüğüne odaklanır." }
+];
+
+/* Sınav soru bankası (Bölüm 1 içeriği, özgün). Konu: etik | tur | model | faz */
+var SORULAR = [
+ // ---- ETİK ----
+ {k:"etik",q:"Aşağıdakilerden hangisi bir etik hackerın etik kuralları gereği yapması <b>gerekenlerden</b> biridir?",o:["Bulduğu hassas bilgileri gizli tutmak","Müşterinin verilerini portfolyosunda göstermek","Her bulguyu hemen sosyal medyada paylaşmak","Kapsam dışı sistemleri keşif amacıyla taramak"],a:0,e:"Gizlilik (confidentiality) etik kodunun temelidir."},
+ {k:"etik",q:"Birçok kullanıcıyı etkileyen bir açık buldun. Etik kodu gereği ilk yaklaşım nedir?",o:["Herkese açık bir forumda yayımlamak","İşverenle, üreticiyle ve ilgili CERT ile birlikte çalışmak","Karaborsada satmak","Kimseye söylememek"],a:1,e:"Sorumlu ifşa: işveren + vendor + CERT."},
+ {k:"etik",q:"Rain Forest Puppy Policy (RFPolicy) neyi savunur?",o:["Açıkları hemen kamuya duyurmayı","Üreticilerle yakın çalışıp düzeltmeleri için zaman tanımayı (ayak sürerlerse açıklama hakkı saklı)","Açıkları gizli tutmayı","Açıkları satmayı"],a:1,e:"Üreticiye zaman tanır; ama üretici ayak sürürse araştırmacı da açıklayabilir."},
+ {k:"etik",q:"Dan Kaminsky’nin DNS çalışması hangi kavramın örneği olarak anılır?",o:["Sorumlu ifşa (responsible disclosure)","Yanal hareket","Sosyal mühendislik","Ransomware"],a:0,e:"Üreticilerle çalıştı, yamalardan sonra duyurdu."},
+ {k:"etik",q:"Test sırasında kazara bir hizmet kesintisi oluştu. En uygun davranış hangisidir?",o:["Saklamak","Doğru kişileri hemen bilgilendirmek","Testi sürdürüp bahsetmemek","Sistemi kendi başına yeniden yapılandırmak"],a:1,e:"İletişim kanalı açık tutulur; kazara olursa hemen bildirilir."},
+ {k:"etik",q:"Aşağıdakilerden hangisi etik kodu açısından sorun oluşturur?",o:["Yazılı kapsam içinde test yapmak","Black-hat sayılan bir grupla bağlantıyı sürdürmek","Çıkar çatışmasını açıklamak","Gizliliği korumak"],a:1,e:"Doğrudan yasa dışı olmasa da kötü amaçlı gruplarla ilişki yasaktır."},
+ {k:"etik",q:"Kapsam ile ilgili hangisi doğrudur?",o:["Kapsam yazılı olursa her şey belgelidir; kapsam dışına çıkmak etik dışıdır","Kapsam sözlü olmalıdır","Kapsam testin sonunda belirlenir","Kapsam test ekibinin kararıdır"],a:0,e:"Yazılı kapsam içinde kalmak etiktir; dışına çıkmak etik dışıdır."},
+ {k:"etik",q:"İyi niyetli ama black-hat tekniklerini kullanan kişi klasik terminolojide nedir?",o:["White hat","Gray hat","Black hat","Red hat"],a:1,e:"Gray hat: iyi niyet + black-hat teknikleri."},
+ {k:"etik",q:"Aşağıdakilerden hangisi “yeni” (alternatif) terminolojiye aittir?",o:["Authorized / unauthorized / semi-authorized","Red / blue / purple","Alpha / beta / gamma","Public / private / hybrid"],a:0,e:"Şapka renkleri yerine izin durumuna dayalı terimler."},
+ {k:"etik",q:"CEH etik kodu bir adayın hangi özelliğini şart koşar?",o:["Felony (ağır suç) mahkûmiyeti olmamak","Üniversite diploması","Bir kurumda çalışmak","Yurt dışında yaşamak"],a:0,e:"Kitap: ağır suçtan mahkûm olmamalısın."},
+ {k:"etik",q:"Bir müşteri verisini “bunu görmelisiniz” diyerek arkadaşına gösterdin. Bu hangi ilkenin ihlalidir?",o:["Çıkar çatışması","Gizlilik","Kapsam","Yedekleme"],a:1,e:"Hassas bilgi gizliliği ihlal edilmiştir."},
+ {k:"etik",q:"Çıkar çatışması varsa ne yapmalısın?",o:["Hiç bahsetme","Müşteriye/işverene açıkla","Yalnızca raporun sonunda belirt","Kendin karar ver"],a:1,e:"Açıklama yükümlülüğü çıkar çatışmasını da kapsar."},
+ {k:"etik",q:"“Ethical hacking” teriminde neden vurgu <i>ethical</i> kısmındadır?",o:["Çünkü etik, mesleğin ve sertifikanın temelidir","Çünkü hack zor değildir","Çünkü yasal sınav tasarımı böyledir","Çünkü araç seçimi önemlidir"],a:0,e:"Etik olmadan hacking sadece saldırıdır."},
+ // ---- TÜR / ETİK HACKLEME ----
+ {k:"tur",q:"Ethical hacking için en yakın eş anlamlı iş unvanı hangisidir?",o:["Penetration testing","Patch management","Help desk","Risk accounting"],a:0,e:"İş ilanlarında genelde “penetration testing” görülür."},
+ {k:"tur",q:"Red teaming’i diğer sızma testlerinden ayıran temel özellik hangisidir?",o:["Testçiler gizli kalmaya çalışan düşmanca bir saldırgan gibi davranır","Sadece web uygulamalarını test eder","Hiç belge üretilmez","Her zaman yazılım test eder"],a:0,e:"Red team: adversarial ve stealthy."},
+ {k:"tur",q:"Bir metodoloji kullanmanın faydası hangisi <b>değildir</b>?",o:["Tutarlılık","Tekrarlanabilirlik","Süreç iyileştirme","Otomatik olarak daha az bulgu üretmek"],a:3,e:"Metodoloji bulgu sayısını azaltmak için değildir; tutarlılık sağlar."},
+ {k:"tur",q:"Aşağıdakilerden hangisi bir sızma testi metodolojisi/standardıdır?",o:["PTES","SNMP","BGP","TCP"],a:0,e:"PTES ve OSSTMM kitapta anılır."},
+ {k:"tur",q:"OSSTMM açılımı nedir?",o:["Open Source Security Testing Methodology Manual","Operating System Security Test Matrix Model","Open Standards Security Threat Management Module","Online Secure System Testing Method"],a:0,e:"Open Source Security Testing Methodology Manual."},
+ {k:"tur",q:"Kitaba göre Mirai botnet neyi ele geçirdi?",o:["Gömülü Linux çalıştıran küçük cihazları","Sadece bankaları","Sadece Windows sunucularını","Sadece bulut hizmetlerini"],a:0,e:"IoT/gömülü Linux cihazları."},
+ {k:"tur",q:"Ethical hacking’in nihai amacı nedir?",o:["Güvenlik duruşunu iyileştirmek","Sistemleri çökertmek","Müşteri verilerini toplamak","Rakipleri zayıflatmak"],a:0,e:"Hedef, savunmayı güçlendirmek."},
+ {k:"tur",q:"Güvenlikte yalnızca “önleme” yeterli değildir çünkü:",o:["Saldırganın faaliyetlerini <b>tespit</b> etmek de gerekir","Önleme yasaktır","Tespit imkânsızdır","Önleme çok pahalıdır"],a:0,e:"Kitap: her şey koruma/önleme değil; tespit de gerekir."},
+ // ---- MODELLER ----
+ {k:"model",q:"Cyber Kill Chain kaç aşamadan oluşur?",o:["5","7","8","14"],a:1,e:"7: Recon, Weaponization, Delivery, Exploitation, Installation, C2, Actions on Objectives."},
+ {k:"model",q:"Cyber Kill Chain’i siber güvenliğe uyarlayan kurum hangisidir?",o:["Lockheed Martin","Mandiant","MITRE","NIST"],a:0,e:"Lockheed Martin askerî kill chain’i uyarladı."},
+ {k:"model",q:"Zararlıyı bir PDF/Office dosyasına gömüp teslim edilebilir paket hâline getirmek hangi Kill Chain aşamasıdır?",o:["Weaponization","Delivery","Exploitation","Installation"],a:0,e:"Silahı hazırlamak = Weaponization."},
+ {k:"model",q:"Zararlı ekin kurbana e-postayla gönderilmesi hangi aşamadır?",o:["Delivery","Reconnaissance","C2","Installation"],a:0,e:"Silahı kurbanın ortamına ulaştırmak = Delivery."},
+ {k:"model",q:"Kurbanın eki açması ve zafiyetin tetiklenmesi hangi aşamadır?",o:["Exploitation","Delivery","Weaponization","C2"],a:0,e:"Zafiyet tetiklenip sistem enfekte olur."},
+ {k:"model",q:"Kalıcı erişim sağlamak için backdoor kurulması Kill Chain’de hangi aşamadır?",o:["Installation","Delivery","Exploitation","Recon"],a:0,e:"Installation: kalıcı erişim."},
+ {k:"model",q:"C2 (Command & Control) aşamasında ne olur?",o:["Dışarıdaki sunucu içerideki sistemle iletişim kurup uzaktan komut/erişim sağlar","Hedef araştırılır","Zararlı hazırlanır","Veri yedeklenir"],a:0,e:"“Hands-on keyboard” erişimi."},
+ {k:"model",q:"Attack Life Cycle’ı en çok hangi firma anlatır?",o:["Mandiant","Lockheed Martin","Wiley","Cisco"],a:0,e:"Kitap: Mandiant."},
+ {k:"model",q:"Attack Life Cycle’ın Kill Chain’den en önemli farkı nedir?",o:["Ortada bir döngü vardır; saldırı tek seferlik değildir","Daha az adımı vardır","Sadece fiziksel güvenliği ele alır","Savunma önerileri verir"],a:0,e:"Yetki yükselt → iç keşif → yanal hareket → kalıcılık döngüsü."},
+ {k:"model",q:"“East-west” hareket neyi ifade eder?",o:["Ağ içindeki yanal hareket (lateral movement)","Dışarıdan içeri trafik","İnternetten çıkan trafik","Bulut geçişi"],a:0,e:"İçeri/dışarı north-south; ağ içi east-west."},
+ {k:"model",q:"Aşağıdakilerden hangisi MITRE ATT&CK’ın doğru tanımıdır?",o:["Gerçek dünyada gözlenen saldırgan davranışlarının (TTP) taksonomisi","Adım adım saldırı kılavuzu","Bir exploit koleksiyonu","Bir şifreleme standardı"],a:0,e:"Genel tanımlar içerir; talimat içermez."},
+ {k:"model",q:"TTP kısaltması neyi ifade eder?",o:["Tactics, Techniques, Procedures","Time, Target, Payload","Test, Track, Patch","Trace, Threat, Prevent"],a:0,e:"Taktikler, teknikler, prosedürler."},
+ {k:"model",q:"Hangisi bir ATT&CK taktiği <b>değildir</b>?",o:["Persistence","Defense Evasion","Weaponization","Exfiltration"],a:2,e:"Weaponization Kill Chain’e aittir."},
+ {k:"model",q:"Saldırganın toplanan veriyi dışarı taşımasına ATT&CK’ta ne denir?",o:["Exfiltration","Collection","Discovery","Impact"],a:0,e:"Collection toplama; Exfiltration dışarı taşıma."},
+ {k:"model",q:"Ransomware’ın veriyi şifrelemesi hangi ATT&CK taktiğine girer?",o:["Impact","Discovery","Persistence","Reconnaissance"],a:0,e:"Yıkım/şifreleme Impact."},
+ {k:"model",q:"Saldırganın kısıtlı bir kullanıcıdan yönetici düzeyine çıkmasına ne denir?",o:["Privilege Escalation","Lateral Movement","Discovery","Collection"],a:0,e:"Yetki yükseltme."},
+ {k:"model",q:"ATT&CK’taki toplam taktik sayısı kitaba göre kaçtır?",o:["7","8","12","14"],a:3,e:"14 taktik."},
+ // ---- FAZLAR ----
+ {k:"faz",q:"EC-Council metodolojisinde doğru sıra hangisidir?",o:["Recon → Scanning → Gaining → Maintaining → Covering","Scanning → Recon → Gaining → Covering → Maintaining","Gaining → Recon → Scanning → Maintaining → Covering","Recon → Gaining → Scanning → Covering → Maintaining"],a:0,e:"Reconnaissance & Footprinting → Scanning & Enumeration → Gaining Access → Maintaining Access → Covering Tracks."},
+ {k:"faz",q:"Footprinting’in amacı nedir?",o:["Testin boyutunu ve kapsamını belirlemek; ağ blokları, hostlar, konumlar, kişiler","Zafiyeti sömürmek","Logları silmek","Kalıcılık sağlamak"],a:0,e:"Kuruluşun ayak izini çıkarmak."},
+ {k:"faz",q:"Sızmaların çoğunun hangi yöntemle başladığı tahmin edilir (kitaba göre %80–90)?",o:["Sosyal mühendislik","Donanım hatası","Fiziksel hırsızlık","Kablo kesme"],a:0,e:"Sosyal mühendislik en kolay giriş yoludur."},
+ {k:"faz",q:"Scanning & Enumeration aşamasında hangisi yapılır?",o:["Açık portları ve arkasındaki servisleri belirlemek","Loglarını silmek","Rapor yazmak","Kimlik avı e-postası göndermek"],a:0,e:"Port ve servis keşfi."},
+ {k:"faz",q:"Bazı SMTP sunucuları doğru sorgulanınca ne verir?",o:["Geçerli kullanıcı adları","Disk görüntüsü","Yönetici parolası","Şifreleme anahtarı"],a:0,e:"Enumeration örneği: kullanıcı adı sızması."},
+ {k:"faz",q:"SMB/CIFS’ten hangi bilgiler elde edilebilir?",o:["Paylaşımlar, kullanıcılar, bazı politika bilgileri","Yalnızca IP adresleri","Hiçbir şey","Sadece DNS kayıtları"],a:0,e:"SMB/CIFS bilgi sızdırabilir."},
+ {k:"faz",q:"Gaining Access aşamasında neden belgeleme önemlidir?",o:["“Yaptım” demek yetmez; ele geçirdiğini kanıtlamalısın","Belgeleme zorunlu değildir","Sadece sonradan unutmamak için","Yasa gerektirmediği için"],a:0,e:"Kanıt yanlış pozitifleri ortadan kaldırır."},
+ {k:"faz",q:"Müşterinin sözleşmesinde sosyal mühendislik yoksa ne yaparsın?",o:["Yapmazsın; gerekirse kapsam genişletmesini yazılı istersin","Yine de yaparsın","Rapora yazıp unutursun","Çalışanları arayarak denersin"],a:0,e:"Kapsamın dışına çıkılmaz."},
+ {k:"faz",q:"Maintaining Access için aşağıdakilerden hangisi tipiktir?",o:["Persistence (ör. rootkit, zamanlanmış görev)","Port taraması","Whois sorgusu","Rapor sunumu"],a:0,e:"Erişimi sürdürmek persistence demektir."},
+ {k:"faz",q:"Kalıcı zararlılar neden çoğunlukla dışarıya <b>beacon</b> atar?",o:["Gelen bağlantı firewall’da engelli, giden genelde serbesttir","Dışarı bağlantı daha hızlıdır","Yasalar zorunlu kılar","Beacon enerji tasarrufu sağlar"],a:0,e:"Firewall’lar genelde inbound’u engeller."},
+ {k:"faz",q:"Windows’ta olay günlüklerini temizlemek ne sonuç verebilir?",o:["“Loglar silindi” kaydı oluşur; bu şüphe çekebilir","Hiç iz kalmaz","Sistem çöker","Antivirüs devre dışı kalır"],a:0,e:"Eylemin kendisi iz bırakır."},
+ {k:"faz",q:"Covering Tracks aşaması neden bir testte istenebilir?",o:["Operasyon ekibinin tespit ve müdahale yeteneğini sınamak için","Zarar vermek için","Müşteriden gizlenmek için","Yasaları dolanmak için"],a:0,e:"Görev hedeflerine bağlıdır."},
+ {k:"faz",q:"Hangisi Gaining Access ↔ Kill Chain eşlemesine en yakındır?",o:["Delivery + Exploitation","Reconnaissance","Actions on Objectives","Weaponization"],a:0,e:"Sızma: silahı getirmek ve tetiklemek."},
+ {k:"faz",q:"Maintaining Access ↔ ATT&CK eşlemesi hangisidir?",o:["Persistence","Discovery","Collection","Impact"],a:0,e:"Kalıcılık."},
+ {k:"faz",q:"Covering Tracks ↔ ATT&CK eşlemesi hangisidir?",o:["Defense Evasion","Initial Access","Exfiltration","Resource Development"],a:0,e:"Korumaları atlatma/izleri örtme."},
+ {k:"faz",q:"Beş aşamanın doğal olarak ilk adımı için hangisi doğrudur?",o:["Önce kapsamı anlamak ve bilgi toplamak","Doğrudan exploit çalıştırmak","Logları silmek","Backdoor kurmak"],a:0,e:"Önce kapsam, sonra bilgi toplama."}
+];
+
+/* Bölüm 1 konu bazlı özet puan haritası için */
+var KONU_AD = { etik: "Etik kodu", tur: "Etik hackleme", model: "Saldırı modelleri", faz: "5 aşama", teknik: "Giriş testi konuları" };
+
+var FLASH = [
+ ["etik","Responsible disclosure kime yapılır?","İşverene, ilgili üreticiye (vendor) ve yetkili CERT’e — herkese açık forum değil."],
+ ["etik","RFPolicy kimden gelir?","Rain Forest Puppy (1990’lar): üreticiye düzeltme için zaman tanı."],
+ ["etik","Dan Kaminsky neyin örneği?","DNS açıklarını önce üreticilerle düzeltip sonra açıklayarak sorumlu ifşa."],
+ ["etik","Gizlilik ihlali nedir?","Çalışırken öğrenilen hassas bilgi ve fikri mülkiyeti paylaşmak."],
+ ["etik","Açıklama yükümlülüğünün iki ayağı?","Bulunan sorunlar + çıkar çatışmaları."],
+ ["etik","Kazara kesinti olursa?","Doğru kişilere hemen haber ver; iletişim açık olsun."],
+ ["etik","CEH adayı için hukuki şartlar?","Yasa dışı eylem yok; felony mahkûmiyeti yok; black-hat gruplarla ilişki yok."],
+ ["etik","Gray hat nedir?","İyi amaçlı ama black-hat tekniklerini kullanan."],
+ ["etik","Yeni terminoloji?","Authorized, unauthorized, semi-authorized."],
+ ["etik","Kapsam dışına çıkmak?","Etik dışıdır; kapsam yazılı olmalıdır."],
+ ["tur","Ethical hacking’in iş ilanı karşılığı?","Penetration testing (sızma testi)."],
+ ["tur","Red teaming nedir?","Düşmanca, gizli (stealthy) davranan özel bir sızma testi türü."],
+ ["tur","Metodolojinin 3 faydası?","Tutarlılık, tekrarlanabilirlik, süreç iyileştirme."],
+ ["tur","PTES açılımı?","Penetration Testing Execution Standard."],
+ ["tur","OSSTMM açılımı?","Open Source Security Testing Methodology Manual."],
+ ["tur","Mirai botnet?","Gömülü Linux çalıştıran küçük cihazlardan oluşan botnet (100.000+ cihaz)."],
+ ["tur","Ethical hacking’in amacı?","Güvenlik duruşunu iyileştirmek, zarar vermemek."],
+ ["tur","Üç saldırgan modeli?","Cyber Kill Chain, Attack Life Cycle, MITRE ATT&CK."],
+ ["model","Kill Chain sırası (7)?","Recon → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objectives."],
+ ["model","Kill Chain’i kim uyarladı?","Lockheed Martin (askerî kill chain fikrinden)."],
+ ["model","Weaponization nedir?","Zararlıyı teslim edilebilir bir pakete dönüştürmek."],
+ ["model","Delivery nedir?","Silahı kurbanın ortamına ulaştırmak (e-posta eki, zararlı site, açık servis)."],
+ ["model","Exploitation nedir?","Zararlının/zafiyetin tetiklenip hedefi enfekte etmesi."],
+ ["model","Installation nedir?","Kalıcı erişim için backdoor veya ek yazılım kurmak."],
+ ["model","C2 nedir?","Dışarıdaki sunucudan uzaktan komut/erişim; “hands-on keyboard”."],
+ ["model","Actions on Objectives?","Asıl amaç: veri çalma, para kazanma, fikri mülkiyet, yıkım."],
+ ["model","Attack Life Cycle adımları (8)?","Initial Recon → Initial Compromise → Foothold → Escalate Privileges → Internal Recon → Move Laterally → Maintain Presence → Complete Mission."],
+ ["model","Attack Life Cycle’ı kim anlatır?","Mandiant."],
+ ["model","Life Cycle’daki döngü?","Yetki yükselt → İç keşif → Yanal hareket → Kalıcılık."],
+ ["model","East-west?","Ağ içi yanal hareket. North-south: içeri/dışarı."],
+ ["model","ATT&CK nedir?","TTP’lerin (tactics, techniques, procedures) taksonomisi; adım adım talimat içermez."],
+ ["model","ATT&CK taktik sayısı?","14."],
+ ["model","Persistence nedir?","Yeniden başlatmadan sonra da çalışan erişim mekanizması."],
+ ["model","Exfiltration nedir?","Toplanan veriyi saldırganın yerine taşımak."],
+ ["model","Impact nedir?","Yıkım veya ransomware gibi veriyi bozma/şifreleme."],
+ ["model","Execution hakkında kitabın vurgusu?","Tek başına bir aşama değil, davranışlar serisi."],
+ ["faz","5 aşama?","Recon & Footprinting → Scanning & Enumeration → Gaining Access → Maintaining Access → Covering Tracks."],
+ ["faz","Footprinting?","Kuruluşun ayak izini çıkarmak: ağ blokları, hostlar, konumlar, kişiler."],
+ ["faz","Sosyal mühendislik oranı?","Sızmaların tahminen %80–90’ı."],
+ ["faz","Enumeration örnekleri?","SMTP kullanıcı adları; SMB/CIFS paylaşım, kullanıcı, politika bilgisi."],
+ ["faz","Banner/Servis bilgisi neden önemli?","Hangi yazılımın (NGINX, Apache, IIS…) çalıştığını gösterir; sonraki aşamayı kolaylaştırır."],
+ ["faz","Gaining Access’te en önemli iş?","Belgeleme/kanıt: “yaptım” yetmez."],
+ ["faz","Neden beacon dışarı çıkar?","Gelen bağlantı firewall’da engelli; giden genelde serbest."],
+ ["faz","Maintaining Access araçları?","Rootkit, backdoor, zamanlanmış görev, registry girdileri."],
+ ["faz","Log silmenin sonucu?","Windows’ta “loglar silindi” kaydı oluşur."],
+ ["faz","Covering Tracks neden istenir?","Operasyon ekibinin tespit/müdahalesini sınamak."],
+ ["teknik","ARP ne yapar?","IP adresinden MAC adresini bulur."],
+ ["teknik","CIDR: 255.255.248.0?","/21."],
+ ["teknik","Worm farkı?","Kendi kendine yayılır (self-propagate)."],
+ ["teknik","Risk formülü?","Olasılık × kayıp."],
+ ["teknik","Evil twin?","Sahte erişim noktası; meşru SSID’i taklit eder."],
+ ["teknik","NIST CSF işlevleri?","Identify, Protect, Detect, Respond, Recover."],
+ ["teknik","Diffie-Hellman?","Anahtar değişimi (key exchange)."],
+ ["teknik","SNMPv1 doğrulama?","Community string (düz metin)."],
+ ["teknik","Gratuitous ARP?","İsteksiz ARP yanıtı."],
+ ["teknik","MAC times?","Modified, Accessed, Created."],
+ ["teknik","Biba?","Bütünlük (integrity) modeli."],
+ ["teknik","Man trap?","Aynı anda tek kişi geçirir; tailgating’e karşı."],
+ ["teknik","Bluesnarfing vs bluejacking?","Snarf: veri çek (tehlikeli). Jack: mesaj gönder."],
+ ["teknik","tcpdump host x?","x’e giden ve x’ten gelen trafik."],
+ ["teknik","dig ns?","Ad sunucusu (NS) kayıtları."],
+ ["teknik","Zone transfer?","Alanın tüm kayıtlarını bir seferde alma."]
+];
+
+var SOZLUK = [
+ ["Authorized / Unauthorized / Semi-authorized","İzinli / izinsiz / yarı izinli — şapka renklerinin yeni karşılığı."],
+ ["Black hat","Kötü amaçlı, genelde yasa dışı faaliyet yürüten kişi."],
+ ["C2 (Command & Control)","Saldırganın ele geçirilen sistemlere uzaktan komut gönderdiği altyapı."],
+ ["CERT","Computer Emergency Response Team — siber olay müdahale ekibi."],
+ ["Confidentiality","Gizlilik: bilginin yetkisiz kişilerce öğrenilmemesi."],
+ ["COTS","Common Off-The-Shelf — hazır, ticari yazılım."],
+ ["Covering tracks","İzleri örtme/silme aşaması."],
+ ["Cyber Kill Chain","Lockheed Martin’in saldırıyı 7 aşamada anlatan modeli."],
+ ["Enumeration","Bir sistemden kullanıcı, paylaşım, servis bilgisi çıkarma."],
+ ["Exfiltration","Verinin kuruluş dışına sızdırılması."],
+ ["Exploit","Bir zafiyeti sömüren kod/teknik."],
+ ["Footprinting","Hedefin dış görünümünün/büyüklüğünün çıkarılması."],
+ ["Gray hat","İyi niyetli ama black-hat teknikleri kullanan."],
+ ["Lateral movement","Ağ içinde sistemden sisteme geçiş (east-west)."],
+ ["MITRE ATT&CK","Saldırgan davranışlarının (TTP) taksonomisi."],
+ ["OSSTMM","Open Source Security Testing Methodology Manual."],
+ ["OSINT","Açık kaynak istihbaratı: kamuya açık verilerden bilgi toplama."],
+ ["Penetration testing","İzinli sızma testi — ethical hacking’in iş unvanı karşılığı."],
+ ["Persistence","Erişimin yeniden başlatmalara rağmen sürmesi."],
+ ["PTES","Penetration Testing Execution Standard."],
+ ["Red teaming","Düşmanca, gizli çalışan sızma testi türü."],
+ ["Responsible disclosure","Açığı önce işverene/üreticiye/CERT’e bildirip düzeltme sonrası duyurma."],
+ ["RFPolicy","Rain Forest Puppy’nin ifşa politikası."],
+ ["Rootkit","Varlığını ve eylemlerini gizleyen, erişim sağlayan zararlı."],
+ ["Security posture","Kuruluşun genel güvenlik durumu."],
+ ["Social engineering","İnsanı kandırarak bilgi/erişim elde etme."],
+ ["TTP","Tactics, Techniques, Procedures."],
+ ["Weaponization","Zararlıyı teslim edilebilir hâle getirme."],
+ ["White hat","Hep iyi amaçla çalışan kişi."]
+];
+
+(function(){
+"use strict";
+/* ---------- yardımcılar ---------- */
+var $=function(s,r){return (r||document).querySelector(s)};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function range(n){var r=[];for(var i=0;i<n;i++)r.push(i);return r}
+var KEY="ceh1:durum";
+var S={xp:0,seri:0,son:"",bitti:{},lt:{},sinav:[],yanlis:{},tema:"",yazi:0,rozet:{},tekrar:0};
+try{var k=JSON.parse(localStorage.getItem(KEY)||"null");if(k)for(var x in k)S[x]=k[x]}catch(e){}
+function kaydet(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function bugun(){return Math.floor(Date.now()/864e5)}
+function gunSeri(){var b=bugun(),s=S.son===""?null:+S.son;if(s===b)return;if(s===b-1)S.seri++;else S.seri=1;S.son=String(b);kaydet()}
+function xp(n){S.xp+=n;kaydet();rozetler()}
+function bitir(id,puan){if(!S.bitti[id]){S.bitti[id]=1;xp(puan||25)}kaydet();gunSeri()}
+var ROZET=[["ilk","🌱","İlk adım",function(){return Object.keys(S.bitti).length>=1}],
+["etik","⚖️","Etik bekçisi",function(){return S.bitti["ders-etik"]&&S.bitti["sn-kapsam"]&&S.bitti["sn-ifsa"]}],
+["zincir","⛓️","Zinciri kıran",function(){return S.bitti["ord-kill"]&&S.bitti["mat-kill"]}],
+["kasif","🧭","Kâşif (5 aşama)",function(){return S.bitti["ord-faz"]&&S.bitti["sort-faz"]&&S.bitti["ders-faz"]}],
+["atk","🗺️","ATT&CK haritacısı",function(){return S.bitti["ord-atk1"]&&S.bitti["ord-atk2"]&&S.bitti["mat-atk"]}],
+["tekrar","🔁","Tekrar ustası",function(){return S.tekrar>=50}],
+["sinav","🎓","Sınav adayı (%75+)",function(){return S.sinav.some(function(x){return x.puan>=75})}],
+["seri","🔥","3 gün seri",function(){return S.seri>=3}]];
+function rozetler(){ROZET.forEach(function(r){if(!S.rozet[r[0]]&&r[3]())S.rozet[r[0]]=1});kaydet()}
+
+/* ---------- soru bankası ---------- */
+var BANKA=SORULAR.map(function(q,i){return{id:"s"+i,k:q.k,q:q.q,o:q.o,a:q.a,e:q.e}}).concat(KONULAR.map(function(t){return{id:t.id,k:"teknik",q:t.q,o:t.o,a:t.a,e:t.e}}));
+function vm(q){var o=shuffle(range(q.o.length));return{id:q.id,k:q.k,q:q.q,e:q.e,o:o.map(function(i){return{t:q.o[i],ok:i===q.a}})}}
+
+/* ---------- durum ---------- */
+var V={tab:"ana",ders:"etik",kart:0,run:null,fkon:"hepsi",exam:null,ara:""};
+var DERS_ID=Object.keys(DERSLER);
+var TABS=[["ana","🏠","Ana sayfa"],["ders","📖","Dersler"],["etk","🎮","Etkinlikler"],["sen","🎭","Senaryolar"],["konu","🧪","Test konuları"],["kart","🔁","Kartlar"],["sinav","📝","Sınav"],["soz","📚","Sözlük"]];
+
+/* ---------- görünümler ---------- */
+var views={};
+function ilerleme(){var hepsi=[];DERS_ID.forEach(function(d){hepsi.push("ders-"+d)});
+SIRALAMA.concat(ESLESTIRME,SINIFLA).forEach(function(a){hepsi.push(a.id)});SENARYOLAR.concat(VAKALAR).forEach(function(a){hepsi.push(a.id)});KONULAR.forEach(function(t){hepsi.push(t.id)});
+var d=hepsi.filter(function(i){return S.bitti[i]}).length;return{d:d,t:hepsi.length,y:Math.round(100*d/hepsi.length)}}
+views.ana=function(){var p=ilerleme(),h=bugun();var vadeli=Object.keys(S.lt).filter(function(i){return S.lt[i].d<=h}).length;
+var plan=[["1. Gün","Etik Kodu dersi + 3 senaryo"],["2. Gün","Etik Hackleme dersi + Şapka eşleştirme + Etik mi değil mi"],["3. Gün","Kill Chain dersi + sıralama + eşleştirme + Aylin vakası"],["4. Gün","Attack Life Cycle + ATT&CK etkinlikleri"],["5. Gün","5 Aşama dersi + sınıflama + vaka"],["6. Gün","Test konuları (30 mini ders) + kartlar"],["7. Gün","Deneme sınavı + yanlışlarını tekrar"]];
+return '<h1>Hoş geldin! 👋</h1><p class="muted">CEH (Certified Ethical Hacker) <b>Bölüm 1: Ethical Hacking</b> ve giriş testi konuları için, etkinliklerle öğreten, tamamen çevrimdışı çalışan bir çalışma programı.</p>'+
+'<div class="card"><div class="stat"><div><b>%'+p.y+'</b>genel ilerleme</div><div><b>'+S.xp+'</b>puan (XP)</div><div><b>'+S.seri+'</b>günlük seri</div><div><b>'+vadeli+'</b>tekrar bekleyen kart</div></div><div class="bar" style="margin-top:12px"><i style="width:'+p.y+'%"></i></div><p class="small muted">'+p.d+' / '+p.t+' etkinlik tamamlandı. İlerlemen bu tarayıcıda saklanır.</p></div>'+
+'<div class="grid">'+
+[["ders","📖","Derslerle başla","Etik, etik hackleme, saldırı modelleri, 5 aşama. Benzetmeler ve hafıza ipuçlarıyla."],["etk","🎮","Etkinlik yap","Sıralama, eşleştirme, sınıflama: aktif hatırlama en kalıcı öğrenmedir."],["sen","🎭","Senaryolarla dene","Gerçek hayattan kurgu vakalarda karar ver, sonucunu gör."],["kart","🔁","Aralıklı tekrar","Kartları Leitner kutularıyla tekrar et; unutmadan hatırla."],["sinav","📝","Deneme sınavı","Süreli ya da süresiz. Konu bazlı sonuç ve açıklamalı inceleme."]].map(function(c){return '<button class="card btn" data-a="tab" data-v="'+c[0]+'" style="text-align:left"><div class="big">'+c[1]+'</div><b>'+c[2]+'</b><div class="small muted" style="font-weight:500">'+c[3]+'</div></button>'}).join('')+'</div>'+
+'<h2>🏅 Rozetler</h2><div>'+ROZET.map(function(r){return '<span class="badge '+(S.rozet[r[0]]?'on':'')+'">'+r[1]+' '+r[2]+'</span>'}).join('')+'</div>'+
+'<h2>🗓️ 7 günlük çalışma önerisi</h2><div class="card"><dl>'+plan.map(function(x){return '<dt>'+x[0]+'</dt><dd>'+x[1]+'</dd>'}).join('')+'</dl></div>'+
+'<div class="card"><h3>🧠 Nasıl çalışırsan kalıcı olur?</h3><ul><li><b>Önce oku, sonra kendini sına:</b> her dersin ardından etkinlik yap.</li><li><b>Benzetmeleri kullan:</b> kilit ustası, yangın tatbikatı, soygun filmi, bina denetimi.</li><li><b>Aralıklı tekrar:</b> kartları her gün 10 dakika çalış.</li><li><b>Yanlışlarından öğren:</b> sınavdaki yanlış sorular “zayıf noktalar” listesine girer.</li></ul><p class="small muted">Not: Bu program özgün anlatımla hazırlanmıştır; kitaptaki cümleler birebir kopyalanmaz. Resmî sınav için EC-Council kaynaklarına da bak.</p></div>'};
+
+function dersGoster(){var d=DERSLER[V.ders],ids=DERS_ID;var oku=S["oku-"+V.ders]||{};var n=d.kartlar.length,okundu=Object.keys(oku).length;
+var h='<h1>'+d.ikon+' '+d.ad+'</h1><div class="chipbar">'+ids.map(function(i){return '<button class="cb" data-a="ders" data-v="'+i+'" aria-pressed="'+(i===V.ders)+'">'+DERSLER[i].ikon+' '+DERSLER[i].ad+(S.bitti["ders-"+i]?' ✓':'')+'</button>'}).join('')+'</div>';
+h+='<p>'+d.giris+'</p><div class="analoji"><b>🧩 '+d.analoji.b+'</b><br>'+d.analoji.m+'</div>';
+h+='<div class="bar"><i style="width:'+Math.round(100*okundu/n)+'%"></i></div><p class="small muted">'+okundu+' / '+n+' kart okundu</p>';
+d.kartlar.forEach(function(c,i){h+='<div class="card'+(oku[i]?'':' ')+'"><div class="row"><h3>'+(i+1)+'. '+c.b+'</h3>'+(oku[i]?'<span class="pill ok">okundu</span>':'')+'</div><p>'+c.m+'</p><div class="tip">💡 <b>Hafıza ipucu:</b> '+c.ip+'</div><div class="trap">⚠️ <b>Sınav tuzağı:</b> '+c.tr+'</div>'+(oku[i]?'':'<button class="btn pri" data-a="oku" data-v="'+i+'">Anladım ✓</button>')+'</div>'});
+if(okundu===n){h+='<div class="card"><h3>🧪 Mini test</h3><p class="muted">Bu dersin konusundan 5 soru. Çözünce ders tamamlanır.</p><button class="btn pri" data-a="mini" data-v="'+V.ders+'">Mini testi başlat</button></div>'}
+return h}
+views.ders=function(){if(V.run&&V.run.tip==="mini")return miniGoster();return dersGoster()};
+function miniGoster(){var r=V.run,q=r.qs[r.i];if(r.i>=r.qs.length){var puan=Math.round(100*r.dogru/r.qs.length);return '<div class="card center"><div class="big">'+(puan>=60?'🎉':'💪')+'</div><h2>Mini test bitti: %'+puan+'</h2><p>'+r.dogru+' / '+r.qs.length+' doğru</p><button class="btn pri" data-a="mini-son">Derse dön</button></div>'}
+return '<h1>Mini test — '+DERSLER[r.ders].ad+'</h1><p class="muted">Soru '+(r.i+1)+' / '+r.qs.length+'</p>'+soruHtml(q,r.sec,"mini-pick")+(r.sec!==null?'<button class="btn pri" data-a="mini-next">'+(r.i+1===r.qs.length?'Bitir':'Sonraki')+'</button>':'')}
+function soruHtml(q,sec,act){var h='<div class="card"><p><b>'+q.q+'</b></p>';q.o.forEach(function(o,i){var c="";if(sec!==null){if(o.ok)c=" ok";else if(i===sec)c=" bad"}h+='<button class="opt'+c+'" data-a="'+act+'" data-v="'+i+'"'+(sec!==null?' disabled':'')+'>'+esc(o.t)+'</button>'});
+if(sec!==null)h+='<div class="fb '+(q.o[sec].ok?'ok':'bad')+'" role="status">'+(q.o[sec].ok?'✅ Doğru! ':'❌ Yanlış. ')+q.e+'</div>';return h+'</div>'}
+
+/* ---- etkinlikler ---- */
+function etkListe(){var tipler=[["ord","Sıralama","🔢",SIRALAMA],["mat","Eşleştirme","🔗",ESLESTIRME],["sort","Sınıflandırma","🗂️",SINIFLA]];
+var h='<h1>🎮 Etkinlikler</h1><p class="muted">Sıralama, eşleştirme ve sınıflandırma. Doğru yaptıkça puan kazanırsın; bitirince ✓ işareti alırsın.</p>';
+tipler.forEach(function(t){h+='<h2>'+t[2]+' '+t[1]+'</h2><div class="grid">'+t[3].map(function(a){return '<button class="card btn" data-a="open" data-t="'+t[0]+'" data-v="'+a.id+'" style="text-align:left"><b>'+a.b+'</b> '+(S.bitti[a.id]?'<span class="pill ok">✓ bitti</span>':'')+'<div class="small muted" style="font-weight:500">'+a.t+'</div></button>'}).join('')+'</div>'});return h}
+function actById(t,id){return(t==="ord"?SIRALAMA:t==="mat"?ESLESTIRME:SINIFLA).filter(function(a){return a.id===id})[0]}
+function openAct(t,id){var a=actById(t,id);V.run={tip:t,id:id};
+if(t==="ord"){V.run.pool=shuffle(range(a.items.length));V.run.ans=[];V.run.chk=false;V.run.hata=0}
+if(t==="mat"){V.run.L=shuffle(range(a.p.length));V.run.R=shuffle(range(a.p.length));V.run.sl=null;V.run.done={};V.run.hata=0}
+if(t==="sort"){V.run.order=shuffle(range(a.items.length));V.run.i=0;V.run.dogru=0;V.run.sec=null;V.run.yanlis=[]}}
+function ordGoster(a){var r=V.run,h='<button class="btn" data-a="back">← Etkinlikler</button><h1>'+a.b+'</h1><p>'+a.t+'</p>';
+h+='<div class="card"><b>Senin sıran:</b><ol class="ans">'+r.ans.map(function(i,pos){var c="";if(r.chk)c=(i===pos?" ok":" bad");return '<li><button class="tile'+c+'" data-a="o-del" data-v="'+pos+'">'+esc(a.items[i])+'</button></li>'}).join('')+'</ol>'+(r.ans.length?'':'<p class="muted">Aşağıdaki kutulara sırayla dokun.</p>')+'</div>';
+h+='<div class="pool">'+r.pool.map(function(i){var used=r.ans.indexOf(i)>=0;return '<button class="tile'+(used?' used':'')+'" data-a="o-add" data-v="'+i+'"'+(used||r.chk&&r.ans.length===a.items.length?' disabled':'')+'>'+esc(a.items[i])+'</button>'}).join('')+'</div>';
+var tam=r.ans.length===a.items.length;h+='<div class="row"><button class="btn pri" data-a="o-chk"'+(tam?'':' disabled')+'>Kontrol et</button><button class="btn" data-a="o-reset">Sıfırla</button></div>';
+if(r.chk){var dog=r.ans.every(function(i,p){return i===p});h+='<div class="fb '+(dog?'ok':'bad')+'" role="status">'+(dog?'🎉 Tam doğru! Sıra: ':'Henüz değil — yeşiller doğru yerde. Kırmızılara dokunup çıkar, tekrar dene.')+'</div>';
+if(dog){h+='<div class="card"><b>Aşamalar ve anlamları</b><ol>'+a.items.map(function(x,i){return '<li><b>'+esc(x)+'</b> — '+esc(a.not[i])+'</li>'}).join('')+'</ol></div>'}}return h}
+function matGoster(a){var r=V.run,n=a.p.length;var h='<button class="btn" data-a="back">← Etkinlikler</button><h1>'+a.b+'</h1><p>'+a.t+' <span class="muted small">(önce soldan, sonra sağdan dokun)</span></p><div class="two"><div>';
+r.L.forEach(function(i){var d=r.done[i];h+='<button class="tile'+(d?' ok':(r.sl===i?' sel':''))+'" data-a="m-l" data-v="'+i+'" style="display:block;width:100%;margin:6px 0"'+(d?' disabled':'')+'>'+esc(a.p[i][0])+'</button>'});h+='</div><div>';
+r.R.forEach(function(i){var d=r.done[i];h+='<button class="tile'+(d?' ok':'')+'" data-a="m-r" data-v="'+i+'" style="display:block;width:100%;margin:6px 0;text-align:left"'+(d?' disabled':'')+'>'+esc(a.p[i][1])+'</button>'});h+='</div></div>';
+var k=Object.keys(r.done).length;h+='<p class="muted">'+k+' / '+n+' eşleşti · hata: '+r.hata+'</p>';
+if(k===n){h+='<div class="fb ok pop">🎉 Hepsi eşleşti! '+(r.hata===0?'Hatasız!':'')+'</div>'}return h}
+function sortGoster(a){var r=V.run;if(r.i>=a.items.length){var p=Math.round(100*r.dogru/a.items.length);var h='<button class="btn" data-a="back">← Etkinlikler</button><div class="card center"><div class="big">'+(p>=70?'🎉':'💪')+'</div><h2>%'+p+' — '+r.dogru+'/'+a.items.length+'</h2>';
+if(r.yanlis.length){h+='<p class="muted">Tekrar bak:</p><ul style="text-align:left">'+r.yanlis.map(function(i){return '<li>'+esc(a.items[i][0])+' → <b>'+esc(a.kovalar[a.items[i][1]])+'</b></li>'}).join('')+'</ul>'}return h+'<button class="btn pri" data-a="open" data-t="sort" data-v="'+a.id+'">Yeniden dene</button></div>'}
+var it=a.items[r.order[r.i]];var h2='<button class="btn" data-a="back">← Etkinlikler</button><h1>'+a.b+'</h1><p>'+a.t+'</p><p class="muted small">Soru '+(r.i+1)+' / '+a.items.length+'</p><div class="card"><p><b>'+esc(it[0])+'</b></p><div class="chipbar">';
+a.kovalar.forEach(function(k,i){var c="";if(r.sec!==null){if(i===it[1])c=" ok";else if(i===r.sec)c=" bad"}h2+='<button class="tile'+c+'" data-a="s-pick" data-v="'+i+'"'+(r.sec!==null?' disabled':'')+'>'+esc(k)+'</button>'});h2+='</div>';
+if(r.sec!==null){h2+='<div class="fb '+(r.sec===it[1]?'ok':'bad')+'" role="status">'+(r.sec===it[1]?'✅ Doğru!':'❌ Doğrusu: <b>'+esc(a.kovalar[it[1]])+'</b>')+'</div><button class="btn pri" data-a="s-next">Devam</button>'}return h2+'</div>'}
+views.etk=function(){if(!V.run||V.run.tip==="mini"||V.run.tip==="sn"||V.run.tip==="vk")return etkListe();var a=actById(V.run.tip,V.run.id);return V.run.tip==="ord"?ordGoster(a):V.run.tip==="mat"?matGoster(a):sortGoster(a)};
+
+/* ---- senaryolar ---- */
+function senListe(){var h='<h1>🎭 Senaryolar ve vakalar</h1><p class="muted">Kurgu karakterlerle gerçekçi durumlar. Her adımda karar ver; “en iyi”, “kısmen” ve “yanlış” seçenekleri görürsün.</p><h2>⚖️ Karar senaryoları</h2><div class="grid">';
+SENARYOLAR.forEach(function(s){h+='<button class="card btn" data-a="sn-open" data-t="sn" data-v="'+s.id+'" style="text-align:left"><div class="big">'+s.ikon+'</div><b>'+s.b+'</b> '+(S.bitti[s.id]?'<span class="pill ok">✓</span>':'')+'<div class="small muted" style="font-weight:500">'+({etik:"Etik",faz:"5 aşama",tur:"Terimler"}[s.konu])+' · '+s.adimlar.length+' adım</div></button>'});
+h+='</div><h2>🔍 Saldırı hikâyesi vakaları</h2><p class="muted small">Olayı adım adım izle; her adımı Kill Chain / Life Cycle / ATT&CK / 5 aşama ile etiketle.</p><div class="grid">';
+VAKALAR.forEach(function(s){h+='<button class="card btn" data-a="sn-open" data-t="vk" data-v="'+s.id+'" style="text-align:left"><div class="big">'+s.ikon+'</div><b>'+s.b+'</b> '+(S.bitti[s.id]?'<span class="pill ok">✓</span>':'')+'<div class="small muted" style="font-weight:500">'+s.adimlar.length+' adım</div></button>'});return h+'</div>'}
+function snGoster(){var r=V.run,s=r.tip==="sn"?SENARYOLAR.filter(function(x){return x.id===r.id})[0]:VAKALAR.filter(function(x){return x.id===r.id})[0];var h='<button class="btn" data-a="sen-back">← Senaryolar</button><h1>'+s.ikon+' '+s.b+'</h1><div class="analoji">'+s.giris+'</div>';
+var n=s.adimlar.length;
+if(r.i>=n){var max=r.tip==="sn"?n*2:n;var p=Math.round(100*r.puan/max);return h+'<div class="card center"><div class="big">'+(p>=80?'🏆':p>=50?'👍':'📚')+'</div><h2>Sonuç: %'+p+'</h2><p class="muted">'+r.puan+' / '+max+' puan</p><p>'+(r.tip==="sn"?'Hatırla: kapsam yazılı, bulgu şeffaf, hassas veri gizli, ifşa sorumlu.':'Eylemleri doğru etiketlemek, sınav sorularında bağlamı hızla çözmeni sağlar.')+'</p><button class="btn pri" data-a="sn-again">Tekrar dene</button> <button class="btn" data-a="sen-back">Listeye dön</button></div>'}
+var st=s.adimlar[r.i];h+='<p class="muted small">Adım '+(r.i+1)+' / '+n+'</p>';
+if(!r.perm||r.permI!==r.i){r.perm=shuffle(range(st.o.length));r.permI=r.i}
+if(r.tip==="sn"){h+='<div class="card"><p><b>'+st.s+'</b></p>';r.perm.forEach(function(i){var o=st.o[i];var c="";if(r.sec!==null){c=" "+(o[1]===2?"ok":o[1]===1?"half":"bad");if(i!==r.sec&&o[1]!==2)c=""}h+='<button class="opt'+c+'" data-a="sn-pick" data-v="'+i+'"'+(r.sec!==null?' disabled':'')+'>'+esc(o[0])+'</button>'});
+if(r.sec!==null){var o=st.o[r.sec];h+='<div class="fb '+(o[1]===2?'ok':o[1]===1?'half':'bad')+'" role="status">'+(o[1]===2?'✅ En iyi seçim. ':o[1]===1?'🟡 Kısmen. ':'❌ Yanlış. ')+o[2]+'</div><button class="btn pri" data-a="sn-next">'+(r.i+1===n?'Sonucu gör':'Devam')+'</button>'}h+='</div>'}
+else{h+='<div class="card"><div class="tip">'+st.m+'</div><p><b>'+st.s+'</b></p>';r.perm.forEach(function(i){var o=st.o[i];var c="";if(r.sec!==null){if(i===st.a)c=" ok";else if(i===r.sec)c=" bad"}h+='<button class="opt'+c+'" data-a="sn-pick" data-v="'+i+'"'+(r.sec!==null?' disabled':'')+'>'+esc(o)+'</button>'});
+if(r.sec!==null){h+='<div class="fb '+(r.sec===st.a?'ok':'bad')+'" role="status">'+(r.sec===st.a?'✅ Doğru! ':'❌ Yanlış. ')+st.e+'</div><button class="btn pri" data-a="sn-next">'+(r.i+1===n?'Sonucu gör':'Devam')+'</button>'}h+='</div>'}return h}
+views.sen=function(){if(V.run&&(V.run.tip==="sn"||V.run.tip==="vk"))return snGoster();return senListe()};
+
+/* ---- test konuları ---- */
+views.konu=function(){var op=V.kopen,h='<h1>🧪 Giriş testi konuları</h1><p class="muted">Kitabın başındaki 30 soruluk giriş testinin konuları: her biri mini ders + özgün bir soru. (Soruların kendisi değil, <i>konuları</i> çalışılır.)</p>';
+var bit=KONULAR.filter(function(t){return S.bitti[t.id]}).length;h+='<div class="bar"><i style="width:'+Math.round(100*bit/KONULAR.length)+'%"></i></div><p class="small muted">'+bit+' / '+KONULAR.length+' tamamlandı</p>';
+KONULAR.forEach(function(t,i){var acik=op===t.id,sec=V.ksec&&V.ksec[t.id];h+='<div class="card"><button class="btn" data-a="k-open" data-v="'+t.id+'" style="width:100%;text-align:left">'+(i+1)+'. '+t.b+' '+(S.bitti[t.id]?'<span class="pill ok">✓</span>':'')+'</button>';
+if(acik){h+='<p>'+t.m+'</p><div class="tip">💡 '+t.ip+'</div><p><b>'+t.q+'</b></p>';var o=V.kvm[t.id];o.forEach(function(x,j){var c="";if(sec!==undefined){if(x.ok)c=" ok";else if(j===sec)c=" bad"}h+='<button class="opt'+c+'" data-a="k-pick" data-v="'+t.id+'|'+j+'"'+(sec!==undefined?' disabled':'')+'>'+esc(x.t)+'</button>'});
+if(sec!==undefined)h+='<div class="fb '+(o[sec].ok?'ok':'bad')+'" role="status">'+(o[sec].ok?'✅ Doğru! ':'❌ Yanlış. ')+t.e+'</div>'}h+='</div>'});return h};
+
+/* ---- kartlar (Leitner) ---- */
+var ARAL=[0,1,3,7,14,30];
+function kartKuyruk(){var h=bugun(),idx=range(FLASH.length).filter(function(i){return V.fkon==="hepsi"||FLASH[i][0]===V.fkon});var vade=idx.filter(function(i){return S.lt[i]&&S.lt[i].d<=h});var yeni=idx.filter(function(i){return!S.lt[i]}).slice(0,10);return shuffle(vade).concat(yeni)}
+views.kart=function(){if(!V.fq){V.fq=kartKuyruk();V.fi=0;V.ff=false}
+var kons=[["hepsi","Hepsi"],["etik","Etik"],["tur","Etik hackleme"],["model","Modeller"],["faz","5 aşama"],["teknik","Test konuları"]];
+var h='<h1>🔁 Aralıklı tekrar kartları</h1><p class="muted">Karta bak, cevabı kendin hatırla, sonra çevir. “Bildim” kartı sonraki kutuya taşır (1→5 gün aralıkları: 1, 3, 7, 14, 30). “Bilemedim” kartı başa alır.</p><div class="chipbar">'+kons.map(function(k){return '<button class="cb" data-a="f-kon" data-v="'+k[0]+'" aria-pressed="'+(V.fkon===k[0])+'">'+k[1]+'</button>'}).join('')+'</div>';
+var kut=[0,0,0,0,0,0];Object.keys(S.lt).forEach(function(i){kut[S.lt[i].b]++});h+='<p class="small muted">Kutu 1: '+kut[1]+' · 2: '+kut[2]+' · 3: '+kut[3]+' · 4: '+kut[4]+' · 5: '+kut[5]+' · henüz görülmemiş: '+(FLASH.length-Object.keys(S.lt).length)+'</p>';
+if(V.fi>=V.fq.length){return h+'<div class="card center"><div class="big">✨</div><h2>Bugünlük bu kadar!</h2><p class="muted">'+(V.fq.length?V.fq.length+' kartı tekrar ettin.':'Bu filtrede şimdilik tekrar bekleyen kart yok.')+'</p><button class="btn pri" data-a="f-yenile">Yeni tur</button></div>'}
+var c=FLASH[V.fq[V.fi]];h+='<p class="muted small">Kart '+(V.fi+1)+' / '+V.fq.length+'</p><div class="card flash" data-a="f-flip" role="button" tabindex="0">'+(V.ff?'<div>'+esc(c[2])+'<div class="small muted" style="font-weight:500;margin-top:8px">'+esc(c[1])+'</div></div>':'<div>'+esc(c[1])+'<div class="small muted" style="font-weight:500;margin-top:8px">dokun, cevabı çevir</div></div>')+'</div>';
+if(V.ff)h+='<div class="row"><button class="btn ok" data-a="f-yes">✔ Bildim</button><button class="btn" data-a="f-no" style="border-color:var(--bad)">✘ Bilemedim</button></div>';else h+='<button class="btn pri" data-a="f-flip">Cevabı göster</button>';return h};
+
+/* ---- sınav ---- */
+views.sinav=function(){var E=V.exam;if(!E)return sinavBas();if(E.bitti)return sinavSonuc();return sinavSoru()};
+function sinavBas(){var son=S.sinav.slice(-5).reverse();var yanl=Object.keys(S.yanlis).filter(function(i){return S.yanlis[i]>0}).length;
+var h='<h1>📝 Deneme sınavı</h1><div class="card"><div class="two"><div><label class="small muted">Soru sayısı</label><select id="sn-n"><option>10</option><option>20</option><option selected>40</option><option>'+BANKA.length+'</option></select></div><div><label class="small muted">Konu</label><select id="sn-k"><option value="hepsi">Hepsi</option><option value="etik">Etik kodu</option><option value="tur">Etik hackleme</option><option value="model">Saldırı modelleri</option><option value="faz">5 aşama</option><option value="teknik">Giriş testi konuları</option></select></div></div><div class="row" style="margin-top:10px"><label><input type="checkbox" id="sn-t"> Süreli (soru başına 1 dk)</label></div><div class="row" style="margin-top:10px"><button class="btn pri" data-a="ex-start">Sınavı başlat</button><button class="btn" data-a="ex-weak"'+(yanl?'':' disabled')+'>Zayıf noktalarım ('+yanl+' soru)</button></div></div>';
+h+='<h2>Son sonuçlar</h2>'+(son.length?'<div class="card"><table style="width:100%"><tr class="muted small"><td>Tarih</td><td>Puan</td><td>Soru</td></tr>'+son.map(function(x){return '<tr><td>'+esc(x.t)+'</td><td><b>%'+x.puan+'</b></td><td>'+x.n+'</td></tr>'}).join('')+'</table></div>':'<p class="muted">Henüz sınav çözmedin.</p>');return h}
+function sinavSoru(){var E=V.exam,q=E.qs[E.i];var h='<div class="row"><b>Soru '+(E.i+1)+' / '+E.qs.length+'</b><span class="pill">'+KONU_AD[q.k]+'</span>'+(E.sure?'<span class="timer pill acc" id="zaman">⏱ --:--</span>':'')+'</div>';
+h+='<div class="card"><p><b>'+q.q+'</b></p>';q.o.forEach(function(o,i){h+='<button class="opt'+(E.cev[E.i]===i?' sel':'')+'" style="'+(E.cev[E.i]===i?'border-color:var(--pri);background:var(--pri2)':'')+'" data-a="ex-pick" data-v="'+i+'">'+esc(o.t)+'</button>'});h+='</div>';
+h+='<div class="row"><button class="btn" data-a="ex-prev"'+(E.i?'':' disabled')+'>← Önceki</button><button class="btn" data-a="ex-flag">'+(E.flag[E.i]?'🚩 İşaretli':'🏳️ İşaretle')+'</button>'+(E.i<E.qs.length-1?'<button class="btn pri" data-a="ex-next">Sonraki →</button>':'<button class="btn ok" data-a="ex-finish">Sınavı bitir</button>')+'</div>';
+h+='<p class="small muted">Gezinme (yeşil = cevaplandı, turuncu çerçeve = işaretli):</p><div class="nav-q">'+E.qs.map(function(x,i){return '<button class="'+(i===E.i?'cur ':'')+(E.cev[i]!==undefined?'ans ':'')+(E.flag[i]?'flag':'')+'" data-a="ex-go" data-v="'+i+'">'+(i+1)+'</button>'}).join('')+'</div>';
+if(E.i===E.qs.length-1)h+='<p class="small muted">Bitirmeden önce boş: '+E.qs.filter(function(x,i){return E.cev[i]===undefined}).length+' soru.</p>';return h}
+function sinavSonuc(){var E=V.exam,dog=0,kon={};E.qs.forEach(function(q,i){var ok=E.cev[i]!==undefined&&q.o[E.cev[i]].ok;if(ok)dog++;kon[q.k]=kon[q.k]||[0,0];kon[q.k][1]++;if(ok)kon[q.k][0]++});var p=Math.round(100*dog/E.qs.length);
+var h='<div class="card center"><div class="big">'+(p>=75?'🏆':p>=50?'👍':'📚')+'</div><h1>%'+p+'</h1><p>'+dog+' / '+E.qs.length+' doğru · '+(p>=75?'Harika, sınava yakınsın!':p>=50?'İyi gidiyorsun; yanlışlarını tekrar et.':'Dersleri ve kartları tekrar et, sonra yeniden dene.')+'</p></div>';
+h+='<h2>Konu bazlı</h2><div class="card">'+Object.keys(kon).map(function(k){var y=Math.round(100*kon[k][0]/kon[k][1]);return '<div class="row" style="justify-content:space-between"><span>'+KONU_AD[k]+'</span><b>'+kon[k][0]+'/'+kon[k][1]+' (%'+y+')</b></div><div class="bar"><i style="width:'+y+'%"></i></div>'}).join('')+'</div>';
+h+='<h2>Yanlışlarını incele</h2>';var yk=0;E.qs.forEach(function(q,i){var c=E.cev[i];if(c!==undefined&&q.o[c].ok)return;yk++;h+='<div class="card"><p><b>'+q.q+'</b></p>'+q.o.map(function(o,j){return '<div class="fb '+(o.ok?'ok':(j===c?'bad':''))+'" style="margin:4px 0">'+(o.ok?'✅ ':(j===c?'❌ ':'· '))+esc(o.t)+'</div>'}).join('')+(c===undefined?'<p class="muted small">Boş bırakıldı.</p>':'')+'<p class="small">'+q.e+'</p></div>'});if(!yk)h+='<p>Hiç yanlış yok! 🎉</p>';
+return h+'<div class="row"><button class="btn pri" data-a="ex-new">Yeni sınav</button></div>'}
+var tm=null;function zamanKur(){clearInterval(tm);var E=V.exam;if(!E||!E.sure||E.bitti)return;tm=setInterval(function(){var kal=Math.max(0,Math.round((E.bit-Date.now())/1000));var z=$("#zaman");if(z)z.textContent="⏱ "+String(Math.floor(kal/60)).padStart(2,"0")+":"+String(kal%60).padStart(2,"0");if(kal<=0){clearInterval(tm);sinavBitir()}},500)}
+function sinavBitir(){var E=V.exam;if(!E||E.bitti)return;E.bitti=true;clearInterval(tm);var dog=0;E.qs.forEach(function(q,i){var ok=E.cev[i]!==undefined&&q.o[E.cev[i]].ok;if(ok){dog++;if(S.yanlis[q.id])S.yanlis[q.id]=Math.max(0,S.yanlis[q.id]-1)}else S.yanlis[q.id]=(S.yanlis[q.id]||0)+1});
+var p=Math.round(100*dog/E.qs.length);if(!E.zayif||true){S.sinav.push({t:new Date().toLocaleDateString("tr-TR"),puan:p,n:E.qs.length})}S.sinav=S.sinav.slice(-30);xp(dog*5+10);gunSeri();kaydet();render()}
+
+/* ---- sözlük ---- */
+views.soz=function(){var q=V.ara.toLocaleLowerCase("tr");var l=SOZLUK.filter(function(x){return!q||x[0].toLocaleLowerCase("tr").indexOf(q)>=0||x[1].toLocaleLowerCase("tr").indexOf(q)>=0});return '<h1>📚 Sözlük</h1><input type="search" id="ara" placeholder="Terim ara… (ör. persistence)" value="'+esc(V.ara)+'"><div class="card"><dl>'+(l.length?l.map(function(x){return '<dt>'+esc(x[0])+'</dt><dd>'+esc(x[1])+'</dd>'}).join(''):'<p class="muted">Sonuç yok.</p>')+'</dl></div>'};
+
+/* ---------- çizim ---------- */
+function render(){var m=$("#ana");m.innerHTML=views[V.tab]();
+$("#sek").innerHTML=TABS.map(function(t){return '<button data-a="tab" data-v="'+t[0]+'" aria-current="'+(V.tab===t[0])+'">'+t[1]+' '+t[2]+'</button>'}).join('');
+$("#xp").textContent="⭐ "+S.xp;$("#seri").textContent="🔥 "+S.seri;zamanKur()}
+function git(t){V.tab=t;if(t!=="etk"&&t!=="sen"&&t!=="ders")V.run=null;if(t==="kart"){V.fq=null}if(t!=="sinav")V.exam=null;render();window.scrollTo(0,0)}
+
+/* ---------- olaylar ---------- */
+document.addEventListener("click",function(ev){var el=ev.target.closest("[data-a]");if(!el||el.disabled)return;var a=el.dataset.a,v=el.dataset.v,r=V.run;
+if({open:1,back:1,"sn-open":1,"sen-back":1,ders:1,mini:1,"mini-son":1,"sn-again":1,"ex-start":1,"ex-weak":1,"ex-new":1}[a])window.scrollTo(0,0);
+switch(a){
+case"tab":return git(v);
+case"ders":V.ders=v;V.run=null;return render();
+case"oku":{var key="oku-"+V.ders;S[key]=S[key]||{};S[key][v]=1;xp(5);kaydet();return render()}
+case"mini":{var qs=shuffle(BANKA.filter(function(q){return q.k===(v==="hackleme"?"tur":v)})).slice(0,5).map(vm);V.run={tip:"mini",ders:v,qs:qs,i:0,sec:null,dogru:0};return render()}
+case"mini-pick":{if(r.sec!==null)return;r.sec=+v;if(r.qs[r.i].o[r.sec].ok){r.dogru++;xp(10)}return render()}
+case"mini-next":r.i++;r.sec=null;if(r.i>=r.qs.length){bitir("ders-"+r.ders,30)}return render();
+case"mini-son":V.run=null;return render();
+case"open":openAct(el.dataset.t,v);return render();
+case"back":V.run=null;return render();
+case"o-add":{var ar=actById("ord",r.id);if(r.ans.length<ar.items.length)r.ans.push(+v);r.chk=false;return render()}
+case"o-del":if(r.chk||true){r.ans.splice(+v,1);r.chk=false}return render();
+case"o-reset":r.ans=[];r.chk=false;return render();
+case"o-chk":{var ao=actById("ord",r.id);r.chk=true;var dog=r.ans.every(function(i,p){return i===p});if(dog){bitir(r.id,25);xp(10)}else r.hata++;return render()}
+case"m-l":r.sl=+v;return render();
+case"m-r":{if(r.sl===null)return;var ok=(r.sl===+v);if(ok){r.done[v]=1;xp(3);var am=actById("mat",r.id);if(Object.keys(r.done).length===am.p.length)bitir(r.id,r.hata?20:30)}else{r.hata++}r.sl=null;return render()}
+case"s-pick":{var as=actById("sort",r.id);r.sec=+v;var it=as.items[r.order[r.i]];if(r.sec===it[1]){r.dogru++;xp(4)}else r.yanlis.push(r.order[r.i]);return render()}
+case"s-next":{var as2=actById("sort",r.id);r.i++;r.sec=null;if(r.i>=as2.items.length&&r.dogru/as2.items.length>=0.7)bitir(r.id,25);return render()}
+case"sn-open":V.run={tip:el.dataset.t,id:v,i:0,sec:null,puan:0};return render();
+case"sen-back":V.run=null;return render();
+case"sn-again":V.run={tip:r.tip,id:r.id,i:0,sec:null,puan:0};return render();
+case"sn-pick":{if(r.sec!==null)return;r.sec=+v;var s=r.tip==="sn"?SENARYOLAR.filter(function(x){return x.id===r.id})[0]:VAKALAR.filter(function(x){return x.id===r.id})[0];var st=s.adimlar[r.i];if(r.tip==="sn"){r.puan+=st.o[r.sec][1];xp(st.o[r.sec][1]*3)}else if(r.sec===st.a){r.puan++;xp(4)}return render()}
+case"sn-next":{var s2=r.tip==="sn"?SENARYOLAR.filter(function(x){return x.id===r.id})[0]:VAKALAR.filter(function(x){return x.id===r.id})[0];r.i++;r.sec=null;if(r.i>=s2.adimlar.length){var mx=r.tip==="sn"?s2.adimlar.length*2:s2.adimlar.length;if(r.puan/mx>=0.6)bitir(r.id,30)}return render()}
+case"k-open":{V.kopen=V.kopen===v?null:v;V.kvm=V.kvm||{};var t=KONULAR.filter(function(x){return x.id===v})[0];if(!V.kvm[v])V.kvm[v]=vm({id:t.id,k:"teknik",q:t.q,o:t.o,a:t.a,e:t.e}).o;return render()}
+case"k-pick":{var pp=v.split("|"),tt=KONULAR.filter(function(x){return x.id===pp[0]})[0];V.ksec=V.ksec||{};V.ksec[pp[0]]=+pp[1];var ok2=V.kvm[pp[0]][+pp[1]].ok;if(ok2){xp(5);bitir(pp[0],10)}else{S.yanlis[pp[0]]=(S.yanlis[pp[0]]||0)+1;kaydet()}return render()}
+case"f-kon":V.fkon=v;V.fq=null;return render();
+case"f-flip":V.ff=!V.ff;return render();
+case"f-yes":case"f-no":{var i=V.fq[V.fi],c=S.lt[i]||{b:0,d:0};if(a==="f-yes"){c.b=Math.min(5,c.b+1);c.d=bugun()+ARAL[c.b]}else{c.b=1;c.d=bugun()}S.lt[i]=c;S.tekrar++;xp(2);gunSeri();V.fi++;V.ff=false;kaydet();return render()}
+case"f-yenile":V.fq=null;return render();
+case"ex-start":case"ex-weak":{var weak=a==="ex-weak";var n=+$("#sn-n").value,kon=$("#sn-k").value;var havuz=BANKA.filter(function(q){return weak?S.yanlis[q.id]>0:(kon==="hepsi"||q.k===kon)});if(weak)n=havuz.length;var qs=shuffle(havuz).slice(0,n).map(vm);if(!qs.length)return;V.exam={qs:qs,i:0,cev:{},flag:{},sure:$("#sn-t").checked,bit:Date.now()+qs.length*60000,bitti:false,zayif:weak};return render()}
+case"ex-pick":V.exam.cev[V.exam.i]=+v;return render();
+case"ex-next":V.exam.i++;return render();case"ex-prev":V.exam.i--;return render();case"ex-go":V.exam.i=+v;return render();
+case"ex-flag":V.exam.flag[V.exam.i]=!V.exam.flag[V.exam.i];return render();
+case"ex-finish":{var bos=V.exam.qs.filter(function(x,i){return V.exam.cev[i]===undefined}).length;if(bos&&!confirm(bos+" soru boş. Yine de bitirilsin mi?"))return;return sinavBitir()}
+case"ex-new":V.exam=null;return render();
+case"tema":{var t2=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",t2);S.tema=t2;return kaydet()}
+case"yazi":{S.yazi=(S.yazi+1)%3;document.documentElement.style.setProperty("--fs",["17px","19px","15px"][S.yazi]);return kaydet()}
+case"sifirla":if(confirm("Tüm ilerleme silinsin mi?")){try{localStorage.removeItem(KEY)}catch(e){}location.reload()}return;
+}});
+document.addEventListener("keydown",function(ev){if((ev.key==="Enter"||ev.key===" ")&&ev.target.getAttribute&&ev.target.getAttribute("role")==="button"){ev.preventDefault();ev.target.click()}});
+document.addEventListener("input",function(ev){if(ev.target.id==="ara"){V.ara=ev.target.value;var pos=ev.target.selectionStart;render();var i=$("#ara");i.focus();i.setSelectionRange(pos,pos)}});
+if(S.tema)document.documentElement.setAttribute("data-theme",S.tema);document.documentElement.style.setProperty("--fs",["17px","19px","15px"][S.yazi||0]);
+gunSeri();rozetler();render();
+})();
+
+</script></body></html>
