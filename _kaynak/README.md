@@ -26,3 +26,6 @@ kökle çekim) metinlerde cihazdaki Arapça sese dönülür, o da yoksa uyarı v
 
 ## İngilizce (Arapça–İngilizce) sürümler
 `k2ortak/yap.py --en <ünite>` → `en/<ünite>/index.html` (veri.en.js + meta.en.json + k2ortak/en_ui.json). Çeviriyi toplu üretmek için `_kaynak/ceviri_en.py` (kılavuz: `_kaynak/ceviri_en/README.md`).
+
+## Emsile Tezgâhı: seslendirme
+Program artık Arapçayı **harekeli** metinle seslendirir (eskiden harekeler atılıyordu, okuyucu tahmin edip yanlış okuyordu). `ses/emsile-tezgahi.txt` harekeli metinleri içerir; `ses/emsile-tezgahi.json` ise eski (harekesiz) kayıtları taşır ve yalnızca harekeli kayıt ile cihazdaki Arapça ses yokken yedek olarak kullanılır. Harekeli kayıtları üretmek için: `GOOGLE_TTS_API_KEY=... python3 _kaynak/ses_uret.py emsile-tezgahi` ardından `python3 _kaynak/build.py emsile-tezgahi`.

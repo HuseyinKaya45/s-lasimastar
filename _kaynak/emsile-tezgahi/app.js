@@ -19,7 +19,12 @@ const addXp = n => { S.xp += n; save(); hud(); };
 let AC;
 function beep(k){ if (!S.sound) return; try { AC = AC || new (window.AudioContext||window.webkitAudioContext)(); const seq = k==="good"?[587,784]:k==="bad"?[200,150]:[523,659,784,1046]; seq.forEach((f,i)=>{ const o=AC.createOscillator(), g=AC.createGain(); o.type=k==="bad"?"triangle":"sine"; o.frequency.value=f; const t=AC.currentTime+i*.09; g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(.13,t+.02); g.gain.exponentialRampToValueAtTime(.0001,t+.16); o.connect(g).connect(AC.destination); o.start(t); o.stop(t+.18); }); } catch(e){} }
 function confetti(){ if (matchMedia("(prefers-reduced-motion: reduce)").matches) return; const c=$("#cf"), x=c.getContext("2d"); c.hidden=false; c.width=innerWidth; c.height=innerHeight; const cols=[getComputedStyle(document.documentElement).getPropertyValue("--rf"),getComputedStyle(document.documentElement).getPropertyValue("--ra"),getComputedStyle(document.documentElement).getPropertyValue("--rl"),getComputedStyle(document.documentElement).getPropertyValue("--gold")]; const P=Array.from({length:110},()=>({x:innerWidth/2,y:innerHeight/3,vx:(Math.random()-.5)*12,vy:-Math.random()*10-3,s:4+Math.random()*5,c:pick(cols),r:Math.random()*6})); let t=0; (function f(){ x.clearRect(0,0,c.width,c.height); P.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.r+=.2;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);x.restore();}); if(++t<90) requestAnimationFrame(f); else c.hidden=true; })(); }
-function speak(t, onend){ return sesPlay(t, onend, typeof toast==='function'?toast:null); }
+/* Seslendirme harekeli metinle yapılır (harekesiz metni okuyucu tahmin eder ve yanlış okur). Harekeli kayıt da cihazdaki Arapça ses de yoksa eski (harekesiz) kayda düşülür. */
+function speak(t, onend){
+  t = String(t).replace(/ · /g, "، ");
+  if (typeof SES_AUDIO !== "undefined" && !SES_AUDIO[sesKey(t)] && !(SES_V || sesVoice()) && SES_AUDIO[sesKey(strip(t))]) t = strip(t);
+  return sesPlay(t, onend, typeof toast==='function'?toast:null);
+}
 function applyTheme(){ if (S.theme) document.documentElement.setAttribute("data-theme", S.theme); else document.documentElement.removeAttribute("data-theme"); $("#tSound").setAttribute("aria-pressed", S.sound); }
 $("#tTheme").onclick = () => { const light = S.theme ? S.theme==="light" : matchMedia("(prefers-color-scheme: light)").matches; S.theme = light ? "dark" : "light"; save(); applyTheme(); };
 $("#tSound").onclick = () => { S.sound = !S.sound; save(); applyTheme(); };
@@ -43,7 +48,7 @@ const lemma = (rt=R) => fill(mzStem(rt.b) + V.a, rt.r) + " " + fill("يَ" + muS
 function muh(rt=R){
   return MUH.map((m, i) => {
     const o = {i, id:m.id, tr:m.tr, ar:m.ar, d:m.d, g:m.g, pre:"", x:[]};
-    if (m.masdar){ o.txt = rt.data ? rt.data.ms : null; return o; }
+    if (m.masdar){ if (rt.data){ o.txt = masdarOf(rt.data).join(" · "); } else { o.guess = masdarGuess(rt); o.note = "Sülâsîde masdar semâîdir: bu kök programın listesinde yok. Gösterilenler bâbın en yaygın kalıplarıdır (olası); gerçek masdarı sözlükten doğrula."; } return o; }
     o.t = m.t(rt.b);
     if (m.id === "fail" && rt.b.id === 6 && rt.data && rt.data.sf){ o.txt = rt.data.sf; o.t = null; o.note = "Kerume bâbında ism-i fâil yerine sıfat-ı müşebbehe kullanılır."; }
     if (m.id === "mef" && rt.data && rt.data.lz){ o.t = null; o.none = "Lâzım fiilin ism-i mef'ûlü harf-i cerle yapılır (مَجْلُوسٌ فِيهِ gibi)."; }
@@ -78,8 +83,8 @@ function picker(){
   return `<div class="picker">
     <div class="rootin"><label class="small muted" for="rootIn">Kök</label><input id="rootIn" value="${esc(R.r.join(""))}" maxlength="5" aria-label="Üç harfli kök" autocomplete="off">
       <label class="small muted" for="babIn">Bâb</label><select id="babIn">${BABS.map(b=>`<option value="${b.id}" ${b.id===R.b.id?"selected":""}>${b.id}. ${b.ar} – ${b.tr}</option>`).join("")}</select></div>
-    ${R.err ? `<div class="warn">${esc(R.err)}</div>` : R.data ? `<div class="small muted">Anlamı: <b style="color:var(--ink)">${esc(R.data.tr)}</b>${R.data.lz?" · lâzım (geçişsiz)":" · müteaddî (geçişli)"}</div>` : `<div class="small muted">Kendi kökünü çekiyorsun: masdar semâî olduğu için gösterilmez, lâzım/müteaddî bilgisi yok.</div>`}
-    <div class="rootchips">${BABS.map(b => `<span class="bl">${b.id}.</span>` + ROOTS.filter(x=>x.b===b.id).map(x=>`<button data-root="${x.r}" aria-pressed="${x.r===R.r.join("")}" title="${esc(x.tr)}">${x.r}</button>`).join("")).join("")}</div>
+    ${R.err ? `<div class="warn">${esc(R.err)}</div>` : R.data ? `<div class="small muted">Anlamı: <b style="color:var(--ink)">${esc(R.data.tr)}</b>${R.data.lz?" · lâzım (geçişsiz)":" · müteaddî (geçişli)"}</div>` : `<div class="small muted">Kendi kökünü çekiyorsun: masdar semâîdir; bâbın en yaygın kalıpları “olası masdar” diye önerilir (sözlükten doğrula). Lâzım/müteaddî bilgisi yok.</div>`}
+    <div class="rootchips" style="max-height:210px;overflow:auto">${BABS.map(b => `<span class="bl">${b.id}.</span>` + ROOTS.filter(x=>x.b===b.id).map(x=>`<button data-root="${x.r}" aria-pressed="${x.r===R.r.join("")}" title="${esc(x.tr)}">${x.r}</button>`).join("")).join("")}</div>
   </div>`;
 }
 function bindPicker(){
@@ -129,7 +134,7 @@ function renderLoom(){
   $("#wNext").onclick = () => { loomI++; show(); }; $("#wPrev").onclick = () => { loomI = (loomI - 1 + cyc.length) % cyc.length; show(); };
 }
 function cardHTML(o, k){
-  const main = o.t ? W(o.t) : o.txt ? esc(o.txt) : `<span class="muted" style="font-size:1rem">${o.none ? "—" : "semâî"}</span>`;
+  const main = o.t ? W(o.t) : o.txt ? esc(o.txt) : o.guess ? `<span class="w2" style="font-size:1.35rem;opacity:.85">${o.guess.map(esc).join(" · ")}</span><br><small class="muted" style="font-size:.7rem">olası (semâî)</small>` : `<span class="muted" style="font-size:1rem">${o.none ? "—" : "semâî"}</span>`;
   const extra = o.x.length ? `<div class="w2">${o.x.map(W).join(" · ")}</div>` : "";
   const mz = S.miz && o.t ? `<div class="mz">${Z(o.t)}${o.x.length ? " · " + o.x.map(Z).join(" · ") : ""}</div>` : "";
   const mean = `<div class="small" style="color:var(--gold);margin-top:2px">${esc(R.r.join("")==="نصر" ? NASR_TR[o.id] : o.g)}</div>`;
@@ -144,8 +149,8 @@ function openCard(i){
     <div class="row" style="justify-content:space-between"><span class="eyebrow">${o.i+1}. kalıp · ${esc(R.b.tr)}</span><button class="ib" id="shX" aria-label="Kapat">✕</button></div>
     <h2 style="margin-top:8px">${esc(o.tr)} <span class="ar muted" style="font-size:1.2rem">${o.ar}</span></h2>
     <p class="muted">${esc(o.d)}</p>
-    <div class="panel pad" style="text-align:center"><div class="woven">${o.t?W(o.t):esc(o.txt||"—")}</div>${o.t?`<div class="wmiz">${Z(o.t)}</div>`:""}
-      ${word?`<button class="btn ghost sm" data-say="${esc(strip(o.pre + word))}" style="margin-top:10px">🔊 Dinle</button>`:""}
+    <div class="panel pad" style="text-align:center"><div class="woven">${o.t?W(o.t):o.guess?`<span style="font-size:2rem">${o.guess.map(esc).join(" · ")}</span>`:esc(o.txt||"—")}</div>${o.t?`<div class="wmiz">${Z(o.t)}</div>`:""}
+      ${word?`<button class="btn ghost sm" data-say="${esc(o.pre + word)}" style="margin-top:10px">🔊 Dinle</button>`:""}
       ${R.r.join("")==="نصر" && NASR_TR[o.id] ? `<p style="margin:12px 0 0"><b>${esc(NASR_TR[o.id])}</b></p>` : `<p style="margin:12px 0 0"><b>${esc(o.g)}</b>${R.data ? ` <span class="small muted">· kök anlamı: ${esc(R.data.tr)}</span>` : ""}</p>`}</div>
     ${parts?`<h3 style="margin:20px 0 10px;font-size:1.05rem">Kelime nasıl dokundu?</h3><div class="parts">${parts}</div><p class="small muted" style="text-align:center">Sağdan sola: kökün harfleri renkli, kalıbın eklediği harfler gri.</p>`:""}
     ${o.p?`<h3 style="margin:20px 0 10px;font-size:1.05rem">Meçhulü</h3><div class="panel pad" style="text-align:center"><div class="woven" style="font-size:2.4rem">${W(o.p)}</div><div class="wmiz">${Z(o.p)}</div></div>`:""}
@@ -158,7 +163,7 @@ function closeSheet(){ $("#sheet").innerHTML = ""; }
 addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
 
 /* ===================== MUTTARİDE ===================== */
-let TB = "mazi";
+let TB = "mazi", TBHIDE = false;
 const ROWS = [{tr:"Gâib", g:"m", p:"g", idx:[0,1,2]}, {tr:"Gâibe", g:"f", p:"g", idx:[3,4,5]}, {tr:"Muhatab", g:"m", p:"h", idx:[6,7,8]}, {tr:"Muhataba", g:"f", p:"h", idx:[9,10,11]}, {tr:"Mütekellim", g:"x", p:"m", idx:[12,-1,13]}];
 function figs(g, p){
   const col = g==="m" ? "var(--rl)" : g==="f" ? "var(--rf)" : "var(--gold)";
@@ -184,7 +189,7 @@ function renderTables(){
     <div class="panel pad">${picker()}</div>
     <div class="row" style="margin-top:16px"><div class="seg" role="tablist">${TABLES.map(x=>`<button aria-pressed="${x.id===t.id}" data-tb="${x.id}">${esc(x.tr)}</button>`).join("")}<button aria-pressed="${TB==="fail"}" data-tb="fail">İsm-i fâil</button><button aria-pressed="${TB==="mef"}" data-tb="mef">İsm-i mef'ûl</button></div></div>
     <div class="sec-h"><div><span class="eyebrow ar" style="font-size:1rem;letter-spacing:0">${TB==="fail"?"اسْمُ الْفَاعِلِ":TB==="mef"?"اسْمُ الْمَفْعُولِ":t.ar}</span><h2>${TB==="fail"?"İsm-i fâil":TB==="mef"?"İsm-i mef'ûl":esc(t.tr)} · <span class="ar" style="font-size:1.3rem">${esc(lemma())}</span></h2></div>
-      <div class="row"><div class="seg"><button aria-pressed="${S.miz}" id="tMiz2">Mîzan</button><button aria-pressed="${S.col}" id="tCol2">Renkler</button></div><button class="btn ghost sm" id="sayAll">🔊 Hepsini dinle</button></div></div>
+      <div class="row"><div class="seg"><button aria-pressed="${S.miz}" id="tMiz2">Mîzan</button><button aria-pressed="${S.col}" id="tCol2">Renkler</button><button aria-pressed="${TBHIDE}" id="tHide">Kendini sına</button></div><button class="btn ghost sm" id="sayAll">🔊 Hepsini dinle</button><button class="btn ghost sm" id="tPrint">🖨 Boş çalışma kâğıdı</button></div></div>
     <p class="muted" style="margin-top:-6px">${TB==="fail"?"Yapan anlamında. Müfred, tesniye ve sâlim cemiler kıyâsîdir; teksîr cemileri (فُعَّلٌ، فُعَّالٌ، فَعَلَةٌ، فَوَاعِلُ) Emsile'de kalıp olarak sayılır, her kökte kullanılmaz.":TB==="mef"?"Yapılan anlamında: مَفْعُولٌ kalıbı.":esc(t.d)}</p>
     ${TB==="fail" ? `<div class="list">${FAIL.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(FAIL_TR[i])}</span></div>`).join("")}</div>`
       : TB==="mef" ? (lz() ? `<div class="panel pad">Bu kök lâzım (geçişsiz); ism-i mef'ûlü harf-i cerle yapılır.</div>` : `<div class="list">${MEF.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(MEF_TR[i])}</span></div>`).join("")}</div>`)
@@ -194,7 +199,10 @@ function renderTables(){
   $$("[data-tb]").forEach(b => b.onclick = () => { TB = b.dataset.tb; renderTables(); });
   $("#tMiz2").onclick = () => { S.miz = !S.miz; save(); renderTables(); };
   $("#tCol2").onclick = () => { S.col = !S.col; save(); renderTables(); };
-  $("#sayAll").onclick = () => { const forms = TB==="fail" ? FAIL : TB==="mef" ? MEF : SIGA.map((s,i)=>i).filter(i=>!t.only||t.only.includes(i)).map(i=>tableForm(t,i)); speak(forms.map(f=>strip(fill(f,R.r))).join("، ")); };
+  $("#tHide").onclick = () => { TBHIDE = !TBHIDE; renderTables(); };
+  $("#tPrint").onclick = () => { document.body.classList.add("pb"); try { window.print(); } catch(e){} setTimeout(() => document.body.classList.remove("pb"), 600); };
+  if (TBHIDE){ $$("#v-muttaride .cell:not(.x)").forEach(c => { c.classList.add("veil"); c.onclick = () => c.classList.toggle("open"); }); }
+  $("#sayAll").onclick = () => { const forms = TB==="fail" ? FAIL : TB==="mef" ? MEF : SIGA.map((s,i)=>i).filter(i=>!t.only||t.only.includes(i)).map(i=>tableForm(t,i)); speak(forms.map(f=>fill(f,R.r)).join("، ")); };
 }
 
 /* ===================== BÂBLAR ===================== */
@@ -215,7 +223,7 @@ function renderBabs(){
      <div class="row" style="justify-content:space-between"><div><h2 style="font-size:1.4rem">${esc(mb.tr)} <span class="ar" style="font-size:1.3rem">${mb.ar}</span></h2><div class="ar muted" style="font-size:1.2rem">${mb.vz}</div></div>
        <div class="rootchips">${mb.roots.map(x=>`<button data-mr="${x}" aria-pressed="${x===MZR}">${x}</button>`).join("")}</div></div>
      <p>${esc(mb.m)} <b>${esc(r.join(" "))}</b>: ${esc((MZ_MEAN_BY[mb.id]||{})[MZR]||"")}</p>
-     <div class="mzgrid">${Object.keys(MZ_TR).map(k => mb.f[k] ? `<div class="cell"><span class="z" style="font-family:var(--f-ui)">${MZ_TR[k]}</span><span class="w">${P(mb.f[k])}</span><span class="mz">${Z(mb.f[k])}</span><button class="btn ghost sm" style="align-self:center;margin-top:4px" data-say="${esc(strip(fill(mb.f[k], r)))}">🔊</button></div>` : `<div class="cell x"><span class="z" style="font-family:var(--f-ui)">${MZ_TR[k]}</span><span class="small">yok (lâzım)</span></div>`).join("")}</div>
+     <div class="mzgrid">${Object.keys(MZ_TR).map(k => mb.f[k] ? `<div class="cell"><span class="z" style="font-family:var(--f-ui)">${MZ_TR[k]}</span><span class="w">${P(mb.f[k])}</span><span class="mz">${Z(mb.f[k])}</span><button class="btn ghost sm" style="align-self:center;margin-top:4px" data-say="${esc(fill(mb.f[k], r))}">🔊</button></div>` : `<div class="cell x"><span class="z" style="font-family:var(--f-ui)">${MZ_TR[k]}</span><span class="small">yok (lâzım)</span></div>`).join("")}</div>
      <p class="small muted" style="margin-bottom:0">Gri harfler bu bâbın köke eklediği harflerdir: ${esc(mb.tr)} bâbının imzası.</p>
    </div>`;
   $$("[data-mb]").forEach(b => b.onclick = () => { MZB = b.dataset.mb; renderBabs(); });
@@ -252,7 +260,7 @@ function renderChant(){
     if (CH.i >= its.length){ CH.on = false; CH.i = -1; $("#cPlay").textContent = "▶ Baştan oku"; beep("win"); addXp(10); return; }
     const el = its[CH.i]; el.classList.add("on"); el.classList.add("open"); el.scrollIntoView({block:"nearest", behavior:"smooth"});
     const next = () => { CH.t = setTimeout(step, 250 * CH.speed); };
-    if (CH.voice) speak(strip(items[CH.i].s), next); else CH.t = setTimeout(step, 1500 * CH.speed);
+    if (CH.voice) speak(items[CH.i].s, next); else CH.t = setTimeout(step, 1500 * CH.speed);
   };
   $("#cPlay").onclick = () => { if (CH.on){ stopChant(); $("#cPlay").textContent = "▶ Devam et"; } else { CH.on = true; if (CH.i >= items.length-1) CH.i = -1; CH.i--; if (CH.i < -1) CH.i = -1; $("#cPlay").textContent = "Durdur"; step(); } };
   $$("[data-sp]").forEach(b => b.onclick = () => { CH.speed = +b.dataset.sp; $$("[data-sp]").forEach(x=>x.setAttribute("aria-pressed", x===b)); });
@@ -269,8 +277,20 @@ const GAMES = [
  {id:"kok", ico:"ن ص ر", tr:"Kök Avı", d:"Kelimenin içinden fâ, ayn, lâm harflerini sırayla bul."},
  {id:"bab", ico:"ـَ ـُ", tr:"Bâb Bulmaca", d:"Mâzi ve muzâriye bakıp kökün bâbını tanı."},
  {id:"zincir", ico:"…", tr:"Emsile Zinciri", d:"Ezber sırası: zincirin sıradaki halkası hangisi?"},
- {id:"hizli", ico:"60", tr:"Hızlı Kalıp", d:"60 saniye: istenen kalıbı dört seçenekten kap."}
+ {id:"hizli", ico:"60", tr:"Hızlı Kalıp", d:"60 saniye: istenen kalıbı dört seçenekten kap."},
+ {id:"masdar", ico:"مَصْدَر", tr:"Masdar Ustası", d:"Fiilin masdarını bul; masdarı görüp fiili tanı. 130'dan fazla kök."},
+ {id:"sigaK", ico:"①⑭", tr:"Sîgadan Kelimeye", d:"Tablo ve sîga söylenir; doğru Arapça çekimi seç."},
+ {id:"hata", ico:"✗", tr:"Hatayı Bul", d:"Dört çekimden biri yanlış harekeli: yakala."},
+ {id:"doldur", ico:"▢", tr:"Tabloyu Tamamla", d:"Boş hücrelere doğru çekimleri yerleştir."},
+ {id:"diz", ico:"ن‑ص‑ر", tr:"Kelimeyi Diz", d:"Karışık harf parçalarına sırayla dokunarak çekimi kur."},
+ {id:"hafiza", ico:"🃏", tr:"Eşli Kartlar", d:"Kelimeyi sîgasıyla eşleştir (hafıza oyunu)."},
+ {id:"karma", ico:"★", tr:"Karma Antrenman", d:"Bütün soru türlerinden 15 soru; günlük çalışma için."}
 ];
+function mutate(w, valid){
+  const M = "َُِْ"; const idx = [...w].map((c,i)=> M.includes(c) && w[i-1]!=="ّ" && w[i+1]!=="ّ" ? i : -1).filter(i=>i>=0);
+  for (let n=0;n<40 && idx.length;n++){ const i = pick(idx); const rp = pick([...M].filter(c=>c!==w[i])); const out = w.slice(0,i)+rp+w.slice(i+1); if (out!==w && !valid.includes(out)) return out; }
+  return w.replace(/[َُِ]/, c => c==="َ" ? "ُ" : "َ");
+}
 const RT = () => { const d = pick(ROOTS); return {r:d.r.split(""), b:babOf(d.b), data:d}; };
 let G = null;
 function renderHub(){
@@ -282,6 +302,52 @@ function renderHub(){
 function makeQ(id){
   const rt = RT();
   const muz = TABLES.filter(t => !(t.pas && rt.data.lz));
+  const okI = t => SIGA.map((s,i)=>i).filter(i=>!t.only||t.only.includes(i));
+  if (id === "karma") return makeQ(pick(["siga","insaat","terazi","kok","bab","zincir","hizli","masdar","sigaK","hata","doldur","diz"]));
+  if (id === "masdar"){
+    const mkRt = d => ({r:d.r.split(""), b:babOf(d.b), data:d});
+    const pool = ROOTS.filter(x => x.r !== rt.data.r);
+    if (Math.random() < .6){
+      const mine = masdarOf(rt.data), right = rt.data.ms;
+      const opts = shuffle([right, ...shuffle(uniq(pool.map(x=>x.ms)).filter(x=>!mine.includes(x))).slice(0,3)]);
+      return {k:"opt", rt, html:`<div class="q">Bu fiilin masdarı hangisi? <span class="small muted">(${esc(rt.data.tr)})</span></div><div class="w">${paint(mzStem(rt.b)+V.a, rt.r)} ${paint("يَ"+muStem(rt.b)+V.u, rt.r)}</div>`, opts, right, ar:true, why:`${lemma(rt)} → ${mine.join(" · ")}${mine.length>1?" (birden çok masdarı vardır)":""}`};
+    }
+    const right = lemma(rt);
+    const opts = shuffle([right, ...shuffle(uniq(pool.map(x=>lemma(mkRt(x)))).filter(x=>x!==right)).slice(0,3)]);
+    return {k:"opt", rt, html:`<div class="q">Bu masdar hangi fiilindir?</div><div class="w">${esc(rt.data.ms)}</div>`, opts, right, ar:true, why:`${rt.data.ms} → ${right} (${rt.data.tr})`};
+  }
+  if (id === "sigaK"){
+    const t = pick(muz), ok = okI(t), i = pick(ok), right = fill(t.f(rt.b,i), rt.r);
+    const other = uniq([...ok.filter(j=>j!==i).map(j=>fill(t.f(rt.b,j), rt.r)), ...muz.filter(x=>x.id!==t.id && (!x.only||x.only.includes(i))).map(x=>fill(x.f(rt.b,i), rt.r))]).filter(x=>x!==right);
+    const opts = shuffle([right, ...shuffle(other).slice(0,3)]);
+    return {k:"opt", rt, html:`<div class="q">Doğru çekimi bul: <b>${esc(t.tr)}</b></div><div class="w" style="font-size:2.2rem">${SIGA[i].z}</div><div class="small muted">${esc(SIGA[i].tr)} · ${esc(lemma(rt))}</div>`, opts, right, ar:true, why:`${t.tr} · ${SIGA[i].z}: ${right}`};
+  }
+  if (id === "hata"){
+    const t = pick(muz.filter(x=>["mazi","muz","lem","len","nehy","maziP","muzP","nun"].includes(x.id))), ok = okI(t);
+    const all = uniq(ok.map(j=>fill(t.f(rt.b,j), rt.r)));
+    const forms = shuffle(all).slice(0,4), k = Math.floor(Math.random()*4), orig = forms[k], bad = mutate(orig, all);
+    forms[k] = bad;
+    return {k:"opt", rt, html:`<div class="q">Dört çekimden biri yanlış harekeli. Hangisi? <span class="small muted">${esc(t.tr)} · ${esc(lemma(rt))}</span></div>`, opts: forms, right: bad, ar:true, why:`Doğrusu: ${orig}`};
+  }
+  if (id === "doldur"){
+    const t = pick(muz.filter(x=>["mazi","muz","lem","maziP","muzP"].includes(x.id))), ok = okI(t);
+    const words = ok.map(i=>fill(t.f(rt.b,i), rt.r));
+    const blanks = shuffle(ok).slice(0,4).sort((a,b)=>a-b), rights = {};
+    blanks.forEach(i => rights[i] = fill(t.f(rt.b,i), rt.r));
+    const d = uniq(muz.filter(x=>x.id!==t.id).map(x=>fill(x.f(rt.b,pick(ok)), rt.r))).filter(w=>!words.includes(w));
+    return {k:"fill", rt, t, blanks, rights, chips: shuffle([...blanks.map(i=>rights[i]), ...shuffle(d).slice(0,2)]), why:`${t.tr}: ` + blanks.map(i=>`${SIGA[i].z} ${rights[i]}`).join(" · ")};
+  }
+  if (id === "diz"){
+    const t = pick(muz), ok = okI(t), i = pick(ok), tpl = t.f(rt.b,i), w = fill(tpl, rt.r);
+    const parts = clusters(w).map(c=>c.s).filter(c=>c!==" ");
+    if (parts.length < 4 || parts.length > 9) return makeQ("diz");
+    return {k:"diz", rt, t, i, parts, w, order: shuffle(parts.map((_,j)=>j)), why:`${t.tr} · ${SIGA[i].z}: ${w}`};
+  }
+  if (id === "hafiza"){
+    const t = pick(muz.filter(x=>["mazi","muz","lem","len","maziP","muzP"].includes(x.id))), seen = new Set(), picked = [];
+    for (const i of shuffle(okI(t))){ const w = fill(t.f(rt.b,i), rt.r); if (seen.has(w)) continue; seen.add(w); picked.push(i); if (picked.length===6) break; }
+    return {k:"mem", rt, t, cards: shuffle(picked.flatMap(i=>[{p:i, t:"w", c:fill(t.f(rt.b,i), rt.r)}, {p:i, t:"l", c:i}])), why:`${t.tr} · ${lemma(rt)}`};
+  }
   if (id === "siga"){ const t = pick(muz.filter(t=>["mazi","muz","maziP","muzP","lem","len"].includes(t.id))); const ok = SIGA.map((s,i)=>i).filter(i=>!t.only||t.only.includes(i)); const i = pick(ok); const w = fill(t.f(rt.b,i), rt.r); const right = ok.filter(j => fill(t.f(rt.b,j), rt.r) === w); return {k:"matrix", rt, t, w, right, why:`${right.map(j=>(j+1)+". "+SIGA[j].tr+" ("+SIGA[j].z+")").join(" / ")}`}; }
   if (id === "insaat"){ const t = pick(muz.filter(t=>["mazi","muz","muzP"].includes(t.id))); const i = Math.floor(Math.random()*14); return {k:"build", rt, t, i, target: fill(t.f(rt.b,i), rt.r), why:`${t.tr}, ${SIGA[i].tr} (${SIGA[i].z}): ${fill(t.f(rt.b,i), rt.r)}`}; }
   if (id === "terazi"){ const pool = muh(rt).filter(o=>o.t); const o = pick(pool); const right = fill(o.t, MIZAN); const others = uniq(MUH.filter(m=>m.t).map(m=>fill(m.t(rt.b), MIZAN)).concat(FAIL.map(f=>fill(f,MIZAN)), MEF.map(f=>fill(f,MIZAN)))).filter(x=>x!==right); return {k:"scale", rt, o, w: fill(o.t, rt.r), opts: shuffle([right, ...shuffle(others).slice(0,3)]), right, why:`${o.tr}: ${fill(o.t, MIZAN)}`}; }
@@ -290,7 +356,7 @@ function makeQ(id){
   if (id === "zincir"){ const seq = chantItems(rt); const k = 1 + Math.floor(Math.random()*(seq.length-2)); const right = seq[k].s; const opts = shuffle([right, ...shuffle(seq.filter((x,j)=>j!==k && x.s!==right).map(x=>x.s)).slice(0,3)]); return {k:"opt", rt, html:`<div class="q">Zincirde sıradaki halka hangisi?</div><div class="ar" style="font-size:1.6rem;line-height:2">${seq.slice(Math.max(0,k-3),k).map(x=>esc(x.s)).join(" · ")} · <span style="color:var(--gold)">؟</span></div>`, opts, right, ar:true, why:`${seq[k].tr}: ${right}`}; }
   if (id === "hizli"){ const pool = muh(rt).filter(o=>o.t); const o = pick(pool); const right = fill(o.t, rt.r); const opts = shuffle([right, ...shuffle(uniq(pool.filter(x=>x!==o).map(x=>fill(x.t, rt.r))).filter(x=>x!==right)).slice(0,3)]); return {k:"opt", rt, html:`<div class="q"><b>${esc(o.tr)}</b> <span class="ar muted">${o.ar}</span></div><div class="ar muted" style="font-size:1.4rem">${esc(lemma(rt))}</div>`, opts, right, ar:true, why:`${o.tr}: ${right}`}; }
 }
-function start(id){ G = {id, i:0, n: id==="hizli" ? 999 : 10, score:0, wrong:0, q:makeQ(id), lock:false, timer: id==="hizli" ? 60 : 0}; if (G.timer){ G.t0 = Date.now(); G.iv = setInterval(() => { const left = Math.max(0, G.timer - Math.floor((Date.now()-G.t0)/1000)); const e = $("#gT"); if (e) e.textContent = left + " sn"; if (!left) end(); }, 250); } go("oyun"); }
+function start(id){ G = {id, i:0, n: id==="hizli" ? 999 : id==="hafiza" ? 1 : id==="karma" ? 15 : 10, score:0, wrong:0, q:makeQ(id), lock:false, timer: id==="hizli" ? 60 : 0}; if (G.timer){ G.t0 = Date.now(); G.iv = setInterval(() => { const left = Math.max(0, G.timer - Math.floor((Date.now()-G.t0)/1000)); const e = $("#gT"); if (e) e.textContent = left + " sn"; if (!left) end(); }, 250); } go("oyun"); }
 function draw(){
   const q = G.q, g = GAMES.find(x=>x.id===G.id);
   let body = "";
@@ -309,10 +375,16 @@ function draw(){
   if (q.k === "root"){ G.sel = G.sel || []; body = `<div class="q">Kökün harflerini sırayla seç: önce <b class="rf">fâ</b>, sonra <b class="ra">ayn</b>, sonra <b class="rl">lâm</b></div><div class="w mono">${esc(q.w)}</div>
       <div class="letters">${q.letters.map((l,i)=>`<button data-l="${i}" class="${G.sel.indexOf(i)>-1?"p"+(G.sel.indexOf(i)+1):""}">${esc(l)}</button>`).join("")}</div>`; }
   if (q.k === "opt") body = `${q.html}<div class="opts">${q.opts.map((o,i)=>`<button class="opt ${q.ar?"ar":""}" data-o="${i}">${esc(o)}</button>`).join("")}</div>`;
+  if (q.k === "fill") body = fillHTML(q);
+  if (q.k === "diz") body = dizHTML(q);
+  if (q.k === "mem") body = memHTML(q);
   $("#v-oyun").innerHTML = `<div class="stage"><div class="ghead"><div><span class="eyebrow">${esc(g.tr)}</span><h2 style="font-size:1.4rem">${G.timer?"":`Soru ${G.i+1} / ${G.n}`}</h2></div><div class="row">${G.timer?`<span class="timer" id="gT">${G.timer} sn</span>`:`<div class="prog" style="width:160px"><i style="width:${G.i/G.n*100}%"></i></div>`}<span class="chip">✓ ${G.score}</span><button class="btn ghost sm" id="gEnd">Bitir</button></div></div>
     <div class="panel qbox">${body}<div id="fb"></div></div><div class="row" style="justify-content:flex-end;margin-top:12px"><button class="btn" id="gNext" hidden>Devam →</button></div></div>`;
   $("#gEnd").onclick = end;
   $("#gNext").onclick = next;
+  if (q.k === "fill") bindFill(q);
+  if (q.k === "diz") bindDiz(q);
+  if (q.k === "mem") bindMem(q);
   if (q.k === "matrix") $$(".cell[data-i]").forEach(c => c.onclick = () => { if (G.lock) return; const i = +c.dataset.i; const ok = q.right.includes(i); $$(".cell[data-i]").forEach(x => { if (q.right.includes(+x.dataset.i)) x.classList.add("good"); }); if (!ok) c.classList.add("bad"); answer(ok); });
   if (q.k === "build"){
     $$("[data-pp]").forEach(b => b.onclick = () => { if (G.lock) return; G.b.p = b.dataset.pp; draw(); });
@@ -323,12 +395,70 @@ function draw(){
   if (q.k === "root") $$("[data-l]").forEach(b => b.onclick = () => { if (G.lock) return; const i = +b.dataset.l; const k = G.sel.indexOf(i); if (k > -1) G.sel.splice(k,1); else if (G.sel.length < 3) G.sel.push(i); if (G.sel.length === 3){ const ok = G.sel.map(j => q.base[j]).join("") === q.rt.r.join(""); draw(); answer(ok); } else draw(); });
   if (q.k === "opt") $$("[data-o]").forEach(b => b.onclick = () => { if (G.lock) return; const ok = q.opts[+b.dataset.o] === q.right; $$("[data-o]").forEach(x=>{ x.disabled = true; if (q.opts[+x.dataset.o]===q.right) x.classList.add("good"); }); if (!ok) b.classList.add("bad"); answer(ok); });
 }
+/* --- Tabloyu Tamamla --- */
+function fillHTML(q){
+  G.f = G.f || {put:{}, sel:null}; const used = Object.values(G.f.put);
+  const cell = i => {
+    if (!q.blanks.includes(i)){ const w = fill(tableForm(q.t,i,q.rt), q.rt.r); return `<div class="cell"><span class="w">${paint(tableForm(q.t,i,q.rt), q.rt.r)}</span><span class="z">${SIGA[i].z} · ${i+1}</span></div>`; }
+    const c = G.f.put[i]; return `<button class="cell slotc" data-fi="${i}"><span class="w">${c!==undefined ? paint(q.chips[c], q.rt.r) : "؟"}</span><span class="z">${SIGA[i].z} · ${i+1}</span></button>`;
+  };
+  const allow = i => i >= 0 && (!q.t.only || q.t.only.includes(i));
+  const grid = `<div class="matrix"><div></div><div class="h">Müfred</div><div class="h">Tesniye</div><div class="h">Cem'</div>${ROWS.map(r => `<div class="rh">${figs(r.g, r.p)}<span>${r.tr}</span></div>` + r.idx.map(i => i < 0 ? `<div class="cell x"><span class="small">↔ نَحْنُ</span></div>` : !allow(i) ? `<div class="cell x"><span class="small">—</span></div>` : cell(i)).join("")).join("")}</div>`;
+  return `<div class="q">Boş hücreleri tamamla: <b>${esc(q.t.tr)}</b> · <span class="ar" style="font-size:1.2rem">${esc(lemma(q.rt))}</span></div><div class="small muted">Önce aşağıdan bir kelime seç, sonra boş hücreye dokun. Yerleşmiş kelimeye dokunursan geri döner.</div><div style="margin-top:12px">${grid}</div><div class="tray" style="margin-top:14px">${q.chips.map((w,j)=>used.includes(j) ? "" : `<button data-fc="${j}" aria-pressed="${G.f.sel===j}">${paint(w, q.rt.r)}</button>`).join("")}</div>`;
+}
+function bindFill(q){
+  $$("[data-fc]").forEach(b => b.onclick = () => { if (G.lock) return; G.f.sel = +b.dataset.fc; draw(); });
+  $$("[data-fi]").forEach(b => b.onclick = () => {
+    if (G.lock) return; const i = +b.dataset.fi;
+    if (G.f.sel !== null){ G.f.put[i] = G.f.sel; G.f.sel = null; }
+    else if (G.f.put[i] !== undefined){ delete G.f.put[i]; }
+    else return;
+    draw();
+    if (q.blanks.every(k => G.f.put[k] !== undefined)){
+      const ok = q.blanks.every(k => q.chips[G.f.put[k]] === q.rights[k]);
+      $$("[data-fi]").forEach(x => x.classList.add(q.chips[G.f.put[+x.dataset.fi]] === q.rights[+x.dataset.fi] ? "good" : "bad"));
+      answer(ok);
+    }
+  });
+}
+/* --- Kelimeyi Diz --- */
+function dizHTML(q){
+  G.sel = G.sel || [];
+  return `<div class="q">Parçalara sırayla dokunarak kelimeyi kur (okuma sırasıyla: sağdan sola)</div><div class="small muted">${esc(q.t.tr)} · <span class="ar">${SIGA[q.i].z}</span> · <span class="ar">${esc(lemma(q.rt))}</span></div>
+  <div class="preview" style="margin:14px 0;min-height:2em;border-bottom:2px dashed var(--line)">${esc(G.sel.map(j=>q.parts[j]).join(""))}</div>
+  <div class="letters">${q.order.map(j=>`<button data-dj="${j}" ${G.sel.includes(j)?"disabled style='opacity:.25'":""}>${esc(q.parts[j])}</button>`).join("")}</div>
+  <div class="row" style="justify-content:center;margin-top:12px"><button class="btn ghost sm" id="dUndo">Geri al</button></div>`;
+}
+function bindDiz(q){
+  $$("[data-dj]").forEach(b => b.onclick = () => { if (G.lock) return; G.sel.push(+b.dataset.dj); draw();
+    if (G.sel.length === q.parts.length){ const w = G.sel.map(j=>q.parts[j]).join(""); answer(w === q.w.replace(/ /g,"")); } });
+  const u = $("#dUndo"); if (u) u.onclick = () => { if (G.lock) return; G.sel.pop(); draw(); };
+}
+/* --- Eşli Kartlar --- */
+function memHTML(q){
+  G.m = G.m || {open:[], done:{}, moves:0, busy:false};
+  return `<div class="q">Kelimeyi sîgasıyla eşleştir <span class="small muted">· ${esc(q.t.tr)} · ${esc(lemma(q.rt))} · hamle: ${G.m.moves}</span></div><div class="memg">${q.cards.map((c,k)=>{ const up = G.m.open.includes(k) || G.m.done[c.p]; return `<button class="mc ${G.m.done[c.p]?"ok":up?"up":""}" data-mc="${k}">${up ? (c.t==="w" ? `<span class="ar" style="font-size:1.45rem;font-weight:700">${esc(c.c)}</span>` : `<span class="ar" style="font-size:1.3rem">${SIGA[c.c].z}</span><small>${esc(SIGA[c.c].tr)}</small>`) : "?"}</button>`; }).join("")}</div>`;
+}
+function bindMem(q){
+  $$("[data-mc]").forEach(b => b.onclick = () => {
+    if (G.lock || G.m.busy) return; const k = +b.dataset.mc, c = q.cards[k];
+    if (G.m.done[c.p] || G.m.open.includes(k)) return;
+    G.m.open.push(k);
+    if (G.m.open.length < 2){ draw(); return; }
+    G.m.moves++; const [a, z] = G.m.open.map(x => q.cards[x]);
+    if (a.p === z.p && a.t !== z.t){
+      G.m.done[a.p] = true; G.m.open = []; draw();
+      if (Object.keys(G.m.done).length === q.cards.length/2) answer(true);
+    } else { G.m.busy = true; draw(); const me = G.q; setTimeout(() => { if (G && G.q === me && G.m){ G.m.open = []; G.m.busy = false; draw(); } }, 900); }
+  });
+}
 function answer(ok){
   G.lock = true; if (ok){ G.score++; addXp(5); beep("good"); } else { G.wrong++; beep("bad"); }
   const fb = $("#fb"); fb.className = "fb " + (ok?"good":"bad"); fb.innerHTML = `${ok?"Doğru!":"Olmadı."} <span class="${G.q.k==="root"?"":""}">${esc(G.q.why)}</span>`;
   if (G.timer) setTimeout(next, ok ? 400 : 1100); else { const n = $("#gNext"); n.hidden = false; n.focus(); }
 }
-function next(){ if (!G || G.done) return; G.i++; G.lock = false; G.b = null; G.sel = null; G.pan = null; G.tilt = undefined; if (!G.timer && G.i >= G.n) return end(); G.q = makeQ(G.id); draw(); }
+function next(){ if (!G || G.done) return; G.i++; G.lock = false; G.b = null; G.f = null; G.m = null; G.sel = null; G.pan = null; G.tilt = undefined; if (!G.timer && G.i >= G.n) return end(); G.q = makeQ(G.id); draw(); }
+if (/[?&]test\b/.test(location.search)) window.__G = () => G;
 function end(){
   if (!G || G.done) return; G.done = true; clearInterval(G.iv); S.plays++; S.best[G.id] = Math.max(S.best[G.id]||0, G.score); save();
   const perfect = !G.wrong && G.score > 0; if (perfect || G.score >= 8){ confetti(); beep("win"); }
@@ -367,7 +497,7 @@ function renderGuide(){
    <div class="sec-h"><h2>14 sîga ve zamirleri</h2></div>
    <div class="panel pad">${matrixHTML({f:()=>"", only:null}, {answer:true}).replace(/<button/g,"<div").replace(/<\/button>/g,"</div>")}</div>
    <div class="sec-h"><h2>Bu motor hakkında</h2></div>
-   <div class="panel pad"><p style="margin-top:0">Çekimler kurallarla, sâlim (harf-i illet, hemze ve tad'îf bulunmayan) sülâsî kökler için üretilir. Masdar sülâsîde semâî olduğu için yalnızca hazır köklerde gösterilir. Bazı köklerde ses değişmeleri (ör. lâmı ت veya ن olan köklerde idğam) olabilir; kendi kökünü girerken bunu göz önünde tut. Mezîd bâblarda ses değişmesi gerektirmeyen örnek kökler seçildi.</p></div>`;
+   <div class="panel pad"><p style="margin-top:0">Çekimler kurallarla, sâlim (harf-i illet, hemze ve tad'îf bulunmayan) sülâsî kökler için üretilir. Masdar sülâsîde semâî olduğu için hazır köklerde kayıtlı masdar(lar) gösterilir; özel kökte bâbın en yaygın kalıpları “olası” diye önerilir. Bazı köklerde ses değişmeleri (ör. lâmı ت veya ن olan köklerde idğam) olabilir; kendi kökünü girerken bunu göz önünde tut. Mezîd bâblarda ses değişmesi gerektirmeyen örnek kökler seçildi.</p></div>`;
 }
 
 /* ===================== BAŞLAT ===================== */

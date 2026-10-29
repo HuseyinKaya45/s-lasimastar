@@ -217,6 +217,25 @@ button.cell:hover{border-color:var(--gold)}
 canvas#cf{position:fixed;inset:0;pointer-events:none;z-index:99}
 @media (max-width:900px){.hero{grid-template-columns:minmax(0,1fr)}.matrix{grid-template-columns:92px repeat(3,minmax(0,1fr))}.matrix .rh span{display:none}}
 @media (max-width:560px){.logo b{display:none}.tile{width:54px;height:62px;font-size:1.8rem}.cell .w{font-size:calc(1.15rem * var(--ar))}.cell .mz{display:none}.matrix{gap:5px;grid-template-columns:44px repeat(3,minmax(0,1fr))}}
+
+/* kendini sına, boş kâğıt, yeni oyunlar */
+.cell.veil{cursor:pointer}
+.cell.veil:not(.open) .w,.cell.veil:not(.open) .mz{filter:blur(9px)}
+.cell.slotc{border-style:dashed;border-color:var(--gold);background:var(--gold-s);min-height:84px}
+.cell.slotc.good{border-style:solid;border-color:var(--good)} .cell.slotc.bad{border-style:solid;border-color:var(--bad)}
+.memg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
+.mc{min-height:84px;border:1.5px solid var(--line);background:var(--panel2);border-radius:14px;font-size:1.3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px}
+.mc small{font-size:.62rem;color:var(--muted);line-height:1.1}
+.mc.up{border-color:var(--gold);background:var(--gold-s)} .mc.ok{border-color:var(--good);background:var(--ra-s)}
+@media print{
+ body.pb{background:#fff;color:#000}
+ body.pb .top,body.pb .picker,body.pb .toast,body.pb canvas,body.pb .sec-h .row,body.pb .panel.pad:has(.picker),body.pb .hdr{display:none!important}
+ body.pb .cell{border:1px solid #000;background:#fff;min-height:74px}
+ body.pb .cell .w,body.pb .cell .mz{visibility:hidden}
+ body.pb .cell .z{color:#000}
+ body.pb .cell.veil .w,body.pb .cell.veil .mz{filter:none}
+}
+@media (max-width:560px){.memg{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 <header class="top"><div class="top-in">
