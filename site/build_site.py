@@ -25,6 +25,13 @@ for p in cfg['programlar']:
         f'<meta name="apple-mobile-web-app-title" content="{p["ad"]}">')
     m=re.search(r'<meta charset="utf-8">',html,re.I)
     html=html[:m.end()]+ek+html[m.end():] if m else ek+html
+    # diğer programlara bağlantı şeridi (yalnızca yayın sitesinde; tek dosya olarak paylaşılan sürümde görünmez)
+    diger=[q for q in cfg['programlar'] if q['id']!=p['id']]
+    if diger:
+        bag=' · '.join(f'<a href="../{q["id"]}/" style="color:inherit;font-weight:600">{q["ad"]}</a>' for q in diger)
+        html+=(f'\n<nav aria-label="Diğer programlar" style="max-width:760px;margin:28px auto 24px;padding:14px 16px;border-top:1px solid rgba(128,128,128,.35);'
+               f'text-align:center;font:15px/1.7 system-ui,sans-serif;color:inherit;opacity:.9">İlim Atölyesi’ndeki diğer programlar: {bag} · '
+               f'<a href="../" style="color:inherit">Hepsi</a></nav>\n')
     html+='\n<script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("../sw.js").catch(()=>{}))</script>\n'
     b=html.encode('utf-8');open(os.path.join(hedef,'index.html'),'wb').write(b);sur[p['id']]=sha(b)
     open(os.path.join(hedef,'manifest.webmanifest'),'w',encoding='utf-8').write(manifest(p['ad'],p.get('kisa',p['ad']),p['renk'],p['ikon']['bg'],p['id']))
