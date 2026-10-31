@@ -27,7 +27,7 @@ kökle çekim) metinlerde cihazdaki Arapça sese dönülür, o da yoksa uyarı v
 ## İngilizce (Arapça–İngilizce) sürümler
 `k2ortak/yap.py --en <ünite>` → `en/<ünite>/index.html` (veri.en.js + meta.en.json + k2ortak/en_ui.json). Çeviriyi toplu üretmek için `_kaynak/ceviri_en.py` (kılavuz: `_kaynak/ceviri_en/README.md`).
 
-## Emsile Tezgâhı: ses kaldırıldı
+## Emsile Ocağı: ses kaldırıldı
 Konuşma seslendirmesi (Dinle düğmeleri, "Hepsini dinle", ezberde "Sesli") kaldırıldı: yanlış okuma ve art arda okumada atlama sorunları vardı, sesler dosyayı 23 MB yapıyordu. Üretilmiş kayıtlar ve metin listesi `ses/arsiv/` altında saklıdır; build bu klasörü gömmez. Oyunlardaki doğru/yanlış "bip" sesleri duruyor.
 
 ## Binâ Sarayı: ses kaldırıldı

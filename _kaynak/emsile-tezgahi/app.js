@@ -113,7 +113,7 @@ function renderLoom(){
   <div class="hero">
     <div>
       <span class="eyebrow">Emsile-i Muhtelife · Emsile-i Muttaride · Binâ</span>
-      <h1>Kökü tezgâha koy, <span>kalıplar</span> dokusun</h1>
+      <h1>Kökü ocağa koy, <span>kalıplar</span> şekillensin</h1>
       <p class="muted" style="max-width:56ch">Medresede sarfın ilk kitabı Emsile'dir: Emsile-i Muhtelife bir kökü 24 sîgaya döker. Burada her kalıp, kökü <b class="rf">fâ</b>, <b class="ra">ayn</b>, <b class="rl">lâm</b> renkleriyle gösterir; <span class="zv">gri harfler</span> kalıbın eklediği harflerdir (zevâid). Altındaki satır mîzandır: aynı kalıp <span class="ar" dir="rtl">ف ع ل</span> harfleriyle.</p>
       ${picker()}
     </div>

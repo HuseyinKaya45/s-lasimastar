@@ -1232,7 +1232,7 @@ GAME.mana=()=>{
     $$('[data-k]').forEach(b=>b.onclick=()=>{const ok=b.dataset.k===B.bk;$$('[data-k]').forEach(x=>{x.disabled=true;if(x.dataset.k===B.bk)x.classList.add('ok');});if(!ok)b.classList.add('no');sc+=ok?10:0;beep(ok?'ok':'no');$('#fb').className='fb '+(ok?'ok':'no');$('#fb').innerHTML=`${esc(e[1])}<div class="small muted" style="font-weight:400">${B.bn}</div>`;TIMERS.push(setTimeout(round,1900));});
   };round();
 };
-/* ---------- Emsile Tezgâhı'ndan uyarlanan oyunlar ---------- */
+/* ---------- Emsile Ocağı'ndan uyarlanan oyunlar ---------- */
 if(!Array.isArray(S.mist))S.mist=[];
 const rowIdx=r=>ALL_ROWS.indexOf(r);
 const addM=(row,k)=>{const i=rowIdx(row);if(i<0||S.mist.some(x=>x.i===i&&x.k===k))return;S.mist.push({i,k});if(S.mist.length>40)S.mist.shift();save();};

@@ -35,11 +35,11 @@ const tableSecs=TABLES.map((t,ti)=>{
 const babRows=BABS.map(b=>`<tr><td>${b.id}</td><td class="ar">${h(b.ar)}</td><td class="ar">${h(b.vz)}</td><td>${h(b.tr)}</td><td>${h(b.note)}</td><td></td></tr>`).join('');
 /* D) ism-i fâil / mef'ûl çoğul kalıpları */
 const fm=(arr,tr,tpl)=>arr.map((w,i)=>`<tr><td>${i+1}</td><td>${h(tr[i])}</td><td class="ar">${w}</td><td class="ar">${BABS.map(b=>fill(w,rootOf(b))).join(' · ')}</td><td></td></tr>`).join('');
-const html=`<!doctype html><meta charset="utf-8"><title>Emsile Tezgâhı — kalıp çizelgesi</title><style>
+const html=`<!doctype html><meta charset="utf-8"><title>Emsile Ocağı — kalıp çizelgesi</title><style>
 body{font:14px/1.5 system-ui,sans-serif;margin:20px;color:#111}.ar{font-family:"Noto Naskh Arabic","Traditional Arabic",serif;direction:rtl;font-size:1.25em}
 .s{font-size:.78rem}.muted{color:#666}table{border-collapse:collapse;width:100%;margin-bottom:24px}td,th{border:1px solid #999;padding:4px 6px;text-align:left;vertical-align:top}td.ar{text-align:right}th{background:#eee}
 h2{margin:30px 0 6px;border-bottom:2px solid #333}h3{margin:20px 0 4px}@media print{h2,h3{break-after:avoid}tr{break-inside:avoid}}</style>
-<h1>Emsile Tezgâhı — bütün kalıpların kontrol çizelgesi</h1>
+<h1>Emsile Ocağı — bütün kalıpların kontrol çizelgesi</h1>
 <p>Bu çizelge programdaki bütün kalıpları, her bâbın örnek köküyle üretilmiş hâlde gösterir. Altı bâbın örnek kökleri sütun başlarındadır: 1. bâb <span class="ar">نصر</span>, 2. bâb <span class="ar">ضرب</span>, 3. bâb <span class="ar">فتح</span>, 4. bâb <span class="ar">علم</span>, 5. bâb <span class="ar">كرم</span>, 6. bâb <span class="ar">حسب</span>. Yanlış gördüğünü “Düzeltme” sütununa yaz. Çekimler kuralla üretilir; masdar ve sıfat gibi semâî olanlar kök listesinden gelir.</p>
 <p class="s muted">İçindekiler: A) Bâb tanımları · B) 24 muhtelife kalıp (ezber sırası) · C) 14 sîgalı çekim tabloları · D) İsm-i fâil ve ism-i mef'ûl çoğul/müennes kalıpları</p>
 <h2>A) Sülâsî mücerred bâblar</h2><table><tr><th>#</th><th>Örnek</th><th>Vezin</th><th>Ad</th><th>Açıklama</th><th>Düzeltme</th></tr>${babRows}</table>
