@@ -1,0 +1,3583 @@
+[
+{
+"r": 3417,
+"w": "overcome",
+"p": "v",
+"tr": "üstesinden gelmek, yenmek",
+"ex": "She overcame her fear of water.",
+"et": "Suyla ilgili korkusunu yendi."
+},
+{
+"r": 3418,
+"w": "punish",
+"p": "v",
+"tr": "cezalandırmak",
+"ex": "The teacher did not punish him for being late.",
+"et": "Öğretmen onu geç kaldığı için cezalandırmadı."
+},
+{
+"r": 3419,
+"w": "inspector",
+"p": "n",
+"tr": "müfettiş, denetmen",
+"ex": "The inspector checked every room in the hotel.",
+"et": "Müfettiş otelin her odasını kontrol etti."
+},
+{
+"r": 3420,
+"w": "flee",
+"p": "v",
+"tr": "kaçmak, firar etmek",
+"ex": "Many people had to flee from the flood.",
+"et": "Birçok insan sel yüzünden kaçmak zorunda kaldı."
+},
+{
+"r": 3421,
+"w": "exceed",
+"p": "v",
+"tr": "aşmak, geçmek",
+"ex": "The cost will not exceed one hundred dollars.",
+"et": "Maliyet yüz doları aşmayacak."
+},
+{
+"r": 3422,
+"w": "rifle",
+"p": "n",
+"tr": "tüfek",
+"ex": "The hunter carried a rifle over his shoulder.",
+"et": "Avcı omzunda bir tüfek taşıyordu."
+},
+{
+"r": 3423,
+"w": "calendar",
+"p": "n",
+"tr": "takvim",
+"ex": "I wrote the meeting date on my calendar.",
+"et": "Toplantı tarihini takvimime yazdım."
+},
+{
+"r": 3424,
+"w": "offense",
+"p": "n",
+"tr": "suç, kabahat, gücenme",
+"ex": "Driving without a license is a serious offense.",
+"et": "Ehliyetsiz araba kullanmak ciddi bir suçtur."
+},
+{
+"r": 3425,
+"w": "insult",
+"p": "v",
+"tr": "hakaret etmek, aşağılamak",
+"ex": "He did not mean to insult you.",
+"et": "Sana hakaret etmek istemedi."
+},
+{
+"r": 3426,
+"w": "fluid",
+"p": "n",
+"tr": "sıvı",
+"ex": "Drink plenty of fluids when you are sick.",
+"et": "Hastayken bol sıvı iç."
+},
+{
+"r": 3427,
+"w": "evaluate",
+"p": "v",
+"tr": "değerlendirmek",
+"ex": "The teacher will evaluate our projects next week.",
+"et": "Öğretmen önümüzdeki hafta projelerimizi değerlendirecek."
+},
+{
+"r": 3428,
+"w": "ruling",
+"p": "n",
+"tr": "karar, hüküm",
+"ex": "The court's ruling surprised everyone.",
+"et": "Mahkemenin kararı herkesi şaşırttı."
+},
+{
+"r": 3429,
+"w": "lung",
+"p": "n",
+"tr": "akciğer",
+"ex": "Smoking is bad for your lungs.",
+"et": "Sigara içmek akciğerlerin için zararlıdır."
+},
+{
+"r": 3430,
+"w": "colony",
+"p": "n",
+"tr": "koloni, sömürge",
+"ex": "The island was once a British colony.",
+"et": "Ada bir zamanlar bir İngiliz sömürgesiydi."
+},
+{
+"r": 3431,
+"w": "absence",
+"p": "n",
+"tr": "yokluk, devamsızlık",
+"ex": "Her absence from school lasted two weeks.",
+"et": "Okuldaki devamsızlığı iki hafta sürdü."
+},
+{
+"r": 3432,
+"w": "agricultural",
+"p": "adj",
+"tr": "tarımsal, ziraî",
+"ex": "This region has a lot of agricultural land.",
+"et": "Bu bölgede çok miktarda tarım arazisi var."
+},
+{
+"r": 3433,
+"w": "blues",
+"p": "n",
+"tr": "blues müziği, hüzün, keder",
+"ex": "He plays the blues on his old guitar.",
+"et": "Eski gitarında blues çalıyor."
+},
+{
+"r": 3434,
+"w": "bruce",
+"drop": "özel isim"
+},
+{
+"r": 3435,
+"w": "commonwealth",
+"drop": "özel isim"
+},
+{
+"r": 3436,
+"w": "delicious",
+"p": "adj",
+"tr": "lezzetli, nefis",
+"ex": "The soup was absolutely delicious.",
+"et": "Çorba gerçekten çok lezzetliydi."
+},
+{
+"r": 3437,
+"w": "ease",
+"p": "n",
+"tr": "kolaylık, rahatlık",
+"ex": "She passed the exam with ease.",
+"et": "Sınavı kolaylıkla geçti."
+},
+{
+"r": 3438,
+"w": "genetic",
+"p": "adj",
+"tr": "genetik, kalıtsal",
+"ex": "Some diseases have a genetic cause.",
+"et": "Bazı hastalıkların genetik bir nedeni vardır."
+},
+{
+"r": 3439,
+"w": "instant",
+"p": "adj",
+"tr": "anlık, anında, hazır",
+"ex": "I prefer instant coffee in the morning.",
+"et": "Sabahları hazır kahveyi tercih ederim."
+},
+{
+"r": 3440,
+"w": "kate",
+"drop": "özel isim"
+},
+{
+"r": 3441,
+"w": "rapidly",
+"p": "adv",
+"tr": "hızla, çabucak",
+"ex": "The city is growing rapidly.",
+"et": "Şehir hızla büyüyor."
+},
+{
+"r": 3442,
+"w": "upcoming",
+"p": "adj",
+"tr": "yaklaşan, gelecek",
+"ex": "I am nervous about the upcoming exam.",
+"et": "Yaklaşan sınav yüzünden gergin hissediyorum."
+},
+{
+"r": 3443,
+"w": "pill",
+"p": "n",
+"tr": "hap",
+"ex": "Take one pill after every meal.",
+"et": "Her yemekten sonra bir hap al."
+},
+{
+"r": 3444,
+"w": "dose",
+"p": "n",
+"tr": "doz",
+"ex": "The doctor gave him a small dose of medicine.",
+"et": "Doktor ona küçük bir doz ilaç verdi."
+},
+{
+"r": 3445,
+"w": "negotiate",
+"p": "v",
+"tr": "müzakere etmek, pazarlık etmek",
+"ex": "The two sides will negotiate a new agreement.",
+"et": "İki taraf yeni bir anlaşma için müzakere edecek."
+},
+{
+"r": 3446,
+"w": "weakness",
+"p": "n",
+"tr": "zayıflık, zaaf",
+"ex": "Shyness is his only weakness.",
+"et": "Utangaçlık onun tek zaafı."
+},
+{
+"r": 3447,
+"w": "defender",
+"p": "n",
+"tr": "savunmacı, savunucu",
+"ex": "The defender stopped the ball near the goal.",
+"et": "Savunmacı topu kalenin yakınında durdurdu."
+},
+{
+"r": 3448,
+"w": "render",
+"p": "v",
+"tr": "haline getirmek, sunmak, yapmak",
+"ex": "The heavy rain rendered the road impassable.",
+"et": "Şiddetli yağmur yolu geçilemez hale getirdi."
+},
+{
+"r": 3449,
+"w": "jam",
+"p": "n",
+"tr": "reçel, sıkışıklık",
+"ex": "I put strawberry jam on my bread.",
+"et": "Ekmeğime çilek reçeli sürdüm."
+},
+{
+"r": 3450,
+"w": "resume",
+"p": "v",
+"tr": "yeniden başlamak, sürdürmek",
+"ex": "The meeting will resume after lunch.",
+"et": "Toplantı öğle yemeğinden sonra yeniden başlayacak."
+},
+{
+"r": 3451,
+"w": "outline",
+"p": "n",
+"tr": "taslak, ana hatlar, dış çizgi",
+"ex": "Write a short outline before you start the essay.",
+"et": "Kompozisyona başlamadan önce kısa bir taslak yaz."
+},
+{
+"r": 3452,
+"w": "shark",
+"p": "n",
+"tr": "köpekbalığı",
+"ex": "A shark swam near the boat.",
+"et": "Teknenin yakınında bir köpekbalığı yüzdü."
+},
+{
+"r": 3453,
+"w": "clue",
+"p": "n",
+"tr": "ipucu",
+"ex": "The police found a clue at the scene.",
+"et": "Polis olay yerinde bir ipucu buldu."
+},
+{
+"r": 3454,
+"w": "verse",
+"p": "n",
+"tr": "dize, kıta, şiir",
+"ex": "She read a verse from her favorite poem.",
+"et": "En sevdiği şiirden bir dize okudu."
+},
+{
+"r": 3455,
+"w": "dimension",
+"p": "n",
+"tr": "boyut, ölçü",
+"ex": "We need to measure the dimensions of the room.",
+"et": "Odanın ölçülerini almamız gerekiyor."
+},
+{
+"r": 3456,
+"w": "workshop",
+"p": "n",
+"tr": "atölye, çalıştay",
+"ex": "I joined a painting workshop last weekend.",
+"et": "Geçen hafta sonu bir resim atölyesine katıldım."
+},
+{
+"r": 3457,
+"w": "sock",
+"p": "n",
+"tr": "çorap",
+"ex": "I lost one sock in the washing machine.",
+"et": "Çamaşır makinesinde bir çorabımı kaybettim."
+},
+{
+"r": 3458,
+"w": "lifestyle",
+"p": "n",
+"tr": "yaşam tarzı",
+"ex": "A healthy lifestyle includes exercise and good food.",
+"et": "Sağlıklı bir yaşam tarzı spor ve iyi beslenmeyi içerir."
+},
+{
+"r": 3459,
+"w": "charter",
+"p": "n",
+"tr": "tüzük, beyanname, kiralama",
+"ex": "The company signed a charter for the new school.",
+"et": "Şirket yeni okul için bir tüzük imzaladı."
+},
+{
+"r": 3460,
+"w": "pupil",
+"p": "n",
+"tr": "öğrenci, göz bebeği",
+"ex": "Every pupil in the class has a new book.",
+"et": "Sınıftaki her öğrencinin yeni bir kitabı var."
+},
+{
+"r": 3461,
+"w": "barrel",
+"p": "n",
+"tr": "varil, fıçı",
+"ex": "They stored the wine in a wooden barrel.",
+"et": "Şarabı ahşap bir fıçıda sakladılar."
+},
+{
+"r": 3462,
+"w": "privilege",
+"p": "n",
+"tr": "ayrıcalık, imtiyaz",
+"ex": "It is a privilege to meet you.",
+"et": "Sizinle tanışmak bir ayrıcalık."
+},
+{
+"r": 3463,
+"w": "lease",
+"p": "n",
+"tr": "kira sözleşmesi",
+"ex": "We signed a one-year lease for the apartment.",
+"et": "Daire için bir yıllık kira sözleşmesi imzaladık."
+},
+{
+"r": 3464,
+"w": "explosion",
+"p": "n",
+"tr": "patlama",
+"ex": "We heard a loud explosion near the factory.",
+"et": "Fabrikanın yakınında yüksek bir patlama sesi duyduk."
+},
+{
+"r": 3465,
+"w": "demon",
+"p": "n",
+"tr": "şeytan, iblis",
+"ex": "The story is about a demon in an old castle.",
+"et": "Hikâye eski bir kaledeki bir iblisle ilgili."
+},
+{
+"r": 3466,
+"w": "obligation",
+"p": "n",
+"tr": "yükümlülük, zorunluluk",
+"ex": "You have no obligation to answer the question.",
+"et": "Soruyu cevaplamak gibi bir zorunluluğun yok."
+},
+{
+"r": 3467,
+"w": "framework",
+"p": "n",
+"tr": "çerçeve, yapı",
+"ex": "The law provides a framework for new businesses.",
+"et": "Yasa yeni işletmeler için bir çerçeve sağlıyor."
+},
+{
+"r": 3468,
+"w": "mature",
+"p": "adj",
+"tr": "olgun, yetişkin",
+"ex": "He is very mature for his age.",
+"et": "Yaşına göre çok olgun."
+},
+{
+"r": 3469,
+"w": "auction",
+"p": "n",
+"tr": "açık artırma",
+"ex": "They sold the old painting at an auction.",
+"et": "Eski tabloyu açık artırmada sattılar."
+},
+{
+"r": 3470,
+"w": "bee",
+"p": "n",
+"tr": "arı",
+"ex": "A bee landed on the yellow flower.",
+"et": "Sarı çiçeğe bir arı kondu."
+},
+{
+"r": 3471,
+"w": "drum",
+"p": "n",
+"tr": "davul",
+"ex": "My brother plays the drums in a band.",
+"et": "Kardeşim bir grupta davul çalıyor."
+},
+{
+"r": 3472,
+"w": "arena",
+"p": "n",
+"tr": "arena, stadyum",
+"ex": "Thousands of fans filled the arena.",
+"et": "Binlerce hayran arenayı doldurdu."
+},
+{
+"r": 3473,
+"w": "aug",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3474,
+"w": "billy",
+"drop": "özel isim"
+},
+{
+"r": 3475,
+"w": "compensation",
+"p": "n",
+"tr": "tazminat, telafi",
+"ex": "The workers received compensation for the accident.",
+"et": "İşçiler kaza için tazminat aldı."
+},
+{
+"r": 3476,
+"w": "conservation",
+"p": "n",
+"tr": "koruma, muhafaza",
+"ex": "Water conservation is important in summer.",
+"et": "Su tasarrufu ve korunması yazın önemlidir."
+},
+{
+"r": 3477,
+"w": "constitutional",
+"p": "adj",
+"tr": "anayasal",
+"ex": "Freedom of speech is a constitutional right.",
+"et": "İfade özgürlüğü anayasal bir haktır."
+},
+{
+"r": 3478,
+"w": "density",
+"p": "n",
+"tr": "yoğunluk",
+"ex": "The city has a high population density.",
+"et": "Şehrin nüfus yoğunluğu yüksek."
+},
+{
+"r": 3479,
+"w": "di",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3480,
+"w": "elementary",
+"p": "adj",
+"tr": "temel, ilkokul düzeyinde, basit",
+"ex": "My sister teaches at an elementary school.",
+"et": "Ablam bir ilkokulda öğretmenlik yapıyor."
+},
+{
+"r": 3481,
+"w": "ethnic",
+"p": "adj",
+"tr": "etnik",
+"ex": "The city has many ethnic restaurants.",
+"et": "Şehirde birçok etnik restoran var."
+},
+{
+"r": 3482,
+"w": "fuckin",
+"drop": "başka biçimin çekimi"
+},
+{
+"r": 3483,
+"w": "gen",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3484,
+"w": "genius",
+"p": "n",
+"tr": "dâhi, deha",
+"ex": "Many people call Einstein a genius.",
+"et": "Birçok kişi Einstein'a dâhi der."
+},
+{
+"r": 3485,
+"w": "greatly",
+"p": "adv",
+"tr": "büyük ölçüde, çok",
+"ex": "Your help was greatly appreciated.",
+"et": "Yardımınız çok takdir edildi."
+},
+{
+"r": 3486,
+"w": "guidance",
+"p": "n",
+"tr": "rehberlik, yönlendirme",
+"ex": "Students need guidance when choosing a career.",
+"et": "Öğrenciler meslek seçerken rehberliğe ihtiyaç duyar."
+},
+{
+"r": 3487,
+"w": "instagram",
+"drop": "özel isim"
+},
+{
+"r": 3488,
+"w": "iowa",
+"drop": "özel isim"
+},
+{
+"r": 3489,
+"w": "mechanical",
+"p": "adj",
+"tr": "mekanik, makineyle ilgili",
+"ex": "The clock has a simple mechanical part inside.",
+"et": "Saatin içinde basit bir mekanik parça var."
+},
+{
+"r": 3490,
+"w": "nigeria",
+"drop": "özel isim"
+},
+{
+"r": 3491,
+"w": "participation",
+"p": "n",
+"tr": "katılım",
+"ex": "Class participation is part of your grade.",
+"et": "Derse katılım notunuzun bir parçasıdır."
+},
+{
+"r": 3492,
+"w": "precious",
+"p": "adj",
+"tr": "değerli, kıymetli",
+"ex": "Time is more precious than money.",
+"et": "Zaman paradan daha değerlidir."
+},
+{
+"r": 3493,
+"w": "prominent",
+"p": "adj",
+"tr": "önde gelen, belirgin",
+"ex": "He is a prominent lawyer in our city.",
+"et": "O, şehrimizde önde gelen bir avukat."
+},
+{
+"r": 3494,
+"w": "residential",
+"p": "adj",
+"tr": "konut, oturma amaçlı",
+"ex": "We live in a quiet residential area.",
+"et": "Sakin bir yerleşim bölgesinde yaşıyoruz."
+},
+{
+"r": 3495,
+"w": "robin",
+"drop": "özel isim"
+},
+{
+"r": 3496,
+"w": "russell",
+"drop": "özel isim"
+},
+{
+"r": 3497,
+"w": "substantial",
+"p": "adj",
+"tr": "önemli, hatırı sayılır, büyük",
+"ex": "She earns a substantial amount of money.",
+"et": "Hatırı sayılır miktarda para kazanıyor."
+},
+{
+"r": 3498,
+"w": "wildlife",
+"p": "n",
+"tr": "yaban hayatı, vahşi yaşam",
+"ex": "The park is a good place to see wildlife.",
+"et": "Park, yaban hayatını görmek için güzel bir yer."
+},
+{
+"r": 3499,
+"w": "wooden",
+"p": "adj",
+"tr": "ahşap, tahta",
+"ex": "We sat at a big wooden table.",
+"et": "Büyük bir ahşap masada oturduk."
+},
+{
+"r": 3500,
+"w": "isolate",
+"p": "v",
+"tr": "yalıtmak, izole etmek, ayırmak",
+"ex": "Doctors isolate sick patients to stop the disease.",
+"et": "Doktorlar hastalığı durdurmak için hasta kişileri izole eder."
+},
+{
+"r": 3501,
+"w": "chef",
+"p": "n",
+"tr": "şef, aşçıbaşı",
+"ex": "The chef cooked a wonderful fish dinner.",
+"et": "Şef harika bir balık yemeği pişirdi."
+},
+{
+"r": 3502,
+"w": "frustrate",
+"p": "v",
+"tr": "hayal kırıklığına uğratmak, sinirlendirmek",
+"ex": "Slow internet can frustrate anyone.",
+"et": "Yavaş internet herkesi sinirlendirebilir."
+},
+{
+"r": 3503,
+"w": "hint",
+"p": "n",
+"tr": "ipucu, ima",
+"ex": "Can you give me a hint about the answer?",
+"et": "Cevapla ilgili bana bir ipucu verir misin?"
+},
+{
+"r": 3504,
+"w": "collaboration",
+"p": "n",
+"tr": "iş birliği",
+"ex": "The book is a collaboration between two writers.",
+"et": "Kitap iki yazarın iş birliğinin ürünü."
+},
+{
+"r": 3505,
+"w": "slam",
+"p": "v",
+"tr": "çarpmak, hızla kapatmak",
+"ex": "Please do not slam the door.",
+"et": "Lütfen kapıyı çarpma."
+},
+{
+"r": 3506,
+"w": "disturb",
+"p": "v",
+"tr": "rahatsız etmek",
+"ex": "Please do not disturb me while I study.",
+"et": "Ders çalışırken lütfen beni rahatsız etme."
+},
+{
+"r": 3507,
+"w": "apologize",
+"p": "v",
+"tr": "özür dilemek",
+"ex": "I want to apologize for being late.",
+"et": "Geç kaldığım için özür dilemek istiyorum."
+},
+{
+"r": 3508,
+"w": "gathering",
+"p": "n",
+"tr": "toplantı, topluluk, buluşma",
+"ex": "There was a family gathering at my grandmother's house.",
+"et": "Anneannemin evinde bir aile buluşması vardı."
+},
+{
+"r": 3509,
+"w": "ram",
+"p": "n",
+"tr": "koç, teke",
+"ex": "The farmer has a big ram with long horns.",
+"et": "Çiftçinin uzun boynuzlu büyük bir koçu var."
+},
+{
+"r": 3510,
+"w": "menu",
+"p": "n",
+"tr": "menü, yemek listesi",
+"ex": "Can I see the menu, please?",
+"et": "Menüye bakabilir miyim lütfen?"
+},
+{
+"r": 3511,
+"w": "aggressive",
+"p": "adj",
+"tr": "saldırgan, agresif",
+"ex": "The dog became aggressive when strangers came.",
+"et": "Köpek yabancılar gelince saldırganlaştı."
+},
+{
+"r": 3512,
+"w": "anne",
+"drop": "özel isim"
+},
+{
+"r": 3513,
+"w": "apparent",
+"p": "adj",
+"tr": "açık, belli, görünürdeki",
+"ex": "It was apparent that she was tired.",
+"et": "Yorgun olduğu belliydi."
+},
+{
+"r": 3514,
+"w": "courage",
+"p": "n",
+"tr": "cesaret",
+"ex": "It takes courage to speak in front of everyone.",
+"et": "Herkesin önünde konuşmak cesaret ister."
+},
+{
+"r": 3515,
+"w": "del",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3516,
+"w": "desperate",
+"p": "adj",
+"tr": "çaresiz, umutsuz",
+"ex": "He was desperate for a job.",
+"et": "Bir iş için çaresizdi."
+},
+{
+"r": 3517,
+"w": "diversity",
+"p": "n",
+"tr": "çeşitlilik, farklılık",
+"ex": "Our school values cultural diversity.",
+"et": "Okulumuz kültürel çeşitliliğe değer veriyor."
+},
+{
+"r": 3518,
+"w": "eve",
+"p": "n",
+"tr": "arife, arifesi",
+"ex": "We met on New Year's Eve.",
+"et": "Yılbaşı gecesinde buluştuk."
+},
+{
+"r": 3519,
+"w": "feedback",
+"p": "n",
+"tr": "geri bildirim",
+"ex": "Thank you for your feedback on my work.",
+"et": "Çalışmamla ilgili geri bildirimin için teşekkürler."
+},
+{
+"r": 3520,
+"w": "ian",
+"drop": "özel isim"
+},
+{
+"r": 3521,
+"w": "il",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3522,
+"w": "justin",
+"drop": "özel isim"
+},
+{
+"r": 3523,
+"w": "legislative",
+"p": "adj",
+"tr": "yasama ile ilgili, yasama",
+"ex": "The legislative body passed a new law.",
+"et": "Yasama organı yeni bir yasa çıkardı."
+},
+{
+"r": 3524,
+"w": "nursing",
+"p": "n",
+"tr": "hemşirelik",
+"ex": "She is studying nursing at university.",
+"et": "Üniversitede hemşirelik okuyor."
+},
+{
+"r": 3525,
+"w": "ongoing",
+"p": "adj",
+"tr": "devam eden, süregelen",
+"ex": "The police have an ongoing investigation.",
+"et": "Polisin devam eden bir soruşturması var."
+},
+{
+"r": 3526,
+"w": "painful",
+"p": "adj",
+"tr": "acı verici, ağrılı",
+"ex": "My knee is still painful after the fall.",
+"et": "Dizim düştükten sonra hâlâ ağrılı."
+},
+{
+"r": 3527,
+"w": "purple",
+"p": "adj",
+"tr": "mor",
+"ex": "She wore a purple dress to the party.",
+"et": "Partiye mor bir elbise giydi."
+},
+{
+"r": 3528,
+"w": "registration",
+"p": "n",
+"tr": "kayıt, tescil",
+"ex": "Registration for the course starts on Monday.",
+"et": "Kursa kayıt pazartesi günü başlıyor."
+},
+{
+"r": 3529,
+"w": "rick",
+"drop": "özel isim"
+},
+{
+"r": 3530,
+"w": "romance",
+"p": "n",
+"tr": "aşk, romantizm, aşk ilişkisi",
+"ex": "They met at work and a romance began.",
+"et": "İş yerinde tanıştılar ve bir aşk başladı."
+},
+{
+"r": 3531,
+"w": "sufficient",
+"p": "adj",
+"tr": "yeterli",
+"ex": "We have sufficient food for everyone.",
+"et": "Herkese yetecek kadar yiyeceğimiz var."
+},
+{
+"r": 3532,
+"w": "ukraine",
+"drop": "özel isim"
+},
+{
+"r": 3533,
+"w": "underground",
+"p": "adj",
+"tr": "yeraltı, yer altındaki",
+"ex": "There is an underground parking lot below the mall.",
+"et": "Alışveriş merkezinin altında bir yeraltı otoparkı var."
+},
+{
+"r": 3534,
+"w": "virtual",
+"p": "adj",
+"tr": "sanal",
+"ex": "We had a virtual meeting instead of meeting in person.",
+"et": "Yüz yüze görüşmek yerine sanal bir toplantı yaptık."
+},
+{
+"r": 3535,
+"w": "detective",
+"p": "n",
+"tr": "dedektif",
+"ex": "The detective asked the witness many questions.",
+"et": "Dedektif tanığa birçok soru sordu."
+},
+{
+"r": 3536,
+"w": "interpretation",
+"p": "n",
+"tr": "yorum, yorumlama, tercümanlık",
+"ex": "There are many interpretations of this poem.",
+"et": "Bu şiirin birçok yorumu var."
+},
+{
+"r": 3537,
+"w": "nightmare",
+"p": "n",
+"tr": "kâbus",
+"ex": "I had a terrible nightmare last night.",
+"et": "Dün gece korkunç bir kâbus gördüm."
+},
+{
+"r": 3538,
+"w": "attraction",
+"p": "n",
+"tr": "çekim, cazibe, turistik yer",
+"ex": "The old castle is the main tourist attraction.",
+"et": "Eski kale başlıca turistik cazibe merkezi."
+},
+{
+"r": 3539,
+"w": "toe",
+"p": "n",
+"tr": "ayak parmağı",
+"ex": "I hurt my toe on the table leg.",
+"et": "Ayak parmağımı masa ayağına çarpıp acıttım."
+},
+{
+"r": 3540,
+"w": "abortion",
+"p": "n",
+"tr": "kürtaj, düşük",
+"ex": "The law about abortion is a topic of debate.",
+"et": "Kürtajla ilgili yasa bir tartışma konusu."
+},
+{
+"r": 3541,
+"w": "upload",
+"p": "v",
+"tr": "yüklemek",
+"ex": "I will upload the photos to the website tonight.",
+"et": "Fotoğrafları bu gece web sitesine yükleyeceğim."
+},
+{
+"r": 3542,
+"w": "spray",
+"p": "v",
+"tr": "püskürtmek, sıkmak",
+"ex": "She sprayed water on the plants.",
+"et": "Bitkilere su püskürttü."
+},
+{
+"r": 3543,
+"w": "fold",
+"p": "v",
+"tr": "katlamak",
+"ex": "Please fold the towels and put them away.",
+"et": "Lütfen havluları katlayıp kaldır."
+},
+{
+"r": 3544,
+"w": "controversy",
+"p": "n",
+"tr": "tartışma, anlaşmazlık",
+"ex": "The new rule caused a lot of controversy.",
+"et": "Yeni kural çok tartışmaya yol açtı."
+},
+{
+"r": 3545,
+"w": "cave",
+"p": "n",
+"tr": "mağara",
+"ex": "We explored a large cave near the sea.",
+"et": "Deniz kenarındaki büyük bir mağarayı keşfettik."
+},
+{
+"r": 3546,
+"w": "bubble",
+"p": "n",
+"tr": "kabarcık, baloncuk",
+"ex": "The child blew a big soap bubble.",
+"et": "Çocuk büyük bir sabun köpüğü baloncuğu üfledi."
+},
+{
+"r": 3547,
+"w": "classify",
+"p": "v",
+"tr": "sınıflandırmak",
+"ex": "Scientists classify animals into groups.",
+"et": "Bilim insanları hayvanları gruplara ayırır."
+},
+{
+"r": 3548,
+"w": "pub",
+"p": "n",
+"tr": "pub, birahane",
+"ex": "We had dinner at a small pub.",
+"et": "Küçük bir pubda akşam yemeği yedik."
+},
+{
+"r": 3549,
+"w": "assumption",
+"p": "n",
+"tr": "varsayım, tahmin",
+"ex": "That is a wrong assumption about him.",
+"et": "Bu, onunla ilgili yanlış bir varsayım."
+},
+{
+"r": 3550,
+"w": "depress",
+"p": "v",
+"tr": "bunaltmak, moralini bozmak",
+"ex": "Rainy weather can depress some people.",
+"et": "Yağmurlu hava bazı insanların moralini bozabilir."
+},
+{
+"r": 3551,
+"w": "stack",
+"p": "n",
+"tr": "yığın, istif",
+"ex": "There is a stack of books on my desk.",
+"et": "Masamda bir yığın kitap var."
+},
+{
+"r": 3552,
+"w": "metre",
+"p": "n",
+"tr": "metre",
+"ex": "The pool is two metres deep.",
+"et": "Havuz iki metre derinliğinde."
+},
+{
+"r": 3553,
+"w": "palm",
+"p": "n",
+"tr": "avuç içi, palmiye",
+"ex": "He held the coin in the palm of his hand.",
+"et": "Parayı avucunun içinde tuttu."
+},
+{
+"r": 3554,
+"w": "installation",
+"p": "n",
+"tr": "kurulum, montaj",
+"ex": "The installation of the new software took an hour.",
+"et": "Yeni yazılımın kurulumu bir saat sürdü."
+},
+{
+"r": 3555,
+"w": "socialist",
+"p": "n",
+"tr": "sosyalist",
+"ex": "My uncle is a socialist and likes to talk politics.",
+"et": "Amcam bir sosyalist ve siyaset konuşmayı sever."
+},
+{
+"r": 3556,
+"w": "preference",
+"p": "n",
+"tr": "tercih",
+"ex": "Do you have a preference for tea or coffee?",
+"et": "Çay mı kahve mi tercihin var mı?"
+},
+{
+"r": 3557,
+"w": "bend",
+"p": "v",
+"tr": "eğmek, bükmek, eğilmek",
+"ex": "Bend your knees when you pick up a box.",
+"et": "Bir kutuyu kaldırırken dizlerini bük."
+},
+{
+"r": 3558,
+"w": "laptop",
+"p": "n",
+"tr": "dizüstü bilgisayar",
+"ex": "I carry my laptop to work every day.",
+"et": "Dizüstü bilgisayarımı her gün işe götürüyorum."
+},
+{
+"r": 3559,
+"w": "ali",
+"drop": "özel isim"
+},
+{
+"r": 3560,
+"w": "amongst",
+"p": "prep",
+"tr": "arasında, içinde",
+"ex": "She was amongst the first to arrive.",
+"et": "Gelenlerin ilkleri arasındaydı."
+},
+{
+"r": 3561,
+"w": "arsenal",
+"drop": "özel isim"
+},
+{
+"r": 3562,
+"w": "biological",
+"p": "adj",
+"tr": "biyolojik",
+"ex": "He studies the biological causes of the illness.",
+"et": "Hastalığın biyolojik nedenlerini inceliyor."
+},
+{
+"r": 3563,
+"w": "discrimination",
+"p": "n",
+"tr": "ayrımcılık",
+"ex": "Discrimination at work is against the law.",
+"et": "İş yerinde ayrımcılık yasalara aykırıdır."
+},
+{
+"r": 3564,
+"w": "dynamic",
+"p": "adj",
+"tr": "dinamik, hareketli",
+"ex": "She is a dynamic and energetic teacher.",
+"et": "O, dinamik ve enerjik bir öğretmen."
+},
+{
+"r": 3565,
+"w": "footage",
+"p": "n",
+"tr": "görüntü, film kaydı",
+"ex": "The news showed footage of the storm.",
+"et": "Haberlerde fırtınanın görüntüleri gösterildi."
+},
+{
+"r": 3566,
+"w": "hamilton",
+"drop": "özel isim"
+},
+{
+"r": 3567,
+"w": "implementation",
+"p": "n",
+"tr": "uygulama, hayata geçirme",
+"ex": "The implementation of the plan will take a year.",
+"et": "Planın hayata geçirilmesi bir yıl sürecek."
+},
+{
+"r": 3568,
+"w": "indiana",
+"drop": "özel isim"
+},
+{
+"r": 3569,
+"w": "jazz",
+"p": "n",
+"tr": "caz",
+"ex": "We listened to jazz at the café.",
+"et": "Kafede caz dinledik."
+},
+{
+"r": 3570,
+"w": "jon",
+"drop": "özel isim"
+},
+{
+"r": 3571,
+"w": "jonathan",
+"drop": "özel isim"
+},
+{
+"r": 3572,
+"w": "lawrence",
+"drop": "özel isim"
+},
+{
+"r": 3573,
+"w": "lincoln",
+"drop": "özel isim"
+},
+{
+"r": 3574,
+"w": "literary",
+"p": "adj",
+"tr": "edebî, yazınsal",
+"ex": "She won a literary prize for her first novel.",
+"et": "İlk romanıyla bir edebiyat ödülü kazandı."
+},
+{
+"r": 3575,
+"w": "massachusetts",
+"drop": "özel isim"
+},
+{
+"r": 3576,
+"w": "midnight",
+"p": "n",
+"tr": "gece yarısı",
+"ex": "The party ended at midnight.",
+"et": "Parti gece yarısı bitti."
+},
+{
+"r": 3577,
+"w": "minnesota",
+"drop": "özel isim"
+},
+{
+"r": 3578,
+"w": "oscar",
+"drop": "özel isim"
+},
+{
+"r": 3579,
+"w": "piano",
+"p": "n",
+"tr": "piyano",
+"ex": "My daughter plays the piano every evening.",
+"et": "Kızım her akşam piyano çalıyor."
+},
+{
+"r": 3580,
+"w": "psychology",
+"p": "n",
+"tr": "psikoloji",
+"ex": "He is studying psychology at university.",
+"et": "Üniversitede psikoloji okuyor."
+},
+{
+"r": 3581,
+"w": "saudi",
+"drop": "özel isim"
+},
+{
+"r": 3582,
+"w": "sean",
+"drop": "özel isim"
+},
+{
+"r": 3583,
+"w": "sec",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3584,
+"w": "stability",
+"p": "n",
+"tr": "istikrar, denge",
+"ex": "The country needs political stability.",
+"et": "Ülkenin siyasi istikrara ihtiyacı var."
+},
+{
+"r": 3585,
+"w": "steady",
+"p": "adj",
+"tr": "sabit, düzenli, istikrarlı",
+"ex": "He walked at a steady pace.",
+"et": "Sabit bir hızla yürüdü."
+},
+{
+"r": 3586,
+"w": "triple",
+"p": "adj",
+"tr": "üç katlı, üçlü",
+"ex": "He ordered a triple chocolate cake.",
+"et": "Üç katlı bir çikolatalı pasta sipariş etti."
+},
+{
+"r": 3587,
+"w": "unlikely",
+"p": "adj",
+"tr": "olası olmayan, beklenmeyen",
+"ex": "It is unlikely that it will snow tomorrow.",
+"et": "Yarın kar yağması olası değil."
+},
+{
+"r": 3588,
+"w": "vietnam",
+"drop": "özel isim"
+},
+{
+"r": 3589,
+"w": "burst",
+"p": "v",
+"tr": "patlamak, yarılmak",
+"ex": "The water pipe burst during the night.",
+"et": "Su borusu gece boyunca patladı."
+},
+{
+"r": 3590,
+"w": "resign",
+"p": "v",
+"tr": "istifa etmek",
+"ex": "The manager decided to resign last week.",
+"et": "Müdür geçen hafta istifa etmeye karar verdi."
+},
+{
+"r": 3591,
+"w": "hr",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3592,
+"w": "rider",
+"p": "n",
+"tr": "binici, sürücü",
+"ex": "The rider got off the horse and rested.",
+"et": "Binici attan inip dinlendi."
+},
+{
+"r": 3593,
+"w": "pile",
+"p": "n",
+"tr": "yığın, küme",
+"ex": "There is a pile of dirty clothes on the floor.",
+"et": "Yerde bir yığın kirli çamaşır var."
+},
+{
+"r": 3594,
+"w": "leaf",
+"p": "n",
+"tr": "yaprak",
+"ex": "A red leaf fell from the tree.",
+"et": "Ağaçtan kırmızı bir yaprak düştü."
+},
+{
+"r": 3595,
+"w": "breathe",
+"p": "v",
+"tr": "nefes almak",
+"ex": "Breathe in slowly and then breathe out.",
+"et": "Yavaşça nefes al, sonra ver."
+},
+{
+"r": 3596,
+"w": "designate",
+"p": "v",
+"tr": "belirlemek, atamak, göstermek",
+"ex": "The city will designate a new area for parking.",
+"et": "Şehir otopark için yeni bir alan belirleyecek."
+},
+{
+"r": 3597,
+"w": "torture",
+"p": "n",
+"tr": "işkence",
+"ex": "The report talks about the torture of prisoners.",
+"et": "Rapor mahkûmlara yapılan işkenceden söz ediyor."
+},
+{
+"r": 3598,
+"w": "correspond",
+"p": "v",
+"tr": "karşılık gelmek, örtüşmek, yazışmak",
+"ex": "The numbers on the list correspond to the pictures.",
+"et": "Listedeki numaralar resimlere karşılık geliyor."
+},
+{
+"r": 3599,
+"w": "architect",
+"p": "n",
+"tr": "mimar",
+"ex": "The architect designed a modern library.",
+"et": "Mimar modern bir kütüphane tasarladı."
+},
+{
+"r": 3600,
+"w": "grain",
+"p": "n",
+"tr": "tahıl, tane",
+"ex": "Farmers store the grain in large silos.",
+"et": "Çiftçiler tahılı büyük silolarda depolar."
+},
+{
+"r": 3601,
+"w": "horn",
+"p": "n",
+"tr": "boynuz, korna",
+"ex": "The driver pressed the horn loudly.",
+"et": "Sürücü kornaya yüksek sesle bastı."
+},
+{
+"r": 3602,
+"w": "extract",
+"p": "v",
+"tr": "çıkarmak, ayıklamak",
+"ex": "The dentist had to extract my tooth.",
+"et": "Diş hekimi dişimi çekmek zorunda kaldı."
+},
+{
+"r": 3603,
+"w": "genre",
+"p": "n",
+"tr": "tür, tarz",
+"ex": "Fantasy is my favorite book genre.",
+"et": "Fantastik benim en sevdiğim kitap türü."
+},
+{
+"r": 3604,
+"w": "recognise",
+"p": "v",
+"tr": "tanımak, fark etmek",
+"ex": "I did not recognise him with his new haircut.",
+"et": "Yeni saç kesimiyle onu tanıyamadım."
+},
+{
+"r": 3605,
+"w": "lb",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3606,
+"w": "agenda",
+"p": "n",
+"tr": "gündem, ajanda",
+"ex": "The first item on the agenda is the budget.",
+"et": "Gündemin ilk maddesi bütçe."
+},
+{
+"r": 3607,
+"w": "cape",
+"p": "n",
+"tr": "pelerin, burun",
+"ex": "The hero wore a long red cape.",
+"et": "Kahraman uzun kırmızı bir pelerin giyiyordu."
+},
+{
+"r": 3608,
+"w": "collective",
+"p": "adj",
+"tr": "toplu, ortak",
+"ex": "It was a collective decision of the whole team.",
+"et": "Bu, tüm ekibin ortak kararıydı."
+},
+{
+"r": 3609,
+"w": "cooperation",
+"p": "n",
+"tr": "iş birliği, işbirliği",
+"ex": "The project needs cooperation between all teams.",
+"et": "Proje, tüm ekipler arasında iş birliği gerektiriyor."
+},
+{
+"r": 3610,
+"w": "darkness",
+"p": "n",
+"tr": "karanlık",
+"ex": "We walked home in complete darkness.",
+"et": "Eve tamamen karanlıkta yürüdük."
+},
+{
+"r": 3611,
+"w": "equity",
+"p": "n",
+"tr": "adalet, hakkaniyet, özsermaye",
+"ex": "The group works for equity in education.",
+"et": "Grup eğitimde adalet için çalışıyor."
+},
+{
+"r": 3612,
+"w": "goodbye",
+"p": "int",
+"tr": "hoşça kal, elveda",
+"ex": "She waved goodbye and left.",
+"et": "Elini sallayarak hoşça kal dedi ve gitti."
+},
+{
+"r": 3613,
+"w": "graham",
+"drop": "özel isim"
+},
+{
+"r": 3614,
+"w": "hardware",
+"p": "n",
+"tr": "donanım, hırdavat",
+"ex": "The computer needs new hardware.",
+"et": "Bilgisayarın yeni bir donanıma ihtiyacı var."
+},
+{
+"r": 3615,
+"w": "hillary",
+"drop": "özel isim"
+},
+{
+"r": 3616,
+"w": "involvement",
+"p": "n",
+"tr": "katılım, ilgi, dahil olma",
+"ex": "His involvement in the project made it better.",
+"et": "Projeye katılımı onu daha iyi hale getirdi."
+},
+{
+"r": 3617,
+"w": "kentucky",
+"drop": "özel isim"
+},
+{
+"r": 3618,
+"w": "madrid",
+"drop": "özel isim"
+},
+{
+"r": 3619,
+"w": "oregon",
+"drop": "özel isim"
+},
+{
+"r": 3620,
+"w": "partly",
+"p": "adv",
+"tr": "kısmen, bir ölçüde",
+"ex": "The sky will be partly cloudy tomorrow.",
+"et": "Yarın gökyüzü kısmen bulutlu olacak."
+},
+{
+"r": 3621,
+"w": "physically",
+"p": "adv",
+"tr": "fiziksel olarak, bedenen",
+"ex": "She is physically strong but very kind.",
+"et": "Fiziksel olarak güçlü ama çok kibar."
+},
+{
+"r": 3622,
+"w": "racial",
+"p": "adj",
+"tr": "ırksal, ırk ile ilgili",
+"ex": "The school teaches students to respect racial differences.",
+"et": "Okul öğrencilere ırksal farklılıklara saygı göstermeyi öğretiyor."
+},
+{
+"r": 3623,
+"w": "sa",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3624,
+"w": "sauce",
+"p": "n",
+"tr": "sos",
+"ex": "I like tomato sauce on my pasta.",
+"et": "Makarnamın üzerine domates sosu severim."
+},
+{
+"r": 3625,
+"w": "similarly",
+"p": "adv",
+"tr": "benzer şekilde, aynı şekilde",
+"ex": "Similarly, the second group did the same test.",
+"et": "Benzer şekilde, ikinci grup da aynı testi yaptı."
+},
+{
+"r": 3626,
+"w": "summit",
+"p": "n",
+"tr": "zirve, doruk",
+"ex": "They reached the summit of the mountain at noon.",
+"et": "Öğlen dağın zirvesine ulaştılar."
+},
+{
+"r": 3627,
+"w": "talented",
+"p": "adj",
+"tr": "yetenekli",
+"ex": "She is a talented young singer.",
+"et": "O, yetenekli genç bir şarkıcı."
+},
+{
+"r": 3628,
+"w": "wisdom",
+"p": "n",
+"tr": "bilgelik, akıl",
+"ex": "Grandfather is known for his wisdom.",
+"et": "Büyükbabam bilgeliğiyle tanınır."
+},
+{
+"r": 3629,
+"w": "outlet",
+"p": "n",
+"tr": "çıkış yolu, priz, satış noktası",
+"ex": "There is an outlet near the window for my charger.",
+"et": "Şarj aletim için pencerenin yanında bir priz var."
+},
+{
+"r": 3630,
+"w": "icon",
+"p": "n",
+"tr": "simge, ikon",
+"ex": "Click on the icon to open the program.",
+"et": "Programı açmak için simgeye tıkla."
+},
+{
+"r": 3631,
+"w": "analyze",
+"p": "v",
+"tr": "analiz etmek, incelemek",
+"ex": "Scientists analyze the data from the experiment.",
+"et": "Bilim insanları deneyden elde edilen verileri analiz eder."
+},
+{
+"r": 3632,
+"w": "motivate",
+"p": "v",
+"tr": "motive etmek, güdülemek",
+"ex": "A good teacher can motivate students to learn.",
+"et": "İyi bir öğretmen öğrencileri öğrenmeye motive edebilir."
+},
+{
+"r": 3633,
+"w": "surgeon",
+"p": "n",
+"tr": "cerrah",
+"ex": "The surgeon worked for four hours.",
+"et": "Cerrah dört saat çalıştı."
+},
+{
+"r": 3634,
+"w": "particle",
+"p": "n",
+"tr": "parçacık, zerre",
+"ex": "Dust particles floated in the sunlight.",
+"et": "Toz parçacıkları güneş ışığında süzülüyordu."
+},
+{
+"r": 3635,
+"w": "tactic",
+"p": "n",
+"tr": "taktik, yöntem",
+"ex": "Patience was his best tactic in the game.",
+"et": "Sabır, oyundaki en iyi taktiğiydi."
+},
+{
+"r": 3636,
+"w": "noble",
+"p": "adj",
+"tr": "asil, soylu",
+"ex": "He comes from a noble family.",
+"et": "Soylu bir aileden geliyor."
+},
+{
+"r": 3637,
+"w": "perception",
+"p": "n",
+"tr": "algı, kavrayış",
+"ex": "Our perception of time changes as we get older.",
+"et": "Zaman algımız yaşlandıkça değişir."
+},
+{
+"r": 3638,
+"w": "cock",
+"p": "n",
+"tr": "horoz",
+"ex": "The cock crowed at dawn.",
+"et": "Horoz şafak vakti öttü."
+},
+{
+"r": 3639,
+"w": "heal",
+"p": "v",
+"tr": "iyileşmek, iyileştirmek",
+"ex": "The cut will heal in a few days.",
+"et": "Kesik birkaç gün içinde iyileşecek."
+},
+{
+"r": 3640,
+"w": "undergo",
+"p": "v",
+"tr": "geçirmek, görmek, maruz kalmak",
+"ex": "He had to undergo a long medical test.",
+"et": "Uzun bir tıbbi testten geçmek zorunda kaldı."
+},
+{
+"r": 3641,
+"w": "admission",
+"p": "n",
+"tr": "kabul, giriş, itiraf",
+"ex": "Admission to the museum is free on Sundays.",
+"et": "Müzeye giriş pazar günleri ücretsizdir."
+},
+{
+"r": 3642,
+"w": "medication",
+"p": "n",
+"tr": "ilaç, tedavi",
+"ex": "She takes medication for her headaches.",
+"et": "Baş ağrıları için ilaç kullanıyor."
+},
+{
+"r": 3643,
+"w": "protocol",
+"p": "n",
+"tr": "protokol",
+"ex": "Doctors follow a strict protocol in the hospital.",
+"et": "Doktorlar hastanede sıkı bir protokole uyar."
+},
+{
+"r": 3644,
+"w": "scholarship",
+"p": "n",
+"tr": "burs",
+"ex": "He won a scholarship to study abroad.",
+"et": "Yurt dışında okumak için bir burs kazandı."
+},
+{
+"r": 3645,
+"w": "conversion",
+"p": "n",
+"tr": "dönüşüm, çevirme",
+"ex": "The conversion of the old factory into homes took two years.",
+"et": "Eski fabrikanın konutlara dönüştürülmesi iki yıl sürdü."
+},
+{
+"r": 3646,
+"w": "prompt",
+"p": "adj",
+"tr": "çabuk, hızlı, zamanında",
+"ex": "We thank you for your prompt reply.",
+"et": "Hızlı cevabınız için teşekkür ederiz."
+},
+{
+"r": 3647,
+"w": "powder",
+"p": "n",
+"tr": "toz, pudra",
+"ex": "Add a spoon of milk powder to the cup.",
+"et": "Fincana bir kaşık süt tozu ekle."
+},
+{
+"r": 3648,
+"w": "substitute",
+"p": "v",
+"tr": "yerine koymak, değiştirmek",
+"ex": "You can substitute honey for sugar in this recipe.",
+"et": "Bu tarifte şeker yerine bal kullanabilirsin."
+},
+{
+"r": 3649,
+"w": "anticipate",
+"p": "v",
+"tr": "beklemek, öngörmek",
+"ex": "We anticipate a lot of traffic tomorrow.",
+"et": "Yarın çok trafik olmasını bekliyoruz."
+},
+{
+"r": 3650,
+"w": "treasure",
+"p": "n",
+"tr": "hazine, define",
+"ex": "The children found an old treasure map.",
+"et": "Çocuklar eski bir define haritası buldu."
+},
+{
+"r": 3651,
+"w": "arrow",
+"p": "n",
+"tr": "ok",
+"ex": "The arrow points to the exit.",
+"et": "Ok çıkışı gösteriyor."
+},
+{
+"r": 3652,
+"w": "bitcoin",
+"p": "n",
+"tr": "bitcoin",
+"ex": "He bought some bitcoin last year.",
+"et": "Geçen yıl biraz bitcoin satın aldı."
+},
+{
+"r": 3653,
+"w": "perceive",
+"p": "v",
+"tr": "algılamak, fark etmek",
+"ex": "Children perceive the world differently from adults.",
+"et": "Çocuklar dünyayı yetişkinlerden farklı algılar."
+},
+{
+"r": 3654,
+"w": "echo",
+"p": "n",
+"tr": "yankı, eko",
+"ex": "We heard an echo inside the cave.",
+"et": "Mağaranın içinde bir yankı duyduk."
+},
+{
+"r": 3655,
+"w": "riot",
+"p": "n",
+"tr": "ayaklanma, isyan",
+"ex": "The police stopped the riot in the city center.",
+"et": "Polis şehir merkezindeki ayaklanmayı durdurdu."
+},
+{
+"r": 3656,
+"w": "dip",
+"p": "v",
+"tr": "daldırmak, batırmak",
+"ex": "He dipped the bread into the soup.",
+"et": "Ekmeği çorbaya batırdı."
+},
+{
+"r": 3657,
+"w": "lap",
+"p": "n",
+"tr": "kucak, tur",
+"ex": "The runner finished the last lap quickly.",
+"et": "Koşucu son turu hızlıca bitirdi."
+},
+{
+"r": 3658,
+"w": "companion",
+"p": "n",
+"tr": "arkadaş, yoldaş, eşlikçi",
+"ex": "The old man's dog was his only companion.",
+"et": "Yaşlı adamın köpeği onun tek yoldaşıydı."
+},
+{
+"r": 3659,
+"w": "bust",
+"p": "v",
+"tr": "kırmak, bozmak",
+"ex": "The kids almost busted the window with a ball.",
+"et": "Çocuklar top yüzünden neredeyse camı kıracaklardı."
+},
+{
+"r": 3660,
+"w": "curse",
+"p": "n",
+"tr": "lanet, beddua, küfür",
+"ex": "People say a curse follows the old house.",
+"et": "İnsanlar eski eve bir lanetin musallat olduğunu söyler."
+},
+{
+"r": 3661,
+"w": "canal",
+"p": "n",
+"tr": "kanal",
+"ex": "Boats travel along the canal every day.",
+"et": "Tekneler her gün kanal boyunca ilerler."
+},
+{
+"r": 3662,
+"w": "beam",
+"p": "n",
+"tr": "ışın, kiriş",
+"ex": "A beam of light came through the window.",
+"et": "Pencereden bir ışın demeti girdi."
+},
+{
+"r": 3663,
+"w": "dot",
+"p": "n",
+"tr": "nokta",
+"ex": "Put a dot at the end of the sentence.",
+"et": "Cümlenin sonuna bir nokta koy."
+},
+{
+"r": 3664,
+"w": "accounting",
+"p": "n",
+"tr": "muhasebe",
+"ex": "She works in the accounting department.",
+"et": "Muhasebe bölümünde çalışıyor."
+},
+{
+"r": 3665,
+"w": "awkward",
+"p": "adj",
+"tr": "garip, tuhaf, beceriksiz",
+"ex": "There was an awkward silence after his question.",
+"et": "Sorusundan sonra garip bir sessizlik oldu."
+},
+{
+"r": 3666,
+"w": "beef",
+"p": "n",
+"tr": "dana eti, sığır eti",
+"ex": "We had beef and rice for dinner.",
+"et": "Akşam yemeğinde pilav ve dana eti yedik."
+},
+{
+"r": 3667,
+"w": "candy",
+"p": "n",
+"tr": "şeker, şekerleme",
+"ex": "The children ate too much candy.",
+"et": "Çocuklar çok fazla şeker yedi."
+},
+{
+"r": 3668,
+"w": "clay",
+"p": "n",
+"tr": "kil, çamur",
+"ex": "The potter shaped the clay into a bowl.",
+"et": "Çömlekçi kili bir kâse şekline soktu."
+},
+{
+"r": 3669,
+"w": "dec",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3670,
+"w": "default",
+"p": "n",
+"tr": "varsayılan, temerrüt",
+"ex": "The default language of the phone is English.",
+"et": "Telefonun varsayılan dili İngilizce."
+},
+{
+"r": 3671,
+"w": "delhi",
+"drop": "özel isim"
+},
+{
+"r": 3672,
+"w": "dialogue",
+"p": "n",
+"tr": "diyalog, konuşma",
+"ex": "The dialogue in this movie is very funny.",
+"et": "Bu filmdeki diyaloglar çok komik."
+},
+{
+"r": 3673,
+"w": "distinct",
+"p": "adj",
+"tr": "ayrı, belirgin, farklı",
+"ex": "The two brothers have distinct personalities.",
+"et": "İki kardeşin kişilikleri birbirinden farklı."
+},
+{
+"r": 3674,
+"w": "eligible",
+"p": "adj",
+"tr": "uygun, hak sahibi",
+"ex": "You are eligible for a student discount.",
+"et": "Öğrenci indiriminden yararlanma hakkın var."
+},
+{
+"r": 3675,
+"w": "fifty",
+"p": "num",
+"tr": "elli",
+"ex": "My mother is fifty years old.",
+"et": "Annem elli yaşında."
+},
+{
+"r": 3676,
+"w": "furniture",
+"p": "n",
+"tr": "mobilya, eşya",
+"ex": "We bought new furniture for the living room.",
+"et": "Oturma odası için yeni mobilya aldık."
+},
+{
+"r": 3677,
+"w": "intelligent",
+"p": "adj",
+"tr": "zeki, akıllı",
+"ex": "She is an intelligent and curious student.",
+"et": "O, zeki ve meraklı bir öğrenci."
+},
+{
+"r": 3678,
+"w": "lisa",
+"drop": "özel isim"
+},
+{
+"r": 3679,
+"w": "mp",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3680,
+"w": "overseas",
+"p": "adv",
+"tr": "yurt dışında, denizaşırı",
+"ex": "Her brother works overseas.",
+"et": "Erkek kardeşi yurt dışında çalışıyor."
+},
+{
+"r": 3681,
+"w": "philippines",
+"drop": "özel isim"
+},
+{
+"r": 3682,
+"w": "reliable",
+"p": "adj",
+"tr": "güvenilir",
+"ex": "My car is old but very reliable.",
+"et": "Arabam eski ama çok güvenilir."
+},
+{
+"r": 3683,
+"w": "remarkable",
+"p": "adj",
+"tr": "dikkate değer, olağanüstü",
+"ex": "She made remarkable progress in a short time.",
+"et": "Kısa sürede dikkate değer bir ilerleme kaydetti."
+},
+{
+"r": 3684,
+"w": "se",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3685,
+"w": "sole",
+"p": "adj",
+"tr": "tek, biricik",
+"ex": "The sole survivor of the accident was a child.",
+"et": "Kazadan sağ kurtulan tek kişi bir çocuktu."
+},
+{
+"r": 3686,
+"w": "timing",
+"p": "n",
+"tr": "zamanlama",
+"ex": "Good timing is important in comedy.",
+"et": "Komedide iyi zamanlama önemlidir."
+},
+{
+"r": 3687,
+"w": "worship",
+"p": "n",
+"tr": "ibadet, tapınma",
+"ex": "The church is a place of worship.",
+"et": "Kilise bir ibadet yeridir."
+},
+{
+"r": 3688,
+"w": "worthy",
+"p": "adj",
+"tr": "layık, değerli",
+"ex": "He is worthy of respect.",
+"et": "O saygıyı hak ediyor."
+},
+{
+"r": 3689,
+"w": "plug",
+"p": "n",
+"tr": "fiş, tapa",
+"ex": "Pull the plug out of the wall before cleaning.",
+"et": "Temizlemeden önce fişi prizden çek."
+},
+{
+"r": 3690,
+"w": "pat",
+"p": "v",
+"tr": "hafifçe vurmak, okşamak",
+"ex": "He patted the dog on the head.",
+"et": "Köpeğin başını okşadı."
+},
+{
+"r": 3691,
+"w": "reflection",
+"p": "n",
+"tr": "yansıma, düşünme",
+"ex": "I saw my reflection in the window.",
+"et": "Pencerede kendi yansımamı gördüm."
+},
+{
+"r": 3692,
+"w": "trophy",
+"p": "n",
+"tr": "kupa, ödül",
+"ex": "The team proudly held up the trophy.",
+"et": "Takım kupayı gururla havaya kaldırdı."
+},
+{
+"r": 3693,
+"w": "convict",
+"p": "v",
+"tr": "mahkûm etmek",
+"ex": "The jury decided to convict the man.",
+"et": "Jüri adamı mahkûm etmeye karar verdi."
+},
+{
+"r": 3694,
+"w": "chick",
+"p": "n",
+"tr": "civciv",
+"ex": "A small yellow chick followed the hen.",
+"et": "Küçük sarı bir civciv tavuğun peşinden gitti."
+},
+{
+"r": 3695,
+"w": "sandwich",
+"p": "n",
+"tr": "sandviç",
+"ex": "I had a cheese sandwich for lunch.",
+"et": "Öğle yemeğinde peynirli sandviç yedim."
+},
+{
+"r": 3696,
+"w": "competitor",
+"p": "n",
+"tr": "rakip",
+"ex": "Our main competitor opened a new store.",
+"et": "Başlıca rakibimiz yeni bir mağaza açtı."
+},
+{
+"r": 3697,
+"w": "brake",
+"p": "n",
+"tr": "fren",
+"ex": "He pressed the brake to stop the car.",
+"et": "Arabayı durdurmak için frene bastı."
+},
+{
+"r": 3698,
+"w": "differ",
+"p": "v",
+"tr": "farklı olmak, ayrılmak",
+"ex": "Our opinions differ on this subject.",
+"et": "Bu konuda fikirlerimiz farklı."
+},
+{
+"r": 3699,
+"w": "tablet",
+"p": "n",
+"tr": "tablet, hap",
+"ex": "She reads books on her tablet.",
+"et": "Kitapları tabletinde okuyor."
+},
+{
+"r": 3700,
+"w": "pie",
+"p": "n",
+"tr": "turta, pasta",
+"ex": "My mother baked an apple pie.",
+"et": "Annem bir elmalı turta pişirdi."
+},
+{
+"r": 3701,
+"w": "ingredient",
+"p": "n",
+"tr": "malzeme, bileşen",
+"ex": "Flour is the main ingredient in bread.",
+"et": "Un, ekmeğin ana malzemesidir."
+},
+{
+"r": 3702,
+"w": "bin",
+"p": "n",
+"tr": "çöp kutusu",
+"ex": "Throw the paper in the bin.",
+"et": "Kâğıdı çöp kutusuna at."
+},
+{
+"r": 3703,
+"w": "laser",
+"p": "n",
+"tr": "lazer",
+"ex": "The doctor used a laser during the surgery.",
+"et": "Doktor ameliyat sırasında lazer kullandı."
+},
+{
+"r": 3704,
+"w": "miracle",
+"p": "n",
+"tr": "mucize",
+"ex": "It was a miracle that nobody was hurt.",
+"et": "Kimsenin yaralanmaması bir mucizeydi."
+},
+{
+"r": 3705,
+"w": "fade",
+"p": "v",
+"tr": "solmak, silinmek, azalmak",
+"ex": "The color of my shirt began to fade.",
+"et": "Gömleğimin rengi solmaya başladı."
+},
+{
+"r": 3706,
+"w": "motivation",
+"p": "n",
+"tr": "motivasyon, isteklilik",
+"ex": "He lost his motivation to study.",
+"et": "Ders çalışma motivasyonunu kaybetti."
+},
+{
+"r": 3707,
+"w": "hammer",
+"p": "n",
+"tr": "çekiç",
+"ex": "He used a hammer to fix the fence.",
+"et": "Çiti onarmak için bir çekiç kullandı."
+},
+{
+"r": 3708,
+"w": "throne",
+"p": "n",
+"tr": "taht",
+"ex": "The king sat on his golden throne.",
+"et": "Kral altın tahtına oturdu."
+},
+{
+"r": 3709,
+"w": "mineral",
+"p": "n",
+"tr": "mineral, maden",
+"ex": "Milk has many important minerals.",
+"et": "Sütte birçok önemli mineral bulunur."
+},
+{
+"r": 3710,
+"w": "oak",
+"p": "n",
+"tr": "meşe",
+"ex": "A huge oak grows in front of our school.",
+"et": "Okulumuzun önünde kocaman bir meşe ağacı var."
+},
+{
+"r": 3711,
+"w": "boil",
+"p": "v",
+"tr": "kaynamak, kaynatmak",
+"ex": "Boil the water before you add the pasta.",
+"et": "Makarnayı eklemeden önce suyu kaynat."
+},
+{
+"r": 3712,
+"w": "amateur",
+"p": "n",
+"tr": "amatör",
+"ex": "He is an amateur photographer.",
+"et": "O amatör bir fotoğrafçı."
+},
+{
+"r": 3713,
+"w": "bass",
+"p": "n",
+"tr": "bas, bas gitar",
+"ex": "He plays the bass in a rock band.",
+"et": "Bir rock grubunda bas çalıyor."
+},
+{
+"r": 3714,
+"w": "bloody",
+"p": "adj",
+"tr": "kanlı",
+"ex": "The soldier had a bloody bandage on his arm.",
+"et": "Askerin kolunda kanlı bir sargı vardı."
+},
+{
+"r": 3715,
+"w": "breathing",
+"p": "n",
+"tr": "nefes alma, solunum",
+"ex": "Slow breathing helps you relax.",
+"et": "Yavaş nefes almak rahatlamana yardımcı olur."
+},
+{
+"r": 3716,
+"w": "cnn",
+"drop": "özel isim"
+},
+{
+"r": 3717,
+"w": "con",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3718,
+"w": "crucial",
+"p": "adj",
+"tr": "çok önemli, belirleyici",
+"ex": "Sleep is crucial for good health.",
+"et": "Uyku, sağlık için çok önemlidir."
+},
+{
+"r": 3719,
+"w": "dependent",
+"p": "adj",
+"tr": "bağımlı, bağlı",
+"ex": "Young children are dependent on their parents.",
+"et": "Küçük çocuklar ebeveynlerine bağımlıdır."
+},
+{
+"r": 3720,
+"w": "dual",
+"p": "adj",
+"tr": "çift, ikili",
+"ex": "The car has a dual purpose: work and travel.",
+"et": "Arabanın ikili bir amacı var: iş ve seyahat."
+},
+{
+"r": 3721,
+"w": "edinburgh",
+"drop": "özel isim"
+},
+{
+"r": 3722,
+"w": "experimental",
+"p": "adj",
+"tr": "deneysel",
+"ex": "The school uses an experimental teaching method.",
+"et": "Okul deneysel bir öğretim yöntemi kullanıyor."
+},
+{
+"r": 3723,
+"w": "feeding",
+"p": "n",
+"tr": "besleme, beslenme",
+"ex": "The feeding of the baby takes place every three hours.",
+"et": "Bebeğin beslenmesi üç saatte bir yapılıyor."
+},
+{
+"r": 3724,
+"w": "globe",
+"p": "n",
+"tr": "küre, dünya",
+"ex": "He turned the globe and pointed to Japan.",
+"et": "Küreyi çevirip Japonya'yı gösterdi."
+},
+{
+"r": 3725,
+"w": "greece",
+"drop": "özel isim"
+},
+{
+"r": 3726,
+"w": "gulf",
+"p": "n",
+"tr": "körfez",
+"ex": "Ships sail across the gulf every day.",
+"et": "Gemiler her gün körfezi geçer."
+},
+{
+"r": 3727,
+"w": "intent",
+"p": "n",
+"tr": "niyet, amaç",
+"ex": "He had no intent to hurt anyone.",
+"et": "Kimseyi incitme niyeti yoktu."
+},
+{
+"r": 3728,
+"w": "kennedy",
+"drop": "özel isim"
+},
+{
+"r": 3729,
+"w": "larry",
+"drop": "özel isim"
+},
+{
+"r": 3730,
+"w": "las",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3731,
+"w": "lmao",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3732,
+"w": "malaysia",
+"drop": "özel isim"
+},
+{
+"r": 3733,
+"w": "moore",
+"drop": "özel isim"
+},
+{
+"r": 3734,
+"w": "nazi",
+"drop": "özel isim"
+},
+{
+"r": 3735,
+"w": "netherlands",
+"drop": "özel isim"
+},
+{
+"r": 3736,
+"w": "peaceful",
+"p": "adj",
+"tr": "barışçıl, huzurlu",
+"ex": "We spent a peaceful weekend in the country.",
+"et": "Hafta sonunu kırsalda huzurlu bir şekilde geçirdik."
+},
+{
+"r": 3737,
+"w": "philip",
+"drop": "özel isim"
+},
+{
+"r": 3738,
+"w": "prevention",
+"p": "n",
+"tr": "önleme, korunma",
+"ex": "Prevention is better than cure.",
+"et": "Önlem almak, tedaviden iyidir."
+},
+{
+"r": 3739,
+"w": "publicly",
+"p": "adv",
+"tr": "alenen, herkesin önünde",
+"ex": "The mayor publicly thanked the volunteers.",
+"et": "Belediye başkanı gönüllülere alenen teşekkür etti."
+},
+{
+"r": 3740,
+"w": "revenge",
+"p": "n",
+"tr": "intikam",
+"ex": "He wanted revenge for what they did.",
+"et": "Yaptıklarının intikamını almak istiyordu."
+},
+{
+"r": 3741,
+"w": "thompson",
+"drop": "özel isim"
+},
+{
+"r": 3742,
+"w": "tourism",
+"p": "n",
+"tr": "turizm",
+"ex": "Tourism is important for the local economy.",
+"et": "Turizm yerel ekonomi için önemlidir."
+},
+{
+"r": 3743,
+"w": "turkish",
+"p": "adj",
+"tr": "Türk, Türkçe",
+"ex": "I love Turkish tea and breakfast.",
+"et": "Türk çayını ve kahvaltısını çok severim."
+},
+{
+"r": 3744,
+"w": "seize",
+"p": "v",
+"tr": "ele geçirmek, yakalamak",
+"ex": "The police seized the stolen goods.",
+"et": "Polis çalıntı malları ele geçirdi."
+},
+{
+"r": 3745,
+"w": "criterion",
+"p": "n",
+"tr": "ölçüt, kriter",
+"ex": "Experience is one criterion for the job.",
+"et": "Deneyim, iş için bir ölçüttür."
+},
+{
+"r": 3746,
+"w": "merchant",
+"p": "n",
+"tr": "tüccar",
+"ex": "The merchant sold silk and spices.",
+"et": "Tüccar ipek ve baharat satıyordu."
+},
+{
+"r": 3747,
+"w": "spark",
+"p": "n",
+"tr": "kıvılcım",
+"ex": "A spark from the fire landed on the grass.",
+"et": "Ateşten bir kıvılcım çimenlerin üzerine düştü."
+},
+{
+"r": 3748,
+"w": "slot",
+"p": "n",
+"tr": "yuva, aralık, zaman dilimi",
+"ex": "Put the coin in the slot.",
+"et": "Parayı yuvaya at."
+},
+{
+"r": 3749,
+"w": "forecast",
+"p": "n",
+"tr": "tahmin, hava durumu tahmini",
+"ex": "The forecast says it will rain tomorrow.",
+"et": "Hava tahminine göre yarın yağmur yağacak."
+},
+{
+"r": 3750,
+"w": "enforce",
+"p": "v",
+"tr": "uygulamak, yürütmek",
+"ex": "The police enforce the law in the city.",
+"et": "Polis şehirde yasayı uygular."
+},
+{
+"r": 3751,
+"w": "burden",
+"p": "n",
+"tr": "yük, sorumluluk",
+"ex": "He felt the burden of responsibility.",
+"et": "Sorumluluğun yükünü hissetti."
+},
+{
+"r": 3752,
+"w": "consultant",
+"p": "n",
+"tr": "danışman",
+"ex": "The company hired a consultant to improve sales.",
+"et": "Şirket satışları artırmak için bir danışman tuttu."
+},
+{
+"r": 3753,
+"w": "phenomenon",
+"p": "n",
+"tr": "olgu, fenomen",
+"ex": "A rainbow is a natural phenomenon.",
+"et": "Gökkuşağı doğal bir olgudur."
+},
+{
+"r": 3754,
+"w": "monkey",
+"p": "n",
+"tr": "maymun",
+"ex": "The monkey climbed up the tree quickly.",
+"et": "Maymun ağaca hızla tırmandı."
+},
+{
+"r": 3755,
+"w": "quantity",
+"p": "n",
+"tr": "miktar, nicelik",
+"ex": "A large quantity of water was wasted.",
+"et": "Büyük miktarda su israf edildi."
+},
+{
+"r": 3756,
+"w": "conviction",
+"p": "n",
+"tr": "mahkûmiyet, kanaat, inanç",
+"ex": "He has a strong conviction that he is right.",
+"et": "Haklı olduğuna dair güçlü bir inancı var."
+},
+{
+"r": 3757,
+"w": "evaluation",
+"p": "n",
+"tr": "değerlendirme",
+"ex": "The teacher wrote an evaluation of each student.",
+"et": "Öğretmen her öğrenci için bir değerlendirme yazdı."
+},
+{
+"r": 3758,
+"w": "pirate",
+"p": "n",
+"tr": "korsan",
+"ex": "The pirate hid his treasure on an island.",
+"et": "Korsan hazinesini bir adaya sakladı."
+},
+{
+"r": 3759,
+"w": "headline",
+"p": "n",
+"tr": "manşet, başlık",
+"ex": "The headline in the newspaper shocked everyone.",
+"et": "Gazetenin manşeti herkesi şaşırttı."
+},
+{
+"r": 3760,
+"w": "nominate",
+"p": "v",
+"tr": "aday göstermek, önermek",
+"ex": "They nominated her for the best actress award.",
+"et": "Onu en iyi kadın oyuncu ödülüne aday gösterdiler."
+},
+{
+"r": 3761,
+"w": "classroom",
+"p": "n",
+"tr": "sınıf, derslik",
+"ex": "The classroom was quiet during the exam.",
+"et": "Sınav sırasında sınıf sessizdi."
+},
+{
+"r": 3762,
+"w": "administrator",
+"p": "n",
+"tr": "yönetici, idareci",
+"ex": "The school administrator answered our questions.",
+"et": "Okul yöneticisi sorularımızı yanıtladı."
+},
+{
+"r": 3763,
+"w": "helicopter",
+"p": "n",
+"tr": "helikopter",
+"ex": "A helicopter flew over the mountains.",
+"et": "Bir helikopter dağların üzerinden uçtu."
+},
+{
+"r": 3764,
+"w": "ab",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3765,
+"w": "supplement",
+"p": "n",
+"tr": "ek, takviye",
+"ex": "She takes a vitamin supplement every morning.",
+"et": "Her sabah bir vitamin takviyesi alıyor."
+},
+{
+"r": 3766,
+"w": "transformation",
+"p": "n",
+"tr": "dönüşüm, değişim",
+"ex": "The city has seen a big transformation in ten years.",
+"et": "Şehir on yılda büyük bir dönüşüm geçirdi."
+},
+{
+"r": 3767,
+"w": "cancell",
+"drop": "başka biçimin çekimi"
+},
+{
+"r": 3768,
+"w": "acceptable",
+"p": "adj",
+"tr": "kabul edilebilir, makul",
+"ex": "The quality of the work is acceptable.",
+"et": "İşin kalitesi kabul edilebilir düzeyde."
+},
+{
+"r": 3769,
+"w": "chaos",
+"p": "n",
+"tr": "kaos, karmaşa",
+"ex": "There was chaos in the street after the storm.",
+"et": "Fırtınadan sonra sokakta kaos vardı."
+},
+{
+"r": 3770,
+"w": "cleveland",
+"drop": "özel isim"
+},
+{
+"r": 3771,
+"w": "centimeter",
+"p": "n",
+"tr": "santimetre",
+"ex": "The table is one hundred centimeters long.",
+"et": "Masa yüz santimetre uzunluğunda."
+},
+{
+"r": 3772,
+"w": "copper",
+"p": "n",
+"tr": "bakır",
+"ex": "Copper pipes carry water in the house.",
+"et": "Bakır borular evde su taşır."
+},
+{
+"r": 3773,
+"w": "corp",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3774,
+"w": "corps",
+"p": "n",
+"tr": "kolordu, birlik, ekip",
+"ex": "He served in the army medical corps.",
+"et": "Ordunun sağlık birliğinde görev yaptı."
+},
+{
+"r": 3775,
+"w": "dawn",
+"p": "n",
+"tr": "şafak, gün doğumu",
+"ex": "We left the house at dawn.",
+"et": "Evden şafak vakti çıktık."
+},
+{
+"r": 3776,
+"w": "earnings",
+"p": "n",
+"tr": "kazanç, gelir",
+"ex": "His earnings rose a lot this year.",
+"et": "Bu yıl kazancı çok arttı."
+},
+{
+"r": 3777,
+"w": "frequent",
+"p": "adj",
+"tr": "sık, sık sık olan",
+"ex": "He makes frequent trips to Ankara.",
+"et": "Ankara'ya sık sık seyahat ediyor."
+},
+{
+"r": 3778,
+"w": "hilarious",
+"p": "adj",
+"tr": "çok komik, kahkaha attıran",
+"ex": "The movie was absolutely hilarious.",
+"et": "Film gerçekten çok komikti."
+},
+{
+"r": 3779,
+"w": "huh",
+"p": "int",
+"tr": "ha?, hı?, ne?",
+"ex": "Huh? I did not hear what you said.",
+"et": "Ha? Ne dediğini duymadım."
+},
+{
+"r": 3780,
+"w": "isis",
+"drop": "özel isim"
+},
+{
+"r": 3781,
+"w": "maryland",
+"drop": "özel isim"
+},
+{
+"r": 3782,
+"w": "moderate",
+"p": "adj",
+"tr": "ılımlı, orta, makul",
+"ex": "Enjoy moderate exercise three times a week.",
+"et": "Haftada üç kez ılımlı egzersiz yap."
+},
+{
+"r": 3783,
+"w": "murray",
+"drop": "özel isim"
+},
+{
+"r": 3784,
+"w": "oklahoma",
+"drop": "özel isim"
+},
+{
+"r": 3785,
+"w": "opus",
+"drop": "başka biçimin çekimi"
+},
+{
+"r": 3786,
+"w": "psychological",
+"p": "adj",
+"tr": "psikolojik",
+"ex": "Stress can cause psychological problems.",
+"et": "Stres psikolojik sorunlara yol açabilir."
+},
+{
+"r": 3787,
+"w": "quest",
+"p": "n",
+"tr": "arayış, macera, görev",
+"ex": "The knight went on a quest for the lost crown.",
+"et": "Şövalye kayıp tacı bulmak için bir göreve çıktı."
+},
+{
+"r": 3788,
+"w": "radiation",
+"p": "n",
+"tr": "radyasyon, ışınım",
+"ex": "Too much radiation is dangerous for people.",
+"et": "Çok fazla radyasyon insanlar için tehlikelidir."
+},
+{
+"r": 3789,
+"w": "tokyo",
+"drop": "özel isim"
+},
+{
+"r": 3790,
+"w": "wherever",
+"p": "conj",
+"tr": "nerede olursa, her nereye",
+"ex": "You can sit wherever you like.",
+"et": "İstediğin yere oturabilirsin."
+},
+{
+"r": 3791,
+"w": "bump",
+"p": "n",
+"tr": "çarpma, tümsek, yumru",
+"ex": "There is a bump on the road ahead.",
+"et": "İleride yolda bir tümsek var."
+},
+{
+"r": 3792,
+"w": "occupation",
+"p": "n",
+"tr": "meslek, işgal",
+"ex": "Please write your name and occupation on the form.",
+"et": "Lütfen formun üzerine adınızı ve mesleğinizi yazın."
+},
+{
+"r": 3793,
+"w": "villa",
+"p": "n",
+"tr": "villa",
+"ex": "They rented a villa by the sea.",
+"et": "Deniz kenarında bir villa kiraladılar."
+},
+{
+"r": 3794,
+"w": "invent",
+"p": "v",
+"tr": "icat etmek, bulmak",
+"ex": "Who invented the telephone?",
+"et": "Telefonu kim icat etti?"
+},
+{
+"r": 3795,
+"w": "hike",
+"p": "n",
+"tr": "doğa yürüyüşü, yürüyüş",
+"ex": "We went on a long hike in the mountains.",
+"et": "Dağlarda uzun bir doğa yürüyüşüne çıktık."
+},
+{
+"r": 3796,
+"w": "penny",
+"p": "n",
+"tr": "peni, kuruş",
+"ex": "I found a penny on the sidewalk.",
+"et": "Kaldırımda bir peni buldum."
+},
+{
+"r": 3797,
+"w": "devote",
+"p": "v",
+"tr": "adamak, ayırmak",
+"ex": "She devoted her life to helping children.",
+"et": "Hayatını çocuklara yardım etmeye adadı."
+},
+{
+"r": 3798,
+"w": "elephant",
+"p": "n",
+"tr": "fil",
+"ex": "The elephant drank water from the river.",
+"et": "Fil nehirden su içti."
+},
+{
+"r": 3799,
+"w": "inn",
+"p": "n",
+"tr": "han, küçük otel",
+"ex": "We stayed at a small inn near the lake.",
+"et": "Gölün yakınındaki küçük bir handa kaldık."
+},
+{
+"r": 3800,
+"w": "cinema",
+"p": "n",
+"tr": "sinema",
+"ex": "Let's go to the cinema this evening.",
+"et": "Bu akşam sinemaya gidelim."
+},
+{
+"r": 3801,
+"w": "heel",
+"p": "n",
+"tr": "topuk, ökçe",
+"ex": "The heel of my shoe broke.",
+"et": "Ayakkabımın topuğu kırıldı."
+},
+{
+"r": 3802,
+"w": "scout",
+"p": "n",
+"tr": "izci, gözcü",
+"ex": "The boy joined the scouts last year.",
+"et": "Çocuk geçen yıl izcilere katıldı."
+},
+{
+"r": 3803,
+"w": "pepper",
+"p": "n",
+"tr": "biber",
+"ex": "Add a little salt and pepper to the soup.",
+"et": "Çorbaya biraz tuz ve karabiber ekle."
+},
+{
+"r": 3804,
+"w": "sweat",
+"p": "n",
+"tr": "ter",
+"ex": "Sweat ran down his face during the race.",
+"et": "Yarış sırasında yüzünden ter akıyordu."
+},
+{
+"r": 3805,
+"w": "euro",
+"p": "n",
+"tr": "avro",
+"ex": "The ticket costs ten euros.",
+"et": "Bilet on avro."
+},
+{
+"r": 3806,
+"w": "nomination",
+"p": "n",
+"tr": "adaylık, aday gösterme",
+"ex": "The film received three Oscar nominations.",
+"et": "Film üç Oscar adaylığı aldı."
+},
+{
+"r": 3807,
+"w": "controller",
+"p": "n",
+"tr": "kontrolcü, denetleyici, kumanda",
+"ex": "I lost the controller of my game console.",
+"et": "Oyun konsolumun kumandasını kaybettim."
+},
+{
+"r": 3808,
+"w": "apology",
+"p": "n",
+"tr": "özür",
+"ex": "He sent me an apology for his mistake.",
+"et": "Hatası için bana bir özür mesajı gönderdi."
+},
+{
+"r": 3809,
+"w": "earthquake",
+"p": "n",
+"tr": "deprem",
+"ex": "The earthquake woke us up at night.",
+"et": "Deprem bizi gece uyandırdı."
+},
+{
+"r": 3810,
+"w": "fulfill",
+"p": "v",
+"tr": "yerine getirmek, gerçekleştirmek",
+"ex": "She worked hard to fulfill her dream.",
+"et": "Hayalini gerçekleştirmek için çok çalıştı."
+},
+{
+"r": 3811,
+"w": "taxi",
+"p": "n",
+"tr": "taksi",
+"ex": "We took a taxi to the airport.",
+"et": "Havalimanına taksiyle gittik."
+},
+{
+"r": 3812,
+"w": "organise",
+"p": "v",
+"tr": "düzenlemek, organize etmek",
+"ex": "We will organise a party for her birthday.",
+"et": "Doğum günü için bir parti düzenleyeceğiz."
+},
+{
+"r": 3813,
+"w": "neighbour",
+"p": "n",
+"tr": "komşu",
+"ex": "Our neighbour has a very friendly cat.",
+"et": "Komşumuzun çok sevimli bir kedisi var."
+},
+{
+"r": 3814,
+"w": "alabama",
+"drop": "özel isim"
+},
+{
+"r": 3815,
+"w": "alice",
+"drop": "özel isim"
+},
+{
+"r": 3816,
+"w": "anime",
+"p": "n",
+"tr": "anime",
+"ex": "My brother watches anime every weekend.",
+"et": "Kardeşim her hafta sonu anime izler."
+},
+{
+"r": 3817,
+"w": "autumn",
+"p": "n",
+"tr": "sonbahar",
+"ex": "The leaves turn red in autumn.",
+"et": "Sonbaharda yapraklar kızarır."
+},
+{
+"r": 3818,
+"w": "barry",
+"drop": "özel isim"
+},
+{
+"r": 3819,
+"w": "bold",
+"p": "adj",
+"tr": "cesur, gözüpek, kalın (yazı)",
+"ex": "It was a bold decision to move abroad.",
+"et": "Yurt dışına taşınmak cesur bir karardı."
+},
+{
+"r": 3820,
+"w": "cameron",
+"drop": "özel isim"
+},
+{
+"r": 3821,
+"w": "classical",
+"p": "adj",
+"tr": "klasik",
+"ex": "I like listening to classical music.",
+"et": "Klasik müzik dinlemeyi severim."
+},
+{
+"r": 3822,
+"w": "conspiracy",
+"p": "n",
+"tr": "komplo, entrika",
+"ex": "The police uncovered a conspiracy to rob the bank.",
+"et": "Polis bankayı soymak için kurulan bir komployu ortaya çıkardı."
+},
+{
+"r": 3823,
+"w": "cooper",
+"drop": "özel isim"
+},
+{
+"r": 3824,
+"w": "eh",
+"p": "int",
+"tr": "ha?, değil mi?, ne?",
+"ex": "Nice weather today, eh?",
+"et": "Bugün hava güzel, değil mi?"
+},
+{
+"r": 3825,
+"w": "equality",
+"p": "n",
+"tr": "eşitlik",
+"ex": "They work for equality between men and women.",
+"et": "Kadın ve erkekler arasında eşitlik için çalışıyorlar."
+},
+{
+"r": 3826,
+"w": "federation",
+"p": "n",
+"tr": "federasyon",
+"ex": "The football federation announced a new rule.",
+"et": "Futbol federasyonu yeni bir kural açıkladı."
+},
+{
+"r": 3827,
+"w": "fi",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3828,
+"w": "fiscal",
+"p": "adj",
+"tr": "mali, maliyeyle ilgili",
+"ex": "The fiscal year begins in January.",
+"et": "Mali yıl ocak ayında başlar."
+},
+{
+"r": 3829,
+"w": "hd",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3830,
+"w": "homeless",
+"p": "adj",
+"tr": "evsiz, barınaksız",
+"ex": "The city has a shelter for homeless people.",
+"et": "Şehirde evsiz insanlar için bir barınak var."
+},
+{
+"r": 3831,
+"w": "jerry",
+"drop": "özel isim"
+},
+{
+"r": 3832,
+"w": "mainstream",
+"p": "adj",
+"tr": "ana akım, yaygın",
+"ex": "This singer is not part of mainstream pop.",
+"et": "Bu şarkıcı ana akım popun bir parçası değil."
+},
+{
+"r": 3833,
+"w": "missouri",
+"drop": "özel isim"
+},
+{
+"r": 3834,
+"w": "mutual",
+"p": "adj",
+"tr": "karşılıklı, ortak",
+"ex": "We have a mutual friend named Ali.",
+"et": "Ali adında ortak bir arkadaşımız var."
+},
+{
+"r": 3835,
+"w": "nope",
+"p": "int",
+"tr": "hayır, yok",
+"ex": "Nope, I have never been to Paris.",
+"et": "Hayır, hiç Paris'e gitmedim."
+},
+{
+"r": 3836,
+"w": "oral",
+"p": "adj",
+"tr": "sözlü, ağızla ilgili",
+"ex": "The oral exam is on Friday.",
+"et": "Sözlü sınav cuma günü."
+},
+{
+"r": 3837,
+"w": "panic",
+"p": "n",
+"tr": "panik, korku",
+"ex": "Panic spread through the crowd.",
+"et": "Kalabalığın arasında panik yayıldı."
+},
+{
+"r": 3838,
+"w": "scope",
+"p": "n",
+"tr": "kapsam, alan, olanak",
+"ex": "The scope of the project is quite large.",
+"et": "Projenin kapsamı oldukça geniş."
+},
+{
+"r": 3839,
+"w": "spectrum",
+"p": "n",
+"tr": "spektrum, yelpaze",
+"ex": "A rainbow shows the full spectrum of colors.",
+"et": "Gökkuşağı renklerin tüm spektrumunu gösterir."
+},
+{
+"r": 3840,
+"w": "ted",
+"drop": "özel isim"
+},
+{
+"r": 3841,
+"w": "terror",
+"p": "n",
+"tr": "dehşet, terör, korku",
+"ex": "The children screamed in terror.",
+"et": "Çocuklar dehşet içinde çığlık attı."
+},
+{
+"r": 3842,
+"w": "uh",
+"p": "int",
+"tr": "ıı, ee",
+"ex": "Uh, I am not sure what to say.",
+"et": "Ee, ne diyeceğimi bilmiyorum."
+},
+{
+"r": 3843,
+"w": "va",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3844,
+"w": "virtually",
+"p": "adv",
+"tr": "neredeyse, hemen hemen",
+"ex": "The room was virtually empty.",
+"et": "Oda neredeyse boştu."
+},
+{
+"r": 3845,
+"w": "warren",
+"drop": "özel isim"
+},
+{
+"r": 3846,
+"w": "yea",
+"p": "int",
+"tr": "evet, olur",
+"ex": "Yea, that sounds like a great idea.",
+"et": "Evet, bu harika bir fikir gibi."
+},
+{
+"r": 3847,
+"w": "suite",
+"p": "n",
+"tr": "süit oda, takım",
+"ex": "They stayed in a luxury suite at the hotel.",
+"et": "Otelde lüks bir süitte kaldılar."
+},
+{
+"r": 3848,
+"w": "rub",
+"p": "v",
+"tr": "ovmak, sürtmek",
+"ex": "She rubbed her hands to keep warm.",
+"et": "Isınmak için ellerini ovuşturdu."
+},
+{
+"r": 3849,
+"w": "gamble",
+"p": "v",
+"tr": "kumar oynamak, riske girmek",
+"ex": "He lost money when he began to gamble.",
+"et": "Kumar oynamaya başlayınca para kaybetti."
+},
+{
+"r": 3850,
+"w": "explode",
+"p": "v",
+"tr": "patlamak",
+"ex": "The bomb exploded in the empty building.",
+"et": "Bomba boş binada patladı."
+},
+{
+"r": 3851,
+"w": "grip",
+"p": "n",
+"tr": "kavrama, tutuş, sıkı tutma",
+"ex": "Keep a firm grip on the rope.",
+"et": "İpi sıkıca tut."
+},
+{
+"r": 3852,
+"w": "liability",
+"p": "n",
+"tr": "sorumluluk, yükümlülük, borç",
+"ex": "The company has a legal liability for the damage.",
+"et": "Şirketin hasara karşı yasal bir sorumluluğu var."
+},
+{
+"r": 3853,
+"w": "borrow",
+"p": "v",
+"tr": "ödünç almak",
+"ex": "Can I borrow your pen for a minute?",
+"et": "Kalemini bir dakikalığına ödünç alabilir miyim?"
+},
+{
+"r": 3854,
+"w": "dam",
+"p": "n",
+"tr": "baraj, set",
+"ex": "The new dam provides water for the whole town.",
+"et": "Yeni baraj bütün kasabaya su sağlıyor."
+},
+{
+"r": 3855,
+"w": "notion",
+"p": "n",
+"tr": "fikir, kavram, düşünce",
+"ex": "He has a strange notion about time.",
+"et": "Zamanla ilgili tuhaf bir fikri var."
+},
+{
+"r": 3856,
+"w": "specialize",
+"p": "v",
+"tr": "uzmanlaşmak",
+"ex": "The doctor specializes in children's diseases.",
+"et": "Doktor çocuk hastalıkları konusunda uzmanlaşmıştır."
+},
+{
+"r": 3857,
+"w": "lesbian",
+"p": "n",
+"tr": "lezbiyen",
+"ex": "The lesbian couple adopted a child.",
+"et": "Lezbiyen çift bir çocuk evlat edindi."
+},
+{
+"r": 3858,
+"w": "inspection",
+"p": "n",
+"tr": "denetim, muayene, kontrol",
+"ex": "The inspection of the building took two days.",
+"et": "Binanın denetimi iki gün sürdü."
+},
+{
+"r": 3859,
+"w": "scandal",
+"p": "n",
+"tr": "skandal, rezalet",
+"ex": "The scandal ended the politician's career.",
+"et": "Skandal politikacının kariyerine son verdi."
+},
+{
+"r": 3860,
+"w": "breach",
+"p": "n",
+"tr": "ihlal, gedik",
+"ex": "The company is guilty of a breach of contract.",
+"et": "Şirket sözleşme ihlalinden suçlu."
+},
+{
+"r": 3861,
+"w": "thrill",
+"p": "n",
+"tr": "heyecan, zevk",
+"ex": "Riding the roller coaster gave her a thrill.",
+"et": "Hız trenine binmek ona heyecan verdi."
+},
+{
+"r": 3862,
+"w": "rumor",
+"p": "n",
+"tr": "söylenti, dedikodu",
+"ex": "There is a rumor that the school will close.",
+"et": "Okulun kapanacağına dair bir söylenti var."
+},
+{
+"r": 3863,
+"w": "criticize",
+"p": "v",
+"tr": "eleştirmek",
+"ex": "It is easy to criticize other people.",
+"et": "Başkalarını eleştirmek kolaydır."
+},
+{
+"r": 3864,
+"w": "slice",
+"p": "n",
+"tr": "dilim",
+"ex": "Would you like a slice of cake?",
+"et": "Bir dilim pasta ister misin?"
+},
+{
+"r": 3865,
+"w": "doll",
+"p": "n",
+"tr": "oyuncak bebek",
+"ex": "The girl hugged her favorite doll.",
+"et": "Kız en sevdiği oyuncak bebeğe sarıldı."
+},
+{
+"r": 3866,
+"w": "exploit",
+"p": "v",
+"tr": "sömürmek, faydalanmak",
+"ex": "Some companies exploit their workers.",
+"et": "Bazı şirketler çalışanlarını sömürür."
+},
+{
+"r": 3867,
+"w": "container",
+"p": "n",
+"tr": "kap, konteyner",
+"ex": "Store the rice in a clean container.",
+"et": "Pirinci temiz bir kapta sakla."
+},
+{
+"r": 3868,
+"w": "absorb",
+"p": "v",
+"tr": "emmek, içine çekmek",
+"ex": "A sponge can absorb a lot of water.",
+"et": "Sünger çok fazla su emebilir."
+},
+{
+"r": 3869,
+"w": "ceiling",
+"p": "n",
+"tr": "tavan",
+"ex": "There is a small crack in the ceiling.",
+"et": "Tavanda küçük bir çatlak var."
+},
+{
+"r": 3870,
+"w": "reign",
+"p": "n",
+"tr": "saltanat, hüküm sürme",
+"ex": "The queen's reign lasted over fifty years.",
+"et": "Kraliçenin saltanatı elli yıldan fazla sürdü."
+},
+{
+"r": 3871,
+"w": "prediction",
+"p": "n",
+"tr": "tahmin, öngörü",
+"ex": "His prediction about the weather was correct.",
+"et": "Hava durumuyla ilgili tahmini doğru çıktı."
+},
+{
+"r": 3872,
+"w": "flavor",
+"p": "n",
+"tr": "lezzet, tat, aroma",
+"ex": "I like the strawberry flavor of this ice cream.",
+"et": "Bu dondurmanın çilek aromasını seviyorum."
+},
+{
+"r": 3873,
+"w": "ac",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3874,
+"w": "adams",
+"drop": "özel isim"
+},
+{
+"r": 3875,
+"w": "alpha",
+"p": "n",
+"tr": "alfa",
+"ex": "Alpha is the first letter of the Greek alphabet.",
+"et": "Alfa, Yunan alfabesinin ilk harfidir."
+},
+{
+"r": 3876,
+"w": "brooklyn",
+"drop": "özel isim"
+},
+{
+"r": 3877,
+"w": "considerable",
+"p": "adj",
+"tr": "hatırı sayılır, oldukça fazla",
+"ex": "The project needs a considerable amount of time.",
+"et": "Proje hatırı sayılır miktarda zaman gerektiriyor."
+},
+{
+"r": 3878,
+"w": "conventional",
+"p": "adj",
+"tr": "geleneksel, alışılmış",
+"ex": "She prefers conventional medicine to new methods.",
+"et": "Yeni yöntemler yerine geleneksel tıbbı tercih ediyor."
+},
+{
+"r": 3879,
+"w": "danny",
+"drop": "özel isim"
+},
+{
+"r": 3880,
+"w": "des",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3881,
+"w": "dvd",
+"p": "n",
+"tr": "DVD",
+"ex": "We watched a movie on DVD last night.",
+"et": "Dün gece DVD'den bir film izledik."
+},
+{
+"r": 3882,
+"w": "emperor",
+"p": "n",
+"tr": "imparator",
+"ex": "The emperor lived in a large palace.",
+"et": "İmparator büyük bir sarayda yaşıyordu."
+},
+{
+"r": 3883,
+"w": "enormous",
+"p": "adj",
+"tr": "dev gibi, muazzam, kocaman",
+"ex": "An enormous tree stood in the garden.",
+"et": "Bahçede kocaman bir ağaç duruyordu."
+},
+{
+"r": 3884,
+"w": "garage",
+"p": "n",
+"tr": "garaj, tamirhane",
+"ex": "He parked the car in the garage.",
+"et": "Arabayı garaja park etti."
+},
+{
+"r": 3885,
+"w": "guideline",
+"p": "n",
+"tr": "yönerge, kılavuz ilke",
+"ex": "Please follow the safety guidelines.",
+"et": "Lütfen güvenlik yönergelerine uyun."
+},
+{
+"r": 3886,
+"w": "indians",
+"drop": "başka biçimin çekimi"
+},
+{
+"r": 3887,
+"w": "indonesia",
+"drop": "özel isim"
+},
+{
+"r": 3888,
+"w": "khan",
+"drop": "özel isim"
+},
+{
+"r": 3889,
+"w": "li",
+"drop": "kısaltma/parça"
+},
+{
+"r": 3890,
+"w": "lonely",
+"p": "adj",
+"tr": "yalnız, kimsesiz",
+"ex": "She felt lonely in the new city.",
+"et": "Yeni şehirde kendini yalnız hissetti."
+},
+{
+"r": 3891,
+"w": "mercy",
+"p": "n",
+"tr": "merhamet, acıma",
+"ex": "The judge showed mercy to the young man.",
+"et": "Yargıç genç adama merhamet gösterdi."
+},
+{
+"r": 3892,
+"w": "nevertheless",
+"p": "adv",
+"tr": "yine de, bununla birlikte",
+"ex": "It was raining; nevertheless, we went for a walk.",
+"et": "Yağmur yağıyordu; yine de yürüyüşe çıktık."
+},
+{
+"r": 3893,
+"w": "outer",
+"p": "adj",
+"tr": "dış, dışta olan",
+"ex": "The outer walls of the house are white.",
+"et": "Evin dış duvarları beyaz."
+},
+{
+"r": 3894,
+"w": "oxygen",
+"p": "n",
+"tr": "oksijen",
+"ex": "Plants give us oxygen.",
+"et": "Bitkiler bize oksijen verir."
+},
+{
+"r": 3895,
+"w": "racism",
+"p": "n",
+"tr": "ırkçılık",
+"ex": "Racism is a serious problem in many countries.",
+"et": "Irkçılık birçok ülkede ciddi bir sorundur."
+},
+{
+"r": 3896,
+"w": "roy",
+"drop": "özel isim"
+},
+{
+"r": 3897,
+"w": "rude",
+"p": "adj",
+"tr": "kaba, saygısız",
+"ex": "It is rude to talk with your mouth full.",
+"et": "Ağzın doluyken konuşmak kabalıktır."
+},
+{
+"r": 3898,
+"w": "stewart",
+"drop": "özel isim"
+},
+{
+"r": 3899,
+"w": "tribute",
+"p": "n",
+"tr": "övgü, saygı duruşu, haraç",
+"ex": "The concert was a tribute to the late singer.",
+"et": "Konser, merhum şarkıcıya bir saygı duruşuydu."
+},
+{
+"r": 3900,
+"w": "ye",
+"drop": "kısaltma/parça"
+}
+]

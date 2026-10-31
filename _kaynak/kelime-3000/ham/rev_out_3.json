@@ -1,0 +1,5 @@
+[
+{"r":331,"w":"continue","sorun":"et","not":"'page ten' = 'on numaralı sayfa'; 'on. sayfa' sıra sayısı anlamına gelir (onuncu), yanlış.","et":"Lütfen on numaralı sayfadan okumaya devam edin."},
+{"r":1627,"w":"behavior","sorun":"et","not":"'praised' -> 'överek anlattı' anlam kayması; düz 'övdü' olmalı.","et":"Öğretmen çocukların iyi davranışlarını övdü."},
+{"r":1771,"w":"gate","sorun":"tr","not":"'kapı' iki kez yazılmış, parantez düzensiz/yanıltıcı.","tr":"kapı; (havaalanında) çıkış kapısı"}
+]

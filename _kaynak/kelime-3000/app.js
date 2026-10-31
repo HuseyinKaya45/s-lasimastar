@@ -92,7 +92,7 @@ function mkQ(type,w){
   if(w.u&&['bosluk','cumle'].includes(type))return null;
   if(type==='anlam'){const o=others(w,3,x=>x.tr);if(!o)return null;return Object.assign(base,{prompt:'Bu kelimenin anlamı nedir?',show:w.k,say:w.k,tag:POSN[w.p],right:w.tr,opts:shuffle([w.tr,...o])});}
   if(type==='tr'){const o=others(w,3,x=>x.k,x=>norm(x.k)!==norm(w.k));if(!o)return null;return Object.assign(base,{prompt:'İngilizcesi hangisi?',show:w.tr,tag:POSN[w.p],right:w.k,opts:shuffle([w.k,...o])});}
-  if(type==='bosluk'){const f=w.ex&&w.et?findIn(w.ex,w.k):null;if(!f)return null;
+  if(type==='bosluk'){const f=w.ex&&w.et?findIn(w.ex,w.k):null;if(!f)return null;const rest=w.ex.slice(0,f[0])+' '+w.ex.slice(f[0]+f[1]);if(new RegExp('(^|[^A-Za-z])'+w.k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(?![A-Za-z])','i').test(rest))return null;
     const o=others(w,3,x=>x.k,x=>norm(x.k)!==norm(w.k));if(!o)return null;
     return Object.assign(base,{prompt:'Boşluğa hangi kelime (sözlük biçimi) uyar?',sent:w.ex.slice(0,f[0])+'＿＿＿'+w.ex.slice(f[0]+f[1]),hint:w.et,tag:POSN[w.p],right:w.k,opts:shuffle([w.k,...o])});}
   if(type==='cumle'){if(!w.ex||!w.et)return null;const o=others(w,3,x=>x.et,x=>x.et&&x.ex&&Math.abs(x.et.length-w.et.length)<22);if(!o)return null;return Object.assign(base,{prompt:'Bu cümle ne demek?',show:w.ex,say:w.ex,showSmall:true,right:w.et,opts:shuffle([w.et,...o])});}

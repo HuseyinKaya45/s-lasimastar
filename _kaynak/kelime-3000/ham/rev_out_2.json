@@ -1,0 +1,5 @@
+[
+{"r":1883,"w":"mate","sorun":"çoklu","not":"'eş' en yaygın anlam değil (arkadaş/dost; İng. günlük dil). 'pub' için 'meyhane' yanıltıcı; İngiliz pub'ı meyhane değildir.","tr":"arkadaş, dost, ahbap","et":"Arkadaşlarıyla birlikte pub'a gitti."},
+{"r":875,"w":"measure","sorun":"çoklu","not":"'buy a cloth' belirsiz/doğal değil; masa için alınan şey tablecloth. Türkçede 'örtü' tek başına belirsiz.","ex":"Measure the table before you buy a tablecloth.","et":"Masa örtüsü almadan önce masayı ölç."},
+{"r":59,"w":"would","sorun":"tr","not":"'-ir miydi' yanlış/yanıltıcı bir karşılık; would geçmişteki alışkanlık (-erdi), gelecekte-geçmiş (-ecekti) ve nazik rica/şart kipi için kullanılır.","tr":"-erdi, -ardı (alışkanlık); -ecekti; -ir mi(ydi) / -sa (şart, rica)"}
+]
