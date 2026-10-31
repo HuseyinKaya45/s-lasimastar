@@ -20,7 +20,7 @@ def v(h):
     for c in h:
         if c in V: return V[c]
     return ''
-BAB={('a','u'):1,('a','i'):2,('a','a'):3,('i','a'):4,('i','i'):5,('u','u'):6}
+BAB={('a','u'):1,('a','i'):2,('a','a'):3,('i','a'):4,('u','u'):5,('i','i'):6}   # 5. bâb kerume (فَعُلَ يَفْعُلُ), 6. bâb hasibe (فَعِلَ يَفْعِلُ)
 def sk(w): return re.sub('[أإآٱء]','ا',HAR.sub('',w))
 def clean(t):
     t=t.strip('،؛:؟. ');return t[1:] if t.startswith('و') and len(sk(t))>3 else t

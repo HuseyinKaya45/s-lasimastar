@@ -34,7 +34,7 @@ const z=MUH.find(m=>m.id==='zarf');t(N(fill(z.t(babOf(2)),[...'ضرب']))===N('�
 const gor=new Set();
 for(const d of ROOTS){t(!gor.has(d.r),'tekrar kök '+d.r);gor.add(d.r);t(!checkRoot([...d.r]),'geçersiz kök '+d.r);t(babOf(d.b),'bâb yok '+d.r);
   t(/[ً-ٍ]/.test(d.ms),'masdar harekesiz '+d.r);t(masdarOf(d).every(m=>strip(m).length>=3),'masdar kısa '+d.r);
-  t(d.tr&&d.tr.length>2,'anlam yok '+d.r);t(d.tk&&/m[ae]k$/.test(d.tk),'Türkçe mastar yok '+d.r);for(const [id,w] of Object.entries(trCekD(d)))t(w&&!/undefined|NaN/.test(w),'Türkçe bozuk '+d.r+' '+id);if(d.b===6)t(d.sf,'kerume sıfatı yok '+d.r);
+  t(d.tr&&d.tr.length>2,'anlam yok '+d.r);t(d.tk&&/m[ae]k$/.test(d.tk),'Türkçe mastar yok '+d.r);for(const [id,w] of Object.entries(trCekD(d)))t(w&&!/undefined|NaN/.test(w),'Türkçe bozuk '+d.r+' '+id);if(d.b===5)t(d.sf,'kerume sıfatı yok '+d.r);
   // masdar kökün harflerini içermeli (sülâsî)
   const k=[...d.r];t(masdarOf(d).every(m=>k.every(h=>strip(m).includes(h))),'masdar kökü içermiyor '+d.r);
   // 24 kalıp: hiçbiri boş üretmemeli

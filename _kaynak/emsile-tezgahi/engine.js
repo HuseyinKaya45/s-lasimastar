@@ -10,11 +10,11 @@ const BABS = [
  {id:2, mz:"a", mu:"i", ar:"ضَرَبَ يَضْرِبُ", tr:"Daraba bâbı", vz:"فَعَلَ يَفْعِلُ", note:"Mâzide üstün, muzâride esre."},
  {id:3, mz:"a", mu:"a", ar:"فَتَحَ يَفْتَحُ", tr:"Fataha bâbı", vz:"فَعَلَ يَفْعَلُ", note:"İki tarafta da üstün. Ayn veya lâmında çoğunlukla boğaz harfi (ء ه ع ح غ خ) bulunur."},
  {id:4, mz:"i", mu:"a", ar:"عَلِمَ يَعْلَمُ", tr:"Alime bâbı", vz:"فَعِلَ يَفْعَلُ", note:"Mâzide esre, muzâride üstün. Duygu, hâl ve bilgi bildiren fiiller çoktur."},
- {id:5, mz:"i", mu:"i", ar:"حَسِبَ يَحْسِبُ", tr:"Hasibe bâbı", vz:"فَعِلَ يَفْعِلُ", note:"İki tarafta da esre. Sâlim fiili çok azdır."},
- {id:6, mz:"u", mu:"u", ar:"كَرُمَ يَكْرُمُ", tr:"Kerume bâbı", vz:"فَعُلَ يَفْعُلُ", note:"İki tarafta da ötre. Fiilleri hep lâzımdır (geçişsiz); kalıcı vasıf bildirir."}
+ {id:5, mz:"u", mu:"u", ar:"كَرُمَ يَكْرُمُ", tr:"Kerume bâbı", vz:"فَعُلَ يَفْعُلُ", note:"İki tarafta da ötre. Fiilleri hep lâzımdır (geçişsiz); kalıcı vasıf bildirir."},
+ {id:6, mz:"i", mu:"i", ar:"حَسِبَ يَحْسِبُ", tr:"Hasibe bâbı", vz:"فَعِلَ يَفْعِلُ", note:"İki tarafta da esre. Sâlim fiili çok azdır."}
 ];
 
-/* ---- hazır kökler: r kök, b bâb, ms masdar (semâîdir), m2 diğer yaygın masdarlar, tr anlam, lz lâzım (geçişsiz), sf sıfat (Kerume) ---- */
+/* ---- hazır kökler: r kök, b bâb, ms masdar (semâîdir), m2 diğer yaygın masdarlar, tr anlam, lz lâzım (geçişsiz), sf sıfat (Kerume, 5. bâb) ---- */
 const ROOTS = [
  /* 1. bâb: نَصَرَ يَنْصُرُ */
  {r:"نصر", b:1, ms:"نَصْرًا", tr:"yardım etmek"},
@@ -129,35 +129,35 @@ const ROOTS = [
  {r:"عجب", b:4, ms:"عَجَبًا", tr:"şaşırmak", lz:true},
  {r:"طمع", b:4, ms:"طَمَعًا", tr:"tamah etmek"},
  {r:"غرق", b:4, ms:"غَرَقًا", tr:"boğulmak", lz:true},
- /* 5. bâb: حَسِبَ يَحْسِبُ */
  {r:"حسب", b:4, ms:"حَسَبًا", tr:"sanmak, zannetmek"},   /* sözlük: حَسِبَ يَحْسَبُ حَسَبًا (4. bâb). Klasik kaynaklarda يَحْسِبُ/حِسْبَانًا (5. bâb) da geçer; "saymak" anlamı حَسَبَ يَحْسُبُ (1. bâb) ayrı fiildir */
- {r:"نعم", b:5, ms:"نَعِيمًا", m2:["نِعْمَةً","نَعْمَةً","نَعَمًا"], tr:"bolluk ve refah içinde olmak", lz:true},
- /* 6. bâb: كَرُمَ يَكْرُمُ */
- {r:"كرم", b:6, ms:"كَرَمًا", tr:"cömert olmak", lz:true, sf:"كَرِيمٌ"},
- {r:"حسن", b:6, ms:"حُسْنًا", tr:"güzel olmak", lz:true, sf:"حَسَنٌ"},
- {r:"شرف", b:6, ms:"شَرَفًا", tr:"şerefli olmak", lz:true, sf:"شَرِيفٌ"},
- {r:"صغر", b:6, ms:"صِغَرًا", tr:"küçük olmak", lz:true, sf:"صَغِيرٌ"},
- {r:"كبر", b:6, ms:"كِبَرًا", tr:"büyük olmak", lz:true, sf:"كَبِيرٌ"},
- {r:"بعد", b:6, ms:"بُعْدًا", tr:"uzak olmak", lz:true, sf:"بَعِيدٌ"},
- {r:"قرب", b:6, ms:"قُرْبًا", tr:"yakın olmak", lz:true, sf:"قَرِيبٌ"},
- {r:"ضعف", b:6, ms:"ضَعْفًا", m2:"ضُعْفًا", tr:"zayıf olmak", lz:true, sf:"ضَعِيفٌ"},
- {r:"شجع", b:6, ms:"شَجَاعَةً", tr:"cesur olmak", lz:true, sf:"شُجَاعٌ"},
- {r:"قبح", b:6, ms:"قُبْحًا", tr:"çirkin olmak", lz:true, sf:"قَبِيحٌ"},
- {r:"كثر", b:6, ms:"كَثْرَةً", tr:"çok olmak", lz:true, sf:"كَثِيرٌ"},
- {r:"طهر", b:6, ms:"طُهْرًا", m2:"طَهَارَةً", tr:"temiz olmak", lz:true, sf:"طَاهِرٌ"},
- {r:"صعب", b:6, ms:"صُعُوبَةً", tr:"zor olmak", lz:true, sf:"صَعْبٌ"},
- {r:"سهل", b:6, ms:"سُهُولَةً", tr:"kolay olmak", lz:true, sf:"سَهْلٌ"},
- {r:"ثقل", b:6, ms:"ثِقَلًا", m2:["ثِقْلًا","ثَقَالَةً"], tr:"ağır olmak", lz:true, sf:"ثَقِيلٌ"},
- {r:"عظم", b:6, ms:"عَظَمَةً", tr:"büyümek, büyük olmak", lz:true, sf:"عَظِيمٌ"},
- {r:"لطف", b:6, ms:"لُطْفًا", m2:"لَطَافَةً", tr:"nazik/lütufkâr olmak", lz:true, sf:"لَطِيفٌ"},
- {r:"جمل", b:6, ms:"جَمَالًا", tr:"güzel olmak (yüz/görünüş)", lz:true, sf:"جَمِيلٌ"},
- {r:"نظف", b:6, ms:"نَظَافَةً", tr:"temiz olmak", lz:true, sf:"نَظِيفٌ"},
- {r:"حلم", b:6, ms:"حِلْمًا", tr:"yumuşak huylu olmak", lz:true, sf:"حَلِيمٌ"},
- {r:"خبث", b:6, ms:"خُبْثًا", m2:"خَبَاثَةً", tr:"habis olmak", lz:true, sf:"خَبِيثٌ"},
- {r:"فصح", b:6, ms:"فَصَاحَةً", m2:"فَصْحًا", tr:"fasih olmak", lz:true, sf:"فَصِيحٌ"}
+ /* 5. bâb: كَرُمَ يَكْرُمُ */
+ {r:"كرم", b:5, ms:"كَرَمًا", tr:"cömert olmak", lz:true, sf:"كَرِيمٌ"},
+ {r:"حسن", b:5, ms:"حُسْنًا", tr:"güzel olmak", lz:true, sf:"حَسَنٌ"},
+ {r:"شرف", b:5, ms:"شَرَفًا", tr:"şerefli olmak", lz:true, sf:"شَرِيفٌ"},
+ {r:"صغر", b:5, ms:"صِغَرًا", tr:"küçük olmak", lz:true, sf:"صَغِيرٌ"},
+ {r:"كبر", b:5, ms:"كِبَرًا", tr:"büyük olmak", lz:true, sf:"كَبِيرٌ"},
+ {r:"بعد", b:5, ms:"بُعْدًا", tr:"uzak olmak", lz:true, sf:"بَعِيدٌ"},
+ {r:"قرب", b:5, ms:"قُرْبًا", tr:"yakın olmak", lz:true, sf:"قَرِيبٌ"},
+ {r:"ضعف", b:5, ms:"ضَعْفًا", m2:"ضُعْفًا", tr:"zayıf olmak", lz:true, sf:"ضَعِيفٌ"},
+ {r:"شجع", b:5, ms:"شَجَاعَةً", tr:"cesur olmak", lz:true, sf:"شُجَاعٌ"},
+ {r:"قبح", b:5, ms:"قُبْحًا", tr:"çirkin olmak", lz:true, sf:"قَبِيحٌ"},
+ {r:"كثر", b:5, ms:"كَثْرَةً", tr:"çok olmak", lz:true, sf:"كَثِيرٌ"},
+ {r:"طهر", b:5, ms:"طُهْرًا", m2:"طَهَارَةً", tr:"temiz olmak", lz:true, sf:"طَاهِرٌ"},
+ {r:"صعب", b:5, ms:"صُعُوبَةً", tr:"zor olmak", lz:true, sf:"صَعْبٌ"},
+ {r:"سهل", b:5, ms:"سُهُولَةً", tr:"kolay olmak", lz:true, sf:"سَهْلٌ"},
+ {r:"ثقل", b:5, ms:"ثِقَلًا", m2:["ثِقْلًا","ثَقَالَةً"], tr:"ağır olmak", lz:true, sf:"ثَقِيلٌ"},
+ {r:"عظم", b:5, ms:"عَظَمَةً", tr:"büyümek, büyük olmak", lz:true, sf:"عَظِيمٌ"},
+ {r:"لطف", b:5, ms:"لُطْفًا", m2:"لَطَافَةً", tr:"nazik/lütufkâr olmak", lz:true, sf:"لَطِيفٌ"},
+ {r:"جمل", b:5, ms:"جَمَالًا", tr:"güzel olmak (yüz/görünüş)", lz:true, sf:"جَمِيلٌ"},
+ {r:"نظف", b:5, ms:"نَظَافَةً", tr:"temiz olmak", lz:true, sf:"نَظِيفٌ"},
+ {r:"حلم", b:5, ms:"حِلْمًا", tr:"yumuşak huylu olmak", lz:true, sf:"حَلِيمٌ"},
+ {r:"خبث", b:5, ms:"خُبْثًا", m2:"خَبَاثَةً", tr:"habis olmak", lz:true, sf:"خَبِيثٌ"},
+ {r:"فصح", b:5, ms:"فَصَاحَةً", m2:"فَصْحًا", tr:"fasih olmak", lz:true, sf:"فَصِيحٌ"},
+ /* 6. bâb: حَسِبَ يَحْسِبُ */
+ {r:"نعم", b:6, ms:"نَعِيمًا", m2:["نِعْمَةً","نَعْمَةً","نَعَمًا"], tr:"bolluk ve refah içinde olmak", lz:true}
 ];
 /* Masdar semâîdir: hazır köklerde kayıtlı masdar(lar) gösterilir; özel kökte bâbın en yaygın üç kalıbı "olası" diye önerilir. */
-const MASDAR_KALIP = {1:["FَAْLًا","FُAُوLًا","FِAَاLَةً"], 2:["FَAْLًا","FُAُوLًا","FِAَاLَةً"], 3:["FَAْLًا","FُAُوLًا","FَAَاLًا"], 4:["FَAَLًا","FِAْLًا","FَAَاLَةً"], 5:["FِAْLًا","FِAْLَانًا","FُAْLًا"], 6:["FَAَاLَةً","FُAُوLَةً","FُAْLًا"]};
+const MASDAR_KALIP = {1:["FَAْLًا","FُAُوLًا","FِAَاLَةً"], 2:["FَAْLًا","FُAُوLًا","FِAَاLَةً"], 3:["FَAْLًا","FُAُوLًا","FَAَاLًا"], 4:["FَAَLًا","FِAْLًا","FَAَاLَةً"], 5:["FَAَاLَةً","FُAُوLَةً","FُAْLًا"], 6:["FِAْLًا","FِAْLَانًا","FُAْLًا"]};
 /* Bu lâzım fiillerde (çoğu hâl/duygu bildirir) ism-i fâil yerine sıfat-ı müşebbehe kullanılır; kıyâsî فَاعِلٌ kalıbı bu köklerde kullanılmaz ya da pek kullanılmaz. Elle girilmiştir; sözlükten doğrulanmalıdır. */
 const SIFAT = {"مرض":"مَرِيضٌ", "عطش":"عَطْشَانُ", "سعد":"سَعِيدٌ", "حزن":"حَزِينٌ", "غضب":"غَضْبَانُ", "كسل":"كَسْلَانُ", "بخل":"بَخِيلٌ", "نشط":"نَشِيطٌ", "فرح":"فَرِحٌ", "تعب":"تَعِبٌ", "غرق":"غَرِيقٌ"};
 ROOTS.forEach(d => { if (SIFAT[d.r]) d.sf = SIFAT[d.r]; });
