@@ -165,7 +165,7 @@ V.home=()=>{
     <div>
       <div class="kufi">بِنَاءُ الأَفْعَالِ</div>
       <h1>Binâ Sarayı</h1>
-      <p class="muted">Tavdîhu Metni Binâi’l-Ef‘âl’i adım adım öğreten saray: <b>35 bâb</b>, ok haritaları, kitaptaki <b>tatbikat tabloları</b> (500’ü aşkın fiil), yedi oyun ve gerçek bir <b>sınav</b>. Her bâbda yıldız kazandıkça sarayın bir penceresi yanar.</p>
+      <p class="muted">Tavdîhu Metni Binâi’l-Ef‘âl’i adım adım öğreten saray: <b>35 bâb</b>, ok haritaları, kitaptaki <b>tatbikat tabloları</b> (500’ü aşkın fiil), on iki oyun ve gerçek bir <b>sınav</b>. Her bâbda yıldız kazandıkça sarayın bir penceresi yanar.</p>
       <div class="row" style="margin-top:12px">
         <a class="btn pri" href="#bab/${next.id}">${S.stars[next.id]?'Bâblara göz at':'Sıradaki bâb: '+next.n+'. '+esc(vezin(next,'m'))} ${ICON.arrow}</a>
         <a class="btn" href="#sinav">Sınava gir</a>
@@ -755,7 +755,16 @@ V.hakkinda=()=>{app.innerHTML=`<div style="max-width:760px;margin:0 auto">
 <p style="margin:6px 0;color:var(--muted)">Kaynak: <i>Tavdîhu Metni Binâi’l-Ef‘âl</i> (1442/2021)</p>
 <p style="margin:6px 0;color:var(--muted)">© 2026 Hüseyin KAYA · İstifade edilmesi temennisiyle…</p>
 </div>
-<p style="margin:14px 4px;color:var(--muted);font-size:.9rem">35 bâb dersi, tatbikat tabloları, atölye, on iki oyun ve raporlu sınav. Program tek bir dosyadır ve internet bağlantısı olmadan çalışır; ilerlemeniz yalnızca bu cihazda saklanır.</p>
+<h3 style="margin:22px 4px 8px">Binâ Sarayı nedir?</h3>
+<p style="margin:0 4px 10px;line-height:1.7">Binâ Sarayı, <i>Tavdîhu Metni Binâi’l-Ef‘âl</i>’i uygulayarak çalışmak için hazırlanmış, internetsiz çalışan bir programdır. Kitabın 35 bâbı, yedi katlı bir sarayın 35 penceresidir: bir bâbı öğrenip sınadıkça yıldız kazanır, sarayın penceresini yakarsın. Kök harflerinin kalıpta nereye gittiğini ok haritalarıyla görürsün.</p>
+<ul style="margin:0 4px 10px;padding-left:1.2rem;line-height:1.75">
+<li><b>Bâblar:</b> 35 bâbın dersi. Vezin, mevzûn, alâmet, binâ (mânâ) ve örnekler.</li>
+<li><b>Tatbikat:</b> Kitaptaki tatbikat tabloları (500’ü aşkın fiil). Boş hücreye dokun, doğru kalıbı seç.</li>
+<li><b>Atölye:</b> İnşaat Vinci (herhangi bir kökü 35 bâbın her birinde çek), Bâb Dedektifi, Kart Destesi (aralıklı tekrar), Yedi Kısım (sahih, misâl, ecvef, nâkıs, lefîf, muzâaf, mehmûz), İdğam Laboratuvarı ve Taksim Ağaçları.</li>
+<li><b>Oyunlar:</b> On iki oyun. Mîzan, Zâid Avı, Tuğla Ustası, Asansör, Hafıza Sarayı, Yedi Kapı, Mânâ Avcısı, Hızlı Kalıp, Hatayı Bul, Hatayı Düzelt, Tabloyu Tamamla ve Yanlışlarımı Tekrar Et.</li>
+<li><b>Sınav ve Telhîs:</b> Konu konu rapor veren sınav ve 35 bâbın tek tabloda özeti.</li>
+</ul>
+<p style="margin:14px 4px;color:var(--muted);font-size:.9rem">Program tek bir dosyadır, kurulum gerektirmez ve internet bağlantısı olmadan çalışır; telefonda “Ana ekrana ekle” ile uygulama gibi kullanılır. İlerlemeniz yalnızca bu cihazda saklanır.</p>
 </div>`;};
 /* ---------- başlat ---------- */
 document.documentElement.lang='tr';
