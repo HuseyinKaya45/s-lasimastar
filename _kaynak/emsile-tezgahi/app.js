@@ -53,15 +53,16 @@ function muh(rt=R){
     o.mean = rt.data ? trCekD(rt.data)[m.id] : m.g;
     if (m.masdar){ if (rt.data){ o.txt = masdarOf(rt.data).join(" · "); } else { o.guess = masdarGuess(rt); o.gt = MASDAR_KALIP[rt.b.id]; o.note = "Sülâsîde masdar semâîdir: bu kök programın listesinde yok. Gösterilenler bâbın en yaygın kalıplarıdır (olası); gerçek masdarı sözlükten doğrula."; } return o; }
     o.t = m.t(rt.b);
-    if (m.id === "fail" && rt.data && rt.data.sf){ o.txt = rt.data.sf; o.t = null; o.x = ["FَاAِLٌ"]; o.note = (rt.b.id === 5 ? "Kerume bâbında ism-i fâil yerine genellikle sıfat-ı müşebbehe kullanılır: " : "Bu fiilde öğrencinin daha sık karşılaşacağı biçim sıfat-ı müşebbehedir: ") + rt.data.sf + ". İkinci kelime kıyâsî ism-i fâil kalıbıdır (" + fill("FَاAِLٌ", rt.r) + "); sözlüklerde bulunabilir ama daha seyrek kullanılır. (Elle girilmiştir; sözlükten doğrulanmalıdır.)"; }
+    if (m.id === "fail" && rt.data && rt.data.sf){ o.txt = rt.data.sf; o.t = null; o.x = ["FَاAِLٌ"]; o.note = (rt.b.id === 5 ? "Kerume bâbında ism-i fâil yerine genellikle sıfat-ı müşebbehe kullanılır: " : "Bu fiilde öğrencinin daha sık karşılaşacağı biçim sıfat-ı müşebbehedir: ") + rt.data.sf + "."; }
     if (m.id === "mef" && rt.data && rt.data.lz){
       o.kalip = true;
       if (rt.data.mc){ o.t = "مَFْAُوLٌ " + rt.data.mc; o.mean = "Harf-i cerle kullanılır"; o.note = "Lâzım (geçişsiz) fiilin ism-i mef'ûlü harf-i cerle birlikte kullanılır: " + fill(o.t, rt.r) + "."; }
-      else { o.mean = "Bu kök için örnek verilmedi"; o.note = "Lâzım (geçişsiz) fiilin ism-i mef'ûlü harf-i cerle gelir. Bu kök için kullanım örneği verilmedi; kıyâsî kalıp yalnız biçimi görmek için gösterilir."; }
+      else { o.mean = "Bu kök için örnek verilmedi"; o.note = "Lâzım (geçişsiz) fiilin ism-i mef'ûlü harf-i cerle gelir."; }
     }
     if (m.id === "zarf"){
-      if (rt.b.mu === "i"){ o.x = ["مَFْAَLٌ"]; o.gtr = "İsm-i zaman · İsm-i mekân"; o.note = "Bu bâbda üç başlık ikiye ayrılır: ism-i zaman ve ism-i mekân مَفْعِلٌ (muzâride ayn esre olduğu için), masdar-ı mîmî ise kıyâsî olarak مَفْعَلٌ olur. Kartta ilk kelime zaman/mekân, ikinci kelime masdar-ı mîmîdir."; }
-      else o.note = "Bu bâbda ism-i zaman, ism-i mekân ve masdar-ı mîmî aynı biçimdedir: مَفْعَلٌ.";
+      const d = rt.data || {}, zT = d.mz || o.t, mT = d.mm || "مَFْAَLٌ";
+      if (zT === mT){ o.t = zT; o.x = []; o.note = "Bu fiilde ism-i zaman, ism-i mekân ve masdar-ı mîmî aynı biçimdedir: " + fill(zT, rt.r) + "."; }
+      else { o.t = zT; o.x = [mT]; o.gtr = "İsm-i zaman · İsm-i mekân"; o.note = "Bu fiilde ism-i zaman ve ism-i mekân " + fill(zT, rt.r) + ", masdar-ı mîmî " + fill(mT, rt.r) + " biçimindedir. Kartta ilk kelime zaman/mekân, ikinci kelime masdar-ı mîmîdir."; }
     }
     if (m.p && !(rt.data && rt.data.lz)) o.p = m.p();
     return o;
@@ -200,8 +201,8 @@ function renderTables(){
     <div class="sec-h"><div><span class="eyebrow ar" style="font-size:1rem;letter-spacing:0">${TB==="fail"?"اسْمُ الْفَاعِلِ":TB==="mef"?"اسْمُ الْمَفْعُولِ":t.ar}</span><h2>${TB==="fail"?"İsm-i fâil":TB==="mef"?"İsm-i mef'ûl":esc(t.tr)} · <span class="ar" style="font-size:1.3rem">${esc(lemma())}</span></h2></div>
       <div class="row"><div class="seg"><button aria-pressed="${S.miz}" id="tMiz2">Mîzan</button><button aria-pressed="${S.col}" id="tCol2">Renkler</button><button aria-pressed="${TBHIDE}" id="tHide">Kendini sına</button></div><button class="btn ghost sm" id="tPrint">🖨 Boş çalışma kâğıdı</button></div></div>
     <p class="muted" style="margin-top:-6px">${TB==="fail"?"Yapan anlamında. Müfred, tesniye ve sâlim cemiler kıyâsîdir; teksîr cemileri (فُعَّلٌ، فُعَّالٌ، فَعَلَةٌ، فَوَاعِلُ) Emsile'de kalıp olarak sayılır, her kökte kullanılmaz.":TB==="mef"?"Yapılan anlamında: مَفْعُولٌ kalıbı.":esc(t.d)}</p>
-    ${TB==="fail" ? `${R.data && R.data.sf ? `<div class="panel pad" style="margin-bottom:12px">${R.b.id===5 ? "<b>Kerume bâbı lâzımdır:</b> ism-i fâil yerine genellikle" : "<b>Bu fiilde</b> öğrencinin daha sık karşılaşacağı biçim"} <b>sıfat-ı müşebbehe</b>${R.b.id===5 ? " kullanılır" : "dir"}: <span class="ar" style="font-size:1.6rem">${esc(R.data.sf)}</span>. Aşağıdaki kıyâsî ism-i fâil kalıbı da sözlüklerde bulunabilir ama daha seyrek kullanılır.</div>` : R.b.id===5 ? `<div class="panel pad" style="margin-bottom:12px">Kerume bâbında ism-i fâil yerine genellikle sıfat-ı müşebbehe (فَعِيلٌ, فَعْلٌ, أَفْعَلُ gibi) kullanılır; aşağıdaki kıyâsî kalıp çoğu kökte kullanılmaz.</div>` : ""}<div class="list" ${R.b.id===5 ? 'style="opacity:.55"' : ""}>${FAIL.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(FAIL_TR[i])}</span></div>`).join("")}</div>`
-      : TB==="mef" ? (`${lz() ? `<div class="panel pad" style="margin-bottom:12px">${R.data.mc ? `Bu kök lâzım (geçişsiz): ism-i mef'ûl harf-i cerle kullanılır: <span class="ar" style="font-size:1.4rem">${esc(fill("مَFْAُوLٌ " + R.data.mc, R.r))}</span>. Aşağıdaki kıyâsî kalıplar yalnız biçimi gösterir.` : "Bu kök lâzım (geçişsiz): ism-i mef'ûl harf-i cerle gelir; bu kök için kullanım örneği verilmedi. Aşağıdaki kıyâsî kalıp yalnız biçimi göstermek içindir."}</div>` : ""}<div class="list">${MEF.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(MEF_TR[i])}</span></div>`).join("")}</div>`)
+    ${TB==="fail" ? `${R.data && R.data.sf ? `<div class="panel pad" style="margin-bottom:12px">${R.b.id===5 ? "<b>Kerume bâbı lâzımdır:</b> ism-i fâil yerine genellikle" : "<b>Bu fiilde</b> öğrencinin daha sık karşılaşacağı biçim"} <b>sıfat-ı müşebbehe</b>${R.b.id===5 ? " kullanılır" : "dir"}: <span class="ar" style="font-size:1.6rem">${esc(R.data.sf)}</span>.</div>` : R.b.id===5 ? `<div class="panel pad" style="margin-bottom:12px">Kerume bâbında ism-i fâil yerine genellikle sıfat-ı müşebbehe (فَعِيلٌ, فَعْلٌ, أَفْعَلُ gibi) kullanılır; aşağıdaki kıyâsî kalıp çoğu kökte kullanılmaz.</div>` : ""}<div class="list" ${R.b.id===5 ? 'style="opacity:.55"' : ""}>${FAIL.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(FAIL_TR[i])}</span></div>`).join("")}</div>`
+      : TB==="mef" ? (`${lz() ? `<div class="panel pad" style="margin-bottom:12px">${R.data.mc ? `Bu kök lâzım (geçişsiz): ism-i mef'ûl harf-i cerle kullanılır: <span class="ar" style="font-size:1.4rem">${esc(fill("مَFْAُوLٌ " + R.data.mc, R.r))}</span>.` : "Bu kök lâzım (geçişsiz): ism-i mef'ûl harf-i cerle gelir."}</div>` : ""}<div class="list">${MEF.map((f,i)=>`<div class="cell"><span class="w">${W(f)}</span>${S.miz?`<span class="mz">${Z(f)}</span>`:""}<span class="z" style="font-family:var(--f-ui)">${esc(MEF_TR[i])}</span></div>`).join("")}</div>`)
       : dis ? `<div class="panel pad">Bu kök lâzım (geçişsiz) olduğu için meçhulü doğrudan yapılmaz. Müteaddî bir kök seç (ör. نصر، ضرب، فتح).</div>` : matrixHTML(t)}
     <div class="panel pad" style="margin-top:18px"><span class="eyebrow">Hatırlatma</span><p style="margin:6px 0 0">Muzâri harfleri <b class="ar" style="font-size:1.15rem">أَتَيْنَ</b> (eteyne): <span class="ar">أَ</span> ben, <span class="ar">تَ</span> sen/o (kadın), <span class="ar">يَ</span> o (erkek), <span class="ar">نَ</span> biz. Aynı görünen sîgalar vardır: <span class="ar">تَنْصُرُ</span> hem 4. (o kadın) hem 7. (sen erkek) sîgadır.</p></div>`;
   bindPicker();
@@ -214,28 +215,13 @@ function renderTables(){
 }
 
 /* ===================== BÂBLAR ===================== */
-let MZB = "ifal", MZR = "كرم";
 function renderBabs(){
-  const mb = MAZID.find(x=>x.id===MZB); if (!mb.roots.includes(MZR)) MZR = mb.roots[0];
-  const r = MZR.split("");
-  const P = t => S.col ? paint(t, r) : esc(fill(t, r));
   $("#v-bablar").innerHTML = `<div class="sec-h" style="margin-top:0"><div><span class="eyebrow">Binâ</span><h2>Sülâsî mücerred: altı bâb</h2></div><span class="muted small">Bâbı, aynü'l-fiilin mâzi ve muzârideki harekesi belirler</span></div>
    <div class="babs">${BABS.map(b => { const ex = ROOTS.filter(x=>x.b===b.id); const rt = {r:ex[0].r.split(""), b, data:ex[0]};
      return `<div class="panel bab"><div class="row" style="justify-content:space-between"><span class="eyebrow">${b.id}. bâb · ${esc(b.tr)}</span><span class="ar muted">${b.vz}</span></div>
        <div class="big">${paint(mzStem(b)+V.a, rt.r)} ${paint("يَ"+muStem(b)+V.u, rt.r)}</div>
        <div class="dial"><div class="v">ـ${V[b.mz]}ـ<small>mâzi</small></div><span class="muted">→</span><div class="v">ـ${V[b.mu]}ـ<small>muzâri</small></div><span class="small muted" style="flex:1">${esc(b.note)}</span></div>
-       <div class="rootchips">${ex.map(x=>`<button data-root="${x.r}" data-go="tezgah" title="${esc(x.tr)}">${x.r}</button>`).join("")}</div></div>`; }).join("")}</div>
-   <div class="sec-h"><div><span class="eyebrow">Sülâsî mezîd</span><h2>Mezîd bâblar</h2></div><span class="muted small">Köke harf eklenerek yeni anlamlar</span></div>
-   <div class="seg">${MAZID.map(x=>`<button aria-pressed="${x.id===MZB}" data-mb="${x.id}">${esc(x.tr)}</button>`).join("")}</div>
-   <div class="panel pad" style="margin-top:14px">
-     <div class="row" style="justify-content:space-between"><div><h2 style="font-size:1.4rem">${esc(mb.tr)} <span class="ar" style="font-size:1.3rem">${mb.ar}</span></h2><div class="ar muted" style="font-size:1.2rem">${mb.vz}</div></div>
-       <div class="rootchips">${mb.roots.map(x=>`<button data-mr="${x}" aria-pressed="${x===MZR}">${x}</button>`).join("")}</div></div>
-     <p>${esc(mb.m)} <b>${esc(r.join(" "))}</b>: ${esc((MZ_MEAN_BY[mb.id]||{})[MZR]||"")}</p>
-     <div class="mzgrid">${Object.keys(MZ_TR).map(k => mb.f[k] ? `<div class="cell"><span class="z" style="font-family:var(--f-ui)">${MZ_TR[k]}</span><span class="w">${P(mb.f[k])}</span><span class="mz">${Z(mb.f[k])}</span></div>` : `<div class="cell x"><span class="z" style="font-family:var(--f-ui)">${MZ_TR[k]}</span><span class="small">yok (lâzım)</span></div>`).join("")}</div>
-     <p class="small muted" style="margin-bottom:0">Gri harfler bu bâbın köke eklediği harflerdir: ${esc(mb.tr)} bâbının imzası.</p>
-   </div>`;
-  $$("[data-mb]").forEach(b => b.onclick = () => { MZB = b.dataset.mb; renderBabs(); });
-  $$("[data-mr]").forEach(b => b.onclick = () => { MZR = b.dataset.mr; renderBabs(); });
+       <div class="rootchips">${ex.map(x=>`<button data-root="${x.r}" data-go="tezgah" title="${esc(x.tr)}">${x.r}</button>`).join("")}</div></div>`; }).join("")}</div>`;
 }
 
 /* ===================== EZBER ===================== */
@@ -415,7 +401,7 @@ function makeQ(id, force){
     return {k:"opt", rt, html:`<div class="q">Doğru çekimi bul: <b>${esc(t.tr)}</b></div><div class="w" style="font-size:2.2rem">${SIGA[i].z}</div><div class="small muted">${esc(SIGA[i].tr)} · ${esc(lemma(rt))}</div>`, opts, right, ar:true, why:`${t.tr} · ${SIGA[i].z}: ${right}`, desc:{g:"sigaK", t:t.id, i}};
   }
   if (id === "hata"){
-    const t = pick(muz.filter(x=>["mazi","muz","lem","len","nehy","maziP","muzP","nun"].includes(x.id))), ok = okI(t);
+    const t = pick(muz.filter(x=>["mazi","muz","lem","len","nehy","maziP","muzP"].includes(x.id))), ok = okI(t);
     const all = uniq(ok.map(j=>fill(t.f(rt.b,j), rt.r)));
     const forms = shuffle(all).slice(0,4), k = Math.floor(Math.random()*4), orig = forms[k], bad = mutate(orig, all);
     forms[k] = bad;
@@ -430,10 +416,10 @@ function makeQ(id, force){
     return {k:"fill", rt, t, blanks, rights, chips: shuffle([...blanks.map(i=>rights[i]), ...shuffle(d).slice(0,2)]), why:`${t.tr}: ` + blanks.map(i=>`${SIGA[i].z} ${rights[i]}`).join(" · ")};
   }
   if (id === "deste"){
-    const kisa = {mazi:"Mâzî", maziP:"Mâzî meçhûl", muz:"Muzâri", muzP:"Muzâri meçhûl", len:"Len", lem:"Lem", emr:"Emir", gaib:"Emr-i gâib", nehy:"Nehy", nun:"Nûn-ı sakîle"};
+    const kisa = {mazi:"Mâzî", maziP:"Mâzî meçhûl", muz:"Muzâri", muzP:"Muzâri meçhûl", len:"Len", lem:"Lem", emr:"Emir", gaib:"Emr-i gâib", nehy:"Nehy"};
     const av = muz.filter(x => kisa[x.id]), tf = force && av.find(x => x.id === force.t);
     let segs = shuffle(av.filter(x => !tf || x !== tf)).slice(0, tf ? 7 : 8); if (tf) segs.push(tf); segs = shuffle(segs);
-    const sel = tf ? segs.indexOf(tf) : Math.floor(Math.random()*8), t = segs[sel], ok = okI(t), i = tf && force.i != null ? force.i : pick(ok), right = fill(t.f(rt.b,i), rt.r);
+    const sel = tf ? segs.indexOf(tf) : Math.floor(Math.random()*segs.length), t = segs[sel], ok = okI(t), i = tf && force.i != null ? force.i : pick(ok), right = fill(t.f(rt.b,i), rt.r);
     const other = uniq([...ok.filter(j=>j!==i).map(j=>fill(t.f(rt.b,j), rt.r)), ...muz.filter(x=>x.id!==t.id && (!x.only||x.only.includes(i))).map(x=>fill(x.f(rt.b,i), rt.r))]).filter(x=>x!==right);
     return {k:"deste", rt, segs: segs.map(x=>({id:x.id, ad:kisa[x.id]})), sel, t, i, opts: shuffle([right, ...shuffle(other).slice(0,3)]), right, why:`${t.tr} · ${SIGA[i].z}: ${right}`, desc:{g:"deste", t:t.id, i}};
   }
@@ -641,7 +627,7 @@ function answer(ok){
   if (G.timer) setTimeout(next, ok ? 400 : 1100); else { const n = $("#gNext"); n.hidden = false; n.focus(); }
 }
 function next(){ if (!G || G.done) return; G.i++; G.lock = false; G.b = null; G.c = null; G.f = null; G.m = null; G.d = null; G.cs = null; G.sel = null; G.pan = null; G.tilt = undefined; if (!G.timer && G.i >= G.n) return end(); G.q = makeQ(G.id); draw(); }
-if (/[?&]test\b/.test(location.search)) window.__G = () => G;
+if (/[?&]test\b/.test(location.search)) window.__G = () => G; if (/[?&]test\b/.test(location.search)) window.__E = {makeQ, muh, ROOTS, babOf, fill, TABLES, FAIL, FAIL_TR, MEF_TR};
 function end(){
   if (!G || G.done) return; G.done = true; clearInterval(G.iv); S.plays++; S.best[G.id] = Math.max(S.best[G.id]||0, G.score); save();
   const perfect = !G.wrong && G.score > 0 && G.score === G.ans; if (perfect || G.score >= 8){ confetti(); beep("win"); }
@@ -657,7 +643,7 @@ function renderGuide(){
    ["Emsile","Örnekler. Sarfın ilk kitabı: bir kökün kalıplara dökülmüş hâllerini sıralar."],
    ["Emsile-i Muhtelife","Farklı örnekler: mâzi, muzâri, masdar, fâil, mef'ûl, nefy, nehy, emir, zaman-mekân, âlet… her biri bir kez."],
    ["Emsile-i Muttaride","Düzenli örnekler: her kalıbın 14 sîgası tablo hâlinde."],
-   ["Binâ (Bâb)","Fiilin kalıp ailesi. Sülâsî mücerredde altı bâb; mezîdde ilave harfli bâblar."],
+   ["Binâ (Bâb)","Fiilin kalıp ailesi. Sülâsî mücerredde altı bâb vardır."],
    ["Kök (mâdde)","Kelimenin anlam taşıyan üç asıl harfi: fâ, ayn, lâm."],
    ["Mîzan","Ölçü: kalıp ف ع ل harfleriyle gösterilir. نَاصِرٌ'in mîzanı فَاعِلٌ'dir."],
    ["Zevâid","Köke kalıbın eklediği harfler: سَأَلْتُمُونِيهَا harfleri."],
@@ -669,11 +655,9 @@ function renderGuide(){
    ["Lâzım / Müteaddî","Geçişsiz / geçişli. Lâzım fiilin meçhulü ve ism-i mef'ûlü harf-i cerle yapılır."],
    ["Cahd","Olumsuz geçmiş: lem (mutlak), lemmâ (müstağrak, 'henüz')."],
    ["Nefy","Olumsuzlama: mâ (mâzi ve hâl), lâ (istikbâl), len (kesin istikbâl)."],
-   ["Te'kîd nûnu","Sakîle (şeddeli نَّ) ve hafîfe (sâkin نْ): mutlaka anlamı katar."],
    ["Emr-i hâzır / gâib","Sen'e emir (اُنْصُرْ) / o'na emir, lâm ile (لِيَنْصُرْ)."],
    ["Nehy","Yasaklama: لَا تَنْصُرْ (yardım etme)."],
-   ["Eteyne","Muzâri harfleri أ ت ي ن."],
-   ["Sülâsî mücerred / mezîd","İlavesiz üç harfli / harf eklenmiş üç harfli fiil."]
+   ["Eteyne","Muzâri harfleri أ ت ي ن."]
   ];
   $("#v-rehber").innerHTML = `<div class="sec-h" style="margin-top:0"><div><span class="eyebrow">Rehber</span><h2>Sarfın temel kavramları</h2></div></div>
    <div class="gl">${T.map(([a,b])=>`<div class="panel"><b>${esc(a)}</b><br><span class="muted small">${esc(b)}</span></div>`).join("")}</div>

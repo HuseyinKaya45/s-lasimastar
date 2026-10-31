@@ -14,7 +14,7 @@ const BABS = [
  {id:6, mz:"i", mu:"i", ar:"حَسِبَ يَحْسِبُ", tr:"Hasibe bâbı", vz:"فَعِلَ يَفْعِلُ", note:"İki tarafta da esre. Sâlim fiili çok azdır."}
 ];
 
-/* ---- hazır kökler: r kök, b bâb, ms masdar (semâîdir), m2 diğer yaygın masdarlar, tr anlam, lz lâzım (geçişsiz), sf sıfat (Kerume, 5. bâb) ---- */
+/* ---- hazır kökler: r kök, b bâb, ms masdar (semâîdir), m2 diğer yaygın masdarlar, tr anlam, mz/mm ism-i zaman-mekân ve masdar-ı mîmî için kıyâsî olmayan biçim (şâz), lz lâzım (geçişsiz), sf sıfat (Kerume, 5. bâb) ---- */
 const ROOTS = [
  /* 1. bâb: نَصَرَ يَنْصُرُ */
  {r:"نصر", b:1, ms:"نَصْرًا", tr:"yardım etmek"},
@@ -24,7 +24,7 @@ const ROOTS = [
  {r:"طلب", b:1, ms:"طَلَبًا", tr:"istemek"},
  {r:"ترك", b:1, ms:"تَرْكًا", tr:"terk etmek"},
  {r:"خرج", b:1, ms:"خُرُوجًا", tr:"çıkmak", lz:true},
- {r:"سجد", b:1, ms:"سُجُودًا", tr:"secde etmek", lz:true},
+ {r:"سجد", b:1, ms:"سُجُودًا", tr:"secde etmek", lz:true, mz:"مَFْAِLٌ", mm:"مَFْAِLٌ"},
  {r:"دخل", b:1, ms:"دُخُولًا", tr:"girmek"},
  {r:"قعد", b:1, ms:"قُعُودًا", tr:"oturmak", lz:true},
  {r:"كفر", b:1, ms:"كُفْرًا", tr:"inkâr etmek, nankörlük etmek"},
@@ -35,17 +35,17 @@ const ROOTS = [
  {r:"حكم", b:1, ms:"حُكْمًا", tr:"hükmetmek"},
  {r:"نشر", b:1, ms:"نَشْرًا", tr:"yaymak"},
  {r:"هرب", b:1, ms:"هُرُوبًا", m2:"هَرَبًا", tr:"kaçmak", lz:true},
- {r:"حشر", b:1, ms:"حَشْرًا", tr:"toplamak, haşretmek"},
- {r:"سكن", b:1, ms:"سَكَنًا", m2:"سُكْنَى", tr:"oturmak, durulmak"},   /* "oturmak" anlamı geçişli (سَكَنَ الدَّارَ), "durulmak" geçişsiz: karma olduğundan lâzım işaretlenmedi */
+ {r:"حشر", b:1, ms:"حَشْرًا", tr:"toplamak, haşretmek", mm:"مَFْAِLٌ"},
+ {r:"سكن", b:1, ms:"سَكَنًا", m2:"سُكْنَى", tr:"oturmak, durulmak", mm:"مَFْAِLٌ"},   /* "oturmak" anlamı geçişli (سَكَنَ الدَّارَ), "durulmak" geçişsiz: karma olduğundan lâzım işaretlenmedi */
  {r:"رزق", b:1, ms:"رِزْقًا", tr:"rızık vermek"},
  {r:"خلد", b:1, ms:"خُلْدًا", m2:"خُلُودًا", tr:"ebedî kalmak", lz:true},
- {r:"طلع", b:1, ms:"طُلُوعًا", tr:"doğmak, yükselmek", lz:true},
+ {r:"طلع", b:1, ms:"طُلُوعًا", tr:"doğmak, yükselmek", lz:true, mm:"مَFْAِLٌ"},
  {r:"حضر", b:1, ms:"حُضُورًا", tr:"hazır bulunmak", lz:true},
- {r:"سقط", b:1, ms:"سُقُوطًا", tr:"düşmek", lz:true},
+ {r:"سقط", b:1, ms:"سُقُوطًا", tr:"düşmek", lz:true, mm:"مَFْAِLٌ"},
  {r:"درس", b:1, ms:"دَرْسًا", m2:"دِرَاسَةً", tr:"okumak, ders çalışmak"},
  /* 2. bâb: ضَرَبَ يَضْرِبُ */
  {r:"ضرب", b:2, ms:"ضَرْبًا", tr:"vurmak"},
- {r:"غفر", b:2, ms:"مَغْفِرَةً", m2:"غُفْرَانًا", tr:"bağışlamak"},
+ {r:"غفر", b:2, ms:"غُفْرَانًا", tr:"bağışlamak", mm:"مَFْAِLَةٌ"},
  {r:"حمل", b:2, ms:"حَمْلًا", tr:"taşımak"},
  {r:"كسب", b:2, ms:"كَسْبًا", tr:"kazanmak"},
  {r:"عرف", b:2, ms:"مَعْرِفَةً", m2:"عِرْفَانًا", tr:"tanımak"},
@@ -53,7 +53,7 @@ const ROOTS = [
  {r:"نزل", b:2, ms:"نُزُولًا", tr:"inmek", lz:true},
  {r:"كسر", b:2, ms:"كَسْرًا", tr:"kırmak"},
  {r:"سرق", b:2, ms:"سَرِقَةً", tr:"çalmak"},
- {r:"رجع", b:2, ms:"رُجُوعًا", tr:"dönmek", lz:true},
+ {r:"رجع", b:2, ms:"رُجُوعًا", tr:"dönmek", lz:true, mm:"مَFْAِLٌ"},
  {r:"عدل", b:2, ms:"عَدْلًا", tr:"adaletli olmak", lz:true},
  {r:"فصل", b:2, ms:"فَصْلًا", tr:"ayırmak"},
  {r:"صرف", b:2, ms:"صَرْفًا", tr:"çevirmek, harcamak"},
@@ -77,9 +77,9 @@ const ROOTS = [
  {r:"جلد", b:2, ms:"جَلْدًا", tr:"kamçılamak"},
  /* 3. bâb: فَتَحَ يَفْتَحُ */
  {r:"فتح", b:3, ms:"فَتْحًا", tr:"açmak"},
- {r:"جمع", b:3, ms:"جَمْعًا", tr:"toplamak"},
+ {r:"جمع", b:3, ms:"جَمْعًا", tr:"toplamak", mm:"مَFْAِLٌ"},
  {r:"منع", b:3, ms:"مَنْعًا", tr:"engellemek"},
- {r:"نفع", b:3, ms:"نَفْعًا", tr:"fayda vermek"},
+ {r:"نفع", b:3, ms:"نَفْعًا", tr:"fayda vermek", mm:"مَFْAَLَةٌ"},
  {r:"شرح", b:3, ms:"شَرْحًا", tr:"açıklamak"},
  {r:"رفع", b:3, ms:"رَفْعًا", tr:"yükseltmek"},
  {r:"ذهب", b:3, ms:"ذَهَابًا", tr:"gitmek", lz:true},
@@ -153,7 +153,7 @@ const ROOTS = [
  {r:"خبث", b:5, ms:"خُبْثًا", m2:"خَبَاثَةً", tr:"habis olmak", lz:true, sf:"خَبِيثٌ"},
  {r:"فصح", b:5, ms:"فَصَاحَةً", m2:"فَصْحًا", tr:"fasih olmak", lz:true, sf:"فَصِيحٌ"},
  /* 6. bâb: حَسِبَ يَحْسِبُ */
- {r:"حسب", b:6, ms:"حِسْبَانًا", tr:"sanmak, zannetmek"},   /* el-Arabiyye beyne yedeyk sözlüğü: حَسِبَ يَحْسَبُ حَسَبًا (4. bâb); burada 6. bâbın örnek fiili olarak klasik biçim حَسِبَ يَحْسِبُ حِسْبَانًا alınmıştır. "Saymak" anlamı حَسَبَ يَحْسُبُ (1. bâb) ayrı fiildir */
+ {r:"حسب", b:6, ms:"حِسْبَانًا", tr:"hesaplamak"},   /* 6. bâbın örnek fiili: حَسِبَ يَحْسِبُ حِسْبَانًا (hesapladı). "Sanmak" anlamı için sözlük حَسِبَ يَحْسَبُ حَسَبًا (4. bâb) verir */
  {r:"نعم", b:6, ms:"نَعِيمًا", m2:["نِعْمَةً","نَعْمَةً","نَعَمًا"], tr:"bolluk ve refah içinde olmak", lz:true}
 ];
 /* Masdar semâîdir: hazır köklerde kayıtlı masdar(lar) gösterilir; özel kökte bâbın en yaygın üç kalıbı "olası" diye önerilir. */
@@ -252,12 +252,11 @@ const TABLES = [
  {id:"emr", ar:"الْأَمْرُ الْحَاضِرُ", tr:"Emr-i hâzır", d:"Muhatab muzâriden yapılır: muzâri harfi atılır, sükûnla başlayınca başa vasıl hemzesi gelir.", only:[6,7,8,9,10,11], f:(b,i)=> hamz(b) + muStem(b) + SUF.jazm[i]},
  {id:"gaib", ar:"الْأَمْرُ الْغَائِبُ", tr:"Emr-i gâib", d:"Başına emir lâmı (لِـ) gelir ve cezm eder: o …sın.", only:[0,1,2,3,4,5,12,13], f:(b,i)=> "لِ" + PRE[i] + muStem(b) + SUF.jazm[i]},
  {id:"nehy", ar:"النَّهْيُ", tr:"Nehy", d:"Lâ-yı nâhiye cezm eder: …me!", f:(b,i)=> "لَا " + PRE[i] + muStem(b) + SUF.jazm[i]},
- {id:"nun", ar:"الْمُؤَكَّدُ بِالنُّونِ الثَّقِيلَةِ", tr:"Te'kîd (nûn-ı sakîle)", d:"Başında te'kîd lâmı, sonunda şeddeli nûn: mutlaka …ecek.", f:(b,i)=> "لَ" + PRE[i] + muStem(b) + SUF.nun[i]}
 ];
-const FAIL = ["FَاAِLٌ","FَاAِLَانِ","FَاAِLُونَ","FُAَّLٌ","FُAَّاLٌ","FَAَLَةٌ","FَاAِLَةٌ","FَاAِLَتَانِ","FَاAِLَاتٌ","FَوَاAِLُ"];
-const FAIL_TR = ["Müfred müzekker","Tesniye müzekker","Cem'-i müzekker sâlim","Cem'-i teksîr (فُعَّلٌ)","Cem'-i teksîr (فُعَّالٌ)","Cem'-i teksîr (فَعَلَةٌ)","Müfred müennes","Tesniye müennes","Cem'-i müennes sâlim","Cem'-i teksîr (فَوَاعِلُ)"];
-const MEF = ["مَFْAُوLٌ","مَFْAُوLَانِ","مَFْAُوLُونَ","مَFَاAِيLُ","مَFْAُوLَةٌ","مَFْAُوLَتَانِ","مَFْAُوLَاتٌ"];
-const MEF_TR = ["Müfred müzekker","Tesniye müzekker","Cem'-i müzekker sâlim","Cem'-i teksîr","Müfred müennes","Tesniye müennes","Cem'-i müennes sâlim"];
+const FAIL = ["FَاAِLٌ","FَاAِLَانِ","FَاAِLُونَ","FُAَّاLٌ","FُAَّLٌ","FَAَLَةٌ","FَاAِLَةٌ","FَاAِLَتَانِ","FَاAِLَاتٌ","FَوَاAِLُ"];
+const FAIL_TR = ["Müfred müzekker","Tesniye müzekker","Cem'-i müzekker sâlim","Cem'-i teksîr (فُعَّالٌ)","Cem'-i teksîr (فُعَّلٌ)","Cem'-i teksîr (فَعَلَةٌ)","Müfred müennes","Tesniye müennes","Cem'-i müennes sâlim","Cem'-i teksîr (فَوَاعِلُ)"];
+const MEF = ["مَFْAُوLٌ","مَFْAُوLَانِ","مَFْAُوLُونَ","مَFْAُوLَةٌ","مَFْAُوLَتَانِ","مَFْAُوLَاتٌ","مَFَاAِيLُ"];
+const MEF_TR = ["Müfred müzekker","Tesniye müzekker","Cem'-i müzekker sâlim","Müfred müennes","Tesniye müennes","Cem'-i müennes sâlim","Cem'-i teksîr"];
 
 /* ---- Emsile-i Muhtelife: 24 sîga, ezber sırasıyla (g = genel Türkçe mânâ kalıbı) ---- */
 const MUH = [
@@ -287,30 +286,6 @@ const MUH = [
  {id:"tac2", ar:"فِعْلُ التَّعَجُّبِ الثَّانِي", tr:"Fiil-i taaccüb-i sânî", g:"Ne acaip yaptı", d:"İkinci taaccüb kalıbı: أَفْعِلْ بِهِ.", t:()=> "أَFْAِLْ بِهِ"}
 ];
 const NASR_TR = {mazi:"Yardım etti", muz:"Yardım eder / ediyor / edecek", masdar:"Yardım etmek", fail:"Yardım eden", mef:"Yardım edilen", lem:"Yardım etmedi", lemma:"Henüz yardım etmedi", nhal:"Yardım etmiyor", nist:"Yardım etmeyecek", len:"Asla yardım etmeyecek", gaib:"Yardım etsin", nehyG:"Yardım etmesin", emr:"Yardım et", nehyH:"Yardım etme", zarf:"Yardım etme zamanı · Yardım etme mekânı · Yardım etmek", alet:"Yardım etme aleti", merre:"Bir kere yardım etmek", nev:"Bir nevi yardım etmek", tasgir:"Küçük bir yardım", mensub:"Yardım etmeye mensup", mubalaga:"Çok yardım eden", tafdil:"En (/daha) çok yardım eden", tac1:"Acaip yardım etti", tac2:"Ne acaip yardım etti"};
-
-/* ---- mezîd bâblar ---- */
-const MAZID = [
- {id:"ifal", ar:"الْإِفْعَالُ", tr:"İf'âl", vz:"أَفْعَلَ يُفْعِلُ إِفْعَالًا", m:"Ta'diye: geçişsiz fiili geçişli yapar (خَرَجَ çıktı → أَخْرَجَ çıkardı).", roots:["كرم","خرج","نزل","سلم"],
-  f:{mazi:"أَFْAَLَ", muz:"يُFْAِLُ", masdar:"إِFْAَاLًا", fail:"مُFْAِLٌ", mef:"مُFْAَLٌ", emr:"أَFْAِLْ"}},
- {id:"tafil", ar:"التَّفْعِيلُ", tr:"Tef'îl", vz:"فَعَّلَ يُفَعِّلُ تَفْعِيلًا", m:"Teksîr ve ta'diye: çokluk, tekrar ya da geçişlilik (عَلِمَ bildi → عَلَّمَ öğretti).", roots:["علم","صرف","كسر","قدم"],
-  f:{mazi:"FَAَّLَ", muz:"يُFَAِّLُ", masdar:"تَFْAِيLًا", fail:"مُFَAِّLٌ", mef:"مُFَAَّLٌ", emr:"FَAِّLْ"}},
- {id:"mufaala", ar:"الْمُفَاعَلَةُ", tr:"Mufâale", vz:"فَاعَلَ يُفَاعِلُ مُفَاعَلَةً", m:"Müşâreket: iki taraflı iş (قَتَلَ öldürdü → قَاتَلَ savaştı).", roots:["قتل","كتب","سفر","جهد"],
-  f:{mazi:"FَاAَLَ", muz:"يُFَاAِLُ", masdar:"مُFَاAَLَةً", fail:"مُFَاAِLٌ", mef:"مُFَاAَLٌ", emr:"FَاAِLْ"}},
- {id:"iftial", ar:"الِافْتِعَالُ", tr:"İftiâl", vz:"اِفْتَعَلَ يَفْتَعِلُ اِفْتِعَالًا", m:"Mutâvaat ve ittihâz: kendisi için yapma, edinme (جَمَعَ topladı → اِجْتَمَعَ toplandı).", roots:["جمع","جنب","كسب","فتح"],
-  f:{mazi:"اِFْتَAَLَ", muz:"يَFْتَAِLُ", masdar:"اِFْتِAَاLًا", fail:"مُFْتَAِLٌ", mef:"مُFْتَAَLٌ", emr:"اِFْتَAِLْ"}},
- {id:"infial", ar:"الِانْفِعَالُ", tr:"İnfiâl", vz:"اِنْفَعَلَ يَنْفَعِلُ اِنْفِعَالًا", m:"Mutâvaat: etkiyi kabul etme, edilgenlik (كَسَرَ kırdı → اِنْكَسَرَ kırıldı). Lâzımdır.", roots:["كسر","قطع","فتح","صرف"], lz:true,
-  f:{mazi:"اِنْFَAَLَ", muz:"يَنْFَAِLُ", masdar:"اِنْFِAَاLًا", fail:"مُنْFَAِLٌ", emr:"اِنْFَAِLْ"}},
- {id:"tafaul2", ar:"التَّفَعُّلُ", tr:"Tefe''ul", vz:"تَفَعَّلَ يَتَفَعَّلُ تَفَعُّلًا", m:"Tef'îlin mutâvaatı ve tekellüf: zorlanarak yapma (عَلَّمَ öğretti → تَعَلَّمَ öğrendi).", roots:["علم","كلم","كسر","قدم"],
-  f:{mazi:"تَFَAَّLَ", muz:"يَتَFَAَّLُ", masdar:"تَFَAُّLًا", fail:"مُتَFَAِّLٌ", mef:"مُتَFَAَّLٌ", emr:"تَFَAَّLْ"}},
- {id:"tafaul", ar:"التَّفَاعُلُ", tr:"Tefâul", vz:"تَفَاعَلَ يَتَفَاعَلُ تَفَاعُلًا", m:"Müşâreket ve tezâhür: karşılıklı yapma ya da yapar gibi görünme (تَبَاعَدَ birbirinden uzaklaştı).", roots:["بعد","قتل","كتب","شرك"],
-  f:{mazi:"تَFَاAَLَ", muz:"يَتَFَاAَLُ", masdar:"تَFَاAُLًا", fail:"مُتَFَاAِLٌ", mef:"مُتَFَاAَLٌ", emr:"تَFَاAَLْ"}},
- {id:"istifal", ar:"الِاسْتِفْعَالُ", tr:"İstif'âl", vz:"اِسْتَفْعَلَ يَسْتَفْعِلُ اِسْتِفْعَالًا", m:"Taleb: bir şeyi isteme (غَفَرَ bağışladı → اِسْتَغْفَرَ bağışlanma diledi).", roots:["غفر","خرج","عمل","حسن"],
-  f:{mazi:"اِسْتَFْAَLَ", muz:"يَسْتَFْAِLُ", masdar:"اِسْتِFْAَاLًا", fail:"مُسْتَFْAِLٌ", mef:"مُسْتَFْAَLٌ", emr:"اِسْتَFْAِLْ"}},
- {id:"ifilal", ar:"الِافْعِلَالُ", tr:"İf'ilâl", vz:"اِفْعَلَّ يَفْعَلُّ اِفْعِلَالًا", m:"Renk ve ayıp: o renge girme (اِحْمَرَّ kızardı). Lâzımdır.", roots:["حمر","صفر","خضر","زرق"], lz:true,
-  f:{mazi:"اِFْAَLَّ", muz:"يَFْAَLُّ", masdar:"اِFْAِLَاLًا", fail:"مُFْAَLٌّ", emr:"اِFْAَLَّ"}}
-];
-const MZ_TR = {mazi:"Mâzi", muz:"Muzâri", masdar:"Masdar", fail:"İsm-i fâil", mef:"İsm-i mef'ûl", emr:"Emir"};
-const MZ_MEAN_BY = {ifal:{كرم:"ikram etti",خرج:"çıkardı",نزل:"indirdi",سلم:"Müslüman oldu"}, tafil:{علم:"öğretti",صرف:"evirip çevirdi",كسر:"paramparça etti",قدم:"öne sürdü"}, mufaala:{قتل:"savaştı",كتب:"yazıştı",سفر:"yolculuk etti",جهد:"cihad etti"}, iftial:{جمع:"toplandı",جنب:"kaçındı",كسب:"elde etti",فتح:"başlattı"}, infial:{كسر:"kırıldı",قطع:"kesildi",فتح:"açıldı",صرف:"ayrılıp gitti"}, tafaul2:{علم:"öğrendi",كلم:"konuştu",كسر:"kırılıp döküldü",قدم:"ilerledi"}, tafaul:{بعد:"birbirinden uzaklaştı",قتل:"birbirini öldürdü",كتب:"mektuplaştı",شرك:"ortak oldu"}, istifal:{غفر:"bağışlanma diledi",خرج:"çıkardı (istihraç etti)",عمل:"kullandı",حسن:"güzel buldu"}, ifilal:{حمر:"kızardı",صفر:"sarardı",خضر:"yeşerdi",زرق:"maviye döndü"}};
 
 /* ---- yardımcılar ---- */
 /* İdğam: lâm harfi, kendisiyle aynı harfle başlayan ekin önüne gelince (ör. lâmı ن olan kökte "نْنَا") iki harf tek şeddeli harfe dönüşür: سَكَنْنَا değil سَكَنَّا. */

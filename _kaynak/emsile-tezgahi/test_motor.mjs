@@ -1,8 +1,8 @@
 // Motor testi: node _kaynak/emsile-tezgahi/test_motor.mjs  (hata varsa çıkış kodu 1)
 import fs from 'fs';import path from 'path';import {fileURLToPath} from 'url';
 const D=path.dirname(fileURLToPath(import.meta.url));
-const E=new Function(fs.readFileSync(path.join(D,'engine.js'),'utf8')+';return {ROOTS,BABS,TABLES,MUH,SIGA,babOf,fill,checkRoot,masdarOf,trCek,trCekD};')();
-const {ROOTS,BABS,TABLES,MUH,SIGA,babOf,fill,checkRoot,masdarOf,trCek,trCekD}=E;
+const E=new Function(fs.readFileSync(path.join(D,'engine.js'),'utf8')+';let MAZIDX;try{MAZIDX=MAZID}catch(e){}return {ROOTS,BABS,TABLES,MUH,SIGA,FAIL,MEF,MAZID:MAZIDX,babOf,fill,checkRoot,masdarOf,trCek,trCekD};')();
+const {ROOTS,BABS,TABLES,MUH,SIGA,FAIL,MEF,MAZID,babOf,fill,checkRoot,masdarOf,trCek,trCekD}=E;
 let hata=0;const t=(ok,m)=>{if(!ok){hata++;console.log('HATA:',m)}};
 const N=x=>x.normalize('NFC');const strip=s=>s.replace(/[ً-ْٰ]/g,'');
 // 1) Klasik örnekler (Emsile'nin bilinen çekimleri)
@@ -41,4 +41,12 @@ for(const d of ROOTS){t(!gor.has(d.r),'tekrar kök '+d.r);gor.add(d.r);t(!checkR
   for(const m of MUH){if(m.masdar)continue;const w=m.t(babOf(d.b));t(w&&fill(w,k).length>=3,`kalıp boş ${d.r} ${m.id}`)}
   // 14 sîga: tablo çekimleri üretilmeli
   for(const tb of TABLES)for(let i=0;i<14;i++){if(tb.only&&!tb.only.includes(i))continue;const w=fill(tb.f(babOf(d.b),i),k);t(w&&!/[FAL]/.test(w),`çekim bozuk ${d.r} ${tb.id} ${i+1}`)}}
+// düzeltmeler: tablo sayısı, çoğul sıralaması, şâz mimli biçimler
+t(!TABLES.some(x=>x.id==='nun'),'nûn-ı sakîle tablosu kaldırılmalı');t(TABLES.length===9,'tablo sayısı '+TABLES.length);
+t(FAIL.indexOf('FُAَّاLٌ')<FAIL.indexOf('FُAَّLٌ'),'فُعَّال önce gelmeli');t(MEF[MEF.length-1]==='مَFَاAِيLُ','مَفَاعِيلُ en sonda olmalı');
+t(typeof MAZID==='undefined','mezîd bâblar kaldırılmalı');
+const MMX={غفر:'مَغْفِرَةٌ',رجع:'مَرْجِعٌ',طلع:'مَطْلِعٌ',حشر:'مَحْشِرٌ',سكن:'مَسْكِنٌ',سجد:'مَسْجِدٌ',جمع:'مَجْمِعٌ',سقط:'مَسْقِطٌ',نفع:'مَنْفَعَةٌ'};
+for(const [r,w] of Object.entries(MMX)){const d=ROOTS.find(x=>x.r===r);t(d&&d.mm&&fill(d.mm,[...r]).replace(/[\u064b-\u0652]/g,'')===w.replace(/[\u064b-\u0652]/g,'')&&fill(d.mm,[...r])===w.replace('ٌ','ٌ'),'mimli '+r+' '+(d&&fill(d.mm,[...r])))}
+t(ROOTS.find(x=>x.r==='سجد').mz===ROOTS.find(x=>x.r==='سجد').mm,'سجد: zaman/mekân/masdar aynı');
+t(ROOTS.find(x=>x.r==='حسب').tr==='hesaplamak'&&ROOTS.find(x=>x.r==='حسب').b===6,'حسب hesaplamak, 6. bâb');
 console.log(hata?hata+' hata':'tüm kontroller geçti ('+ROOTS.length+' kök)');process.exit(hata?1:0);
