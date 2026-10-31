@@ -5,7 +5,7 @@ const src=fs.readFileSync(path.join(D,'engine.js'),'utf8');
 const E=new Function(src+';return {BABS,ROOTS,TABLES,MUH,SIGA,MAZID,FAIL,FAIL_TR,MEF,MEF_TR,fill,babOf,mzStem,muStem,V};')();
 const {BABS,ROOTS,TABLES,MUH,SIGA,MAZID,FAIL,FAIL_TR,MEF,MEF_TR,fill,babOf}=E;
 /* her bâbın örnek kökü: kök listesindeki örnek fiiller */
-const MODEL={1:'نصر',2:'ضرب',3:'فتح',4:'علم',5:'كرم',6:'نعم'};
+const MODEL={1:'نصر',2:'ضرب',3:'فتح',4:'علم',5:'كرم',6:'حسب'};
 const rootOf=b=>[...MODEL[b.id]];
 const h=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const head=`<tr><th>#</th><th>Kalıp</th>${BABS.map(b=>`<th>${b.id}. bâb<br><span class="ar s">${MODEL[b.id].split('').join(' ')}</span></th>`).join('')}<th>Düzeltme</th></tr>`;
@@ -42,7 +42,7 @@ body{font:14px/1.5 system-ui,sans-serif;margin:20px;color:#111}.ar{font-family:"
 .s{font-size:.78rem}.muted{color:#666}table{border-collapse:collapse;width:100%;margin-bottom:24px}td,th{border:1px solid #999;padding:4px 6px;text-align:left;vertical-align:top}td.ar{text-align:right}th{background:#eee}
 h2{margin:30px 0 6px;border-bottom:2px solid #333}h3{margin:20px 0 4px}@media print{h2,h3{break-after:avoid}tr{break-inside:avoid}}</style>
 <h1>Emsile Tezgâhı — bütün kalıpların kontrol çizelgesi</h1>
-<p>Bu çizelge programdaki bütün kalıpları, her bâbın örnek köküyle üretilmiş hâlde gösterir. Altı bâbın örnek kökleri sütun başlarındadır: 1. bâb <span class="ar">نصر</span>, 2. bâb <span class="ar">ضرب</span>, 3. bâb <span class="ar">فتح</span>, 4. bâb <span class="ar">علم</span>, 5. bâb <span class="ar">كرم</span>, 6. bâb <span class="ar">نعم</span>. Yanlış gördüğünü “Düzeltme” sütununa yaz. Çekimler kuralla üretilir; masdar ve sıfat gibi semâî olanlar kök listesinden gelir.</p>
+<p>Bu çizelge programdaki bütün kalıpları, her bâbın örnek köküyle üretilmiş hâlde gösterir. Altı bâbın örnek kökleri sütun başlarındadır: 1. bâb <span class="ar">نصر</span>, 2. bâb <span class="ar">ضرب</span>, 3. bâb <span class="ar">فتح</span>, 4. bâb <span class="ar">علم</span>, 5. bâb <span class="ar">كرم</span>, 6. bâb <span class="ar">حسب</span>. Yanlış gördüğünü “Düzeltme” sütununa yaz. Çekimler kuralla üretilir; masdar ve sıfat gibi semâî olanlar kök listesinden gelir.</p>
 <p class="s muted">İçindekiler: A) Bâb tanımları · B) 24 muhtelife kalıp (ezber sırası) · C) 14 sîgalı çekim tabloları · D) İsm-i fâil ve ism-i mef'ûl çoğul/müennes kalıpları · E) Mezîd bâblar</p>
 <h2>A) Sülâsî mücerred bâblar</h2><table><tr><th>#</th><th>Örnek</th><th>Vezin</th><th>Ad</th><th>Açıklama</th><th>Düzeltme</th></tr>${babRows}</table>
 <h2>B) Emsile-i muhtelife: 24 kalıp</h2><table>${head}${muhRows}</table>

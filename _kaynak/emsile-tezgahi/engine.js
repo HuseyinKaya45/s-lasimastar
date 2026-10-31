@@ -129,7 +129,6 @@ const ROOTS = [
  {r:"عجب", b:4, ms:"عَجَبًا", tr:"şaşırmak", lz:true},
  {r:"طمع", b:4, ms:"طَمَعًا", tr:"tamah etmek"},
  {r:"غرق", b:4, ms:"غَرَقًا", tr:"boğulmak", lz:true},
- {r:"حسب", b:4, ms:"حَسَبًا", tr:"sanmak, zannetmek"},   /* sözlük: حَسِبَ يَحْسَبُ حَسَبًا (4. bâb). Klasik kaynaklarda يَحْسِبُ/حِسْبَانًا (5. bâb) da geçer; "saymak" anlamı حَسَبَ يَحْسُبُ (1. bâb) ayrı fiildir */
  /* 5. bâb: كَرُمَ يَكْرُمُ */
  {r:"كرم", b:5, ms:"كَرَمًا", tr:"cömert olmak", lz:true, sf:"كَرِيمٌ"},
  {r:"حسن", b:5, ms:"حُسْنًا", tr:"güzel olmak", lz:true, sf:"حَسَنٌ"},
@@ -154,6 +153,7 @@ const ROOTS = [
  {r:"خبث", b:5, ms:"خُبْثًا", m2:"خَبَاثَةً", tr:"habis olmak", lz:true, sf:"خَبِيثٌ"},
  {r:"فصح", b:5, ms:"فَصَاحَةً", m2:"فَصْحًا", tr:"fasih olmak", lz:true, sf:"فَصِيحٌ"},
  /* 6. bâb: حَسِبَ يَحْسِبُ */
+ {r:"حسب", b:6, ms:"حِسْبَانًا", tr:"sanmak, zannetmek"},   /* el-Arabiyye beyne yedeyk sözlüğü: حَسِبَ يَحْسَبُ حَسَبًا (4. bâb); burada 6. bâbın örnek fiili olarak klasik biçim حَسِبَ يَحْسِبُ حِسْبَانًا alınmıştır. "Saymak" anlamı حَسَبَ يَحْسُبُ (1. bâb) ayrı fiildir */
  {r:"نعم", b:6, ms:"نَعِيمًا", m2:["نِعْمَةً","نَعْمَةً","نَعَمًا"], tr:"bolluk ve refah içinde olmak", lz:true}
 ];
 /* Masdar semâîdir: hazır köklerde kayıtlı masdar(lar) gösterilir; özel kökte bâbın en yaygın üç kalıbı "olası" diye önerilir. */
