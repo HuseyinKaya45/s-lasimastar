@@ -21,7 +21,7 @@ const ROOTS=[
  {r:"سجد", b:1, ms:"سُجُودًا", tr:"secde etmek", lz:true},
  {r:"دخل", b:1, ms:"دُخُولًا", tr:"girmek"},
  {r:"ضرب", b:2, ms:"ضَرْبًا", tr:"vurmak"},
- {r:"غفر", b:2, ms:"مَغْفِرَةً", tr:"bağışlamak"},
+ {r:"غفر", b:2, ms:"غُفْرَانًا", tr:"bağışlamak"},
  {r:"حمل", b:2, ms:"حَمْلًا", tr:"taşımak"},
  {r:"كسب", b:2, ms:"كَسْبًا", tr:"kazanmak"},
  {r:"عرف", b:2, ms:"مَعْرِفَةً", tr:"tanımak"},
@@ -42,8 +42,8 @@ const ROOTS=[
  {r:"ركب", b:4, ms:"رُكُوبًا", tr:"binmek"},
  {r:"فرح", b:4, ms:"فَرَحًا", tr:"sevinmek", lz:true},
  {r:"لعب", b:4, ms:"لَعِبًا", tr:"oynamak", lz:true},
- {r:"حسب", b:6, ms:"حِسْبَانًا", tr:"sanmak"},
- {r:"نعم", b:6, ms:"نَعِيمًا", tr:"bolluk içinde olmak", lz:true},
+ {r:"حسب", b:6, ms:"حِسْبَانًا", tr:"hesaplamak"},
+ {r:"نعم", b:6, ms:"نَعِيمًا", tr:"bolluk ve refah içinde olmak", lz:true},
  {r:"كرم", b:5, ms:"كَرَمًا", tr:"cömert olmak", lz:true, sf:"كَرِيمٌ"},
  {r:"حسن", b:5, ms:"حُسْنًا", tr:"güzel olmak", lz:true, sf:"حَسَنٌ"},
  {r:"شرف", b:5, ms:"شَرَفًا", tr:"şerefli olmak", lz:true, sf:"شَرِيفٌ"},
@@ -91,15 +91,17 @@ const FAIL_TR=["Müfred müzekker","Tesniye müzekker","Cem‘-i müzekker","Cem
 const MEF=["مَFْAُوLٌ","مَFْAُوLَانِ","مَFْAُوLُونَ","مَFَاAِيLُ","مَFْAُوLَةٌ","مَFْAُوLَتَانِ","مَFْAُوLَاتٌ"];
 const MEF_TR=["Müfred müzekker","Tesniye müzekker","Cem‘-i müzekker","Cem‘-i teksîr (مَفَاعِيلُ)","Müfred müennes","Tesniye müennes","Cem‘-i müennes"];
 /* Mîmî masdar, zaman, mekân (Maksûd: muzâride ayn ötre/üstün → مَفْعَلٌ hepsi; esre → masdar مَفْعَلٌ, zaman-mekân مَفْعِلٌ) */
-const mimi=b=>({masdar:"مَFْAَLٌ",zm:b.mu==="i"?"مَFْAِLٌ":"مَFْAَLٌ"});
+/* Kıyâsî olmayan (şâz) mîmî biçimler: kök → bu kökte masdar-ı mîmî (masdar) ve/veya ism-i zaman-mekân (zm) */
+const MIMI_SHAZ={سجد:{zm:"مَFْAِLٌ",masdar:"مَFْAِLٌ"},غفر:{masdar:"مَFْAِLَةٌ"},رجع:{masdar:"مَFْAِLٌ"},طلع:{masdar:"مَFْAِLٌ"},حشر:{masdar:"مَFْAِLٌ"},سكن:{masdar:"مَFْAِLٌ"},جمع:{masdar:"مَFْAِLٌ"},سقط:{masdar:"مَFْAِLٌ"},نفع:{masdar:"مَFْAَLَةٌ"}};
+const mimi=(b,r)=>{const m={masdar:"مَFْAَLٌ",zm:b.mu==="i"?"مَFْAِLٌ":"مَFْAَLٌ"};const o=r&&MIMI_SHAZ[Array.isArray(r)?r.join(""):r];return o?Object.assign(m,o):m;};
 /* Fâil vezni (mâzinin aynına göre) */
 function failNote(b){
   if(b.mz==="a")return {v:"فَاعِلٌ",d:"Mâzide ayn üstün (1., 2., 3. bâb): فَاعِلٌ (نَاصِرٌ)."};
   if(b.mz==="u")return {v:"فَعِيلٌ / فَعْلٌ",d:"Mâzide ayn ötre (5. bâb): عَظِيمٌ ve ضَخْمٌ vezinleri."};
   return {v:"فَاعِلٌ (müteaddî) · lâzımda dört vezin",d:"Mâzide ayn esre (4. ve 6. bâb): müteaddîde عَالِمٌ; lâzımda مَرِيضٌ، زَمِنٌ، أَحْمَرُ–حَمْرَاءُ، عَطْشَانُ–عَطْشَى."};
 }
-function fill(t,r){return t.replace(/F/g,r[0]).replace(/A/g,r[1]).replace(/L/g,r[2]);}
+function fill(t,r){const w=t.replace(/F/g,r[0]).replace(/A/g,r[1]).replace(/L/g,r[2]);return w.split(r[2]+"ْ"+r[2]).join(r[2]+"ّ");}   /* idğam: lâm sâkin + aynı harf (حَسُنَّ) */
 function clusters(t){const out=[];for(const ch of t){if(MARKS.test(ch)&&out.length)out[out.length-1]+=ch;else out.push(ch);}return out;}
-function paint(t,r){return clusters(t).map(c=>{const b=c[0],rest=c.slice(1);if(b==="F")return `<span class="rf">${r[0]}${rest}</span>`;if(b==="A")return `<span class="ra">${r[1]}${rest}</span>`;if(b==="L")return `<span class="rl">${r[2]}${rest}</span>`;if(b===" ")return " ";return `<span class="zv">${c}</span>`;}).join("");}
+function paint(t,r){const cl=clusters(t);for(let i=0;i<cl.length-1;i++){if(cl[i]==="L"+"ْ"&&cl[i+1][0]===r[2]){cl[i]="L"+"ّ"+cl[i+1].slice(1);cl.splice(i+1,1);}}return cl.map(c=>{const b=c[0],rest=c.slice(1);if(b==="F")return `<span class="rf">${r[0]}${rest}</span>`;if(b==="A")return `<span class="ra">${r[1]}${rest}</span>`;if(b==="L")return `<span class="rl">${r[2]}${rest}</span>`;if(b===" ")return " ";return `<span class="zv">${c}</span>`;}).join("");}
 function rootOf(s){const r=Array.from(String(s).replace(/[\sً-ْ]/g,""));return r.length===3?r:null;}
 function checkRoot(r){if(!r)return "Üç harf gir (ör. ن ص ر).";if(r.some(ch=>!/[ب-ي]/.test(ch)||/[اويىةءأإآؤئ]/.test(ch)))return "Sahîh (sâlim) bir kök gir: harf-i illet (و ي ا) ve hemze olmasın; onlar İ‘lâl Ocağı’nda.";if(r[1]===r[2])return "Ayn ve lâm aynı: muzâaf kök. Muzâaf İ‘lâl Ocağı’nda işlenir.";return "";}

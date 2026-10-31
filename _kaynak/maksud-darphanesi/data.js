@@ -20,7 +20,7 @@ const KURAL={
  vh:{n:'',t:'Hemze-i vasl getirmek',ar:'أُدْخِلَتْ هَمْزَةُ الْوَصْلِ',d:'Sâkinle başlanamaz; başa hemze-i vasl gelir.',ex:'دَّثَّرَ → اِدَّثَّرَ'},
  cz:{n:'',t:'Cezmde lâmın düşmesi',ar:'جَزْمُ النَّاقِصِ سُقُوطُ لَامِهِ',d:'Nâkısın cezmi ve vakfı, illetli lâmın düşmesidir.',ex:'اُغْزُوْ → اُغْزُ'},
  fr:{n:'',t:'Meçhûlde vav → yâ',ar:'لِأَنَّهُنَّ فُرُوعُ الْمَاضِي',d:'Vavî nâkısın vavı meçhûl muzâri, emir ve nehiyde yâya döner (mâzi meçhûlün fer‘i oldukları için).',ex:'يُغْزَوُ → يُغْزَيُ'},
- ms:{n:'',t:'Misâlde fânın düşmesi',ar:'يَسْقُطُ فَاءُ فِعْلِهِ',d:'Fâsı vav olan misâlde fâ, 2., 3. ve 6. bâbın ma‘lûm muzâri, emir ve nehyinde düşer.',ex:'يَوْعِدُ → يَعِدُ'},
+ ms:{n:'',t:'Misâlde fânın düşmesi',ar:'يَسْقُطُ فَاءُ فِعْلِهِ',d:'Fâsı vav olan misâlde fâ, 2., 3. ve 6. bâbın ma‘lûm muzâri, emir ve nehyinde düşer. Ayrıca 4. bâbdan وَسِعَ ve وَطِئَ kelimelerinde de düşer (يَسَعُ، يَطَأُ).',ex:'يَوْعِدُ → يَعِدُ'},
  em:{n:'',t:'Emr-i hâzır yapmak',ar:'تَحْذِفُ حَرْفَ الْمُضَارَعَةِ',d:'Muzâraat harfi atılır; kalan harekeli ise sonu cezmlenir, sâkinse hemze-i vasl gelir.',ex:'تَعِدُ → عِدْ'},
  hv:{n:'',t:'Vakf hâsı',ar:'زِيدَتِ الْهَاءُ عِنْدَ الْوَقْفِ',d:'Tek harf kalan emirde vakf için hâ eklenir.',ex:'قِ → قِهْ'},
  is:{n:'',t:'İdğam için iskân',ar:'أُسْكِنَ الْأَوَّلُ',d:'İdğam edilecek ilk misil harf sâkin edilir.',ex:'مَدَدَ → مَدْدَ'},
