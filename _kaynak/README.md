@@ -32,3 +32,6 @@ Konuşma seslendirmesi (Dinle düğmeleri, "Hepsini dinle", ezberde "Sesli") kal
 
 ## Binâ Sarayı: ses kaldırıldı
 Aynı gerekçeyle "Dinle" düğmeleri ve gömülü kayıtlar (0,9 MB) kaldırıldı; kayıtlar `ses/arsiv/bina-ef-al.{json,txt}` altında. Oyun efektleri (bip) duruyor.
+
+## Maksûd Darphânesi: ses kaldırıldı
+Aynı gerekçeyle "Dinle" düğmeleri ve 1.514 gömülü kayıt (15,7 MB) kaldırıldı; dosya 16,4 MB'tan 0,7 MB'a indi. Kayıtlar `ses/arsiv/maksud-darphanesi.{json,txt}` altında. Oyun efektleri (bip) duruyor.

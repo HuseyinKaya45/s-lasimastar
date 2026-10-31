@@ -103,17 +103,15 @@ V.ders=([id])=>{
     <h2 style="margin-top:4px">${esc(L.t)}</h2><div class="ar" style="font-size:1.45rem;color:var(--muted)">${esc(L.ar)}</div>
     <div style="margin-top:6px">${stars(lstar(id))}</div>
   </div>
-  <div class="matn" style="margin-top:20px">${L.m.map(p=>`<p>${esc(p)}</p>`).join('')}<div class="row" style="justify-content:flex-end"><button class="btn sm" id="say">${ICON.play} Metni dinle</button></div></div>
+  <div class="matn" style="margin-top:20px">${L.m.map(p=>`<p>${esc(p)}</p>`).join('')}</div>
   <div class="sec-h"><h2>Şerh</h2></div>
   <div class="card serh">${AW(L.tr)}</div>
   <div class="sec-h"><h2>Misaller</h2></div>
-  <div class="ex">${L.ex.map(e=>`<div>${A(e[0])}<span class="small muted">${AW(esc(e[1]))}</span><button class="btn sm ghost" data-say="${esc(e[0])}" aria-label="Dinle">${ICON.play}</button></div>`).join('')}</div>
+  <div class="ex">${L.ex.map(e=>`<div>${A(e[0])}<span class="small muted">${AW(esc(e[1]))}</span></div>`).join('')}</div>
   ${chains.length?`<div class="sec-h"><h2>İ‘lâl Ocağı’nda dönüştür</h2></div><div class="row">${chains.map(([x,i])=>`<a class="btn sm" href="#ocak/zincir/${i}"><span class="ar">${esc(x.a)} ← ${esc(x.w)}</span></a>`).join('')}</div>`:''}
   <div class="sec-h"><div><h2>Mini sınav</h2><p class="muted small" style="margin:2px 0 0">%60 ile gümüş, tam puanla altın sikke.</p></div><button class="btn sm" id="qr">Yeniden çöz</button></div>
   <div id="quiz"></div>
   <div class="lnav" style="margin-top:20px">${prev?`<a class="btn" href="#ders/${prev.id}">‹ ${esc(prev.t)}</a>`:'<span></span>'}${next?`<a class="btn pri" href="#ders/${next.id}">${esc(next.t)} ›</a>`:`<a class="btn pri" href="#sinav">Sınava geç ›</a>`}</div>`;
-  $('#say').onclick=()=>speak(L.m.join(' '));
-  $$('[data-say]').forEach(b=>b.onclick=()=>speak(b.dataset.say));
   const runQuiz=()=>{
     const qs=L.q.map(q=>{const idx=shuffle(q[1].map((_,i)=>i));return {q:q[0],o:idx.map(i=>q[1][i]),a:idx.indexOf(q[2]),ex:q[3]};});
     let done=0,ok=0;
@@ -130,7 +128,7 @@ V.ders=([id])=>{
 /* ===================== DARPHÂNE ===================== */
 const GRID_ROWS=[['Gâib',[0,1,2]],['Gâibe',[3,4,5]],['Muhâtab',[6,7,8]],['Muhâtaba',[9,10,11]],['Mütekellim',[12,null,13]]];
 function gridHTML(fn,only,label){
-  return `<div class="cgrid"><div class="ch"></div><div class="ch">Müfred</div><div class="ch">Tesniye</div><div class="ch">Cem‘</div>${GRID_ROWS.map(([rn,ix])=>`<div class="rh">${rn}</div>${ix.map(i=>{if(i===null||(only&&!only.includes(i)))return `<div class="cell empty">—</div>`;const f=fn(i);return `<button class="cell sikke" data-say="${esc(f.plain)}" title="${esc(SIGA[i].tr)}"><span class="ar">${f.html}</span><span class="tiny">${esc(SIGA[i].z)}</span></button>`;}).join('')}`).join('')}</div>`;
+  return `<div class="cgrid"><div class="ch"></div><div class="ch">Müfred</div><div class="ch">Tesniye</div><div class="ch">Cem‘</div>${GRID_ROWS.map(([rn,ix])=>`<div class="rh">${rn}</div>${ix.map(i=>{if(i===null||(only&&!only.includes(i)))return `<div class="cell empty">—</div>`;const f=fn(i);return `<button class="cell sikke" title="${esc(SIGA[i].tr)}"><span class="ar">${f.html}</span><span class="tiny">${esc(SIGA[i].z)}</span></button>`;}).join('')}`).join('')}</div>`;
 }
 const DARP_T=[...TABLES.map(t=>({id:t.id,tr:t.tr,ar:t.ar})),{id:'fail',tr:'İsm-i fâil (10)',ar:'اسْمُ الْفَاعِلِ'},{id:'mef',tr:'İsm-i mef‘ûl (7)',ar:'اسْمُ الْمَفْعُولِ'},{id:'mimi',tr:'Mîmî masdar · zaman · mekân',ar:'الْمِيمِيُّ'}];
 V.darp=([mode,a1])=>{
@@ -146,9 +144,9 @@ V.darp=([mode,a1])=>{
     let out='';
     if(T){out=gridHTML(i=>{const t=T.f(B,i);return {html:paint(t,R),plain:fill(t,R)};},T.only);
       if(T.pas&&root&&root.lz)out=`<p class="warn small">Bu fiil lâzımdır: lâzımdan meçhûl gelmez (ancak harf-i cerle: نُصِرَ بِهِ gibi). Kalıp yine de gösteriliyor.</p>`+out;}
-    else if(st.t==='fail'){const n=failNote(B);out=`<p class="small"><b>Vezin:</b> <span class="ar">${n.v}</span> — ${AW(esc(n.d))}</p><div class="cards2">${FAIL.map((t,i)=>`<button class="sikke big" data-say="${esc(fill(t,R))}"><span class="ar">${paint(t,R)}</span><span class="tiny">${FAIL_TR[i]}</span></button>`).join('')}</div><p class="tiny muted">Kitaptaki on vecih نَاصِرٌ üzerinedir; 5. bâb ve lâzım fiillerde vezin farklıdır.</p>`;}
-    else if(st.t==='mef'){out=`<div class="cards2">${MEF.map((t,i)=>`<button class="sikke big" data-say="${esc(fill(t,R))}"><span class="ar">${paint(t,R)}</span><span class="tiny">${MEF_TR[i]}</span></button>`).join('')}</div>`+(root&&root.lz?`<p class="warn small">Lâzım fiilden ism-i mef‘ûl harf-i cerle gelir (مُنْكَسَرٌ بِهِ gibi).</p>`:'');}
-    else{const m=mimi(B,R);const shz=!!MIMI_SHAZ[R.join("")];out=`<div class="cards2"><button class="sikke big" data-say="${esc(fill(m.masdar,R))}"><span class="ar">${paint(m.masdar,R)}</span><span class="tiny">Mîmî masdar</span></button><button class="sikke big" data-say="${esc(fill(m.zm,R))}"><span class="ar">${paint(m.zm,R)}</span><span class="tiny">İsm-i zaman</span></button><button class="sikke big" data-say="${esc(fill(m.zm,R))}"><span class="ar">${paint(m.zm,R)}</span><span class="tiny">İsm-i mekân</span></button></div><p class="small">${B.mu==='i'?'Muzâride ayn <b>esre</b>: masdar <span class="ar">مَفْعَلٌ</span>, zaman-mekân <span class="ar">مَفْعِلٌ</span>.':'Muzâride ayn <b>ötre/üstün</b>: üçü de <span class="ar">مَفْعَلٌ</span>.'} ${shz?` <b>Bu kökte şâz biçim vardır</b>: kitaptaki şâz kalıba göre gösterilen biçimler kullanılır.`:''} Şâzlar: ${SHAZ.slice(0,5).map(x=>A(x)).join(' ')} …</p>`;}
+    else if(st.t==='fail'){const n=failNote(B);out=`<p class="small"><b>Vezin:</b> <span class="ar">${n.v}</span> — ${AW(esc(n.d))}</p><div class="cards2">${FAIL.map((t,i)=>`<button class="sikke big"><span class="ar">${paint(t,R)}</span><span class="tiny">${FAIL_TR[i]}</span></button>`).join('')}</div><p class="tiny muted">Kitaptaki on vecih نَاصِرٌ üzerinedir; 5. bâb ve lâzım fiillerde vezin farklıdır.</p>`;}
+    else if(st.t==='mef'){out=`<div class="cards2">${MEF.map((t,i)=>`<button class="sikke big"><span class="ar">${paint(t,R)}</span><span class="tiny">${MEF_TR[i]}</span></button>`).join('')}</div>`+(root&&root.lz?`<p class="warn small">Lâzım fiilden ism-i mef‘ûl harf-i cerle gelir (مُنْكَسَرٌ بِهِ gibi).</p>`:'');}
+    else{const m=mimi(B,R);const shz=!!MIMI_SHAZ[R.join("")];out=`<div class="cards2"><button class="sikke big"><span class="ar">${paint(m.masdar,R)}</span><span class="tiny">Mîmî masdar</span></button><button class="sikke big"><span class="ar">${paint(m.zm,R)}</span><span class="tiny">İsm-i zaman</span></button><button class="sikke big"><span class="ar">${paint(m.zm,R)}</span><span class="tiny">İsm-i mekân</span></button></div><p class="small">${B.mu==='i'?'Muzâride ayn <b>esre</b>: masdar <span class="ar">مَفْعَلٌ</span>, zaman-mekân <span class="ar">مَفْعِلٌ</span>.':'Muzâride ayn <b>ötre/üstün</b>: üçü de <span class="ar">مَفْعَلٌ</span>.'} ${shz?` <b>Bu kökte şâz biçim vardır</b>: kitaptaki şâz kalıba göre gösterilen biçimler kullanılır.`:''} Şâzlar: ${SHAZ.slice(0,5).map(x=>A(x)).join(' ')} …</p>`;}
     app.innerHTML=head+`<div class="darp">
       <div class="press card">
         <div class="field"><label for="rt">Kök (sahîh, üç harf)</label><div class="row"><input id="rt" class="rootin" value="${esc(st.r.join(' '))}" dir="rtl" maxlength="9" aria-label="Kök"><button class="btn pri" id="go">${ICON.coin} Bas</button></div><div class="tiny" id="rerr" style="color:var(--bad)"></div></div>
@@ -171,7 +169,6 @@ V.darp=([mode,a1])=>{
     $('#miz').onchange=e=>{st.miz=e.target.checked;draw();};
     const go=()=>{const r=rootOf($('#rt').value);const er=checkRoot(r);if(er){$('#rerr').textContent=er;beep('no');return;}st.r=r;const x=ROOTS.find(y=>y.r===r.join(''));if(x)st.b=x.b;S.darp[r.join('')]=1;save();addXP(3);beep('ok');draw();stampAnim();checkBadges();};
     $('#go').onclick=go;$('#rt').onkeydown=e=>{if(e.key==='Enter')go();};
-    $$('#out [data-say]').forEach(b=>b.onclick=()=>speak(b.dataset.say));
   };
   const stampAnim=()=>{$$('#out .sikke').forEach((c,k)=>{c.style.animationDelay=(k*18)+'ms';c.classList.add('struck');});};
   draw();
@@ -179,9 +176,8 @@ V.darp=([mode,a1])=>{
 function darpVitrin(head){
   const groups=[...new Set(VITRIN.map(v=>v.g))];
   app.innerHTML=head+`<p class="muted small">Kitabın tasrîf bölümündeki zincirler: mâzi · muzâri · masdar · <span class="ar">فَهُوَ</span> fâil · <span class="ar">وَذَاكَ</span> mef‘ûl · emir · nehiy. “14 sîga” düğmesiyle tam çekimi bas.</p>
-  ${groups.map(g=>`<div class="grp" style="--c:var(--s3)"><h3>${esc(g)}</h3></div><div class="vgrid">${VITRIN.map((v,i)=>[v,i]).filter(([v])=>v.g===g).map(([v,i])=>`<div class="vcard"><div class="vh"><span class="ar vz">${esc(v.v)}</span><span class="small muted">“${esc(v.m)}”${v.lz?' · lâzım':''}</span></div><div class="chain">${v.c.map((w,k)=>`<button class="lk" data-say="${esc(w)}" title="${VIT_TR[k]}"><span class="ar">${esc(w)}</span><span class="tiny">${VIT_TR[k].split(' ')[0]}${k===3?' fâil':k===4?' mef‘ûl':''}</span></button>`).join('')}</div>${v.x?`<button class="btn sm" data-v="${i}">${ICON.coin} 14 sîga</button>`:'<span class="tiny muted">Muzâaf / nâkıs sonlu bâb: tam çekim İ‘lâl kurallarıyla.</span>'}</div>`).join('')}</div>`).join('')}`;
+  ${groups.map(g=>`<div class="grp" style="--c:var(--s3)"><h3>${esc(g)}</h3></div><div class="vgrid">${VITRIN.map((v,i)=>[v,i]).filter(([v])=>v.g===g).map(([v,i])=>`<div class="vcard"><div class="vh"><span class="ar vz">${esc(v.v)}</span><span class="small muted">“${esc(v.m)}”${v.lz?' · lâzım':''}</span></div><div class="chain">${v.c.map((w,k)=>`<button class="lk" title="${VIT_TR[k]}"><span class="ar">${esc(w)}</span><span class="tiny">${VIT_TR[k].split(' ')[0]}${k===3?' fâil':k===4?' mef‘ûl':''}</span></button>`).join('')}</div>${v.x?`<button class="btn sm" data-v="${i}">${ICON.coin} 14 sîga</button>`:'<span class="tiny muted">Muzâaf / nâkıs sonlu bâb: tam çekim İ‘lâl kurallarıyla.</span>'}</div>`).join('')}</div>`).join('')}`;
   $$('[data-m]').forEach(b=>b.onclick=()=>location.hash='#darp/'+b.dataset.m);
-  $$('[data-say]').forEach(b=>b.onclick=()=>speak(b.dataset.say));
   $$('[data-v]').forEach(b=>b.onclick=()=>{const v=VITRIN[+b.dataset.v],x=v.x;
     const mk=(stem,suf,pre)=>i=>{const f=(pre?pre(i):'')+stem+suf[i];return {html:esc(f),plain:f};};
     const preA=i=>x.pu?PRE[i].replace(VW.a,VW.u):PRE[i];
@@ -189,7 +185,7 @@ function darpVitrin(head){
       <h4>Mâzi · ma‘lûm</h4>${gridHTML(mk(x.ms,SUF.mazi))}
       <h4>Muzâri · ma‘lûm</h4>${gridHTML(mk(x.us,SUF.raf,preA))}
       ${x.mp?`<h4>Mâzi · meçhûl</h4>${gridHTML(mk(x.mp,SUF.mazi))}<h4>Muzâri · meçhûl</h4>${gridHTML(mk(x.up,SUF.raf,pP))}`:'<p class="small muted">Lâzım bâb: meçhûl ancak harf-i cerle gelir.</p>'}`);
-    $$('#sheet [data-say]').forEach(c=>c.onclick=()=>speak(c.dataset.say));});
+});
 }
 /* ===================== İ‘LÂL OCAĞI ===================== */
 const ILCAT=[...new Set(ILAL.map(x=>x.c.split(' · ')[0]))];
@@ -217,12 +213,12 @@ V.ocak=([tab,n])=>{
     const cur=$('.slist .on');if(cur)cur.scrollIntoView({inline:'center',block:'nearest'});
     if(tab==='zincir')izle(X);else coz(X,idx);
   };
-  const frame=(X,inner)=>`<div class="fur-h"><span class="chip">${esc(X.c)}</span><span class="ar fur-w">${esc(X.w)}</span><button class="btn sm ghost" id="say" aria-label="Dinle">${ICON.play}</button></div>${inner}`;
+  const frame=(X,inner)=>`<div class="fur-h"><span class="chip">${esc(X.c)}</span><span class="ar fur-w">${esc(X.w)}</span></div>${inner}`;
   const izle=X=>{let k=0;let auto=null;
     const draw=()=>{let rows=`<div class="srow asl"><div class="lab"><span class="tiny">Asıl</span><span class="ar">${esc(X.a)}</span></div>${tilesHTML(X.a)}</div>`;
       for(let j=0;j<k;j++){const s=X.s[j],prev=j?X.s[j-1][1]:X.a;rows+=`<div class="arrowdn">${ruleBadge(s[0])}</div><div class="srow ${j===X.s.length-1?'fin':''}"><div class="lab"><span class="tiny">${j===X.s.length-1?'Son şekil':(j+1)+'. adım'}</span><span class="ar">${esc(s[1])}</span></div>${tilesHTML(s[1],prev)}<p class="small note">${AW(esc(s[2]))}</p></div>`;}
       $('#fur').innerHTML=frame(X,`<div class="chainv">${rows}</div><div class="row" style="justify-content:center;margin-top:12px">${k<X.s.length?`<button class="btn pri" id="st">${k?'Sonraki adım':'Ateşle'} ${ICON.fire}</button><button class="btn" id="all">Hepsini göster</button>`:`<span class="chip gold">${X.s.length} adımda tamam</span><button class="btn" id="re">Baştan</button><a class="btn" href="#ocak/coz/${idx}">Şimdi sen dönüştür ›</a>`}</div>`);
-      $('#say').onclick=()=>speak(X.w);
+      
       if($('#st'))$('#st').onclick=()=>{k++;beep(k===X.s.length?'win':'tap');draw();};
       if($('#all'))$('#all').onclick=()=>{k=X.s.length;draw();};
       if($('#re'))$('#re').onclick=()=>{k=0;draw();};};
@@ -238,13 +234,13 @@ V.ocak=([tab,n])=>{
       for(let j=0;j<k;j++){const t=X.s[j],prev=j?X.s[j-1][1]:X.a;rows+=`<div class="arrowdn">${ruleBadge(t[0])}</div><div class="srow"><div class="lab"><span class="tiny">${j+1}. adım</span><span class="ar">${esc(t[1])}</span></div>${tilesHTML(t[1],prev)}</div>`;}
       if(k>=X.s.length){const pct=max?Math.round(score/max*100):100;const p=S.ilal[i];if(p==null||pct>p)S.ilal[i]=pct;save();addXP(score*3);if(pct===100){confetti();beep('win');}
         $('#fur').innerHTML=frame(X,`<div class="chainv">${rows}</div><div style="text-align:center;margin-top:12px"><div class="scorebig">%${pct}</div><p class="small">${score}/${max} doğru seçim.</p><div class="row" style="justify-content:center"><button class="btn pri" id="nx2">Sonraki dönüşüm ${ICON.arrow}</button><button class="btn" id="re">Tekrar</button></div></div>`);
-        $('#say').onclick=()=>speak(X.w);$('#re').onclick=()=>{k=0;phase=0;score=0;max=0;opts=null;draw();};
+        $('#re').onclick=()=>{k=0;phase=0;score=0;max=0;opts=null;draw();};
         $('#nx2').onclick=()=>{const L=list();const pos=L.findIndex(([,j])=>j===i);const nx=L[(pos+1)%L.length][1];location.hash='#ocak/coz/'+nx;};checkBadges();return;}
       let q;
       if(phase===0){opts=opts||ruleOpts(s);q=`<p class="q">${k+1}. adım: <span class="ar">${esc(cur)}</span> kelimesinde hangi kural işler?</p><div class="opts" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">${opts.map(r=>`<button class="opt tr rule" data-o="${r}"><b>${KURAL[r].n?'Kural '+KURAL[r].n+' · ':''}${esc(KURAL[r].t)}</b><span class="tiny">${esc(KURAL[r].d)}</span></button>`).join('')}</div>`;}
       else{opts=opts||formOpts(cur,s,s[1]);q=`<p class="q">${ruleBadge(s[0])} uygulanınca kelime ne olur?</p><div class="opts">${opts.map(f=>`<button class="opt ar1" data-o="${esc(f)}">${esc(f)}</button>`).join('')}</div>`;}
       $('#fur').innerHTML=frame(X,`<div class="chainv">${rows}<div class="srow cur"><div class="lab"><span class="tiny">${k?'Ocakta':'Ocakta · asıl'}</span><span class="ar">${esc(cur)}</span></div>${tilesHTML(cur,k?(k>1?X.s[k-2][1]:X.a):null)}</div></div><div class="qbox">${q}<div class="fb" id="fb"></div></div>`);
-      $('#say').onclick=()=>speak(X.w);
+      
       $$('#fur [data-o]').forEach(b=>b.onclick=()=>{const right=phase===0?s[0]:s[1];const pick=b.dataset.o;const good=pick===right||(phase===0&&KURAL[pick].t===KURAL[right].t);max++;if(good)score++;beep(good?'ok':'no');
         $$('#fur [data-o]').forEach(x=>{x.disabled=true;if(x.dataset.o===right)x.classList.add('ok');});if(!good)b.classList.add('no');
         $('#fb').className='fb '+(good?'ok':'no');$('#fb').innerHTML=(good?'Doğru! ':'Doğrusu işaretlendi. ')+(phase===1?`<span style="font-weight:400">${AW(esc(s[2]))}</span>`:`<span style="font-weight:400">${esc(KURAL[right].d)}</span>`)+`<div style="margin-top:8px"><button class="btn sm pri" id="cn">Devam ${ICON.arrow}</button></div>`;
@@ -401,9 +397,9 @@ V.kart=([dk])=>{
     <div class="filter" style="margin-bottom:10px">${Object.entries(DECKS).map(([k,d])=>`<a class="btn sm ${k===dk?'pri':''}" href="#kart/${k}">${d.t}</a>`).join('')}</div>
     <div class="stage"><div class="hud"><span class="small muted">Kutular: ${bx.map((n,i)=>`${i+1}:${n}`).join(' · ')}</span></div>
     <div class="flash ${flip?'flip':''}" id="fc"><div class="in"><div class="face"><div class="qar">${esc(it.f)}</div><p class="muted small">${D.h}</p></div><div class="face bk">${it.b}</div></div></div>
-    <div class="row" style="justify-content:center"><button class="btn" id="fl">Çevir</button><button class="btn" id="no" ${flip?'':'disabled'}>Tekrar et</button><button class="btn pri" id="ok" ${flip?'':'disabled'}>Bildim</button><button class="btn ghost" id="sy" aria-label="Dinle">${ICON.play}</button></div>
+    <div class="row" style="justify-content:center"><button class="btn" id="fl">Çevir</button><button class="btn" id="no" ${flip?'':'disabled'}>Tekrar et</button><button class="btn pri" id="ok" ${flip?'':'disabled'}>Bildim</button></div>
     <p class="tiny muted" style="text-align:center">Bildiğin kart bir üst kutuya geçer; bilemediğin ilk kutuya döner. Alt kutudakiler önce gelir.</p></div>`;
-    $('#fc').onclick=$('#fl').onclick=()=>{flip=!flip;draw();};$('#sy').onclick=()=>speak(it.f);
+    $('#fc').onclick=$('#fl').onclick=()=>{flip=!flip;draw();};
     $('#ok').onclick=()=>{S.cards[dk+cur]=Math.min(4,box(cur)+1);save();addXP(2);beep('ok');cur=due();flip=false;draw();};
     $('#no').onclick=()=>{S.cards[dk+cur]=0;save();beep('tap');cur=due();flip=false;draw();};};
   draw();
