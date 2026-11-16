@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Evlilik Tanıştırma Sistemi</title>
+<style>
+:root{
+  --bg:#F3F5F8;--card:#fff;--ink:#16202C;--muted:#5B6877;--line:#D6DCE4;--soft:#E8ECF1;
+  --accent:#1F4E8C;--accent-ink:#fff;--good:#1E7A46;--bad:#B3261E;--warn:#9A6200;
+  --good-bg:#E2F2E6;--bad-bg:#FBE7E4;--warn-bg:#FFF3D6;--info-bg:#E6EEF9;
+  --f:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10161D;--card:#18212B;--ink:#E7EDF4;--muted:#9AA8B8;--line:#2B3744;--soft:#212C38;
+  --accent:#7FB1F0;--accent-ink:#0B1624;--good:#6FD08E;--bad:#FF8A80;--warn:#F2C25C;
+  --good-bg:#17301F;--bad-bg:#3A1D1A;--warn-bg:#3A2E10;--info-bg:#17283D;color-scheme:dark}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15.5px/1.5 var(--f)}
+h1,h2,h3{margin:0 0 .5em;line-height:1.25}h1{font-size:24px}h2{font-size:19px}h3{font-size:16px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 14px}
+header.top{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+header.top .wrap{display:flex;gap:12px;align-items:center;min-height:54px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.brand{font-weight:700;flex:1;min-width:200px}.brand small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+nav.tabs{background:var(--card);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
+nav.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 12px;font:inherit;color:var(--muted);cursor:pointer;white-space:nowrap}
+nav.tabs button.on{color:var(--accent);border-color:var(--accent);font-weight:600}
+main{padding:18px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 14px}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:720px){.g2,.g3,.g4{grid-template-columns:1fr}}
+label{display:block;font-size:13px;color:var(--muted);margin:8px 0 3px;font-weight:600}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:8px 10px;min-height:38px}
+input[type=checkbox]{width:auto;min-height:0;margin-right:6px;vertical-align:middle}
+.chk{display:flex;align-items:flex-start;gap:6px;margin:6px 0;color:var(--ink);font-weight:400;font-size:14.5px}
+.chk input{margin-top:3px}
+textarea{min-height:70px}
+button.b,label.b{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:inherit;font-weight:600;padding:8px 14px;border-radius:7px;cursor:pointer;min-height:38px;margin:0}
+button.b.ghost,label.b.ghost{background:transparent;color:var(--accent)}
+button.b.red{background:var(--bad);border-color:var(--bad);color:#fff}
+button.b.sm{padding:4px 10px;min-height:30px;font-size:13.5px}
+button.b:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.sp{flex:1}
+.muted{color:var(--muted)}.small{font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+.tw{overflow-x:auto}
+.badge{display:inline-block;padding:1px 9px;border-radius:99px;font-size:12.5px;font-weight:700;background:var(--soft);color:var(--muted)}
+.badge.good{background:var(--good-bg);color:var(--good)}.badge.bad{background:var(--bad-bg);color:var(--bad)}
+.badge.warn{background:var(--warn-bg);color:var(--warn)}.badge.info{background:var(--info-bg);color:var(--accent)}
+.note{border-radius:8px;padding:9px 12px;margin:8px 0;font-size:14px}
+.note.good{background:var(--good-bg);color:var(--good)}.note.bad{background:var(--bad-bg);color:var(--bad)}
+.note.warn{background:var(--warn-bg);color:var(--warn)}.note.info{background:var(--info-bg);color:var(--accent)}
+.find{display:flex;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.find .badge{flex:none;min-width:58px;text-align:center}
+.stat{text-align:center}.stat b{display:block;font-size:28px;line-height:1.1}.stat span{font-size:12.5px;color:var(--muted)}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;word-break:break-all}
+.login{max-width:420px;margin:60px auto}
+.bar{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;min-width:70px}.bar i{display:block;height:100%;background:var(--accent)}
+.hidden{display:none}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:8px;z-index:50;font-weight:600;opacity:0;transition:.25s;pointer-events:none;max-width:92vw;text-align:center}
+.toast.show{opacity:1}
+.opts{display:flex;flex-wrap:wrap;gap:4px 14px}
+#printarea{display:none}
+@media print{body *{visibility:hidden}#printarea,#printarea *{visibility:visible}
+ #printarea{display:block;position:absolute;left:0;top:0;width:100%;color:#000;background:#fff;padding:24px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand" id="brand">Evlilik Tanıştırma Sistemi</div>
+  <div id="who" class="row"></div>
+</div></header>
+<nav class="tabs hidden" id="tabs"><div class="wrap" id="tabsin"></div></nav>
+<div class="wrap"><main id="app"></main></div>
+<div id="printarea"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+/* =====================================================================
+   SABİT GÜVENCELER — hiçbir parametreyle değiştirilemez
+   ===================================================================== */
+const HARD={
+  minAgeFloor:18,        // 18 yaşından küçükler sisteme alınamaz
+  voluntary:true,        // katılım gönüllüdür; başkası adına/zorla başvuru olmaz
+  mutualConsent:true,    // iki taraf da kendi kararıyla "tanışmak istiyorum" demeden iletişim paylaşılmaz
+  noForce:true           // reddeden eşleştirilmeye zorlanamaz; ret gerekçe istenmeden kaydedilir
+};
+const KEY="evlilik-tanistirma-v1";
+
+/* ===== SHA-256 / yardımcılar ===== */
+const K256=new Uint32Array([0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2]);
+function sha256(str){
+  const m=new TextEncoder().encode(str),l=m.length,n=((l+9+63)>>6)<<6,b=new Uint8Array(n);
+  b.set(m);b[l]=0x80;const dv=new DataView(b.buffer);
+  dv.setUint32(n-4,(l*8)>>>0);dv.setUint32(n-8,Math.floor(l*8/4294967296));
+  let h=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+  const w=new Uint32Array(64);
+  for(let i=0;i<n;i+=64){
+    for(let t=0;t<16;t++)w[t]=dv.getUint32(i+t*4);
+    for(let t=16;t<64;t++){const a=w[t-15],c=w[t-2];
+      const s0=((a>>>7)|(a<<25))^((a>>>18)|(a<<14))^(a>>>3),s1=((c>>>17)|(c<<15))^((c>>>19)|(c<<13))^(c>>>10);
+      w[t]=(w[t-16]+s0+w[t-7]+s1)>>>0}
+    let [a,b2,c,d,e,f,g,hh]=h;
+    for(let t=0;t<64;t++){
+      const S1=((e>>>6)|(e<<26))^((e>>>11)|(e<<21))^((e>>>25)|(e<<7)),ch=(e&f)^(~e&g),t1=(hh+S1+ch+K256[t]+w[t])>>>0;
+      const S0=((a>>>2)|(a<<30))^((a>>>13)|(a<<19))^((a>>>22)|(a<<10)),mj=(a&b2)^(a&c)^(b2&c),t2=(S0+mj)>>>0;
+      hh=g;g=f;f=e;e=(d+t1)>>>0;d=c;c=b2;b2=a;a=(t1+t2)>>>0}
+    h=[h[0]+a,h[1]+b2,h[2]+c,h[3]+d,h[4]+e,h[5]+f,h[6]+g,h[7]+hh].map(x=>x>>>0)}
+  return h.map(x=>x.toString(16).padStart(8,"0")).join("");
+}
+const canon=o=>JSON.stringify(o,(k,v)=>v&&typeof v==="object"&&!Array.isArray(v)?Object.keys(v).sort().reduce((r,x)=>(r[x]=v[x],r),{}):v);
+const seal=o=>sha256(canon(o));
+const hashPin=(pin,salt)=>{let x=salt+pin;for(let i=0;i<1500;i++)x=sha256(x+salt);return x};
+const rnd=()=>Array.from(crypto.getRandomValues(new Uint8Array(12))).map(x=>x.toString(16).padStart(2,"0")).join("");
+
+/* =====================================================================
+   VARSAYILAN PARAMETRELER
+   ===================================================================== */
+const DEFAULT_PARAMS=()=>({
+  institution:"Evlilik Tanıştırma Birimi",
+  minAge:18, maxAge:60,
+  matchGender:"karsi",
+  minScore:60, topN:5, aggregator:"geom",
+  maxActiveIntros:2, cooldownDays:30, responseDays:7,
+  ageDecayYears:5,
+  impW:{1:1,2:3,3:6},
+  critW:{age:3,loc:2,edu:2,marital:2,kids:2},
+  eduLevels:["İlkokul","Ortaokul","Lise","Ön lisans","Lisans","Yüksek lisans","Doktora"],
+  meetingMode:"Görevli eşliğinde, kamuya açık bir yerde",
+  consentVersion:"1",
+  consentText:"Evlenme amacıyla tanışmak için bu başvuruyu kendi isteğimle ve şahsen yaptım. Bilgilerimin yalnızca tanıştırma amacıyla ve kurumun belirlediği kapsamda işlenmesine, uygun görülen adaylara sınırlı bir tanıtım özeti olarak sunulmasına rıza veriyorum. İletişim bilgilerim, ben ve karşı taraf birbirimizle tanışmayı ayrı ayrı kabul etmeden paylaşılmaz. Başvurumdan istediğim zaman, gerekçe göstermeden çekilebilirim; kimseyle eşleşmeyi kabul etmek zorunda değilim.",
+  retentionDays:365,
+  fairGapPct:15,
+  sessionLockMinutes:5,
+  questions:[
+    {id:"q_cocuk",label:"Çocuk sahibi olmak istiyor musunuz?",opts:["Evet","Hayır","Kararsızım"],weight:3,sensitive:false,enabled:true},
+    {id:"q_yer",label:"Yaşamak istediğiniz yer",opts:["Büyükşehir","Şehir","Kasaba / köy","Fark etmez"],weight:2,sensitive:false,enabled:true},
+    {id:"q_aile",label:"Evlendikten sonra ailenizden biriyle birlikte yaşama",opts:["İsterim","İstemem","Fark etmez"],weight:2,sensitive:false,enabled:true},
+    {id:"q_calisma",label:"Eşinizin çalışması konusundaki beklentiniz",opts:["Çalışsın","Çalışmasın","Fark etmez"],weight:2,sensitive:false,enabled:true},
+    {id:"q_sigara",label:"Sigara kullanımı",opts:["Kullanıyorum","Kullanmıyorum"],weight:2,sensitive:false,enabled:true},
+    {id:"q_inanc",label:"Dinî hassasiyet düzeyi",opts:["Yüksek","Orta","Düşük"],weight:2,sensitive:true,enabled:false}
+  ]
+});
+const IMP=[["0","Önemsiz"],["1","Az önemli"],["2","Önemli"],["3","Zorunlu (eleyici)"]];
+const MEDENI=[["hic","Hiç evlenmemiş"],["bosanmis","Boşanmış"],["dul","Dul"]];
+const ISDURUM=[["calisiyor","Çalışıyor"],["ogrenci","Öğrenci"],["calismiyor","Çalışmıyor"],["emekli","Emekli"]];
+const SCHEMA=[
+ {sec:"Genel"},
+ {k:"institution",label:"Kurum adı",type:"text"},
+ {k:"minAge",label:"Asgari başvuru yaşı",type:"int",min:HARD.minAgeFloor,max:40,help:`En az ${HARD.minAgeFloor}; altına indirilemez.`},
+ {k:"maxAge",label:"Azami başvuru yaşı",type:"int",min:25,max:99},
+ {k:"matchGender",label:"Eşleştirme cinsiyet kuralı",type:"sel",opts:[["karsi","Karşı cinsiyetle"],["serbest","Kısıtlama yok"]],help:"Yürürlükteki mevzuat ve kurum politikasına göre yetkili makam belirler."},
+ {sec:"Eşleştirme"},
+ {k:"minScore",label:"Asgari uyum puanı (0–100)",type:"int",min:0,max:100},
+ {k:"topN",label:"Aday başına önerilecek en fazla kişi",type:"int",min:1,max:20},
+ {k:"aggregator",label:"İki yönlü puan birleştirme",type:"sel",opts:[["geom","Geometrik ortalama"],["min","Düşük olan"],["avg","Aritmetik ortalama"]]},
+ {k:"ageDecayYears",label:"Yaş tercihine ne kadar uzaklıkta puan sıfırlanır (yıl)",type:"int",min:1,max:15},
+ {sec:"Süreç ve güvenlik"},
+ {k:"maxActiveIntros",label:"Bir adayın aynı anda en fazla aktif tanıştırması",type:"int",min:1,max:5},
+ {k:"cooldownDays",label:"Sona eren tanıştırmadan sonra yeni öneri için bekleme (gün)",type:"int",min:0,max:365},
+ {k:"responseDays",label:"Yanıt bekleme süresi (gün)",type:"int",min:1,max:60},
+ {k:"meetingMode",label:"İlk görüşme biçimi (metin)",type:"text"},
+ {k:"retentionDays",label:"Kapanan kayıtların saklama süresi (gün)",type:"int",min:30,max:3650},
+ {k:"fairGapPct",label:"Adalet uyarı eşiği (yüzde puan farkı)",type:"int",min:1,max:60},
+ {k:"sessionLockMinutes",label:"Otomatik kilit (dakika)",type:"int",min:1,max:60}
+];
+const CRIT_LABEL={age:"Yaş",loc:"Yaşanılan il",edu:"Eğitim",marital:"Medeni durum",kids:"Çocuk durumu"};
+
+/* =====================================================================
+   VERİ DEPOSU
+   ===================================================================== */
+let DB=null,SESSION=null,route={v:"dash"},ctx={};
+function load(){try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}}
+function save(){localStorage.setItem(KEY,JSON.stringify(DB))}
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad2=n=>String(n).padStart(2,"0");
+const dStr=d=>d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate());
+const todayStr=()=>dStr(new Date());
+const fmtD=s=>s?s.split("-").reverse().join("."):"—";
+const fmtT=ts=>{const d=new Date(ts);return fmtD(dStr(d))+" "+pad2(d.getHours())+":"+pad2(d.getMinutes())};
+const addDays=(s,n)=>{const d=new Date(s+"T00:00:00");d.setDate(d.getDate()+n);return dStr(d)};
+const daysBetween=(a,b)=>Math.round((new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/864e5);
+function ageOn(birth,ref){const b=new Date(birth+"T00:00:00"),r=new Date(ref+"T00:00:00");let a=r.getFullYear()-b.getFullYear();
+  if(r.getMonth()<b.getMonth()||(r.getMonth()===b.getMonth()&&r.getDate()<b.getDate()))a--;return a}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("show"),2800)}
+function validTC(n){if(!/^[1-9]\d{10}$/.test(n))return false;const d=n.split("").map(Number);
+  const d10=(((d[0]+d[2]+d[4]+d[6]+d[8])*7)-(d[1]+d[3]+d[5]+d[7]))%10;
+  return ((d10+10)%10===d[9])&&(d.slice(0,10).reduce((a,b)=>a+b,0)%10===d[10])}
+const maskId=n=>!n?"—":n.length>5?n.slice(0,3)+"•••••"+n.slice(-3):"•••";
+const ROLE={admin:"Yönetici",gorevli:"Görevli",denetci:"Denetçi"};
+
+/* ---- Denetim günlüğü ---- */
+function logEv(action,detail){
+  const prev=DB.audit.length?DB.audit[DB.audit.length-1].hash:"GENESIS";
+  const e={i:DB.audit.length+1,ts:Date.now(),user:SESSION?SESSION.id:"sistem",role:SESSION?SESSION.role:"-",action,detail:detail||"",prev};
+  e.hash=sha256(prev+"|"+e.i+"|"+e.ts+"|"+e.user+"|"+e.role+"|"+e.action+"|"+e.detail);
+  DB.audit.push(e);save();return e;
+}
+function verifyChain(audit){
+  let prev="GENESIS";
+  for(const e of audit){
+    const h=sha256(prev+"|"+e.i+"|"+e.ts+"|"+e.user+"|"+e.role+"|"+e.action+"|"+e.detail);
+    if(e.prev!==prev||e.hash!==h)return {ok:false,at:e.i};
+    prev=e.hash}
+  return {ok:true,n:audit.length};
+}
+
+/* ---- Parametre doğrulama ---- */
+function validateParams(p){
+  const E=[];
+  SCHEMA.forEach(s=>{if(s.type==="int"&&(!Number.isInteger(p[s.k])||p[s.k]<s.min||p[s.k]>s.max))E.push(`${s.label}: ${s.min}–${s.max} arası tam sayı olmalı.`)});
+  if(p.minAge<HARD.minAgeFloor)E.push(`Asgari yaş ${HARD.minAgeFloor}'in altına indirilemez.`);
+  if(p.maxAge<=p.minAge)E.push("Azami yaş, asgari yaştan büyük olmalı.");
+  [1,2,3].forEach(i=>{if(!Number.isInteger(p.impW[i])||p.impW[i]<0||p.impW[i]>20)E.push("Önem ağırlıkları 0–20 arası tam sayı olmalı.")});
+  if(!(p.impW[1]<=p.impW[2]&&p.impW[2]<=p.impW[3]))E.push("Önem ağırlıkları artan sırada olmalı (az ≤ önemli ≤ zorunlu).");
+  Object.keys(CRIT_LABEL).forEach(k=>{if(!Number.isInteger(p.critW[k])||p.critW[k]<0||p.critW[k]>10)E.push(`${CRIT_LABEL[k]} ağırlığı 0–10 arası olmalı.`)});
+  if(!Array.isArray(p.eduLevels)||p.eduLevels.length<2)E.push("En az iki eğitim düzeyi tanımlanmalı.");
+  const ids=new Set();(p.questions||[]).forEach(q=>{
+    if(!q.id||ids.has(q.id))E.push("Soru kimlikleri benzersiz olmalı.");ids.add(q.id);
+    if(!q.label.trim())E.push("Soru metni boş olamaz.");
+    if(!Array.isArray(q.opts)||q.opts.length<2)E.push(`“${q.label}” sorusu en az 2 seçenek içermeli.`);
+    if(!Number.isInteger(q.weight)||q.weight<0||q.weight>10)E.push(`“${q.label}” ağırlığı 0–10 arası olmalı.`)});
+  if(!p.consentText||p.consentText.trim().length<40)E.push("Açık rıza metni boş/çok kısa olamaz.");
+  return E;
+}
+
+/* =====================================================================
+   VERİ MODELİ
+   ===================================================================== */
+const newApplicant=()=>{DB.seq.a=(DB.seq.a||0)+1;const P=DB.params;
+  return {id:`A-${new Date().getFullYear()}-${String(DB.seq.a).padStart(4,"0")}`,status:"taslak",createdAt:Date.now(),createdBy:SESSION.id,
+  ad:"",soyad:"",kimNo:"",dogum:"",cins:"",telefon:"",eposta:"",il:"",ilce:"",medeni:"hic",cocuk:0,edu:"4",is:"calisiyor",meslek:"",tanitim:"",
+  prefs:{ageMin:21,ageMax:35,ageImp:2,locMode:"fark_etmez",locImp:1,eduMin:"2",eduImp:1,maritalOk:["hic"],maritalImp:1,kidsOk:true,kidsImp:1},
+  qa:{},consent:{data:false,sensitive:false,contactShare:false,ts:null,version:P.consentVersion},
+  checks:{inPerson:false,idVerified:false,protective:false,protectiveFound:false,voluntary:false,notMarried:false},
+  safetyBlock:false,safetyReason:"",cooldownUntil:"",notes:"",history:[],demo:false}};
+const hist=(o,text)=>{o.history.push({ts:Date.now(),user:SESSION?SESSION.id:"sistem",text})};
+const ACTIVE_INTRO=["yanit_bekliyor","kabul","bulusma_planli","devam_ediyor"];
+const ST_A={taslak:["Taslak",""],dogrulama:["Doğrulama bekliyor","warn"],aktif:["Aktif (havuzda)","good"],beklemede:["Beklemede","info"],inceleme:["İncelemede","bad"],cekildi:["Çekildi",""],engelli:["Güvenlik engeli","bad"],tamamlandi:["Tamamlandı","good"],silindi:["Anonimleştirildi",""]};
+const ST_I={yanit_bekliyor:["Yanıt bekleniyor","warn"],reddedildi:["Reddedildi",""],kabul:["İki taraf kabul etti","good"],bulusma_planli:["Görüşme planlı","good"],devam_ediyor:["Devam ediyor","good"],bitti:["Sona erdi",""],sikayet:["Şikâyet / inceleme","bad"],zamanasimi:["Zaman aşımı",""],cekildi:["Aday çekildi",""],kararverdi:["Evlenme kararı","good"]};
+const nm=a=>a?(a.status==="silindi"?"(silinmiş kayıt)":`${a.ad} ${a.soyad}`):"—";
+const getA=id=>DB.applicants.find(x=>x.id===id);
+
+/* ---- Aday uygunluğu (havuza alınabilir mi?) ---- */
+function checkApplicant(a,P){
+  const F=[];const add=(l,id,t)=>F.push({lvl:l,id,txt:t});
+  if(!a.ad.trim()||!a.soyad.trim())add("eksik","K-AD","Ad ve soyad eksik.");
+  if(!a.kimNo.trim())add("eksik","K-KIMLIK","T.C. kimlik numarası eksik.");else if(!validTC(a.kimNo.trim()))add("engel","K-TC","T.C. kimlik numarası geçersiz.");
+  if(!a.dogum)add("eksik","K-DOGUM","Doğum tarihi eksik.");
+  else{const y=ageOn(a.dogum,todayStr());
+    if(y<HARD.minAgeFloor)add("engel","K-YAS-SABIT",`${y} yaşında; ${HARD.minAgeFloor} yaşından küçükler sisteme alınamaz.`);
+    else if(y<P.minAge)add("engel","K-YAS",`${y} yaşında; asgari başvuru yaşı ${P.minAge}.`);
+    else if(y>P.maxAge)add("engel","K-YAS-US",`${y} yaşında; azami başvuru yaşı ${P.maxAge}.`)}
+  if(!a.cins)add("eksik","K-CINS","Cinsiyet bilgisi eksik.");
+  if(!a.il.trim())add("eksik","K-IL","Yaşanılan il eksik.");
+  if(!a.telefon.trim())add("eksik","K-TEL","İletişim telefonu eksik (yalnız görevli görür).");
+  if(!a.tanitim.trim())add("eksik","K-TANITIM","Kısa tanıtım metni eksik (karşı tarafa sunulacak özet).");
+  if(a.checks.notMarried===false)add("eksik","K-MEDENI","Mevcut bir evliliği olmadığı beyanı alınmadı.");
+  if(!a.consent.data)add("eksik","K-RIZA","Açık rıza metni onaylanmadı.");
+  if(!a.checks.voluntary)add("eksik","K-GONULLU","Başvurunun kendi isteğiyle, baskı olmadan yapıldığı teyit edilmedi.");
+  if(!a.checks.inPerson)add("eksik","K-SAHSEN","Başvuru sahibinin şahsen başvurduğu teyit edilmedi (başkası adına başvuru kabul edilmez).");
+  if(!a.checks.idVerified)add("eksik","K-ID","Kimlik belgesi görevli tarafından doğrulanmadı.");
+  if(!a.checks.protective)add("eksik","K-KORUMA","Koruma/uzaklaştırma kararı ve güvenlik sorgusu yapıldığı işaretlenmedi.");
+  if(a.checks.protectiveFound)add("engel","K-KORUMA-VAR","Koruma/uzaklaştırma kararı veya güvenlik engeli bulundu; havuza alınamaz.");
+  if(a.safetyBlock)add("engel","K-GUVENLIK","Güvenlik engeli kaydı var: "+(a.safetyReason||"—"));
+  const sens=P.questions.some(q=>q.enabled&&q.sensitive);
+  if(sens&&!a.consent.sensitive)add("bilgi","K-HASSAS","Hassas (özel nitelikli) sorulara açık rıza verilmediği için bu sorular eşleştirmede kullanılmayacak.");
+  const lv=F.map(f=>f.lvl);
+  return {findings:F,status:lv.includes("engel")?"ENGEL":lv.includes("eksik")?"EKSIK":"UYGUN"};
+}
+
+/* =====================================================================
+   EŞLEŞTİRME MOTORU
+   ===================================================================== */
+function critList(P,a,b){
+  const L=Object.keys(CRIT_LABEL).map(k=>({k,label:CRIT_LABEL[k],w:P.critW[k]}));
+  const sens=a.consent.sensitive&&b.consent.sensitive;
+  P.questions.filter(q=>q.enabled&&(!q.sensitive||sens)).forEach(q=>L.push({k:"q:"+q.id,label:q.label,w:q.weight,q}));
+  return L;
+}
+function satisfy(a,b,c,P,today){
+  const pr=a.prefs;
+  if(c.k==="age"){const ba=ageOn(b.dogum,today);let s;
+    if(ba>=pr.ageMin&&ba<=pr.ageMax)s=1;else{const d=ba<pr.ageMin?pr.ageMin-ba:ba-pr.ageMax;s=Math.max(0,1-d/P.ageDecayYears)}
+    return {s,imp:+pr.ageImp,note:`${ba} yaş (istenen ${pr.ageMin}–${pr.ageMax})`}}
+  if(c.k==="loc"){const s=pr.locMode==="fark_etmez"?1:(b.il.trim().toLowerCase()===a.il.trim().toLowerCase()?1:0);
+    return {s,imp:+pr.locImp,note:pr.locMode==="fark_etmez"?"fark etmez":`${b.il} (aynı il ister)`}}
+  if(c.k==="edu"){const d=(+b.edu)-(+pr.eduMin);const s=d>=0?1:Math.max(0,1+d/3);
+    return {s,imp:+pr.eduImp,note:`${P.eduLevels[+b.edu]||"?"} (en az ${P.eduLevels[+pr.eduMin]||"?"})`}}
+  if(c.k==="marital"){const s=pr.maritalOk.includes(b.medeni)?1:0;return {s,imp:+pr.maritalImp,note:MEDENI.find(x=>x[0]===b.medeni)[1]}}
+  if(c.k==="kids"){const s=(b.cocuk>0&&!pr.kidsOk)?0:1;return {s,imp:+pr.kidsImp,note:b.cocuk>0?`${b.cocuk} çocuğu var`:"çocuğu yok"}}
+  const q=c.q,mine=a.qa[q.id],theirs=b.qa[q.id];
+  if(!mine||!mine.accept||mine.accept.length===0)return {s:1,imp:0,note:"tercih belirtilmemiş"};
+  if(!theirs||!theirs.ans)return {s:0.5,imp:+mine.imp,note:"yanıt yok"};
+  return {s:mine.accept.includes(theirs.ans)?1:0,imp:+mine.imp,note:theirs.ans};
+}
+function scoreDir(a,b,P,today){
+  let num=0,den=0;const why=[];
+  for(const c of critList(P,a,b)){
+    const r=satisfy(a,b,c,P,today);
+    if(r.imp===3&&r.s<1)return {hard:true,why:[{label:c.label,s:r.s,imp:r.imp,note:r.note}]};
+    const w=c.w*(r.imp===0?0:P.impW[r.imp]);num+=w*r.s;den+=w;
+    why.push({label:c.label,s:r.s,imp:r.imp,note:r.note})}
+  return {hard:false,score:den?num/den*100:100,why};
+}
+function activeIntroCount(id){return DB.intros.filter(i=>ACTIVE_INTRO.includes(i.status)&&(i.a===id||i.b===id)).length}
+function pairBlocked(a,b){return DB.blocked.some(p=>(p[0]===a&&p[1]===b)||(p[0]===b&&p[1]===a))}
+function poolable(x,P,today){
+  return x.status==="aktif"&&!x.safetyBlock&&x.consent.data&&(!x.cooldownUntil||today>=x.cooldownUntil)&&activeIntroCount(x.id)<P.maxActiveIntros;
+}
+function pairOk(a,b,P,today){
+  if(a.id===b.id)return "aynı kişi";
+  if(!poolable(a,P,today)||!poolable(b,P,today))return "havuzda değil";
+  if(P.matchGender==="karsi"&&a.cins===b.cins)return "cinsiyet kuralı";
+  if(pairBlocked(a.id,b.id))return "daha önce reddedilmiş/engellenmiş";
+  if(DB.intros.some(i=>(i.a===a.id&&i.b===b.id)||(i.a===b.id&&i.b===a.id)))return "daha önce önerilmiş";
+  return null;
+}
+function scorePair(a,b,P,today){
+  const ab=scoreDir(a,b,P,today),ba=scoreDir(b,a,P,today);
+  if(ab.hard||ba.hard)return {hard:true};
+  const s1=ab.score,s2=ba.score;
+  const s=P.aggregator==="min"?Math.min(s1,s2):P.aggregator==="avg"?(s1+s2)/2:Math.sqrt(s1*s2);
+  return {hard:false,score:s,sa:s1,sb:s2,whyA:ab.why,whyB:ba.why};
+}
+function runMatching(){
+  const P=DB.params,today=todayStr();
+  const pool=DB.applicants.filter(x=>poolable(x,P,today));
+  const all=[];let considered=0;
+  for(let i=0;i<pool.length;i++)for(let j=i+1;j<pool.length;j++){
+    const a=pool[i],b=pool[j];if(pairOk(a,b,P,today))continue;considered++;
+    const r=scorePair(a,b,P,today);if(r.hard||r.score<P.minScore)continue;
+    all.push({a:a.id,b:b.id,score:Math.round(r.score*10)/10,sa:Math.round(r.sa),sb:Math.round(r.sb)})}
+  // her aday için en iyi topN
+  const per={};all.forEach(p=>{(per[p.a]=per[p.a]||[]).push(p);(per[p.b]=per[p.b]||[]).push(p)});
+  const keep=new Set();Object.values(per).forEach(L=>L.sort((x,y)=>y.score-x.score).slice(0,P.topN).forEach(p=>keep.add(p.a+"|"+p.b)));
+  const sug=all.filter(p=>keep.has(p.a+"|"+p.b)).sort((x,y)=>y.score-x.score);
+  const withAny=new Set();sug.forEach(p=>{withAny.add(p.a);withAny.add(p.b)});
+  const run={id:(DB.runs.length?DB.runs[DB.runs.length-1].id+1:1),ts:Date.now(),user:SESSION.id,paramSeal:seal(P),pool:pool.length,considered,suggestions:sug,
+    noMatch:pool.filter(x=>!withAny.has(x.id)).map(x=>x.id)};
+  DB.runs.push(run);if(DB.runs.length>5)DB.runs.shift();
+  logEv("ESLESTIRME_CALISTIRILDI",`koşu ${run.id}; havuz ${pool.length}; öneri ${sug.length}; mühür ${run.paramSeal.slice(0,12)}`);
+  return run;
+}
+
+/* ---- Oturum ---- */
+const can={edit:()=>SESSION&&(SESSION.role==="gorevli"||SESSION.role==="admin"),admin:()=>SESSION&&SESSION.role==="admin"};
+function lockNow(msg){SESSION=null;route={v:"dash"};ctx={};render();if(msg)toast(msg)}
+let lastAct=Date.now();
+["click","keydown","input"].forEach(e=>document.addEventListener(e,()=>lastAct=Date.now()));
+setInterval(()=>{if(SESSION&&DB&&Date.now()-lastAct>DB.params.sessionLockMinutes*60000)lockNow("Etkinlik olmadığı için oturum kilitlendi.")},10000);
+
+/* =====================================================================
+   GÖRÜNÜMLER
+   ===================================================================== */
+function render(){
+  $("#brand").innerHTML=`${esc(DB?DB.params.institution:"Evlilik Tanıştırma Sistemi")}<small>Evlilik Tanıştırma Sistemi · çevrimdışı</small>`;
+  $("#who").innerHTML=SESSION?`<span class="badge info">${esc(SESSION.name)} · ${ROLE[SESSION.role]}</span><button class="b ghost sm" data-act="lock">🔒 Kilitle</button>`:"";
+  const tabs=$("#tabs");
+  if(!DB||!SESSION){tabs.classList.add("hidden");$("#app").innerHTML=!DB?vSetup():vLogin();return}
+  const T=[["dash","Panel"],["apps","Adaylar"],["match","Eşleştirme"],["intros","Tanıştırmalar"],["fair","Adalet raporu"],["params","Parametreler"],["audit","Denetim"],["data","Veri"]];
+  if(can.admin())T.push(["users","Kullanıcılar"]);T.push(["about","Hakkında"]);
+  tabs.classList.remove("hidden");
+  $("#tabsin").innerHTML=T.map(([k,n])=>`<button class="${route.v===k||(route.v==="app"&&k==="apps")||(route.v==="intro"&&k==="intros")?"on":""}" data-act="nav" data-k="${k}">${n}</button>`).join("");
+  const V={dash:vDash,apps:vApps,app:vApp,match:vMatch,intros:vIntros,intro:vIntro,fair:vFair,params:vParams,audit:vAudit,data:vData,users:vUsers,about:vAbout};
+  $("#app").innerHTML=(V[route.v]||vDash)();window.scrollTo(0,0);
+}
+function go(v,extra){route=Object.assign({v},extra||{});render()}
+
+function vSetup(){return `<div class="card login"><h1>İlk kurulum</h1>
+  <p class="muted">Bu bilgisayarda ilk kez çalışıyor. Yönetici hesabını oluşturun. Veriler bu cihazın tarayıcı deposunda saklanır; internet bağlantısı gerekmez.</p>
+  <form data-form="setup"><label>Kurum adı</label><input name="inst" required value="Evlilik Tanıştırma Birimi">
+   <label>Yönetici adı soyadı</label><input name="name" required>
+   <label>Yönetici PIN'i (en az 6 rakam)</label><input name="pin" type="password" inputmode="numeric" pattern="\\d{6,}" required>
+   <label>PIN tekrar</label><input name="pin2" type="password" inputmode="numeric" pattern="\\d{6,}" required>
+   <div class="note warn small">PIN unutulursa sıfırlanamaz; düzenli yedek alın.</div>
+   <button class="b" type="submit">Kurulumu tamamla</button></form></div>`}
+function vLogin(){return `<div class="card login"><h1>Oturum aç</h1><form data-form="login"><label>Kullanıcı</label>
+  <select name="u">${DB.users.filter(u=>u.active).map(u=>`<option value="${u.id}">${esc(u.name)} (${ROLE[u.role]})</option>`).join("")}</select>
+  <label>PIN</label><input name="pin" type="password" inputmode="numeric" required autocomplete="off"><div id="lerr"></div>
+  <button class="b" type="submit">Giriş</button></form></div>`}
+
+/* ---- Panel ---- */
+function vDash(){
+  const P=DB.params,A=DB.applicants,I=DB.intros,today=todayStr();
+  const cnt=s=>A.filter(a=>a.status===s).length;
+  const ch=verifyChain(DB.audit),mySeal=seal(P);
+  let al=ch.ok?`<div class="note good">Denetim günlüğü bütünlüğü doğrulandı (${ch.n} kayıt).</div>`:`<div class="note bad"><b>UYARI:</b> Denetim günlüğü zinciri ${ch.at}. kayıtta bozuk. Veri değiştirilmiş olabilir.</div>`;
+  if(DB.officialSeal)al+=DB.officialSeal===mySeal?`<div class="note good">Parametre mührü resmî mühürle eşleşiyor.</div>`:`<div class="note bad"><b>UYARI:</b> Parametre mührü, makamın bildirdiği resmî mühürle eşleşmiyor. Parametreler yetkisiz değiştirilmiş olabilir.</div>`;
+  else al+=`<div class="note warn small">Resmî parametre mührü tanımlanmamış (Parametreler sayfasından girilebilir).</div>`;
+  const late=I.filter(i=>i.status==="yanit_bekliyor"&&daysBetween(dStr(new Date(i.createdAt)),today)>P.responseDays);
+  const comp=I.filter(i=>i.status==="sikayet");
+  const old=A.filter(a=>["cekildi","tamamlandi"].includes(a.status)&&a.closedAt&&daysBetween(dStr(new Date(a.closedAt)),today)>P.retentionDays);
+  if(late.length)al+=`<div class="note warn"><b>${late.length}</b> tanıştırmada yanıt süresi (${P.responseDays} gün) doldu.</div>`;
+  if(comp.length)al+=`<div class="note bad"><b>${comp.length}</b> şikâyet/inceleme dosyası bekliyor.</div>`;
+  if(old.length)al+=`<div class="note warn"><b>${old.length}</b> kapanmış kaydın saklama süresi (${P.retentionDays} gün) dolmuş; anonimleştirme/imha değerlendirilmeli.</div>`;
+  const last=DB.runs[DB.runs.length-1];
+  return `<h1>Panel</h1>${al}
+  <div class="grid g4"><div class="card stat"><b>${A.length}</b><span>Toplam aday</span></div>
+   <div class="card stat"><b>${cnt("aktif")}</b><span>Havuzdaki aktif aday</span></div>
+   <div class="card stat"><b>${cnt("dogrulama")+cnt("taslak")}</b><span>Taslak / doğrulama bekleyen</span></div>
+   <div class="card stat"><b>${I.filter(i=>ACTIVE_INTRO.includes(i.status)).length}</b><span>Aktif tanıştırma</span></div></div>
+  <div class="card"><h3>Son eşleştirme koşusu</h3>${last?`<p>${fmtT(last.ts)} · havuz ${last.pool} aday · ${last.suggestions.length} öneri · öneri çıkmayan ${last.noMatch.length} aday</p>`:`<p class="muted">Henüz çalıştırılmadı.</p>`}</div>
+  <div class="card"><h3>Uyarı: kimin neyi yapabildiği</h3><p class="small muted">Sistem yalnız <b>öneri</b> üretir. Hiçbir aday kendi onayı olmadan başkasına gösterilmez ve iletişim bilgisi paylaşılmaz.</p></div>`;
+}
+
+/* ---- Aday listesi ---- */
+function vApps(){
+  const f=ctx.filter||"",q=(ctx.q||"").toLowerCase();
+  const L=DB.applicants.slice().reverse().filter(a=>(!f||a.status===f)&&(!q||(a.id+" "+a.ad+" "+a.soyad+" "+a.il).toLowerCase().includes(q)));
+  return `<div class="row"><h1 class="sp">Adaylar</h1>${can.edit()?`<button class="b" data-act="newapp">+ Yeni aday</button>`:""}</div>
+  <div class="card"><div class="row"><input id="q" placeholder="Ara: ad, soyad, il…" value="${esc(ctx.q||"")}" style="max-width:260px">
+   <select id="flt" style="max-width:220px"><option value="">Tüm durumlar</option>${Object.entries(ST_A).map(([k,v])=>`<option value="${k}" ${f===k?"selected":""}>${v[0]}</option>`).join("")}</select></div>
+  <div class="tw"><table><tr><th>No</th><th>Aday</th><th>Yaş</th><th>İl</th><th>Durum</th><th>Aktif tanıştırma</th></tr>
+  ${L.map(a=>`<tr><td><a href="#" data-act="open" data-id="${a.id}">${a.id}</a>${a.demo?` <span class="badge warn">deneme</span>`:""}</td><td>${esc(nm(a))}<div class="small muted">${a.cins==="K"?"Kadın":a.cins==="E"?"Erkek":""} · ${maskId(a.kimNo)}</div></td>
+   <td>${a.dogum?ageOn(a.dogum,todayStr()):"—"}</td><td>${esc(a.il)}</td><td><span class="badge ${ST_A[a.status][1]}">${ST_A[a.status][0]}</span></td><td>${activeIntroCount(a.id)}</td></tr>`).join("")||`<tr><td colspan="6" class="muted">Kayıt yok.</td></tr>`}</table></div></div>`;
+}
+
+/* ---- Aday formu ---- */
+const sel=(name,opts,val,d)=>`<select name="${name}" ${d}>${opts.map(([k,t])=>`<option value="${k}" ${String(val)===String(k)?"selected":""}>${t}</option>`).join("")}</select>`;
+function vApp(){
+  const a=getA(route.id);if(!a)return `<p>Aday bulunamadı.</p>`;
+  const P=DB.params,ro=!can.edit()||["silindi"].includes(a.status),d=ro?"disabled":"";
+  const ck=checkApplicant(a,P);const stBadge={UYGUN:["Havuza alınabilir","good"],EKSIK:["Eksikler var","warn"],ENGEL:["Engel var","bad"]}[ck.status];
+  const LV={engel:["ENGEL","bad"],eksik:["EKSİK","warn"],bilgi:["BİLGİ",""]};
+  const eduOpts=P.eduLevels.map((x,i)=>[String(i),x]);
+  const pr=a.prefs;
+  const qs=P.questions.filter(q=>q.enabled).map(q=>{
+    const cur=a.qa[q.id]||{ans:"",accept:[],imp:"1"};
+    return `<div class="card" style="background:var(--soft)"><b>${esc(q.label)}</b>${q.sensitive?` <span class="badge bad">hassas · açık rıza gerekir</span>`:""}
+     <div class="grid g3"><div><label>Sizin yanıtınız</label><select name="q_${q.id}_ans" ${d}><option value="">—</option>${q.opts.map(o=>`<option ${cur.ans===o?"selected":""}>${esc(o)}</option>`).join("")}</select></div>
+     <div><label>Karşı tarafta kabul edilebilir yanıtlar</label><div class="opts">${q.opts.map((o,i)=>`<label class="chk"><input type="checkbox" name="q_${q.id}_acc_${i}" ${cur.accept.includes(o)?"checked":""} ${d}> ${esc(o)}</label>`).join("")}</div></div>
+     <div><label>Önem</label>${sel("q_"+q.id+"_imp",IMP,cur.imp,d)}</div></div></div>`}).join("");
+  let act="";
+  if(can.edit()&&!ro){
+    act+=`<button class="b" data-act="saveapp">Kaydet</button>`;
+    if(["taslak","dogrulama","beklemede"].includes(a.status))act+=`<button class="b ghost" data-act="activate" ${ck.status==="UYGUN"?"":"disabled"}>Havuza al (aktif yap)</button>`;
+    if(a.status==="aktif")act+=`<button class="b ghost" data-act="pause">Beklemeye al</button>`;
+    if(!["cekildi","tamamlandi"].includes(a.status))act+=`<button class="b ghost" data-act="withdraw">Adayın çekilme talebi</button>`;
+    act+=`<button class="b red" data-act="safety">Güvenlik engeli koy</button>`;
+    if(a.status==="inceleme"||a.status==="engelli")if(can.admin())act+=`<button class="b ghost" data-act="release">Engeli/incelemeyi kaldır</button>`;
+    if(can.admin())act+=`<button class="b red" data-act="anonymize">Kişisel verileri sil (anonimleştir)</button>`;
+  }
+  act+=`<button class="b ghost" data-act="card" data-id="${a.id}">🖨 Tanıtım kartı</button><button class="b ghost" data-act="nav" data-k="apps">← Liste</button>`;
+  const intros=DB.intros.filter(i=>i.a===a.id||i.b===a.id);
+  return `<div class="row"><h1 class="sp">${esc(nm(a))} <span class="muted">${a.id}</span></h1><span class="badge ${ST_A[a.status][1]}">${ST_A[a.status][0]}</span></div>
+  ${a.cooldownUntil&&todayStr()<a.cooldownUntil?`<div class="note info">Yeni öneri için bekleme süresi: ${fmtD(a.cooldownUntil)} tarihine kadar.</div>`:""}
+  <div class="card"><div class="row"><h3 class="sp">Havuza alınma koşulları</h3><span class="badge ${stBadge[1]}">${stBadge[0]}</span></div>
+   ${ck.findings.map(f=>`<div class="find"><span class="badge ${LV[f.lvl][1]}">${LV[f.lvl][0]}</span><div><b class="small muted">${f.id}</b><br>${esc(f.txt)}</div></div>`).join("")||`<p class="muted">Bulgu yok.</p>`}
+   <p class="small muted">Kimlik ve koruma kararı kontrolleri görevlinin elle yaptığı teyitlerdir; çevrimdışı sistem resmî sorgu yapamaz.</p></div>
+  <form data-form="applicant">
+  <div class="card"><h3>Kimlik ve iletişim <span class="badge bad">hassas</span></h3><div class="grid g3">
+   <div><label>Ad</label><input name="ad" value="${esc(a.ad)}" ${d}></div><div><label>Soyad</label><input name="soyad" value="${esc(a.soyad)}" ${d}></div>
+   <div><label>T.C. kimlik no</label><input name="kimNo" value="${esc(a.kimNo)}" ${d} autocomplete="off"></div>
+   <div><label>Doğum tarihi</label><input type="date" name="dogum" value="${a.dogum}" ${d}></div>
+   <div><label>Cinsiyet</label>${sel("cins",[["","Seçiniz"],["K","Kadın"],["E","Erkek"]],a.cins,d)}</div>
+   <div><label>Telefon (yalnız görevli görür)</label><input name="telefon" value="${esc(a.telefon)}" ${d}></div>
+   <div><label>E-posta</label><input name="eposta" value="${esc(a.eposta)}" ${d}></div>
+   <div><label>Yaşadığı il</label><input name="il" value="${esc(a.il)}" ${d}></div><div><label>İlçe</label><input name="ilce" value="${esc(a.ilce)}" ${d}></div></div></div>
+  <div class="card"><h3>Profil (karşı tarafa sunulacak özetin kaynağı)</h3><div class="grid g3">
+   <div><label>Medeni durum</label>${sel("medeni",MEDENI,a.medeni,d)}</div>
+   <div><label>Çocuk sayısı</label><input type="number" min="0" max="12" name="cocuk" value="${a.cocuk}" ${d}></div>
+   <div><label>Eğitim düzeyi</label>${sel("edu",eduOpts,a.edu,d)}</div>
+   <div><label>Çalışma durumu</label>${sel("is",ISDURUM,a.is,d)}</div>
+   <div><label>Meslek / alan</label><input name="meslek" value="${esc(a.meslek)}" ${d}></div></div>
+   <label>Kısa tanıtım (karşı tarafa gösterilir; en çok 300 karakter; kimlik/iletişim bilgisi yazmayın)</label><textarea name="tanitim" maxlength="300" ${d}>${esc(a.tanitim)}</textarea></div>
+  <div class="card"><h3>Karşı tarafta aradıkları (kendi tercihi)</h3>
+   <div class="grid g3"><div><label>Yaş aralığı (en az)</label><input type="number" name="p_ageMin" value="${pr.ageMin}" ${d}></div><div><label>Yaş aralığı (en çok)</label><input type="number" name="p_ageMax" value="${pr.ageMax}" ${d}></div><div><label>Yaş tercihinin önemi</label>${sel("p_ageImp",IMP,pr.ageImp,d)}</div>
+   <div><label>Yaşadığı yer</label>${sel("p_locMode",[["fark_etmez","Fark etmez"],["ayni_il","Aynı ilde olsun"]],pr.locMode,d)}</div><div></div><div><label>Yer tercihinin önemi</label>${sel("p_locImp",IMP,pr.locImp,d)}</div>
+   <div><label>En az eğitim düzeyi</label>${sel("p_eduMin",eduOpts,pr.eduMin,d)}</div><div></div><div><label>Eğitim tercihinin önemi</label>${sel("p_eduImp",IMP,pr.eduImp,d)}</div>
+   <div><label>Kabul edilen medeni durumlar</label><div class="opts">${MEDENI.map(([k,t])=>`<label class="chk"><input type="checkbox" name="p_mar_${k}" ${pr.maritalOk.includes(k)?"checked":""} ${d}> ${t}</label>`).join("")}</div></div><div></div><div><label>Medeni durum tercihinin önemi</label>${sel("p_maritalImp",IMP,pr.maritalImp,d)}</div>
+   <div><label class="chk"><input type="checkbox" name="p_kidsOk" ${pr.kidsOk?"checked":""} ${d}> Çocuklu aday kabul edilebilir</label></div><div></div><div><label>Çocuk tercihinin önemi</label>${sel("p_kidsImp",IMP,pr.kidsImp,d)}</div></div>
+   <p class="small muted">“Zorunlu (eleyici)” seçilen bir tercih karşılanmazsa aday hiç önerilmez. Diğer önemler yalnız puanı etkiler.</p></div>
+  <div class="card"><h3>Yaşam tarzı ve beklentiler</h3>${qs||`<p class="muted">Etkin soru yok.</p>`}</div>
+  <div class="card"><h3>Açık rıza ve doğrulama (görevli tarafından teyit)</h3>
+   <div class="note info small"><b>Rıza metni (v${esc(P.consentVersion)}):</b> ${esc(P.consentText)}</div>
+   <label class="chk"><input type="checkbox" name="c_data" ${a.consent.data?"checked":""} ${d}> Aday, yukarıdaki rıza metnini okuyup kabul etti</label>
+   <label class="chk"><input type="checkbox" name="c_sens" ${a.consent.sensitive?"checked":""} ${d}> Aday, hassas (özel nitelikli) soruların eşleştirmede kullanılmasına ayrıca açık rıza verdi</label>
+   <label class="chk"><input type="checkbox" name="c_contact" ${a.consent.contactShare?"checked":""} ${d}> Aday, karşılıklı kabul sonrası iletişim bilgilerinin karşı tarafla paylaşılmasına rıza verdi (aksi halde yalnız görevli aracılık eder)</label>
+   <hr style="border:0;border-top:1px solid var(--line)">
+   <label class="chk"><input type="checkbox" name="k_inPerson" ${a.checks.inPerson?"checked":""} ${d}> Aday <b>şahsen</b> başvurdu (başkası/aile adına başvuru kabul edilmez)</label>
+   <label class="chk"><input type="checkbox" name="k_idVerified" ${a.checks.idVerified?"checked":""} ${d}> Kimlik belgesi görevli tarafından doğrulandı</label>
+   <label class="chk"><input type="checkbox" name="k_voluntary" ${a.checks.voluntary?"checked":""} ${d}> Aday kendi isteğiyle, aile/üçüncü kişi baskısı olmadan başvurduğunu beyan etti; görevli bu konuda bire bir görüştü</label>
+   <label class="chk"><input type="checkbox" name="k_notMarried" ${a.checks.notMarried?"checked":""} ${d}> Aday, sürmekte olan bir evliliği olmadığını beyan etti</label>
+   <label class="chk"><input type="checkbox" name="k_protective" ${a.checks.protective?"checked":""} ${d}> Koruma / uzaklaştırma kararı ve güvenlik sorgusu yapıldı</label>
+   <label class="chk"><input type="checkbox" name="k_protectiveFound" ${a.checks.protectiveFound?"checked":""} ${d}> Sorguda koruma/uzaklaştırma kararı veya güvenlik engeli <b>bulundu</b></label></div>
+  <div class="card"><label>İç not (adaya gösterilmez; yalnız gerekli bilgiyi yazın)</label><textarea name="notes" ${d}>${esc(a.notes)}</textarea></div></form>
+  <div class="row" style="margin:10px 0">${act}</div>
+  <div class="card"><h3>Tanıştırmalar</h3>${intros.map(i=>`<div><a href="#" data-act="openintro" data-id="${i.id}">${i.id}</a> — ${esc(nm(getA(i.a===a.id?i.b:i.a)))} <span class="badge ${ST_I[i.status][1]}">${ST_I[i.status][0]}</span></div>`).join("")||`<p class="muted">Yok.</p>`}</div>
+  <div class="card"><h3>İşlem geçmişi</h3><div class="tw"><table><tr><th>Zaman</th><th>Kullanıcı</th><th>İşlem</th></tr>${a.history.slice().reverse().map(h=>`<tr><td class="small">${fmtT(h.ts)}</td><td>${esc(h.user)}</td><td>${esc(h.text)}</td></tr>`).join("")||`<tr><td colspan="3" class="muted">—</td></tr>`}</table></div></div>`;
+}
+function readApplicant(a){
+  const f=$('form[data-form="applicant"]');if(!f)return;const g=n=>f.elements[n];const P=DB.params;
+  ["ad","soyad","kimNo","dogum","cins","telefon","eposta","il","ilce","medeni","edu","is","meslek","tanitim","notes"].forEach(k=>{if(g(k))a[k]=g(k).value.trim()});
+  if(g("cocuk"))a.cocuk=Math.max(0,parseInt(g("cocuk").value,10)||0);
+  const pr=a.prefs;
+  pr.ageMin=parseInt(g("p_ageMin").value,10)||pr.ageMin;pr.ageMax=parseInt(g("p_ageMax").value,10)||pr.ageMax;
+  ["p_ageImp","p_locImp","p_eduImp","p_maritalImp","p_kidsImp"].forEach(k=>pr[k.slice(2)]=+g(k).value);
+  pr.locMode=g("p_locMode").value;pr.eduMin=g("p_eduMin").value;pr.kidsOk=g("p_kidsOk").checked;
+  pr.maritalOk=MEDENI.map(x=>x[0]).filter(k=>g("p_mar_"+k).checked);
+  P.questions.filter(q=>q.enabled).forEach(q=>{
+    a.qa[q.id]={ans:g(`q_${q.id}_ans`).value,accept:q.opts.filter((o,i)=>g(`q_${q.id}_acc_${i}`).checked),imp:g(`q_${q.id}_imp`).value}});
+  if(g("c_data")){const had=a.consent.data;a.consent.data=g("c_data").checked;a.consent.sensitive=g("c_sens").checked;a.consent.contactShare=g("c_contact").checked;
+    if(a.consent.data&&!had){a.consent.ts=Date.now();a.consent.version=P.consentVersion}}
+  ["inPerson","idVerified","voluntary","notMarried","protective","protectiveFound"].forEach(k=>{if(g("k_"+k))a.checks[k]=g("k_"+k).checked});
+}
+
+/* ---- Eşleştirme ---- */
+function vMatch(){
+  const run=DB.runs[DB.runs.length-1];const P=DB.params;
+  let h=`<div class="row"><h1 class="sp">Eşleştirme</h1>${can.edit()?`<button class="b" data-act="runmatch">Eşleştirmeyi çalıştır</button>`:""}</div>
+  <div class="note info small">Sistem yalnızca <b>öneri</b> üretir; hiçbir aday otomatik eşleşmez veya haberdar edilmez. Görevli, önerilerden birini seçip <b>tanıştırma süreci</b> başlatır; iki taraf da kendi kararını ayrı ayrı bildirmeden hiçbir şey paylaşılmaz. Puanlar, adayların <b>kendi belirttikleri tercihlere</b> ve kurum parametrelerine göre hesaplanır.</div>`;
+  if(!run)return h+`<div class="card muted">Henüz eşleştirme çalıştırılmadı.</div>`;
+  const aq=(ctx.mq||"").toLowerCase();
+  const L=run.suggestions.filter(p=>!aq||(nm(getA(p.a))+" "+nm(getA(p.b))+p.a+p.b).toLowerCase().includes(aq));
+  const stale=run.paramSeal!==seal(P);
+  h+="@@WHY@@";
+  h+=`<div class="card"><div class="row"><div class="sp">Koşu #${run.id} · ${fmtT(run.ts)} · havuz ${run.pool} · incelenen çift ${run.considered} · öneri ${run.suggestions.length}</div><span class="badge ${stale?"warn":"good"}">${stale?"parametreler değişti, yeniden çalıştırın":"güncel parametreler"}</span></div>
+   <div class="row" style="margin-top:8px"><input id="mq" placeholder="Aday adı veya no" value="${esc(ctx.mq||"")}" style="max-width:260px"></div>
+   <div class="tw"><table><tr><th>Puan</th><th>Aday 1</th><th>Aday 2</th><th>1→2</th><th>2→1</th><th></th></tr>
+   ${L.slice(0,200).map(p=>{const a=getA(p.a),b=getA(p.b);const ok=a&&b&&!pairOk(a,b,P,todayStr());
+    return `<tr><td><b>${p.score}</b><div class="bar"><i style="width:${p.score}%"></i></div></td><td>${esc(nm(a))}<div class="small muted">${p.a} · ${a?ageOn(a.dogum,todayStr()):""} · ${esc(a?a.il:"")}</div></td>
+    <td>${esc(nm(b))}<div class="small muted">${p.b} · ${b?ageOn(b.dogum,todayStr()):""} · ${esc(b?b.il:"")}</div></td><td>${p.sa}</td><td>${p.sb}</td>
+    <td><button class="b ghost sm" data-act="why" data-a="${p.a}" data-b="${p.b}">Neden?</button> ${can.edit()?`<button class="b sm" data-act="startintro" data-a="${p.a}" data-b="${p.b}" ${ok?"":"disabled"}>Tanıştırma başlat</button>`:""}</td></tr>`}).join("")||`<tr><td colspan="6" class="muted">Öneri yok.</td></tr>`}</table></div></div>`;
+  let whyHtml="";
+  if(ctx.why){const a=getA(ctx.why.a),b=getA(ctx.why.b);const r=scorePair(a,b,P,todayStr());
+    const rows=(w)=>w.map(x=>`<tr><td>${esc(x.label)}</td><td>${x.s>=1?"✔":x.s>0?"≈":"✘"}</td><td>${["Önemsiz","Az","Önemli","Zorunlu"][x.imp]}</td><td class="small">${esc(x.note)}</td></tr>`).join("");
+    whyHtml=`<div class="card"><h3>Uyum ayrıntısı: ${esc(nm(a))} ↔ ${esc(nm(b))}</h3>${r.hard?`<p>Zorunlu tercih karşılanmıyor.</p>`:`<div class="grid g2"><div><b>${esc(nm(a))} neye göre bakıyor (${Math.round(r.sa)})</b><div class="tw"><table><tr><th>Ölçüt</th><th></th><th>Önem</th><th>Karşı taraf</th></tr>${rows(r.whyA)}</table></div></div>
+     <div><b>${esc(nm(b))} neye göre bakıyor (${Math.round(r.sb)})</b><div class="tw"><table><tr><th>Ölçüt</th><th></th><th>Önem</th><th>Karşı taraf</th></tr>${rows(r.whyB)}</table></div></div></div>`}</div>`}
+  h=h.replace("@@WHY@@",whyHtml);
+  if(run.noMatch.length)h+=`<div class="card"><h3>Bu koşuda öneri çıkmayan adaylar (${run.noMatch.length})</h3><p class="small muted">Tercihleri çok daraltmış (örn. çok sayıda “zorunlu”) veya havuzda uygun aday bulunmayan adaylar. Adayla görüşüp tercihlerini yeniden gözden geçirmesi önerilebilir.</p><div>${run.noMatch.map(id=>`<a href="#" data-act="open" data-id="${id}">${esc(nm(getA(id)))}</a>`).join(" · ")}</div></div>`;
+  return h;
+}
+
+/* ---- Tanıştırmalar ---- */
+function vIntros(){
+  const f=ctx.ifilter||"";const L=DB.intros.slice().reverse().filter(i=>!f||i.status===f);
+  return `<h1>Tanıştırmalar</h1><div class="card"><select id="iflt" style="max-width:240px"><option value="">Tüm durumlar</option>${Object.entries(ST_I).map(([k,v])=>`<option value="${k}" ${f===k?"selected":""}>${v[0]}</option>`).join("")}</select>
+  <div class="tw"><table><tr><th>No</th><th>Taraflar</th><th>Puan</th><th>Durum</th><th>Tarih</th></tr>${L.map(i=>`<tr><td><a href="#" data-act="openintro" data-id="${i.id}">${i.id}</a></td><td>${esc(nm(getA(i.a)))} ↔ ${esc(nm(getA(i.b)))}</td><td>${i.score}</td><td><span class="badge ${ST_I[i.status][1]}">${ST_I[i.status][0]}</span></td><td class="small">${fmtT(i.createdAt)}</td></tr>`).join("")||`<tr><td colspan="5" class="muted">Kayıt yok.</td></tr>`}</table></div></div>`;
+}
+function respBox(i,side){
+  const a=getA(i[side]),r=i.resp[side];const ro=!can.edit()||i.status!=="yanit_bekliyor"||r.dec;
+  return `<div class="card" style="margin:0"><b>${esc(nm(a))}</b> <span class="small muted">(${i[side]})</span>
+   <div>Karar: ${r.dec?`<span class="badge ${r.dec==="kabul"?"good":"bad"}">${r.dec==="kabul"?"Tanışmak istiyor":"Tanışmak istemiyor"}</span> <span class="small muted">${fmtT(r.ts)} · ${esc(r.method)}</span>`:`<span class="badge warn">Bekleniyor</span>`}</div>
+   ${ro?"":`<div class="row" style="margin-top:8px"><button class="b sm" data-act="resp" data-side="${side}" data-dec="kabul">Tanışmak istiyor</button><button class="b red sm" data-act="resp" data-side="${side}" data-dec="ret">Tanışmak istemiyor</button></div>`}
+   <div class="small muted">Karar adayın <b>kendi</b> ağzından alınmalı; görevli yerine karar veremez.</div></div>`;
+}
+function vIntro(){
+  const i=DB.intros.find(x=>x.id===route.id);if(!i)return "<p>Bulunamadı.</p>";const a=getA(i.a),b=getA(i.b),P=DB.params;
+  let act="";
+  if(can.edit()){
+    if(i.status==="kabul")act+=`<button class="b" data-act="plan">Görüşme planla</button>`;
+    if(i.status==="bulusma_planli")act+=`<div class="note info">Görüşme: ${fmtD(i.meeting.date)} ${i.meeting.time} · ${esc(i.meeting.place)} · ${esc(i.meeting.mode)}</div><button class="b" data-act="outcome">Görüşme sonucunu kaydet</button>`;
+    if(i.status==="devam_ediyor")act+=`<button class="b" data-act="decision">Evlenme kararı verdiler</button><button class="b ghost" data-act="endintro">Sona erdi</button>`;
+    if(i.status==="yanit_bekliyor")act+=`<button class="b ghost" data-act="timeout">Süre doldu – kapat</button>`;
+    if(ACTIVE_INTRO.includes(i.status))act+=`<button class="b red" data-act="complaint">Şikâyet / güvenlik bildirimi</button>`;
+    if(i.status==="sikayet"&&can.admin())act+=`<button class="b" data-act="closecomplaint">Şikâyeti kapat</button>`;
+  }
+  const showContact=["bulusma_planli","devam_ediyor","kararverdi"].includes(i.status);
+  return `<div class="row"><h1 class="sp">Tanıştırma ${i.id}</h1><span class="badge ${ST_I[i.status][1]}">${ST_I[i.status][0]}</span></div>
+  <div class="card"><b>${esc(nm(a))}</b> ↔ <b>${esc(nm(b))}</b> · uyum puanı ${i.score}
+   <div class="small muted">Başlatan: ${esc(i.createdBy)} · ${fmtT(i.createdAt)} · eşleştirme mühürü ${esc((i.paramSeal||"").slice(0,12))}…</div>
+   <div class="row" style="margin-top:8px"><button class="b ghost sm" data-act="card" data-id="${i.b}">🖨 ${esc(nm(b))} tanıtım kartı (${esc(nm(a))}'a sunulur)</button><button class="b ghost sm" data-act="card" data-id="${i.a}">🖨 ${esc(nm(a))} tanıtım kartı (${esc(nm(b))}'a sunulur)</button></div></div>
+  <div class="grid g2">${respBox(i,"a")}${respBox(i,"b")}</div>
+  <div class="card" style="margin-top:14px"><h3>Süreç</h3><div class="row">${act||`<span class="muted">Bu aşamada yapılacak işlem yok.</span>`}</div></div>
+  ${showContact?`<div class="card"><h3>İletişim bilgisi paylaşımı</h3>${[a,b].map(x=>`<div>${esc(nm(x))}: ${x.consent.contactShare?`<span class="badge good">Paylaşım rızası var</span> ${esc(x.telefon)}`:`<span class="badge warn">Rıza yok — yalnız görevli aracılık eder</span>`}</div>`).join("")}</div>`:""}
+  ${i.outcome?`<div class="card"><h3>Görüşme sonucu</h3>${["a","b"].map(s=>`<div>${esc(nm(getA(i[s])))}: ${i.outcome[s]}</div>`).join("")}</div>`:""}
+  <div class="card"><h3>Geçmiş</h3><div class="tw"><table>${i.history.slice().reverse().map(h=>`<tr><td class="small">${fmtT(h.ts)}</td><td>${esc(h.user)}</td><td>${esc(h.text)}</td></tr>`).join("")}</table></div></div>`;
+}
+
+/* ---- Adalet raporu ---- */
+function groupStats(keyFn,label){
+  const P=DB.params,run=DB.runs[DB.runs.length-1];const G={};
+  DB.applicants.filter(a=>a.status==="aktif"||a.status==="beklemede").forEach(a=>{const k=keyFn(a);if(!k)return;const g=G[k]=G[k]||{n:0,none:0,intros:0,acc:0,decided:0};
+    g.n++;if(run&&run.noMatch.includes(a.id))g.none++;
+    DB.intros.filter(i=>i.a===a.id||i.b===a.id).forEach(i=>{g.intros++;const s=i.a===a.id?"a":"b";if(i.resp[s].dec){g.decided++;if(i.resp[s].dec==="kabul")g.acc++}})});
+  const tot=Object.values(G).reduce((x,g)=>({n:x.n+g.n,none:x.none+g.none}),{n:0,none:0});const base=tot.n?tot.none/tot.n*100:0;
+  return `<div class="card"><h3>${label}</h3><div class="tw"><table><tr><th>Grup</th><th>Aday</th><th>Öneri çıkmayan</th><th>Tanıştırma</th><th>Kabul oranı</th><th></th></tr>
+   ${Object.entries(G).sort().map(([k,g])=>{const pct=g.n?g.none/g.n*100:0;const gap=pct-base;return `<tr><td>${esc(k)}</td><td>${g.n}</td><td>${g.none} (%${Math.round(pct)})</td><td>${g.intros}</td><td>${g.decided?"%"+Math.round(g.acc/g.decided*100):"—"}</td><td>${g.n>=5&&gap>P.fairGapPct?`<span class="badge warn">Genel orandan %${Math.round(gap)} puan fazla</span>`:""}</td></tr>`}).join("")||`<tr><td colspan="6" class="muted">Veri yok.</td></tr>`}</table></div></div>`;
+}
+function vFair(){
+  const P=DB.params;const run=DB.runs[DB.runs.length-1];
+  return `<h1>Adalet raporu</h1><div class="note info small">Eşleştirme sürecinin bazı gruplara sistematik olarak daha az fırsat tanıyıp tanımadığını izlemek için toplu (kişisiz) göstergeler. Yalnız son eşleştirme koşusuna dayanır${run?` (#${run.id})`:""}. Uyarı eşiği ${P.fairGapPct} yüzde puandır (parametre). Bu rapor bir <b>uyarı sinyalidir</b>, ayrımcılık kanıtı değildir; nedenini görevliler ve denetçi birlikte inceler.</div>
+  ${groupStats(a=>a.cins==="K"?"Kadın":a.cins==="E"?"Erkek":"",'Cinsiyete göre')}
+  ${groupStats(a=>a.il.trim(),'İle göre')}
+  ${groupStats(a=>(DB.params.eduLevels[+a.edu]||""),'Eğitim düzeyine göre')}
+  ${groupStats(a=>{const y=a.dogum?ageOn(a.dogum,todayStr()):0;return y?(y<25?"18–24":y<30?"25–29":y<35?"30–34":y<40?"35–39":"40+"):""},'Yaş grubuna göre')}`;
+}
+
+/* ---- Parametreler ---- */
+function vParams(){
+  const P=ctx.draft||DB.params,ed=can.admin(),d=ed?"":"disabled",sealNow=seal(DB.params);
+  let h=`<div class="row"><h1 class="sp">Parametreler</h1><span class="badge info">Sürüm ${DB.paramHistory.length}</span></div>
+  <div class="note info small">Her değişiklik sürümlenir, gerekçeyle denetim günlüğüne yazılır ve yeni bir <b>parametre mührü</b> üretir. Hiçbir parametreyle devre dışı bırakılamayan güvenceler: ${HARD.minAgeFloor} yaş alt sınırı, gönüllülük ve şahsen başvuru, karşılıklı rıza olmadan iletişim paylaşılmaması, reddedene baskı yapılamaması.</div>
+  <div class="card"><b>Geçerli parametre mührü (SHA-256)</b><div class="mono">${sealNow}</div>
+   <label>Makamın bildirdiği resmî mühür</label><div class="row"><input id="offseal" value="${esc(DB.officialSeal||"")}" ${d} class="mono" style="flex:1" placeholder="64 haneli resmî mühür">${ed?`<button class="b ghost sm" data-act="saveseal">Kaydet</button>`:""}</div>
+   ${DB.officialSeal?(DB.officialSeal===sealNow?`<div class="note good small">Eşleşiyor.</div>`:`<div class="note bad small">Eşleşmiyor!</div>`):""}</div>
+  <form data-form="params">`;
+  let open=false;
+  SCHEMA.forEach(s=>{
+    if(s.sec){if(open)h+="</div></div>";h+=`<div class="card"><h3>${s.sec}</h3><div class="grid g2">`;open=true;return}
+    const v=P[s.k];let inp=`<label>${s.label}${s.min!=null?` <span class="muted">(${s.min}–${s.max})</span>`:""}</label>`+
+      (s.type==="sel"?`<select name="${s.k}" ${d}>${s.opts.map(([k,t])=>`<option value="${k}" ${v===k?"selected":""}>${t}</option>`).join("")}</select>`:
+       `<input name="${s.k}" type="${s.type==="int"?"number":"text"}" value="${esc(v)}" ${s.min!=null?`min="${s.min}" max="${s.max}"`:""} ${d}>`)+(s.help?`<div class="small muted">${s.help}</div>`:"");
+    h+=`<div>${inp}</div>`});
+  if(open)h+="</div></div>";
+  h+=`<div class="card"><h3>Ağırlıklar</h3><div class="grid g4">
+   ${[1,2,3].map(i=>`<div><label>“${IMP[i][1]}” ağırlığı</label><input type="number" name="iw${i}" value="${P.impW[i]}" min="0" max="20" ${d}></div>`).join("")}<div></div>
+   ${Object.keys(CRIT_LABEL).map(k=>`<div><label>${CRIT_LABEL[k]} ölçütü</label><input type="number" name="cw_${k}" value="${P.critW[k]}" min="0" max="10" ${d}></div>`).join("")}</div>
+   <p class="small muted">Önem ağırlığı adayın seçtiği önemle, ölçüt ağırlığı kurumun o ölçüte verdiği değerle çarpılır. “Zorunlu” seçilen tercih ayrıca eleyicidir.</p></div>
+  <div class="card"><h3>Eğitim düzeyleri (düşükten yükseğe, satır başına bir)</h3><textarea name="edu" ${d}>${esc(P.eduLevels.join("\n"))}</textarea></div>
+  <div class="card"><h3>Uyum soruları</h3><div class="tw"><table><tr><th>Soru</th><th>Seçenekler (virgülle)</th><th>Ağırlık</th><th>Hassas</th><th>Etkin</th><th></th></tr>
+   ${P.questions.map((q,i)=>`<tr><td><input name="ql_${i}" value="${esc(q.label)}" ${d}></td><td><input name="qo_${i}" value="${esc(q.opts.join(", "))}" ${d}></td><td style="width:70px"><input type="number" name="qw_${i}" value="${q.weight}" min="0" max="10" ${d}></td>
+    <td><input type="checkbox" name="qs_${i}" ${q.sensitive?"checked":""} ${d}></td><td><input type="checkbox" name="qe_${i}" ${q.enabled?"checked":""} ${d}></td><td>${ed?`<button type="button" class="b red sm" data-act="delq" data-i="${i}">Sil</button>`:""}</td></tr>`).join("")}</table></div>
+   ${ed?`<button type="button" class="b ghost sm" data-act="addq">+ Soru ekle</button>`:""}
+   <div class="note warn small">“Hassas” işaretli sorular (din, mezhep, siyasi görüş, etnik köken, sağlık gibi özel nitelikli kişisel veriler) yalnız adayın ayrıca açık rızası varsa kullanılır. <b>Etnik köken, ırk, siyasi görüş gibi alanlarla eşleştirme yapılması hukuken ve etik olarak sakıncalıdır</b>; bu tür soru eklemeyin.</div></div>
+  <div class="card"><label>Açık rıza metni</label><textarea name="consentText" style="min-height:130px" ${d}>${esc(P.consentText)}</textarea>
+   <label>Rıza metni sürümü</label><input name="consentVersion" value="${esc(P.consentVersion)}" ${d}></div>`;
+  if(ed)h+=`<div class="card"><label>Değişiklik gerekçesi (zorunlu)</label><input name="reason" placeholder="Örn. genelge gereği asgari uyum puanı güncellendi">
+   <div class="row" style="margin-top:10px"><button class="b" type="submit">Değişiklikleri uygula</button><button class="b ghost" type="button" data-act="exportparams">Parametre dosyasını indir</button><label class="b ghost">Parametre dosyası yükle<input type="file" id="pfile" accept=".json" class="hidden"></label></div></div>`;
+  h+=`</form><div class="card"><h3>Sürüm geçmişi</h3><div class="tw"><table><tr><th>Sürüm</th><th>Zaman</th><th>Kullanıcı</th><th>Gerekçe</th><th>Mühür</th></tr>${DB.paramHistory.slice().reverse().map(x=>`<tr><td>${x.ver}</td><td class="small">${fmtT(x.ts)}</td><td>${esc(x.user)}</td><td>${esc(x.reason)}</td><td class="mono">${x.seal.slice(0,16)}…</td></tr>`).join("")}</table></div></div>`;
+  return h;
+}
+function readParamsForm(){
+  const f=$('form[data-form="params"]');const P=JSON.parse(JSON.stringify(DB.params));
+  SCHEMA.forEach(s=>{if(!s.k)return;const el=f.elements[s.k];if(!el)return;P[s.k]=s.type==="int"?parseInt(el.value,10):el.value});
+  [1,2,3].forEach(i=>P.impW[i]=parseInt(f.elements["iw"+i].value,10));
+  Object.keys(CRIT_LABEL).forEach(k=>P.critW[k]=parseInt(f.elements["cw_"+k].value,10));
+  P.eduLevels=f.elements.edu.value.split("\n").map(x=>x.trim()).filter(Boolean);
+  P.questions.forEach((q,i)=>{q.label=f.elements["ql_"+i].value.trim();q.opts=f.elements["qo_"+i].value.split(",").map(x=>x.trim()).filter(Boolean);
+    q.weight=parseInt(f.elements["qw_"+i].value,10);q.sensitive=f.elements["qs_"+i].checked;q.enabled=f.elements["qe_"+i].checked});
+  P.consentText=f.elements.consentText.value;P.consentVersion=f.elements.consentVersion.value.trim()||"1";
+  return P;
+}
+function applyParams(P,reason,src){
+  const E=validateParams(P);if(E.length){alert("Parametreler geçersiz:\n• "+E.join("\n• "));return false}
+  if(!reason||reason.trim().length<5){alert("Değişiklik gerekçesi zorunludur (en az 5 karakter).");return false}
+  if(canon(P)===canon(DB.params)){toast("Değişiklik yok.");return false}
+  DB.params=P;const s=seal(P);
+  DB.paramHistory.push({ver:DB.paramHistory.length+1,ts:Date.now(),user:SESSION.id,reason:reason.trim(),seal:s,params:JSON.parse(JSON.stringify(P))});
+  logEv("PARAMETRE_DEGISTI",`sürüm ${DB.paramHistory.length}; mühür ${s}; ${src||"form"}; gerekçe: ${reason.trim()}`);
+  toast("Parametreler uygulandı.");return true;
+}
+
+/* ---- Denetim / Veri / Kullanıcılar / Hakkında ---- */
+function vAudit(){
+  const ch=verifyChain(DB.audit);const q=(ctx.aq||"").toLowerCase();
+  const L=DB.audit.slice().reverse().filter(e=>!q||(e.action+e.user+e.detail).toLowerCase().includes(q)).slice(0,300);
+  return `<h1>Denetim günlüğü</h1>${ch.ok?`<div class="note good">Zincir doğrulandı: ${ch.n} kayıt, bozulma yok. Son mühür: <span class="mono">${DB.audit.length?DB.audit[DB.audit.length-1].hash:"—"}</span></div>`:`<div class="note bad"><b>Zincir ${ch.at}. kayıtta bozuk.</b></div>`}
+  <div class="card"><div class="row"><input id="aq" placeholder="Filtre…" value="${esc(ctx.aq||"")}" style="max-width:320px"><button class="b ghost sm" data-act="exportaudit">Günlüğü indir</button></div>
+  <div class="tw"><table><tr><th>#</th><th>Zaman</th><th>Kullanıcı</th><th>İşlem</th><th>Ayrıntı</th></tr>${L.map(e=>`<tr><td>${e.i}</td><td class="small">${fmtT(e.ts)}</td><td>${esc(e.user)}<div class="small muted">${e.role}</div></td><td>${esc(e.action)}</td><td class="small">${esc(e.detail)}</td></tr>`).join("")}</table></div>
+  <p class="small muted">Her kayıt önceki kaydın SHA-256 özetini içerir. Sonradan değişiklik zinciri bozar ve burada görünür. Tarayıcı tabanlı yapı tam kurcalama koruması sağlamaz; resmî kullanımda günlük düzenli dışa aktarılıp makamca imzalı saklanmalıdır.</p></div>`;
+}
+function vData(){
+  const demo=DB.applicants.some(a=>a.demo);
+  return `<h1>Veri</h1><div class="card"><h3>Yedek ve denetim paketi</h3><div class="row"><button class="b" data-act="exportall">Tam yedeği indir</button><button class="b ghost" data-act="exportpkg">Denetim paketi indir (kişisiz toplu veri)</button>${can.admin()?`<label class="b ghost">Yedekten geri yükle<input type="file" id="bfile" accept=".json" class="hidden"></label>`:""}</div>
+  <p class="small muted">Tam yedek kimlik ve iletişim bilgilerini içerir; güvenli saklayın. Denetim paketi kişisel veri içermez (yalnız toplu sayılar ve günlük).</p></div>
+  ${can.admin()?`<div class="card"><h3>Deneme verisi</h3><p class="small muted">Sistemi denemek için gerçek olmayan 40 örnek aday ekler (kimlik numaraları geçerli biçimde rastgele üretilir, “deneme” etiketlidir). Gerçek kullanıma geçmeden silin.</p>
+   <div class="row"><button class="b ghost" data-act="seed">40 deneme adayı ekle</button>${demo?`<button class="b red" data-act="unseed">Deneme adaylarını sil</button>`:""}</div></div>
+   <div class="card"><h3>Tehlikeli işlemler</h3><button class="b red" data-act="wipe">Tüm verileri sil</button></div>`:""}`;
+}
+function vUsers(){
+  return `<h1>Kullanıcılar</h1><div class="card"><div class="tw"><table><tr><th>Ad</th><th>Rol</th><th>Durum</th><th></th></tr>
+  ${DB.users.map(u=>`<tr><td>${esc(u.name)}</td><td>${ROLE[u.role]}${u.role==="denetci"?" (salt okunur)":""}</td><td><span class="badge ${u.active?"good":"bad"}">${u.active?"Etkin":"Pasif"}</span></td>
+   <td>${u.id!==SESSION.id?`<button class="b ghost sm" data-act="toggleuser" data-id="${u.id}">${u.active?"Pasifleştir":"Etkinleştir"}</button> `:""}<button class="b ghost sm" data-act="resetpin" data-id="${u.id}">PIN değiştir</button></td></tr>`).join("")}</table></div></div>
+  <div class="card"><h3>Kullanıcı ekle</h3><form data-form="adduser"><div class="grid g3"><div><label>Ad soyad</label><input name="name" required></div>
+   <div><label>Rol</label><select name="role"><option value="gorevli">Görevli</option><option value="denetci">Denetçi (salt okunur)</option><option value="admin">Yönetici</option></select></div>
+   <div><label>PIN (en az 6 rakam)</label><input name="pin" type="password" inputmode="numeric" pattern="\\d{6,}" required></div></div><button class="b" style="margin-top:10px" type="submit">Ekle</button></form></div>`;
+}
+function vAbout(){return `<h1>Hakkında, ilkeler ve sınırlar</h1>
+ <div class="card"><h3>Ne yapar?</h3><ul><li>Evlenmek isteyen yetişkinlerin kendi isteğiyle yaptığı başvuruyu kaydeder, kimlik ve güvenlik teyitlerini izler.</li><li>Adayların <b>kendi belirttiği</b> tercih ve önem düzeylerine, kurumun parametrelerine göre iki yönlü <b>uyum puanı</b> hesaplar ve öneri listesi üretir.</li><li>Görevli, öneriden bir <b>tanıştırma süreci</b> başlatır: iki tarafın ayrı kararı → planlı görüşme → sonuç. Her adım denetim günlüğüne yazılır.</li><li>Kurallar, ağırlıklar, sorular ve rıza metni Parametreler sayfasından değiştirilir; her değişiklik sürümlenir ve mühürlenir.</li></ul></div>
+ <div class="card"><h3>Sabit güvenceler (değiştirilemez)</h3><ul><li>${HARD.minAgeFloor} yaşından küçükler sisteme alınamaz.</li><li>Katılım gönüllüdür; başvuru şahsen yapılır, aile veya üçüncü kişi adına başvuru kabul edilmez.</li><li>İki taraf da ayrı ayrı “tanışmak istiyorum” demeden iletişim bilgisi paylaşılmaz; sistem kimseyi otomatik eşleştirmez.</li><li>Reddeden aday eşleşmeye zorlanamaz ve aynı çift bir daha önerilmez. Aday istediği an çekilebilir; kişisel verilerinin silinmesini isteyebilir.</li><li>Koruma/uzaklaştırma kararı veya güvenlik engeli olan kişi havuza alınmaz.</li><li>Eşleşme bir evlilik yükümlülüğü doğurmaz.</li></ul></div>
+ <div class="card"><h3>Adalet ve veri korunması</h3><ul><li>Ölçütler adayın kendi tercihinden gelir; kurum yalnız ağırlıkları belirler. Etnik köken, ırk, siyasi görüş gibi alanlarla eşleştirme yapılmamalıdır.</li><li>Din gibi hassas veriler varsayılan olarak <b>kapalıdır</b>, açılırsa yalnız adayın ayrıca açık rızasıyla kullanılır.</li><li>Adalet raporu, sürecin bazı gruplara daha az fırsat tanıyıp tanımadığını izler.</li><li>Her öneri açıklanabilir: “Neden?” ekranı hangi ölçütün karşılandığını gösterir.</li></ul></div>
+ <div class="card"><h3>Sınırlar (lütfen okuyun)</h3><ul>
+  <li><b>Bu bir karar destek aracıdır.</b> Uyum puanı bir evliliğin başarısını öngörmez; yalnız adayların belirttiği tercihlerin örtüşmesini ölçer. Son karar daima adayların kendisindedir.</li>
+  <li><b>Resmî sorgu yok.</b> Çevrimdışı çalıştığı için nüfus, adli sicil, koruma kararı sorgusu yapamaz; bunlar görevlinin elle yaptığı ve işaretlediği teyitlerdir.</li>
+  <li><b>Tarayıcı güvenliği sınırlıdır.</b> PIN ve rol denetimi tarayıcıda çalışır; cihaza tam erişimi olan biri verileri değiştirebilir. Mühür ve zincir değişikliği ortaya çıkarır, engellemez. Resmî kullanımda cihaz yönetimi, disk şifreleme, imzalı yedek ve kurumun BT/KVKK onayı gerekir.</li>
+  <li>Kişisel veri (KVKK) aydınlatma, yetki, saklama-imha süreçleri ve eşleştirme politikasının hukuka uygunluğu kurumun ve yetkili makamın sorumluluğundadır; varsayılan değerler yalnız başlangıç önerisidir.</li></ul></div>`}
+function download(name,text){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type:"application/json"}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+
+/* ---- Tanıtım kartı (karşı tarafa sunulan sınırlı özet) ---- */
+function printCard(id){
+  const a=getA(id),P=DB.params;if(!a)return;
+  const first=a.ad.split(" ")[0];
+  $("#printarea").innerHTML=`<h2>${esc(P.institution)} — Tanıtım Kartı</h2>
+   <table style="width:100%;border-collapse:collapse"><tr><th style="text-align:left;width:34%">Ad</th><td>${esc(first)}</td></tr><tr><th style="text-align:left">Yaş</th><td>${a.dogum?ageOn(a.dogum,todayStr()):""}</td></tr>
+   <tr><th style="text-align:left">Yaşadığı il</th><td>${esc(a.il)}</td></tr><tr><th style="text-align:left">Eğitim</th><td>${esc(P.eduLevels[+a.edu]||"")}</td></tr>
+   <tr><th style="text-align:left">Meslek / alan</th><td>${esc(a.meslek)}</td></tr><tr><th style="text-align:left">Medeni durum / çocuk</th><td>${MEDENI.find(x=>x[0]===a.medeni)[1]} / ${a.cocuk}</td></tr></table>
+   <h3>Kısa tanıtım</h3><p>${esc(a.tanitim)}</p>
+   <p style="font-size:11px;margin-top:30px">Bu kart yalnız tanışma kararı vermeye yardımcı bir özettir; kimlik, iletişim veya adres bilgisi içermez. Tanışmayı kabul etmek veya reddetmek tamamen sizin kararınızdır ve gerekçe göstermeniz gerekmez.</p>`;
+  window.print();
+}
+
+/* =====================================================================
+   DENEME VERİSİ
+   ===================================================================== */
+function seedDemo(){
+  const P=DB.params;const ils=["Ankara","İstanbul","İzmir","Bursa","Konya"],erk=["Ahmet","Mehmet","Mustafa","Ali","Emre","Burak","Can","Kerem"],kad=["Ayşe","Fatma","Zeynep","Elif","Merve","Esra","Büşra","Selin"],sy=["Yılmaz","Kaya","Demir","Çelik","Şahin","Aydın","Arslan","Doğan"];
+  const pick=a=>a[Math.floor(Math.random()*a.length)];
+  const tc=()=>{const d=[1+Math.floor(Math.random()*9)];for(let i=1;i<9;i++)d.push(Math.floor(Math.random()*10));
+    const d10=(((d[0]+d[2]+d[4]+d[6]+d[8])*7)-(d[1]+d[3]+d[5]+d[7]))%10;d.push((d10+10)%10);d.push(d.reduce((x,y)=>x+y,0)%10);return d.join("")};
+  for(let n=0;n<40;n++){
+    const a=newApplicant();a.demo=true;const k=n%2===0;a.cins=k?"K":"E";a.ad=pick(k?kad:erk);a.soyad=pick(sy);a.kimNo=tc();
+    const age=22+Math.floor(Math.random()*14);const dt=new Date();dt.setFullYear(dt.getFullYear()-age);dt.setDate(dt.getDate()-Math.floor(Math.random()*300));a.dogum=dStr(dt);
+    a.telefon="05"+Math.floor(100000000+Math.random()*899999999);a.il=pick(ils);a.edu=String(2+Math.floor(Math.random()*5));a.meslek=pick(["Öğretmen","Mühendis","Hemşire","Esnaf","Memur","Muhasebeci"]);
+    a.tanitim="Deneme kaydı: kısa tanıtım metni.";a.is="calisiyor";a.medeni=Math.random()<.9?"hic":"bosanmis";a.cocuk=a.medeni==="hic"?0:1;
+    a.prefs.ageMin=Math.max(P.minAge,age-6);a.prefs.ageMax=age+7;a.prefs.ageImp=pick([1,2,2,3]);a.prefs.locMode=pick(["fark_etmez","ayni_il"]);a.prefs.locImp=pick([0,1,2,3]);
+    a.prefs.eduMin=String(Math.max(0,+a.edu-1));a.prefs.eduImp=pick([0,1,2]);a.prefs.maritalOk=Math.random()<.7?["hic"]:["hic","bosanmis","dul"];a.prefs.maritalImp=pick([1,2,3]);a.prefs.kidsOk=Math.random()<.6;a.prefs.kidsImp=pick([1,2]);
+    P.questions.filter(q=>q.enabled).forEach(q=>{const ans=pick(q.opts);const acc=q.opts.filter(o=>o===ans||o==="Fark etmez"||Math.random()<.35);a.qa[q.id]={ans,accept:acc,imp:String(pick([0,1,1,2,2,3]))}});
+    a.consent={data:true,sensitive:false,contactShare:Math.random()<.7,ts:Date.now(),version:P.consentVersion};
+    a.checks={inPerson:true,idVerified:true,protective:true,protectiveFound:false,voluntary:true,notMarried:true};
+    a.status="aktif";hist(a,"Deneme verisi oluşturuldu");DB.applicants.push(a)}
+  logEv("DENEME_VERISI","40 deneme adayı eklendi");save();
+}
+
+/* =====================================================================
+   OLAYLAR
+   ===================================================================== */
+document.addEventListener("submit",e=>{
+  const f=e.target.closest("form[data-form]");if(!f)return;e.preventDefault();const t=f.dataset.form,g=n=>f.elements[n]&&f.elements[n].value;
+  if(t==="setup"){
+    if(g("pin")!==g("pin2")){alert("PIN'ler eşleşmiyor.");return}
+    const salt=rnd();const params=DEFAULT_PARAMS();params.institution=g("inst").trim();
+    DB={v:1,params,paramHistory:[{ver:1,ts:Date.now(),user:"admin",reason:"İlk kurulum (varsayılan parametreler)",seal:seal(params),params:JSON.parse(JSON.stringify(params))}],
+      users:[{id:"u1",name:g("name").trim(),role:"admin",salt,hash:hashPin(g("pin"),salt),active:true,fails:0,lockUntil:0}],
+      applicants:[],intros:[],runs:[],blocked:[],audit:[],seq:{a:0,i:0},officialSeal:""};
+    SESSION={id:"u1",name:g("name").trim(),role:"admin"};lastAct=Date.now();
+    logEv("KURULUM","Sistem kuruldu; kurum: "+params.institution);save();render();return}
+  if(t==="login"){
+    const u=DB.users.find(x=>x.id===g("u"));const err=$("#lerr");
+    if(u.lockUntil>Date.now()){err.innerHTML=`<div class="note bad">Çok sayıda hatalı deneme. ${Math.ceil((u.lockUntil-Date.now())/60000)} dk sonra tekrar deneyin.</div>`;return}
+    if(hashPin(g("pin"),u.salt)===u.hash){u.fails=0;u.lockUntil=0;SESSION={id:u.id,name:u.name,role:u.role};lastAct=Date.now();logEv("GIRIS","Oturum açıldı");save();render()}
+    else{u.fails++;if(u.fails>=5){u.lockUntil=Date.now()+5*60000;u.fails=0}save();
+      SESSION={id:u.id,name:u.name,role:u.role};logEv("GIRIS_HATASI","Hatalı PIN: "+u.name);SESSION=null;err.innerHTML=`<div class="note bad">PIN hatalı.</div>`}return}
+  if(t==="params"){if(!can.admin())return;const P=readParamsForm();if(applyParams(P,g("reason"))){ctx.draft=null;render()}return}
+  if(t==="adduser"){if(!can.admin())return;const salt=rnd();const id="u"+(DB.users.length+1)+rnd().slice(0,4);
+    DB.users.push({id,name:g("name").trim(),role:g("role"),salt,hash:hashPin(g("pin"),salt),active:true,fails:0,lockUntil:0});
+    logEv("KULLANICI_EKLENDI",`${g("name")} (${g("role")})`);save();toast("Kullanıcı eklendi.");render();return}
+});
+document.addEventListener("change",e=>{
+  if(e.target.id==="flt"){ctx.filter=e.target.value;render()}
+  if(e.target.id==="iflt"){ctx.ifilter=e.target.value;render()}
+  if(e.target.id==="pfile"&&can.admin()){const r=new FileReader();r.onload=()=>{try{const P=JSON.parse(r.result);ctx.draft=P;const E=validateParams(P);render();
+    if(E.length)alert("Dosya geçerli değil:\n• "+E.join("\n• "));else toast("Parametre dosyası forma yüklendi; gerekçe yazıp uygulayın. Mühür: "+seal(P).slice(0,12)+"…")}catch(x){alert("Dosya okunamadı.")}};r.readAsText(e.target.files[0])}
+  if(e.target.id==="bfile"&&can.admin()){const r=new FileReader();r.onload=()=>{try{const D=JSON.parse(r.result);const c=verifyChain(D.audit||[]);
+    if(!c.ok&&!confirm(`Yedeğin denetim zinciri ${c.at}. kayıtta BOZUK. Yine de yüklensin mi?`))return;
+    if(!confirm("Mevcut tüm veriler bu yedekle DEĞİŞTİRİLECEK. Devam?"))return;
+    DB=D;save();SESSION=null;toast("Yedek yüklendi; yeniden giriş yapın.");render()}catch(x){alert("Yedek okunamadı.")}};r.readAsText(e.target.files[0])}
+});
+document.addEventListener("input",e=>{
+  const keep=(id,key)=>{ctx[key]=e.target.value;const p=e.target.selectionStart;render();const n=$("#"+id);n.focus();n.setSelectionRange(p,p)};
+  if(e.target.id==="q")keep("q","q");if(e.target.id==="aq")keep("aq","aq");if(e.target.id==="mq")keep("mq","mq");
+});
+function setStatus(a,st,txt){a.status=st;hist(a,txt)}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-act]");if(!t)return;const a=t.dataset.act;
+  const ap=()=>getA(route.id),it=()=>DB.intros.find(x=>x.id===route.id);
+  const reason=(msg)=>{const r=prompt(msg);if(!r||r.trim().length<5){if(r!==null)alert("Gerekçe en az 5 karakter olmalı.");return null}return r.trim()};
+  if(a==="nav"){ctx.draft=null;ctx.why=null;go(t.dataset.k);return}
+  if(a==="lock"){logEv("OTURUM_KAPATILDI","");lockNow();return}
+  if(a==="open"){e.preventDefault();go("app",{id:t.dataset.id});return}
+  if(a==="openintro"){e.preventDefault();go("intro",{id:t.dataset.id});return}
+  if(a==="newapp"){if(!can.edit())return;const n=newApplicant();DB.applicants.push(n);hist(n,"Aday kaydı oluşturuldu");logEv("ADAY_OLUSTURULDU",n.id);save();go("app",{id:n.id});return}
+  if(a==="saveapp"){const x=ap();readApplicant(x);hist(x,"Kaydedildi");logEv("ADAY_KAYDEDILDI",x.id);save();toast("Kaydedildi.");render();return}
+  if(a==="activate"){const x=ap();readApplicant(x);const c=checkApplicant(x,DB.params);if(c.status!=="UYGUN"){alert("Havuza alma koşulları tamam değil.");save();render();return}
+    setStatus(x,"aktif","Havuza alındı");logEv("ADAY_AKTIF",x.id);save();render();return}
+  if(a==="pause"){const x=ap();setStatus(x,"beklemede","Beklemeye alındı");logEv("ADAY_BEKLEMEDE",x.id);save();render();return}
+  if(a==="withdraw"){const x=ap();const r=reason("Çekilme talebi kaydı (adayın talebi; gerekçe göstermek zorunda değildir, kayıt notu yazın):");if(!r)return;
+    DB.intros.forEach(i=>{if((i.a===x.id||i.b===x.id)&&ACTIVE_INTRO.includes(i.status)){i.status="cekildi";i.history.push({ts:Date.now(),user:SESSION.id,text:"Aday çekildi: "+x.id})}});
+    x.closedAt=Date.now();setStatus(x,"cekildi","Aday çekildi: "+r);logEv("ADAY_CEKILDI",x.id);save();render();return}
+  if(a==="safety"){const x=ap();const r=reason("Güvenlik engeli gerekçesi (yalnız gerekli bilgiyi yazın):");if(!r)return;
+    x.safetyBlock=true;x.safetyReason=r;DB.intros.forEach(i=>{if((i.a===x.id||i.b===x.id)&&ACTIVE_INTRO.includes(i.status)){i.status="sikayet";i.history.push({ts:Date.now(),user:SESSION.id,text:"Güvenlik engeli nedeniyle incelemeye alındı"})}});
+    setStatus(x,"engelli","Güvenlik engeli: "+r);logEv("GUVENLIK_ENGELI",x.id+" — "+r);save();render();return}
+  if(a==="release"){const x=ap();const r=reason("Engel/inceleme kaldırma gerekçesi:");if(!r)return;x.safetyBlock=false;x.safetyReason="";setStatus(x,"beklemede","Engel kaldırıldı: "+r);logEv("ENGEL_KALDIRILDI",x.id+" — "+r);save();render();return}
+  if(a==="anonymize"){const x=ap();if(prompt(`${x.id} kaydının kişisel verileri KALICI silinecek. Onaylamak için SİL yazın:`)!=="SİL")return;
+    DB.intros.forEach(i=>{if((i.a===x.id||i.b===x.id)&&ACTIVE_INTRO.includes(i.status)){i.status="cekildi"}});
+    Object.assign(x,{ad:"—",soyad:"—",kimNo:"",telefon:"",eposta:"",ilce:"",meslek:"",tanitim:"",notes:"",safetyReason:""});x.status="silindi";x.closedAt=x.closedAt||Date.now();
+    hist(x,"Kişisel veriler silindi (anonimleştirildi)");logEv("ADAY_ANONIMLESTIRILDI",x.id);save();render();return}
+  if(a==="card"){printCard(t.dataset.id);return}
+  if(a==="runmatch"){if(!can.edit())return;const r=runMatching();save();toast(`${r.suggestions.length} öneri üretildi.`);render();return}
+  if(a==="why"){ctx.why={a:t.dataset.a,b:t.dataset.b};render();return}
+  if(a==="startintro"){const x=getA(t.dataset.a),y=getA(t.dataset.b);const bl=pairOk(x,y,DB.params,todayStr());if(bl){alert("Bu çift şu an başlatılamaz: "+bl);return}
+    DB.seq.i=(DB.seq.i||0)+1;const sc=scorePair(x,y,DB.params,todayStr());
+    const i={id:`T-${new Date().getFullYear()}-${String(DB.seq.i).padStart(4,"0")}`,a:x.id,b:y.id,score:Math.round(sc.score),status:"yanit_bekliyor",createdAt:Date.now(),createdBy:SESSION.id,paramSeal:seal(DB.params),
+      resp:{a:{dec:null,ts:null,method:"",note:""},b:{dec:null,ts:null,method:"",note:""}},meeting:null,outcome:null,history:[]};
+    hist(i,"Tanıştırma başlatıldı; iki adayın tanıtım kartı kendilerine sunulacak");DB.intros.push(i);logEv("TANISTIRMA_BASLATILDI",`${i.id} ${x.id}↔${y.id} puan ${i.score}`);save();go("intro",{id:i.id});return}
+  if(a==="resp"){const i=it();const side=t.dataset.side,dec=t.dataset.dec;
+    const m=prompt("Kararı adayın kendisi bildirdi mi? Görüşme biçimini yazın (örn. şahsen / telefonla):","şahsen");if(!m)return;
+    if(!confirm(`${nm(getA(i[side]))} kendi kararı olarak “${dec==="kabul"?"tanışmak istiyor":"tanışmak istemiyor"}” dedi. Kaydedilsin mi? (geri alınamaz)`))return;
+    i.resp[side]={dec,ts:Date.now(),method:m,note:""};i.history.push({ts:Date.now(),user:SESSION.id,text:`${nm(getA(i[side]))}: ${dec}`});
+    logEv("TANISTIRMA_YANIT",`${i.id} ${i[side]} ${dec}`);
+    if(dec==="ret"){i.status="reddedildi";DB.blocked.push([i.a,i.b]);i.history.push({ts:Date.now(),user:SESSION.id,text:"Çift bir daha önerilmeyecek"});logEv("TANISTIRMA_REDDEDILDI",i.id)}
+    else if(i.resp.a.dec==="kabul"&&i.resp.b.dec==="kabul"){i.status="kabul";logEv("TANISTIRMA_KARSILIKLI_KABUL",i.id)}
+    save();render();return}
+  if(a==="timeout"){const i=it();i.status="zamanasimi";i.history.push({ts:Date.now(),user:SESSION.id,text:"Yanıt süresi doldu; kapatıldı (çift engellenmedi)"});logEv("TANISTIRMA_ZAMANASIMI",i.id);save();render();return}
+  if(a==="plan"){const i=it();const d=prompt("Görüşme tarihi (YYYY-AA-GG):",addDays(todayStr(),7));if(!d||!/^\d{4}-\d\d-\d\d$/.test(d))return;const tm=prompt("Saat (SS:DD):","14:00");if(!tm)return;const pl=prompt("Yer (kamuya açık, görevlinin bilgisinde):","");if(!pl)return;
+    i.meeting={date:d,time:tm,place:pl,mode:DB.params.meetingMode};i.status="bulusma_planli";i.history.push({ts:Date.now(),user:SESSION.id,text:`Görüşme planlandı: ${d} ${tm} ${pl}`});logEv("GORUSME_PLANLANDI",`${i.id} ${d} ${tm}`);save();render();return}
+  if(a==="outcome"){const i=it();const get=side=>{const r=prompt(`${nm(getA(i[side]))} görüşme sonucu için seçenek yazın: devam / bitti`,"devam");return r&&["devam","bitti"].includes(r.trim().toLowerCase())?r.trim().toLowerCase():null};
+    const o1=get("a");if(!o1){alert("Geçersiz giriş.");return}const o2=get("b");if(!o2){alert("Geçersiz giriş.");return}
+    i.outcome={a:o1,b:o2};i.history.push({ts:Date.now(),user:SESSION.id,text:`Sonuç: ${o1} / ${o2}`});
+    if(o1==="devam"&&o2==="devam"){i.status="devam_ediyor"}
+    else{i.status="bitti";[i.a,i.b].forEach(id=>{const x=getA(id);x.cooldownUntil=addDays(todayStr(),DB.params.cooldownDays)})}
+    logEv("GORUSME_SONUCU",`${i.id} ${o1}/${o2}`);save();render();return}
+  if(a==="endintro"){const i=it();const r=reason("Sona erme notu:");if(!r)return;i.status="bitti";[i.a,i.b].forEach(id=>{getA(id).cooldownUntil=addDays(todayStr(),DB.params.cooldownDays)});i.history.push({ts:Date.now(),user:SESSION.id,text:"Sona erdi: "+r});logEv("TANISTIRMA_BITTI",i.id);save();render();return}
+  if(a==="decision"){const i=it();if(!confirm("Her iki aday da evlenme kararı verdiğini kendisi bildirdi mi? Kayıtlar tamamlanacak ve havuzdan çıkarılacak."))return;
+    i.status="kararverdi";[i.a,i.b].forEach(id=>{const x=getA(id);x.closedAt=Date.now();setStatus(x,"tamamlandi","Evlenme kararı verildi ("+i.id+")")});i.history.push({ts:Date.now(),user:SESSION.id,text:"Evlenme kararı bildirildi; evlendirme sürecine yönlendirilir"});logEv("EVLENME_KARARI",i.id);save();render();return}
+  if(a==="complaint"){const i=it();const r=reason("Şikâyet / güvenlik bildirimi (yalnız gerekli bilgiyi yazın):");if(!r)return;i.status="sikayet";i.history.push({ts:Date.now(),user:SESSION.id,text:"Şikâyet: "+r});
+    [i.a,i.b].forEach(id=>{const x=getA(id);if(x.status==="aktif")setStatus(x,"inceleme","Şikâyet nedeniyle incelemede: "+i.id)});logEv("SIKAYET",i.id+" — "+r);save();render();return}
+  if(a==="closecomplaint"){const i=it();const r=reason("Şikâyeti kapatma gerekçesi ve sonucu:");if(!r)return;i.status="bitti";i.history.push({ts:Date.now(),user:SESSION.id,text:"Şikâyet kapatıldı: "+r});
+    [i.a,i.b].forEach(id=>{const x=getA(id);if(x.status==="inceleme"){setStatus(x,"aktif","İnceleme sonuçlandı: "+r);x.cooldownUntil=addDays(todayStr(),DB.params.cooldownDays)}});logEv("SIKAYET_KAPATILDI",i.id+" — "+r);save();render();return}
+  if(a==="saveseal"){DB.officialSeal=$("#offseal").value.trim().toLowerCase();logEv("RESMI_MUHUR_TANIMLANDI",DB.officialSeal);save();render();return}
+  if(a==="addq"){const P=readParamsForm();P.questions.push({id:"q_"+rnd().slice(0,6),label:"Yeni soru",opts:["Evet","Hayır"],weight:2,sensitive:false,enabled:true});ctx.draft=P;render();return}
+  if(a==="delq"){const P=readParamsForm();P.questions.splice(+t.dataset.i,1);ctx.draft=P;render();return}
+  if(a==="exportparams"){download("tanistirma-parametreleri.json",JSON.stringify(readParamsForm(),null,2));return}
+  if(a==="exportall"){logEv("YEDEK_ALINDI","tam yedek");download("tanistirma-yedek-"+todayStr()+".json",JSON.stringify(DB));return}
+  if(a==="exportaudit"){download("denetim-gunlugu-"+todayStr()+".json",JSON.stringify({audit:DB.audit,chain:verifyChain(DB.audit),paramSeal:seal(DB.params)},null,2));return}
+  if(a==="exportpkg"){
+    const cnt=o=>Object.entries(o).map(([k,v])=>({k,n:v}));const by=(arr,fn)=>arr.reduce((r,x)=>{const k=fn(x);r[k]=(r[k]||0)+1;return r},{});
+    const pk={tarih:todayStr(),kurum:DB.params.institution,parametreler:DB.params,parametreMuhru:seal(DB.params),parametreGecmisi:DB.paramHistory.map(x=>({ver:x.ver,ts:x.ts,user:x.user,reason:x.reason,seal:x.seal})),
+      adayDurumlari:by(DB.applicants,a=>a.status),tanistirmaDurumlari:by(DB.intros,i=>i.status),eslestirmeKosulari:DB.runs.map(r=>({id:r.id,ts:r.ts,user:r.user,paramSeal:r.paramSeal,havuz:r.pool,oneri:r.suggestions.length,onerisiz:r.noMatch.length})),
+      denetimGunlugu:DB.audit,zincir:verifyChain(DB.audit)};
+    logEv("DENETIM_PAKETI","dışa aktarıldı");download("denetim-paketi-"+todayStr()+".json",JSON.stringify(pk,null,2));return}
+  if(a==="seed"){if(!can.admin())return;seedDemo();toast("40 deneme adayı eklendi.");render();return}
+  if(a==="unseed"){if(!can.admin())return;if(!confirm("Tüm deneme adayları ve bunlara bağlı tanıştırmalar silinsin mi?"))return;
+    const ids=new Set(DB.applicants.filter(x=>x.demo).map(x=>x.id));DB.applicants=DB.applicants.filter(x=>!x.demo);DB.intros=DB.intros.filter(i=>!ids.has(i.a)&&!ids.has(i.b));DB.blocked=DB.blocked.filter(p=>!ids.has(p[0])&&!ids.has(p[1]));DB.runs=[];
+    logEv("DENEME_VERISI_SILINDI",ids.size+" aday");save();render();return}
+  if(a==="toggleuser"){const u=DB.users.find(x=>x.id===t.dataset.id);if(u.active&&u.role==="admin"&&DB.users.filter(x=>x.active&&x.role==="admin").length<2){alert("Son etkin yönetici pasifleştirilemez.");return}
+    u.active=!u.active;logEv("KULLANICI_DURUMU",`${u.name}: ${u.active?"etkin":"pasif"}`);save();render();return}
+  if(a==="resetpin"){const u=DB.users.find(x=>x.id===t.dataset.id);const p=prompt(`${u.name} için yeni PIN (en az 6 rakam):`);if(!p||!/^\d{6,}$/.test(p)){if(p!==null)alert("PIN en az 6 rakam olmalı.");return}
+    u.salt=rnd();u.hash=hashPin(p,u.salt);u.fails=0;u.lockUntil=0;logEv("PIN_DEGISTI",u.name);save();toast("PIN güncellendi.");return}
+  if(a==="wipe"){if(!can.admin())return;if(prompt("Tüm veriler silinecek. Onaylamak için SİL yazın:")==="SİL"){localStorage.removeItem(KEY);DB=null;SESSION=null;toast("Tüm veriler silindi.");render()}return}
+});
+
+DB=load();
+if(DB&&!DB.paramHistory)DB=null;
+render();
+</script>
+</body>
+</html>
