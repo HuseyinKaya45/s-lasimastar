@@ -159,6 +159,8 @@ table.t .ar{font-size:21px;line-height:1.5}
 .exnote{display:none;margin-top:8px}.exnote.on{display:block}
 .tile.tr{font-family:var(--f-body);font-size:17px;padding:8px 14px}
 .slot.ltr,.bank.ltr{direction:ltr}
+.quote{border-left:4px solid var(--accent);background:var(--soft);border-radius:0 12px 12px 0;padding:6px 12px;margin:10px 0}
+.quote .exar{font-size:24px}
 </style>
 </head>
 <body>
@@ -177,370 +179,636 @@ table.t .ar{font-size:21px;line-height:1.5}
 <script>
 "use strict";
 /* ============================ VERİ ============================ */
+// Sayfa atıfları (s.) Nûreddîn Itr tahkîkli baskının BASILI sayfa numarasıdır (PDF sayfası = basılı + 1).
 const BABS=[
- {id:1,tr:"Temel Kavramlar ve Haber",ar:"أَصْلُ الْخَبَرِ"},
- {id:2,tr:"Makbûl Hadis",ar:"الْمَقْبُولُ"},
- {id:3,tr:"Merdûd Hadis",ar:"الْمَرْدُودُ"},
- {id:4,tr:"Rivâyet Usûlü ve Râviler",ar:"الرُّوَاةُ وَالرِّوَايَةُ"}
+ {id:1,tr:"Giriş ve Haber (s.33–52)",ar:"الْخَبَرُ وَأَقْسَامُهُ"},
+ {id:2,tr:"Makbûl Hadis (s.52–75)",ar:"الْمَقْبُولُ"},
+ {id:3,tr:"Merdûd Hadis (s.75–101)",ar:"الْمَرْدُودُ"},
+ {id:4,tr:"İsnad, Rivayet ve Râviler (s.102–146)",ar:"الْإِسْنَادُ وَالرُّوَاةُ"}
 ];
 const EX=(ar,tr,tag,note)=>({ar,tr,tag,note});
-const CH=(label,nodes)=>({label,nodes}); // nodes: [metin, durum]  durum: "", "miss", "top", "end"
+const CH=(label,nodes)=>({label,nodes});
+const Q=(ar,tr,pg)=>({ar,tr,pg});
 
 const LESSONS=[
-{id:1,bab:1,icon:"📖",tr:"Hadis İlminin Temel Kavramları",ar:"الْحَدِيثُ وَالْخَبَرُ وَالْأَثَرُ",
- goal:"Hadis, haber, eser, sened, metin ve râvi kavramlarını ayırıp, hadis usûlünün neyi incelediğini anlayacaksın.",
+/* ---------------- BÂB 1 ---------------- */
+{id:1,bab:1,pg:"s.33–37",icon:"📖",tr:"Telif Tarihi, Haber–Hadis–Sünnet–Eser",ar:"التَّصْنِيفُ فِي عُلُومِ الْحَدِيثِ",
+ goal:"Hadis usûlünde eser yazan ilk müelliflerin sırasını ve haber, hadis, sünnet, eser terimlerinin eserdeki anlamını öğreneceksin.",
  secs:[
-  {h:"Usûlü'l-hadîs nedir?",p:"Hadis usûlü (<span class='ar'>مُصْطَلَحُ أَهْلِ الْأَثَرِ</span>), bir rivayetin <b>kabul edilip edilmeyeceğini</b> belirlemek için râvilerin ve senedin durumunu inceleyen kâideler bütünüdür. İbn Hacer'in <i>Nüzhetü'n-Nazar</i>'ı, kendi <i>Nuhbetü'l-Fiker</i> metnini şerhetmek için yazdığı, konuyu çok sistemli bir tasnifle sunan meşhur bir eserdir."},
-  {h:"Temel terimler",table:[["Terim","Anlamı"],
-   ["Sened (إسناد)","Metne ulaştıran râvi zinciri"],
-   ["Metin (مَتْن)","Senedin sonunda gelen söz"],
-   ["Râvi","Hadisi nakleden kişi"],
-   ["Haber / Hadis","Hz. Peygamber'e (s.a.v.) ve sahâbe-tâbiîne ait söz, fiil ve takrîr; terim olarak çoğunlukla eş anlamlı kullanılır"],
-   ["Eser","Çoğunlukla sahâbe ve tâbiîne nispet edilen rivayet"]]},
-  {h:"Kime nispet edilir?",table:[["Tür","Kime ait?"],["Merfû' (مَرْفُوع)","Hz. Peygamber'e"],["Mevkûf (مَوْقُوف)","Sahâbîye"],["Maktû' (مَقْطُوع)","Tâbiîye"]]},
-  {callout:"Ezber ipucu: <b>merfû'</b> yukarı (Peygamber), <b>mevkûf</b> sahâbede durur, <b>maktû'</b> tâbiîde kesilir."}],
- ex:[EX("إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ","Ameller niyetlere göredir.","Merfû' hadis","Hz. Peygamber'e (s.a.v.) nispet edilen söz olduğu için merfû'dur. Sened: Buhârî'de Humeydî → Süfyân → Yahyâ b. Saîd → Muhammed b. İbrâhîm → Alkame → Ömer.")],
- mini:[
-  ["Hadisin sonunda gelen söze ne denir?",["Sened","Metin","Tabaka"],1,"Sened, metne giden râvi zinciri; metin ise söylenen sözün kendisidir."],
-  ["Sahâbîye nispet edilen rivayet için hangisi kullanılır?",["Merfû'","Mevkûf","Maktû'"],1,"Mevkûf sahâbîde durur."],
-  ["Hadis usûlünün asıl amacı nedir?",["Metni tercüme etmek","Rivayetin kabul edilebilirliğini belirlemek","Fıkhî hüküm çıkarmak"],1,"Usûl, râvi ve sened durumuna göre kabul-red ölçülerini koyar."]]},
-
-{id:2,bab:1,icon:"🌊",tr:"Haberin Taksimi: Mütevâtir ve Âhâd",ar:"الْمُتَوَاتِرُ وَالْآحَادُ",
- goal:"Haberin yol sayısına göre ilk büyük ayrımını (mütevâtir ve âhâd) kavrayacaksın.",
- secs:[
-  {h:"Mütevâtir",p:"Yalan üzerinde birleşmeleri <b>âdeten imkânsız</b> olan çok sayıda râvinin, benzer sayıdaki râviden, senedin <b>başından sonuna kadar</b> rivayet ettiği ve duyuya dayanan haberdir. Kesin bilgi (<span class='ar'>الْعِلْمُ الضَّرُورِيُّ</span>) ifade eder; râvilerinin hâli araştırılmaz."},
-  {h:"Âhâd",p:"Mütevâtirin şartlarını taşımayan her haberdir. Yol sayısına göre üçe ayrılır: meşhûr, azîz, garîb (sonraki ders)."},
-  {h:"Mütevâtirin şartları",table:[["Şart","Açıklama"],["Çok sayıda râvi","Her tabakada yalan üzerinde anlaşmaları âdeten mümkün olmayacak kadar"],["Her tabakada aynı çokluk","Başından sonuna kadar"],["Duyuya dayanma","“Gördüm, işittim” gibi; akıl yürütmeye değil"]]},
-  {callout:"Mütevâtir hadis sayısı azdır. Örnek olarak “Kim bilerek bana yalan isnat ederse cehennemdeki yerine hazırlansın” hadisi gösterilir."}],
- ex:[EX("مَنْ كَذَبَ عَلَيَّ مُتَعَمِّدًا فَلْيَتَبَوَّأْ مَقْعَدَهُ مِنَ النَّارِ","Kim bilerek bana yalan isnat ederse yerini ateşte hazırlasın.","Mütevâtir olarak anılır","Çok sayıda sahâbîden gelen, mütevâtir örneği olarak en çok zikredilen hadislerdendir.")],
- mini:[
-  ["Mütevâtir haber hangi bilgiyi verir?",["Zan","Kesin bilgi","Şüphe"],1,"Mütevâtir ilm-i zarûrî ifade eder."],
-  ["Âhâd nedir?",["Mütevâtirin şartlarını taşımayan haber","Yalnız zayıf haber","Yalnız sahâbe sözü"],0,"Âhâd = mütevâtir olmayan."],
-  ["Mütevâtirde râvi çokluğu hangi bölümde aranır?",["Yalnız son tabakada","Başından sonuna her tabakada","Yalnız sahâbîde"],1,"Her tabakada aranır."]]},
-
-{id:3,bab:1,icon:"🌿",tr:"Âhâdın Kısımları: Meşhûr, Azîz, Garîb",ar:"الْمَشْهُورُ وَالْعَزِيزُ وَالْغَرِيبُ",
- goal:"Âhâd haberi yol sayısına göre üç gruba ayıracak ve örneklerini tanıyacaksın.",
- secs:[
-  {h:"Üç kısım",table:[["Terim","Yol sayısı","Not"],
-   ["Meşhûr (مَشْهُور) / Müstefîz","3 veya daha fazla yol","Mütevâtir seviyesine ulaşmaz"],
-   ["Azîz (عَزِيز)","Hiçbir tabakada 2'den az değil","Nâdir bulunduğu için “azîz”"],
-   ["Garîb (غَرِيب)","Bir tabakada tek râvi","“Fert” olarak da anılır"]]},
-  {h:"Garîbin çeşitleri",p:"<b>Garîb mutlak (fert mutlak)</b>: Teferrüd senedin aslında, yani sahâbî tabakasındadır. <b>Garîb nisbî</b>: Teferrüd senedin ortasında, belirli bir râviye nispetle olur."},
-  {callout:"Meşhûr her zaman sahih demek değildir. Meşhûr, azîz ve garîb sadece <b>yol sayısına</b> bakar; kabul-red ayrı bir değerlendirmedir. Garîb de sahih olabilir."}],
- ex:[EX("إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ","Ameller niyetlere göredir.","Garîb örneği","Meşhur bir hadis olmasına rağmen ilk tabakalarda tek yolludur (Ömer → Alkame → Muhammed b. İbrâhîm → Yahyâ b. Saîd). Sonra yaygınlaşmıştır."),
-     EX("لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى أَكُونَ أَحَبَّ إِلَيْهِ مِنْ وَالِدِهِ وَوَلَدِهِ وَالنَّاسِ أَجْمَعِينَ","Biriniz, ben ona babasından, çocuğundan ve bütün insanlardan daha sevgili olmadıkça iman etmiş olmaz.","Azîz örneği","İki sahâbîden (Enes ve Ebû Hüreyre) gelmesi sebebiyle azîz örneği olarak zikredilir.")],
- mini:[
-  ["En az 3 yoldan gelen, mütevâtire ulaşmayan hadis?",["Azîz","Meşhûr","Garîb"],1,"Üç ve fazlası: meşhûr (müstefîz)."],
-  ["Hiçbir tabakada 2'den az râvisi olmayan hadis?",["Garîb","Azîz","Mütevâtir"],1,"İki yoldan gelen: azîz."],
-  ["Garîb mutlakta teferrüd nerededir?",["Senedin aslında (sahâbî tabakasında)","Senedin ortasında","Metinde"],0,"Aslında tek kalmak garîb mutlaktır."]]},
-
-{id:4,bab:2,icon:"✅",tr:"Sahih Hadis",ar:"الصَّحِيحُ",
- goal:"Sahih hadisin beş şartını sayıp sahîh li-zâtihi ile sahîh li-gayrihi arasındaki farkı anlayacaksın.",
- secs:[
-  {h:"Makbûl ve merdûd",p:"Âhâd haberler kabul edilip edilmemesine göre <b>makbûl</b> (<span class='ar'>الْمَقْبُولُ</span>) ve <b>merdûd</b> (<span class='ar'>الْمَرْدُودُ</span>) olarak ikiye ayrılır. Makbûlün en yüksek derecesi sahih, ardından hasendir."},
-  {h:"Sahîh li-zâtihi: beş şart",table:[["Şart","Arapça","Anlamı"],
-   ["1. Adâlet","الْعَدَالَةُ","Râvi dindar, güvenilir, mürüvvetli"],
-   ["2. Tam zabt","تَمَامُ الضَّبْطِ","Hafızası/yazısı tam"],
-   ["3. Sened muttasıl","اتِّصَالُ السَّنَدِ","Râviler arası kopukluk yok"],
-   ["4. Şâz olmayan","عَدَمُ الشُّذُوذِ","Daha güvenilir râvilere aykırı değil"],
-   ["5. Illetsiz","عَدَمُ الْعِلَّةِ","Gizli kusur yok"]]},
-  {h:"Sahîh li-gayrihi",p:"Kendisi hasen seviyesinde olup <b>birden fazla yoldan</b> gelmesiyle sahih seviyesine yükselen hadistir."},
-  {callout:"Hatırlama formülü: <b>A-Z-M-Ş-İ</b> (Adâlet, Zabt, Muttasıl, Şâz-değil, İllet-yok)."}],
- ex:[EX("حَدَّثَنَا الْحُمَيْدِيُّ ... قَالَ: سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ: إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ","Buhârî'nin ilk hadisi","Sahih örneği","Râvileri adil ve zâbıt, sened muttasıl; Buhârî'nin Sahîh'inin ilk hadisidir.")],
- mini:[
-  ["Sahih hadisin şartlarından biri <b>değildir</b>:",["Sened muttasıl","Tam zabt","Râvinin çok yaşlı olması"],2,"Yaş bir şart değildir."],
-  ["Sahîh li-gayrihi nasıl oluşur?",["Hasen hadis çok yoldan gelince","Zayıf hadisin yazılmasıyla","Mevzû hadisin düzeltilmesiyle"],0,"Hasen li-zâtihi'nin yolları çoğalınca sahih seviyesine çıkar."],
-  ["‘Şâz olmamak’ ne demektir?",["Râvinin tek olması","Daha güvenilir râvilere muhalefet etmemek","Metnin kısa olması"],1,"Şâz, makbûl râvinin daha sikaya muhalefetidir."]]},
-
-{id:5,bab:2,icon:"🌓",tr:"Hasen Hadis ve Ziyâdetü's-Sika",ar:"الْحَسَنُ",
- goal:"Hasen hadisin sahihten farkını ve hasen li-gayrihi'nin nasıl oluştuğunu öğreneceksin.",
- secs:[
-  {h:"Hasen li-zâtihi",p:"Sahihin beş şartını taşır; <b>tek fark</b> râvinin zabtının tam değil, biraz <b>hafif</b> (<span class='ar'>خَفَّ ضَبْطُهُ</span>) olmasıdır."},
-  {h:"Hasen li-gayrihi",p:"Zaafı <b>hafif</b> (kötü hıfz, ihtilât, meçhûl hâl, hafif irsâl-tedlîs gibi) olan hadisin, <b>çok yoldan</b> gelerek güçlenmesidir. Râvisi yalancı olan hadis bu yolla güçlenmez."},
-  {h:"Dereceler (kuvvet sırası)",table:[["Sıra","Tür"],["1","Sahîh li-zâtihi"],["2","Sahîh li-gayrihi"],["3","Hasen li-zâtihi"],["4","Hasen li-gayrihi"],["5","Zayıf (çeşitleri)"]]},
-  {h:"Ziyâdetü's-sika",p:"Sika bir râvinin, diğer sika râvilerin söylemediği bir ilâvede bulunmasıdır. İlâve, onlara <b>aykırı değilse</b> genellikle kabul edilir; aykırıysa şâz sayılır."},
-  {callout:"“Hasen sahîh” tabirini Tirmizî kullanır: hadis iki ayrı yoldan, biri hasen biri sahih olarak gelmiştir (yaygın açıklama)."}],
+  {h:"Kitabın yapısı",p:"<i>Nüzhetü'n-Nazar</i>, İbn Hacer'in kendi <i>Nuhbetü'l-Fiker</i> adlı kısa usûl metnine yazdığı şerhtir. Şerh, metnin cümlelerini içine alarak ilerler; köşeli parantezli başlıklar (<span class='ar'>[الْعَزِيزُ]</span> gibi) konuları ayırır. Konu sırası: haber → makbûl-merdûd → râvi kusurları → isnad ve rivayet → râvi bilgisi (hâtime)."},
+  {h:"Usûl telifinin tarihi (s.33–36)",table:[["Müellif","Eser / not"],
+   ["Kâdî Ebû Muhammed er-Râmehürmüzî","<span class='ar'>الْمُحَدِّثُ الْفَاصِلُ</span> — bu alanda eser yazan ilk kişi olarak anılır"],
+   ["el-Hâkim en-Nîsâbûrî","Ma'rifetü ulûmi'l-hadîs (düzenli ve tam değil)"],
+   ["Ebû Nuaym el-İsfahânî","Hâkim'in eserine mustahrec yazdı"],
+   ["el-Hatîb el-Bağdâdî","<i>el-Kifâye</i> (rivayet kuralları) ve <i>el-Câmi' li-âdâbi'ş-şeyh ve's-sâmi'</i> (âdâb)"],
+   ["İbnü's-Salâh (ö.643)","<i>el-Mukaddime</i> (Ulûmü'l-hadîs); Eşrefiyye Dârü'l-hadîs'te yazdı"]]},
+  {h:"Haber, hadis, sünnet, eser (s.36)",p:"Eserde haber, bu fen âlimlerine göre <b>hadisle eş anlamlıdır</b>; bir görüşe göre hadis Peygamber'den (s.a.v.) gelen, haber ise başkasından gelendir. Tarihle uğraşana <b>ahbârî</b>, sünnetle uğraşana <b>muhaddis</b> denir. Dipnotta hadis, Peygamber'e nispet edilen söz, fiil, takrîr ve vasıf olarak tanımlanır; nispet sahâbî ve tâbiîye de olabilir. Usûlcüler sünneti söz-fiil-takrîr diye ele alır."},
+  {callout:"Ayrım: <b>sened</b> metne ulaştıran râvi zinciridir; <b>metin</b> senedin ulaştığı sözdür (s.33 dipnot). Ayrıntılı tanım s.102'de gelir (Ders 15)."}],
  ex:[],
  mini:[
-  ["Sahih ile hasen arasındaki temel fark nedir?",["Sened kopuktur","Râvinin zabtı hafiftir","Râvi adil değildir"],1,"Hasen'de zabt tam değil, hafiftir."],
-  ["Hasen li-gayrihi neyle güçlenir?",["Tek yol","Çok yol","Hükümdar emri"],1,"Çok tarik hafif zaafı giderir."],
-  ["Kuvvet sırasında doğru olan?",["Hasen li-zâtihi > Sahîh li-gayrihi","Sahîh li-zâtihi > Sahîh li-gayrihi","Hasen li-gayrihi > Sahîh li-zâtihi"],1,"Sıra: sahîh li-zâtihi, sahîh li-gayrihi, hasen li-zâtihi, hasen li-gayrihi."]]},
+  ["Bu alanda eser yazan ilk müellif olarak kimin adı geçer?",["Kâdî er-Râmehürmüzî (el-Muhaddisü'l-fâsıl)","el-Hâkim en-Nîsâbûrî","İbnü's-Salâh"],0,"İlk telif Râmehürmüzî'nin <i>el-Muhaddisü'l-fâsıl</i> adlı eseridir (s.33)."],
+  ["<i>el-Kifâye</i> ve <i>el-Câmi' li-âdâbi'ş-şeyh ve's-sâmi'</i> kimin eserleridir?",["Ebû Nuaym","el-Hatîb el-Bağdâdî","Kâdî Iyâz"],1,"Hatîb, rivayet kâidelerini ve şeyh-talebe âdâbını ayrı eserlerde yazdı (s.34–35)."],
+  ["Eserde haber ile hadis nasıl ele alınır?",["Haber, hadisle eş anlamlı kabul edilir","Haber daima sahâbî sözüdür","Haber hadisten kesinlikle farklıdır"],0,"Bu fen âlimlerine göre haber hadisle müterâdiftir (s.36)."]]},
 
-{id:6,bab:2,icon:"⚖️",tr:"Hadislerin Çatışması (Muârada)",ar:"الْمُعَارَضَةُ",
- goal:"Makbûl iki hadis birbirine aykırı göründüğünde izlenen dört adımı öğreneceksin.",
+{id:2,bab:1,pg:"s.37–41",icon:"🌊",tr:"Mütevâtir",ar:"الْمُتَوَاتِرُ",
+ goal:"Mütevâtirin şartlarını, sayı görüşlerinin neden reddedildiğini ve ilm-i darûrî–nazarî tartışmasını öğreneceksin.",
  secs:[
-  {h:"Makbûl hadis iki grupta incelenir",p:"<b>Muhkem</b> (<span class='ar'>الْمُحْكَمُ</span>): Aynı kuvvette bir muârızı bulunmayan hadis. <b>Muhtelifu'l-hadîs</b>: Muârızı olup <b>cem'</b> (uzlaştırma) mümkün olan hadis."},
-  {h:"Çatışma varsa adımlar",table:[["Adım","Ne yapılır?"],
-   ["1. Cem'","İkisini birlikte anlamlandır (uzlaştır)"],
-   ["2. Nesih","Tarih biliniyorsa sonraki öncekini kaldırır: Nâsih ve Mensûh"],
-   ["3. Tercîh","Cem' ve nesih mümkün değilse üstün olanı seç"],
-   ["4. Tevakkuf","Hiçbiri mümkün değilse hüküm vermeyi bırak"]]},
-  {callout:"Mantık sırası: önce <b>cem'</b>, sonra <b>nesih</b>, sonra <b>tercih</b>, en son <b>tevakkuf</b>. Birini atlayıp doğrudan tercihe gitmek hatalıdır."}],
+  {h:"Haberin ilk bölünmesi (s.37)",p:"Haber, bize ulaşan <b>yol (tarîk) sayısına</b> göre ya çok yollu ya da tek yollu olur. Sened, metnin yolunu hikâye eden râvi zinciridir; yolların çoğuluna <i>turuk</i>, senedlerin çoğuluna <i>esânîd</i> denir."},
+  {quote:[Q("فَالْأَوَّلُ: الْمُتَوَاتِرُ، وَهُوَ الْمُفِيدُ لِلْعِلْمِ الْيَقِينِيِّ - فَأَخْرَجَ النَّظَرِيَّ - عَلَى مَا يَأْتِي تَقْرِيرُهُ - بِشُرُوطِهِ الَّتِي تَقَدَّمَتْ","Birincisi mütevâtirdir: yakîn ilmi ifade edendir (nazarî ilmi, ileride açıklanacağı üzere, dışarıda bırakır); daha önce geçen şartlarıyla.","s.40")]},
+  {h:"Dört şart (s.38–40)",table:[["Şart","Açıklama"],
+   ["1. Çok sayıda râvi","Yalan üzerinde birleşmeleri <b>âdeten imkânsız</b> olacak kadar çok"],
+   ["2. Her tabakada aynı çokluk","Senedin başından sonuna eşit sayıda"],
+   ["3. Hisse dayanmak","“Gördüm, işittim” gibi; akıl yürütmeye değil"],
+   ["4. İlim ifade etmesi","Haber dinleyende ilim doğurmalı"]]},
+  {h:"Sayı görüşleri reddedilir",p:"Bazıları mütevâtir için 4, 5, 7, 10, 12, 40 veya 70 gibi belli sayılar söylemiştir. İbn Hacer her grubun kendi sayısına delil getirdiğini, fakat sayının zikredilmesinin ilmi garanti etmediğini belirtir; doğrusu <b>belli bir sayı sınırı koymamaktır</b> (s.37–39). Aklî hükümler (“bir, ikinin yarısıdır”) hissî değildir, tevâtür konusu olmaz."},
+  {h:"İlm-i darûrî ve nazarî",p:"Yakîn, gerçeğe uygun kesin inançtır. Mütevâtir <b>ilm-i darûrî</b> (insanın zorunlu olarak edindiği, delil aramadan hâsıl olan ilim) ifade eder; bunun dışındaki görüşe (ilm-i nazarî) karşı gösterilen gerekçe şudur: avâm nazar ehli değildir, nazarî olsaydı onlarda ilim hâsıl olmazdı (s.40–41). Mütevâtirde râvilerin hâli araştırılmaz."},
+  {h:"Mütevâtir örnekleri ve İbnü's-Salâh tartışması (s.41)",p:"İbnü's-Salâh, mütevâtirin “<span class='ar'>مَنْ كَذَبَ عَلَيَّ مُتَعَمِّدًا</span>” hadisi dışında hemen hiç bulunmadığını söylemiştir. İbn Hacer bu iddiayı reddeder: bu ancak taramanın az olmasındandır, meşhur kitaplarda tevâtür eden hadis çoktur. Dipnotta havz, mesh ve “Kur'ân yedi harf üzere indi” hadisleri gibi örnekler anılır. Hanefîler haberi sened bakımından <b>mütevâtir, meşhûr, âhâd</b> olarak üçe böler (dipnot, s.40)."}],
+ ex:[EX("مَنْ كَذَبَ عَلَيَّ مُتَعَمِّدًا فَلْيَتَبَوَّأْ مَقْعَدَهُ مِنَ النَّارِ","Kim bilerek bana yalan isnat ederse yerini ateşte hazırlasın.","Mütevâtir örneği (s.38, 41)","Kitapta mütevâtirin açık örneği olarak verilir; dipnotta yetmişten fazla sahâbîden rivayet edildiği belirtilir.")],
+ mini:[
+  ["Mütevâtirin şartı olarak aşağıdakilerden hangisi <b>sayılmaz</b>?",["Her tabakada çokluğun eşit olması","Râvilerin tam olarak 10 kişi olması","Haberin hisse dayanması"],1,"İbn Hacer belli bir sayıyı şart koşmaz; 4, 5, 7, 10, 12, 40, 70 gibi sayı görüşlerini reddeder (s.37–39)."],
+  ["Mütevâtir haber hangi bilgiyi verir?",["İlm-i darûrî (yakîn)","Yalnız zan","Yalnız şüphe"],0,"Yakîn ifade eder; kitap bunun darûrî olduğunu söyler (s.40–41)."],
+  ["Hanefîlerin sened bakımından üçlü taksimi hangisidir?",["Mütevâtir–meşhûr–âhâd","Sahih–hasen–zayıf","Merfû'–mevkûf–maktû'"],0,"Dipnotta Hanefî tasnifi böyle anılır (s.40)."]]},
+
+{id:3,bab:1,pg:"s.42–52",icon:"🌿",tr:"Âhâd I: Meşhûr, Azîz, Garîb, Ferd",ar:"الْمَشْهُورُ وَالْعَزِيزُ وَالْغَرِيبُ",
+ goal:"Âhâdın üç kısmını eserin tanımlarıyla öğrenip, azîz hakkındaki tartışmayı ve garîb mutlak-nisbî ayrımını ayırt edeceksin.",
+ secs:[
+  {h:"Meşhûr (s.42–43)",quote:[Q("وَالثَّانِي - وَهُوَ أَوَّلُ أَقْسَامِ الْآحَادِ - مَا لَهُ طُرُقٌ مَحْصُورَةٌ بِأَكْثَرَ مِنِ اثْنَيْنِ، وَهُوَ الْمَشْهُورُ عِنْدَ الْمُحَدِّثِينَ","İkincisi — ki âhâdın ilk kısmıdır — yolları ikiden fazla ve sayılı olan haberdir; muhaddislere göre meşhûrdur.","s.42")]},
+  {p:"Fakihler buna <b>müstefîz</b> der; bazıları müstefîzi, başı ve sonu eşit olan haber diye meşhûrdan ayırır (meşhûr daha geneldir). Her mütevâtir meşhûrdur, her meşhûr mütevâtir değildir. Dipnotta meşhûrun sahih, hasen veya zayıf olabileceği belirtilir: “<span class='ar'>لَا ضَرَرَ وَلَا ضِرَارَ</span>” hasen, “<span class='ar'>اطْلُبُوا الْعِلْمَ وَلَوْ بِالصِّينِ</span>” zayıf meşhûr örnekleri olarak anılır. Dilde “meşhûr” diye anılanla (dillerde yaygın olanla) muhaddislerin ıstılahı farklıdır; Hanefî meşhûru da muhaddis meşhûrundan ayrıdır."},
+  {h:"Azîz (s.43–45)",quote:[Q("وَالثَّالِثُ: الْعَزِيزُ: وَهُوَ أَنْ لَا يَرْوِيَهُ أَقَلُّ مِنِ اثْنَيْنِ عَنِ اثْنَيْنِ","Üçüncüsü azîzdir: ikiden az kişinin ikiden az kişiden rivayet etmediği hadistir.","s.43")]},
+  {p:"Adını ya varlığının azlığından ya da başka yoldan gelerek <i>azze</i> (güçlenmesinden) alır. İbn Hacer şunları da açıklar: azîzlik <b>sahihin şartı değildir</b>; bunu iddia eden Ebû Alî el-Cübbâî (Mu'tezile) hatalıdır. Kâdî Ebû Bekir İbnü'l-Arabî azîzi Buhârî'nin şartı saymıştır; İbn Hacer buna Buhârî'nin ilk hadisi “<span class='ar'>إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ</span>”i karşı örnek getirir: bu hadis azîz değil garîbtir. İbn Hibbân'ın “senet ikiden başlamaz” görüşüne de İbn Hacer, kendisinin sınırının “ikiden aza düşmemek” olduğunu belirterek cevap verir."},
+  {h:"Garîb (s.45–46)",quote:[Q("وَالرَّابِعُ: الْغَرِيبُ: وَهُوَ مَا يَتَفَرَّدُ بِرِوَايَتِهِ شَخْصٌ وَاحِدٌ فِي أَيِّ مَوْضِعٍ وَقَعَ التَّفَرُّدُ بِهِ مِنَ السَّنَدِ","Dördüncüsü garîbtir: senedin herhangi bir yerinde tek bir kişinin rivayetiyle teferrüd ettiği hadistir.","s.45")]},
+  {h:"Ferd mutlak ve nisbî (s.50–52)",table:[["Tür","Teferrüd nerede?","Not"],
+   ["Ferd mutlak","Senedin aslında (tâbiîde, sahâbîden alanlar tabakasında)","Örnek: Abdullah b. Dînâr'ın İbn Ömer'den tek başına rivayet ettiği velâ hadisi"],
+   ["Ferd nisbî","Belli bir kişiye nispetle tek kalma","Hadis aslında meşhûr olsa da bir râvi bakımından teferrüd olur"]]},
+  {callout:"Garîb ve ferd ıstılahta ve lugatta müterâdiftir. Kullanımda <b>ferd</b> çoğunlukla ferd mutlak, <b>garîb</b> çoğunlukla ferd nisbî için kullanılır (s.52). Dört kısımdan mütevâtirden başkası âhâddır."}],
+ ex:[EX("إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ","Ameller niyetlere göredir.","Garîb örneği (s.44)","İbnü'l-Arabî'ye karşı kitapta delil olarak getirilir: hadisi Ömer'den yalnız Alkame, ondan yalnız Muhammed b. İbrâhîm, ondan yalnız Yahyâ b. Saîd rivayet eder; sonraki tabakalarda yayılır."),
+     EX("لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى أَكُونَ أَحَبَّ إِلَيْهِ مِنْ وَالِدِهِ وَوَلَدِهِ وَالنَّاسِ أَجْمَعِينَ","Biriniz, ben ona babasından, çocuğundan ve bütün insanlardan daha sevgili olmadıkça iman etmiş olmaz.","Azîz örneği (s.45)","Enes'ten (Buhârî, Müslim) ve Ebû Hüreyre'den (Buhârî) gelir; Enes'ten Katâde ve Abdülazîz b. Süheyb, onlardan da birer cemaat rivayet eder.")],
+ mini:[
+  ["Eserde meşhûrun tanımı hangisidir?",["Yolları ikiden fazla ve sayılı hadis","Yolu tek olan hadis","Her tabakada yüzlerce râvisi olan hadis"],0,"Meşhûr: yolları ikiden fazla ve sınırlı (s.42)."],
+  ["Azîz hakkında eserin görüşü hangisidir?",["Sahih hadisin şartıdır","Sahihin şartı değildir; bunu iddia eden Cübbâî'dir","Yalnız Buhârî'de bulunur"],1,"İbn Hacer, Cübbâî'ye ve İbnü'l-Arabî'ye karşı azîzliği sahih şartı saymaz (s.43–44)."],
+  ["İbn Hacer, İbnü'l-Arabî'ye karşı hangi hadisi delil getirir?",["Innemâ'l-a'mâl","Men kezebe aleyye","Lâ darare ve lâ dırâr"],0,"Buhârî'nin ilk hadisi azîz değil garîbtir (s.44)."],
+  ["Ferd mutlakta teferrüd nerededir?",["Senedin aslında","Metnin sonunda","Hiçbir yerde"],0,"Aslında (tâbiî tabakasında) tek kalmak ferd mutlaktır (s.50)."]]},
+
+{id:4,bab:1,pg:"s.46–50",icon:"⚖️",tr:"Âhâd II: Tanım, Hüküm, Karînelerle Çevrili Haber",ar:"خَبَرُ الْوَاحِدِ",
+ goal:"Âhâdın tanımını, makbûl-merdûd-tevakkuf ayrımını ve karînelerle çevrili haberin ilim ifade etmesi tartışmasını öğreneceksin.",
+ secs:[
+  {h:"Tanım (s.46)",p:"Haber-i vâhid lugatte tek kişinin rivayet ettiği haberdir; ıstılahta <b>mütevâtirin şartlarını toplamayan</b> haberdir. Dört kısımdan mütevâtirden başkası âhâddır: meşhûr, azîz, garîb."},
+  {h:"Hüküm (s.46–47)",table:[["Durum","Sonuç"],["Nâkilde kabul sıfatı varsa","Makbûl: doğruluğuna dair zan galip gelir, amel edilir"],["Nâkilde ret sıfatı (yalan vb.) varsa","Merdûd"],["İkisi de belirli değilse","Karîne varsa ilgili kısma katılır; yoksa <b>tevakkuf</b>"]]},
+  {p:"Tevakkuf edilen hadis, reddedilmiş gibi amel dışı kalır; fakat gerekçe, ret sıfatının sabit olması değil, kabul sıfatının bulunmamasıdır (s.47)."},
+  {h:"Karînelerle çevrili haber (s.47–49)",p:"Âhâd içinde bazı haberler <b>karînelerle çevrilmiştir</b> (muhtaff) ve ilm-i nazarî ifade eder. Eserin örnekleri: (1) Buhârî ve Müslim'in <i>Sahîhayn</i>'da tahric ettiği, mütevâtire ulaşmayan hadisler; (2) tarîkleri çok ve farklı olan, râvileri ve illetleri sağlam meşhûr hadis (Ebû Mansûr el-Bağdâdî ve İbn Fûrek bunu açıkça söyler); (3) hâfızların rivayet ettiği ve garîb olmayan müselsel hadis. Bu ilmi, çoğunlukla hadise vâkıf, râvilerin hâllerini ve illetleri bilen kişiler elde eder (s.50)."},
+  {callout:"Bu tartışmada ‘ilim’ kat'î (mütevâtirdeki gibi) değil <b>nazarî</b>dir; ihtilafın büyük kısmı lafzîdir. Sahîhayn hadislerinin kabulü, ümmetin kitapları kabulle karşılamasına (telakkî bi'l-kabûl) dayanır."}],
  ex:[],
  mini:[
-  ["İki makbûl hadis çatışınca ilk adım nedir?",["Tevakkuf","Cem'","Tercîh"],1,"Önce uzlaştırma denenir."],
-  ["Tarihi bilinen iki hadiste sonraki öncekini kaldırıyorsa bu nedir?",["Nesih","Tedlis","İdrâc"],0,"Nâsih ve mensûh."],
-  ["Muhkem hadis nedir?",["Çelişkisi olmayan makbûl hadis","Uydurma hadis","Meşhûr hadis"],0,"Aynı kuvvette muârızı yoktur."]]},
+  ["Âhâd hadisin ıstılahî tanımı nedir?",["Mütevâtirin şartlarını toplamayan haber","Yalnız tek râvili haber","Yalnız zayıf haber"],0,"Haber-i vâhid, mütevâtir şartlarını toplamayandır (s.46)."],
+  ["Kabul de ret sıfatı da sabit değilse ve karîne de yoksa ne yapılır?",["Tevakkuf edilir","Hemen kabul edilir","Hemen reddedilir"],0,"Tevakkuf; gerekçe kabul sıfatının bulunmamasıdır (s.47)."],
+  ["Karînelerle çevrili âhâd hangi ilmi ifade eder?",["İlm-i nazarî","İlm-i darûrî","Hiçbir ilim ifade etmez"],0,"Muhtar görüşe göre nazarî ilim (s.47–49)."]]},
 
-{id:7,bab:3,icon:"✂️",tr:"Sened Kopukluğu (Sakt)",ar:"السَّقْطُ مِنَ الْإِسْنَادِ",
- goal:"Mu'allak, mürsel, mu'dal, munkatı' ve müdelles terimlerini sened şemasında ayırt edeceksin.",
+/* ---------------- BÂB 2 ---------------- */
+{id:5,bab:2,pg:"s.52–60",icon:"✅",tr:"Sahîh li-zâtihi",ar:"الصَّحِيحُ لِذَاتِهِ",
+ goal:"Sahihin tanımını kayıtları ve şartlarıyla öğrenecek, esahhu'l-esânîd ve Buhârî–Müslim kıyaslamasını tanıyacaksın.",
  secs:[
-  {h:"Neden merdûd?",p:"Senedde düşen râvinin kim olduğu bilinmediği için güvenilirliği denetlenemez. Kopukluk <b>açık</b> (râvi düşmüştür) veya <b>gizli</b> (râvi görünüşte vardır) olabilir."},
+  {quote:[Q("وَخَبَرُ الْآحَادِ بِنَقْلِ عَدْلٍ تَامِّ الضَّبْطِ، مُتَّصِلِ السَّنَدِ، غَيْرِ مُعَلَّلٍ وَلَا شَاذٍّ هُوَ الصَّحِيحُ لِذَاتِهِ","Âhâd haber; adil, zabtı tam râvinin nakliyle, senedi muttasıl, illetli ve şâz olmayan: sahîh li-zâtihi.","s.52")]},
+  {h:"Beş şart ve tanımları (s.53–55)",table:[["Şart","Eserdeki tanım"],
+   ["Adâlet","Takvâ ve mürüvvete devamı sağlayan <b>meleke</b>; takvâ şirk, fısk ve bid'attan kaçınmaktır"],
+   ["Tam zabt","<b>Zabt-ı sadr</b>: duyduğunu dilediği zaman hatırlayacak şekilde sağlam tutmak. <b>Zabt-ı kitâb</b>: duyduğundan beri elindeki kitabı koruyup ondan rivayet etmek"],
+   ["Muttasıl sened","Senedde düşme yok; her râvi hocasından rivayet ettiğini <b>işitmiş</b>"],
+   ["Mu'allel olmayan","Mu'allel: gizli ve kusur verici illeti olan hadis"],
+   ["Şâz olmayan","Şâz: râvinin kendinden râcih olana muhalefet ettiği hadis"]]},
+  {h:"Dereceler: esahhu'l-esânîd (s.55–57)",p:"Sahihin dereceleri râvilerin adâlet ve zabttaki üstünlüğüne göre değişir. Bazı imamlar şu zincirleri en yüksek diye anar: <b>ez-Zührî → Sâlim → babası İbn Ömer</b>; <b>İbn Sîrîn → Ubeyde → Alî</b>; <b>İbrâhîm en-Nehaî → Alkame → İbn Mes'ûd</b>. Daha aşağı derecede Mâlik→Nâfi'→İbn Ömer gibi zincirler anılır. <b>Muteber görüş</b>, belli bir zincire mutlak olarak ‘esahhu'l-esânîd’ dememektir."},
+  {h:"Buhârî ve Müslim (s.57–60)",p:"Buhârî ve Müslim'in birlikte tahric ettiği hadis, yalnız birinin tahric ettiğinden üstündür. Cumhur <i>Sahîh-i Buhârî</i>'yi öne alır. Gerekçeler: <b>ittisâl</b> (Buhârî raviler arasında bir kez de olsa karşılaşmanın sübûtunu ister, Müslim muâsarayı yeterli sayar), <b>adâlet-zabt</b> (Buhârî'nin tenkit edilen râvileri daha az), <b>şâz ve illet</b> (Buhârî'nin tenkit edilen hadisleri daha az). Müslim'in üstünlüğü ise hüsn-i siyâk ve tertîb yönündendir (Mağribliler). “Gök altında Müslim'den sahih kitap yok” sözü Buhârî'den daha sahih demek değildir."},
+  {h:"Sahîhin yedi kısmı (s.59)",table:[["#","Kısım"],["1","Buhârî ve Müslim'in ittifak ettiği (muttefekun aleyh)"],["2","Yalnız Buhârî'nin tahric ettiği"],["3","Yalnız Müslim'in tahric ettiği"],["4","İkisinin şartına uyan ama kitaplarında olmayan"],["5","Yalnız Buhârî'nin şartına uyan"],["6","Yalnız Müslim'in şartına uyan"],["7","İkisinin şartında olmayan sahih hadis"]]}],
+ ex:[EX("وَخَبَرُ الْآحَادِ بِنَقْلِ عَدْلٍ ...","Sahihin her kaydı bir şeyi dışarıda bırakır","Tanım şerhi (s.55)","“Bi-nakli adlin” kaydı gayri adil nakli; “li-zâtihi” kaydı dışarıdaki bir sebeple sahih sayılanı (li-gayrihi) tanımın dışına çıkarır.")],
+ mini:[
+  ["Eserde adâletin tanımı nedir?",["Takvâ ve mürüvvete devamı sağlayan meleke","Yalnızca hafıza gücü","Yalnızca yaşın büyüklüğü"],0,"Adâlet bir melekedir (s.53)."],
+  ["Zabt-ı sadr nedir?",["Duyduğunu dilediği zaman hatırlayabilecek şekilde sağlam tutmak","Duyduğunu yazıya geçirmek","Hadisi ezber okumak"],0,"Zabt-ı sadr hafızanın, zabt-ı kitâb yazının korunmasıdır (s.53)."],
+  ["Buhârî ve Müslim'in muasaraya bakışı nasıldır?",["Buhârî karşılaşmanın sübûtunu ister, Müslim muâsarayı yeterli sayar","İkisi de muasaraya bakmaz","Müslim karşılaşma ister, Buhârî muâsara"],0,"Buhârî'nin şartı ittisâlde daha kuvvetlidir (s.58)."],
+  ["Esahhu'l-esânîd konusunda muteber görüş hangisidir?",["Belli bir zincire mutlak olarak denmemesi","Yalnız Zührî–Sâlim–İbn Ömer'e denmesi","Hiçbir sened sahih sayılmaz"],0,"Mutlak itlak yapılmaz (s.56)."]]},
+
+{id:6,bab:2,pg:"s.60–63; 101–102",icon:"🌓",tr:"Hasen, Sahîh li-gayrihi, Hasen li-gayrihi",ar:"الْحَسَنُ",
+ goal:"Hasenin türlerini, Tirmizî'nin hasen terimini ve hasen li-gayrihînin hangi zayıf hadislerden oluştuğunu öğreneceksin.",
+ secs:[
+  {h:"Makbûlün dört türü (s.53)",table:[["Tür","Özellik"],["Sahîh li-zâtihi","Beş şartı kendinde toplar"],["Sahîh li-gayrihi","Kusuru çok yolla telâfi edilen"],["Hasen li-zâtihi","Sahih şartları var, zabt hafif; telâfi yok"],["Hasen li-gayrihi","Zaaf, destekleyen karîne/yolla giderilen"]]},
+  {h:"Hasen li-zâtihi (s.60)",quote:[Q("فَإِنْ خَفَّ الضَّبْطُ ... فَهُوَ الْحَسَنُ لِذَاتِهِ، لَا لِشَيْءٍ خَارِجٍ","Zabt hafifse (sahih tanımındaki diğer şartlar baki kalmak kaydıyla) o hasen li-zâtihidir; dışarıdaki bir şey sebebiyle değil.","s.60")]},{p:"Sahihin şartları tamamdır, <b>yalnız zabt hafiftir</b> (<span class='ar'>خَفَّ</span>: azaldı). Hasenliği dışarıdan gelen bir şeyle değil kendindedir; eser, “mestûr hadisinin yolları çoğalınca” örneğini hasen li-gayrihi için verir. Hasen de sahih gibi delil olur, derecesi sahihten aşağıdadır."},
+  {h:"Sahîh li-gayrihi (s.60–61)",p:"Hasen li-zâtihi hadis <b>çok yoldan</b> gelince sahih seviyesine yükselir. Güçlenme tek yolda değil, yolların çoğalmasıyla olur: toplam, zabttaki hafif kusuru giderir."},
+  {h:"“Hasen sahîh” (s.61–63)",quote:[Q("فَإِنْ جَمَعَا، أَيِ الصَّحِيحَ وَالْحَسَنَ فِي وَصْفٍ وَاحِدٍ، كَقَوْلِ التِّرْمِذِيِّ وَغَيْرِهِ: حَدِيثٌ حَسَنٌ صَحِيحٌ، فَلِلتَّرَدُّدِ الْحَاصِلِ مِنَ الْمُجْتَهِدِ فِي النَّاقِلِ ...","İkisi tek vasıfta birleşirse — Tirmizî ve başkalarının “hadîsun hasenun sahîh” demesi gibi — bu, müctehidin nâkil hakkında duyduğu tereddüttendir…","s.61")]},{p:"Eser “hasen sahîh”i duruma göre iki türlü açıklar: <b>(1) Hadis tek isnadlıysa</b> (teferrüd varsa): müctehid râvinin hâlinde tereddüt eder; bir kesime göre hasen, bir diğerine göre sahihtir; asıl ifade “hasen <b>ev</b> sahîh” iken <i>ev</i> (veya) harfi atılmıştır. Bu durumda “hasen sahîh”, yalnız “sahîh” denen hadisten <b>aşağıdadır</b>; çünkü kesinlik tereddütten güçlüdür. <b>(2) Teferrüd yoksa</b> (çok isnadlıysa): iki isnaddan biri sahih, diğeri hasendir; bu durumda “hasen sahîh”, tek isnadlı “sahîh”ten <b>üstündür</b>, çünkü yol çokluğu güçlendirir (s.61–62). Tirmizî ayrıca <i>el-İlel</i> sonunda ‘hasen’ ile neyi kastettiğini açıklar: râvisi yalanla itham edilmeyen, benzer biçimde başka yoldan da gelen ve şâz olmayan hadis (s.62)."},
+  {h:"Hasen li-gayrihi (s.101–102)",p:"Şu hadisler, kendileriyle birlikte <b>muteber</b> (kendi seviyesinde veya daha yukarısında) bir rivayet bulununca hasen li-gayrihi olur: kötü hıfzlı râvinin hadisi, ihtilâta uğrayıp önceki-sonraki ayırt edilememiş râvinin hadisi, mestûr hadisi, mürsel isnad, hâlini bilmediğimiz bir râviden düşen mudelles hadis. Gerekçe: bu râvilerin her birinde doğru ve yanlış rivayet etme ihtimali eşit olduğu için tevakkuf derecesindedir; destekleyici yol bir tarafı güçlendirir ve kabul seviyesine çıkarır, ama hasen li-zâtihi seviyesine değil."},
+  {callout:"Kuvvet sırası: <b>sahîh li-zâtihi → sahîh li-gayrihi → hasen li-zâtihi → hasen li-gayrihi</b>. Zaafı çok ağır (yalancı râvi gibi) olan hadis çok yoldan gelse de güçlenmez."}],
+ ex:[],
+ mini:[
+  ["Hasen li-zâtihi ile sahîh li-zâtihi arasındaki fark nedir?",["Râvinin zabtının hafif olması","Senedin kopuk olması","Metnin uzun olması"],0,"Tek fark zabttır: <span class='ar'>خَفَّ الضَّبْطُ</span> (s.60)."],
+  ["Hasen li-gayrihi hangi hadislerden oluşabilir?",["Kötü hıfzlı râvi, mestûr, mürsel isnad gibi hafif zaaflı hadisler","Mevzû' hadisler","Yalancı râvinin hadisleri"],0,"Hafif zaaf çok yolla giderilir; yalancı ve mevzû' bunun dışındadır (s.101–102)."],
+  ["Tek isnadlı hadis için “hasen sahîh” eserde nasıl yorumlanır?",["Müctehidin râvi hakkındaki tereddüdü (‘ev’ harfi atılmıştır); bu yüzden yalnız ‘sahîh’ten aşağıdadır","Hadisin mütevâtir olması","Hadisin mevzû' olması"],0,"Tereddüt: hasen ev sahîh. Kesinlik tereddütten güçlü olduğu için ‘sahîh’ daha üsttedir; çok isnadlıda tersi geçerlidir (s.61–62)."],
+  ["Tirmizî ‘hasen’ ile neyi kastettiğini açıklar?",["Yalanla itham edilmeyen, başka yoldan da gelen, şâz olmayan hadis","Yalnız Buhârî'nin tahric ettiği hadis","Mütevâtir hadis"],0,"<i>el-İlel</i> sonundaki açıklama (s.62)."]]},
+
+{id:7,bab:2,pg:"s.63–68",icon:"🔬",tr:"Ziyâdetü's-Sika, Mahfûz–Şâz, Ma'rûf–Münker",ar:"زِيَادَةُ الثِّقَةِ وَالشَّاذُّ",
+ goal:"Sikanın ziyâdesinin ne zaman kabul edildiğini, şâz–mahfûz ve münker–ma'rûf ayrımını eserin örnekleriyle öğreneceksin.",
+ secs:[
+  {h:"Ziyâdetü's-sika (s.63–65)",p:"Sahih ve hasen râvinin yaptığı ilâve (<span class='ar'>وَزِيَادَةُ رَاوِيهِمَا - أَيِ الصَّحِيحِ وَالْحَسَنِ - مَقْبُولَةٌ مَا لَمْ تَقَعْ مُنَافِيَةً لِرِوَايَةِ مَنْ هُوَ أَوْثَقُ مِمَّنْ لَمْ يَذْكُرْ تِلْكَ الزِّيَادَةَ</span>), kendisinden daha sağlam olanın rivayetine <b>aykırı düşmediği sürece makbûldür</b>. İlâve aykırı değilse müstakil hadis hükmündedir; aykırıysa birini kabul diğerini reddetmeyi gerektirir ve <b>tercîh</b> yapılır. Dipnotta üç kısım gösterilir: aykırı olmayan (makbûl), sikaların rivayetine aykırı (şâz, merdûd), mukayyed-mutlak/âm-hâs gibi aykırılık sayılan (ihtilaflı). Mütekaddimîn imamları (Abdurrahmân b. Mehdî, Yahyâ el-Kattân, Ahmed, İbn Maîn, İbnü'l-Medînî, Buhârî, Ebû Zür'a, Ebû Hâtim, Nesâî, Dârakutnî) tercîhi esas alır; hiçbirinden ‘mutlak kabul’ bilinmez."},
+  {h:"Mahfûz ve şâz (s.66)",quote:[Q("فَإِنْ خُولِفَ بِأَرْجَحَ مِنْهُ لِمَزِيدِ ضَبْطٍ، أَوْ كَثْرَةِ عَدَدٍ، أَوْ غَيْرِ ذَلِكَ مِنْ وُجُوهِ التَّرْجِيحَاتِ، فَالرَّاجِحُ يُقَالُ لَهُ: الْمَحْفُوظُ، وَمُقَابِلُهُ، وَهُوَ الْمَرْجُوحُ، يُقَالُ لَهُ: الشَّاذُّ","Daha râcih biriyle (zabtın fazlalığı, sayının çokluğu veya başka tercih vecihleriyle) muhalefet edilirse râcih olana mahfûz, mukabili olan mercûha şâz denir.","s.66")]},
+  {p:"Muhalefet, zabtın fazlalığı, sayının çokluğu veya başka tercîh vecihleriyle değerlendirilir. Örnek: İbn Uyeyne → Amr b. Dînâr → Avsece → İbn Abbas yoluyla gelen “bir adam öldü, azat ettiği bir mevlâdan başka vâris bırakmadı” hadisi. Hammâd b. Zeyd aynı hadisi İbn Abbas'ı zikretmeden rivayet etti; Ebû Hâtim, adil ve zabtlı olmasına rağmen Hammâd'a karşı sayı bakımından <b>İbn Uyeyne'nin rivayetini</b> mahfûz saydı."},
+  {h:"Ma'rûf ve münker (s.67–68)",quote:[Q("وَإِنْ وَقَعَتِ الْمُخَالَفَةُ مَعَ الضَّعْفِ، فَالرَّاجِحُ يُقَالُ لَهُ: الْمَعْرُوفُ، وَمُقَابِلُهُ يُقَالُ لَهُ: الْمُنْكَرُ","Muhalefet zaaf ile birlikteyse râcihe ma'rûf, mukabiline münker denir.","s.67")]},
+  {p:"Örnek: İbn Ebî Hâtim'in Habîb b. Habîb ez-Zeyyât → Ebû İshâk → el-Eyzâr b. Hureys → İbn Abbas yoluyla merfû' rivayet ettiği “namazı kılan, zekâtı veren, haccedip oruç tutan, misafiri ağırlayan cennete girer” hadisi. Ebû Hâtim: bu hadis münkerdir; çünkü başka sikalar Ebû İshâk'tan <b>mevkûf</b> rivayet etmiştir, ma'rûf olan odur."},
+  {callout:"Şâzın ıstılahtaki muteber tanımı (s.67): <span class='ar'>أَنَّ الشَّاذَّ مَا رَوَاهُ الْمَقْبُولُ مُخَالِفًا لِمَنْ هُوَ أَوْلَى مِنْهُ</span>. <b>Şâz</b> ile <b>münker</b> arasında umûm-husûs min vech vardır (s.68): ikisi de muhalefette birleşir; şâzın râvisi sika veya sadûk, münkerin râvisi zayıftır. Bazılarının ikisini eşit tutması dikkatsizliktir."}],
+ ex:[],
+ mini:[
+  ["Sikanın ziyâdesi hangi şartla kabul edilir?",["Daha sağlam râvilerin rivayetine aykırı düşmemek","Hiçbir şart aramadan","Yalnız Buhârî rivayet etmişse"],0,"Eserdeki şart: münâfî olmaması (s.63)."],
+  ["Râcih rivayet ile mercûh rivayet nasıl adlanır (muhalefet makbûl râviler arasındaysa)?",["Mahfûz ve şâz","Ma'rûf ve münker","Mu'allak ve mürsel"],0,"Mahfûz–şâz (s.66)."],
+  ["Muhalefet zayıf râviyle birlikteyse mukabil ne olur?",["Münker","Şâz","Mevzû'"],0,"Râcih ma'rûf, mukabil münker (s.67)."],
+  ["Şâz ile münker arasındaki ilişki hangisidir?",["Umûm-husûs min vech","Tam eş anlamlı","Birbirinin tam zıttı"],0,"Her ikisi muhalefette birleşir, râvi durumunda ayrılır (s.68)."]]},
+
+{id:8,bab:2,pg:"s.68–71",icon:"🧲",tr:"Mütâbi', Şâhid ve İ'tibâr",ar:"الْمُتَابِعُ وَالشَّاهِدُ وَالِاعْتِبَارُ",
+ goal:"Destekleyen rivayetlerin türlerini ve bunları arama yöntemini eserin örnekleriyle öğreneceksin.",
+ secs:[
+  {h:"Mütâbi' (s.68–69)",p:"Ferd sanılan hadise, sonradan başka bir râvinin <b>aynı sahâbîden</b> rivayetle uyduğu bulunursa o rivayet mütâbi'dir. Mütâbaa iki derecelidir (<span class='ar'>إِنْ حَصَلَتْ لِلرَّاوِي نَفْسِهِ فَهِيَ التَّامَّةُ، وَإِنْ حَصَلَتْ لِشَيْخِهِ فَمَنْ فَوْقَهُ فَهِيَ الْقَاصِرَةُ</span>): ravinin <b>kendisi</b> için olursa <b>tâmme</b>; şeyhi veya daha üstündeki bir râvi için olursa <b>kâsıra</b>. Faydası hadisi <b>takviye</b> etmektir."},
+  {h:"Şâhid (s.70)",quote:[Q("وَإِنْ وُجِدَ مَتْنٌ يُرْوَى مِنْ حَدِيثِ صَحَابِيٍّ آخَرَ يُشْبِهُهُ فِي اللَّفْظِ وَالْمَعْنَى، أَوْ فِي الْمَعْنَى فَقَطْ، فَهُوَ الشَّاهِدُ","Başka bir sahâbînin hadisinden gelen, lafız ve mânâda veya yalnız mânâda ona benzeyen metin bulunursa o şâhiddir.","s.70")]},{p:"Başka bir sahâbîden gelen ve lafız-mânâ veya yalnız mânâ bakımından benzeyen metin <b>şâhid</b>dir. Bazıları mütâbaayı lafızla, şâhidi mânâyla sınırlar; bu terimler birbirinin yerine de kullanılır, asıl amaç takviyedir."},
+  {h:"İ'tibâr (s.70–71)",p:"İ'tibâr, ferd sanılan hadisin yollarını <b>câmi', müsned ve cüz</b> türü kitaplarda tarayarak mütâbi' olup olmadığını bulma işlemidir. İbnü's-Salâh i'tibârı mütâbaat ve şevâhidin bir kısmı sanmıştır; eser, i'tibârın bunların bir kısmı değil, onlara ulaşma <b>yöntemi</b> (<span class='ar'>هَيْئَةُ التَّوَصُّلِ إِلَيْهِمَا</span>) olduğunu söyler (s.70)."},
+  {h:"Örnek: Şâfiî'nin Mâlik rivayeti (s.69–70)",p:"Şâfiî <i>el-Umm</i>'de Mâlik → Abdullah b. Dînâr → İbn Ömer ile “ayın 29 olması, bulutlanırsa 30'a tamamlanması” hadisini rivayet eder. Bazıları Şâfiî'nin Mâlik'ten bu lafızda tek kaldığını sanmıştır; ancak <b>tâmme mütâbaa</b> vardır: Abdullah b. Mesleme el-Ka'nebî de Mâlik'ten rivayet etmiştir (Buhârî). <b>Kâsıra mütâbaa</b> örnekleri: Sahîh-i İbn Huzeyme ve Sahîh-i Müslim rivayetleri. <b>Şâhid</b> örneği: Nesâî'nin İbn Abbas'tan aynı hadisi, Buhârî'nin Ebû Hüreyre'den “Şa'bân'ı otuza tamamlayın” rivayeti (mânâ ile)."}],
+ ex:[],
+ mini:[
+  ["Mütâbaanın tâmme olması ne demektir?",["Râvinin kendisi için mütâbaa bulunması","Şeyhi için mütâbaa bulunması","Sahâbî için mütâbaa bulunması"],0,"Tâmme: râvinin kendisi için; kâsıra: şeyhi veya daha üstü için (s.69)."],
+  ["Şâhid ile mütâbi' arasında temel fark nedir?",["Şâhid başka sahâbîden gelir; mütâbi' aynı sahâbîden","Şâhid zayıf, mütâbi' sahihtir","Fark yoktur"],0,"Aynı sahâbî = mütâbi'; başka sahâbî = şâhid (s.70)."],
+  ["İbn Hacer'e göre i'tibâr nedir?",["Destekleyen yolları bulmak için hadis kitaplarını tarama yöntemi","Mütâbaanın bir türü","Zayıf hadisi atma yöntemi"],0,"İ'tibâr bir kısım değil, yöntemdir (s.70–71)."]]},
+
+{id:9,bab:2,pg:"s.71–75",icon:"⚖️",tr:"Hadislerin Çatışması: Muhkem, Muhtelif, Nâsih, Tercîh, Tevakkuf",ar:"الْمُحْكَمُ وَمُخْتَلِفُ الْحَدِيثِ",
+ goal:"Makbûl hadislerin birbirine aykırı göründüğünde izlenen adımları eserdeki sırayla öğreneceksin.",
+ secs:[
+  {h:"Muhkem (s.71)",p:"Makbûl hadis <b>amel edilen</b> ve <b>amel edilmeyen</b> olarak ikiye ayrılır. Ona karşı bir hadis çıkmazsa <b>muhkem</b>dir; örnekleri çoktur. Muârızı olursa: muârız makbûl ve dengi ise sıra aşağıdaki adımlardır; muârız merdûd ise zararı olmaz, kuvvetli olan zayıfın muhalefetinden etkilenmez."},
+  {h:"Adımlar (s.71–75)",table:[["Adım","Tanım ve eserdeki not"],
+   ["1. Cem' → <b>Muhtelifü'l-hadîs</b>","Zahiren çelişen, denk iki hadisin anlamı <b>zorlama olmadan</b> bağdaştırılabiliyorsa. Eser telifleri: Şâfiî <i>İhtilâfü'l-hadîs</i>, İbn Kuteybe <i>Te'vîlü muhtelifi'l-hadîs</i>, Tahâvî <i>Müşkilü'l-âsâr</i>"],
+   ["2. Nesih → <b>Nâsih–Mensûh</b>","Cem' mümkün değilse ve tarih biliniyorsa, sonraki öncekini kaldırır"],
+   ["3. <b>Tercîh</b>","Tarih bilinmiyorsa, mümkünse tercîh (metin veya isnad yönünden vecihler)"],
+   ["4. <b>Tevakkuf</b>","Tercîh de olmazsa iki hadisten birine amel etmekten durmak. Eser, ‘tevakkuf’ demeyi ‘düşme/çatışıp düşme’ (tesâkut) demekten <b>evlâ</b> bulur"]]},
+  {h:"Örnek: muhtelif (s.72)",p:"“<span class='ar'>لَا عَدْوَى وَلَا طِيَرَةَ</span>” (bulaşma yoktur) ile “<span class='ar'>فِرَّ مِنَ الْمَجْذُومِ فِرَارَكَ مِنَ الْأَسَدِ</span>” (cüzzamlıdan aslandan kaçar gibi kaç) ikisi de sahîhtir ve zahiren çelişir. İbnü's-Salâh'ın cem'i: hastalıklar kendiliğinden bulaştırmaz; Allah, hastayla yakınlaşmayı bulaşmaya sebep kılmıştır; ‘kaçma’ emri bulaşma ihtimaline karşı <b>sedd-i zerâî</b> yoludur. İbn Hacer bu cevabı güçlü bulur."},
+  {h:"Nesih nasıl bilinir? (s.73–74)",p:"Nesih: <span class='ar'>رَفْعُ تَعَلُّقِ حُكْمٍ شَرْعِيٍّ بِدَلِيلٍ شَرْعِيٍّ مُتَأَخِّرٍ عَنْهُ</span>, yani bir şer'î hükmün bağlanmasının, kendisinden sonra gelen şer'î delille kaldırılmasıdır (s.73). Üç yol: <b>(1)</b> nassın sarâhati — Büreyde hadisinde Peygamber'in “size kabir ziyaretini yasaklamıştım, artık ziyaret edin” demesi; <b>(2)</b> sahâbînin “bu sonradandır” demesi — “ateşte pişen şeyden abdest almamak, iki emrin sonuncusuydu”; <b>(3)</b> tarih bilgisiyle. Sahâbînin geç Müslüman olması veya geç rivayet etmesi nesih delili değildir; icmâ da nâsih değil, nesih'e delâlet eder."},
+  {quote:[Q("فَصَارَ مَا ظَاهِرُهُ التَّعَارُضُ وَاقِعًا عَلَى هَذَا التَّرْتِيبِ: الْجَمْعُ إِنْ أَمْكَنَ. فَاعْتِبَارُ النَّاسِخِ وَالْمَنْسُوخِ. فَالتَّرْجِيحُ إِنْ تَعَيَّنَ. ثُمَّ التَّوَقُّفُ عَنِ الْعَمَلِ بِأَحَدِ الْحَدِيثَيْنِ، وَالتَّعْبِيرُ بِالتَّوَقُّفِ أَوْلَى مِنَ التَّعْبِيرِ بِالتَّسَاقُطِ","Zahiren çatışan hadis şu sırada ele alınır: mümkünse cem'; sonra nâsih-mensûh; sonra tercîh; sonra iki hadisten birine amel etmekten tevakkuf. Tevakkuf demek, tesâkut demekten evlâdır.","s.75")]},{callout:"<b>Muhtelifü'l-hadîs</b> ile <b>müşkilü'l-hadîs</b> aynı değildir: müşkil, zahiri kâidelere, akla veya başka bir nassa aykırı görünen hadistir (s.71–72 dipnot)."}],
+ ex:[],
+ mini:[
+  ["Çatışan iki makbûl hadiste eserdeki sıra hangisidir?",["Cem' → nesih → tercîh → tevakkuf","Tercîh → cem' → nesih → tevakkuf","Tevakkuf → tercîh → cem' → nesih"],0,"İbn Hacer'in sırası bu şekildedir (s.71–75)."],
+  ["Eserde ‘tevakkuf’ ile ‘tesâkut’ arasında ne söylenir?",["Tevakkuf demek tesâkut demekten evlâdır","İkisi tamamen aynıdır","Tesâkut evlâdır"],0,"Tevakkuf evlâ ifadedir (s.75)."],
+  ["Tarihi bilinmeyen çatışmada, cem' de mümkün değilse ilk yapılacak iş?",["Tercîh etmek","Hemen tevakkuf","Nesih ilân etmek"],0,"Tercîh mümkünse yapılır; olmazsa tevakkuf (s.74–75)."],
+  ["Nesih nasıl anlaşılır?",["Nassın sarâhati, sahâbînin açıklaması veya tarihle","Hadisin kısa olmasıyla","Râvinin sayısıyla"],0,"Eserde üç yol sayılır (s.73–74)."]]},
+
+/* ---------------- BÂB 3 ---------------- */
+{id:10,bab:3,pg:"s.75–79",icon:"✂️",tr:"Sened Kopukluğu I: Mu'allak, Mürsel, Mu'dal, Munkatı'",ar:"السَّقْطُ مِنَ الْإِسْنَادِ",
+ goal:"Kopukluğun yerine göre dört türünü eserdeki tanım ve ihtilaflarıyla öğreneceksin.",
+ secs:[
+  {h:"Merdûdun iki sebebi (s.75–76)",p:"Hadisin reddi ya <b>senedden düşme (sakt)</b> ya da <b>râviye ta'n</b> sebebiyledir. Düşme; senedin başından musannifin tasarrufuyla, sonundan tâbiîden sonra veya başka yerden olabilir."},
   {h:"Şemalar",chains:[
    CH("Mu'allak: musannif tarafından senedin başından bir veya daha fazla râvi hazfedilmiş",[["Musannif","top"],["Şeyh","miss"],["Râvi A","miss"],["Râvi B",""],["Tâbiî",""],["Sahâbî",""],["Peygamber ﷺ","end"]]),
-   CH("Mürsel: tâbiîden sonra sahâbî düşmüş (“Rasûlullah buyurdu” der)",[["Musannif","top"],["Şeyh",""],["Râvi A",""],["Râvi B",""],["Tâbiî",""],["Sahâbî","miss"],["Peygamber ﷺ","end"]]),
-   CH("Mu'dal: senedin ortasında art arda iki veya daha fazla râvi düşmüş",[["Musannif","top"],["Şeyh",""],["Râvi A","miss"],["Râvi B","miss"],["Tâbiî",""],["Sahâbî",""],["Peygamber ﷺ","end"]]),
-   CH("Munkatı': ortada ardışık olmayan yer(ler)den râvi düşmüş",[["Musannif","top"],["Şeyh",""],["Râvi A",""],["Râvi B","miss"],["Tâbiî",""],["Sahâbî",""],["Peygamber ﷺ","end"]])]},
-  {h:"Gizli kopukluk",table:[["Terim","Tanım"],
-   ["Müdelles (تَدْلِيس)","Râvi, hocasından işitmediğini işitmiş gibi gösterir veya hocasının adını/lakabını gizler"],
-   ["Mürsel-i hafî","Muâsırı olduğu fakat görüşmediği kişiden rivayet eder"]]},
-  {callout:"Dikkat: <b>Mu'allak</b> başından, <b>mürsel</b> tâbiînin altında sahâbîden, <b>mu'dal</b> art arda iki ve fazla, <b>munkatı'</b> bunlar dışındaki ortadan düşme. Cumhura göre mürsel zayıftır, bazı mezhepler (örn. Hanefîler) belirli şartlarla kabul eder."}],
+   CH("Mürsel: tâbiîden sonra sahâbî düşmüş",[["Musannif","top"],["Şeyh",""],["Râvi A",""],["Râvi B",""],["Tâbiî",""],["Sahâbî","miss"],["Peygamber ﷺ","end"]]),
+   CH("Mu'dal: ortada art arda iki veya daha fazla râvi düşmüş",[["Musannif","top"],["Şeyh",""],["Râvi A","miss"],["Râvi B","miss"],["Tâbiî",""],["Sahâbî",""],["Peygamber ﷺ","end"]]),
+   CH("Munkatı': ardışık olmayan yerlerden düşme veya tek râvi düşmesi",[["Musannif","top"],["Şeyh",""],["Râvi A",""],["Râvi B","miss"],["Tâbiî",""],["Sahâbî",""],["Peygamber ﷺ","end"]])]},
+  {quote:[Q("فَالْأَوَّلُ: الْمُعَلَّقُ، سَوَاءٌ كَانَ السَّاقِطُ وَاحِدًا أَمْ أَكْثَرَ","Birincisi mu'allaktır; düşen bir de olsa daha çok da olsa.","s.76"),Q("وَالثَّانِي: وَهُوَ مَا سَقَطَ مِنْ آخِرِهِ مِنْ بَعْدِ التَّابِعِيِّ، هُوَ الْمُرْسَلُ","İkincisi, senedin sonundan, tâbiîden sonra düşen: mürseldir.","s.78"),Q("إِنْ كَانَ بِاثْنَيْنِ فَصَاعِدًا مَعَ التَّوَالِي، فَهُوَ الْمُعْضَلُ","Art arda iki veya daha fazla kişiyle ise mu'daldır.","s.79")]},{h:"Tanımlar (s.76–79)",table:[["Terim","Eserdeki anlam"],
+   ["Mu'allak","Senedin başından, musannifin tasarrufuyla bir veya daha fazla râvi düşmesi"],
+   ["Mürsel","Tâbiîden sonrası (sahâbî) düşmüş; tâbiî ‘Rasûlullah şöyle dedi’ der"],
+   ["Mu'dal","İki veya daha fazla râvinin <b>art arda</b> düşmesi"],
+   ["Munkatı'","Düşen iki râvi ardışık değilse (ayrı iki yerde) veya yalnız bir râvi (veya ikiden fazla ama ardışık olmayarak) düşmüşse"]]},
+  {h:"Mürsel'in hükmü (s.78–79)",p:"Düşenin sahâbî mi tâbiî mi, sika mı zayıf mı olduğu bilinmediği için ihtimaller vardır. Tâbiî yalnız sikadan irsal ediyorsa cumhur-ı muhaddisîn tevakkuf eder. <b>Mâlikî ve Kûfîler (Hanefîler)</b> mutlak kabul eder; <b>Şâfiî</b>, başka yoldan destekleniyorsa (müsned veya başka bir mürsel) kabul eder. Râvi sikadan başkasından irsal ediyorsa mürsel kabul edilmez."},
+  {h:"Buhârî'nin ta'lîkleri (s.77, dipnot)",p:"<i>Sahîh-i Buhârî</i>'de <b>cezm sîğasıyla</b> (“kâle fülân”) verilen ta'lîkte düşen kısım sahihtir; <b>temrîz sîğasıyla</b> verilen ta'lîk sahih olmayabilir. Müslim'de de ta'lîk edilmiş 12 hadis vardır ve hepsi sahih yollarla mevsûldür."},
+  {callout:"Dikkat: <b>maktû'</b> (tâbiîye ait söz; metin bahsi) ile <b>munkatı'</b> (senedde düşme; isnad bahsi) farklıdır (s.110)."}],
  ex:[],
  mini:[
-  ["Sahâbî düşerse hadis nasıl adlanır?",["Mürsel","Mu'dal","Mu'allak"],0,"Tâbiî doğrudan Hz. Peygamber'den nakleder: mürsel."],
-  ["Senedin ortasında art arda iki râvi düşmesi?",["Munkatı'","Mu'dal","Mu'allak"],1,"Art arda iki ve fazlası: mu'dal."],
-  ["Hocasından duymadığını duymuş gibi göstermek?",["İdrâc","Tedlîs","Kalb"],1,"Tedlîs."]]},
+  ["Senedin ortasında art arda iki râvi düşerse?",["Mu'dal","Munkatı'","Mu'allak"],0,"Art arda iki ve fazlası: mu'dal (s.79)."],
+  ["Sahâbî düşmüş ve tâbiî doğrudan Peygamber'e nispet ediyorsa?",["Mürsel","Mu'allak","Mudelles"],0,"Tâbiîden sonrası düşen: mürsel (s.78)."],
+  ["Mürsel hakkında Şâfiî'nin kabul şartı nedir?",["Başka bir yoldan desteklenmesi","Hiçbir şart aramaz","Her hâlde reddeder"],0,"Şâfiî destek bulunursa kabul eder (s.78)."],
+  ["Buhârî'de cezm sîğasıyla verilen ta'lîk hakkında ne denir?",["Düşen kısım sahihtir","Hiçbir hâlde sahih sayılmaz","Mevzû'dur"],0,"Cezm sîğası sahihlik delili; temrîz sîğası böyle değildir (s.77 dipnot)."]]},
 
-{id:8,bab:3,icon:"🚫",tr:"Râvinin Adâletine Ta'n",ar:"الطَّعْنُ فِي الْعَدَالَةِ",
- goal:"Yalan, yalanla itham, fısk, bid'at ve cehâlet kaynaklı kusurları ve ortaya çıkan terimleri tanıyacaksın.",
+{id:11,bab:3,pg:"s.79–83",icon:"🎭",tr:"Sened Kopukluğu II: Tedlîs ve Mürsel-i Hafî",ar:"الْمُدَلِّسُ وَالْمُرْسَلُ الْخَفِيُّ",
+ goal:"Açık ve gizli kopukluğu ayırıp tedlîs ile mürsel-i hafî arasındaki farkı ve karşılaşma (lika) şartını öğreneceksin.",
  secs:[
-  {h:"On sebep",p:"İbn Hacer, râviye yöneltilen ta'nın on sebebini iki gruba ayırır: <b>beşi adâlet</b>, <b>beşi zabt</b> ile ilgilidir. Bu derste adâlet grubu."},
-  {h:"Adâlete ta'n",table:[["Sebep","Sonuç (terim)","Tanım"],
-   ["Kizb (yalan)","Mevzû' (مَوْضُوع)","Hz. Peygamber'e uydurulmuş söz"],
-   ["Tuhme bi'l-kizb","Metrûk (مَتْرُوك)","Râvisi yalanla itham edilen"],
-   ["Fısk","Münker (مُنْكَر)","Fâsık/zayıf râvinin rivayeti (kullanımlar değişir)"],
-   ["Bid'at","—","Bid'atçı râvinin rivayeti: davetçi olup olmadığına göre değerlendirilir"],
-   ["Cehâlet","Mübhem / Meçhûl / Mestûr","Râvinin kim olduğunun bilinmemesi"]]},
-  {h:"Cehâlet derecesi",table:[["Terim","Durum"],["Mübhem","Adı zikredilmemiş (“bir adam” gibi)"],["Meçhûlü'l-ayn","Adı var; tek râvi rivayet etmiş"],["Meçhûlü'l-hâl / Mestûr","İki veya daha fazla râvi rivayet etmiş, ancak tevsik edilmemiş"]]},
-  {callout:"Mevzû' hadis, hadis diye <b>rivayeti haramdır</b>; ancak uydurma olduğunu belirterek uyarmak için nakledilebilir."}],
+  {h:"Açık ve gizli düşme (s.80)",p:"Düşme <b>açıktır</b> ise râvi ile hocası arasında ya muâsırlık yoktur ya da yetişmiş olsalar bile karşılaşma, icâzet veya vicâde yoktur; bunu anlamak için doğum, ölüm ve ilim talebi tarihleri bilinmelidir. <b>Gizli</b> düşmeyi ancak hâfız imamlar fark eder."},
+  {h:"Müdelles ve tedlîs",quote:[Q("سُمِّيَ بِذَلِكَ؛ لِكَوْنِ الرَّاوِي لَمْ يُسَمِّ مَنْ حَدَّثَهُ، وَأَوْهَمَ سَمَاعَهُ لِلْحَدِيثِ مِمَّنْ لَمْ يُحَدِّثْهُ بِهِ","Bu adı almasının sebebi, râvinin kendisine hadis anlatanı adlandırmaması ve hadisi anlatmamış olandan işitmiş gibi bir vehim uyandırmasıdır.","s.80")]},{p:"Râvi hocasının kimliğini söylemez veya <b>işitmediğini işitmiş gibi</b> gösterir (s.80). İki türü vardır: <b>Tedlîsü'l-isnâd</b> — muâsırından veya karşılaştığından işitmediğini işitmiş gibi rivayet etmek; <b>tedlîsü'ş-şuyûh</b> — hocasının adını, künyesini veya lakabını değiştirmek (dipnot, s.80)."},
+  {h:"Hükmü (s.81)",p:"Müdelles râvi “an”, “kâle” gibi ihtimalli sîğalarla rivayet edince hadis delil sayılmaz; <b>sarîh sîğa</b> (haddesenâ) kullanırsa kabul edilir (en doğru görüş). Dipnotta Ebû Avâne → A'meş → İbrâhîm et-Teymî → Ebû Zerr zincirinde A'meş'in İbrâhîm'den değil Hakîm b. Cübeyr'den aldığı örnek verilir."},
+  {h:"Mürsel-i hafî (s.81–82)",p:"Muâsırı olan ama <b>görüşmediği</b> kişiden rivayet eden râvinin hadisidir; arada bir vâsıta vardır. Tedlîs, râvinin görüştüğü kişiden rivayetiyle özelleşir; muâsır olup karşılaşması bilinmeyen için tedlîs değil mürsel-i hafî denir. Eserin ifadesi: <span class='ar'>أَنَّ التَّدْلِيسَ يَخْتَصُّ بِمَنْ رَوَى عَمَّنْ عُرِفَ لِقَاؤُهُ إِيَّاهُ، فَأَمَّا إِنْ عَاصَرَهُ وَلَمْ يُعْرَفْ أَنَّهُ لَقِيَهُ فَهُوَ الْمُرْسَلُ الْخَفِيُّ</span> (s.81)."},
+  {h:"Lika şartı (s.82)",p:"İbn Hacer'in tercihi, tedlîs için <b>karşılaşmanın (lika) şart</b> olmasıdır; yalnız muâsırlık yetmez. Delil: <b>muhadramûn</b> (Câhiliyye ve İslâm'ı idrak edip Peygamber'i görmeyenler; Ebû Osmân en-Nehdî, Kays b. Ebî Hâzim gibi) Peygamber'den rivayet edince <b>mürsel</b> sayılırlar; yalnız muâsırlık yeterli olsaydı mudellis sayılırlardı. Lika şartını Şâfiî, el-Bezzâr ve el-Hatîb de aranır; ‘el-mu'temed’ budur."},
+  {callout:"Karşılaştırma: <b>tedlîs</b> = karşılaştığı kişiden duymadığını duymuş gibi; <b>mürsel-i hafî</b> = muâsır olup karşılaşması olmayan kişiden rivayet."}],
  ex:[],
  mini:[
-  ["Hz. Peygamber'e uydurulan söz?",["Metrûk","Mevzû'","Münker"],1,"Mevzû' = uydurma."],
-  ["Adı belirtilmeyen râvi için hangisi?",["Mübhem","Müdrec","Maklûb"],0,"Mübhem: isimsiz râvi."],
-  ["Yalanla itham edilen râvinin hadisi?",["Metrûk","Mu'dal","Şâz"],0,"Tuhme bi'l-kizb → metrûk."]]},
+  ["Tedlîsü'ş-şuyûh nedir?",["Hocanın adını, künyesini veya lakabını değiştirmek","Hocayı tamamen düşürmek","Metni değiştirmek"],0,"Dipnotta iki tür belirtilir (s.80)."],
+  ["Muâsır olup görüşmediği kişiden rivayet eden râvinin hadisi?",["Mürsel-i hafî","Mu'dal","Maklûb"],0,"Mürsel-i hafî (s.81)."],
+  ["Muhadramûn Peygamber'den rivayet edince neden mürsel sayılır?",["Yalnız muâsırlık yeterli olsaydı mudellis sayılırlardı; bu yüzden lika şartı delili","Sahâbî oldukları için","Çocuk oldukları için"],0,"İbn Hacer'in lika şartı gerekçesi (s.82)."]]},
 
-{id:9,bab:3,icon:"🧠",tr:"Râvinin Zabtına Ta'n",ar:"الطَّعْنُ فِي الضَّبْطِ",
- goal:"Zabt ile ilgili kusurlardan doğan terimleri (muallel, müdrec, maklûb, muzdarib, şâz, muhtelit…) ayıracaksın.",
+{id:12,bab:3,pg:"s.83–88",icon:"🚫",tr:"Râviye Ta'n: On Sebep, Mevzû', Metrûk",ar:"الطَّعْنُ فِي الرَّاوِي",
+ goal:"Ta'nın on sebebini ve beş-beş dağılımını, mevzû' ve metrûk hadisi eserin sıralamasıyla öğreneceksin.",
  secs:[
-  {h:"Zabt kusurları",table:[["Terim","Tanım","Örnek durum"],
-   ["Muallel (مُعَلَّل)","Görünüşte sağlam, gizli bir kusurlu","İncelemeyle fark edilen vehm"],
-   ["Müdrec (مُدْرَج)","Râvinin kendi sözünü metne/ isnada katması","Açıklama sözü hadise karışmış"],
-   ["Maklûb (مَقْلُوب)","Sened veya metinde yer değiştirme","Râvi adlarının yerinin değişmesi"],
-   ["Muzdarib (مُضْطَرِب)","Eşit güçte, uzlaştırılamayan farklı rivayetler","Tercih edilemeyen iki anlatım"],
-   ["Musahhaf / Muharref","Nokta (tashîf) veya şekil (tahrîf) hatası","Harfin noktalaması değişir"],
-   ["Şâz (شَاذّ)","Makbûl râvinin daha güvenilirlere muhalefeti","Kalabalık sika bir şey söyler, o aksini"],
-   ["Muhtelit (مُخْتَلِط)","Hıfzı sonradan bozulan râvi","Ömrünün sonunda zabtı bozulan"]]},
-  {callout:"Zayıf râvi sikaya aykırı rivayet ederse <b>münker</b>; makbûl râvi daha güvenilir sikaya aykırı rivayet ederse <b>şâz</b> olur."}],
+  {h:"On sebep (s.83–85)",quote:[Q("ثُمَّ الطَّعْنُ يَكُونُ بِعَشَرَةِ أَشْيَاءَ بَعْضُهَا أَشَدُّ فِي الْقَدْحِ مِنْ بَعْضٍ، خَمْسَةٌ مِنْهَا تَتَعَلَّقُ بِالْعَدَالَةِ، وَخَمْسَةٌ تَتَعَلَّقُ بِالضَّبْطِ","Ta'n on şeyle olur; bazısı bazısından daha ağır kusurdur; beşi adâletle, beşi zabtla ilgilidir.","s.83")]},{p:"Ta'n <b>on şeyle</b> olur; bazıları diğerlerinden daha ağır kusurdur. <b>Beşi adâlete</b>, <b>beşi zabta</b> aittir. Eserin sayış sırası: <b>1) kizb, 2) tühmet bi'l-kizb, 3) fuhşü'l-galat, 4) gaflet, 5) fısk, 6) vehm, 7) muhalefetü's-sikât, 8) cehâlet, 9) bid'at, 10) sû'ü'l-hıfz</b> (s.83–84, 95–101)."},
+  {h:"Beş-beş dağılım (s.83 dipnot)",table:[["Adâlete ta'n","Zabta ta'n"],["Kizb (yalan)","Fuhşü'l-galat (çok yanlış)"],["Tühmet bi'l-kizb","Gaflet"],["Fısk","Vehm"],["Cehâlet","Muhalefetü's-sikât"],["Bid'at","Sû'ü'l-hıfz"]]},
+  {h:"Mevzû' (s.85–87)",quote:[Q("فَالْقِسْمُ الْأَوَّلُ وَهُوَ الطَّعْنُ بِكَذِبِ الرَّاوِي فِي الْحَدِيثِ النَّبَوِيِّ ﷺ هُوَ الْمَوْضُوعُ","Birinci kısım, râvinin Peygamber hadisinde yalan söylemesiyle ta'ndır: mevzû'dur.","s.85")]},{p:"Râvinin Peygamber hadisinde <b>kasten yalan söylemesi</b> mevzû'dur. Mevzû'luk <b>galip zanla</b> hükmedilir (kat'î değil): kuvvetli karîneler ve ilim ehlinin melekesiyle, bazen vâzı'in ikrarıyla anlaşılır. Karineler hem râvinin hâlinden hem rivayetin içeriğinden gelir (Kur'ân'a, mütevâtir sünnete, kat'î icmâya veya akla açıkça aykırı olması gibi). Vâzı'lık sebepleri arasında zındıklık, cehâlet, taassup, ileri gelenleri memnun etme ve şöhret sayılır; Kerrâmiyye ve bazı mutasavvıfların terğib-terhîb için uydurmayı mubah saymaları hatalıdır."},
+  {p:"Peygamber'e kasten yalan söylemek büyük günahlardandır. Müslim'de şu hadis anılır: “<span class='ar'>مَنْ حَدَّثَ عَنِّي بِحَدِيثٍ يُرَى أَنَّهُ كَذِبٌ فَهُوَ أَحَدُ الْكَاذِبِينَ</span>”."},
+  {h:"Metrûk (s.87)",quote:[Q("وَالْقِسْمُ الثَّانِي مِنْ أَقْسَامِ الْمَرْدُودِ: وَهُوَ مَا يَكُونُ بِسَبَبِ تُهْمَةِ الرَّاوِي بِالْكَذِبِ هُوَ الْمَتْرُوكُ","Merdûdun ikinci kısmı, râvinin yalanla itham edilmesi sebebiyle olan: metrûktür.","s.87")]},{p:"Râvisinin <b>yalanla itham edildiği</b> hadistir (tühmet bi'l-kizb): hadis yalnız ondan bilinir, kâidelere aykırıdır veya sohbetinde yalanla tanınmıştır."},
+  {callout:"Eserin sırası “şiddet” sırasıdır: önce kizb (mevzû'), sonra tühmet (metrûk); ardından fuhşü'l-galat, gaflet ve fısk (bunlar için münker), sonra vehm (muallel) gelir."}],
  ex:[],
  mini:[
-  ["Râvinin kendi sözünü hadise katması?",["Müdrec","Şâz","Mübhem"],0,"İdrâc."],
-  ["Eşit güçte, çelişen ve tercih edilemeyen rivayetler?",["Muzdarib","Muhkem","Müsel sel"],0,"Muzdarib."],
-  ["Hafızası ömrünün sonunda bozulan râvi?",["Muhtelit","Mübhem","Mestûr"],0,"Muhtelit."]]},
+  ["Ta'nın on sebebi hangi gruplara ayrılır?",["5 adâlet, 5 zabt","3 adâlet, 7 zabt","Hepsi zabt"],0,"Beşi adâlete, beşi zabta aittir (s.83)."],
+  ["Mevzû' hadise hangi türden bir hükmle karar verilir?",["Galip zan","Kat'î kesinlik","Hiçbir hüküm verilmez"],0,"Karîneler ve ilim ehlinin melekesiyle galip zan (s.85)."],
+  ["Metrûk nedir?",["Râvisi yalanla itham edilen hadis","Râvisi isimsiz hadis","Râvisi hâfız olan hadis"],0,"Tühmet bi'l-kizb (s.87)."],
+  ["Eserin sıralamasında sekizinci ta'n sebebi hangisidir?",["Cehâlet","Bid'at","Sû'ü'l-hıfz"],0,"8 cehâlet, 9 bid'at, 10 sû'ü'l-hıfz (s.95–101)."]]},
 
-{id:10,bab:4,icon:"🧲",tr:"Mütâbi', Şâhid ve İ'tibâr",ar:"الْمُتَابِعُ وَالشَّاهِدُ",
- goal:"Bir hadisi destekleyen rivayetleri bulma yöntemini ve mütâbi' ile şâhid farkını öğreneceksin.",
+{id:13,bab:3,pg:"s.88–95",icon:"🧠",tr:"Zabta Ta'n ve Muhalefet: Münker, Muallel, Müdrec, Maklûb, Mezîd, Muztarib, Musahhaf",ar:"الْمُخَالَفَةُ وَالْوَهْمُ",
+ goal:"Vehm ve muhalefetten doğan terimleri tanımlarıyla, ayrıca rivayet bi'l-ma'nâ, ihtisâr ve garîbü'l-hadîs bahislerini öğreneceksin.",
  secs:[
-  {h:"Tanımlar",table:[["Terim","Tanım"],
-   ["Mütâbi' (مُتَابِع)","Aynı sahâbîden gelen başka bir yol (aynı râvinin hocasından veya daha üstten)"],
-   ["Şâhid (شَاهِد)","Başka bir sahâbîden gelen, mânâca destekleyen rivayet"],
-   ["İ'tibâr (اعْتِبَار)","Destekleyen yol var mı diye hadis kitaplarında arama işlemi"]]},
-  {h:"Neden önemli?",p:"Mütâbi' ve şâhid, zayıf bir hadisi <b>güçlendirebilir</b>: hasen li-gayrihi ve sahîh li-gayrihi bu desteğin ürünüdür. Garîb görünen bir hadisin başka yolu bulunursa garîblik giderilir."},
-  {callout:"Aynı sahâbî → <b>mütâbi'</b>. Başka sahâbî → <b>şâhid</b>. Aramanın adı <b>i'tibâr</b>."}],
+  {h:"Münker ve muallel (s.88)",p:"Münker iki kullanımda anılır: zayıf râvinin sikaya muhalefeti (önceki ders) ve muhalefet şartı aranmaksızın, fuhşü'l-galat, gaflet veya fısk sahibi râvinin hadisi. <b>Mu'allel</b>: vehm (6. sebep), karînelerle fark edilen hadistir — mürsel veya munkatı'nın mevsûl gösterilmesi, bir hadisin başka hadise karışması gibi. İllet çok tetkik ve yolların toplanmasıyla anlaşılır; bu, hadis ilimlerinin en gizlilerindendir."},
+  {quote:[Q("إِنْ كَانَتْ وَاقِعَةً بِسَبَبِ تَغْيِيرِ السِّيَاقِ، أَيْ سِيَاقِ الْإِسْنَادِ، فَالْوَاقِعُ فِيهِ ذَلِكَ التَّغْيِيرُ هُوَ مُدْرَجُ الْإِسْنَادِ","Muhalefet isnadın siyâkındaki değişiklikten doğmuşsa, bu değişikliğin vâki olduğu rivayet müdrecü'l-isnâddır.","s.89"),Q("أَوْ إِنْ كَانَتِ الْمُخَالَفَةُ بِتَقْدِيمٍ أَوْ تَأْخِيرٍ أَيْ فِي الْأَسْمَاءِ كَمُرَّةَ بْنِ كَعْبٍ وَكَعْبِ بْنِ مُرَّةَ ... فَهَذَا هُوَ الْمَقْلُوبُ","Muhalefet, isimlerde takdim-te'hîr iledir; Mürre b. Ka'b ile Ka'b b. Mürre gibi: işte bu maklûbtur.","s.91"),Q("أَوْ كَانَتِ الْمُخَالَفَةُ بِإِبْدَالِهِ أَيِ الرَّاوِي، وَلَا مُرَجِّحَ لِإِحْدَى الرِّوَايَتَيْنِ عَلَى الْأُخْرَى، فَهَذَا هُوَ الْمُضْطَرِبُ","Muhalefet râvinin değiştirilmesiyle olur ve iki rivayetten birini diğerine üstün kılan bir tercih sebebi bulunmazsa: bu muztaribdir.","s.91")]},{h:"Muhalefet (7. sebep) türleri (s.89–93)",table:[["Terim","Eserdeki anlam"],
+   ["Müdrecü'l-isnâd","Senedin siyâkı değişir: bir râvi farklı isnadları tek isnada toplar veya metnin bir kısmını farklı isnadla alıp tek isnada indirger, ya da isnad sunarken araya giren sözü metin sanır"],
+   ["Müdrecü'l-metin","Metne ondan olmayan söz karışır (genellikle sonda); örnek: kölenin iki ecri hadisinde “annem” sözü Ebû Hüreyre'nindir, çünkü Peygamber'in annesinden söz etmesi imkânsızdır"],
+   ["Maklûb","İsim veya lafızlarda takdim-te'hîr: Mürre b. Ka'b ↔ Ka'b b. Mürre; metinde: yedi gölgelenen hadisinde “sağ el verdiğini sol el bilmesin” sözü ters rivayet edilmiştir"],
+   ["Mezîd fî muttasıli'l-esânîd","Senedin ortasına bir râvi ziyade edilmiş; ziyadesiz rivayet edenler daha sağlamsa ziyade hata sayılır"],
+   ["Muztarib","Eşit güçte farklı rivayetler; tercih ve cem' mümkün değil"],
+   ["Musahhaf","Nokta değişikliği (tashîf); <b>muharref</b>: şekil/hareke değişikliği (tahrîf)"]]},
+  {callout:"İdrâc şu yollarla anlaşılır: müfassal rivayet, râvinin kendi açıklaması, imamların nassı veya Peygamber'in böyle söylemesinin imkânsızlığı (s.90). Hadisin zayıflığı yalnız idrâc nedeniyleyse asıl sahih olan zarar görmez."},
+  {h:"İmtihân ve kasıtlı ibdâl (s.92)",p:"Râvinin hıfzını sınamak için isnad veya metni <b>kasten değiştirmek</b> ihtiyaç bitince bırakılmalıdır. Buhârî'nin Bağdat'ta yüz hadis ile sınanması ve doğrusunu söylemesi örnek verilir. Maslahatsız veya iğrâb için yapılırsa mevzû' kısmına girer; yanlışlıkla olursa maklûb veya mu'allel olur."},
+  {h:"İhtisâr, rivayet bi'l-ma'nâ, garîbü'l-hadîs (s.93–95)",p:"<b>Hadisi kısaltmak (ihtisâr)</b> çoğuna göre câizdir; şartı ihtisar edenin âlim olması, kalan kısmın hükmünü ve delâletini bozmamasıdır. <b>Rivayet bi'l-ma'nâ</b> çoğuna göre câizdir; en kuvvetli delil, şeriatı Arapça bilmeyenlere kendi dilleriyle anlatmanın icmâsıdır; yine de lafızla rivayet evlâdır, Kâdî Iyâz kapıyı kapatmayı ister (hadisler kitaplara kaydedildiği için ruhsat ihtiyacı kalmadı). <b>Garîbü'l-hadîs</b> metindeki kapalı lafızlardır (ferd anlamındaki garîb hadisle karıştırılmamalı); eserleri: Ebû Ubeyd el-Kâsım b. Sellâm, Zemahşerî <i>el-Fâik</i>, İbnü'l-Esîr <i>en-Nihâye</i>."}],
+ ex:[EX("وَرَجُلٌ تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا حَتَّى لَا تَعْلَمَ شِمَالُهُ مَا تُنْفِقُ يَمِينُهُ","Sağ elinin verdiğini sol eli bilmeyecek kadar gizli sadaka veren adam.","Maklûb örneği (s.90)","Doğru rivayet budur (Sahîhayn). Müslim'deki Ebû Hüreyre hadisinde ibare ters rivayet edilmiştir; bu, metinde kalbe (maklûb) örnektir.")],
+ mini:[
+  ["Mürre b. Ka'b yerine Ka'b b. Mürre denmesi hangi terime örnektir?",["Maklûb","Musahhaf","Muztarib"],0,"İsimlerde takdim-te'hîr: maklûb (s.91)."],
+  ["Râvinin kendi sözünü metne katması hangi terimdir?",["Müdrecü'l-metin","Maklûb","Muallel"],0,"Müdrecü'l-metin (s.90)."],
+  ["Nokta değişikliğinden doğan hataya ne denir?",["Tashîf (musahhaf)","Tahrîf (muharref)","İdtırâb"],0,"Nokta: musahhaf; hareke/şekil: muharref (s.92–93)."],
+  ["Rivayet bi'l-ma'nâ için eserdeki en kuvvetli delil nedir?",["Şeriatı Arapça bilmeyenlere kendi dilleriyle anlatmanın icmâsı","Hiçbir delil yoktur","Yalnız Hanefîler kabul eder"],0,"Delil bu icmâdır (s.93)."]]},
+
+{id:14,bab:3,pg:"s.95–101",icon:"🪞",tr:"Cehâlet, Bid'at, Sû'ü'l-Hıfz",ar:"الْجَهَالَةُ وَالْبِدْعَةُ وَسُوءُ الْحِفْظِ",
+ goal:"Râvinin bilinmemesinin nedenlerini ve türlerini, bid'atçı râvinin hükmünü, şâz-muhtelit ayrımını öğreneceksin.",
+ secs:[
+  {h:"Cehâlet (8. sebep) (s.95–98)",p:"İki sebepten doğar: <b>(1) Çok sıfatlı râvi</b> — isim, künye, lakap, sıfat, meslek, nisbe ile anılır; bunlardan birinin dışında zikredilince başka kişi sanılır. Örnek: Muhammed b. es-Sâ'ib el-Kelbî (Hammâd b. es-Sâ'ib, Ebû en-Nadr, Ebû Saîd, Ebû Hişâm diye anılır). <b>(2) Vuhdân</b> — az hadis rivayet eden, kendisinden yalnız bir kişi rivayet etmiş râvi (Müslim <i>el-Vuhdân</i> yazmıştır)."},
+  {quote:[Q("فَإِنْ سُمِّيَ الرَّاوِي، وَانْفَرَدَ رَاوٍ وَاحِدٌ بِالرِّوَايَةِ عَنْهُ، فَهُوَ مَجْهُولُ الْعَيْنِ كَالْمُبْهَمِ","Râvi adlandırılmış, fakat ondan yalnız bir râvi rivayet etmişse meçhûlü'l-aynıdır; mübhem gibi.","s.98"),Q("أَوْ إِنْ رَوَى عَنْهُ اثْنَانِ فَصَاعِدًا وَلَمْ يُوَثَّقْ، فَهُوَ مَجْهُولُ الْحَالِ، وَهُوَ الْمَسْتُورُ","Ondan iki veya daha fazla kişi rivayet etmiş ve tevsîk edilmemişse meçhûlü'l-hâldir; yani mestûrdur.","s.98")]},{h:"Üç cehâlet türü",table:[["Terim","Tanım","Hüküm"],
+   ["Mübhem","Râvinin adı zikredilmez (“bir adam”, “şeyh”, “filan”)","Adı bilinmedikçe hadisi kabul edilmez; ‘bana güvenilir biri anlattı’ demesi de yetmez. Örnek: ‘Hac her yıl mı?’ diyen kişi el-Akra' b. Hâbis'tir"],
+   ["Meçhûlü'l-ayn","İsmi bilinir, yalnız bir râvi ondan rivayet etmiştir","Tek râvi dışında biri onu tevsîk ederse sorun kalkar"],
+   ["Meçhûlü'l-hâl (mestûr)","İki veya daha fazla râvi ondan rivayet etmiş, fakat tevsîk edilmemiş","Cumhur reddeder; bir cemaat kabul eder; tahkîk: hâli açığa çıkana kadar tevakkuf"]]},
+  {h:"Bid'at (9. sebep) (s.99–100)",p:"Bid'at, Peygamber'den bilinene aykırı bir inancı inatla değil, bir tür şüpheyle benimsemektir. <b>Mükeffir bid'at</b> (küfrü gerektiren inanç): cumhur reddeder; muteber olan, dinden zorunlu olarak bilinen mütevâtir bir şeyi inkâr edenin rivayetinin reddedilmesidir. <b>Müfessik bid'at</b>: bir görüşe göre mutlak red, bir diğerine göre mutlak kabul, bir diğerine göre bid'atine <b>davet etmeyenin</b> rivayeti kabul edilir; davetçinin bid'atini destekleyen rivayeti reddedilir."},
+  {h:"Sû'ü'l-hıfz (10. sebep) (s.100–101)",p:"Sû'ü'l-hıfz, doğru yapma ihtimali hata ihtimalinden fazla olmayan râvidir; iki kısımdır: <b>(1) Lâzım</b> — her hâlinde kötü hıfzlı; bazı muhaddislere göre buna <b>şâz</b> denir. <b>(2) Târi'</b> — sonradan gelen: yaşlılık, körlük, kitaplarının yanması veya kaybolması sebebiyle hıfzı bozulan; bu <b>muhtelit</b>tir. Hükmü: ihtilâttan <b>önce</b> rivayet ettiği hadis ayırt edilebiliyorsa kabul edilir, edilemiyorsa tevakkuf. Örnek: Abdürrezzâk es-San'ânî (âmâ olduktan sonra)."}],
  ex:[],
  mini:[
-  ["Başka bir sahâbîden gelen destekleyici rivayet?",["Mütâbi'","Şâhid","Müdrec"],1,"Farklı sahâbî = şâhid."],
-  ["Destekleyici yol arama işlemine ne denir?",["Tedlîs","İ'tibâr","Tahammül"],1,"İ'tibâr."],
-  ["Mütâbi' ile şâhidi ayıran nedir?",["Sahâbînin aynı olup olmaması","Hadisin kısalığı","Râvi sayısı"],0,"Aynı sahâbî: mütâbi'. Başka sahâbî: şâhid."]]},
+  ["Sadece bir râvinin kendisinden rivayet ettiği, ismi bilinen râvi için hangi terim kullanılır?",["Meçhûlü'l-ayn","Meçhûlü'l-hâl","Mübhem"],0,"Tek râvi rivayet etmişse meçhûlü'l-ayn (s.98)."],
+  ["Mestûr nedir?",["İki veya daha fazla râvinin rivayet ettiği ama tevsîk edilmeyen râvi","İsmi bilinmeyen râvi","Yalancı râvi"],0,"Meçhûlü'l-hâl; tahkîk: hâli belli olana kadar tevakkuf (s.98)."],
+  ["Muhtelit kimdir?",["Hıfzı sonradan bozulan râvi","Hep kötü hıfzlı olan","İsimsiz râvi"],0,"Târi' sû'ü'l-hıfz (s.101)."],
+  ["Bid'atçı râvinin bid'atine davet etmemesi halinde bir görüşe göre hadisi?",["Kabul edilir","Her halükârda reddedilir","Mevzû' sayılır"],0,"Davet etmeyenin rivayeti bir görüşe göre kabul edilir (s.99–100)."]]},
 
-{id:11,bab:4,icon:"🎙️",tr:"Tahammül ve Edâ",ar:"التَّحَمُّلُ وَالْأَدَاءُ",
- goal:"Hadisin alınış yollarını (tahammül) ve nakil sîğalarını (edâ) tanıyacaksın.",
+/* ---------------- BÂB 4 ---------------- */
+{id:15,bab:4,pg:"s.102–111",icon:"🧭",tr:"Merfû', Mevkûf, Maktû'; Sahâbî ve Tâbiî; Müsned",ar:"الْمَرْفُوعُ وَالْمَوْقُوفُ وَالْمَقْطُوعُ",
+ goal:"Isnad ve metni, sarih ve hükmen merfû'yu, sahâbî ve tâbiî tanımlarını ve müsnedi eserin kayıtlarıyla öğreneceksin.",
  secs:[
-  {h:"Tahammül yolları",table:[["Yol","Arapça","Anlamı"],
-   ["Semâ'","السَّمَاعُ","Şeyhten dinlemek"],
-   ["Arz (kırâat)","الْعَرْضُ","Talebe şeyhe okur, şeyh dinler"],
-   ["İcâzet","الْإِجَازَةُ","Şeyh rivayet izni verir"],
-   ["Münâvele","الْمُنَاوَلَةُ","Şeyh yazılı nüshayı verir"],
-   ["Mükâtebe","الْمُكَاتَبَةُ","Yazışmayla"],
-   ["İ'lâm","الْإِعْلَامُ","Şeyh “bu benim rivayetim” diye bildirir"],
-   ["Vasiyyet","الْوَصِيَّةُ","Vasiyet yoluyla kitabı bırakmak"],
-   ["Vicâde","الْوِجَادَةُ","Şeyhin yazısını bulmak"]]},
-  {h:"Edâ sîğaları",p:"<b>Haddesenî</b> (<span class='ar'>حَدَّثَنِي</span>) tek kişiye, <b>haddesenâ</b> (<span class='ar'>حَدَّثَنَا</span>) birden fazla kişiye dinletmeyi; <b>ahberanî</b> (<span class='ar'>أَخْبَرَنِي</span>) çoğunlukla arz yoluyla okunmayı; <b>en'ebenî</b> (<span class='ar'>أَنْبَأَنِي</span>) icâzeti anlatır. <b>An</b> (<span class='ar'>عَنْ</span>) muhtemel bir sîğadır; muasır olup görüştüğü bilinen râvide muttasıl sayılır."},
-  {h:"Müsel sel",p:"Râvilerin, sîğa veya hâllerde hepsinin aynı yöntemi izlediği zincirdir: <span class='ar'>أَشْهَدُ بِاللَّهِ لَقَدْ حَدَّثَنِي فُلَانٌ</span> ibaresinin her râviyle tekrarlanması bir musalsel örneğidir."},
-  {callout:"Sıralamada genellikle semâ', arz ve icâzetin kuvvet dereceleri tartışılır; yine de <b>semâ'</b> en yaygın ve en güçlü kabul edilir."}],
- ex:[EX("أَشْهَدُ بِاللَّهِ لَقَدْ حَدَّثَنِي فُلَانٌ","Allah'a yemin ederim ki bana filan hadis rivayet etti.","Müsel sel örneği","Kitapta, aynı söz biçiminin tüm râvilerde tekrarlanmasına örnek olarak gösterilir.")],
+  {h:"İsnad ve metin (s.102)",p:"<b>İsnad</b> metne ulaştıran yoldur; <b>metin</b> isnadın sonunda ulaştığı sözdür. Metin açısından kabul-ret bahsi burada tamamlanır; sonrası isnadın Peygamber'e, sahâbîye veya tâbiîye ulaşmasına göre kısımlardır."},
+  {quote:[Q("ثُمَّ الْإِسْنَادُ: وَهُوَ الطَّرِيقُ الْمُوَصِّلَةُ إِلَى الْمَتْنِ ... وَالْمَتْنُ: هُوَ غَايَةُ مَا يَنْتَهِي إِلَيْهِ الْإِسْنَادُ مِنَ الْكَلَامِ","İsnad, metne ulaştıran yoldur; metin, isnadın sonunda ulaştığı sözdür.","s.102")]},{h:"Üç nispet (s.102, 109–110)",table:[["Tür","Nereye ulaşır?","Not"],
+   ["Merfû'","Peygamber'e","İsnad muttasıl olsun olmasın (s.110)"],
+   ["Mevkûf","Sahâbîye","‘mevkûf alâ fülân’ da denir; ‘eser’ de denir"],
+   ["Maktû'","Tâbiîye (ve daha aşağıya)","Metin bahsidir; <b>munkatı'</b> (isnad bahsi) ile karıştırılmaz"]]},
+  {h:"Sarîh ve hükmen merfû' (s.102–107)",p:"<b>Sarîh kavlî</b>: sahâbî “Rasûlullah'tan işittim”, “Rasûlullah buyurdu” der. <b>Sarîh fiilî</b>: “Rasûlullah'ı şöyle yaparken gördüm”. <b>Sarîh takrîrî</b>: “Peygamber'in huzurunda şöyle yapıldı” ve inkârı zikredilmez. <b>Hükmen merfû' kavlî</b>: sahâbînin (İsrâiliyyâttan almadığı) ictihada yer olmayan sözü — yaratılışın başlangıcı, geçmiş nebîlerin haberleri, fiten, kıyamet hâlleri, belli fiile belli sevap-ceza haberi. <b>Hükmen merfû' takrîrî</b>: “Vahyin indiği dönemde şöyle yapardık” (Câbir ve Ebû Saîd'in azl hadisi: “Kur'ân iniyorken azlediyorduk”)."},
+  {p:"<b>Sîğa ilhakları</b>: sahâbînin “sünnetten şudur”, “emrolunduk”, “yasaklandık” demesi; tâbiînin “raf' eder”, “yebluğu bihî”, “yenmîhi”, “rivâyeten” gibi kinâye sîğaları; “Kim şüpheli günü oruçla geçirirse Ebü'l-Kâsım'a (s.a.v.) isyan etmiştir” (Ammâr)."},
+  {h:"Sahâbî tanımı ve kayıtları (s.107–108)",quote:[Q("وَهُوَ مَنْ لَقِيَ النَّبِيَّ ﷺ مُؤْمِنًا بِهِ، وَمَاتَ عَلَى الْإِسْلَامِ، وَلَوْ تَخَلَّلَتْ رِدَّةٌ فِي الْأَصَحِّ","Sahâbî, Peygamber'i mümin olarak görüp İslâm üzere ölen kişidir; aradan irtidât geçse bile en sahih görüşe göre.","s.107")]},
+  {p:"<b>Lika</b> (karşılaşma) ‘görmek’ten evlâdır: görme engelli İbn Ümmü Mektûm da sahâbîdir. ‘<b>Mümin olarak</b>’ kaydı kâfirken görüp sonra görmeyenleri, ‘<b>ona</b>’ kaydı diğer nebîlere inananı; ‘<b>İslâm üzere ölen</b>’ kaydı mürtedleri (Ubeydullâh b. Cahş, İbn Hatal) dışarıda bırakır. Eş'as b. Kays örneği: mürted oldu, esir geldi, İslâm'a döndü; sahâbîliği kabul edilir. Sahâbîlik; tevâtür, istifâza, başka sahâbînin veya sika tâbiînin haber vermesi, kişinin kendi iddiası ile bilinir (s.109)."},
+  {h:"Tâbiî ve muhadram (s.109)",p:"<b>Tâbiî</b>: sahâbîyi mümin olarak gören kişidir (uzun sohbet şart değildir). <b>Muhadramûn</b>: Câhiliyye ve İslâm'ı idrak edip Peygamber'i görmeyenler; doğru görüş tâbiînin büyüklerinden sayılmalarıdır."},
+  {h:"Müsned (s.111)",quote:[Q("هُوَ مَرْفُوعُ صَحَابِيٍّ بِسَنَدٍ ظَاهِرُهُ الِاتِّصَالُ","Müsned, sahâbînin merfû'u, görünüşte muttasıl senedle olandır.","s.111")]},
+  {p:"‘Sahâbî’ kaydı tâbiî merfû'unu (mürsel, mu'dal, mu'allak) dışarıda bırakır; ‘zâhiruhu'l-ittisâl’ kaydı gizli inkıtâ' (tedlîs, muâsır irsâli) taşıyan hadisi dışlamaz. Hâkim ve Hatîb'in tanımları biraz farklıdır; İbn Abdilber'in geniş tanımı benimsenmemiştir."}],
+ ex:[EX("كُنَّا نَعْزِلُ وَالْقُرْآنُ يَنْزِلُ","Kur'ân iniyorken azlediyorduk.","Hükmen merfû' takrîrî (s.104)","Câbir ve Ebû Saîd'in sözüdür: vahyin indiği dönemde yapılan ve yasak olsaydı vahyin yasaklayacağı bir şeydir; bu yüzden merfû' hükmündedir."),
+     EX("مَنْ صَامَ الْيَوْمَ الَّذِي يُشَكُّ فِيهِ فَقَدْ عَصَى أَبَا الْقَاسِمِ ﷺ","Şüpheli günde oruç tutan, Ebü'l-Kâsım'a (s.a.v.) isyan etmiştir.","Ammâr sözü, hükmen merfû' (s.107)","Sahâbînin bir fiile ‘Peygamber'e isyan’ demesi merfû' hükmündedir; çünkü zâhiren Peygamber'den almıştır.")],
  mini:[
-  ["Talebenin şeyhe okuyup şeyhin dinlediği yöntem?",["Semâ'","Arz","Vicâde"],1,"Arz: talebe okur."],
-  ["Şeyhin yazısını bulma yolu?",["Vicâde","Münâvele","İ'lâm"],0,"Vicâde."],
-  ["‘Haddesenâ’ neyi bildirir?",["Birden fazla kişiye dinletmeyi","Yazışmayı","İcâzeti"],0,"Çoğul: birden fazla kişiye dinletme."]]},
+  ["Müsnedin tanımı hangisidir?",["Sahâbînin merfû'u, görünüşte muttasıl senedle","Tâbiînin sözü","Mürsel hadis"],0,"<span class='ar'>مَرْفُوعُ صَحَابِيٍّ بِسَنَدٍ ظَاهِرُهُ الِاتِّصَالُ</span> (s.111)."],
+  ["Sahâbî tanımında ‘ve lev tehallelet ridde’ ne demektir?",["Aradan irtidât geçse bile, İslâm'a dönüp ölen sahâbîdir","İrtidât sahâbîliği kesinlikle bitirir","Yalnız çocuklar için geçerlidir"],0,"En sahih görüşe göre ridde sahâbîliği düşürmez (s.107–108)."],
+  ["Maktû' ile munkatı' arasındaki fark nedir?",["Maktû' metin bahsidir (tâbiîye ait söz); munkatı' isnad bahsidir (düşme)","İkisi aynıdır","Maktû' mu'dal demektir"],0,"Eser ikisini ayırır (s.110)."],
+  ["‘Kunnâ nef'alu ke-zâ fî zamâni'n-Nebî’ sözü hangi hükümdedir?",["Hükmen merfû' (takrîrî)","Mevkûf","Maktû'"],0,"Vahyin indiği dönemde yapılan şeyin yasak olsaydı bildirileceği düşüncesi (s.104)."]]},
 
-{id:12,bab:4,icon:"👥",tr:"Cerh-Ta'dîl ve Râvilerin Tabakaları",ar:"الْجَرْحُ وَالتَّعْدِيلُ",
- goal:"Cerh-ta'dîl kavramını, sahâbî-tâbiî tanımlarını ve ricâl ilminin başlıca terimlerini öğrenip programı tamamlayacaksın.",
+{id:16,bab:4,pg:"s.111–120",icon:"🪜",tr:"Ulüvv–Nüzûl, Akrân, Sâbık–Lâhık, Müselsel, İnkâr-ı Râvî",ar:"الْعُلُوُّ وَالنُّزُولُ",
+ goal:"İsnadın çeşitli ilişkilerini (ulüvv, nüzûl, akrân, müdebbec, sâbık-lâhık, müselsel) eserdeki tanımlarla öğreneceksin.",
  secs:[
-  {h:"Cerh ve ta'dîl",p:"<b>Cerh</b>, bir râvinin kusurunun belirtilmesi; <b>ta'dîl</b> ise adil ve zâbıt olduğunun bildirilmesidir. Ta'dîl dereceleri “sika sika”dan “sika”, “sadûk”, “lâ be'se bih” ve “leyyin”e kadar iner; cerh dereceleri “zayıf”, “metrûk” ve “kezzâb”a kadar yükselir."},
-  {h:"Tabakalar",table:[["Terim","Tanım"],
-   ["Sahâbî (صَحَابِي)","Hz. Peygamber'i mümin olarak görüp mümin olarak vefat eden kişi"],
-   ["Tâbiî (تَابِعِي)","Bir sahâbîyi mümin olarak gören ve mümin olarak vefat eden kişi"],
-   ["Muttefik / Müfterik","Yazılışı ve okunuşu aynı olup farklı kişilere ait isimler"],
-   ["Mü'telif / Muhtelif","Yazılışı benzer, okunuşu farklı isimler"]]},
-  {h:"Sonuç: kabul testi",p:"Bir hadisi değerlendirirken sorulacak sorular: Râvisi <b>adil</b> mi? <b>Zâbıt</b> mı? Sened <b>muttasıl</b> mı? <b>Şâz</b> mı? <b>Illetli</b> mi? Beşi de olumluysa sahih, zabt hafifse hasen, aksi hâlde yukarıdaki ta'n çeşitlerinden birine girer."},
-  {callout:"Tebrikler! Son derse geldin. Şimdi <b>Sınav</b> sekmesine geç, oyunlarda puan topla ve rozetlerini aç."}],
+  {h:"Ulüvv ve nüzûl (s.112–114)",p:"<b>Ulüvv</b>, isnadda râvi sayısının azlığıdır. Ya Peygamber'e ya da hâfızlık, fıkıh, zabt veya tasnîf sahibi bir imama (Şu'be, Mâlik, Sevrî, Şâfiî, Buhârî, Müslim) kadar azdır. Sahih olması şartıyla <b>mutlak ulüvv</b> en yüksek hedeftir; mevzû' ise ulüvv sayılmaz. Gerekçe: her râviye hata ihtimali vardır, vâsıta çoğaldıkça ihtimal artar. <b>Nüzûl</b> ulüvvün zıddıdır. Râvi daha sika, hâfız veya fakîh ise nüzûl evlâ olabilir."},
+  {h:"Nisbî ulüvvün dört türü (s.113–114)",table:[["Tür","Anlamı"],["Muvâfaka","Musannifin şeyhine, kendi yolundan değil başka yoldan ulaşmak"],["Bedel","Musannifin şeyhinin şeyhine aynı biçimde ulaşmak"],["Musâvât","Isnadın râvi sayısının musannifin isnadıyla eşit olması (örnek: Nesâî 11 vasıtayla)"],["Musâfaha","Musannifin talebesiyle eşitlik; ‘sanki Nesâî ile karşılaşıp musâfaha etmişiz gibi’"]]},
+  {h:"Akrân ve müdebbec (s.114–116)",quote:[Q("فَإِنْ تَشَارَكَ الرَّاوِي وَمَنْ رَوَى عَنْهُ فِي أَمْرٍ مِنَ الْأُمُورِ الْمُتَعَلِّقَةِ بِالرِّوَايَةِ، مِثْلِ السِّنِّ وَاللُّقِيِّ وَالْأَخْذِ عَنِ الْمَشَايِخِ، فَهُوَ النَّوْعُ الَّذِي يُقَالُ لَهُ: رِوَايَةُ الْأَقْرَانِ","Râvi ile kendisinden rivayet edilen, yaş, karşılaşma veya şeyhlerden alma gibi bir konuda ortaksa buna akrân rivayeti denir.","s.114")]},
+  {p:"Karşılıklı rivayet edenlere <b>müdebbec</b> denir; her müdebbec akrândır, her akrân müdebbec değildir. <b>Ekâbirin esâgirden</b> rivayeti (örnek: Buhârî'nin Tirmizî'den rivayeti) kalb vehmini engeller. <b>Âbâ'nın ebnâ'dan</b> rivayeti de özel biçimidir."},
+  {h:"Sâbık ve lâhık (s.116–117)",p:"Bir şeyhten iki kişi rivayet eder; birinin vefatı diğerinden çok daha önce olur (aralarında yüz elli yıl bile olabilir)."},
+  {h:"Müselsel (s.119–120)",p:"Isnad râvilerinin rivayet <b>sîğalarında</b> (kavlî), <b>fiillerinde</b> (fiilî) veya her ikisinde aynı biçimi tekrarlamasıdır. Örnekler: “Semi'tü fülânen”, “ahberanâ”, “âmentü bi'l-kader” hadisi; en meşhuru “<b>el-evveliyye</b>” hadisidir (er-râhimûne yerhamühümü'r-rahmân), teselsül İbn Uyeyne'ye kadar sahihtir."},
+  {h:"İnkâr-ı râvî (s.118–119)",p:"Şeyh, kendisine nispet edilen hadisi <b>kesin olarak inkâr</b> ederse (‘ben bunu rivayet etmedim’), hadis reddedilir; ancak talebe cerhedilmez. <b>İhtimalî inkâr</b> (‘hatırlamıyorum’) olursa hadis en sahih görüşe göre kabul edilir. Dârakutnî <i>Men haddese ve nesiye</i> adlı eseri yazmıştır. Örnek: Süheyl'in, Rebî'a'nın kendisinden rivayetini unutması (şâhid ve yemîn hadisi)."}],
  ex:[],
  mini:[
-  ["Hz. Peygamber'i mümin olarak gören ve mümin olarak ölen?",["Tâbiî","Sahâbî","Tebeu't-tâbiîn"],1,"Sahâbî tanımı."],
-  ["Ta'dîl neyi bildirir?",["Râvinin kusurunu","Râvinin adil ve zâbıt oluşunu","Senedin kopukluğunu"],1,"Ta'dîl = övme/güven."],
-  ["Hangisi cerh derecelerindendir?",["Sika sika","Lâ be'se bih","Kezzâb"],2,"Kezzâb en şiddetli cerhlerdendir."]]}
+  ["Ulüvv nedir?",["Isnadda râvi sayısının az olması","Râvinin yaşça büyük olması","Metnin uzun olması"],0,"Ulüvv: râvi sayısının azlığı (s.112)."],
+  ["Musâfaha hangi nisbî ulüvv türüdür?",["Musannifin talebesiyle eşitlik","Musannifin şeyhiyle eşitlik","Musannifle ilgisiz"],0,"Musâfaha: musannifin talebesiyle eşit sayıda vâsıta (s.114)."],
+  ["Akrân rivayeti nedir?",["Yaş, karşılaşma veya şeyhlerden alma bakımından ortak olanların karşılıklı rivayeti","Çocukların babalarından rivayeti","Şeyhin talebesinden rivayeti"],0,"Eserdeki tanım (s.114)."],
+  ["Şeyh kesin olarak ‘ben bunu rivayet etmedim’ derse?",["Hadis reddedilir ama talebe cerhedilmez","Hadis kabul edilir","Hadis mevzû' olur"],0,"Kesin inkârda hadis reddedilir (s.118)."]]},
+
+{id:17,bab:4,pg:"s.120–126; 143–144",icon:"🎙️",tr:"Tahammül ve Edâ: Sekiz Yol, Sekiz Sîğa, An'ane",ar:"التَّحَمُّلُ وَالْأَدَاءُ",
+ goal:"Tahammül yollarını ve edâ sîğalarının derecelerini karıştırmadan öğrenecek, an'ane ihtilafını göreceksin.",
+ secs:[
+  {h:"Tahammül yolları (8) (dipnot, s.121)",table:[["#","Yol"],["1","Semâ' (şeyhten dinlemek)"],["2","Arz (kırâat; talebe okur, şeyh dinler)"],["3","İcâzet"],["4","Münâvele"],["5","Mükâtebe"],["6","İ'lâm"],["7","Vasiyyet"],["8","Vicâde"]]},
+  {h:"Edâ sîğalarının sekiz mertebesi (s.120–121)",p:"Eserde sîğalar şu sırayla anılır: <b>1)</b> “<span class='ar'>سَمِعْتُ</span>”, “<span class='ar'>حَدَّثَنِي</span>”; <b>2)</b> “<span class='ar'>أَخْبَرَنِي</span>”, “<span class='ar'>قَرَأْتُ عَلَيْهِ</span>”; <b>3)</b> “<span class='ar'>قُرِئَ عَلَيْهِ وَأَنَا أَسْمَعُ</span>”; <b>4)</b> “<span class='ar'>أَنْبَأَنِي</span>”; <b>5)</b> “<span class='ar'>نَاوَلَنِي</span>”; <b>6)</b> “<span class='ar'>شَافَهَنِي</span>” (icâzet ile); <b>7)</b> “<span class='ar'>كَتَبَ إِلَيَّ</span>” (icâzet ile); <b>8)</b> “<span class='ar'>عَنْ</span>” ve benzeri."},
+  {callout:"İki ayrı liste: <b>8 tahammül yolu</b> ve <b>8 edâ sîğası</b>. İkisini karıştırma."},
+  {h:"Bazı notlar (s.120–126)",p:"<b>Haddesenâ</b> çoğul olup başkasıyla birlikte dinlemeyi bildirir. <b>Arz</b> cumhurda tahammül yollarındandır; Irak ehli reddetmiş, Mâlik ve Medîneliler şiddetle inkâr etmiş, bazıları semâ'dan üstün tutmuştur (Buhârî: semâ' ve kırâat kuvvette eşittir). <b>İcâzet</b> semâ'dan aşağıdadır ama mu'dal'dan iyidir. <b>Münâvele</b> izinle birlikte olunca icâzet türlerinin en yükseğidir. <b>Vicâde</b>de “ahberanî” denemez, “vecedtü bi-hattı fülân” denir. <b>Vasiyyet</b>: eski imamların bir kısmı câiz görmüş, cumhur reddetmiş; <b>i'lâm</b>: bir çok muhaddis izinsiz de câiz görmüş."},
+  {h:"An'ane ihtilafı (s.122–123)",p:"Muâsırın “an” ile rivayeti, mürsel veya munkatı' olmaması için semâ'a hamledilir; şartı müdellis olmamasıdır. Metin (s.122): <span class='ar'>فَشَرْطُ حَمْلِهَا عَلَى السَّمَاعِ ثُبُوتُ الْمُعَاصَرَةِ، إِلَّا مِنَ الْمُدَلِّسِ</span>. Dipnotta bu, <b>muâsarenin sabit olması / karşılaşma imkânı</b> olarak açıklanır ve <b>Müslim</b>'in şartı olarak anılır. Ardından (s.123): <span class='ar'>وَقِيلَ: يُشْتَرَطُ ... ثُبُوتُ لِقَائِهِمَا ... وَلَوْ مَرَّةً وَاحِدَةً ... وَهُوَ الْمُخْتَارُ، تَبَعًا لِعَلِيِّ بْنِ الْمَدِينِيِّ وَالْبُخَارِيِّ</span> — yani <b>bir kez de olsa karşılaşmanın (lukâ) sübûtu</b> İbnü'l-Medînî ve Buhârî'ye tâbi olarak <b>el-muhtâr</b> görüştür."},
+  {h:"Tahammül yaşı (s.143–144)",p:"En sahih görüşe göre tahammülde <b>temyiz çağı</b> esas alınır. Kâfir tahammül edebilir, İslâm'dan sonra eda eder; fâsık da tahammül eder, tevbe ve adâleti sabit olunca eda kabul edilir."}],
+ ex:[],
+ mini:[
+  ["Eserde sîğaların en yüksek mertebesi hangisidir?",["Semi'tü / haddesenî","Ahberanî","‘An’"],0,"Birinci mertebe (s.120)."],
+  ["Nüzhe'de an'ane konusunda ‘el-muhtâr’ olarak seçilen görüş hangisidir?",["Bir kez de olsa karşılaşmanın (lukâ) sübûtu — İbnü'l-Medînî ve Buhârî","Yalnız muâsarenin imkânı","An'ane hiçbir durumda semâ' sayılmaz"],0,"<span class='ar'>وَهُوَ الْمُخْتَارُ</span>: karşılaşma sübûtu; muâsare imkânı ise dipnotta Müslim'in şartı olarak anılır (s.123)."],
+  ["Hangisi tahammül yollarından biri <b>değildir</b>?",["Kunnâ nef'alu","İcâzet","Vicâde"],0,"Tahammül yolları: semâ', arz, icâzet, münâvele, mükâtebe, i'lâm, vasiyyet, vicâde."],
+  ["Tahammülde yaş için en sahih görüş nedir?",["Temyiz çağı","Yirmi yaş","Kırk yaş"],0,"Eser, temyiz çağını esas alır (s.143)."]]},
+
+{id:18,bab:4,pg:"s.125–143",icon:"🏷️",tr:"İsim Bilgisi: Müttefik–Müfterik, Müelef–Muhtelif, Müteşâbih, Mühmel, Esmâ–Künâ–Ensâb",ar:"الْمُتَّفِقُ وَالْمُفْتَرِقُ",
+ goal:"Râvi isimlerinin karışmasını önleyen türleri tanımlarıyla ve örnekleriyle öğreneceksin.",
+ secs:[
+  {h:"Dört temel tür",table:[["Terim","Tanım","Örnek"],
+   ["Müttefik–müfterik (s.126)","İsimler, baba isimleri (veya daha fazlası) aynı; şahıslar farklı","Muhammed b. Ubeyd (16 râvi, dipnot)"],
+   ["Müelef–muhtelif (s.127)","Yazıda aynı, okunuşta farklı (nokta veya hareke yüzünden)","Hirâm–Harâm; Yezîd–Büreyd–Yüzeyd"],
+   ["Müteşâbih (s.128–129)","İsimler yazıda ve okunuşta aynı, babalar okunuşta farklı ama yazıda benzer (veya tersi)","Muhammed b. Uḳayl; Muhammed b. Sinân"],
+   ["Mühmel (s.117–118)","Aynı isimli iki râvi arasında ayrım yapılamıyor","Buhârî'de ‘Ahmed (gayr-i mensûb)’ → Ahmed b. Sâlih veya Ahmed b. Îsâ (ikisi de sika → zarar vermez)"]]},
+  {p:"<b>Mühmel</b> iki kişiyi tek sanmak, <b>müttefik–müfterik</b> ise bir kişiyi iki sanma veya iki kişiyi bir sanma korkusudur; ikisi birbirinin aksi gibidir (s.127). <b>Müteşâbih maklûb</b>: isim/baba ismi aynı harflerle ama sırası ters: el-Esved b. Yezîd ↔ Yezîd b. el-Esved; Eyyûb b. Seyyâr ↔ Eyyûb b. Yesâr (s.130)."},
+  {h:"Müelef–muhtelif telifleri (s.127–128)",p:"Ali b. el-Medînî: tashîfin en şiddetlisi isimlerdedir; kıyas girmez. Eser yazanlar: Ebû Ahmed el-Askerî, Abdülganî b. Saîd, Dârakutnî, Hatîb, İbn Mâkûlâ (<i>el-İkmâl</i>), İbn Nukta, ez-Zehebî (<i>el-Muştebih</i>). İbn Hacer'in kendi eseri: <i>Tebsîrü'l-Muntebih bi-tahrîri'l-Muştebih</i>."},
+  {h:"Esmâ, künâ, elkâb, ensâb, mevâlî (s.137–143)",p:"<b>Künye</b> bilgisi, kişinin künyesiyle meşhur olup ismi anılmadığında karışmayı önler (İbn Cüreyc'in Ebü'l-Velîd ve Ebû Hâlid künyeleri). <b>Nisbe</b>: babaya değil başkasına nispet (Mikdâd b. el-Esved'in asıl babası Amr; İsmâîl b. İbrâhîm b. Mıksem = İbn Uleyye, annesine nisbet). <b>Lakap</b>: övgü veya yergi bildirir (el-A'meş, el-A'rac). <b>Mevâlî</b>: itâk, hilf veya İslâm velâsı; ayırt etmek ancak nassla olur. <b>Ensâb</b>: kabîle, vatan, sanat (el-Hayyât). <b>Ricâl kitapları</b>: el-Kemâl (Abdülganî el-Makdisî), Mizzî'nin <i>Tehzîbü'l-Kemâl</i>, İbn Hacer'in <i>et-Tehzîb</i> (kısaltma)."}],
+ ex:[],
+ mini:[
+  ["Yazıda aynı, okunuşta farklı olan isimler için hangi terim kullanılır?",["Müelef–muhtelif","Müttefik–müfterik","Mühmel"],0,"Nokta/hareke farkı (s.127)."],
+  ["Aynı isim ve baba ismine sahip farklı şahıslar için hangi terim?",["Müttefik–müfterik","Müelef–muhtelif","Müteşâbih"],0,"Eserdeki tanım (s.126)."],
+  ["Buhârî'de ‘Ahmed (gayr-i mensûb)’ rivayeti hakkında eser ne der?",["İkisi de sika ise zarar vermez","Rivayet reddedilir","Mevzû' sayılır"],0,"Mühmel konusu (s.117)."],
+  ["Mikdâd b. el-Esved örneğinde Mikdâd'ın asıl babası kimdir?",["Amr","Esved","Yezîd"],0,"Esved onu evlât edinmiş (s.138)."]]},
+
+{id:19,bab:4,pg:"s.130–146",icon:"👥",tr:"Hâtime: Tabakât, Cerh–Ta'dîl Mertebeleri ve Hükümleri, Âdâb",ar:"الْجَرْحُ وَالتَّعْدِيلُ",
+ goal:"Tabakâtü'r-ruvât ile cerh-ta'dîl mertebelerinin farklı konular olduğunu, tezkiye hükümlerini ve kitabın son bahislerini öğreneceksin.",
+ secs:[
+  {h:"Tabakâtü'r-ruvât (s.130–132)",p:"<b>Tabaka</b>, yaş ve şeyhlerle karşılaşmada ortak olan topluluktur. Faydaları: müteşâbihlerin karışmasından emin olmak, müdellisleri ayırmak, an'anenin gerçek muradına vâkıf olmak. Bir kişi iki tabakada sayılabilir (Enes b. Mâlik: sahâbîlik bakımından bir, küçük yaşı bakımından başka tabaka). Tabakât yazarı: Muhammed b. Sa'd (<i>et-Tabakâtü'l-kübrâ</i>). Ayrıca <b>tarih</b> (doğum-ölüm) yalancı karşılaşma iddialarından emin olmayı, <b>evtân</b> (memleket) aynı isimli kişileri ayırmayı sağlar."},
+  {h:"Sikât ve du'afâ kitapları (s.132, 139)",p:"Sikât ve du'afâyı birlikte yazanlar: Buhârî <i>et-Târîhu'l-kebîr</i>, İbn Ebî Hâtim <i>el-Cerh ve't-ta'dîl</i>; yalnız sikâtı yazanlar: İclî, İbn Hibbân; yalnız du'afâyı yazan: İbn Adî <i>el-Kâmil</i>."},
+  {h:"Cerh mertebeleri (s.133)",p:"En kötü cerh, mübalağa ifade eden ve en açığı <b>ef'al kalıbı</b> olan ifadedir (“ekzebü'n-nâs”, “ileyhi'l-müntehâ fi'l-vad'”); sonra “dedcâl, vazzâ', kezzâb”. Orta: “metrûk, sâkıt, fâhişü'l-galat, münkerü'l-hadîs”; daha hafif: “zayıf, leyse bi'l-kavî, fîhi makāl”. En hafifi: “leyyin, seyyiü'l-hıfz”. Itr'in dipnotundaki altı mertebe: 1) fîhi makāl, zayıf; 2) lâ yuhtecc bihî; 3) reddü hadîsihî, vâhin bi-merre; 4) yesrikü'l-hadîs, müttehem, sâkıt; 5) dedcâl, kezzâb, vazzâ'; 6) ekzebü'n-nâs. İlk iki mertebe i'tibâr içindir; diğerleri delil de, i'tibâr da olmaz."},
+  {h:"Ta'dîl mertebeleri (s.134)",p:"En yüksek, ef'al kalıbıyla mübalağa ifadesidir: “evsekü'n-nâs”, “esbetü'n-nâs”, “ileyhi'l-müntehâ fi's-sebât”; sonra tekrar veya iki sıfat: “sika sika”, “sika sebt”, “sika hâfız”. En aşağısı cerhe yakın “şeyh, yürvâ hadîsühû ve yu'teberu bih”. Itr'in altı mertebesinde ilk dördü delil olur; beşinci (lâ be'se bih, sadûk) ve altıncı (şeyh) i'tibâr için yazılır."},
+  {h:"Cerh–ta'dîlin hükümleri (s.134–137)",p:"<b>Tezkiye</b> (ta'dîl), sebeplerini bilen âriften kabul edilir; <b>tek kişinin</b> ta'dîli yeter (şehâdet gibi iki isteyenlere muhalefetle). Tezkiye hâkim hükmüne benzer, bu yüzden sayı şart değildir. Cerh ve ta'dîl ancak uyanık, âdil kişiden kabul edilir. <b>Cerh ta'dîle takdim edilir</b> (cumhur): cerh, sebebi açıklanmışsa (<b>mufesser</b>) ve ârifden gelmişse kabul edilir. Ta'dîli olmayan kişiye ait <b>mücmel</b> (sebebi belirtilmemiş) cerh, bir görüşe göre kabul edilir; çünkü ta'dîli yoksa meçhûl hükmündedir. İbnü's-Salâh mücmel cerhte tevakkufa meyleder. Nesâî mezhebi: herkes terk etmeye ittifak etmedikçe râvi terk edilmez."},
+  {h:"Âdâb, kitâbet, rıhle, tasnîf (s.143–146)",p:"<b>Şeyh</b>: niyet, ihlâs, güzel ahlâk; hadisi ayakta veya acele ile okutmaz. <b>Talebe</b>: şeyhe saygı, hayâ ve kibirle ilimden geri kalmama. <b>Kitâbet</b>: müşkili şekil ve noktalamak; arz ve semâ'. <b>Rıhle</b>: ilim için yolculuk. <b>Tasnîf</b> yolları: müsned, ebvâb, mu'cem, etrâf, müstahrec, mustedrek, ilel; <b>esbâbü'l-hadîs</b> (hadislerin vürûd sebepleri) Ebû Hafs el-Ukberî ve Ebû Ya'lâ b. el-Ferrâ gibi âlimlerce yazılmıştır."}],
+ ex:[],
+ mini:[
+  ["Tabaka tanımı nedir?",["Yaş ve şeyhlerle karşılaşmada ortak topluluk","Aynı şehirde yaşayanlar","Aynı mezhepten olanlar"],0,"Tabakât konusu (s.131)."],
+  ["Cerhin en kötü mertebesi hangi kalıpla belirtilir?",["Ef'al kalıbı (ekzebü'n-nâs)","‘Leyyin’","‘Fîhi makāl’"],0,"Mübalağa ifadesi, en açığı ef'al kalıbı (s.133)."],
+  ["Tezkiyede (ta'dîlde) kaç kişinin ta'dîli yeter?",["Bir kişi","İki kişi","On kişi"],0,"Metinde tek kişi yeter, şehâdete benzetip iki şart koşanlara muhalefet edilir (s.135)."],
+  ["Cerh ile ta'dîl çatışırsa cumhura göre hangisi önce gelir?",["Cerh (mufesser ise)","Ta'dîl","İkisi eşit"],0,"Cerh mukaddemdir (s.136)."]]}
 ];
 
-/* ----- Dedektif: tanım → terim ----- */
+/* ----- Dedektif: tanım → terim (eserdeki ifadelere göre) ----- */
 const DET=[
- ["Yalan üzerinde birleşmeleri âdeten imkânsız çok râvinin, başından sonuna kadar rivayet ettiği haber","Mütevâtir","Her tabakada çok sayıda râvi; kesin bilgi verir."],
- ["En az üç yoldan gelen, mütevâtir seviyesine ulaşmayan hadis","Meşhûr","Üç ve fazlası yol: meşhûr (müstefîz)."],
- ["Hiçbir tabakada ikiden az râvisi olmayan hadis","Azîz","İki yoldan gelmesi: azîz."],
- ["Senedin bir tabakasında tek râvinin rivayet ettiği hadis","Garîb","Teferrüd: garîb (fert)."],
- ["Adil, tam zâbıt, muttasıl, şâz ve illetsiz hadis","Sahîh li-zâtihi","Beş şartı kendinde toplar."],
- ["Beş şartı taşıyan; yalnız râvisinin zabtı biraz hafif olan hadis","Hasen li-zâtihi","Zabtın hafif olması hasenin farkıdır."],
- ["Hasen hadisin çok yoldan gelerek güçlenip sahih seviyesine çıkması","Sahîh li-gayrihi","Yol çokluğu ile yükselir."],
- ["Hafif zaafı olan hadisin çok yoldan gelerek güçlenmesi","Hasen li-gayrihi","Zaaf hafifse çok tarik giderir."],
- ["Aynı kuvvette muârızı olmayan makbûl hadis","Muhkem","Çatışması yoktur."],
- ["Çatışan iki makbûl hadisin uzlaştırılabildiği durum","Muhtelifu'l-hadîs","Cem' mümkündür."],
- ["Tarihi bilinen iki hadisten sonrakinin öncekini kaldırması","Nâsih-Mensûh","Nesih."],
- ["Senedin başından musannif tarafından bir veya daha fazla râvinin hazfi","Mu'allak","Baştan hazf."],
- ["Tâbiînin sahâbîyi atlayıp doğrudan ‘Rasûlullah buyurdu’ demesi","Mürsel","Sahâbî düşmüştür."],
- ["Senedin ortasında art arda iki veya daha fazla râvinin düşmesi","Mu'dal","Ardışık düşme."],
- ["Ortadan, ardışık olmayan yerden râvi düşmesi (mu'allak, mürsel, mu'dal dışında)","Munkatı'","Tek/ardışık olmayan kopukluk."],
- ["Râvinin hocasından işitmediğini işitmiş gibi göstermesi","Müdelles","Tedlîs."],
- ["Muâsırı olduğu ancak görüşmediği kişiden rivayet etmek","Mürsel-i hafî","Gizli kopukluk."],
- ["Hz. Peygamber'e uydurma yalan isnat edilen söz","Mevzû'","Kizb sebebiyle."],
- ["Râvisi yalanla itham edilen hadis","Metrûk","Tuhme bi'l-kizb."],
- ["Zayıf râvinin sika râvilere muhalefet ederek rivayet ettiği hadis","Münker","Zayıfın muhalefeti."],
- ["Görünüşte sağlam ama gizli bir kusur taşıyan hadis","Muallel","Gizli illet."],
- ["Râvinin kendi sözünü hadise/ isnada katması","Müdrec","İdrâc."],
- ["Sened veya metinde râvi/ lafız yer değiştirmesi","Maklûb","Kalb."],
- ["Eşit güçte, uzlaştırılamayan farklı rivayetler","Muzdarib","İdtırâb."],
- ["Makbûl râvinin daha güvenilir râvilere muhalefeti","Şâz","Makbûlün muhalefeti şâz."],
- ["Adı zikredilmeyen râvi (‘bir adam’)","Mübhem","İsimsizlik."],
- ["Hıfzı ömrünün sonunda bozulan râvi","Muhtelit","Hafıza değişimi."],
- ["Aynı sahâbîden gelen, hadisi destekleyen başka yol","Mütâbi'","Aynı sahâbî."],
- ["Başka bir sahâbîden gelen, mânâca destekleyen rivayet","Şâhid","Farklı sahâbî."],
- ["Râvilerin hepsinin aynı sîğa/hâli tekrarladığı zincir","Müsel sel","Aynı biçimin tekrarı."]
+ ["Yalan üzerinde birleşmeleri âdeten imkânsız çok râvinin, başından sonuna kadar, hisse dayanarak rivayet ettiği ve ilim ifade eden haber","Mütevâtir","Dört şart: çokluk, her tabakada aynı sayı, hisse dayanma, ilim ifade etme (s.40)."],
+ ["Yolları ikiden fazla ve sayılı olan haber (muhaddis ıstılahı); fakihlerdeki adı müstefîz","Meşhûr","Âhâdın ilk kısmı (s.42)."],
+ ["Hiçbir tabakada ikiden az râvinin ikiden az râviden rivayet etmediği hadis","Azîz","Üçüncü kısım; sahihin şartı değildir (s.43)."],
+ ["Senedin herhangi bir yerinde tek bir kişinin rivayetiyle teferrüd ettiği hadis","Garîb","Dördüncü kısım (s.45)."],
+ ["Teferrüdün senedin aslında (tâbiî tabakasında) olduğu tek kalma","Ferd mutlak","Örnek: Abdullah b. Dînâr'ın İbn Ömer'den velâ hadisi (s.50)."],
+ ["Hadis aslında meşhûr olsa da belli bir kişiye nispetle tek kalma","Ferd nisbî","Eserde ferd mutlak ve nisbî ayrımı (s.52)."],
+ ["Adil, tam zâbıt râvinin muttasıl senedle rivayet ettiği, illetsiz ve şâz olmayan âhâd haber","Sahîh li-zâtihi","Eserin sahih tanımı (s.52)."],
+ ["Sahihin diğer şartlarını taşıyıp yalnız râvisinin zabtı hafif olan hadis","Hasen li-zâtihi","<span class='ar'>فَإِنْ خَفَّ الضَّبْطُ</span> (s.60)."],
+ ["Hasen hadisin çok yoldan gelerek sahih seviyesine yükselmesi","Sahîh li-gayrihi","Yol çokluğu zabttaki hafif kusuru telâfi eder (s.60)."],
+ ["Kötü hıfzlı, mestûr gibi hafif zaaflı hadisin muteber bir rivayetle desteklenip hasen olması","Hasen li-gayrihi","Eser s.101–102'de sayar."],
+ ["Aynı kuvvette bir muârızı bulunmayan makbûl hadis","Muhkem","Eserdeki tanım (s.71)."],
+ ["Zahiren çelişen iki makbûl hadisin zorlama olmadan bağdaştırılabildiği hadis türü","Muhtelifü'l-hadîs","Cem' mümkündür (s.71–72)."],
+ ["Tarihi bilinen çatışmada sonraki hükmün öncekini kaldırdığı hadisler","Nâsih–Mensûh","Cem' mümkün değilse sıra budur (s.73)."],
+ ["Senedin başından musannifin tasarrufuyla bir veya daha fazla râvinin düşmesi","Mu'allak","Düşen bir de olsa, daha çok da olsa (s.76)."],
+ ["Tâbiîden sonrası (sahâbî) düşen ve tâbiînin doğrudan ‘Rasûlullah buyurdu’ dediği rivayet","Mürsel","Senedin sonundan düşme (s.78)."],
+ ["Senedde art arda iki veya daha fazla râvinin düşmesi","Mu'dal","Ardışık düşme (s.79)."],
+ ["Ardışık olmayan iki yerden veya tek râvinin düşmesi (diğer türler dışında)","Munkatı'","Ardışık olmama şartı (s.79)."],
+ ["Râvinin hocasının adını anmayıp işitmediğini işitmiş gibi göstermesi","Müdelles","<span class='ar'>أَوْهَمَ سَمَاعَهُ</span> (s.80)."],
+ ["Muâsır olup görüşmediği kişiden, arada vâsıta ile rivayet etmek","Mürsel-i hafî","Tedlîs, karşılaştığı kişiden olandır (s.81)."],
+ ["Râvinin Peygamber hadisinde kasten yalan söylemesi","Mevzû'","Ta'nın birinci sebebi; hüküm galip zanla verilir (s.85)."],
+ ["Râvisi yalanla itham edilen, hadisi yalnız ondan bilinen hadis","Metrûk","Tühmet bi'l-kizb (s.87)."],
+ ["Gizli ve kusur verici bir illet taşıyan, görünüşte sağlam hadis","Muallel","Eserdeki tanım (s.54, 88)."],
+ ["Makbûl râvinin rivayetinin, kendisinden daha râcih olana muhalefet etmesi","Şâz","Mukabili mahfûzdur (s.66–67)."],
+ ["Muhalefet zayıf râviyle olduğunda râcih olana verilen ad","Ma'rûf","Mukabili münkerdir (s.67)."],
+ ["Zayıf râvinin, kendisinden râcih olana muhalefet ettiği rivayet","Münker","İkinci bir kullanım: fuhş-ı galat, gaflet veya fısk sahibinin hadisi (s.88)."],
+ ["Isnadın siyâkı değişerek farklı isnadları tek isnada toplamak veya araya giren sözü metin sanmak","Müdrecü'l-isnâd","Muhalefetin yedinci sebep olarak ilk türü (s.89)."],
+ ["Metne, ondan olmayan bir sözün karışması (örnek: kölenin iki ecri hadisinde ‘annem’ sözü)","Müdrecü'l-metin","Genelde sonda olur (s.90)."],
+ ["İsimlerde takdim-te'hîr; Mürre b. Ka'b ↔ Ka'b b. Mürre","Maklûb","Metinde de olabilir (s.91)."],
+ ["Senedin ortasına bir râvinin ziyade edildiği rivayet; ziyadesizler daha sağlamdır","Mezîd fî muttasıli'l-esânîd","Şartı: ziyade yerinde semâ' tasrihi olması (s.91)."],
+ ["İki rivayetten birine tercih sağlayacak bir sebep bulunmayan, râvinin değiştirilmesiyle olan muhalefet","Muztarib","Eşit güçte farklı rivayetler (s.91)."],
+ ["Noktaların değişmesiyle ortaya çıkan hata","Musahhaf","Hareke/şekil değişikliği ise muharrefdir (s.92–93)."],
+ ["Hareke veya şekil değişikliğiyle harfler aynı kalırken ortaya çıkan hata","Muharref","Nokta değişimi musahhafdır (s.92–93)."],
+ ["Çok sıfatlı râvinin farklı bir adla anılıp başka biri sanılması sebebiyle bilinmeyen hâli; ayrıca yalnız bir kişinin rivayet ettiği râvi (vuhdân)","Cehâlet","Sekizinci ta'n sebebi; iki sebepten doğar (s.95)."],
+ ["Râvinin adı zikredilmeyen (‘bir adam’, ‘şeyh’ gibi) rivayet","Mübhem","Adı bilinmedikçe kabul edilmez (s.97)."],
+ ["İsmi bilinen ve ondan yalnız bir râvinin rivayet ettiği kişi","Meçhûlü'l-ayn","Mübhem gibi; tevsîk edilmişse sorun kalkar (s.98)."],
+ ["Ondan iki veya daha fazla râvi rivayet etmiş ama tevsîk edilmemiş kişi","Mestûr","Meçhûlü'l-hâl; tahkîk: hâli açığa çıkana kadar tevakkuf (s.98)."],
+ ["Yaşlılık, körlük, kitapların yanması gibi sebeplerle hıfzı sonradan bozulan râvi","Muhtelit","Târi' sû'ü'l-hıfz (s.101)."],
+ ["Aynı sahâbîden gelen, râvinin kendisi için olursa tâmme, şeyhi veya daha üstü için olursa kâsıra olan destek rivayet","Mütâbi'","Takviye eder (s.69)."],
+ ["Başka bir sahâbîden gelen, lafız ve mânâda veya yalnız mânâda benzeyen metin","Şâhid","Eserdeki tanım (s.70)."],
+ ["Câmi', müsned ve cüzlerde yolları tarayarak mütâbi' var mı diye bakmak","İ'tibâr","Bir kısım değil, ulaşma yöntemidir (s.70)."],
+ ["Peygamber'e ulaşan söz, fiil veya takrîr (açık veya hükmen)","Merfû'","İsnad muttasıl olsun olmasın (s.102, 110)."],
+ ["Sahâbîde sona eren rivayet","Mevkûf","Eser de denir (s.107, 110)."],
+ ["Tâbiîde sona eren söz (metin bahsi)","Maktû'","İsnad bahsindeki munkatı'dan farklıdır (s.110)."],
+ ["Sahâbînin merfû'u, görünüşte muttasıl senedle","Müsned","<span class='ar'>مَرْفُوعُ صَحَابِيٍّ بِسَنَدٍ ظَاهِرُهُ الِاتِّصَالُ</span> (s.111)."],
+ ["Peygamber'i mümin olarak görüp İslâm üzere ölen kişi (aradan ridde geçse bile en sahih görüşe göre)","Sahâbî","Lika, görmekten evlâ (s.107–108)."],
+ ["Câhiliyye ve İslâm'ı idrak edip Peygamber'i görmeyenler","Muhadramûn","Tâbiînin büyüklerindendir (s.109)."],
+ ["Isnadda râvi sayısının azlığı","Ulüvv","Zıddı nüzûldür (s.112)."],
+ ["Musannifin şeyhine kendi yolundan değil başka yoldan ulaşmak (nisbî ulüvv)","Muvâfaka","Dört türden biri (s.113)."],
+ ["Yaş, karşılaşma veya şeyhlerden alma bakımından ortak olanların rivayeti","Akrân rivayeti","Karşılıklı olursa müdebbec (s.114)."],
+ ["Aynı şeyhten iki kişinin rivayet edip birinin vefatının diğerinden çok önce olması","Sâbık–Lâhık","Aralarında yüz elli yıl bile olabilir (s.116)."],
+ ["Râvilerin sîğa, fiil veya halde aynı biçimi tekrar ettiği isnad (örnek: el-evveliyye hadisi)","Müselsel","Kavlî, fiilî veya her ikisi (s.119)."],
+ ["Isnad râvilerinin hadisi aldıkları yollar: semâ', arz, icâzet, münâvele, mükâtebe, i'lâm, vasiyyet, vicâde","Tahammül yolları","Edâ sîğalarıyla karıştırılmamalı (s.120–121)."],
+ ["İsimleri ve baba isimleri (veya daha fazlası) aynı olan, şahısları farklı râviler","Müttefik–Müfterik","Müelef–muhtelif ile karıştırılmaz (s.126)."],
+ ["Yazıda aynı, okunuşta farklı olan isimler (Hirâm–Harâm gibi)","Müelef–Muhtelif","Nokta/hareke farkı (s.127)."],
+ ["Aynı isimli iki râviyi birbirinden ayıramama durumu (Buhârî'de ‘Ahmed’ gayr-i mensûb gibi)","Mühmel","İkisi de sika ise zarar vermez (s.117)."],
+ ["Yaş ve şeyhlerle karşılaşmada ortak topluluk","Tabaka","Tabakâtü'r-ruvât (s.131)."]
 ];
 const TERMS=[...new Set(DET.map(d=>d[1]))];
 
 /* ----- Kabul / Red ----- */
 const KR=[
- ["Adil, tam zâbıt râvilerin muttasıl, şâz ve illetsiz hadisi","Makbûl","Sahîh li-zâtihi makbûldür."],
- ["Zabtı hafif olan fakat diğer şartları taşıyan râvinin hadisi (hasen li-zâtihi)","Makbûl","Hasen de makbûldür."],
- ["Çok yoldan gelerek güçlenen hasen hadis","Makbûl","Sahîh li-gayrihi makbûldür."],
- ["Muhkem hadis","Makbûl","Çatışması olmayan makbûl."],
- ["Tarihle neshi sabit olan, sahih bir nâsih hadis","Makbûl","Nâsih makbûldür."],
- ["Mevzû' (uydurma) hadis","Merdûd","Yalan sebebiyle reddedilir."],
- ["Metrûk hadis","Merdûd","Yalanla itham."],
- ["Mu'dal hadis","Merdûd","Ardışık düşme sebebiyle."],
- ["Mu'allak hadis","Merdûd","Başından râvi hazfedilmiş."],
- ["Munkatı' hadis","Merdûd","Kopuk sened."],
- ["Münker hadis","Merdûd","Zayıfın muhalefeti."],
- ["Muallel hadis","Merdûd","Gizli kusur."],
- ["Şâz hadis","Merdûd","Makbûlün daha sikaya muhalefeti."],
- ["Meçhûl râvili (kimliği bilinmeyen) hadis","Merdûd","Cehâlet."],
- ["Müdelles hadis (işitmediğini işitmiş gibi)","Merdûd","Tedlîs sebebiyle."],
- ["Muzdarib hadis","Merdûd","Tercih edilemeyen çelişki."]
+ ["Adil, tam zâbıt râvilerin muttasıl, şâz ve illetsiz hadisi","Makbûl","Sahîh li-zâtihi makbûldür (s.52)."],
+ ["Sahihin tüm şartlarını taşıyan, yalnız zabtı hafif olan râvinin hadisi (hasen li-zâtihi)","Makbûl","Eser hasenin delil olduğunu söyler (s.60)."],
+ ["Yolları çoğalarak güçlenen hasen hadis (sahîh li-gayrihi)","Makbûl","Yol çokluğu telâfi eder (s.60)."],
+ ["Muhkem hadis","Makbûl","Muârızı yok (s.71)."],
+ ["Tarihi bilinen, sonraki delille hükmü kaldırılmış sahih bir nâsih hadis","Makbûl","Nâsih makbûldür (s.73)."],
+ ["Mahfûz (daha râcih olanın rivayeti)","Makbûl","Râcih olan mahfûzdur (s.66)."],
+ ["Ma'rûf (zayıfa muhalefet eden sağlam rivayet)","Makbûl","Ma'rûf râcihtir (s.67)."],
+ ["Ziyâdesi sağlam râvilerin rivayetine aykırı olmayan sika râvinin hadisi","Makbûl","Aykırı değilse ziyâde makbûldür (s.63)."],
+ ["Sahih bir mütâbi'i bulunan, hafif zaaflı (kötü hıfzlı) râvinin hadisi","Makbûl","Hasen li-gayrihi olur (s.101–102)."],
+ ["Mevzû' (uydurma) hadis","Merdûd","Kizb ta'nın birinci sebebi (s.85)."],
+ ["Metrûk hadis (râvisi yalanla itham edilen)","Merdûd","Tühmet bi'l-kizb (s.87)."],
+ ["Mu'allak hadis","Merdûd","Başından râvi hazfedilmiş (s.76)."],
+ ["Mu'dal hadis","Merdûd","Art arda iki ve fazlası düşmüş (s.79)."],
+ ["Munkatı' hadis","Merdûd","Kopuk sened (s.79)."],
+ ["Mürsel hadis (eserin merdûd tasnifinde)","Merdûd","Düşen kişi bilinmiyor; ihtimaller (s.78)."],
+ ["Müdelles râvinin ‘an’ sîğasıyla rivayet ettiği hadis","Merdûd","Sarih sîğa yoksa kabul edilmez (s.81)."],
+ ["Mübhem râvili hadis (adı belirtilmeyen)","Merdûd","Adı bilinmedikçe kabul edilmez (s.97)."],
+ ["Meçhûlü'l-ayn râvinin hadisi (tevsîk edilmemişse)","Merdûd","Mübhem gibi (s.98)."],
+ ["Münker hadis","Merdûd","Zayıfın muhalefeti (s.67)."],
+ ["Muallel hadis","Merdûd","Gizli ve kusur verici illet (s.54)."],
+ ["Şâz hadis","Merdûd","Daha râcih olana muhalefet (s.66)."],
+ ["Muztarib hadis","Merdûd","Tercih sebebi bulunmayan muhalefet (s.91)."],
+ ["Müdrec (sonradan ilave söz karışmış kısım)","Merdûd","Metne ondan olmayan söz karışmış (s.90)."],
+ ["Maklûb hadis","Merdûd","İsim veya lafızda yer değişimi (s.91)."],
+ ["Fâhişü'l-galat (çok yanlış yapan) râvinin hadisi","Merdûd","Bir görüşe göre münker (s.88)."]
 ];
 
 /* ----- Hadis Ağacı ----- */
-const GRP=["Âhâd çeşidi","Makbûl","Sened kopukluğu","Râvide kusur"];
-const TREE=[["Meşhûr",0],["Azîz",0],["Garîb",0],["Sahîh",1],["Hasen",1],["Muhkem",1],["Nâsih",1],["Mu'allak",2],["Mürsel",2],["Mu'dal",2],["Munkatı'",2],["Müdelles",2],["Mürsel-i hafî",2],["Mevzû'",3],["Metrûk",3],["Münker",3],["Muallel",3],["Müdrec",3],["Maklûb",3],["Muzdarib",3],["Şâz",3],["Meçhûl",3],["Mübhem",3],["Muhtelit",3]];
+const GRP=["Âhâd çeşidi","Makbûl (ve çatışma)","Sened kopukluğu","Râvide kusur","İsnad ve râvi bilgisi"];
+const TREE=[
+ ["Meşhûr",0],["Azîz",0],["Garîb",0],["Ferd mutlak",0],["Müstefîz",0],
+ ["Sahîh li-zâtihi",1],["Hasen li-zâtihi",1],["Sahîh li-gayrihi",1],["Hasen li-gayrihi",1],["Muhkem",1],["Muhtelifü'l-hadîs",1],["Nâsih",1],["Mahfûz",1],["Ma'rûf",1],
+ ["Mu'allak",2],["Mürsel",2],["Mu'dal",2],["Munkatı'",2],["Müdelles",2],["Mürsel-i hafî",2],
+ ["Mevzû'",3],["Metrûk",3],["Münker",3],["Muallel",3],["Müdrec",3],["Maklûb",3],["Muztarib",3],["Şâz",3],["Mübhem",3],["Meçhûlü'l-ayn",3],["Mestûr",3],["Muhtelit",3],["Musahhaf",3],["Mezîd fî muttasıli'l-esânîd",3],
+ ["Merfû'",4],["Mevkûf",4],["Maktû'",4],["Müsned",4],["Müselsel",4],["Akrân",4],["Sâbık–Lâhık",4],["Ulüvv",4],["Müttefik–Müfterik",4],["Müelef–Muhtelif",4],["Müteşâbih",4],["Mühmel",4],["Mütâbi'",4],["Şâhid",4],["İ'tibâr",4],["Tabaka",4]
+];
 
 /* ----- Eşleştirme ----- */
-const PAIRS=[["Mütevâtir","yalana ittifakı imkânsız çok râvi"],["Meşhûr","en az 3 yol, mütevâtir değil"],["Azîz","hiçbir tabakada 2'den az değil"],["Garîb","bir tabakada tek râvi"],["Sahîh","adil+zâbıt+muttasıl+şâzsız+illetsiz"],["Hasen","zabtı biraz hafif, diğer şartlar tam"],["Mu'allak","senedin başından râvi hazfı"],["Mu'dal","art arda 2+ râvi düşmüş"],["Mevzû'","uydurma hadis"],["Mütâbi'","aynı sahâbîden başka yol"],["Şâhid","başka sahâbîden destekleyen rivayet"],["Müdelles","hocasından duymadığını duymuş gibi göstermek"]];
+const PAIRS=[
+ ["Mütevâtir","âdeten yalana ittifakı imkânsız çok râvi"],["Meşhûr","yolları ikiden fazla ve sayılı"],["Azîz","hiçbir tabakada ikiden az değil"],["Garîb","senedin bir yerinde tek râvi"],
+ ["Sahîh li-zâtihi","adil + tam zabt + muttasıl + illetsiz + şâzsız"],["Hasen li-zâtihi","zabtı hafif; diğer şartlar tam"],["Muhkem","muârızı olmayan makbûl hadis"],["Muhtelifü'l-hadîs","zahiren çelişen, cem' mümkün hadis"],
+ ["Mu'allak","senedin başından râvi hazfı"],["Mürsel","tâbiîden sonra sahâbî düşmüş"],["Mu'dal","art arda iki veya daha fazla düşme"],["Munkatı'","ardışık olmayan yerden düşme"],
+ ["Müdelles","hocasından duymadığını duymuş gibi gösterme"],["Mürsel-i hafî","muâsırdan, görüşmeden rivayet"],["Mevzû'","Peygamber'e uydurulan söz"],["Metrûk","râvisi yalanla itham edilen"],
+ ["Şâz","makbûl râvinin daha râcihe muhalefeti"],["Münker","zayıf râvinin sikaya muhalefeti"],["Mahfûz","muhalefette râcih olan rivayet"],["Maklûb","isim/lafızda takdim-te'hîr"],
+ ["Müdrec","metne/isnada ondan olmayan söz karışması"],["Muztarib","tercih edilemeyen eşit güçte çelişen rivayetler"],["Musahhaf","nokta değişikliğiyle hata"],["Mübhem","adı zikredilmeyen râvi"],
+ ["Mestûr","iki veya daha fazla râvi rivayet etmiş ama tevsîk edilmemiş"],["Muhtelit","hıfzı sonradan bozulan râvi"],["Mütâbi'","aynı sahâbîden destekleyen yol"],["Şâhid","başka sahâbîden destekleyen metin"],
+ ["Müsned","sahâbînin merfû'u, görünüşte muttasıl senedle"],["Müselsel","râvilerin aynı sîğayı/fiili tekrarlaması"],["Muvâfaka","musannifin şeyhine başka yoldan ulaşmak"],["Müdebbec","karşılıklı rivayet eden akrân"]
+];
 
 /* ----- Sıralama ----- */
 const ORDER=[
  {q:"Hadis türlerini <b>güçlüden zayıfa</b> sırala",tiles:["Sahîh li-zâtihi","Sahîh li-gayrihi","Hasen li-zâtihi","Hasen li-gayrihi"],ar:false},
  {q:"Haberi yol sayısına göre <b>çoktan aza</b> sırala",tiles:["Mütevâtir","Meşhûr","Azîz","Garîb"],ar:false},
- {q:"Çatışan hadislerde izlenecek adımları <b>sırayla</b> diz",tiles:["Cem'","Nesih","Tercîh","Tevakkuf"],ar:false},
- {q:"Buhârî'deki “Ameller niyetlere göredir” hadisinin senedini Buhârî'den Hz. Peygamber'e doğru diz",tiles:["الْحُمَيْدِيُّ","سُفْيَانُ","يَحْيَى بْنُ سَعِيدٍ","مُحَمَّدُ بْنُ إِبْرَاهِيمَ","عَلْقَمَةُ","عُمَرُ","رَسُولُ اللَّهِ ﷺ"],ar:true}
+ {q:"Çatışan hadislerde eserin gösterdiği adımları <b>sırayla</b> diz (s.75)",tiles:["Cem'","Nâsih–Mensûh","Tercîh","Tevakkuf"],ar:false},
+ {q:"Edâ sîğalarını eserin sırasıyla <b>1'den 8'e</b> diz (s.120–121)",tiles:["Semi'tü / haddesenî","Ahberanî / kara'tü aleyhi","Kuri'a aleyhi ve ene esme'","Enbe'anî","Nâvelenî","Şâfehanî (icâzetle)","Kebe ileyye (icâzetle)","‘An’ ve benzerleri"],ar:false},
+ {q:"“Ameller niyetlere göredir” hadisinin Buhârî'deki senedini Buhârî'den Hz. Peygamber'e doğru diz (s.44)",tiles:["الْحُمَيْدِيُّ","سُفْيَانُ","يَحْيَى بْنُ سَعِيدٍ","مُحَمَّدُ بْنُ إِبْرَاهِيمَ","عَلْقَمَةُ","عُمَرُ","رَسُولُ اللَّهِ ﷺ"],ar:true},
+ {q:"Ta'nın ilk beş sebebini eserin sırasıyla diz (s.84)",tiles:["Kizb","Tühmet bi'l-kizb","Fuhşü'l-galat","Gaflet","Fısk"],ar:false},
+ {q:"Ta'nın son beş sebebini eserin sırasıyla diz (s.84–85)",tiles:["Vehm","Muhalefetü's-sikât","Cehâlet","Bid'at","Sû'ü'l-hıfz"],ar:false}
 ];
 
 /* ----- Kartlar ----- */
 const CARDS=[
- ["الْخَبَرُ","Haber: rivayet, hadis; usûlde genellikle hadisle eş anlamlı."],
- ["الْحَدِيثُ","Hadis: Hz. Peygamber'e nispet edilen söz, fiil, takrîr ve sıfatlar."],
- ["الْأَثَرُ","Eser: çoğunlukla sahâbî ve tâbiîye nispet edilen rivayet."],
- ["السَّنَدُ","Sened: metne ulaştıran râvi zinciri."],
- ["الْمَتْنُ","Metin: senedin sonunda gelen söz."],
- ["الْمُتَوَاتِرُ","Mütevâtir: yalana ittifakı âdeten imkânsız çok râvinin başından sonuna rivayet ettiği haber."],
- ["الْآحَادُ","Âhâd: mütevâtirin şartlarını taşımayan haber."],
- ["الْمَشْهُورُ","Meşhûr (müstefîz): en az 3 yoldan gelen, mütevâtir olmayan hadis."],
- ["الْعَزِيزُ","Azîz: hiçbir tabakada ikiden az râvisi olmayan hadis."],
- ["الْغَرِيبُ","Garîb: bir tabakada tek râvinin rivayet ettiği hadis."],
- ["الْمَقْبُولُ","Makbûl: kabul edilen hadis."],
- ["الْمَرْدُودُ","Merdûd: reddedilen hadis."],
- ["الصَّحِيحُ","Sahîh: adil, tam zâbıt râvilerin muttasıl senedle, şâz ve illetsiz rivayeti."],
- ["الْحَسَنُ","Hasen: sahihin şartlarını taşıyıp râvisinin zabtı biraz hafif olan hadis."],
- ["الْمُحْكَمُ","Muhkem: muârızı bulunmayan makbûl hadis."],
- ["مُخْتَلِفُ الْحَدِيثِ","Muhtelifu'l-hadîs: çatışması giderilebilen (cem' mümkün) hadisler."],
- ["النَّاسِخُ وَالْمَنْسُوخُ","Nâsih-Mensûh: tarihi bilinen çatışmada sonraki hükmün öncekini kaldırması."],
- ["الْمُعَلَّقُ","Mu'allak: senedin başından bir veya daha fazla râvinin hazfedilmesi."],
- ["الْمُرْسَلُ","Mürsel: tâbiînin sahâbîyi atlayıp doğrudan Hz. Peygamber'e nispet etmesi."],
- ["الْمُعْضَلُ","Mu'dal: senedin ortasında art arda iki veya daha fazla râvinin düşmesi."],
- ["الْمُنْقَطِعُ","Munkatı': diğer kopukluk türlerine girmeyen ortadan râvi düşmesi."],
- ["الْمُدَلَّسُ","Müdelles: râvinin hocasından işitmediğini işitmiş gibi göstermesi (tedlîs)."],
- ["الْمَوْضُوعُ","Mevzû': Hz. Peygamber'e uydurulan yalan söz."],
- ["الْمَتْرُوكُ","Metrûk: râvisi yalanla itham edilen hadis."],
- ["الْمُنْكَرُ","Münker: zayıf râvinin sika râvilere muhalefet ettiği hadis."],
- ["الْمُعَلَّلُ","Muallel: görünüşte sağlam, gizli bir kusur içeren hadis."],
- ["الْمُدْرَجُ","Müdrec: râvinin kendi sözünü hadise/ isnada katması."],
- ["الْمَقْلُوبُ","Maklûb: sened veya metinde yer değiştirme."],
- ["الْمُضْطَرِبُ","Muzdarib: eşit güçte, uzlaştırılamayan farklı rivayetler."],
- ["الشَّاذُّ","Şâz: makbûl râvinin daha güvenilirlere muhalefeti."],
- ["الْمُبْهَمُ","Mübhem: adı zikredilmemiş râvi."],
- ["الْمَجْهُولُ","Meçhûl: kimliği bilinmeyen râvi (ayn / hâl)."],
- ["الْمُخْتَلِطُ","Muhtelit: hıfzı sonradan bozulan râvi."],
- ["الْمُتَابِعُ","Mütâbi': aynı sahâbîden gelen destekleyici yol."],
- ["الشَّاهِدُ","Şâhid: başka sahâbîden gelen destekleyici rivayet."],
- ["الِاعْتِبَارُ","İ'tibâr: destekleyen yolları arama işlemi."],
- ["الْمُسَلْسَلُ","Müsel sel: râvilerin aynı sîğa/hâli tekrarladığı zincir."],
- ["السَّمَاعُ","Semâ': hadisi şeyhten dinleyerek almak."],
- ["الْإِجَازَةُ","İcâzet: şeyhin rivayet izni vermesi."],
- ["الْجَرْحُ وَالتَّعْدِيلُ","Cerh-Ta'dîl: râvinin kusurunu veya güvenilirliğini bildirme ilmi."],
- ["الصَّحَابِيُّ","Sahâbî: Hz. Peygamber'i mümin olarak görüp mümin ölen kişi."],
- ["التَّابِعِيُّ","Tâbiî: bir sahâbîyi mümin olarak gören ve mümin ölen kişi."],
- ["الْمَرْفُوعُ","Merfû': Hz. Peygamber'e nispet edilen."],
- ["الْمَوْقُوفُ","Mevkûf: sahâbîye nispet edilen."],
- ["الْمَقْطُوعُ","Maktû': tâbiîye nispet edilen."]
+ ["الْخَبَرُ","Haber: bu fen âlimlerine göre hadisle eş anlamlı; bir görüşe göre hadis Peygamber'den, haber başkasından gelen (s.36)."],
+ ["السَّنَدُ","Sened: metne ulaştıran râvi zinciri (s.33 dipnot)."],
+ ["الْمَتْنُ","Metin: isnadın sonunda ulaştığı söz (s.102)."],
+ ["الْمُتَوَاتِرُ","Mütevâtir: âdeten yalana ittifakı imkânsız çok sayıda râvi; her tabakada aynı sayı; hisse dayanma; ilim ifade etme (s.38–40)."],
+ ["الْعِلْمُ الضَّرُورِيُّ","İlm-i darûrî: mütevâtirin verdiği, insanın zorunlu olarak edindiği kesin bilgi (s.40–41)."],
+ ["الْآحَادُ","Âhâd: mütevâtirin şartlarını toplamayan haber (s.46)."],
+ ["الْمَشْهُورُ","Meşhûr: yolları ikiden fazla ve sayılı olan hadis; fakihlerde müstefîz (s.42)."],
+ ["الْعَزِيزُ","Azîz: hiçbir tabakada ikiden az râvinin ikiden az râviden rivayet etmediği hadis (s.43)."],
+ ["الْغَرِيبُ","Garîb: senedin herhangi bir yerinde tek râvinin rivayet ettiği hadis (s.45)."],
+ ["الْفَرْدُ الْمُطْلَقُ","Ferd mutlak: teferrüdün senedin aslında (tâbiî tabakasında) olması (s.50)."],
+ ["الْفَرْدُ النِّسْبِيُّ","Ferd nisbî: belli bir kişiye nispetle tek kalma (s.51)."],
+ ["الْخَبَرُ الْمُحْتَفُّ","Muhtaff bi'l-karâin: karînelerle çevrili âhâd haber; nazarî ilim ifade eder (s.47–49)."],
+ ["التَّوَقُّفُ","Tevakkuf: kabul/ret sıfatı belli olmayan haberde, karîne de yoksa amelden durmak (s.47)."],
+ ["الصَّحِيحُ لِذَاتِهِ","Sahîh li-zâtihi: adil, tam zâbıt râvinin nakliyle, muttasıl senedli, mu'allel ve şâz olmayan âhâd (s.52)."],
+ ["الْعَدَالَةُ","Adâlet: takvâ ve mürüvvete devamı sağlayan meleke (s.53)."],
+ ["ضَبْطُ الصَّدْرِ","Zabt-ı sadr: duyduğunu dilediği zaman hatırlayabilecek şekilde sağlam tutmak (s.53)."],
+ ["ضَبْطُ الْكِتَابِ","Zabt-ı kitâb: duyduğundan beri kitabı koruyup tashih ettikten sonra ondan rivayet etmek (s.53)."],
+ ["الْمُتَّصِلُ","Muttasıl: sened düşmesiz; her râvi hocasından rivayetini işitmiş (s.54)."],
+ ["الْمُعَلَّلُ","Muallel: gizli ve kusur verici bir illeti olan hadis (s.54, 88)."],
+ ["أَصَحُّ الْأَسَانِيدِ","Esahhu'l-esânîd: bazı imamların en yüksek gördüğü zincirler (Zührî–Sâlim–İbn Ömer gibi); muteber görüş mutlak itlak yapmamaktır (s.55–56)."],
+ ["الْحَسَنُ لِذَاتِهِ","Hasen li-zâtihi: sahihin şartları tam, yalnız zabt hafif (s.60)."],
+ ["الصَّحِيحُ لِغَيْرِهِ","Sahîh li-gayrihi: hasen li-zâtihi'nin çok yoldan sahih seviyesine çıkması (s.60)."],
+ ["حَسَنٌ صَحِيحٌ","Hasen sahîh: tek isnadda müctehidin tereddüdü; çok isnadda biri hasen biri sahih isnad (s.61–62)."],
+ ["زِيَادَةُ الثِّقَةِ","Ziyâdetü's-sika: sikanın ilâvesi; münâfî değilse makbûl, münâfîyse tercîh (s.63–64)."],
+ ["الْمَحْفُوظُ","Mahfûz: daha râcih biriyle muhalefette râcih olan rivayet (s.66)."],
+ ["الشَّاذُّ","Şâz: makbûl râvinin kendisinden daha evlâ olana muhalefeti (s.66–67)."],
+ ["الْمَعْرُوفُ","Ma'rûf: zayıfla muhalefette râcih olan rivayet (s.67)."],
+ ["الْمُنْكَرُ","Münker: zayıf râvinin muhalefetle rivayeti; ayrıca fuhş-ı galat, gaflet, fısk sahibinin hadisi (s.67, 88)."],
+ ["الْمُتَابِعُ","Mütâbi': aynı sahâbîden gelen destekleyici yol; tâmme veya kâsıra (s.68–69)."],
+ ["الشَّاهِدُ","Şâhid: başka sahâbîden, lafız ve mânâda veya yalnız mânâda benzeyen metin (s.70)."],
+ ["الِاعْتِبَارُ","İ'tibâr: câmi', müsned ve cüzlerde yolları tarama yöntemi; mütâbaat ve şevâhidin bir kısmı değildir (s.70)."],
+ ["الْمُحْكَمُ","Muhkem: muârızı olmayan makbûl hadis (s.71)."],
+ ["مُخْتَلِفُ الْحَدِيثِ","Muhtelifü'l-hadîs: zahiren çelişen, cem' mümkün olan hadisler (s.71–72)."],
+ ["النَّسْخُ","Nesih: şer'î hükmün bağlanmasının daha sonra gelen şer'î delille kaldırılması (s.73)."],
+ ["التَّرْجِيحُ","Tercîh: cem' ve nesih olmazsa metin veya isnad vecihlerinden birine üstünlük verme (s.74)."],
+ ["الْمُعَلَّقُ","Mu'allak: senedin başından musannifin tasarrufuyla bir veya daha fazla râvinin düşmesi (s.76)."],
+ ["الْمُرْسَلُ","Mürsel: tâbiîden sonra sahâbînin düşmesi; tâbiî ‘Rasûlullah buyurdu’ der (s.78)."],
+ ["الْمُعْضَلُ","Mu'dal: art arda iki veya daha fazla râvinin düşmesi (s.79)."],
+ ["الْمُنْقَطِعُ","Munkatı': ardışık olmayan yerlerden veya tek râvinin düşmesi (s.79)."],
+ ["الْمُدَلَّسُ","Müdelles: hocasının adını anmayıp işitmediğini işitmiş gibi göstermek (s.80)."],
+ ["الْمُرْسَلُ الْخَفِيُّ","Mürsel-i hafî: muâsırdan, görüşmeden, vâsıta ile rivayet (s.81)."],
+ ["الْمَوْضُوعُ","Mevzû': râvinin Peygamber hadisinde kasten yalan söylemesi (s.85)."],
+ ["الْمَتْرُوكُ","Metrûk: râvisi yalanla itham edilen hadis (s.87)."],
+ ["الْمُدْرَجُ","Müdrec: isnada veya metne ondan olmayan sözün karışması (s.89–90)."],
+ ["الْمَقْلُوبُ","Maklûb: isim veya lafızlarda takdim-te'hîr (s.91)."],
+ ["الْمَزِيدُ فِي مُتَّصِلِ الْأَسَانِيدِ","Mezîd fî muttasıli'l-esânîd: senedin ortasına râvi ziyade edilmesi (s.91)."],
+ ["الْمُضْطَرِبُ","Muztarib: tercih edilemeyen, eşit güçte, çelişen rivayetler (s.91)."],
+ ["الْمُصَحَّفُ","Musahhaf: noktaların değişmesiyle hata; hareke/şekil ise muharref (s.92–93)."],
+ ["غَرِيبُ الْحَدِيثِ","Garîbü'l-hadîs: metindeki kapalı lafızlar; ferd anlamındaki garîb hadisle karıştırılmaz (s.94)."],
+ ["الْمُبْهَمُ","Mübhem: adı zikredilmeyen râvi (s.97)."],
+ ["مَجْهُولُ الْعَيْنِ","Meçhûlü'l-ayn: ismi bilinen, ondan yalnız bir râvinin rivayet ettiği kişi (s.98)."],
+ ["الْمَسْتُورُ","Mestûr (meçhûlü'l-hâl): iki veya daha fazla râvinin rivayet ettiği, tevsîk edilmeyen kişi (s.98)."],
+ ["الْبِدْعَةُ","Bid'at: Peygamber'den bilinene aykırı bir inancı inatla değil, şüpheyle benimsemek (s.99)."],
+ ["الْمُخْتَلِطُ","Muhtelit: yaşlılık, körlük, kitap kaybı gibi sebeplerle hıfzı sonradan bozulan râvi (s.101)."],
+ ["الْحَسَنُ لِغَيْرِهِ","Hasen li-gayrihi: hafif zaaflı hadisin muteber bir rivayetle desteklenip hasen olması (s.101–102)."],
+ ["الْمَرْفُوعُ","Merfû': Peygamber'e ulaşan söz, fiil veya takrîr; açık (sarîh) veya hükmen (s.102)."],
+ ["الْمَوْقُوفُ","Mevkûf: sahâbîde sona eren rivayet (s.107)."],
+ ["الْمَقْطُوعُ","Maktû': tâbiîde sona eren söz; munkatı' ile karıştırılmaz (s.110)."],
+ ["الصَّحَابِيُّ","Sahâbî: Peygamber'i mümin olarak görüp İslâm üzere ölen; ridde geçse de (s.107)."],
+ ["التَّابِعِيُّ","Tâbiî: sahâbîyi mümin olarak gören kişi (s.109)."],
+ ["الْمُخَضْرَمُونَ","Muhadramûn: Câhiliyye ve İslâm'ı idrak edip Peygamber'i görmeyenler (s.109)."],
+ ["الْمُسْنَدُ","Müsned: sahâbînin merfû'u, görünüşte muttasıl senedle (s.111)."],
+ ["الْعُلُوُّ وَالنُّزُولُ","Ulüvv: râvi sayısının azlığı; nüzûl: çokluğu (s.112)."],
+ ["رِوَايَةُ الْأَقْرَانِ","Akrân rivayeti: yaş, karşılaşma veya şeyhlerde ortak olanların rivayeti (s.114)."],
+ ["الْمُسَلْسَلُ","Müselsel: isnad râvilerinin sîğa/fiil/halde aynı biçimi tekrarlaması (s.119)."],
+ ["التَّحَمُّلُ","Tahammül: hadisi alma yolları (8): semâ', arz, icâzet, münâvele, mükâtebe, i'lâm, vasiyyet, vicâde (s.121)."],
+ ["الْعَنْعَنَةُ","An'ane: muâsırın ‘an’ ile rivayeti; el-muhtâr: bir kez de olsa lukâ sübûtu (s.122–123)."],
+ ["الْمُتَّفِقُ وَالْمُفْتَرِقُ","Müttefik–müfterik: isimleri ve baba isimleri aynı, şahısları farklı râviler (s.126)."],
+ ["الْمُؤْتَلِفُ وَالْمُخْتَلِفُ","Müelef–muhtelif: yazıda aynı, okunuşta farklı isimler (s.127)."],
+ ["الْمُتَشَابِهُ","Müteşâbih: isimler aynı, babalar okunuşta farklı ama yazıda benzer (veya tersi) (s.128)."],
+ ["الْمُهْمَلُ","Mühmel: aynı isimli iki râvi arasında ayrım yapılamaması (s.117)."],
+ ["الطَّبَقَةُ","Tabaka: yaş ve şeyhlerle karşılaşmada ortak topluluk (s.131)."],
+ ["الْجَرْحُ وَالتَّعْدِيلُ","Cerh–ta'dîl: râvinin kusurunu veya güvenilirliğini bildirme; cerh mufesser ve ârifden gelirse mukaddemdir (s.133–136)."],
+ ["التَّزْكِيَةُ","Tezkiye: ta'dîl; ârifden, sebeplerini bilen kişiden ve tek kişi de yeter (s.135)."]
 ];
 
-/* ----- Kavram soruları ----- */
+/* ----- Kavram soruları (sınav) ----- */
 const QB=[
- ["Mütevâtir haberin verdiği bilgi hangisidir?",["Zan","Kesin bilgi","Şüphe"],1,"Mütevâtir ilm-i zarûrî ifade eder."],
- ["En az üç yoldan gelen hadis?",["Azîz","Meşhûr","Garîb"],1,"Meşhûr (müstefîz)."],
- ["İki yoldan gelen, hiçbir tabakada ikiden aşağı düşmeyen hadis?",["Azîz","Garîb","Mütevâtir"],0,"Azîz."],
- ["Senedin bir tabakasında tek râvi bulunan hadis?",["Garîb","Meşhûr","Mu'dal"],0,"Garîb (fert)."],
- ["Sahih hadisin şartlarından hangisi <b>yoktur</b>?",["Adâlet","Tam zabt","Her tabakada en az 3 râvi"],2,"Yol çokluğu şart değildir."],
- ["Hasen ile sahih arasındaki fark?",["Zabtın hafif olması","Senedin kopuk olması","Metnin uzunluğu"],0,"Hasen'de zabt hafiftir."],
- ["Sahîh li-gayrihi nasıl oluşur?",["Hasen hadisin çok yoldan gelmesiyle","Sahih hadisin tek yoldan gelmesiyle","Mevzû hadisin güçlenmesiyle"],0,"Çok yol, hafif zaafı giderir."],
- ["Çatışan makbûl hadislerde ilk adım nedir?",["Cem'","Tercih","Tevakkuf"],0,"Önce cem' denenir."],
- ["Çatışmada son çare hangisidir?",["Tevakkuf","Nesih","Cem'"],0,"Hiçbiri olmazsa tevakkuf."],
- ["Mürsel hadiste hangi râvi düşmüştür?",["Sahâbî","Tâbiî","Musannif"],0,"Sahâbî."],
- ["Art arda iki râvinin düşmesi?",["Mu'dal","Munkatı'","Mu'allak"],0,"Mu'dal."],
- ["Mu'allak'ta düşme nerededir?",["Senedin başında (musannif tarafında)","Senedin sonunda","Metinde"],0,"Baştan hazf."],
- ["Tedlîs nedir?",["Duymadığını duymuş gibi göstermek","Hadisi uydurmak","Metni kısaltmak"],0,"Müdelles."],
- ["Yalanla itham edilen râvinin hadisi?",["Metrûk","Muallel","Şâz"],0,"Metrûk."],
- ["Mevzû' hadis nedir?",["Uydurma hadis","Hasen hadis","Mu'allak hadis"],0,"Mevzû' = uydurma."],
- ["Gizli kusurlu hadis?",["Muallel","Muhkem","Müsel sel"],0,"Muallel."],
- ["Râvinin kendi sözünü hadise katması?",["İdrâc (müdrec)","Kalb","İdtırâb"],0,"İdrâc."],
- ["Eşit güçte uzlaştırılamayan rivayetler?",["Muzdarib","Maklûb","Müdrec"],0,"İdtırâb."],
- ["Makbûl râvinin daha sikaya muhalefeti?",["Şâz","Münker","Metrûk"],0,"Şâz."],
- ["Zayıf râvinin sikaya muhalefeti?",["Münker","Şâz","Mu'dal"],0,"Münker."],
- ["Aynı sahâbîden gelen destekleyici yol?",["Mütâbi'","Şâhid","Müdrec"],0,"Mütâbi'."],
- ["Başka sahâbîden gelen destekleyici rivayet?",["Şâhid","Mütâbi'","Garîb"],0,"Şâhid."],
- ["Şeyhin yazısını bulup rivayet etmek?",["Vicâde","İcâzet","Arz"],0,"Vicâde."],
- ["Talebenin şeyhe okuması?",["Arz","Semâ'","Münâvele"],0,"Arz (kırâat)."],
- ["Sahâbîye nispet edilen söz?",["Mevkûf","Merfû'","Maktû'"],0,"Mevkûf."],
- ["Tâbiîye nispet edilen söz?",["Maktû'","Mevkûf","Merfû'"],0,"Maktû'."],
- ["Hadis usûlünün amacı nedir?",["Rivayetin kabul edilebilirliğini belirlemek","Metni çevirmek","Fıkhî hüküm çıkarmak"],0,"Usûl, kabul ve red ölçüleridir."],
- ["‘Muhtelit’ kime denir?",["Hıfzı sonradan bozulan râviye","Hiç hıfzı olmayana","Yalancı râviye"],0,"İhtilât."],
- ["Hangisi merdûddur?",["Mevzû'","Sahîh","Hasen"],0,"Mevzû' merdûddur."]
+ ["İbn Hacer'e göre mütevâtir hangi bilgiyi verir?",["İlm-i darûrî (yakîn)","Yalnız zan","Yalnız şüphe"],0,"Eser mütevâtiri yakîn ilmi ifade eden olarak tanımlar (s.40–41)."],
+ ["İbn Hacer, mütevâtir için sayı görüşlerini nasıl değerlendirir?",["Reddeder; belli bir sayı koşulmaz","10 kişiyi şart koşar","Yalnız 40 kişiyi şart koşar"],0,"Sayı belirlemek ilim ifadesini garanti etmez (s.37–39)."],
+ ["Mütevâtirin şartlarından biri hangisidir?",["Hisse dayanmak","Râvilerin hâfız olması","Metnin kısa olması"],0,"Müstenedin hissî olması şarttır (s.39–40)."],
+ ["İbn Hacer, İbnü's-Salâh'ın mütevâtir hakkındaki hangi iddiasını reddeder?",["Men kezebe aleyye dışında mütevâtir yoktur","Mütevâtir ilim ifade eder","Mütevâtir sahihtir"],0,"Bu, taramanın azlığındandır (s.41)."],
+ ["Hanefîlerin sened bakımından üçlü taksimi hangisidir?",["Mütevâtir–meşhûr–âhâd","Sahih–hasen–zayıf","Merfû'–mevkûf–maktû'"],0,"Dipnotta Hanefî tasnifi anılır (s.40)."],
+ ["Eserdeki meşhûr tanımı hangisidir?",["Yolları ikiden fazla ve sayılı olan hadis","Yolu tek olan hadis","Her tabakada yüzlerce râvisi olan hadis"],0,"Muhaddislerin meşhûru (s.42)."],
+ ["Azîz hakkında eserdeki hüküm hangisidir?",["Sahihin şartı değildir","Sahihin şartıdır","Yalnız Buhârî'ye özgüdür"],0,"Cübbâî ve İbnü'l-Arabî'ye karşı (s.43–44)."],
+ ["Azîzin sahih şartı olduğunu iddia eden kimdir?",["Ebû Alî el-Cübbâî (Mu'tezile)","el-Hatîb el-Bağdâdî","Dârakutnî"],0,"İbn Hacer ona karşı çıkar (s.43)."],
+ ["İbn Hacer'in İbnü'l-Arabî'ye karşı kullandığı hadis hangisidir?",["İnnemâ'l-a'mâlü bi'n-niyyât","Men kezebe aleyye","Lâ darare ve lâ dırâr"],0,"Buhârî'nin ilk hadisi azîz değil garîbtir (s.44)."],
+ ["Garîb mutlakta teferrüd nerededir?",["Senedin aslında","Metnin sonunda","Hiçbir yerde"],0,"Aslında (tâbiî tabakasında) tek kalma (s.50)."],
+ ["‘Ferd’ ve ‘garîb’ arasında eserin ayrımı nedir?",["Aynı anlamlıdır; ferd çoğunlukla mutlak, garîb çoğunlukla nisbî için kullanılır","Tamamen farklıdır","Ferd sahih, garîb zayıftır"],0,"Eser ikisini müterâdif kabul eder (s.52)."],
+ ["Karînelerle çevrili âhâd hangi ilmi ifade eder?",["Nazarî ilim","Darûrî ilim","Hiçbir ilim"],0,"Muhtar görüş budur (s.47–49)."],
+ ["Kabul veya ret sıfatı belirli olmayan haberde karîne de yoksa?",["Tevakkuf edilir","Hemen kabul edilir","Hemen reddedilir"],0,"Tevakkuf (s.47)."],
+ ["Sahih hadisin şartlarından hangisi <b>yoktur</b>?",["Her tabakada en az 3 râvi","Adâlet","Tam zabt"],0,"Yol sayısı sahihin şartı değildir."],
+ ["Eserdeki adâlet tanımı nedir?",["Takvâ ve mürüvvete devamı sağlayan meleke","Yalnız hafıza gücü","Yalnız yaş"],0,"Adâlet melekedir (s.53)."],
+ ["Zabt-ı sadr nedir?",["Duyduğunu dilediği zaman hatırlayabilecek şekilde sağlam tutmak","Duyduğunu kitaba yazmak","Hadisi tekrar etmek"],0,"Zabt-ı kitâb ise yazıyı korumaktır (s.53)."],
+ ["Mu'allel nedir?",["Gizli ve kusur verici illeti olan hadis","Râvisi isimsiz hadis","Sened kopuk hadis"],0,"Eserin tanımı (s.54)."],
+ ["Esahhu'l-esânîd konusunda muteber görüş nedir?",["Belli bir zincire mutlak itlak yapılmaz","Yalnız Zührî–Sâlim–İbn Ömer'dir","Hiçbir sened sahih sayılmaz"],0,"Mutlak itlak yoktur (s.56)."],
+ ["Buhârî'nin Müslim'e üstünlük gerekçelerinden biri hangisidir?",["Buhârî ittisâlde lukâ şartını arar","Müslim daha az râvi kullanmıştır","Buhârî hiç ta'lîk kullanmaz"],0,"Müslim muâsarayı yeterli sayar (s.58)."],
+ ["Sahih ile hasen arasındaki tek fark nedir?",["Hasenin râvisinin zabtı hafiftir","Hasen kopuk senedlidir","Hasen yalancı râvilidir"],0,"Diğer şartlar tam (s.60)."],
+ ["Sahîh li-gayrihi nasıl oluşur?",["Hasen hadisin çok yoldan gelmesiyle","Tek yolla","Zayıf hadisin yazılmasıyla"],0,"Çok yol zabttaki kusuru giderir (s.60)."],
+ ["Hasen li-gayrihi için aşağıdakilerden hangisi örnek <b>değildir</b>?",["Mevzû' hadis","Mestûr hadisi","Kötü hıfzlı râvinin hadisi"],0,"Mevzû' çok yolla güçlenmez (s.101–102)."],
+ ["Tek isnadlı hadiste ‘hasen sahîh’ nasıl yorumlanır?",["Müctehidin tereddüdü (hasen ev sahîh)","İki isnad","Mütevâtir"],0,"Çok isnadlıda ise biri hasen biri sahih isnad (s.61–62)."],
+ ["Tirmizî'nin ‘hasen’ tanımında hangisi geçer?",["Râvisi yalanla itham edilmeyen, benzer biçimde başka yoldan gelen, şâz olmayan","Yalnız Buhârî'nin tahric ettiği","Mütevâtir olan"],0,"El-İlel sonundaki sözü (s.62)."],
+ ["Ziyâdetü's-sika hangi şartla kabul edilir?",["Daha sağlam râvilerin rivayetine münâfî olmamak","Hiçbir şart yok","Yalnız Buhârî rivayet etmişse"],0,"Münâfî ise tercîh (s.63–64)."],
+ ["Mütekaddimîn imamları ziyâdetü's-sika hakkında nasıl davranır?",["Tercîhi esas alır, mutlak kabul etmez","Mutlak kabul eder","Mutlak reddeder"],0,"Hiçbirinden mutlak kabul bilinmez (s.65)."],
+ ["Daha râcih olana mahfûz, mercûha ne denir?",["Şâz","Münker","Mu'dal"],0,"Mahfûz–şâz (s.66)."],
+ ["Muhalefet zayıfla birlikteyse mukabil ne olur?",["Münker","Şâz","Mevzû'"],0,"Râcih ma'rûf (s.67)."],
+ ["Şâz ile münker arasındaki ilişki nedir?",["Umûm–husûs min vech","Tam eş anlamlı","Tam zıt"],0,"Muhalefette birleşir, râvi durumunda ayrılır (s.68)."],
+ ["Tâmme mütâbaa nedir?",["Râvinin kendisi için mütâbaa","Şeyhi için mütâbaa","Sahâbî için mütâbaa"],0,"Kâsıra: şeyhi veya üstü için (s.69)."],
+ ["Şâhid ile mütâbi' arasındaki fark nedir?",["Şâhid başka sahâbîden gelir","Şâhid zayıftır","Fark yoktur"],0,"Mütâbi': aynı sahâbî (s.68–70)."],
+ ["İbn Hacer'e göre i'tibâr nedir?",["Destekleyen yolları bulma yöntemi","Mütâbaanın bir türü","Tercih yöntemi"],0,"Bir kısım değil yöntemdir (s.70)."],
+ ["Çatışan makbûl hadislerde eserdeki sıra hangisidir?",["Cem' → nesih → tercîh → tevakkuf","Tercîh → cem' → nesih","Tevakkuf → cem' → nesih"],0,"İbn Hacer'in sırası (s.75)."],
+ ["Eserde ‘tevakkuf’ ile ‘tesâkut’ hakkında ne denir?",["Tevakkuf demek evlâdır","Tesâkut evlâdır","Aynıdır"],0,"Hafâ ile ilgili açıklama (s.75)."],
+ ["Muhtelifü'l-hadîs ile müşkilü'l-hadîs aynı mıdır?",["Hayır; müşkil kâidelere, akla veya nassa aykırı görünen hadistir","Evet","Müşkil mevzû' demektir"],0,"Dipnotta ayrı anılır (s.71–72)."],
+ ["Merdûdun iki sebebi hangisidir?",["Senedden düşme ve râviye ta'n","Mütevâtir ve âhâd","Sahih ve hasen"],0,"Eserin merdûd bölümü (s.75–76)."],
+ ["Sahâbî düşerse hadis nasıl adlanır?",["Mürsel","Mu'dal","Mu'allak"],0,"Tâbiîden sonra düşme (s.78)."],
+ ["Art arda iki râvinin düşmesi hangisidir?",["Mu'dal","Munkatı'","Mu'allak"],0,"Ardışık: mu'dal (s.79)."],
+ ["Mürsel hakkında Şâfiî'nin görüşü nedir?",["Başka yoldan desteklenirse kabul","Mutlak kabul","Mutlak ret"],0,"Mâlikî ve Kûfîler mutlak kabul eder (s.78)."],
+ ["Buhârî'de cezm sîğasıyla verilen ta'lîk hakkında ne denir?",["Düşen kısım sahihtir","Mevzû'dur","Zayıftır"],0,"Dipnot (s.77)."],
+ ["Tedlîsü'ş-şuyûh nedir?",["Şeyhin adını/künyesini/lakabını değiştirmek","Râviyi tamamen düşürmek","Metni değiştirmek"],0,"Dipnot (s.80)."],
+ ["Tedlîs ile mürsel-i hafî arasındaki fark nedir?",["Tedlîs karşılaştığı kişiden, mürsel-i hafî karşılaşmadığı muâsırdan","Aynı şeydir","Tedlîs sahâbîyle ilgilidir"],0,"Eser bu ayrımı yapar (s.81)."],
+ ["İbn Hacer'e göre müdellisin kabul edilmesi için hangi sîğa gerekir?",["Sarih sîğa (semâ' tasrihi)","‘An’ yeterlidir","Hiçbiri"],0,"En sahih görüşe göre (s.81)."],
+ ["Ta'nın on sebebi hangi gruplara ayrılır?",["5 adâlet, 5 zabt","7 adâlet, 3 zabt","Hepsi zabt"],0,"Eserin sayımı (s.83)."],
+ ["Ta'nın sekizinci sebebi hangisidir?",["Cehâlet","Bid'at","Fısk"],0,"8 cehâlet, 9 bid'at, 10 sû'ü'l-hıfz (s.95–101)."],
+ ["Mevzû'luk hükmü nasıl verilir?",["Galip zanla","Kat'î kesinlikle","Hükmedilmez"],0,"Karîneler ve ilim ehlinin melekesi (s.85)."],
+ ["Metrûk nedir?",["Râvisi yalanla itham edilen hadis","İsimsiz râvili hadis","Hâfız râvili hadis"],0,"Tühmet bi'l-kizb (s.87)."],
+ ["Mürre b. Ka'b yerine Ka'b b. Mürre denmesi hangi terime örnektir?",["Maklûb","Musahhaf","Muztarib"],0,"Takdim-te'hîr (s.91)."],
+ ["Râvinin kendi sözünü metne katması hangisidir?",["Müdrecü'l-metin","Maklûb","Muallel"],0,"Örnek: kölenin iki ecri hadisinde ‘annem’ sözü (s.90)."],
+ ["Muztarib nedir?",["Tercih edilemeyen, eşit güçte çelişen rivayetler","Sened kopuk hadis","Mevzû' hadis"],0,"Eserin tanımı (s.91)."],
+ ["Nokta değişikliğinden doğan hatanın adı nedir?",["Musahhaf (tashîf)","Muharref","Muztarib"],0,"Hareke/şekil: muharref (s.92–93)."],
+ ["Rivayet bi'l-ma'nâ için eserdeki en kuvvetli delil hangisidir?",["Şeriatı Arapça bilmeyenlere kendi dilleriyle anlatmanın icmâsı","Hiçbir delil yoktur","Yalnız Hanefîler kabul eder"],0,"Yine de lafızla rivayet evlâdır (s.93)."],
+ ["Garîbü'l-hadîs nedir?",["Metindeki kapalı lafızlar","Tek râvili hadis","Mevzû' hadis"],0,"Garîb hadisle (ferd) karıştırılmaz (s.94)."],
+ ["Meçhûlü'l-ayn kimdir?",["İsmi bilinen, ondan yalnız bir râvinin rivayet ettiği kişi","İsmi bilinmeyen","Yalancı râvi"],0,"Mübhem gibi (s.98)."],
+ ["Mestûr hakkında tahkîk edilen hüküm nedir?",["Hâli belli olana kadar tevakkuf","Mutlak kabul","Mutlak ret"],0,"İmâmü'l-Haremeyn ve İbnü's-Salâh (s.98)."],
+ ["Bid'atçı râvinin davetçi olmaması halinde bir görüşe göre hadisi?",["Kabul edilir","Her hâlükârda reddedilir","Mevzû' sayılır"],0,"(s.99–100)."],
+ ["Muhtelit kimdir?",["Hıfzı sonradan bozulan râvi","Her hâlinde kötü hıfzlı olan","İsimsiz râvi"],0,"Târi' sû'ü'l-hıfz (s.101)."],
+ ["Muhtelitin ihtilâttan önceki rivayeti ayırt edilebiliyorsa?",["Kabul edilir","Reddedilir","Mevzû' sayılır"],0,"Ayırt edilemiyorsa tevakkuf (s.101)."],
+ ["Müsnedin tanımı hangisidir?",["Sahâbînin merfû'u, görünüşte muttasıl senedle","Tâbiînin sözü","Mürsel hadis"],0,"(s.111)."],
+ ["Sahâbî tanımında ridde geçmesi sahâbîliği düşürür mü?",["En sahih görüşe göre düşürmez","Her zaman düşürür","Yalnız çocuklarda"],0,"<span class='ar'>وَلَوْ تَخَلَّلَتْ رِدَّةٌ فِي الْأَصَحِّ</span> (s.107)."],
+ ["Maktû' ile munkatı' arasındaki fark nedir?",["Maktû' metin bahsi, munkatı' isnad bahsidir","Aynıdır","Maktû' mu'dal demektir"],0,"(s.110)."],
+ ["Nisbî ulüvvün türlerinden biri <b>değildir</b>:",["Tabaka","Muvâfaka","Musâfaha"],0,"Muvâfaka, bedel, musâvât, musâfaha (s.113–114)."],
+ ["Karşılıklı rivayet eden akrâna ne denir?",["Müdebbec","Müselsel","Sâbık"],0,"(s.114–115)."],
+ ["Şeyh kesin olarak ‘ben bunu rivayet etmedim’ derse?",["Hadis reddedilir ama talebe cerhedilmez","Hadis kabul edilir","Hadis mevzû' olur"],0,"(s.118)."],
+ ["Tahammül yollarının sayısı nedir?",["8","5","12"],0,"Edâ sîğalarının sekiz mertebesiyle karıştırılmamalı (s.120–121)."],
+ ["An'ane konusunda Nüzhe'de ‘el-muhtâr’ olan görüş hangisidir?",["Bir kez de olsa karşılaşmanın (lukâ) sübûtu","Yalnız muâsarenin imkânı","Hiçbir şart yok"],0,"İbnü'l-Medînî ve Buhârî (s.123)."],
+ ["Tahammülde yaş için en sahih görüş nedir?",["Temyiz çağı","Yirmi yaş","Kırk yaş"],0,"(s.143)."],
+ ["Yazıda aynı, okunuşta farklı isimler için hangi terim?",["Müelef–muhtelif","Müttefik–müfterik","Mühmel"],0,"Hirâm–Harâm gibi (s.127)."],
+ ["Tabaka tanımı hangisidir?",["Yaş ve şeyhlerle karşılaşmada ortak topluluk","Aynı şehirde yaşayanlar","Aynı mezhepten olanlar"],0,"(s.131)."],
+ ["Cerhin en kötü mertebesi hangi kalıpla ifade edilir?",["Ef'al kalıbı (ekzebü'n-nâs)","Leyyin","Fîhi makāl"],0,"(s.133)."],
+ ["Tezkiyede kaç kişinin ta'dîli yeter?",["Bir kişi","İki kişi","On kişi"],0,"(s.135)."],
+ ["Cerh ile ta'dîl çatışırsa cumhura göre hangisi önce gelir?",["Cerh (mufesser ve ârifden gelirse)","Ta'dîl","İkisi eşit"],0,"(s.136)."]
 ];
 
 /* ============================ DURUM ============================ */
@@ -594,30 +862,37 @@ function vYol(){
   const n=doneCount(),next=LESSONS.find(l=>!S.done[l.id]);
   let h=`<div class="card hero"><div class="ar big-ar">نُخْبَة</div>
     <h1>Hadis usûlünü keşfet!</h1>
-    <p>İbn Hacer'in <i>Nüzhetü'n-Nazar</i> adlı Nuhbetü'l-Fiker şerhindeki konuları ${N} kısa derste, oyunlarla ve kartlarla öğren.</p>
+    <p>İbn Hacer'in <i>Nüzhetü'n-Nazar</i> adlı Nuhbetü'l-Fiker şerhini ${N} derste, kitabın sayfa sırasıyla; alıntılar, örnek hadisler, oyunlar ve kartlarla öğren.</p>
     <div class="prog" style="background:rgba(255,255,255,.25)"><i style="width:${n/N*100}%;background:#fff"></i></div>
     <div class="row"><span>${n}/${N} ders tamam</span><span style="flex:1"></span>
     ${next?`<button class="btn light" data-act="lesson" data-id="${next.id}">${n?"Devam et":"Başla"} →</button>`:`<span class="pill" style="color:#1E5B4F;background:#fff">🎓 Hatmettin!</span>`}</div></div>`;
   BABS.forEach(b=>{h+=`<div class="babhead"><h2>${b.tr}</h2><span class="ar">${b.ar}</span></div>`;
     LESSONS.filter(l=>l.bab===b.id).forEach(l=>{h+=`<button class="lesson ${S.done[l.id]?"done":""}" data-act="lesson" data-id="${l.id}"><span class="num">${S.done[l.id]?"✓":l.id}</span>
-      <span class="t"><b>${l.icon} ${l.tr}</b><span class="ar">${l.ar}</span></span><span class="tag">${S.done[l.id]?"tamam":"+30 ⭐"}</span></button>`})});
-  h+=`<div class="card soft small muted" style="margin-top:18px">Bu program, <i>Nüzhetü'n-Nazar</i>'ın konu sırasını izleyen bir çalışma yardımcısıdır; kitabın yerini tutmaz. Açıklamalar kısaltılmış ve sadeleştirilmiştir. Ayrıntı ve ihtilaflı konular için eseri ve hocanı esas al.</div>`;
+      <span class="t"><b>${l.icon} ${l.tr}</b><span class="ar">${l.ar}</span><span class="small muted">Kitapta ${l.pg}</span></span><span class="tag">${S.done[l.id]?"tamam":"+30 ⭐"}</span></button>`})});
+  h+=`<div class="card soft small muted" style="margin-top:18px">Bu program <i>Nüzhetü'n-Nazar</i>'ın (Nûreddîn Itr tahkîki) bütün sayfalarına göre hazırlandı. (s.…) etiketleri kitabın <b>basılı sayfa numarasıdır</b> (PDF sayfası = basılı + 1). “Eser” etiketli Arapça alıntılar sayfadan okunup doğrulanmıştır; Türkçe açıklamalar kısaltılmış ve sadeleştirilmiştir, kitabın yerini tutmaz. Taramadan okunan bazı ayrıntılar (özellikle dipnotlardaki sayılar) için eserin kendisine bakın.</div>`;
   return h;
 }
 function chainHtml(c){return `<p class="small" style="margin:10px 0 2px"><b>${c.label}</b></p><div class="chain">${c.nodes.map((n,i)=>`${i?'<span class="arrow">→</span>':""}<span class="node ${n[1]}">${n[0]}</span>`).join("")}</div>`}
+const quoteHtml=q=>`<div class="quote"><div class="exar">${q.ar}</div><div class="row small muted"><span>🇹🇷 ${q.tr}</span><span style="flex:1"></span><span class="tag">Eser ${q.pg}</span>${spBtn(q.ar)}</div></div>`;
 function vLesson(id){
   const L=LESSONS.find(l=>l.id===id);
   let h=`<button class="back" data-act="home">← Yol</button>
   <div class="sec-h"><span style="font-size:32px">${L.icon}</span><h1 style="margin:0">${L.tr}</h1></div>
   <div class="ar" style="font-size:28px;color:var(--accent)">${L.ar}</div>
+  <div class="row" style="margin:4px 0 8px"><span class="tag">Kitapta ${L.pg}</span></div>
   <div class="callout"><b>Hedef.</b> ${L.goal}</div>`;
+  let card=null;const flush=()=>{if(card!==null){h+=`<div class="card">${card}</div>`;card=null}};
   L.secs.forEach(s=>{
-    if(s.callout){h+=`<div class="callout">${s.callout}</div>`;return}
-    h+=`<div class="card">${s.h?`<h3>${s.h}</h3>`:""}${s.p?`<p>${s.p}</p>`:""}`;
-    if(s.chains)h+=`<p class="muted small">Kesikli kırmızı kutu = düşen râvi. Şema Musannif'ten Hz. Peygamber'e doğrudur.</p>`+s.chains.map(chainHtml).join("");
-    if(s.table){h+=`<div class="tblwrap"><table class="t"><tr>${s.table[0].map(c=>`<th>${c}</th>`).join("")}</tr>${s.table.slice(1).map(r=>`<tr>${r.map((c,i)=>`<td>${i===0?`<b>${c}</b>`:c}</td>`).join("")}</tr>`).join("")}</table></div>`}
-    h+=`</div>`});
-  if(L.ex.length){h+=`<h2>Örnekler</h2>`;
+    if(s.callout){flush();h+=`<div class="callout">${s.callout}</div>`;return}
+    if(s.h||card===null){flush();card=""}
+    if(s.h)card+=`<h3>${s.h}</h3>`;
+    if(s.p)card+=`<p>${s.p}</p>`;
+    if(s.quote)card+=s.quote.map(quoteHtml).join("");
+    if(s.chains)card+=`<p class="muted small">Kesikli kırmızı kutu = düşen râvi. Şema Musannif'ten Hz. Peygamber'e doğrudur.</p>`+s.chains.map(chainHtml).join("");
+    if(s.table)card+=`<div class="tblwrap"><table class="t"><tr>${s.table[0].map(c=>`<th>${c}</th>`).join("")}</tr>${s.table.slice(1).map(r=>`<tr>${r.map((c,i)=>`<td>${i===0?`<b>${c}</b>`:c}</td>`).join("")}</tr>`).join("")}</table></div>`;
+  });
+  flush();
+  if(L.ex.length){h+=`<h2>Eserden örnekler</h2>`;
     L.ex.forEach((e,i)=>{h+=`<div class="card"><span class="tag">${e.tag}</span><div class="exar">${e.ar}</div>
       <div class="row small muted"><span>🇹🇷 ${e.tr}</span><span style="flex:1"></span>${spBtn(e.ar)}</div>
       <button class="btn ghost sm" data-act="exnote" data-i="${i}" style="margin-top:8px">Açıklamayı göster</button>
@@ -627,7 +902,7 @@ function vLesson(id){
 }
 function miniQuiz(L){
   const box=$("#mini");
-  runQuiz(box,{items:L.mini.map(m=>({q:m[0],opts:m[1],a:m[2],why:m[3]})),done:(ok,tot)=>{
+  runQuiz(box,{items:L.mini.map(m=>{const c=m[1][m[2]];const o=shuffle(m[1]);return {q:m[0],opts:o,a:o.indexOf(c),why:m[3]}}),done:(ok,tot)=>{
     const first=!S.done[L.id];
     if(ok>=2){S.done[L.id]=1;save();addXp(first?30+ok*5:ok*2);confetti();
       box.innerHTML=`<div class="result"><div class="big">${ok}/${tot}</div><p>${first?"Ders tamamlandı! +"+(30+ok*5)+" ⭐":"Güzel tekrar!"}</p>
@@ -693,7 +968,7 @@ function gMem(box){
   draw();
 }
 function gOrder(box){
-  const its=shuffle(ORDER);let i=0,ok=0;
+  const its=pick(ORDER,5);let i=0,ok=0;
   function q(){
     if(i>=its.length){const g=ok*12;S.best.sira=Math.max(S.best.sira||0,ok);addXp(g);return endCard(box,`${ok}/${its.length}`,"sıralama doğru",g,"order")}
     const it=its[i];let chosen=[],bank=shuffle(it.tiles.map((w,k)=>({w,k:it.tiles.indexOf(w)})));
@@ -732,13 +1007,13 @@ function fcHtml(){const due=dueCards();
   <p class="muted small" style="text-align:center">Sırada ${due.length} kart</p>`}
 
 /* ---- Sınav ---- */
-function vSinav(){return `<h1>Genel Sınav</h1><p class="muted">20 soruluk karma sınav: kavram soruları + tanım-terim + kabul/red.</p>
+function vSinav(){return `<h1>Genel Sınav</h1><p class="muted">25 soruluk karma sınav: eserdeki kavramlar, tanım–terim ve kabul/red soruları.</p>
   <div class="card"><div class="stats"><div><b>${S.exam||"–"}</b><span>en yüksek puan</span></div><div><b>${doneCount()}/${N}</b><span>ders</span></div><div><b>${level()}</b><span>seviye</span></div></div>
   <p class="small muted">Hedef: 90 ve üzeri puan alıp “Sınav Şampiyonu” rozetini aç.</p><button class="btn" data-act="exam">Sınava başla</button></div>`}
 function exam(){
   tab="sinav";view=()=>gameShell("📝 Genel Sınav");render();const box=$("#gbox");
-  const a=pick(QB,10).map(q=>{const c=q[1][q[2]];const s=shuffle(q[1]);return {q:q[0],opts:s,a:s.indexOf(c),why:q[3]}});
-  runQuiz(box,{items:shuffle([...a,...detItems(6),...krItems(4)]),done:(ok,t)=>{
+  const a=pick(QB,13).map(q=>{const c=q[1][q[2]];const s=shuffle(q[1]);return {q:q[0],opts:s,a:s.indexOf(c),why:q[3]}});
+  runQuiz(box,{items:shuffle([...a,...detItems(7),...krItems(5)]),done:(ok,t)=>{
     const sc=Math.round(ok/t*100);S.exam=Math.max(S.exam||0,sc);const g=Math.round(sc/2);addXp(g);if(sc>=90)confetti();
     const st=sc>=90?3:sc>=70?2:sc>=50?1:0;
     box.innerHTML=`<div class="result"><div class="stars">${"★".repeat(st)}${"☆".repeat(3-st)}</div><div class="big">${sc}</div><p>${ok}/${t} doğru · +${g} ⭐</p>
@@ -751,7 +1026,7 @@ function vBen(){return `<h1>Ben</h1>
   <div class="card stats"><div><b>${S.xp}</b><span>puan</span></div><div><b>${level()}</b><span>seviye</span></div><div><b>${S.streak}</b><span>gün serisi</span></div></div>
   <h2>Rozetler</h2><div class="badges">${BADGES.map(b=>`<div class="badge ${S.badges[b[1]]?"on":""}"><div class="bi">${b[0]}</div><b>${b[1]}</b><span>${b[2]}</span></div>`).join("")}</div>
   <h2 style="margin-top:22px">Müellif ve Eser</h2>
-  <div class="card"><p><b>İbn Hacer el-Askalânî</b> (773–852 h.), hadis ilminin en büyük âlimlerindendir; Şâfiî mezhebinden olup “Emîrü'l-Mü'minîn fi'l-hadîs” diye anılır. <i>Nuhbetü'l-Fiker</i> kısa bir usûl metnidir; <i>Nüzhetü'n-Nazar</i> bu metnin kendi şerhidir. Kitapta hadis bölümleri haberin yol sayısından başlayıp makbûl-merdûd ayrımına, râvi kusurlarına ve rivayet usûlüne uzanan sistemli bir tasnifle işlenir.</p></div>
+  <div class="card"><p><b>İbn Hacer el-Askalânî</b> (773–852 h.), hadis ilminin en büyük âlimlerindendir; Şâfiî mezhebinden olup “Emîrü'l-Mü'minîn fi'l-hadîs” diye anılır. <i>Nuhbetü'l-Fiker</i> kısa bir usûl metnidir; <i>Nüzhetü'n-Nazar</i> bu metnin kendi şerhidir. Eser, haberin yol sayısından başlayıp makbûl-merdûd ayrımına, sened kopukluğuna, râvi kusurlarına, rivayet usûlüne ve ricâl bilgisine (hâtime) uzanan sistemli bir tasnifle ilerler.</p></div>
   <h2>Ayarlar</h2><div class="card row"><button class="btn ghost sm" data-act="theme">🌓 Tema değiştir</button><button class="btn ghost sm" data-act="reset">Sıfırla</button></div>`}
 
 /* ============================ OLAYLAR ============================ */
