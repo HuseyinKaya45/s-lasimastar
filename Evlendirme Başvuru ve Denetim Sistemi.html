@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Evlendirme Başvuru ve Denetim Sistemi</title>
+<style>
+:root{
+  --bg:#F3F5F8;--card:#fff;--ink:#16202C;--muted:#5B6877;--line:#D6DCE4;--soft:#E8ECF1;
+  --accent:#1F4E8C;--accent-ink:#fff;--good:#1E7A46;--bad:#B3261E;--warn:#9A6200;
+  --good-bg:#E2F2E6;--bad-bg:#FBE7E4;--warn-bg:#FFF3D6;--info-bg:#E6EEF9;
+  --f:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10161D;--card:#18212B;--ink:#E7EDF4;--muted:#9AA8B8;--line:#2B3744;--soft:#212C38;
+  --accent:#7FB1F0;--accent-ink:#0B1624;--good:#6FD08E;--bad:#FF8A80;--warn:#F2C25C;
+  --good-bg:#17301F;--bad-bg:#3A1D1A;--warn-bg:#3A2E10;--info-bg:#17283D;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10161D;--card:#18212B;--ink:#E7EDF4;--muted:#9AA8B8;--line:#2B3744;--soft:#212C38;
+  --accent:#7FB1F0;--accent-ink:#0B1624;--good:#6FD08E;--bad:#FF8A80;--warn:#F2C25C;
+  --good-bg:#17301F;--bad-bg:#3A1D1A;--warn-bg:#3A2E10;--info-bg:#17283D;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15.5px/1.5 var(--f)}
+h1,h2,h3{margin:0 0 .5em;line-height:1.25}h1{font-size:24px}h2{font-size:19px}h3{font-size:16px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 14px}
+header.top{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+header.top .wrap{display:flex;gap:12px;align-items:center;min-height:54px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.brand{font-weight:700;flex:1;min-width:200px}.brand small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+nav.tabs{background:var(--card);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
+nav.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 12px;font:inherit;color:var(--muted);cursor:pointer;white-space:nowrap}
+nav.tabs button.on{color:var(--accent);border-color:var(--accent);font-weight:600}
+main{padding:18px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 14px}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:720px){.g2,.g3,.g4{grid-template-columns:1fr}}
+label{display:block;font-size:13px;color:var(--muted);margin:8px 0 3px;font-weight:600}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:8px 10px;min-height:38px}
+input[type=checkbox]{width:auto;min-height:0;margin-right:6px;vertical-align:middle}
+.chk{display:flex;align-items:flex-start;gap:6px;margin:6px 0;color:var(--ink);font-weight:400;font-size:14.5px}
+.chk input{margin-top:3px}
+textarea{min-height:70px}
+button.b,a.b{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:inherit;font-weight:600;padding:8px 14px;border-radius:7px;cursor:pointer;text-decoration:none;min-height:38px}
+button.b.ghost{background:transparent;color:var(--accent)}
+button.b.red{background:var(--bad);border-color:var(--bad);color:#fff}
+button.b.sm{padding:4px 10px;min-height:30px;font-size:13.5px}
+button.b:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.sp{flex:1}
+.muted{color:var(--muted)}.small{font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+.tw{overflow-x:auto}
+.badge{display:inline-block;padding:1px 9px;border-radius:99px;font-size:12.5px;font-weight:700;background:var(--soft);color:var(--muted)}
+.badge.good{background:var(--good-bg);color:var(--good)}.badge.bad{background:var(--bad-bg);color:var(--bad)}
+.badge.warn{background:var(--warn-bg);color:var(--warn)}.badge.info{background:var(--info-bg);color:var(--accent)}
+.note{border-radius:8px;padding:9px 12px;margin:8px 0;font-size:14px}
+.note.good{background:var(--good-bg);color:var(--good)}.note.bad{background:var(--bad-bg);color:var(--bad)}
+.note.warn{background:var(--warn-bg);color:var(--warn)}.note.info{background:var(--info-bg);color:var(--accent)}
+.note b{color:inherit}
+.find{display:flex;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.find .badge{flex:none;min-width:58px;text-align:center}
+.stat{text-align:center}.stat b{display:block;font-size:28px;line-height:1.1}.stat span{font-size:12.5px;color:var(--muted)}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;word-break:break-all}
+.login{max-width:420px;margin:60px auto}
+.slotb{margin:3px;min-width:70px}
+.hidden{display:none}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:8px;z-index:50;font-weight:600;opacity:0;transition:.25s;pointer-events:none}
+.toast.show{opacity:1}
+#printarea{display:none}
+@media print{
+  body *{visibility:hidden}
+  #printarea,#printarea *{visibility:visible}
+  #printarea{display:block;position:absolute;left:0;top:0;width:100%;color:#000;background:#fff;padding:24px}
+  #printarea table{font-size:13px}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand" id="brand">Evlendirme Başvuru ve Denetim Sistemi<small>Çevrimdışı çalışır</small></div>
+  <div id="who" class="row"></div>
+</div></header>
+<nav class="tabs hidden" id="tabs"><div class="wrap" id="tabsin"></div></nav>
+<div class="wrap"><main id="app"></main></div>
+<div id="printarea"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+/* =====================================================================
+   SABİT GÜVENCELER (parametreyle DEĞİŞTİRİLEMEZ)
+   ===================================================================== */
+const HARD={
+  absoluteMinAge:16,          // hiçbir parametre veya istisna bunun altına inemez
+  minAgeStandardFloor:18,     // normal evlenme yaşı en az 18 olarak ayarlanabilir
+  lockedBans:["ustsoy_altsoy","kardes","evlat_edinme"], // devre dışı bırakılamaz
+  requireInPerson:true,       // her iki tarafın şahsen başvurusu zorunlu (vekâletle başvuru yok)
+  requireFreeWill:true        // her iki tarafın serbest irade beyanı tören aşamasında zorunlu
+};
+const KEY="evlendirme-sistemi-v1";
+
+/* =====================================================================
+   SHA-256 (çevrimdışı, bağımlılıksız)
+   ===================================================================== */
+const K256=new Uint32Array([0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2]);
+function sha256(str){
+  const m=new TextEncoder().encode(str),l=m.length,n=((l+9+63)>>6)<<6,b=new Uint8Array(n);
+  b.set(m);b[l]=0x80;const dv=new DataView(b.buffer);
+  dv.setUint32(n-4,(l*8)>>>0);dv.setUint32(n-8,Math.floor(l*8/4294967296));
+  let h=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+  const w=new Uint32Array(64);
+  for(let i=0;i<n;i+=64){
+    for(let t=0;t<16;t++)w[t]=dv.getUint32(i+t*4);
+    for(let t=16;t<64;t++){const a=w[t-15],c=w[t-2];
+      const s0=((a>>>7)|(a<<25))^((a>>>18)|(a<<14))^(a>>>3),s1=((c>>>17)|(c<<15))^((c>>>19)|(c<<13))^(c>>>10);
+      w[t]=(w[t-16]+s0+w[t-7]+s1)>>>0}
+    let [a,b2,c,d,e,f,g,hh]=h;
+    for(let t=0;t<64;t++){
+      const S1=((e>>>6)|(e<<26))^((e>>>11)|(e<<21))^((e>>>25)|(e<<7)),ch=(e&f)^(~e&g),t1=(hh+S1+ch+K256[t]+w[t])>>>0;
+      const S0=((a>>>2)|(a<<30))^((a>>>13)|(a<<19))^((a>>>22)|(a<<10)),mj=(a&b2)^(a&c)^(b2&c),t2=(S0+mj)>>>0;
+      hh=g;g=f;f=e;e=(d+t1)>>>0;d=c;c=b2;b2=a;a=(t1+t2)>>>0}
+    h=[h[0]+a,h[1]+b2,h[2]+c,h[3]+d,h[4]+e,h[5]+f,h[6]+g,h[7]+hh].map(x=>x>>>0)}
+  return h.map(x=>x.toString(16).padStart(8,"0")).join("");
+}
+const canon=o=>JSON.stringify(o,(k,v)=>v&&typeof v==="object"&&!Array.isArray(v)?Object.keys(v).sort().reduce((r,x)=>(r[x]=v[x],r),{}):v);
+const seal=o=>sha256(canon(o));
+const hashPin=(pin,salt)=>{let x=salt+pin;for(let i=0;i<1500;i++)x=sha256(x+salt);return x};
+const rnd=()=>Array.from(crypto.getRandomValues(new Uint8Array(12))).map(x=>x.toString(16).padStart(2,"0")).join("");
+
+/* =====================================================================
+   VARSAYILAN PARAMETRELER (örnek: Türkiye Medeni Kanunu'nu esas alan başlangıç değerleri;
+   hukuki doğruluğu yetkili makamca onaylanmalıdır)
+   ===================================================================== */
+const DEFAULT_PARAMS=()=>({
+  institution:"Evlendirme Memurluğu",
+  minAgeStandard:18,
+  allowParentConsent:true, minAgeParentConsent:17,
+  allowCourtException:true, minAgeCourt:16,
+  waitingDays:300, waitingAppliesTo:"kadin",
+  genderRule:"farkli",
+  witnessCount:2,
+  applicationValidityDays:180,
+  minNoticeDays:0,
+  maxPerDay:20, slotMinutes:20, dayStart:"09:00", dayEnd:"16:40",
+  workDays:[1,2,3,4,5], holidays:[],
+  fee:"",
+  regPrefix:"EV",
+  sessionLockMinutes:5,
+  retentionYears:10,
+  kinBans:[
+    {id:"ustsoy_altsoy",label:"Üstsoy–altsoy (anne/baba, çocuk, torun…)",enabled:true},
+    {id:"kardes",label:"Kardeşler (tam, ana bir, baba bir)",enabled:true},
+    {id:"evlat_edinme",label:"Evlat edinen ile evlatlık (ve altsoyu)",enabled:true},
+    {id:"amca_dayi",label:"Amca, dayı, hala, teyze ile yeğeni",enabled:true},
+    {id:"kayin_hisim",label:"Kayın hısımlığı (kayınpeder, kayınvalide, gelin, damat, üvey ebeveyn/evlat)",enabled:true}
+  ],
+  docs:[
+    {id:"d_kimlik",label:"Kimlik belgesi (her iki taraf)",required:true,cond:"all"},
+    {id:"d_foto",label:"Vesikalık fotoğraf",required:true,cond:"all"},
+    {id:"d_saglik",label:"Evlenme muayene (sağlık) raporu",required:true,cond:"all"},
+    {id:"d_medeni",label:"Nüfus kayıt örneği / medeni durum belgesi",required:true,cond:"all"},
+    {id:"d_bosanma",label:"Önceki evliliğin sona erdiğini gösteren belge (boşanma kesinleşme / ölüm kaydı)",required:true,cond:"previous"},
+    {id:"d_yabanci",label:"Yabancı uyruklu taraf için bekârlık/medeni hâl belgesi (onaylı) ve tercümesi",required:true,cond:"foreign"},
+    {id:"d_veli",label:"Veli/vasi izni",required:true,cond:"parent"},
+    {id:"d_mahkeme",label:"Mahkeme izin kararı",required:true,cond:"court"}
+  ]
+});
+const COND_LABEL={all:"Her başvuruda",previous:"Önceden evlenmiş taraf varsa",foreign:"Yabancı uyruklu taraf varsa",parent:"Veli izniyle evlenecek taraf varsa",court:"Mahkeme kararıyla evlenecek taraf varsa"};
+
+/* ---- Parametre şeması (düzenlenebilir alanlar) ---- */
+const SCHEMA=[
+  {k:"institution",label:"Kurum adı",type:"text"},
+  {sec:"Yaş kuralları"},
+  {k:"minAgeStandard",label:"Normal evlenme yaşı",type:"int",min:HARD.minAgeStandardFloor,max:21,help:"En az 18 olabilir; altına indirilemez."},
+  {k:"allowParentConsent",label:"Veli izniyle erken yaşta evlenmeye izin ver",type:"bool"},
+  {k:"minAgeParentConsent",label:"Veli izniyle asgari yaş",type:"int",min:17,max:18,help:"Normal yaştan küçük olmalıdır."},
+  {k:"allowCourtException",label:"Mahkeme kararıyla istisnai evlenmeye izin ver",type:"bool"},
+  {k:"minAgeCourt",label:"Mahkeme kararıyla asgari yaş",type:"int",min:HARD.absoluteMinAge,max:17,help:`Mutlak alt sınır ${HARD.absoluteMinAge}; hiçbir ayarla bunun altına inilemez.`},
+  {sec:"Önceki evlilik ve beklemeler"},
+  {k:"waitingDays",label:"Evliliğin sona ermesinden sonra bekleme süresi (gün)",type:"int",min:0,max:400},
+  {k:"waitingAppliesTo",label:"Bekleme süresi kime uygulanır?",type:"sel",opts:[["kadin","Kadın taraf"],["her_ikisi","Her iki taraf"],["hic","Uygulanmaz"]]},
+  {k:"genderRule",label:"Taraf cinsiyeti kuralı",type:"sel",opts:[["farkli","Taraflar farklı cinsiyette olmalı"],["serbest","Denetleme yapılmaz"]],help:"Yürürlükteki mevzuata göre yetkili makam belirler."},
+  {sec:"Başvuru ve tören"},
+  {k:"witnessCount",label:"Gerekli şahit sayısı",type:"int",min:0,max:4},
+  {k:"applicationValidityDays",label:"Onaylı başvurunun geçerlilik süresi (gün)",type:"int",min:30,max:365},
+  {k:"minNoticeDays",label:"Başvurudan törene en az kaç gün",type:"int",min:0,max:30},
+  {k:"fee",label:"Tören ücreti / harç bilgisi (serbest metin)",type:"text"},
+  {k:"regPrefix",label:"Kayıt numarası öneki",type:"text"},
+  {sec:"Takvim"},
+  {k:"maxPerDay",label:"Günlük azami nikâh sayısı",type:"int",min:1,max:200},
+  {k:"slotMinutes",label:"Seans süresi (dakika)",type:"int",min:10,max:120},
+  {k:"dayStart",label:"Gün başlangıç saati",type:"time"},
+  {k:"dayEnd",label:"Son seans başlangıç saati (en geç)",type:"time"},
+  {sec:"Güvenlik ve saklama"},
+  {k:"sessionLockMinutes",label:"Etkinlik yokken otomatik kilit (dakika)",type:"int",min:1,max:60},
+  {k:"retentionYears",label:"Tamamlanmış kayıtların saklama süresi (yıl)",type:"int",min:1,max:50}
+];
+const WDAYS=["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+
+/* =====================================================================
+   VERİ DEPOSU
+   ===================================================================== */
+let DB=null,SESSION=null,route={v:"dash"},ctx={};
+function load(){try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}}
+function save(){localStorage.setItem(KEY,JSON.stringify(DB))}
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const todayStr=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+const fmtD=s=>s?s.split("-").reverse().join("."):"—";
+const fmtT=ts=>{const d=new Date(ts);return fmtD(todayStrOf(d))+" "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")};
+const todayStrOf=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const addDays=(s,n)=>{const d=new Date(s+"T00:00:00");d.setDate(d.getDate()+n);return todayStrOf(d)};
+const daysBetween=(a,b)=>Math.round((new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/864e5);
+function ageOn(birth,ref){const b=new Date(birth+"T00:00:00"),r=new Date(ref+"T00:00:00");let a=r.getFullYear()-b.getFullYear();
+  if(r.getMonth()<b.getMonth()||(r.getMonth()===b.getMonth()&&r.getDate()<b.getDate()))a--;return a}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("show"),2600)}
+function validTC(n){if(!/^[1-9]\d{10}$/.test(n))return false;const d=n.split("").map(Number);
+  const d10=(((d[0]+d[2]+d[4]+d[6]+d[8])*7)-(d[1]+d[3]+d[5]+d[7]))%10;
+  return ((d10+10)%10===d[9])&&(d.slice(0,10).reduce((a,b)=>a+b,0)%10===d[10])}
+const maskId=n=>!n?"—":n.length>5?n.slice(0,3)+"•••••"+n.slice(-3):"•••";
+
+/* ---- Denetim günlüğü (SHA-256 zinciri) ---- */
+function logEv(action,detail){
+  const prev=DB.audit.length?DB.audit[DB.audit.length-1].hash:"GENESIS";
+  const e={i:DB.audit.length+1,ts:Date.now(),user:SESSION?SESSION.id:"sistem",role:SESSION?SESSION.role:"-",action,detail:detail||"",prev};
+  e.hash=sha256(prev+"|"+e.i+"|"+e.ts+"|"+e.user+"|"+e.role+"|"+e.action+"|"+e.detail);
+  DB.audit.push(e);save();return e;
+}
+function verifyChain(audit){
+  let prev="GENESIS";
+  for(const e of audit){
+    const h=sha256(prev+"|"+e.i+"|"+e.ts+"|"+e.user+"|"+e.role+"|"+e.action+"|"+e.detail);
+    if(e.prev!==prev||e.hash!==h)return {ok:false,at:e.i};
+    prev=e.hash}
+  return {ok:true,n:audit.length};
+}
+
+/* =====================================================================
+   PARAMETRE DOĞRULAMA
+   ===================================================================== */
+function validateParams(p){
+  const E=[];const num=(k,min,max,lbl)=>{if(!Number.isInteger(p[k])||p[k]<min||p[k]>max)E.push(`${lbl}: ${min}–${max} arası tam sayı olmalı.`)};
+  SCHEMA.forEach(s=>{if(s.type==="int")num(s.k,s.min,s.max,s.label)});
+  if(p.minAgeCourt<HARD.absoluteMinAge)E.push(`Mutlak asgari yaş ${HARD.absoluteMinAge}'in altına inilemez.`);
+  if(p.minAgeStandard<HARD.minAgeStandardFloor)E.push(`Normal evlenme yaşı ${HARD.minAgeStandardFloor}'in altına indirilemez.`);
+  if(!(p.minAgeCourt<=p.minAgeParentConsent&&p.minAgeParentConsent<=p.minAgeStandard))E.push("Yaş sıralaması: mahkeme ≤ veli izni ≤ normal yaş olmalı.");
+  if(!/^\d\d:\d\d$/.test(p.dayStart)||!/^\d\d:\d\d$/.test(p.dayEnd)||p.dayStart>p.dayEnd)E.push("Gün başlangıç/bitiş saatleri geçersiz.");
+  if(!Array.isArray(p.workDays)||!p.workDays.length||p.workDays.some(x=>!(x>=0&&x<=6)))E.push("En az bir çalışma günü seçilmeli.");
+  (p.holidays||[]).forEach(h=>{if(!/^\d{4}-\d\d-\d\d$/.test(h))E.push("Tatil tarihi geçersiz: "+h)});
+  HARD.lockedBans.forEach(id=>{const b=(p.kinBans||[]).find(x=>x.id===id);if(!b||!b.enabled)E.push(`“${id}” hısımlık engeli devre dışı bırakılamaz.`)});
+  const ids=new Set();(p.docs||[]).forEach(d=>{if(!d.id||ids.has(d.id))E.push("Belge kimlikleri benzersiz olmalı.");ids.add(d.id);if(!d.label)E.push("Belge adı boş olamaz.");if(!COND_LABEL[d.cond])E.push("Belge koşulu geçersiz.")});
+  ["d_kimlik"].forEach(id=>{const d=(p.docs||[]).find(x=>x.id===id);if(!d||!d.required)E.push("Kimlik belgesi zorunlu olmaktan çıkarılamaz.")});
+  return E;
+}
+
+/* =====================================================================
+   UYGUNLUK MOTORU
+   ===================================================================== */
+const newParty=()=>({ad:"",soyad:"",kimTip:"TC",kimNo:"",dogum:"",cins:"",uyruk:"TC",medeni:"bekar",oncekiBitis:"",veliIzni:false,mahkeme:false,beklemeKarari:false});
+function newApp(){
+  const y=new Date().getFullYear();DB.seq.app=(DB.seq.app||0)+1;
+  return {id:`B-${y}-${String(DB.seq.app).padStart(4,"0")}`,status:"taslak",createdAt:Date.now(),createdBy:SESSION.id,
+    parties:[newParty(),newParty()],kin:[],kinChecked:false,docs:{},witnesses:[{ad:"",soyad:"",kimNo:""},{ad:"",soyad:"",kimNo:""},{ad:"",soyad:"",kimNo:""},{ad:"",soyad:"",kimNo:""}],
+    inPerson:[false,false],freeWill:[false,false],appointment:null,approvedAt:null,approvedBy:null,
+    pendingChecker:null,checker:null,reg:null,notes:"",history:[]};
+}
+function partyTier(p,P,ref){
+  if(!p.dogum)return null;const a=ageOn(p.dogum,ref);
+  if(a<HARD.absoluteMinAge)return {tier:"engel",a};
+  if(a>=P.minAgeStandard)return {tier:"normal",a};
+  if(P.allowParentConsent&&a>=P.minAgeParentConsent)return {tier:"parent",a};
+  if(P.allowCourtException&&a>=P.minAgeCourt)return {tier:"court",a};
+  return {tier:"engel",a};
+}
+function evaluate(app,P,opt){
+  opt=opt||{};const F=[];const add=(lvl,id,txt)=>F.push({lvl,id,txt});
+  const ref=(app.appointment&&app.appointment.date)||todayStr();
+  const tiers=app.parties.map(p=>partyTier(p,P,ref));
+  let needsChecker=false;
+  app.parties.forEach((p,i)=>{
+    const w=`Taraf ${i+1}`;
+    if(!p.ad.trim()||!p.soyad.trim())add("eksik","R-KIMLIK",`${w}: ad ve soyad eksik.`);
+    if(!p.kimNo.trim())add("eksik","R-KIMLIK",`${w}: kimlik/pasaport numarası eksik.`);
+    else if(p.kimTip==="TC"&&!validTC(p.kimNo.trim()))add("engel","R-TC",`${w}: T.C. kimlik numarası geçersiz (algoritma doğrulaması başarısız).`);
+    if(!p.dogum)add("eksik","R-DOGUM",`${w}: doğum tarihi eksik.`);
+    else{const t=tiers[i];
+      if(t.tier==="engel")add("engel","R-YAS",`${w}: ${t.a} yaşında; izin verilen asgari yaşın altında${t.a<HARD.absoluteMinAge?` (mutlak alt sınır ${HARD.absoluteMinAge})`:""}. Evlendirilemez.`);
+      else if(t.tier==="parent"){needsChecker=true;
+        if(!p.veliIzni)add("eksik","R-VELI",`${w}: ${t.a} yaşında; veli/vasi izni gerekir (izin kaydı işaretlenmedi).`);
+        else add("uyari","R-YAS-ISTISNA",`${w}: ${t.a} yaşında; veli izniyle evlenme — yönetici (ikinci imza) onayı gerekir.`)}
+      else if(t.tier==="court"){needsChecker=true;
+        if(!p.mahkeme)add("eksik","R-MAHKEME",`${w}: ${t.a} yaşında; yalnız mahkeme kararıyla evlenebilir (karar kaydı işaretlenmedi).`);
+        else add("uyari","R-YAS-ISTISNA",`${w}: ${t.a} yaşında; mahkeme kararıyla evlenme — yönetici (ikinci imza) onayı gerekir.`)}}
+    if(p.medeni==="evli")add("engel","R-EVLI",`${w}: mevcut evliliği sürüyor; yeni evlilik yapılamaz.`);
+    if(p.medeni==="bosanmis"||p.medeni==="dul"){
+      if(!p.oncekiBitis)add("eksik","R-ONCEKI",`${w}: önceki evliliğin sona erdiği tarih eksik.`);
+      else{
+        const applies=P.waitingAppliesTo==="her_ikisi"||(P.waitingAppliesTo==="kadin"&&p.cins==="K");
+        if(applies&&P.waitingDays>0){const gec=daysBetween(p.oncekiBitis,ref);
+          if(gec<P.waitingDays){
+            if(p.beklemeKarari)add("uyari","R-BEKLEME",`${w}: bekleme süresi dolmamış (${gec}/${P.waitingDays} gün); süreyi kaldıran karar kaydı var — yönetici onayı gerekir.`),needsChecker=true;
+            else add("engel","R-BEKLEME",`${w}: bekleme süresi dolmamış (${gec}/${P.waitingDays} gün). Süreyi kaldıran mahkeme kararı yoksa evlenemez.`)}}}}
+    if(!p.cins&&P.genderRule==="farkli")add("eksik","R-CINS",`${w}: cinsiyet bilgisi eksik.`);
+  });
+  const [A,B]=app.parties;
+  if(A.kimNo&&B.kimNo&&A.kimNo.trim()===B.kimNo.trim())add("engel","R-AYNI","Her iki tarafın kimlik numarası aynı.");
+  if(P.genderRule==="farkli"&&A.cins&&B.cins&&A.cins===B.cins)add("engel","R-CINS","Taraf cinsiyetleri parametre kuralına uymuyor.");
+  // yerel sicil çakışması
+  DB.apps.forEach(o=>{if(o.id===app.id)return;
+    app.parties.forEach((p,i)=>{if(!p.kimNo)return;
+      o.parties.forEach(q=>{if(q.kimNo&&q.kimNo===p.kimNo){
+        if(o.status==="tamamlandi"&&o.reg)add("uyari","R-SICIL",`Taraf ${i+1}: yerel kayıtta tamamlanmış bir evlilik var (${o.reg.no}). Boşanma/ölüm kaydı yerelde bulunamayabilir; resmî sorgu yapılmalı.`),needsChecker=true;
+        else if(["degerlendirme","onayli","randevulu"].includes(o.status))add("uyari","R-CAKISMA",`Taraf ${i+1}: başka bir aktif başvuruda yer alıyor (${o.id}).`),needsChecker=true}})})});
+  // hısımlık
+  const active=P.kinBans.filter(b=>b.enabled);
+  active.forEach(b=>{if(app.kin.includes(b.id))add("engel","R-AKRABA",`Hısımlık engeli beyan edildi: ${b.label}`)});
+  if(!app.kinChecked)add("eksik","R-AKRABA-SORGU","Hısımlık engelleri tarafa sorulup kontrol edildi mi? (işaretlenmedi)");
+  // belgeler
+  const any=f=>app.parties.some(f);
+  const applies={all:true,previous:any(p=>p.medeni!=="bekar"),foreign:any(p=>p.uyruk!=="TC"),
+    parent:tiers.some(t=>t&&t.tier==="parent"),court:tiers.some(t=>t&&t.tier==="court")};
+  P.docs.forEach(d=>{if(d.required&&applies[d.cond]&&!app.docs[d.id])add("eksik","R-BELGE",`Belge eksik: ${d.label}`)});
+  // şahsen başvuru
+  if(HARD.requireInPerson&&!(app.inPerson[0]&&app.inPerson[1]))add("eksik","R-SAHSEN","Her iki tarafın şahsen başvurduğu teyit edilmedi (vekâletle başvuru kabul edilmez).");
+  // geçerlilik / ön bildirim
+  if(app.approvedAt){const exp=addDays(todayStrOf(new Date(app.approvedAt)),P.applicationValidityDays);
+    if(ref>exp)add("engel","R-SURE",`Onaylı başvurunun geçerlilik süresi doldu (${fmtD(exp)}). Yeni başvuru gerekir.`)}
+  if(app.appointment){const gun=daysBetween(todayStrOf(new Date(app.createdAt)),app.appointment.date);
+    if(gun<P.minNoticeDays)add("engel","R-ONBILDIRIM",`Başvuru ile tören arasında en az ${P.minNoticeDays} gün olmalı.`)}
+  // tören aşaması
+  if(opt.forCompletion){
+    if(!(app.freeWill[0]&&app.freeWill[1]))add("eksik","R-IRADE","Her iki tarafın serbest irade beyanı alınmadı.");
+    const n=app.witnesses.slice(0,P.witnessCount).filter(x=>x.ad.trim()&&x.soyad.trim()&&x.kimNo.trim()).length;
+    if(n<P.witnessCount)add("eksik","R-SAHIT",`Şahit bilgileri eksik (${n}/${P.witnessCount}).`)}
+  else{add("bilgi","R-IRADE","Serbest irade beyanı ve şahit bilgileri tören aşamasında zorunludur.")}
+  const lv=F.map(x=>x.lvl);
+  const status=lv.includes("engel")?"ENGEL":lv.includes("eksik")?"EKSIK":lv.includes("uyari")?"ONAY":"UYGUN";
+  return {findings:F,status,needsChecker};
+}
+const STATUS_TXT={ENGEL:["Engel var","bad"],EKSIK:["Eksikler var","warn"],ONAY:["Yönetici onayı gerekir","info"],UYGUN:["Uygun","good"]};
+const LVL_B={engel:["ENGEL","bad"],eksik:["EKSİK","warn"],uyari:["UYARI","info"],bilgi:["BİLGİ",""]};
+const APP_ST={taslak:["Taslak",""],degerlendirme:["Değerlendirmede","info"],onayli:["Onaylandı","good"],randevulu:["Randevulu","good"],tamamlandi:["Tamamlandı","good"],red:["Reddedildi","bad"],iptal:["İptal","warn"]};
+
+/* =====================================================================
+   TAKVİM
+   ===================================================================== */
+function slotsFor(date,P,exceptAppId){
+  const d=new Date(date+"T00:00:00");
+  if(!P.workDays.includes(d.getDay()))return {ok:false,why:"Çalışma günü değil."};
+  if(P.holidays.includes(date))return {ok:false,why:"Resmî tatil/kapalı gün."};
+  const taken=DB.apps.filter(a=>a.id!==exceptAppId&&a.appointment&&a.appointment.date===date&&["randevulu","tamamlandi"].includes(a.status));
+  if(taken.length>=P.maxPerDay)return {ok:false,why:"Günlük kapasite dolu."};
+  const [sh,sm]=P.dayStart.split(":").map(Number),[eh,em]=P.dayEnd.split(":").map(Number);
+  const out=[];for(let m=sh*60+sm;m<=eh*60+em;m+=P.slotMinutes){
+    const t=String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0");
+    out.push({t,taken:taken.some(a=>a.appointment.time===t)})}
+  return {ok:true,slots:out,count:taken.length};
+}
+
+/* =====================================================================
+   OTURUM
+   ===================================================================== */
+const can={
+  edit:()=>SESSION&&(SESSION.role==="memur"||SESSION.role==="admin"),
+  admin:()=>SESSION&&SESSION.role==="admin",
+  view:()=>!!SESSION
+};
+function lockNow(msg){SESSION=null;route={v:"dash"};ctx={};render();if(msg)toast(msg)}
+let lastAct=Date.now();
+["click","keydown","input"].forEach(e=>document.addEventListener(e,()=>lastAct=Date.now()));
+setInterval(()=>{if(SESSION&&DB&&Date.now()-lastAct>DB.params.sessionLockMinutes*60000)lockNow("Etkinlik olmadığı için oturum kilitlendi.")},10000);
+
+/* =====================================================================
+   GÖRÜNÜMLER
+   ===================================================================== */
+function render(){
+  $("#brand").innerHTML=`${esc(DB?DB.params.institution:"Evlendirme Başvuru ve Denetim Sistemi")}<small>Evlendirme Başvuru ve Denetim Sistemi · çevrimdışı</small>`;
+  $("#who").innerHTML=SESSION?`<span class="badge info">${esc(SESSION.name)} · ${ {admin:"Yönetici",memur:"Memur",denetci:"Denetçi"}[SESSION.role]}</span><button class="b ghost sm" data-act="lock">🔒 Kilitle</button>`:"";
+  const tabs=$("#tabs");
+  if(!DB||!SESSION){tabs.classList.add("hidden");$("#app").innerHTML=!DB?vSetup():vLogin();return}
+  const T=[["dash","Panel"],["apps","Başvurular"],["cal","Takvim"],["params","Parametreler"],["audit","Denetim"],["data","Veri"]];
+  if(can.admin())T.push(["users","Kullanıcılar"]);T.push(["about","Hakkında"]);
+  tabs.classList.remove("hidden");
+  $("#tabsin").innerHTML=T.map(([k,n])=>`<button class="${route.v===k||(route.v==="app"&&k==="apps")?"on":""}" data-act="nav" data-k="${k}">${n}</button>`).join("");
+  const V={dash:vDash,apps:vApps,app:vApp,cal:vCal,params:vParams,audit:vAudit,data:vData,users:vUsers,about:vAbout};
+  $("#app").innerHTML=(V[route.v]||vDash)();window.scrollTo(0,0);
+}
+function go(v,extra){route=Object.assign({v},extra||{});render()}
+
+/* ---- Kurulum / giriş ---- */
+function vSetup(){return `<div class="card login"><h1>İlk kurulum</h1>
+  <p class="muted">Bu bilgisayarda ilk kez çalışıyor. Yönetici hesabını oluşturun. Veriler bu cihazın tarayıcı deposunda saklanır; internet bağlantısı gerekmez.</p>
+  <form data-form="setup">
+   <label>Kurum adı</label><input name="inst" required value="Evlendirme Memurluğu">
+   <label>Yönetici adı soyadı</label><input name="name" required>
+   <label>Yönetici PIN'i (en az 6 hane, rakam)</label><input name="pin" type="password" inputmode="numeric" pattern="\\d{6,}" required>
+   <label>PIN tekrar</label><input name="pin2" type="password" inputmode="numeric" pattern="\\d{6,}" required>
+   <div class="note warn small">PIN unutulursa sıfırlanamaz (yedek alın). Başka kullanıcıları (memur, denetçi) kurulumdan sonra eklersiniz.</div>
+   <button class="b" type="submit">Kurulumu tamamla</button></form></div>`}
+function vLogin(){
+  const act=DB.users.filter(u=>u.active);
+  return `<div class="card login"><h1>Oturum aç</h1>
+  <form data-form="login">
+   <label>Kullanıcı</label><select name="u">${act.map(u=>`<option value="${u.id}">${esc(u.name)} (${{admin:"Yönetici",memur:"Memur",denetci:"Denetçi"}[u.role]})</option>`).join("")}</select>
+   <label>PIN</label><input name="pin" type="password" inputmode="numeric" required autocomplete="off">
+   <div id="lerr"></div>
+   <button class="b" type="submit">Giriş</button></form></div>`}
+
+/* ---- Panel ---- */
+function vDash(){
+  const P=DB.params,A=DB.apps,cnt=s=>A.filter(a=>a.status===s).length;
+  const ch=verifyChain(DB.audit),mySeal=seal(P);
+  const pend=A.filter(a=>a.pendingChecker&&a.status==="degerlendirme");
+  const today=todayStr(),todays=A.filter(a=>a.appointment&&a.appointment.date===today&&a.status==="randevulu");
+  const exp=A.filter(a=>["onayli","randevulu"].includes(a.status)&&a.approvedAt&&daysBetween(today,addDays(todayStrOf(new Date(a.approvedAt)),P.applicationValidityDays))<=14);
+  const old=A.filter(a=>a.status==="tamamlandi"&&a.reg&&daysBetween(a.reg.date,today)>P.retentionYears*365);
+  let al="";
+  al+=ch.ok?`<div class="note good">Denetim günlüğü bütünlüğü doğrulandı (${ch.n} kayıt).</div>`:`<div class="note bad"><b>UYARI:</b> Denetim günlüğü zinciri ${ch.at}. kayıtta bozuk. Veri değiştirilmiş olabilir.</div>`;
+  if(DB.officialSeal)al+=DB.officialSeal===mySeal?`<div class="note good">Parametre mührü resmî mühürle eşleşiyor.</div>`:`<div class="note bad"><b>UYARI:</b> Geçerli parametre mührü, makamın bildirdiği resmî mühürle eşleşmiyor. Parametreler yetkisiz değiştirilmiş olabilir.</div>`;
+  else al+=`<div class="note warn small">Resmî parametre mührü tanımlanmamış (Parametreler sayfasından girilebilir).</div>`;
+  if(pend.length&&can.admin())al+=`<div class="note info"><b>${pend.length}</b> başvuru ikinci imza (yönetici onayı) bekliyor.</div>`;
+  if(exp.length)al+=`<div class="note warn"><b>${exp.length}</b> onaylı başvurunun geçerliliği 14 gün içinde doluyor.</div>`;
+  if(old.length)al+=`<div class="note warn"><b>${old.length}</b> tamamlanmış kaydın saklama süresi (${P.retentionYears} yıl) dolmuş; mevzuata göre imha/arşiv değerlendirmesi gerekir.</div>`;
+  return `<h1>Panel</h1>${al}
+  <div class="grid g4"><div class="card stat"><b>${A.length}</b><span>Toplam başvuru</span></div>
+   <div class="card stat"><b>${cnt("degerlendirme")+cnt("taslak")}</b><span>Taslak / değerlendirmede</span></div>
+   <div class="card stat"><b>${cnt("onayli")+cnt("randevulu")}</b><span>Onaylı / randevulu</span></div>
+   <div class="card stat"><b>${cnt("tamamlandi")}</b><span>Tamamlanan nikâh</span></div></div>
+  <div class="card"><h2>Bugünkü nikâhlar (${fmtD(today)})</h2>${todays.length?`<div class="tw"><table><tr><th>Saat</th><th>Başvuru</th><th>Taraflar</th></tr>${todays.sort((a,b)=>a.appointment.time.localeCompare(b.appointment.time)).map(a=>`<tr><td>${a.appointment.time}</td><td><a href="#" data-act="open" data-id="${a.id}">${a.id}</a></td><td>${esc(a.parties[0].ad+" "+a.parties[0].soyad)} – ${esc(a.parties[1].ad+" "+a.parties[1].soyad)}</td></tr>`).join("")}</table></div>`:`<p class="muted">Bugün için randevulu nikâh yok.</p>`}</div>
+  ${pend.length&&can.admin()?`<div class="card"><h2>İkinci imza bekleyenler</h2><div class="tw"><table><tr><th>Başvuru</th><th>Gönderen</th><th>Gerekçe</th></tr>${pend.map(a=>`<tr><td><a href="#" data-act="open" data-id="${a.id}">${a.id}</a></td><td>${esc(a.pendingChecker.by)}</td><td>${esc(a.pendingChecker.reason)}</td></tr>`).join("")}</table></div></div>`:""}`;
+}
+
+/* ---- Başvuru listesi ---- */
+function vApps(){
+  const f=ctx.filter||"";const q=(ctx.q||"").toLowerCase();
+  let L=DB.apps.slice().reverse().filter(a=>(!f||a.status===f)&&(!q||(a.id+" "+a.parties.map(p=>p.ad+" "+p.soyad+" "+p.kimNo).join(" ")).toLowerCase().includes(q)));
+  return `<div class="row"><h1 class="sp">Başvurular</h1>${can.edit()?`<button class="b" data-act="newapp">+ Yeni başvuru</button>`:""}</div>
+  <div class="card"><div class="row"><input id="q" placeholder="Ara: ad, soyad, no…" value="${esc(ctx.q||"")}" style="max-width:280px">
+   <select id="flt" style="max-width:220px"><option value="">Tüm durumlar</option>${Object.entries(APP_ST).map(([k,v])=>`<option value="${k}" ${f===k?"selected":""}>${v[0]}</option>`).join("")}</select></div>
+  <div class="tw"><table><tr><th>No</th><th>Taraflar</th><th>Durum</th><th>Randevu</th><th>Kayıt no</th></tr>
+  ${L.map(a=>`<tr><td><a href="#" data-act="open" data-id="${a.id}">${a.id}</a></td><td>${esc(a.parties[0].ad+" "+a.parties[0].soyad)} – ${esc(a.parties[1].ad+" "+a.parties[1].soyad)}<div class="small muted">${maskId(a.parties[0].kimNo)} / ${maskId(a.parties[1].kimNo)}</div></td>
+   <td><span class="badge ${APP_ST[a.status][1]}">${APP_ST[a.status][0]}</span></td><td>${a.appointment?fmtD(a.appointment.date)+" "+a.appointment.time:"—"}</td><td>${a.reg?a.reg.no:"—"}</td></tr>`).join("")||`<tr><td colspan="5" class="muted">Kayıt yok.</td></tr>`}</table></div></div>`;
+}
+
+/* ---- Başvuru ekranı ---- */
+function partyForm(i,p,ro){
+  const d=ro?"disabled":"";const P=DB.params;
+  return `<div class="card"><h3>Taraf ${i+1}</h3><div class="grid g3">
+   <div><label>Ad</label><input name="p${i}_ad" value="${esc(p.ad)}" ${d}></div>
+   <div><label>Soyad</label><input name="p${i}_soyad" value="${esc(p.soyad)}" ${d}></div>
+   <div><label>Doğum tarihi</label><input type="date" name="p${i}_dogum" value="${p.dogum}" ${d}></div>
+   <div><label>Kimlik türü</label><select name="p${i}_kimTip" ${d}>${[["TC","T.C. kimlik no"],["PAS","Pasaport"],["DIGER","Diğer belge"]].map(([k,v])=>`<option value="${k}" ${p.kimTip===k?"selected":""}>${v}</option>`).join("")}</select></div>
+   <div><label>Kimlik / belge no</label><input name="p${i}_kimNo" value="${esc(p.kimNo)}" ${d} autocomplete="off"></div>
+   <div><label>Cinsiyet${P.genderRule==="farkli"?" *":""}</label><select name="p${i}_cins" ${d}>${[["","Seçiniz"],["K","Kadın"],["E","Erkek"]].map(([k,v])=>`<option value="${k}" ${p.cins===k?"selected":""}>${v}</option>`).join("")}</select></div>
+   <div><label>Uyruk</label><select name="p${i}_uyruk" ${d}><option value="TC" ${p.uyruk==="TC"?"selected":""}>T.C.</option><option value="YABANCI" ${p.uyruk!=="TC"?"selected":""}>Yabancı</option></select></div>
+   <div><label>Medeni durum</label><select name="p${i}_medeni" ${d}>${[["bekar","Bekâr"],["bosanmis","Boşanmış"],["dul","Dul"],["evli","Evli (mevcut evlilik sürüyor)"]].map(([k,v])=>`<option value="${k}" ${p.medeni===k?"selected":""}>${v}</option>`).join("")}</select></div>
+   <div><label>Önceki evliliğin sona erdiği tarih</label><input type="date" name="p${i}_oncekiBitis" value="${p.oncekiBitis}" ${d}></div></div>
+   <label class="chk"><input type="checkbox" name="p${i}_veliIzni" ${p.veliIzni?"checked":""} ${d}> Veli/vasi izni belgesi mevcut</label>
+   <label class="chk"><input type="checkbox" name="p${i}_mahkeme" ${p.mahkeme?"checked":""} ${d}> Yaş istisnası için mahkeme kararı mevcut</label>
+   <label class="chk"><input type="checkbox" name="p${i}_beklemeKarari" ${p.beklemeKarari?"checked":""} ${d}> Bekleme süresini kaldıran mahkeme kararı mevcut</label>
+   <label class="chk"><input type="checkbox" name="inPerson${i}" ${ctx.app&&ctx.app.inPerson[i]?"checked":""} ${d}> Taraf başvuruya <b>şahsen</b> geldi, kimliği ibraz etti (vekâletle başvuru kabul edilmez)</label></div>`;
+}
+function vApp(){
+  const app=DB.apps.find(a=>a.id===route.id);if(!app)return `<p>Başvuru bulunamadı.</p>`;ctx.app=app;
+  const P=DB.params,ro=!can.edit()||["tamamlandi","red","iptal"].includes(app.status);
+  const ev=evaluate(app,P);const stT=STATUS_TXT[ev.status];
+  const evC=app.status==="randevulu"?evaluate(app,P,{forCompletion:true}):null;
+  const sl=app.appointment?null:null;
+  const showFind=(e)=>e.findings.filter(f=>f.lvl!=="bilgi"||true).map(f=>`<div class="find"><span class="badge ${LVL_B[f.lvl][1]}">${LVL_B[f.lvl][0]}</span><div><b class="small muted">${f.id}</b><br>${esc(f.txt)}</div></div>`).join("")||`<p class="muted">Bulgu yok.</p>`;
+  let actions="";
+  if(can.edit()&&!ro){
+    actions+=`<button class="b" data-act="saveapp">Kaydet</button>`;
+    if(app.status==="taslak")actions+=`<button class="b ghost" data-act="toeval">Değerlendirmeye al</button>`;
+    if(app.status==="degerlendirme"){
+      if(ev.status==="UYGUN")actions+=`<button class="b" data-act="approve">Onayla</button>`;
+      else if(ev.status==="ONAY"&&!app.pendingChecker)actions+=`<button class="b ghost" data-act="sendchecker">İkinci imzaya gönder</button>`;
+      if(app.pendingChecker&&can.admin())actions+=`<button class="b" data-act="checkerok">İkinci imza: Onayla</button><button class="b red" data-act="checkerno">İkinci imza: Reddet</button>`}
+    if(["onayli","randevulu"].includes(app.status))actions+=`<button class="b ghost" data-act="back2eval">Değerlendirmeye geri al</button>`;
+    if(app.status==="randevulu")actions+=`<button class="b" data-act="complete" ${evC.status==="UYGUN"?"":"disabled"}>Nikâh kıyıldı – kaydı tamamla</button>`;
+    actions+=`<button class="b red" data-act="cancelapp">Reddet / iptal et</button>`;
+  }
+  actions+=`<button class="b ghost" data-act="print">🖨 Yazdır</button><button class="b ghost" data-act="nav" data-k="apps">← Liste</button>`;
+  // randevu
+  let appt="";
+  if(["onayli","randevulu"].includes(app.status)&&can.edit()){
+    const d=ctx.apptDate||(app.appointment?app.appointment.date:addDays(todayStr(),Math.max(1,P.minNoticeDays)));
+    const s=slotsFor(d,P,app.id);
+    appt=`<div class="card"><h3>Randevu</h3>${app.appointment?`<div class="note good">Mevcut randevu: <b>${fmtD(app.appointment.date)} ${app.appointment.time}</b></div>`:""}
+     <div class="row"><input type="date" id="apdate" value="${d}" style="max-width:200px"><button class="b ghost sm" data-act="pickdate">Günü göster</button></div>
+     ${s.ok?`<p class="small muted">${s.count}/${P.maxPerDay} nikâh planlı.</p><div>${s.slots.map(x=>`<button class="b sm slotb ${x.taken?"ghost":""}" ${x.taken?"disabled":""} data-act="slot" data-d="${d}" data-t="${x.t}">${x.t}</button>`).join("")}</div>`:`<div class="note warn">${s.why}</div>`}</div>`;
+  }
+  const docs=P.docs.map(d=>`<label class="chk"><input type="checkbox" name="doc_${d.id}" ${app.docs[d.id]?"checked":""} ${ro?"disabled":""}> ${esc(d.label)} <span class="badge">${d.required?COND_LABEL[d.cond]:"isteğe bağlı"}</span></label>`).join("");
+  const kins=P.kinBans.filter(b=>b.enabled).map(b=>`<label class="chk"><input type="checkbox" name="kin_${b.id}" ${app.kin.includes(b.id)?"checked":""} ${ro?"disabled":""}> Taraflar arasında <b>var</b>: ${esc(b.label)}</label>`).join("");
+  const wit=Array.from({length:P.witnessCount},(_,i)=>`<div class="grid g3"><div><label>Şahit ${i+1} ad</label><input name="w${i}_ad" value="${esc(app.witnesses[i].ad)}" ${ro?"disabled":""}></div><div><label>Soyad</label><input name="w${i}_soyad" value="${esc(app.witnesses[i].soyad)}" ${ro?"disabled":""}></div><div><label>Kimlik no</label><input name="w${i}_kimNo" value="${esc(app.witnesses[i].kimNo)}" ${ro?"disabled":""}></div></div>`).join("");
+  const hist=app.history.slice().reverse().map(h=>`<tr><td class="small">${fmtT(h.ts)}</td><td>${esc(h.user)}</td><td>${esc(h.text)}</td></tr>`).join("");
+  return `<div class="row"><h1 class="sp">Başvuru ${app.id}</h1><span class="badge ${APP_ST[app.status][1]}">${APP_ST[app.status][0]}</span></div>
+  ${app.reg?`<div class="note good">Evlilik kayıt no: <b>${app.reg.no}</b> · Tören: ${fmtD(app.reg.date)} · Kıyan: ${esc(app.reg.user)}</div>`:""}
+  ${app.pendingChecker?`<div class="note info">İkinci imza bekliyor — gönderen: ${esc(app.pendingChecker.by)}; gerekçe: ${esc(app.pendingChecker.reason)}</div>`:""}
+  <div class="card"><div class="row"><h3 class="sp">Uygunluk değerlendirmesi</h3><span class="badge ${stT[1]}">${stT[0]}</span></div>${showFind(ev)}
+   <p class="small muted">Değerlendirme yalnız bu cihazdaki kayıtlara ve girilen bilgilere dayanır; resmî nüfus/medeni durum sorgusunun yerine geçmez.</p></div>
+  ${evC?`<div class="card"><h3>Tören aşaması kontrolü</h3>${showFind(evC)}</div>`:""}
+  <form data-form="app">
+  ${partyForm(0,app.parties[0],ro)}${partyForm(1,app.parties[1],ro)}
+  <div class="card"><h3>Hısımlık engelleri</h3>${kins||`<p class="muted">Etkin hısımlık engeli tanımlı değil.</p>`}
+   <label class="chk"><input type="checkbox" name="kinChecked" ${app.kinChecked?"checked":""} ${ro?"disabled":""}> Hısımlık engelleri taraflara soruldu ve kontrol edildi</label></div>
+  <div class="card"><h3>Belgeler</h3>${docs}</div>
+  <div class="card"><h3>Tören aşaması bilgileri</h3>
+   <label class="chk"><input type="checkbox" name="fw0" ${app.freeWill[0]?"checked":""} ${ro?"disabled":""}> Taraf 1 evlenme iradesini kendi özgür iradesiyle, baskı olmadan beyan etti</label>
+   <label class="chk"><input type="checkbox" name="fw1" ${app.freeWill[1]?"checked":""} ${ro?"disabled":""}> Taraf 2 evlenme iradesini kendi özgür iradesiyle, baskı olmadan beyan etti</label>
+   ${wit||`<p class="muted">Şahit gerekmiyor.</p>`}</div>
+  <div class="card"><label>Not (iç kullanım)</label><textarea name="notes" ${ro?"disabled":""}>${esc(app.notes)}</textarea></div>
+  </form>
+  <div class="row" style="margin:10px 0">${actions}</div>${appt}
+  <div class="card"><h3>İşlem geçmişi</h3><div class="tw"><table><tr><th>Zaman</th><th>Kullanıcı</th><th>İşlem</th></tr>${hist||`<tr><td colspan="3" class="muted">—</td></tr>`}</table></div></div>`;
+}
+function readAppForm(app){
+  const f=$('form[data-form="app"]');if(!f)return;const g=n=>f.elements[n];
+  [0,1].forEach(i=>{const p=app.parties[i];
+    ["ad","soyad","dogum","kimTip","kimNo","cins","uyruk","medeni","oncekiBitis"].forEach(k=>{const el=g(`p${i}_${k}`);if(el)p[k]=el.value.trim()});
+    ["veliIzni","mahkeme","beklemeKarari"].forEach(k=>{const el=g(`p${i}_${k}`);if(el)p[k]=el.checked});
+    const ip=g(`inPerson${i}`);if(ip)app.inPerson[i]=ip.checked;
+    const fw=g(`fw${i}`);if(fw)app.freeWill[i]=fw.checked});
+  app.kin=DB.params.kinBans.filter(b=>g("kin_"+b.id)&&g("kin_"+b.id).checked).map(b=>b.id);
+  const kc=g("kinChecked");if(kc)app.kinChecked=kc.checked;
+  DB.params.docs.forEach(d=>{const el=g("doc_"+d.id);if(el)app.docs[d.id]=el.checked});
+  for(let i=0;i<DB.params.witnessCount;i++)["ad","soyad","kimNo"].forEach(k=>{const el=g(`w${i}_${k}`);if(el)app.witnesses[i][k]=el.value.trim()});
+  if(g("notes"))app.notes=g("notes").value;
+}
+const hist=(app,text)=>app.history.push({ts:Date.now(),user:SESSION.id,text});
+
+/* ---- Takvim ---- */
+function vCal(){
+  const P=DB.params;const m=ctx.month||todayStr().slice(0,7);
+  const [Y,M]=m.split("-").map(Number);const first=new Date(Y,M-1,1),last=new Date(Y,M,0);
+  const pad=(first.getDay()+6)%7;let cells="";for(let i=0;i<pad;i++)cells+="<td></td>";
+  for(let d=1;d<=last.getDate();d++){
+    const ds=`${Y}-${String(M).padStart(2,"0")}-${String(d).padStart(2,"0")}`;const dt=new Date(Y,M-1,d);
+    const n=DB.apps.filter(a=>a.appointment&&a.appointment.date===ds&&["randevulu","tamamlandi"].includes(a.status)).length;
+    const closed=!P.workDays.includes(dt.getDay())||P.holidays.includes(ds);
+    cells+=`<td style="background:${closed?"var(--soft)":""};min-width:82px"><b>${d}</b>${closed?`<div class="small muted">${P.holidays.includes(ds)?"Tatil":"Kapalı"}</div>`:`<div class="small">${n}/${P.maxPerDay}</div>`}</td>`;
+    if((pad+d)%7===0)cells+="</tr><tr>"}
+  const prev=new Date(Y,M-2,1),next=new Date(Y,M,1),k=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");
+  return `<div class="row"><h1 class="sp">Takvim — ${["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"][M-1]} ${Y}</h1>
+   <button class="b ghost sm" data-act="month" data-m="${k(prev)}">‹</button><button class="b ghost sm" data-act="month" data-m="${k(next)}">›</button></div>
+  <div class="card tw"><table><tr>${["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"].map(x=>`<th>${x}</th>`).join("")}</tr><tr>${cells}</tr></table>
+  <p class="small muted">Her gün: planlı nikâh / günlük kapasite. Çalışma günleri, tatiller ve kapasite “Parametreler” sayfasından değiştirilir.</p></div>`;
+}
+
+/* ---- Parametreler ---- */
+function vParams(){
+  const P=ctx.draft||DB.params,ed=can.admin();const d=ed?"":"disabled";
+  const sealNow=seal(DB.params);
+  let h=`<div class="row"><h1 class="sp">Parametreler</h1><span class="badge info">Sürüm ${DB.paramHistory.length}</span></div>
+  <div class="note info small">Bu sayfadaki her değişiklik sürümlenir, gerekçeyle birlikte denetim günlüğüne yazılır ve yeni bir <b>parametre mührü</b> üretir. Aşağıdaki güvenceler hiçbir parametreyle devre dışı bırakılamaz: mutlak asgari yaş ${HARD.absoluteMinAge}, normal yaşın en az ${HARD.minAgeStandardFloor} olması, şahsen başvuru, serbest irade beyanı ve temel hısımlık engelleri.</div>
+  <div class="card"><div class="row"><div><b>Geçerli parametre mührü (SHA-256)</b><div class="mono">${sealNow}</div></div></div>
+   <label>Makamın bildirdiği resmî mühür (karşılaştırma için)</label>
+   <div class="row"><input id="offseal" value="${esc(DB.officialSeal||"")}" placeholder="64 haneli resmî mühür" ${d} class="mono" style="flex:1">${ed?`<button class="b ghost sm" data-act="saveseal">Kaydet</button>`:""}</div>
+   ${DB.officialSeal?(DB.officialSeal===sealNow?`<div class="note good small">Eşleşiyor.</div>`:`<div class="note bad small">Eşleşmiyor!</div>`):""}</div>
+  <form data-form="params">`;
+  let open=false;
+  SCHEMA.forEach(s=>{
+    if(s.sec){if(open)h+="</div></div>";h+=`<div class="card"><h3>${s.sec}</h3><div class="grid g2">`;open=true;return}
+    const v=P[s.k];let inp="";
+    if(s.type==="bool")inp=`<label class="chk"><input type="checkbox" name="${s.k}" ${v?"checked":""} ${d}> ${s.label}</label>`;
+    else{inp=`<label>${s.label}${s.min!=null?` <span class="muted">(${s.min}–${s.max})</span>`:""}</label>`+
+      (s.type==="sel"?`<select name="${s.k}" ${d}>${s.opts.map(([k,t])=>`<option value="${k}" ${v===k?"selected":""}>${t}</option>`).join("")}</select>`:
+       `<input name="${s.k}" type="${s.type==="int"?"number":s.type==="time"?"time":"text"}" value="${esc(v)}" ${s.min!=null?`min="${s.min}" max="${s.max}"`:""} ${d}>`)+(s.help?`<div class="small muted">${s.help}</div>`:"")}
+    h+=`<div>${inp}</div>`});
+  if(open)h+="</div></div>";
+  h+=`<div class="card"><h3>Çalışma günleri</h3><div class="row">${WDAYS.map((n,i)=>`<label class="chk"><input type="checkbox" name="wd${i}" ${P.workDays.includes(i)?"checked":""} ${d}> ${n}</label>`).join("")}</div>
+   <label>Resmî tatil / kapalı günler (her satıra bir tarih: YYYY-AA-GG)</label><textarea name="holidays" ${d}>${esc(P.holidays.join("\n"))}</textarea></div>
+  <div class="card"><h3>Hısımlık engelleri</h3>${P.kinBans.map(b=>{const locked=HARD.lockedBans.includes(b.id);return `<div class="row"><label class="chk sp"><input type="checkbox" name="kb_${b.id}" ${b.enabled?"checked":""} ${locked||!ed?"disabled":""}> ${esc(b.label)} ${locked?'<span class="badge bad">kilitli</span>':""}</label></div>`}).join("")}</div>
+  <div class="card"><h3>Belge listesi</h3><div class="tw"><table><tr><th>Belge</th><th>Zorunlu</th><th>Koşul</th><th></th></tr>
+   ${P.docs.map((x,i)=>`<tr><td><input name="dl_${i}" value="${esc(x.label)}" ${d}></td><td><input type="checkbox" name="dr_${i}" ${x.required?"checked":""} ${x.id==="d_kimlik"||!ed?"disabled":""}></td>
+    <td><select name="dc_${i}" ${d}>${Object.entries(COND_LABEL).map(([k,t])=>`<option value="${k}" ${x.cond===k?"selected":""}>${t}</option>`).join("")}</select></td>
+    <td>${ed&&x.id!=="d_kimlik"?`<button type="button" class="b red sm" data-act="deldoc" data-i="${i}">Sil</button>`:""}</td></tr>`).join("")}</table></div>
+   ${ed?`<button type="button" class="b ghost sm" data-act="adddoc">+ Belge ekle</button>`:""}</div>`;
+  if(ed)h+=`<div class="card"><label>Değişiklik gerekçesi (zorunlu; denetim günlüğüne yazılır)</label><input name="reason" placeholder="Örn. yeni genelge doğrultusunda bekleme süresi güncellendi">
+   <div class="row" style="margin-top:10px"><button class="b" type="submit">Değişiklikleri uygula</button><button class="b ghost" type="button" data-act="exportparams">Parametre dosyasını indir</button><label class="b ghost" style="margin:0">Parametre dosyası yükle<input type="file" id="pfile" accept=".json" class="hidden"></label></div></div>`;
+  h+=`</form><div class="card"><h3>Sürüm geçmişi</h3><div class="tw"><table><tr><th>Sürüm</th><th>Zaman</th><th>Kullanıcı</th><th>Gerekçe</th><th>Mühür</th></tr>${DB.paramHistory.slice().reverse().map(x=>`<tr><td>${x.ver}</td><td class="small">${fmtT(x.ts)}</td><td>${esc(x.user)}</td><td>${esc(x.reason)}</td><td class="mono">${x.seal.slice(0,16)}…</td></tr>`).join("")}</table></div></div>`;
+  return h;
+}
+function readParamsForm(){
+  const f=$('form[data-form="params"]');const P=JSON.parse(JSON.stringify(DB.params));
+  SCHEMA.forEach(s=>{if(!s.k)return;const el=f.elements[s.k];if(!el)return;
+    P[s.k]=s.type==="bool"?el.checked:s.type==="int"?parseInt(el.value,10):el.value});
+  P.workDays=WDAYS.map((_,i)=>i).filter(i=>f.elements["wd"+i].checked);
+  P.holidays=f.elements.holidays.value.split(/\s+/).map(x=>x.trim()).filter(Boolean);
+  P.kinBans.forEach(b=>{const el=f.elements["kb_"+b.id];if(el&&!el.disabled)b.enabled=el.checked});
+  P.docs.forEach((x,i)=>{x.label=f.elements["dl_"+i].value.trim();const r=f.elements["dr_"+i];if(r&&!r.disabled)x.required=r.checked;x.cond=f.elements["dc_"+i].value});
+  return P;
+}
+function applyParams(P,reason,src){
+  const E=validateParams(P);if(E.length){alert("Parametreler geçersiz:\n• "+E.join("\n• "));return false}
+  if(!reason||reason.trim().length<5){alert("Değişiklik gerekçesi zorunludur (en az 5 karakter).");return false}
+  if(canon(P)===canon(DB.params)){toast("Değişiklik yok.");return false}
+  DB.params=P;const s=seal(P);
+  DB.paramHistory.push({ver:DB.paramHistory.length+1,ts:Date.now(),user:SESSION.id,reason:reason.trim(),seal:s,params:JSON.parse(JSON.stringify(P))});
+  logEv("PARAMETRE_DEGISTI",`sürüm ${DB.paramHistory.length}; mühür ${s}; ${src||"form"}; gerekçe: ${reason.trim()}`);
+  toast("Parametreler uygulandı.");return true;
+}
+
+/* ---- Denetim ---- */
+function vAudit(){
+  const ch=verifyChain(DB.audit);const q=(ctx.aq||"").toLowerCase();
+  const L=DB.audit.slice().reverse().filter(e=>!q||(e.action+e.user+e.detail).toLowerCase().includes(q)).slice(0,300);
+  return `<h1>Denetim günlüğü</h1>
+  ${ch.ok?`<div class="note good">Zincir doğrulandı: ${ch.n} kayıt, bozulma yok. Son mühür: <span class="mono">${DB.audit.length?DB.audit[DB.audit.length-1].hash:"—"}</span></div>`:`<div class="note bad"><b>Zincir ${ch.at}. kayıtta bozuk.</b> Günlük değiştirilmiş veya silinmiş olabilir.</div>`}
+  <div class="card"><div class="row"><input id="aq" placeholder="Filtre: işlem, kullanıcı, ayrıntı…" value="${esc(ctx.aq||"")}" style="max-width:320px"><button class="b ghost sm" data-act="exportaudit">Günlüğü indir</button></div>
+  <div class="tw"><table><tr><th>#</th><th>Zaman</th><th>Kullanıcı</th><th>İşlem</th><th>Ayrıntı</th></tr>${L.map(e=>`<tr><td>${e.i}</td><td class="small">${fmtT(e.ts)}</td><td>${esc(e.user)}<div class="small muted">${e.role}</div></td><td>${esc(e.action)}</td><td class="small">${esc(e.detail)}</td></tr>`).join("")}</table></div>
+  <p class="small muted">Her kayıt, önceki kaydın SHA-256 özetini içerir. Bir kaydın sonradan değiştirilmesi zinciri bozar ve burada görünür. Not: tarayıcı tabanlı bu yapı tam bir kurcalama koruması sağlamaz; resmî kullanımda günlüğün düzenli olarak dışa aktarılıp makamca imzalı olarak saklanması önerilir.</p></div>`;
+}
+
+/* ---- Veri ---- */
+function vData(){
+  return `<h1>Veri</h1>
+  <div class="card"><h3>Yedek ve denetim paketi</h3>
+   <p class="muted small">Tüm kayıtlar bu cihazın tarayıcı deposundadır. Düzenli yedek alın.</p>
+   <div class="row"><button class="b" data-act="exportall">Tam yedeği indir (.json)</button><button class="b ghost" data-act="exportpkg">Denetim paketi indir (kimlik no maskeli)</button>
+   ${can.admin()?`<label class="b ghost" style="margin:0">Yedekten geri yükle<input type="file" id="bfile" accept=".json" class="hidden"></label>`:""}</div></div>
+  ${can.admin()?`<div class="card"><h3>Tehlikeli işlemler</h3><p class="small muted">Tüm verileri silmek geri alınamaz. İşlem günlüğe yazılamaz çünkü günlük de silinir; önce yedek alın.</p>
+   <button class="b red" data-act="wipe">Tüm verileri sil</button></div>`:""}
+  <div class="card"><h3>Kişisel verilerin korunması</h3><ul class="small"><li>Listelerde kimlik numaraları maskelenir.</li><li>Denetim paketi kimlik numaralarını maskeler; tam yedek maskesizdir, güvenli saklayın.</li><li>Saklama süresi parametrelerden tanımlanır; süre dolan kayıtlar Panel'de uyarı olarak görünür.</li></ul></div>`;
+}
+function download(name,text){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type:"application/json"}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+
+/* ---- Kullanıcılar ---- */
+function vUsers(){
+  return `<h1>Kullanıcılar</h1><div class="card"><div class="tw"><table><tr><th>Ad</th><th>Rol</th><th>Durum</th><th></th></tr>
+  ${DB.users.map(u=>`<tr><td>${esc(u.name)}</td><td>${{admin:"Yönetici",memur:"Memur",denetci:"Denetçi (salt okunur)"}[u.role]}</td><td><span class="badge ${u.active?"good":"bad"}">${u.active?"Etkin":"Pasif"}</span></td>
+   <td>${u.id!==SESSION.id?`<button class="b ghost sm" data-act="toggleuser" data-id="${u.id}">${u.active?"Pasifleştir":"Etkinleştir"}</button> <button class="b ghost sm" data-act="resetpin" data-id="${u.id}">PIN değiştir</button>`:`<button class="b ghost sm" data-act="resetpin" data-id="${u.id}">PIN'imi değiştir</button>`}</td></tr>`).join("")}</table></div></div>
+  <div class="card"><h3>Kullanıcı ekle</h3><form data-form="adduser"><div class="grid g3">
+   <div><label>Ad soyad</label><input name="name" required></div>
+   <div><label>Rol</label><select name="role"><option value="memur">Memur</option><option value="denetci">Denetçi (salt okunur)</option><option value="admin">Yönetici</option></select></div>
+   <div><label>PIN (en az 6 hane)</label><input name="pin" type="password" inputmode="numeric" pattern="\\d{6,}" required></div></div>
+   <button class="b" style="margin-top:10px" type="submit">Ekle</button></form>
+   <p class="small muted">İkinci imza (iki kişi kuralı) için en az iki farklı yönetici/memur hesabı gerekir: işlemi hazırlayan, onaylayan olamaz.</p></div>`;
+}
+
+/* ---- Hakkında ---- */
+function vAbout(){return `<h1>Hakkında ve sınırlar</h1>
+ <div class="card"><h3>Ne yapar?</h3><ul><li>Evlenme başvurusu kabulü, belge takibi, <b>parametrelere dayalı uygunluk kontrolü</b>, nikâh randevusu ve evlilik kaydı.</li><li>Tüm kurallar (yaş, belge, hısımlık, bekleme, takvim) <b>Parametreler</b> sayfasından yönetici tarafından değiştirilir; her değişiklik sürümlenir, gerekçelendirilir ve mühürlenir.</li><li>Rol ayrımı: Yönetici, Memur, Denetçi (yalnız okur). Riskli durumlarda <b>iki kişi kuralı</b> (ikinci imza).</li><li>Çevrimdışı: internet bağlantısı, sunucu ve dış kütüphane gerekmez.</li></ul></div>
+ <div class="card"><h3>Pazarlık edilemez güvenceler</h3><ul><li>${HARD.absoluteMinAge} yaşın altındakiler hiçbir koşulda evlendirilemez.</li><li>Normal evlenme yaşı ${HARD.minAgeStandardFloor}'in altına ayarlanamaz; daha düşük yaşlar yalnız veli izni/mahkeme kararı kaydı ve yönetici ikinci imzasıyla mümkündür.</li><li>İki tarafın şahsen başvurusu ve tören aşamasında serbest irade beyanı zorunludur; vekâletle başvuru kabul edilmez.</li><li>Üstsoy–altsoy, kardeş ve evlat edinme hısımlığı engelleri devre dışı bırakılamaz.</li><li>Mevcut evliliği süren kişi evlendirilemez.</li></ul></div>
+ <div class="card"><h3>Sınırlar (lütfen okuyun)</h3><ul>
+  <li><b>Bu bir araçtır, hukuki karar verici değildir.</b> Varsayılan parametreler Türkiye Medeni Kanunu'nu örnek alan başlangıç değerleridir; yürürlükteki mevzuata uygunluğu yetkili makamca onaylanmalıdır.</li>
+  <li><b>Resmî sorgu yok.</b> Çevrimdışı çalıştığı için nüfus (MERNİS) veya adli sicil sorgusu yapamaz; medeni durum yalnız beyan ve yerel kayıtlara göre denetlenir.</li>
+  <li><b>Tarayıcı güvenliği sınırlıdır.</b> PIN ve rol denetimi tarayıcıda çalışır; cihaza tam erişimi olan biri verileri değiştirebilir. SHA-256 zinciri ve parametre mührü değişikliği <i>ortaya çıkarır</i>, <i>engellemez</i>. Resmî kullanımda cihaz yönetimi, disk şifreleme, düzenli imzalı yedek ve kurum BT onayı gerekir.</li>
+  <li>Kişisel veriler (KVKK) için aydınlatma, yetki, saklama-imha ve veri sorumlusu süreçleri kurumun sorumluluğundadır.</li></ul></div>`}
+
+/* =====================================================================
+   OLAYLAR
+   ===================================================================== */
+document.addEventListener("submit",e=>{
+  const f=e.target.closest("form[data-form]");if(!f)return;e.preventDefault();const t=f.dataset.form,g=n=>f.elements[n]&&f.elements[n].value;
+  if(t==="setup"){
+    if(g("pin")!==g("pin2")){alert("PIN'ler eşleşmiyor.");return}
+    const salt=rnd();const params=DEFAULT_PARAMS();params.institution=g("inst").trim();
+    DB={v:1,params,paramHistory:[{ver:1,ts:Date.now(),user:"admin",reason:"İlk kurulum (varsayılan parametreler)",seal:seal(params),params:JSON.parse(JSON.stringify(params))}],
+      users:[{id:"u1",name:g("name").trim(),role:"admin",salt,hash:hashPin(g("pin"),salt),active:true,fails:0,lockUntil:0}],
+      apps:[],audit:[],seq:{app:0,reg:0},officialSeal:""};
+    SESSION={id:"u1",name:g("name").trim(),role:"admin"};lastAct=Date.now();
+    logEv("KURULUM","Sistem kuruldu; kurum: "+params.institution);save();render();return}
+  if(t==="login"){
+    const u=DB.users.find(x=>x.id===g("u"));const err=$("#lerr");
+    if(u.lockUntil>Date.now()){err.innerHTML=`<div class="note bad">Çok sayıda hatalı deneme. ${Math.ceil((u.lockUntil-Date.now())/60000)} dk sonra tekrar deneyin.</div>`;return}
+    if(hashPin(g("pin"),u.salt)===u.hash){u.fails=0;u.lockUntil=0;SESSION={id:u.id,name:u.name,role:u.role};lastAct=Date.now();logEv("GIRIS","Oturum açıldı");save();render()}
+    else{u.fails++;if(u.fails>=5){u.lockUntil=Date.now()+5*60000;u.fails=0}save();
+      SESSION={id:u.id,name:u.name,role:u.role};logEv("GIRIS_HATASI","Hatalı PIN: "+u.name);SESSION=null;
+      err.innerHTML=`<div class="note bad">PIN hatalı.</div>`}return}
+  if(t==="params"){if(!can.admin())return;const P=readParamsForm();if(applyParams(P,g("reason"))){ctx.draft=null;render()}return}
+  if(t==="adduser"){if(!can.admin())return;const salt=rnd();const id="u"+(DB.users.length+1)+rnd().slice(0,4);
+    DB.users.push({id,name:g("name").trim(),role:g("role"),salt,hash:hashPin(g("pin"),salt),active:true,fails:0,lockUntil:0});
+    logEv("KULLANICI_EKLENDI",`${g("name")} (${g("role")})`);save();toast("Kullanıcı eklendi.");render();return}
+});
+document.addEventListener("change",e=>{
+  if(e.target.id==="flt"){ctx.filter=e.target.value;render()}
+  if(e.target.id==="pfile"&&can.admin()){
+    const r=new FileReader();r.onload=()=>{try{const P=JSON.parse(r.result);ctx.draft=P;const E=validateParams(P);render();
+      if(E.length)alert("Dosya geçerli değil:\n• "+E.join("\n• "));else toast("Parametre dosyası forma yüklendi; gerekçe yazıp uygulayın. Mühür: "+seal(P).slice(0,12)+"…")}catch(x){alert("Dosya okunamadı.")}};r.readAsText(e.target.files[0])}
+  if(e.target.id==="bfile"&&can.admin()){
+    const r=new FileReader();r.onload=()=>{try{const D=JSON.parse(r.result);const c=verifyChain(D.audit||[]);
+      if(!c.ok&&!confirm(`Yedeğin denetim zinciri ${c.at}. kayıtta BOZUK. Yine de yüklensin mi?`))return;
+      if(!confirm("Mevcut tüm veriler bu yedekle DEĞİŞTİRİLECEK. Devam?"))return;
+      DB=D;save();SESSION=null;toast("Yedek yüklendi; yeniden giriş yapın.");render()}catch(x){alert("Yedek okunamadı.")}};r.readAsText(e.target.files[0])}
+});
+document.addEventListener("input",e=>{
+  if(e.target.id==="q"){ctx.q=e.target.value;const p=e.target.selectionStart;render();const n=$("#q");n.focus();n.setSelectionRange(p,p)}
+  if(e.target.id==="aq"){ctx.aq=e.target.value;const p=e.target.selectionStart;render();const n=$("#aq");n.focus();n.setSelectionRange(p,p)}
+});
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-act]");if(!t)return;const a=t.dataset.act;
+  if(a!=="open")e.preventDefault&&e.preventDefault();
+  const app=()=>DB.apps.find(x=>x.id===route.id);
+  if(a==="nav"){ctx.draft=null;go(t.dataset.k);return}
+  if(a==="lock"){logEv("OTURUM_KAPATILDI","");lockNow();return}
+  if(a==="open"){e.preventDefault();go("app",{id:t.dataset.id});return}
+  if(a==="newapp"){if(!can.edit())return;const n=newApp();DB.apps.push(n);hist(n,"Başvuru oluşturuldu");logEv("BASVURU_OLUSTURULDU",n.id);save();go("app",{id:n.id});return}
+  if(a==="month"){ctx.month=t.dataset.m;render();return}
+  if(a==="exnote")return;
+  if(a==="saveapp"){const x=app();readAppForm(x);hist(x,"Kaydedildi");logEv("BASVURU_KAYDEDILDI",x.id);save();toast("Kaydedildi.");render();return}
+  if(a==="toeval"){const x=app();readAppForm(x);x.status="degerlendirme";hist(x,"Değerlendirmeye alındı");logEv("BASVURU_DEGERLENDIRMEDE",x.id);save();render();return}
+  if(a==="approve"){const x=app();readAppForm(x);const ev=evaluate(x,DB.params);if(ev.status!=="UYGUN"){alert("Başvuru uygun değil; onaylanamaz.");save();render();return}
+    x.status="onayli";x.approvedAt=Date.now();x.approvedBy=SESSION.id;hist(x,"Onaylandı");logEv("BASVURU_ONAYLANDI",x.id);save();render();return}
+  if(a==="sendchecker"){const x=app();readAppForm(x);const r=prompt("İkinci imza için gerekçe/açıklama:");if(!r||r.trim().length<5){alert("Gerekçe zorunlu.");return}
+    x.pendingChecker={by:SESSION.id,reason:r.trim(),ts:Date.now()};hist(x,"İkinci imzaya gönderildi: "+r.trim());logEv("IKINCI_IMZAYA_GONDERILDI",x.id+" — "+r.trim());save();render();return}
+  if(a==="checkerok"||a==="checkerno"){const x=app();if(!can.admin())return;
+    if(x.pendingChecker.by===SESSION.id){alert("İşlemi hazırlayan kişi ikinci imzayı atamaz (iki kişi kuralı).");return}
+    const ev=evaluate(x,DB.params);
+    if(a==="checkerok"){if(ev.status==="ENGEL"||ev.status==="EKSIK"){alert("Başvuruda engel veya eksik var; onaylanamaz.");return}
+      const r=prompt("Onay gerekçesi:");if(!r||r.trim().length<5)return;
+      x.status="onayli";x.approvedAt=Date.now();x.approvedBy=x.pendingChecker.by;x.checker={user:SESSION.id,reason:r.trim(),ts:Date.now()};x.pendingChecker=null;
+      hist(x,"İkinci imza ile onaylandı: "+r.trim());logEv("IKINCI_IMZA_ONAY",x.id+" — "+r.trim())}
+    else{const r=prompt("Ret gerekçesi:");if(!r||r.trim().length<5)return;hist(x,"İkinci imza reddedildi: "+r.trim());logEv("IKINCI_IMZA_RED",x.id+" — "+r.trim());x.pendingChecker=null}
+    save();render();return}
+  if(a==="back2eval"){const x=app();x.status="degerlendirme";x.appointment=null;x.approvedAt=null;hist(x,"Değerlendirmeye geri alındı");logEv("BASVURU_GERI_ALINDI",x.id);save();render();return}
+  if(a==="cancelapp"){const x=app();const r=prompt("Ret/iptal gerekçesi (zorunlu):");if(!r||r.trim().length<5)return;
+    x.status=confirm("Başvuru RET mi edilsin? (Tamam = Reddedildi, İptal = İptal edildi)")?"red":"iptal";x.appointment=null;
+    hist(x,APP_ST[x.status][0]+": "+r.trim());logEv("BASVURU_"+x.status.toUpperCase(),x.id+" — "+r.trim());save();render();return}
+  if(a==="pickdate"){ctx.apptDate=$("#apdate").value;render();return}
+  if(a==="slot"){const x=app();x.appointment={date:t.dataset.d,time:t.dataset.t};
+    const ev=evaluate(x,DB.params);const bl=ev.findings.find(f=>f.id==="R-ONBILDIRIM"||f.id==="R-SURE");
+    if(bl){alert(bl.txt);x.appointment=null;return}
+    x.status="randevulu";hist(x,`Randevu: ${fmtD(t.dataset.d)} ${t.dataset.t}`);logEv("RANDEVU",`${x.id} ${t.dataset.d} ${t.dataset.t}`);ctx.apptDate=null;save();render();return}
+  if(a==="complete"){const x=app();readAppForm(x);const ev=evaluate(x,DB.params,{forCompletion:true});
+    if(ev.status!=="UYGUN"){alert("Tören aşaması koşulları tamam değil.");save();render();return}
+    if(!confirm("Nikâh kıyıldı ve evlilik kaydı oluşturulsun mu? Bu işlem geri alınamaz."))return;
+    DB.seq.reg=(DB.seq.reg||0)+1;const no=`${DB.params.regPrefix||"EV"}-${new Date().getFullYear()}-${String(DB.seq.reg).padStart(6,"0")}`;
+    x.reg={no,date:x.appointment.date,user:SESSION.id};x.status="tamamlandi";hist(x,"Nikâh kıyıldı; kayıt no "+no);logEv("NIKAH_KAYDI",`${x.id} → ${no}`);save();render();return}
+  if(a==="print"){const x=app();printApp(x);return}
+  if(a==="saveseal"){DB.officialSeal=$("#offseal").value.trim().toLowerCase();logEv("RESMI_MUHUR_TANIMLANDI",DB.officialSeal);save();render();return}
+  if(a==="adddoc"){const P=readParamsForm();const id="d_"+rnd().slice(0,6);P.docs.push({id,label:"Yeni belge",required:true,cond:"all"});ctx.draft=P;render();return}
+  if(a==="deldoc"){const P=readParamsForm();P.docs.splice(+t.dataset.i,1);ctx.draft=P;render();return}
+  if(a==="exportparams"){download("evlendirme-parametreleri.json",JSON.stringify(readParamsForm(),null,2));return}
+  if(a==="exportall"){logEv("YEDEK_ALINDI","tam yedek");download("evlendirme-yedek-"+todayStr()+".json",JSON.stringify(DB));return}
+  if(a==="exportaudit"){download("denetim-gunlugu-"+todayStr()+".json",JSON.stringify({audit:DB.audit,chain:verifyChain(DB.audit),paramSeal:seal(DB.params)},null,2));return}
+  if(a==="exportpkg"){
+    const pk={tarih:todayStr(),kurum:DB.params.institution,parametreler:DB.params,parametreMuhru:seal(DB.params),parametreGecmisi:DB.paramHistory.map(x=>({ver:x.ver,ts:x.ts,user:x.user,reason:x.reason,seal:x.seal})),
+      denetimGunlugu:DB.audit,zincir:verifyChain(DB.audit),
+      basvurular:DB.apps.map(a=>({id:a.id,durum:a.status,olusturan:a.createdBy,onay:a.approvedBy,ikinciImza:a.checker,randevu:a.appointment,kayit:a.reg,
+        taraflar:a.parties.map(p=>({kimlik:maskId(p.kimNo),dogumYili:p.dogum.slice(0,4),uyruk:p.uyruk,medeni:p.medeni})),gecmis:a.history}))};
+    logEv("DENETIM_PAKETI","dışa aktarıldı");download("denetim-paketi-"+todayStr()+".json",JSON.stringify(pk,null,2));return}
+  if(a==="toggleuser"){const u=DB.users.find(x=>x.id===t.dataset.id);if(u.active&&u.role==="admin"&&DB.users.filter(x=>x.active&&x.role==="admin").length<2){alert("Son etkin yönetici pasifleştirilemez.");return}
+    u.active=!u.active;logEv("KULLANICI_DURUMU",`${u.name}: ${u.active?"etkin":"pasif"}`);save();render();return}
+  if(a==="resetpin"){const u=DB.users.find(x=>x.id===t.dataset.id);const p=prompt(`${u.name} için yeni PIN (en az 6 rakam):`);if(!p||!/^\d{6,}$/.test(p)){if(p!==null)alert("PIN en az 6 rakam olmalı.");return}
+    u.salt=rnd();u.hash=hashPin(p,u.salt);u.fails=0;u.lockUntil=0;logEv("PIN_DEGISTI",u.name);save();toast("PIN güncellendi.");return}
+  if(a==="wipe"){if(!can.admin())return;if(prompt("Tüm veriler silinecek. Onaylamak için SİL yazın:")==="SİL"){localStorage.removeItem(KEY);DB=null;SESSION=null;toast("Tüm veriler silindi.");render()}return}
+});
+
+/* ---- Yazdırma ---- */
+function printApp(x){
+  const P=DB.params;const row=(a,b)=>`<tr><th style="width:34%">${a}</th><td>${b}</td></tr>`;
+  const party=(p,i)=>`<h3>Taraf ${i+1}</h3><table>${row("Ad soyad",esc(p.ad+" "+p.soyad))}${row("Kimlik no",esc(maskId(p.kimNo)))}${row("Doğum tarihi",fmtD(p.dogum))}${row("Uyruk / medeni durum",esc(p.uyruk+" / "+p.medeni))}</table>`;
+  $("#printarea").innerHTML=`<h1>${esc(P.institution)}</h1><h2>Evlenme Başvuru Özeti — ${x.id}</h2>
+   <table>${row("Durum",APP_ST[x.status][0])}${row("Randevu",x.appointment?fmtD(x.appointment.date)+" "+x.appointment.time:"—")}${row("Evlilik kayıt no",x.reg?x.reg.no:"—")}${row("Parametre mührü",seal(P).slice(0,24)+"…")}</table>
+   ${party(x.parties[0],0)}${party(x.parties[1],1)}
+   <h3>Belgeler</h3><ul>${P.docs.map(d=>`<li>${x.docs[d.id]?"☑":"☐"} ${esc(d.label)}</li>`).join("")}</ul>
+   <p style="margin-top:30px">Düzenleyen: ${esc(SESSION.name)} — ${fmtT(Date.now())}</p><p>İmza: ____________________</p>
+   <p style="font-size:11px">Kimlik numaraları maskelenmiştir. Bu özet resmî evlilik cüzdanı veya belge yerine geçmez.</p>`;
+  window.print();
+}
+
+/* =====================================================================
+   BAŞLAT
+   ===================================================================== */
+DB=load();
+if(DB&&!DB.paramHistory)DB=null;
+render();
+</script>
+</body>
+</html>
