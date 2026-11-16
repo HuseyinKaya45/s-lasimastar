@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>نظام التعارف للزواج</title>
+<style>
+:root{
+  --bg:#F3F5F8;--card:#fff;--ink:#16202C;--muted:#5B6877;--line:#D6DCE4;--soft:#E8ECF1;
+  --accent:#1F4E8C;--accent-ink:#fff;--good:#1E7A46;--bad:#B3261E;--warn:#9A6200;
+  --good-bg:#E2F2E6;--bad-bg:#FBE7E4;--warn-bg:#FFF3D6;--info-bg:#E6EEF9;
+  --f:system-ui,"Segoe UI",Tahoma,"Noto Naskh Arabic","Noto Sans Arabic",Arial,sans-serif;color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10161D;--card:#18212B;--ink:#E7EDF4;--muted:#9AA8B8;--line:#2B3744;--soft:#212C38;
+  --accent:#7FB1F0;--accent-ink:#0B1624;--good:#6FD08E;--bad:#FF8A80;--warn:#F2C25C;
+  --good-bg:#17301F;--bad-bg:#3A1D1A;--warn-bg:#3A2E10;--info-bg:#17283D;color-scheme:dark}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15.5px/1.6 var(--f)}
+h1,h2,h3{margin:0 0 .5em;line-height:1.35}h1{font-size:24px}h2{font-size:19px}h3{font-size:16px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 14px}
+header.top{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+header.top .wrap{display:flex;gap:12px;align-items:center;min-height:54px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.brand{font-weight:700;flex:1;min-width:200px}.brand small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+nav.tabs{background:var(--card);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
+nav.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 12px;font:inherit;color:var(--muted);cursor:pointer;white-space:nowrap}
+nav.tabs button.on{color:var(--accent);border-color:var(--accent);font-weight:600}
+main{padding:18px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 14px}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:720px){.g2,.g3,.g4{grid-template-columns:1fr}}
+label{display:block;font-size:13px;color:var(--muted);margin:8px 0 3px;font-weight:600}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:8px 10px;min-height:38px}
+input[type=checkbox]{width:auto;min-height:0;margin-inline-end:6px;vertical-align:middle}
+.ltr{direction:ltr;unicode-bidi:isolate;text-align:right}
+.chk{display:flex;align-items:flex-start;gap:6px;margin:6px 0;color:var(--ink);font-weight:400;font-size:14.5px}
+.chk input{margin-top:5px}
+textarea{min-height:70px}
+button.b,label.b{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:inherit;font-weight:600;padding:8px 14px;border-radius:7px;cursor:pointer;min-height:38px;margin:0}
+button.b.ghost,label.b.ghost{background:transparent;color:var(--accent)}
+button.b.red{background:var(--bad);border-color:var(--bad);color:#fff}
+button.b.sm{padding:4px 10px;min-height:30px;font-size:13.5px}
+button.b:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.sp{flex:1}
+.muted{color:var(--muted)}.small{font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+th{font-size:12.5px;color:var(--muted)}
+.tw{overflow-x:auto}
+.badge{display:inline-block;padding:1px 9px;border-radius:99px;font-size:12.5px;font-weight:700;background:var(--soft);color:var(--muted)}
+.badge.good{background:var(--good-bg);color:var(--good)}.badge.bad{background:var(--bad-bg);color:var(--bad)}
+.badge.warn{background:var(--warn-bg);color:var(--warn)}.badge.info{background:var(--info-bg);color:var(--accent)}
+.note{border-radius:8px;padding:9px 12px;margin:8px 0;font-size:14px}
+.note.good{background:var(--good-bg);color:var(--good)}.note.bad{background:var(--bad-bg);color:var(--bad)}
+.note.warn{background:var(--warn-bg);color:var(--warn)}.note.info{background:var(--info-bg);color:var(--accent)}
+.find{display:flex;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.find .badge{flex:none;min-width:58px;text-align:center}
+.stat{text-align:center}.stat b{display:block;font-size:28px;line-height:1.1}.stat span{font-size:12.5px;color:var(--muted)}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;word-break:break-all;direction:ltr;unicode-bidi:isolate}
+div.mono{text-align:start}
+.login{max-width:420px;margin:60px auto}
+.bar{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;min-width:70px}.bar i{display:block;height:100%;background:var(--accent)}
+.hidden{display:none}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:8px;z-index:50;font-weight:600;opacity:0;transition:.25s;pointer-events:none;max-width:92vw;text-align:center}
+.toast.show{opacity:1}
+.opts{display:flex;flex-wrap:wrap;gap:4px 14px}
+#printarea{display:none}
+@media print{body *{visibility:hidden}#printarea,#printarea *{visibility:visible}
+ #printarea{display:block;position:absolute;inset-inline-start:0;top:0;width:100%;color:#000;background:#fff;padding:24px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand" id="brand">نظام التعارف للزواج</div>
+  <div id="who" class="row"></div>
+</div></header>
+<nav class="tabs hidden" id="tabs"><div class="wrap" id="tabsin"></div></nav>
+<div class="wrap"><main id="app"></main></div>
+<div id="printarea"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+/* =====================================================================
+   FIXED SAFEGUARDS - cannot be changed by any parameter
+   ===================================================================== */
+const HARD={
+  minAgeFloor:18,        // applicants under 18 can never be admitted
+  voluntary:true,        // participation is voluntary; no application on behalf of others / under pressure
+  mutualConsent:true,    // no contact details are shared until both sides separately say "I want to meet"
+  noForce:true           // a person who declines cannot be pressed; refusal is recorded without a reason
+};
+const KEY="evlilik-tanistirma-v1";
+
+/* ===== SHA-256 / helpers ===== */
+const K256=new Uint32Array([0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2]);
+function sha256(str){
+  const m=new TextEncoder().encode(str),l=m.length,n=((l+9+63)>>6)<<6,b=new Uint8Array(n);
+  b.set(m);b[l]=0x80;const dv=new DataView(b.buffer);
+  dv.setUint32(n-4,(l*8)>>>0);dv.setUint32(n-8,Math.floor(l*8/4294967296));
+  let h=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+  const w=new Uint32Array(64);
+  for(let i=0;i<n;i+=64){
+    for(let t=0;t<16;t++)w[t]=dv.getUint32(i+t*4);
+    for(let t=16;t<64;t++){const a=w[t-15],c=w[t-2];
+      const s0=((a>>>7)|(a<<25))^((a>>>18)|(a<<14))^(a>>>3),s1=((c>>>17)|(c<<15))^((c>>>19)|(c<<13))^(c>>>10);
+      w[t]=(w[t-16]+s0+w[t-7]+s1)>>>0}
+    let [a,b2,c,d,e,f,g,hh]=h;
+    for(let t=0;t<64;t++){
+      const S1=((e>>>6)|(e<<26))^((e>>>11)|(e<<21))^((e>>>25)|(e<<7)),ch=(e&f)^(~e&g),t1=(hh+S1+ch+K256[t]+w[t])>>>0;
+      const S0=((a>>>2)|(a<<30))^((a>>>13)|(a<<19))^((a>>>22)|(a<<10)),mj=(a&b2)^(a&c)^(b2&c),t2=(S0+mj)>>>0;
+      hh=g;g=f;f=e;e=(d+t1)>>>0;d=c;c=b2;b2=a;a=(t1+t2)>>>0}
+    h=[h[0]+a,h[1]+b2,h[2]+c,h[3]+d,h[4]+e,h[5]+f,h[6]+g,h[7]+hh].map(x=>x>>>0)}
+  return h.map(x=>x.toString(16).padStart(8,"0")).join("");
+}
+const canon=o=>JSON.stringify(o,(k,v)=>v&&typeof v==="object"&&!Array.isArray(v)?Object.keys(v).sort().reduce((r,x)=>(r[x]=v[x],r),{}):v);
+const seal=o=>sha256(canon(o));
+const hashPin=(pin,salt)=>{let x=salt+pin;for(let i=0;i<1500;i++)x=sha256(x+salt);return x};
+const rnd=()=>Array.from(crypto.getRandomValues(new Uint8Array(12))).map(x=>x.toString(16).padStart(2,"0")).join("");
+/* bidi isolation helpers: keep Latin ids, dates and ranges intact inside Arabic text */
+const L=x=>"⁦"+x+"⁩";
+const TC="رقم الهوية الوطنية التركية ("+L("T.C.")+")";
+const KVKK="قانون حماية البيانات الشخصية التركي ("+L("KVKK")+")";
+
+/* =====================================================================
+   DEFAULT PARAMETERS
+   ===================================================================== */
+const DEFAULT_PARAMS=()=>({
+  institution:"وحدة التعارف للزواج",
+  minAge:18, maxAge:60,
+  matchGender:"karsi",
+  minScore:60, topN:5, aggregator:"geom",
+  maxActiveIntros:2, cooldownDays:30, responseDays:7,
+  ageDecayYears:5,
+  impW:{1:1,2:3,3:6},
+  critW:{age:3,loc:2,edu:2,marital:2,kids:2},
+  eduLevels:["الابتدائية","المتوسطة","الثانوية","دبلوم (سنتان بعد الثانوية)","بكالوريوس","ماجستير","دكتوراه"],
+  meetingMode:"بحضور موظف، في مكان عام",
+  consentVersion:"1",
+  consentText:"قدّمتُ هذا الطلب بمحض إرادتي وبشخصي بغرض التعارف من أجل الزواج. وأوافق على معالجة بياناتي لغرض التعارف وحده وفي النطاق الذي تحدده الجهة، وعلى عرضها على المرشحين الذين يُرى أنهم مناسبون في صورة ملخّص تعريفي محدود. لا تُشارَك بيانات الاتصال الخاصة بي ما لم أوافق أنا والطرف الآخر كلٌّ على حدة على التعارف. ويحق لي الانسحاب من طلبي في أي وقت دون إبداء أي سبب، ولستُ ملزماً بقبول التعارف مع أي أحد.",
+  retentionDays:365,
+  fairGapPct:15,
+  sessionLockMinutes:5,
+  questions:[
+    {id:"q_cocuk",label:"هل ترغب في إنجاب أطفال؟",opts:["نعم","لا","لست متأكداً"],weight:3,sensitive:false,enabled:true},
+    {id:"q_yer",label:"مكان السكن الذي ترغب فيه",opts:["مدينة كبرى","مدينة","بلدة / قرية","لا يهم"],weight:2,sensitive:false,enabled:true},
+    {id:"q_aile",label:"العيش مع أحد أفراد الأسرة بعد الزواج",opts:["أرغب","لا أرغب","لا يهم"],weight:2,sensitive:false,enabled:true},
+    {id:"q_calisma",label:"توقعك بشأن عمل شريك الحياة",opts:["أن يعمل","ألا يعمل","لا يهم"],weight:2,sensitive:false,enabled:true},
+    {id:"q_sigara",label:"التدخين",opts:["أدخّن","لا أدخّن"],weight:2,sensitive:false,enabled:true},
+    {id:"q_inanc",label:"مستوى الالتزام الديني",opts:["مرتفع","متوسط","منخفض"],weight:2,sensitive:true,enabled:false}
+  ]
+});
+const DONTCARE="لا يهم";
+const IMP=[["0","غير مهم"],["1","قليل الأهمية"],["2","مهم"],["3","إلزامي (استبعادي)"]];
+const MEDENI=[["hic","لم يسبق له/لها الزواج"],["bosanmis","مطلّق/ة"],["dul","أرمل/ة"]];
+const ISDURUM=[["calisiyor","يعمل"],["ogrenci","طالب"],["calismiyor","لا يعمل"],["emekli","متقاعد"]];
+const GEN=c=>c==="K"?"أنثى":c==="E"?"ذكر":"";
+const OUT={devam:"استمرار",bitti:"انتهاء"};
+const DEC={kabul:"يرغب في التعارف",ret:"لا يرغب في التعارف"};
+const SCHEMA=[
+ {sec:"عام"},
+ {k:"institution",label:"اسم الجهة",type:"text"},
+ {k:"minAge",label:"الحد الأدنى لسن التقديم",type:"int",min:HARD.minAgeFloor,max:40,help:`الحد الأدنى ${HARD.minAgeFloor}؛ ولا يمكن خفضه دونه.`},
+ {k:"maxAge",label:"الحد الأقصى لسن التقديم",type:"int",min:25,max:99},
+ {k:"matchGender",label:"قاعدة الجنس في المطابقة",type:"sel",opts:[["karsi","مع الجنس الآخر"],["serbest","دون قيد"]],help:"تحدده الجهة المختصة وفق التشريعات النافذة وسياسة الجهة."},
+ {sec:"المطابقة"},
+ {k:"minScore",label:"الحد الأدنى لدرجة التوافق (0–100)",type:"int",min:0,max:100},
+ {k:"topN",label:"أقصى عدد من الأشخاص المقترحين لكل مرشح",type:"int",min:1,max:20},
+ {k:"aggregator",label:"طريقة دمج الدرجتين في الاتجاهين",type:"sel",opts:[["geom","المتوسط الهندسي"],["min","الأدنى منهما"],["avg","المتوسط الحسابي"]]},
+ {k:"ageDecayYears",label:"البُعد عن تفضيل العمر الذي تصبح عنده الدرجة صفراً (سنوات)",type:"int",min:1,max:15},
+ {sec:"الإجراءات والأمان"},
+ {k:"maxActiveIntros",label:"أقصى عدد لعمليات التعارف النشطة للمرشح في وقت واحد",type:"int",min:1,max:5},
+ {k:"cooldownDays",label:"مدة الانتظار بعد انتهاء تعارف قبل اقتراح جديد (بالأيام)",type:"int",min:0,max:365},
+ {k:"responseDays",label:"مهلة انتظار الرد (بالأيام)",type:"int",min:1,max:60},
+ {k:"meetingMode",label:"صيغة اللقاء الأول (نص)",type:"text"},
+ {k:"retentionDays",label:"مدة الاحتفاظ بالسجلات المغلقة (بالأيام)",type:"int",min:30,max:3650},
+ {k:"fairGapPct",label:"عتبة تنبيه العدالة (فرق بالنقاط المئوية)",type:"int",min:1,max:60},
+ {k:"sessionLockMinutes",label:"القفل التلقائي (بالدقائق)",type:"int",min:1,max:60}
+];
+const CRIT_LABEL={age:"العمر",loc:"محافظة الإقامة",edu:"المستوى التعليمي",marital:"الحالة الاجتماعية",kids:"وضع الأبناء"};
+const RNG=(a,b)=>L(a+"–"+b);
+
+/* =====================================================================
+   DATA STORE
+   ===================================================================== */
+let DB=null,SESSION=null,route={v:"dash"},ctx={};
+function load(){try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}}
+function save(){localStorage.setItem(KEY,JSON.stringify(DB))}
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad2=n=>String(n).padStart(2,"0");
+const dStr=d=>d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate());
+const todayStr=()=>dStr(new Date());
+const fmtD=s=>s?L(s.split("-").reverse().join(".")):"—";
+const fmtT=ts=>{const d=new Date(ts);return L(dStr(d).split("-").reverse().join(".")+" "+pad2(d.getHours())+":"+pad2(d.getMinutes()))};
+const addDays=(s,n)=>{const d=new Date(s+"T00:00:00");d.setDate(d.getDate()+n);return dStr(d)};
+const daysBetween=(a,b)=>Math.round((new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/864e5);
+function ageOn(birth,ref){const b=new Date(birth+"T00:00:00"),r=new Date(ref+"T00:00:00");let a=r.getFullYear()-b.getFullYear();
+  if(r.getMonth()<b.getMonth()||(r.getMonth()===b.getMonth()&&r.getDate()<b.getDate()))a--;return a}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("show"),2800)}
+function validTC(n){if(!/^[1-9]\d{10}$/.test(n))return false;const d=n.split("").map(Number);
+  const d10=(((d[0]+d[2]+d[4]+d[6]+d[8])*7)-(d[1]+d[3]+d[5]+d[7]))%10;
+  return ((d10+10)%10===d[9])&&(d.slice(0,10).reduce((a,b)=>a+b,0)%10===d[10])}
+const maskId=n=>!n?"—":L(n.length>5?n.slice(0,3)+"•••••"+n.slice(-3):"•••");
+const ROLE={admin:"مدير",gorevli:"موظف",denetci:"مدقق"};
+const ACT_AR={ESLESTIRME_CALISTIRILDI:"تشغيل المطابقة",KURULUM:"التثبيت الأولي",GIRIS:"تسجيل دخول",GIRIS_HATASI:"فشل تسجيل الدخول",PARAMETRE_DEGISTI:"تغيير المعاملات",KULLANICI_EKLENDI:"إضافة مستخدم",OTURUM_KAPATILDI:"إغلاق الجلسة",ADAY_OLUSTURULDU:"إنشاء مرشح",ADAY_KAYDEDILDI:"حفظ مرشح",ADAY_AKTIF:"تفعيل مرشح",ADAY_BEKLEMEDE:"تعليق مرشح",ADAY_CEKILDI:"انسحاب مرشح",GUVENLIK_ENGELI:"مانع أمني",ENGEL_KALDIRILDI:"رفع المانع",ADAY_ANONIMLESTIRILDI:"إخفاء هوية مرشح",TANISTIRMA_BASLATILDI:"بدء تعارف",TANISTIRMA_YANIT:"رد على تعارف",TANISTIRMA_REDDEDILDI:"رفض تعارف",TANISTIRMA_KARSILIKLI_KABUL:"قبول متبادل",TANISTIRMA_ZAMANASIMI:"انتهاء مهلة تعارف",GORUSME_PLANLANDI:"جدولة لقاء",GORUSME_SONUCU:"نتيجة لقاء",TANISTIRMA_BITTI:"انتهاء تعارف",EVLENME_KARARI:"قرار الزواج",SIKAYET:"شكوى",SIKAYET_KAPATILDI:"إغلاق شكوى",RESMI_MUHUR_TANIMLANDI:"تحديد الختم الرسمي",YEDEK_ALINDI:"نسخة احتياطية",DENETIM_PAKETI:"حزمة التدقيق",DENEME_VERISI:"بيانات تجريبية",DENEME_VERISI_SILINDI:"حذف البيانات التجريبية",KULLANICI_DURUMU:"حالة مستخدم",PIN_DEGISTI:"تغيير الرمز السري"};
+
+/* ---- Audit log ---- */
+function logEv(action,detail){
+  const prev=DB.audit.length?DB.audit[DB.audit.length-1].hash:"GENESIS";
+  const e={i:DB.audit.length+1,ts:Date.now(),user:SESSION?SESSION.id:"sistem",role:SESSION?SESSION.role:"-",action,detail:detail||"",prev};
+  e.hash=sha256(prev+"|"+e.i+"|"+e.ts+"|"+e.user+"|"+e.role+"|"+e.action+"|"+e.detail);
+  DB.audit.push(e);save();return e;
+}
+function verifyChain(audit){
+  let prev="GENESIS";
+  for(const e of audit){
+    const h=sha256(prev+"|"+e.i+"|"+e.ts+"|"+e.user+"|"+e.role+"|"+e.action+"|"+e.detail);
+    if(e.prev!==prev||e.hash!==h)return {ok:false,at:e.i};
+    prev=e.hash}
+  return {ok:true,n:audit.length};
+}
+
+/* ---- Parameter validation ---- */
+function validateParams(p){
+  const E=[];
+  SCHEMA.forEach(s=>{if(s.type==="int"&&(!Number.isInteger(p[s.k])||p[s.k]<s.min||p[s.k]>s.max))E.push(`${s.label}: يجب أن يكون عدداً صحيحاً بين ${s.min} و${s.max}.`)});
+  if(p.minAge<HARD.minAgeFloor)E.push(`لا يمكن خفض الحد الأدنى للسن دون ${HARD.minAgeFloor}.`);
+  if(p.maxAge<=p.minAge)E.push("يجب أن يكون الحد الأقصى للسن أكبر من الحد الأدنى.");
+  [1,2,3].forEach(i=>{if(!Number.isInteger(p.impW[i])||p.impW[i]<0||p.impW[i]>20)E.push("يجب أن تكون أوزان الأهمية أعداداً صحيحة بين 0 و20.")});
+  if(!(p.impW[1]<=p.impW[2]&&p.impW[2]<=p.impW[3]))E.push("يجب أن تكون أوزان الأهمية تصاعدية (قليل الأهمية ≤ مهم ≤ إلزامي).");
+  Object.keys(CRIT_LABEL).forEach(k=>{if(!Number.isInteger(p.critW[k])||p.critW[k]<0||p.critW[k]>10)E.push(`يجب أن يكون وزن «${CRIT_LABEL[k]}» بين 0 و10.`)});
+  if(!Array.isArray(p.eduLevels)||p.eduLevels.length<2)E.push("يجب تعريف مستويين تعليميين على الأقل.");
+  const ids=new Set();(p.questions||[]).forEach(q=>{
+    if(!q.id||ids.has(q.id))E.push("يجب أن تكون معرّفات الأسئلة فريدة.");ids.add(q.id);
+    if(!q.label.trim())E.push("لا يجوز أن يكون نص السؤال فارغاً.");
+    if(!Array.isArray(q.opts)||q.opts.length<2)E.push(`يجب أن يتضمن السؤال «${q.label}» خيارين على الأقل.`);
+    if(!Number.isInteger(q.weight)||q.weight<0||q.weight>10)E.push(`يجب أن يكون وزن «${q.label}» بين 0 و10.`)});
+  if(!p.consentText||p.consentText.trim().length<40)E.push("لا يجوز أن يكون نص الموافقة الصريحة فارغاً أو قصيراً جداً.");
+  return E;
+}
+
+/* =====================================================================
+   DATA MODEL
+   ===================================================================== */
+const newApplicant=()=>{DB.seq.a=(DB.seq.a||0)+1;const P=DB.params;
+  return {id:`A-${new Date().getFullYear()}-${String(DB.seq.a).padStart(4,"0")}`,status:"taslak",createdAt:Date.now(),createdBy:SESSION.id,
+  ad:"",soyad:"",kimNo:"",dogum:"",cins:"",telefon:"",eposta:"",il:"",ilce:"",medeni:"hic",cocuk:0,edu:"4",is:"calisiyor",meslek:"",tanitim:"",
+  prefs:{ageMin:21,ageMax:35,ageImp:2,locMode:"fark_etmez",locImp:1,eduMin:"2",eduImp:1,maritalOk:["hic"],maritalImp:1,kidsOk:true,kidsImp:1},
+  qa:{},consent:{data:false,sensitive:false,contactShare:false,ts:null,version:P.consentVersion},
+  checks:{inPerson:false,idVerified:false,protective:false,protectiveFound:false,voluntary:false,notMarried:false},
+  safetyBlock:false,safetyReason:"",cooldownUntil:"",notes:"",history:[],demo:false}};
+const hist=(o,text)=>{o.history.push({ts:Date.now(),user:SESSION?SESSION.id:"sistem",text})};
+const ACTIVE_INTRO=["yanit_bekliyor","kabul","bulusma_planli","devam_ediyor"];
+const ST_A={taslak:["مسودة",""],dogrulama:["بانتظار التحقق","warn"],aktif:["نشط (في المجموعة)","good"],beklemede:["معلّق","info"],inceleme:["قيد المراجعة","bad"],cekildi:["منسحب",""],engelli:["مانع أمني","bad"],tamamlandi:["مكتمل","good"],silindi:["مجهول الهوية",""]};
+const ST_I={yanit_bekliyor:["بانتظار الرد","warn"],reddedildi:["مرفوض",""],kabul:["وافق الطرفان","good"],bulusma_planli:["لقاء مجدول","good"],devam_ediyor:["مستمر","good"],bitti:["انتهى",""],sikayet:["شكوى / مراجعة","bad"],zamanasimi:["انتهت المهلة",""],cekildi:["انسحب المرشح",""],kararverdi:["قرار الزواج","good"]};
+const nm=a=>a?(a.status==="silindi"?"(سجل محذوف)":`${a.ad} ${a.soyad}`):"—";
+const getA=id=>DB.applicants.find(x=>x.id===id);
+
+/* ---- Applicant eligibility (can be admitted to the pool?) ---- */
+function checkApplicant(a,P){
+  const F=[];const add=(l,id,t)=>F.push({lvl:l,id,txt:t});
+  if(!a.ad.trim()||!a.soyad.trim())add("eksik","K-AD","الاسم واللقب ناقصان.");
+  if(!a.kimNo.trim())add("eksik","K-KIMLIK",TC+" ناقص.");else if(!validTC(a.kimNo.trim()))add("engel","K-TC",TC+" غير صالح.");
+  if(!a.dogum)add("eksik","K-DOGUM","تاريخ الميلاد ناقص.");
+  else{const y=ageOn(a.dogum,todayStr());
+    if(y<HARD.minAgeFloor)add("engel","K-YAS-SABIT",`العمر ${y} سنة؛ لا يجوز قبول من هم دون ${HARD.minAgeFloor} سنة في النظام.`);
+    else if(y<P.minAge)add("engel","K-YAS",`العمر ${y} سنة؛ والحد الأدنى لسن التقديم ${P.minAge}.`);
+    else if(y>P.maxAge)add("engel","K-YAS-US",`العمر ${y} سنة؛ والحد الأقصى لسن التقديم ${P.maxAge}.`)}
+  if(!a.cins)add("eksik","K-CINS","بيان الجنس ناقص.");
+  if(!a.il.trim())add("eksik","K-IL","محافظة الإقامة ناقصة.");
+  if(!a.telefon.trim())add("eksik","K-TEL","هاتف الاتصال ناقص (لا يراه إلا الموظف).");
+  if(!a.tanitim.trim())add("eksik","K-TANITIM","نص التعريف القصير ناقص (الملخّص الذي يُعرض على الطرف الآخر).");
+  if(a.checks.notMarried===false)add("eksik","K-MEDENI","لم يُؤخذ إقرار بعدم وجود زواج قائم.");
+  if(!a.consent.data)add("eksik","K-RIZA","لم تتم الموافقة على نص الموافقة الصريحة.");
+  if(!a.checks.voluntary)add("eksik","K-GONULLU","لم يتم التأكد من أن الطلب قُدّم بإرادة المتقدم الحرة ودون ضغط.");
+  if(!a.checks.inPerson)add("eksik","K-SAHSEN","لم يتم التأكد من أن صاحب الطلب قدّمه بشخصه (لا يُقبل التقديم نيابة عن الغير).");
+  if(!a.checks.idVerified)add("eksik","K-ID","لم يتحقق الموظف من وثيقة الهوية.");
+  if(!a.checks.protective)add("eksik","K-KORUMA","لم يُؤشَّر على إجراء الاستعلام عن قرارات الحماية/الإبعاد والاستعلام الأمني.");
+  if(a.checks.protectiveFound)add("engel","K-KORUMA-VAR","وُجد قرار حماية/إبعاد أو مانع أمني؛ لا يمكن إدراجه في المجموعة.");
+  if(a.safetyBlock)add("engel","K-GUVENLIK","يوجد سجل مانع أمني: "+(a.safetyReason||"—"));
+  const sens=P.questions.some(q=>q.enabled&&q.sensitive);
+  if(sens&&!a.consent.sensitive)add("bilgi","K-HASSAS","لعدم إعطاء موافقة صريحة على الأسئلة الحساسة (ذات الطبيعة الخاصة)، لن تُستخدم هذه الأسئلة في المطابقة.");
+  const lv=F.map(f=>f.lvl);
+  return {findings:F,status:lv.includes("engel")?"ENGEL":lv.includes("eksik")?"EKSIK":"UYGUN"};
+}
+
+/* =====================================================================
+   MATCHING ENGINE
+   ===================================================================== */
+function critList(P,a,b){
+  const L=Object.keys(CRIT_LABEL).map(k=>({k,label:CRIT_LABEL[k],w:P.critW[k]}));
+  const sens=a.consent.sensitive&&b.consent.sensitive;
+  P.questions.filter(q=>q.enabled&&(!q.sensitive||sens)).forEach(q=>L.push({k:"q:"+q.id,label:q.label,w:q.weight,q}));
+  return L;
+}
+function satisfy(a,b,c,P,today){
+  const pr=a.prefs;
+  if(c.k==="age"){const ba=ageOn(b.dogum,today);let s;
+    if(ba>=pr.ageMin&&ba<=pr.ageMax)s=1;else{const d=ba<pr.ageMin?pr.ageMin-ba:ba-pr.ageMax;s=Math.max(0,1-d/P.ageDecayYears)}
+    return {s,imp:+pr.ageImp,note:`${ba} سنة (المطلوب من ${pr.ageMin} إلى ${pr.ageMax})`}}
+  if(c.k==="loc"){const s=pr.locMode==="fark_etmez"?1:(b.il.trim().toLowerCase()===a.il.trim().toLowerCase()?1:0);
+    return {s,imp:+pr.locImp,note:pr.locMode==="fark_etmez"?"لا يهم":`${b.il} (يشترط الإقامة في المحافظة نفسها)`}}
+  if(c.k==="edu"){const d=(+b.edu)-(+pr.eduMin);const s=d>=0?1:Math.max(0,1+d/3);
+    return {s,imp:+pr.eduImp,note:`${P.eduLevels[+b.edu]||"؟"} (الحد الأدنى ${P.eduLevels[+pr.eduMin]||"؟"})`}}
+  if(c.k==="marital"){const s=pr.maritalOk.includes(b.medeni)?1:0;return {s,imp:+pr.maritalImp,note:MEDENI.find(x=>x[0]===b.medeni)[1]}}
+  if(c.k==="kids"){const s=(b.cocuk>0&&!pr.kidsOk)?0:1;return {s,imp:+pr.kidsImp,note:b.cocuk>0?`لديه أطفال (${b.cocuk})`:"ليس لديه أطفال"}}
+  const q=c.q,mine=a.qa[q.id],theirs=b.qa[q.id];
+  if(!mine||!mine.accept||mine.accept.length===0)return {s:1,imp:0,note:"لم يُحدَّد تفضيل"};
+  if(!theirs||!theirs.ans)return {s:0.5,imp:+mine.imp,note:"لا توجد إجابة"};
+  return {s:mine.accept.includes(theirs.ans)?1:0,imp:+mine.imp,note:theirs.ans};
+}
+function scoreDir(a,b,P,today){
+  let num=0,den=0;const why=[];
+  for(const c of critList(P,a,b)){
+    const r=satisfy(a,b,c,P,today);
+    if(r.imp===3&&r.s<1)return {hard:true,why:[{label:c.label,s:r.s,imp:r.imp,note:r.note}]};
+    const w=c.w*(r.imp===0?0:P.impW[r.imp]);num+=w*r.s;den+=w;
+    why.push({label:c.label,s:r.s,imp:r.imp,note:r.note})}
+  return {hard:false,score:den?num/den*100:100,why};
+}
+function activeIntroCount(id){return DB.intros.filter(i=>ACTIVE_INTRO.includes(i.status)&&(i.a===id||i.b===id)).length}
+function pairBlocked(a,b){return DB.blocked.some(p=>(p[0]===a&&p[1]===b)||(p[0]===b&&p[1]===a))}
+function poolable(x,P,today){
+  return x.status==="aktif"&&!x.safetyBlock&&x.consent.data&&(!x.cooldownUntil||today>=x.cooldownUntil)&&activeIntroCount(x.id)<P.maxActiveIntros;
+}
+function pairOk(a,b,P,today){
+  if(a.id===b.id)return "الشخص نفسه";
+  if(!poolable(a,P,today)||!poolable(b,P,today))return "ليس في المجموعة";
+  if(P.matchGender==="karsi"&&a.cins===b.cins)return "قاعدة الجنس";
+  if(pairBlocked(a.id,b.id))return "سبق رفضه/منعه";
+  if(DB.intros.some(i=>(i.a===a.id&&i.b===b.id)||(i.a===b.id&&i.b===a.id)))return "سبق اقتراحه";
+  return null;
+}
+function scorePair(a,b,P,today){
+  const ab=scoreDir(a,b,P,today),ba=scoreDir(b,a,P,today);
+  if(ab.hard||ba.hard)return {hard:true};
+  const s1=ab.score,s2=ba.score;
+  const s=P.aggregator==="min"?Math.min(s1,s2):P.aggregator==="avg"?(s1+s2)/2:Math.sqrt(s1*s2);
+  return {hard:false,score:s,sa:s1,sb:s2,whyA:ab.why,whyB:ba.why};
+}
+function runMatching(){
+  const P=DB.params,today=todayStr();
+  const pool=DB.applicants.filter(x=>poolable(x,P,today));
+  const all=[];let considered=0;
+  for(let i=0;i<pool.length;i++)for(let j=i+1;j<pool.length;j++){
+    const a=pool[i],b=pool[j];if(pairOk(a,b,P,today))continue;considered++;
+    const r=scorePair(a,b,P,today);if(r.hard||r.score<P.minScore)continue;
+    all.push({a:a.id,b:b.id,score:Math.round(r.score*10)/10,sa:Math.round(r.sa),sb:Math.round(r.sb)})}
+  // best topN for each applicant
+  const per={};all.forEach(p=>{(per[p.a]=per[p.a]||[]).push(p);(per[p.b]=per[p.b]||[]).push(p)});
+  const keep=new Set();Object.values(per).forEach(L=>L.sort((x,y)=>y.score-x.score).slice(0,P.topN).forEach(p=>keep.add(p.a+"|"+p.b)));
+  const sug=all.filter(p=>keep.has(p.a+"|"+p.b)).sort((x,y)=>y.score-x.score);
+  const withAny=new Set();sug.forEach(p=>{withAny.add(p.a);withAny.add(p.b)});
+  const run={id:(DB.runs.length?DB.runs[DB.runs.length-1].id+1:1),ts:Date.now(),user:SESSION.id,paramSeal:seal(P),pool:pool.length,considered,suggestions:sug,
+    noMatch:pool.filter(x=>!withAny.has(x.id)).map(x=>x.id)};
+  DB.runs.push(run);if(DB.runs.length>5)DB.runs.shift();
+  logEv("ESLESTIRME_CALISTIRILDI",`التشغيل ${run.id}؛ المجموعة ${pool.length}؛ الاقتراحات ${sug.length}؛ الختم ${L(run.paramSeal.slice(0,12))}`);
+  return run;
+}
+
+/* ---- Session ---- */
+const can={edit:()=>SESSION&&(SESSION.role==="gorevli"||SESSION.role==="admin"),admin:()=>SESSION&&SESSION.role==="admin"};
+function lockNow(msg){SESSION=null;route={v:"dash"};ctx={};render();if(msg)toast(msg)}
+let lastAct=Date.now();
+["click","keydown","input"].forEach(e=>document.addEventListener(e,()=>lastAct=Date.now()));
+setInterval(()=>{if(SESSION&&DB&&Date.now()-lastAct>DB.params.sessionLockMinutes*60000)lockNow("أُغلقت الجلسة لعدم وجود نشاط.")},10000);
+
+/* =====================================================================
+   VIEWS
+   ===================================================================== */
+function render(){
+  $("#brand").innerHTML=`${esc(DB?DB.params.institution:"نظام التعارف للزواج")}<small>نظام التعارف للزواج · يعمل دون اتصال بالإنترنت</small>`;
+  $("#who").innerHTML=SESSION?`<span class="badge info">${esc(SESSION.name)} · ${ROLE[SESSION.role]}</span><button class="b ghost sm" data-act="lock">🔒 قفل</button>`:"";
+  const tabs=$("#tabs");
+  if(!DB||!SESSION){tabs.classList.add("hidden");$("#app").innerHTML=!DB?vSetup():vLogin();return}
+  const T=[["dash","اللوحة"],["apps","المرشحون"],["match","المطابقة"],["intros","عمليات التعارف"],["fair","تقرير العدالة"],["params","المعاملات"],["audit","التدقيق"],["data","البيانات"]];
+  if(can.admin())T.push(["users","المستخدمون"]);T.push(["about","حول النظام"]);
+  tabs.classList.remove("hidden");
+  $("#tabsin").innerHTML=T.map(([k,n])=>`<button class="${route.v===k||(route.v==="app"&&k==="apps")||(route.v==="intro"&&k==="intros")?"on":""}" data-act="nav" data-k="${k}">${n}</button>`).join("");
+  const V={dash:vDash,apps:vApps,app:vApp,match:vMatch,intros:vIntros,intro:vIntro,fair:vFair,params:vParams,audit:vAudit,data:vData,users:vUsers,about:vAbout};
+  $("#app").innerHTML=(V[route.v]||vDash)();window.scrollTo(0,0);
+}
+function go(v,extra){route=Object.assign({v},extra||{});render()}
+
+function vSetup(){return `<div class="card login"><h1>التثبيت الأولي</h1>
+  <p class="muted">يعمل النظام على هذا الحاسوب لأول مرة. أنشئ حساب المدير. تُحفظ البيانات في مخزن المتصفح على هذا الجهاز، ولا حاجة إلى اتصال بالإنترنت.</p>
+  <form data-form="setup"><label>اسم الجهة</label><input name="inst" required value="وحدة التعارف للزواج">
+   <label>الاسم الكامل للمدير</label><input name="name" required>
+   <label>الرمز السري (PIN) للمدير (6 أرقام على الأقل)</label><input name="pin" type="password" inputmode="numeric" pattern="\\d{6,}" required dir="ltr" class="ltr">
+   <label>إعادة الرمز السري</label><input name="pin2" type="password" inputmode="numeric" pattern="\\d{6,}" required dir="ltr" class="ltr">
+   <div class="note warn small">لا يمكن استعادة الرمز السري إذا نُسي؛ احرص على أخذ نسخ احتياطية بانتظام.</div>
+   <button class="b" type="submit">إتمام التثبيت</button></form></div>`}
+function vLogin(){return `<div class="card login"><h1>تسجيل الدخول</h1><form data-form="login"><label>المستخدم</label>
+  <select name="u">${DB.users.filter(u=>u.active).map(u=>`<option value="${u.id}">${esc(u.name)} (${ROLE[u.role]})</option>`).join("")}</select>
+  <label>الرمز السري (PIN)</label><input name="pin" type="password" inputmode="numeric" required autocomplete="off" dir="ltr" class="ltr"><div id="lerr"></div>
+  <button class="b" type="submit">دخول</button></form></div>`}
+
+/* ---- Dashboard ---- */
+function vDash(){
+  const P=DB.params,A=DB.applicants,I=DB.intros,today=todayStr();
+  const cnt=s=>A.filter(a=>a.status===s).length;
+  const ch=verifyChain(DB.audit),mySeal=seal(P);
+  let al=ch.ok?`<div class="note good">تم التحقق من سلامة سجل التدقيق (${ch.n} سجل).</div>`:`<div class="note bad"><b>تحذير:</b> سلسلة سجل التدقيق تالفة عند السجل رقم ${ch.at}. قد تكون البيانات قد عُدّلت.</div>`;
+  if(DB.officialSeal)al+=DB.officialSeal===mySeal?`<div class="note good">ختم المعاملات مطابق للختم الرسمي.</div>`:`<div class="note bad"><b>تحذير:</b> ختم المعاملات لا يطابق الختم الرسمي الذي أبلغت به الجهة المختصة. قد تكون المعاملات قد عُدّلت دون تفويض.</div>`;
+  else al+=`<div class="note warn small">لم يُحدَّد ختم رسمي للمعاملات (يمكن إدخاله من صفحة المعاملات).</div>`;
+  const late=I.filter(i=>i.status==="yanit_bekliyor"&&daysBetween(dStr(new Date(i.createdAt)),today)>P.responseDays);
+  const comp=I.filter(i=>i.status==="sikayet");
+  const old=A.filter(a=>["cekildi","tamamlandi"].includes(a.status)&&a.closedAt&&daysBetween(dStr(new Date(a.closedAt)),today)>P.retentionDays);
+  if(late.length)al+=`<div class="note warn">انقضت مهلة الرد (${P.responseDays} يوماً) في <b>${late.length}</b> من عمليات التعارف.</div>`;
+  if(comp.length)al+=`<div class="note bad"><b>${comp.length}</b> من ملفات الشكاوى/المراجعة بانتظار المعالجة.</div>`;
+  if(old.length)al+=`<div class="note warn">انقضت مدة الاحتفاظ (${P.retentionDays} يوماً) لـ <b>${old.length}</b> من السجلات المغلقة؛ يجب النظر في إخفاء الهوية/الإتلاف.</div>`;
+  const last=DB.runs[DB.runs.length-1];
+  return `<h1>اللوحة</h1>${al}
+  <div class="grid g4"><div class="card stat"><b>${A.length}</b><span>إجمالي المرشحين</span></div>
+   <div class="card stat"><b>${cnt("aktif")}</b><span>المرشحون النشطون في المجموعة</span></div>
+   <div class="card stat"><b>${cnt("dogrulama")+cnt("taslak")}</b><span>مسودات / بانتظار التحقق</span></div>
+   <div class="card stat"><b>${I.filter(i=>ACTIVE_INTRO.includes(i.status)).length}</b><span>عمليات تعارف نشطة</span></div></div>
+  <div class="card"><h3>آخر تشغيل للمطابقة</h3>${last?`<p>${fmtT(last.ts)} · المجموعة ${last.pool} مرشحاً · ${last.suggestions.length} اقتراحاً · ${last.noMatch.length} مرشحاً دون اقتراحات</p>`:`<p class="muted">لم تُشغَّل بعد.</p>`}</div>
+  <div class="card"><h3>تنبيه: ما يستطيع النظام فعله وما لا يستطيعه</h3><p class="small muted">يُنتج النظام <b>اقتراحات</b> فحسب. لا يُعرض أي مرشح على غيره دون موافقته هو، ولا تُشارَك بيانات الاتصال.</p></div>`;
+}
+
+/* ---- Applicant list ---- */
+function vApps(){
+  const f=ctx.filter||"",q=(ctx.q||"").toLowerCase();
+  const L=DB.applicants.slice().reverse().filter(a=>(!f||a.status===f)&&(!q||(a.id+" "+a.ad+" "+a.soyad+" "+a.il).toLowerCase().includes(q)));
+  return `<div class="row"><h1 class="sp">المرشحون</h1>${can.edit()?`<button class="b" data-act="newapp">+ مرشح جديد</button>`:""}</div>
+  <div class="card"><div class="row"><input id="q" placeholder="بحث: الاسم، اللقب، المحافظة…" value="${esc(ctx.q||"")}" style="max-width:260px">
+   <select id="flt" style="max-width:220px"><option value="">جميع الحالات</option>${Object.entries(ST_A).map(([k,v])=>`<option value="${k}" ${f===k?"selected":""}>${v[0]}</option>`).join("")}</select></div>
+  <div class="tw"><table><tr><th>الرقم</th><th>المرشح</th><th>العمر</th><th>المحافظة</th><th>الحالة</th><th>عمليات التعارف النشطة</th></tr>
+  ${L.map(a=>`<tr><td><a href="#" data-act="open" data-id="${a.id}">${L_(a.id)}</a>${a.demo?` <span class="badge warn">تجريبي</span>`:""}</td><td>${esc(nm(a))}<div class="small muted">${GEN(a.cins)} · ${maskId(a.kimNo)}</div></td>
+   <td>${a.dogum?ageOn(a.dogum,todayStr()):"—"}</td><td>${esc(a.il)}</td><td><span class="badge ${ST_A[a.status][1]}">${ST_A[a.status][0]}</span></td><td>${activeIntroCount(a.id)}</td></tr>`).join("")||`<tr><td colspan="6" class="muted">لا توجد سجلات.</td></tr>`}</table></div></div>`;
+}
+const L_=L;
+
+/* ---- Applicant form ---- */
+const sel=(name,opts,val,d)=>`<select name="${name}" ${d}>${opts.map(([k,t])=>`<option value="${k}" ${String(val)===String(k)?"selected":""}>${t}</option>`).join("")}</select>`;
+function vApp(){
+  const a=getA(route.id);if(!a)return `<p>لم يُعثر على المرشح.</p>`;
+  const P=DB.params,ro=!can.edit()||["silindi"].includes(a.status),d=ro?"disabled":"";
+  const ck=checkApplicant(a,P);const stBadge={UYGUN:["يمكن إدراجه في المجموعة","good"],EKSIK:["توجد نواقص","warn"],ENGEL:["يوجد مانع","bad"]}[ck.status];
+  const LV={engel:["مانع","bad"],eksik:["ناقص","warn"],bilgi:["معلومة",""]};
+  const eduOpts=P.eduLevels.map((x,i)=>[String(i),x]);
+  const pr=a.prefs;
+  const qs=P.questions.filter(q=>q.enabled).map(q=>{
+    const cur=a.qa[q.id]||{ans:"",accept:[],imp:"1"};
+    return `<div class="card" style="background:var(--soft)"><b>${esc(q.label)}</b>${q.sensitive?` <span class="badge bad">حساس · يتطلب موافقة صريحة</span>`:""}
+     <div class="grid g3"><div><label>إجابتك</label><select name="q_${q.id}_ans" ${d}><option value="">—</option>${q.opts.map(o=>`<option ${cur.ans===o?"selected":""}>${esc(o)}</option>`).join("")}</select></div>
+     <div><label>الإجابات المقبولة لدى الطرف الآخر</label><div class="opts">${q.opts.map((o,i)=>`<label class="chk"><input type="checkbox" name="q_${q.id}_acc_${i}" ${cur.accept.includes(o)?"checked":""} ${d}> ${esc(o)}</label>`).join("")}</div></div>
+     <div><label>الأهمية</label>${sel("q_"+q.id+"_imp",IMP,cur.imp,d)}</div></div></div>`}).join("");
+  let act="";
+  if(can.edit()&&!ro){
+    act+=`<button class="b" data-act="saveapp">حفظ</button>`;
+    if(["taslak","dogrulama","beklemede"].includes(a.status))act+=`<button class="b ghost" data-act="activate" ${ck.status==="UYGUN"?"":"disabled"}>إدراج في المجموعة (تفعيل)</button>`;
+    if(a.status==="aktif")act+=`<button class="b ghost" data-act="pause">تعليق</button>`;
+    if(!["cekildi","tamamlandi"].includes(a.status))act+=`<button class="b ghost" data-act="withdraw">طلب انسحاب المرشح</button>`;
+    act+=`<button class="b red" data-act="safety">وضع مانع أمني</button>`;
+    if(a.status==="inceleme"||a.status==="engelli")if(can.admin())act+=`<button class="b ghost" data-act="release">رفع المانع/المراجعة</button>`;
+    if(can.admin())act+=`<button class="b red" data-act="anonymize">حذف البيانات الشخصية (إخفاء الهوية)</button>`;
+  }
+  act+=`<button class="b ghost" data-act="card" data-id="${a.id}">🖨 بطاقة التعريف</button><button class="b ghost" data-act="nav" data-k="apps">→ القائمة</button>`;
+  const intros=DB.intros.filter(i=>i.a===a.id||i.b===a.id);
+  return `<div class="row"><h1 class="sp">${esc(nm(a))} <span class="muted">${L(a.id)}</span></h1><span class="badge ${ST_A[a.status][1]}">${ST_A[a.status][0]}</span></div>
+  ${a.cooldownUntil&&todayStr()<a.cooldownUntil?`<div class="note info">مدة الانتظار قبل اقتراح جديد: حتى تاريخ ${fmtD(a.cooldownUntil)}.</div>`:""}
+  <div class="card"><div class="row"><h3 class="sp">شروط الإدراج في المجموعة</h3><span class="badge ${stBadge[1]}">${stBadge[0]}</span></div>
+   ${ck.findings.map(f=>`<div class="find"><span class="badge ${LV[f.lvl][1]}">${LV[f.lvl][0]}</span><div><b class="small muted">${L(f.id)}</b><br>${esc(f.txt)}</div></div>`).join("")||`<p class="muted">لا توجد ملاحظات.</p>`}
+   <p class="small muted">فحوصات الهوية وقرارات الحماية هي إقرارات يؤكدها الموظف يدوياً؛ والنظام العامل دون اتصال لا يستطيع إجراء استعلام رسمي.</p></div>
+  <form data-form="applicant">
+  <div class="card"><h3>الهوية والاتصال <span class="badge bad">حساس</span></h3><div class="grid g3">
+   <div><label>الاسم</label><input name="ad" value="${esc(a.ad)}" ${d}></div><div><label>اللقب</label><input name="soyad" value="${esc(a.soyad)}" ${d}></div>
+   <div><label>${TC}</label><input name="kimNo" value="${esc(a.kimNo)}" ${d} autocomplete="off" dir="ltr" class="ltr"></div>
+   <div><label>تاريخ الميلاد</label><input type="date" name="dogum" value="${a.dogum}" ${d} dir="ltr" class="ltr"></div>
+   <div><label>الجنس</label>${sel("cins",[["","اختر"],["K","أنثى"],["E","ذكر"]],a.cins,d)}</div>
+   <div><label>الهاتف (لا يراه إلا الموظف)</label><input name="telefon" value="${esc(a.telefon)}" ${d} dir="ltr" class="ltr"></div>
+   <div><label>البريد الإلكتروني</label><input name="eposta" value="${esc(a.eposta)}" ${d} dir="ltr" class="ltr"></div>
+   <div><label>محافظة الإقامة</label><input name="il" value="${esc(a.il)}" ${d}></div><div><label>المنطقة / القضاء</label><input name="ilce" value="${esc(a.ilce)}" ${d}></div></div></div>
+  <div class="card"><h3>الملف التعريفي (مصدر الملخّص الذي يُعرض على الطرف الآخر)</h3><div class="grid g3">
+   <div><label>الحالة الاجتماعية</label>${sel("medeni",MEDENI,a.medeni,d)}</div>
+   <div><label>عدد الأطفال</label><input type="number" min="0" max="12" name="cocuk" value="${a.cocuk}" ${d} dir="ltr" class="ltr"></div>
+   <div><label>المستوى التعليمي</label>${sel("edu",eduOpts,a.edu,d)}</div>
+   <div><label>الوضع الوظيفي</label>${sel("is",ISDURUM,a.is,d)}</div>
+   <div><label>المهنة / المجال</label><input name="meslek" value="${esc(a.meslek)}" ${d}></div></div>
+   <label>نبذة تعريفية قصيرة (تُعرض على الطرف الآخر؛ 300 حرف كحدٍّ أقصى؛ لا تكتب بيانات هوية أو اتصال)</label><textarea name="tanitim" maxlength="300" ${d}>${esc(a.tanitim)}</textarea></div>
+  <div class="card"><h3>ما يبحث عنه في الطرف الآخر (تفضيلاته الخاصة)</h3>
+   <div class="grid g3"><div><label>نطاق العمر (الأدنى)</label><input type="number" name="p_ageMin" value="${pr.ageMin}" ${d} dir="ltr" class="ltr"></div><div><label>نطاق العمر (الأقصى)</label><input type="number" name="p_ageMax" value="${pr.ageMax}" ${d} dir="ltr" class="ltr"></div><div><label>أهمية تفضيل العمر</label>${sel("p_ageImp",IMP,pr.ageImp,d)}</div>
+   <div><label>مكان الإقامة</label>${sel("p_locMode",[["fark_etmez","لا يهم"],["ayni_il","في المحافظة نفسها"]],pr.locMode,d)}</div><div></div><div><label>أهمية تفضيل المكان</label>${sel("p_locImp",IMP,pr.locImp,d)}</div>
+   <div><label>الحد الأدنى للمستوى التعليمي</label>${sel("p_eduMin",eduOpts,pr.eduMin,d)}</div><div></div><div><label>أهمية تفضيل التعليم</label>${sel("p_eduImp",IMP,pr.eduImp,d)}</div>
+   <div><label>الحالات الاجتماعية المقبولة</label><div class="opts">${MEDENI.map(([k,t])=>`<label class="chk"><input type="checkbox" name="p_mar_${k}" ${pr.maritalOk.includes(k)?"checked":""} ${d}> ${t}</label>`).join("")}</div></div><div></div><div><label>أهمية تفضيل الحالة الاجتماعية</label>${sel("p_maritalImp",IMP,pr.maritalImp,d)}</div>
+   <div><label class="chk"><input type="checkbox" name="p_kidsOk" ${pr.kidsOk?"checked":""} ${d}> يُقبل مرشح لديه أطفال</label></div><div></div><div><label>أهمية تفضيل الأطفال</label>${sel("p_kidsImp",IMP,pr.kidsImp,d)}</div></div>
+   <p class="small muted">إذا اختير «إلزامي (استبعادي)» ولم يتحقق التفضيل فلن يُقترح المرشح إطلاقاً. أما بقية مستويات الأهمية فتؤثر في الدرجة فقط.</p></div>
+  <div class="card"><h3>نمط الحياة والتوقعات</h3>${qs||`<p class="muted">لا توجد أسئلة مفعّلة.</p>`}</div>
+  <div class="card"><h3>الموافقة الصريحة والتحقق (يؤكدها الموظف)</h3>
+   <div class="note info small"><b>نص الموافقة (الإصدار ${L(esc(P.consentVersion))}):</b> ${esc(P.consentText)}</div>
+   <label class="chk"><input type="checkbox" name="c_data" ${a.consent.data?"checked":""} ${d}> قرأ المرشح نص الموافقة أعلاه ووافق عليه</label>
+   <label class="chk"><input type="checkbox" name="c_sens" ${a.consent.sensitive?"checked":""} ${d}> أعطى المرشح موافقة صريحة منفصلة على استخدام الأسئلة الحساسة (ذات الطبيعة الخاصة) في المطابقة</label>
+   <label class="chk"><input type="checkbox" name="c_contact" ${a.consent.contactShare?"checked":""} ${d}> وافق المرشح على مشاركة بيانات اتصاله مع الطرف الآخر بعد القبول المتبادل (وإلا يتولى الموظف وحده الوساطة)</label>
+   <hr style="border:0;border-top:1px solid var(--line)">
+   <label class="chk"><input type="checkbox" name="k_inPerson" ${a.checks.inPerson?"checked":""} ${d}> قدّم المرشح طلبه <b>بشخصه</b> (لا يُقبل التقديم نيابة عن الغير أو عن الأسرة)</label>
+   <label class="chk"><input type="checkbox" name="k_idVerified" ${a.checks.idVerified?"checked":""} ${d}> تحقق الموظف من وثيقة الهوية</label>
+   <label class="chk"><input type="checkbox" name="k_voluntary" ${a.checks.voluntary?"checked":""} ${d}> أقرّ المرشح بأنه قدّم طلبه بإرادته الحرة ودون ضغط من الأسرة أو من طرف ثالث؛ وقد قابله الموظف فرادى بشأن ذلك</label>
+   <label class="chk"><input type="checkbox" name="k_notMarried" ${a.checks.notMarried?"checked":""} ${d}> أقرّ المرشح بأنه ليس في زواج قائم</label>
+   <label class="chk"><input type="checkbox" name="k_protective" ${a.checks.protective?"checked":""} ${d}> أُجري الاستعلام عن قرارات الحماية / الإبعاد والاستعلام الأمني</label>
+   <label class="chk"><input type="checkbox" name="k_protectiveFound" ${a.checks.protectiveFound?"checked":""} ${d}> <b>وُجد</b> في الاستعلام قرار حماية/إبعاد أو مانع أمني</label></div>
+  <div class="card"><label>ملاحظة داخلية (لا تُعرض على المرشح؛ اكتب المعلومات الضرورية فقط)</label><textarea name="notes" ${d}>${esc(a.notes)}</textarea></div></form>
+  <div class="row" style="margin:10px 0">${act}</div>
+  <div class="card"><h3>عمليات التعارف</h3>${intros.map(i=>`<div><a href="#" data-act="openintro" data-id="${i.id}">${L(i.id)}</a> — ${esc(nm(getA(i.a===a.id?i.b:i.a)))} <span class="badge ${ST_I[i.status][1]}">${ST_I[i.status][0]}</span></div>`).join("")||`<p class="muted">لا توجد.</p>`}</div>
+  <div class="card"><h3>سجل الإجراءات</h3><div class="tw"><table><tr><th>الوقت</th><th>المستخدم</th><th>الإجراء</th></tr>${a.history.slice().reverse().map(h=>`<tr><td class="small">${fmtT(h.ts)}</td><td>${esc(h.user)}</td><td>${esc(h.text)}</td></tr>`).join("")||`<tr><td colspan="3" class="muted">—</td></tr>`}</table></div></div>`;
+}
+function readApplicant(a){
+  const f=$('form[data-form="applicant"]');if(!f)return;const g=n=>f.elements[n];const P=DB.params;
+  ["ad","soyad","kimNo","dogum","cins","telefon","eposta","il","ilce","medeni","edu","is","meslek","tanitim","notes"].forEach(k=>{if(g(k))a[k]=g(k).value.trim()});
+  if(g("cocuk"))a.cocuk=Math.max(0,parseInt(g("cocuk").value,10)||0);
+  const pr=a.prefs;
+  pr.ageMin=parseInt(g("p_ageMin").value,10)||pr.ageMin;pr.ageMax=parseInt(g("p_ageMax").value,10)||pr.ageMax;
+  ["p_ageImp","p_locImp","p_eduImp","p_maritalImp","p_kidsImp"].forEach(k=>pr[k.slice(2)]=+g(k).value);
+  pr.locMode=g("p_locMode").value;pr.eduMin=g("p_eduMin").value;pr.kidsOk=g("p_kidsOk").checked;
+  pr.maritalOk=MEDENI.map(x=>x[0]).filter(k=>g("p_mar_"+k).checked);
+  P.questions.filter(q=>q.enabled).forEach(q=>{
+    a.qa[q.id]={ans:g(`q_${q.id}_ans`).value,accept:q.opts.filter((o,i)=>g(`q_${q.id}_acc_${i}`).checked),imp:g(`q_${q.id}_imp`).value}});
+  if(g("c_data")){const had=a.consent.data;a.consent.data=g("c_data").checked;a.consent.sensitive=g("c_sens").checked;a.consent.contactShare=g("c_contact").checked;
+    if(a.consent.data&&!had){a.consent.ts=Date.now();a.consent.version=P.consentVersion}}
+  ["inPerson","idVerified","voluntary","notMarried","protective","protectiveFound"].forEach(k=>{if(g("k_"+k))a.checks[k]=g("k_"+k).checked});
+}
+
+/* ---- Matching ---- */
+function vMatch(){
+  const run=DB.runs[DB.runs.length-1];const P=DB.params;
+  let h=`<div class="row"><h1 class="sp">المطابقة</h1>${can.edit()?`<button class="b" data-act="runmatch">تشغيل المطابقة</button>`:""}</div>
+  <div class="note info small">يُنتج النظام <b>اقتراحات</b> فحسب؛ ولا يتطابق أي مرشح تلقائياً ولا يُبلَّغ تلقائياً. يختار الموظف أحد الاقتراحات ويبدأ <b>إجراء التعارف</b>؛ ولا يُشارَك أي شيء قبل أن يُبلغ كل من الطرفين قراره على حدة. تُحسب الدرجات وفق <b>التفضيلات التي حددها المرشحون أنفسهم</b> ومعاملات الجهة.</div>`;
+  if(!run)return h+`<div class="card muted">لم تُشغَّل المطابقة بعد.</div>`;
+  const aq=(ctx.mq||"").toLowerCase();
+  const L=run.suggestions.filter(p=>!aq||(nm(getA(p.a))+" "+nm(getA(p.b))+p.a+p.b).toLowerCase().includes(aq));
+  const stale=run.paramSeal!==seal(P);
+  h+="@@WHY@@";
+  h+=`<div class="card"><div class="row"><div class="sp">التشغيل #${run.id} · ${fmtT(run.ts)} · المجموعة ${run.pool} · الأزواج المفحوصة ${run.considered} · الاقتراحات ${run.suggestions.length}</div><span class="badge ${stale?"warn":"good"}">${stale?"تغيّرت المعاملات، أعد التشغيل":"المعاملات حالية"}</span></div>
+   <div class="row" style="margin-top:8px"><input id="mq" placeholder="اسم المرشح أو رقمه" value="${esc(ctx.mq||"")}" style="max-width:260px"></div>
+   <div class="tw"><table><tr><th>الدرجة</th><th>المرشح 1</th><th>المرشح 2</th><th>من 1 إلى 2</th><th>من 2 إلى 1</th><th></th></tr>
+   ${L.slice(0,200).map(p=>{const a=getA(p.a),b=getA(p.b);const ok=a&&b&&!pairOk(a,b,P,todayStr());
+    return `<tr><td><b>${p.score}</b><div class="bar"><i style="width:${p.score}%"></i></div></td><td>${esc(nm(a))}<div class="small muted">${L_(p.a)} · ${a?ageOn(a.dogum,todayStr()):""} · ${esc(a?a.il:"")}</div></td>
+    <td>${esc(nm(b))}<div class="small muted">${L_(p.b)} · ${b?ageOn(b.dogum,todayStr()):""} · ${esc(b?b.il:"")}</div></td><td>${p.sa}</td><td>${p.sb}</td>
+    <td><button class="b ghost sm" data-act="why" data-a="${p.a}" data-b="${p.b}">لماذا؟</button> ${can.edit()?`<button class="b sm" data-act="startintro" data-a="${p.a}" data-b="${p.b}" ${ok?"":"disabled"}>بدء التعارف</button>`:""}</td></tr>`}).join("")||`<tr><td colspan="6" class="muted">لا توجد اقتراحات.</td></tr>`}</table></div></div>`;
+  let whyHtml="";
+  if(ctx.why){const a=getA(ctx.why.a),b=getA(ctx.why.b);const r=scorePair(a,b,P,todayStr());
+    const rows=(w)=>w.map(x=>`<tr><td>${esc(x.label)}</td><td>${x.s>=1?"✔":x.s>0?"≈":"✘"}</td><td>${["غير مهم","قليل","مهم","إلزامي"][x.imp]}</td><td class="small">${esc(x.note)}</td></tr>`).join("");
+    whyHtml=`<div class="card"><h3>تفاصيل التوافق: ${esc(nm(a))} ↔ ${esc(nm(b))}</h3>${r.hard?`<p>أحد التفضيلات الإلزامية غير متحقق.</p>`:`<div class="grid g2"><div><b>على أي أساس ينظر ${esc(nm(a))} (${Math.round(r.sa)})</b><div class="tw"><table><tr><th>المعيار</th><th></th><th>الأهمية</th><th>الطرف الآخر</th></tr>${rows(r.whyA)}</table></div></div>
+     <div><b>على أي أساس ينظر ${esc(nm(b))} (${Math.round(r.sb)})</b><div class="tw"><table><tr><th>المعيار</th><th></th><th>الأهمية</th><th>الطرف الآخر</th></tr>${rows(r.whyB)}</table></div></div></div>`}</div>`}
+  h=h.replace("@@WHY@@",whyHtml);
+  if(run.noMatch.length)h+=`<div class="card"><h3>المرشحون الذين لم تظهر لهم اقتراحات في هذا التشغيل (${run.noMatch.length})</h3><p class="small muted">هم من ضيّقوا تفضيلاتهم كثيراً (مثل كثرة «إلزامي») أو لم يوجد في المجموعة مرشح مناسب لهم. يمكن اقتراح لقاء المرشح ومراجعة تفضيلاته.</p><div>${run.noMatch.map(id=>`<a href="#" data-act="open" data-id="${id}">${esc(nm(getA(id)))}</a>`).join(" · ")}</div></div>`;
+  return h;
+}
+
+/* ---- Introductions ---- */
+function vIntros(){
+  const f=ctx.ifilter||"";const L=DB.intros.slice().reverse().filter(i=>!f||i.status===f);
+  return `<h1>عمليات التعارف</h1><div class="card"><select id="iflt" style="max-width:240px"><option value="">جميع الحالات</option>${Object.entries(ST_I).map(([k,v])=>`<option value="${k}" ${f===k?"selected":""}>${v[0]}</option>`).join("")}</select>
+  <div class="tw"><table><tr><th>الرقم</th><th>الطرفان</th><th>الدرجة</th><th>الحالة</th><th>التاريخ</th></tr>${L.map(i=>`<tr><td><a href="#" data-act="openintro" data-id="${i.id}">${L_(i.id)}</a></td><td>${esc(nm(getA(i.a)))} ↔ ${esc(nm(getA(i.b)))}</td><td>${i.score}</td><td><span class="badge ${ST_I[i.status][1]}">${ST_I[i.status][0]}</span></td><td class="small">${fmtT(i.createdAt)}</td></tr>`).join("")||`<tr><td colspan="5" class="muted">لا توجد سجلات.</td></tr>`}</table></div></div>`;
+}
+function respBox(i,side){
+  const a=getA(i[side]),r=i.resp[side];const ro=!can.edit()||i.status!=="yanit_bekliyor"||r.dec;
+  return `<div class="card" style="margin:0"><b>${esc(nm(a))}</b> <span class="small muted">${L("("+i[side]+")")}</span>
+   <div>القرار: ${r.dec?`<span class="badge ${r.dec==="kabul"?"good":"bad"}">${r.dec==="kabul"?"يرغب في التعارف":"لا يرغب في التعارف"}</span> <span class="small muted">${fmtT(r.ts)} · ${esc(r.method)}</span>`:`<span class="badge warn">بانتظار القرار</span>`}</div>
+   ${ro?"":`<div class="row" style="margin-top:8px"><button class="b sm" data-act="resp" data-side="${side}" data-dec="kabul">يرغب في التعارف</button><button class="b red sm" data-act="resp" data-side="${side}" data-dec="ret">لا يرغب في التعارف</button></div>`}
+   <div class="small muted">يجب أخذ القرار من المرشح <b>نفسه</b> وبلسانه؛ ولا يجوز للموظف أن يقرر نيابةً عنه.</div></div>`;
+}
+function vIntro(){
+  const i=DB.intros.find(x=>x.id===route.id);if(!i)return "<p>لم يُعثر عليه.</p>";const a=getA(i.a),b=getA(i.b),P=DB.params;
+  let act="";
+  if(can.edit()){
+    if(i.status==="kabul")act+=`<button class="b" data-act="plan">جدولة لقاء</button>`;
+    if(i.status==="bulusma_planli")act+=`<div class="note info">اللقاء: ${fmtD(i.meeting.date)} ${L(i.meeting.time)} · ${esc(i.meeting.place)} · ${esc(i.meeting.mode)}</div><button class="b" data-act="outcome">تسجيل نتيجة اللقاء</button>`;
+    if(i.status==="devam_ediyor")act+=`<button class="b" data-act="decision">قرّرا الزواج</button><button class="b ghost" data-act="endintro">انتهى</button>`;
+    if(i.status==="yanit_bekliyor")act+=`<button class="b ghost" data-act="timeout">انتهت المهلة – إغلاق</button>`;
+    if(ACTIVE_INTRO.includes(i.status))act+=`<button class="b red" data-act="complaint">شكوى / بلاغ أمني</button>`;
+    if(i.status==="sikayet"&&can.admin())act+=`<button class="b" data-act="closecomplaint">إغلاق الشكوى</button>`;
+  }
+  const showContact=["bulusma_planli","devam_ediyor","kararverdi"].includes(i.status);
+  return `<div class="row"><h1 class="sp">التعارف ${L(i.id)}</h1><span class="badge ${ST_I[i.status][1]}">${ST_I[i.status][0]}</span></div>
+  <div class="card"><b>${esc(nm(a))}</b> ↔ <b>${esc(nm(b))}</b> · درجة التوافق ${i.score}
+   <div class="small muted">البادئ: ${esc(i.createdBy)} · ${fmtT(i.createdAt)} · ختم المطابقة ${L(esc((i.paramSeal||"").slice(0,12)))}…</div>
+   <div class="row" style="margin-top:8px"><button class="b ghost sm" data-act="card" data-id="${i.b}">🖨 بطاقة تعريف ${esc(nm(b))} (تُعرض على ${esc(nm(a))})</button><button class="b ghost sm" data-act="card" data-id="${i.a}">🖨 بطاقة تعريف ${esc(nm(a))} (تُعرض على ${esc(nm(b))})</button></div></div>
+  <div class="grid g2">${respBox(i,"a")}${respBox(i,"b")}</div>
+  <div class="card" style="margin-top:14px"><h3>الإجراء</h3><div class="row">${act||`<span class="muted">لا يوجد إجراء مطلوب في هذه المرحلة.</span>`}</div></div>
+  ${showContact?`<div class="card"><h3>مشاركة بيانات الاتصال</h3>${[a,b].map(x=>`<div>${esc(nm(x))}: ${x.consent.contactShare?`<span class="badge good">توجد موافقة على المشاركة</span> <span dir="ltr" class="ltr">${esc(x.telefon)}</span>`:`<span class="badge warn">لا توجد موافقة — يتولى الموظف وحده الوساطة</span>`}</div>`).join("")}</div>`:""}
+  ${i.outcome?`<div class="card"><h3>نتيجة اللقاء</h3>${["a","b"].map(s=>`<div>${esc(nm(getA(i[s])))}: ${OUT[i.outcome[s]]||esc(i.outcome[s])}</div>`).join("")}</div>`:""}
+  <div class="card"><h3>السجل</h3><div class="tw"><table>${i.history.slice().reverse().map(h=>`<tr><td class="small">${fmtT(h.ts)}</td><td>${esc(h.user)}</td><td>${esc(h.text)}</td></tr>`).join("")}</table></div></div>`;
+}
+
+/* ---- Fairness report ---- */
+function groupStats(keyFn,label){
+  const P=DB.params,run=DB.runs[DB.runs.length-1];const G={};
+  DB.applicants.filter(a=>a.status==="aktif"||a.status==="beklemede").forEach(a=>{const k=keyFn(a);if(!k)return;const g=G[k]=G[k]||{n:0,none:0,intros:0,acc:0,decided:0};
+    g.n++;if(run&&run.noMatch.includes(a.id))g.none++;
+    DB.intros.filter(i=>i.a===a.id||i.b===a.id).forEach(i=>{g.intros++;const s=i.a===a.id?"a":"b";if(i.resp[s].dec){g.decided++;if(i.resp[s].dec==="kabul")g.acc++}})});
+  const tot=Object.values(G).reduce((x,g)=>({n:x.n+g.n,none:x.none+g.none}),{n:0,none:0});const base=tot.n?tot.none/tot.n*100:0;
+  return `<div class="card"><h3>${label}</h3><div class="tw"><table><tr><th>المجموعة</th><th>المرشحون</th><th>دون اقتراحات</th><th>عمليات التعارف</th><th>نسبة القبول</th><th></th></tr>
+   ${Object.entries(G).sort().map(([k,g])=>{const pct=g.n?g.none/g.n*100:0;const gap=pct-base;return `<tr><td>${esc(k)}</td><td>${g.n}</td><td>${g.none} (${L(Math.round(pct)+"%")})</td><td>${g.intros}</td><td>${g.decided?L(Math.round(g.acc/g.decided*100)+"%"):"—"}</td><td>${g.n>=5&&gap>P.fairGapPct?`<span class="badge warn">أعلى من المعدل العام بمقدار ${Math.round(gap)} نقطة مئوية</span>`:""}</td></tr>`}).join("")||`<tr><td colspan="6" class="muted">لا توجد بيانات.</td></tr>`}</table></div></div>`;
+}
+function vFair(){
+  const P=DB.params;const run=DB.runs[DB.runs.length-1];
+  return `<h1>تقرير العدالة</h1><div class="note info small">مؤشرات إجمالية (غير شخصية) لمتابعة ما إذا كانت عملية المطابقة تمنح فرصاً أقل لبعض الفئات بصورة منهجية. تستند إلى آخر تشغيل للمطابقة فقط${run?` (#${run.id})`:""}. عتبة التنبيه ${P.fairGapPct} نقطة مئوية (معامل قابل للتعديل). هذا التقرير <b>إشارة تنبيه</b> وليس دليلاً على التمييز؛ ويبحث الموظفون والمدقق معاً في أسبابه.</div>
+  ${groupStats(a=>GEN(a.cins),'حسب الجنس')}
+  ${groupStats(a=>a.il.trim(),'حسب المحافظة')}
+  ${groupStats(a=>(DB.params.eduLevels[+a.edu]||""),'حسب المستوى التعليمي')}
+  ${groupStats(a=>{const y=a.dogum?ageOn(a.dogum,todayStr()):0;return y?(y<25?RNG(18,24):y<30?RNG(25,29):y<35?RNG(30,34):y<40?RNG(35,39):"40 فأكثر"):""},'حسب الفئة العمرية')}`;
+}
+
+/* ---- Parameters ---- */
+function vParams(){
+  const P=ctx.draft||DB.params,ed=can.admin(),d=ed?"":"disabled",sealNow=seal(DB.params);
+  let h=`<div class="row"><h1 class="sp">المعاملات</h1><span class="badge info">الإصدار ${DB.paramHistory.length}</span></div>
+  <div class="note info small">يُحفظ كل تعديل في إصدار جديد، ويُسجَّل مع سببه في سجل التدقيق، ويُنتج <b>ختم معاملات</b> جديداً. الضمانات التي لا يمكن تعطيلها بأي معامل: الحد الأدنى للسن ${HARD.minAgeFloor} سنة، والطوعية والتقديم الشخصي، وعدم مشاركة بيانات الاتصال دون موافقة متبادلة، وعدم الضغط على من يرفض.</div>
+  <div class="card"><b>ختم المعاملات الحالي (SHA-256)</b><div class="mono">${sealNow}</div>
+   <label>الختم الرسمي الذي أبلغت به الجهة المختصة</label><div class="row"><input id="offseal" value="${esc(DB.officialSeal||"")}" ${d} class="mono ltr" dir="ltr" style="flex:1" placeholder="الختم الرسمي المكوّن من 64 خانة">${ed?`<button class="b ghost sm" data-act="saveseal">حفظ</button>`:""}</div>
+   ${DB.officialSeal?(DB.officialSeal===sealNow?`<div class="note good small">مطابق.</div>`:`<div class="note bad small">غير مطابق!</div>`):""}</div>
+  <form data-form="params">`;
+  let open=false;
+  SCHEMA.forEach(s=>{
+    if(s.sec){if(open)h+="</div></div>";h+=`<div class="card"><h3>${s.sec}</h3><div class="grid g2">`;open=true;return}
+    const v=P[s.k];let inp=`<label>${s.label}${s.min!=null?` <span class="muted">(${RNG(s.min,s.max)})</span>`:""}</label>`+
+      (s.type==="sel"?`<select name="${s.k}" ${d}>${s.opts.map(([k,t])=>`<option value="${k}" ${v===k?"selected":""}>${t}</option>`).join("")}</select>`:
+       `<input name="${s.k}" type="${s.type==="int"?"number":"text"}" value="${esc(v)}" ${s.min!=null?`min="${s.min}" max="${s.max}" dir="ltr" class="ltr"`:""} ${d}>`)+(s.help?`<div class="small muted">${s.help}</div>`:"");
+    h+=`<div>${inp}</div>`});
+  if(open)h+="</div></div>";
+  h+=`<div class="card"><h3>الأوزان</h3><div class="grid g4">
+   ${[1,2,3].map(i=>`<div><label>وزن «${IMP[i][1]}»</label><input type="number" name="iw${i}" value="${P.impW[i]}" min="0" max="20" ${d} dir="ltr" class="ltr"></div>`).join("")}<div></div>
+   ${Object.keys(CRIT_LABEL).map(k=>`<div><label>معيار ${CRIT_LABEL[k]}</label><input type="number" name="cw_${k}" value="${P.critW[k]}" min="0" max="10" ${d} dir="ltr" class="ltr"></div>`).join("")}</div>
+   <p class="small muted">يُضرب وزن الأهمية في الأهمية التي اختارها المرشح، ويُضرب وزن المعيار في القيمة التي تمنحها الجهة لذلك المعيار. والتفضيل المختار «إلزامي» استبعادي أيضاً.</p></div>
+  <div class="card"><h3>المستويات التعليمية (من الأدنى إلى الأعلى، سطر لكل مستوى)</h3><textarea name="edu" ${d}>${esc(P.eduLevels.join("\n"))}</textarea></div>
+  <div class="card"><h3>أسئلة التوافق</h3><div class="tw"><table><tr><th>السؤال</th><th>الخيارات (يفصل بينها بفاصلة)</th><th>الوزن</th><th>حساس</th><th>مفعّل</th><th></th></tr>
+   ${P.questions.map((q,i)=>`<tr><td><input name="ql_${i}" value="${esc(q.label)}" ${d}></td><td><input name="qo_${i}" value="${esc(q.opts.join(", "))}" ${d}></td><td style="width:70px"><input type="number" name="qw_${i}" value="${q.weight}" min="0" max="10" ${d} dir="ltr" class="ltr"></td>
+    <td><input type="checkbox" name="qs_${i}" ${q.sensitive?"checked":""} ${d}></td><td><input type="checkbox" name="qe_${i}" ${q.enabled?"checked":""} ${d}></td><td>${ed?`<button type="button" class="b red sm" data-act="delq" data-i="${i}">حذف</button>`:""}</td></tr>`).join("")}</table></div>
+   ${ed?`<button type="button" class="b ghost sm" data-act="addq">+ إضافة سؤال</button>`:""}
+   <div class="note warn small">الأسئلة المعلَّمة «حساس» (كالدين والمذهب والرأي السياسي والأصل العرقي والصحة، وهي بيانات شخصية ذات طبيعة خاصة) لا تُستخدم إلا إذا أعطى المرشح موافقة صريحة منفصلة. <b>إجراء المطابقة بحسب حقول مثل الأصل العرقي أو العِرق أو الرأي السياسي أمر غير سليم قانونياً وأخلاقياً</b>؛ فلا تُضِف أسئلة من هذا النوع.</div></div>
+  <div class="card"><label>نص الموافقة الصريحة</label><textarea name="consentText" style="min-height:130px" ${d}>${esc(P.consentText)}</textarea>
+   <label>إصدار نص الموافقة</label><input name="consentVersion" value="${esc(P.consentVersion)}" ${d} dir="ltr" class="ltr"></div>`;
+  if(ed)h+=`<div class="card"><label>سبب التعديل (إلزامي)</label><input name="reason" placeholder="مثال: عُدّل الحد الأدنى لدرجة التوافق بموجب تعميم">
+   <div class="row" style="margin-top:10px"><button class="b" type="submit">تطبيق التعديلات</button><button class="b ghost" type="button" data-act="exportparams">تنزيل ملف المعاملات</button><label class="b ghost">رفع ملف المعاملات<input type="file" id="pfile" accept=".json" class="hidden"></label></div></div>`;
+  h+=`</form><div class="card"><h3>سجل الإصدارات</h3><div class="tw"><table><tr><th>الإصدار</th><th>الوقت</th><th>المستخدم</th><th>السبب</th><th>الختم</th></tr>${DB.paramHistory.slice().reverse().map(x=>`<tr><td>${x.ver}</td><td class="small">${fmtT(x.ts)}</td><td>${esc(x.user)}</td><td>${esc(x.reason)}</td><td class="mono">${x.seal.slice(0,16)}…</td></tr>`).join("")}</table></div></div>`;
+  return h;
+}
+function readParamsForm(){
+  const f=$('form[data-form="params"]');const P=JSON.parse(JSON.stringify(DB.params));
+  SCHEMA.forEach(s=>{if(!s.k)return;const el=f.elements[s.k];if(!el)return;P[s.k]=s.type==="int"?parseInt(el.value,10):el.value});
+  [1,2,3].forEach(i=>P.impW[i]=parseInt(f.elements["iw"+i].value,10));
+  Object.keys(CRIT_LABEL).forEach(k=>P.critW[k]=parseInt(f.elements["cw_"+k].value,10));
+  P.eduLevels=f.elements.edu.value.split("\n").map(x=>x.trim()).filter(Boolean);
+  P.questions.forEach((q,i)=>{q.label=f.elements["ql_"+i].value.trim();q.opts=f.elements["qo_"+i].value.split(/[,،]/).map(x=>x.trim()).filter(Boolean);
+    q.weight=parseInt(f.elements["qw_"+i].value,10);q.sensitive=f.elements["qs_"+i].checked;q.enabled=f.elements["qe_"+i].checked});
+  P.consentText=f.elements.consentText.value;P.consentVersion=f.elements.consentVersion.value.trim()||"1";
+  return P;
+}
+function applyParams(P,reason,src){
+  const E=validateParams(P);if(E.length){alert("المعاملات غير صالحة:\n• "+E.join("\n• "));return false}
+  if(!reason||reason.trim().length<5){alert("سبب التعديل إلزامي (5 أحرف على الأقل).");return false}
+  if(canon(P)===canon(DB.params)){toast("لا يوجد تغيير.");return false}
+  DB.params=P;const s=seal(P);
+  DB.paramHistory.push({ver:DB.paramHistory.length+1,ts:Date.now(),user:SESSION.id,reason:reason.trim(),seal:s,params:JSON.parse(JSON.stringify(P))});
+  logEv("PARAMETRE_DEGISTI",`الإصدار ${DB.paramHistory.length}؛ الختم ${s}؛ ${src||"النموذج"}؛ السبب: ${reason.trim()}`);
+  toast("طُبّقت المعاملات.");return true;
+}
+
+/* ---- Audit / Data / Users / About ---- */
+function vAudit(){
+  const ch=verifyChain(DB.audit);const q=(ctx.aq||"").toLowerCase();
+  const L=DB.audit.slice().reverse().filter(e=>!q||(e.action+e.user+e.detail).toLowerCase().includes(q)).slice(0,300);
+  return `<h1>سجل التدقيق</h1>${ch.ok?`<div class="note good">تم التحقق من السلسلة: ${ch.n} سجل، دون أي تلف. آخر ختم: <span class="mono">${DB.audit.length?DB.audit[DB.audit.length-1].hash:"—"}</span></div>`:`<div class="note bad"><b>السلسلة تالفة عند السجل رقم ${ch.at}.</b></div>`}
+  <div class="card"><div class="row"><input id="aq" placeholder="تصفية…" value="${esc(ctx.aq||"")}" style="max-width:320px"><button class="b ghost sm" data-act="exportaudit">تنزيل السجل</button></div>
+  <div class="tw"><table><tr><th>#</th><th>الوقت</th><th>المستخدم</th><th>الإجراء</th><th>التفاصيل</th></tr>${L.map(e=>`<tr><td>${e.i}</td><td class="small">${fmtT(e.ts)}</td><td>${e.user==="sistem"?"النظام":L_(esc(e.user))}<div class="small muted">${ROLE[e.role]||"—"}</div></td><td><span class="mono">${esc(e.action)}</span><div class="small muted">${ACT_AR[e.action]||""}</div></td><td class="small">${esc(e.detail)}</td></tr>`).join("")}</table></div>
+  <p class="small muted">يتضمن كل سجل الملخّص (SHA-256) للسجل السابق له. وأي تعديل لاحق يُتلف السلسلة ويظهر هنا. والبنية القائمة على المتصفح لا توفر حماية تامة من العبث؛ وفي الاستخدام الرسمي ينبغي تصدير السجل بانتظام وحفظه موقَّعاً من الجهة المختصة.</p></div>`;
+}
+function vData(){
+  const demo=DB.applicants.some(a=>a.demo);
+  return `<h1>البيانات</h1><div class="card"><h3>النسخ الاحتياطي وحزمة التدقيق</h3><div class="row"><button class="b" data-act="exportall">تنزيل النسخة الاحتياطية الكاملة</button><button class="b ghost" data-act="exportpkg">تنزيل حزمة التدقيق (بيانات إجمالية غير شخصية)</button>${can.admin()?`<label class="b ghost">الاستعادة من نسخة احتياطية<input type="file" id="bfile" accept=".json" class="hidden"></label>`:""}</div>
+  <p class="small muted">تتضمن النسخة الاحتياطية الكاملة بيانات الهوية والاتصال؛ فاحفظها بأمان. أما حزمة التدقيق فلا تتضمن بيانات شخصية (أعداداً إجمالية والسجل فقط).</p></div>
+  ${can.admin()?`<div class="card"><h3>بيانات تجريبية</h3><p class="small muted">لتجربة النظام، يضيف 40 مرشحاً وهمياً (تُولَّد أرقام الهوية عشوائياً بصيغة صالحة، وتحمل وسم «تجريبي»). احذفها قبل الانتقال إلى الاستخدام الفعلي.</p>
+   <div class="row"><button class="b ghost" data-act="seed">إضافة 40 مرشحاً تجريبياً</button>${demo?`<button class="b red" data-act="unseed">حذف المرشحين التجريبيين</button>`:""}</div></div>
+   <div class="card"><h3>إجراءات خطرة</h3><button class="b red" data-act="wipe">حذف جميع البيانات</button></div>`:""}`;
+}
+function vUsers(){
+  return `<h1>المستخدمون</h1><div class="card"><div class="tw"><table><tr><th>الاسم</th><th>الدور</th><th>الحالة</th><th></th></tr>
+  ${DB.users.map(u=>`<tr><td>${esc(u.name)}</td><td>${ROLE[u.role]}${u.role==="denetci"?" (للقراءة فقط)":""}</td><td><span class="badge ${u.active?"good":"bad"}">${u.active?"مفعّل":"معطّل"}</span></td>
+   <td>${u.id!==SESSION.id?`<button class="b ghost sm" data-act="toggleuser" data-id="${u.id}">${u.active?"تعطيل":"تفعيل"}</button> `:""}<button class="b ghost sm" data-act="resetpin" data-id="${u.id}">تغيير الرمز السري</button></td></tr>`).join("")}</table></div></div>
+  <div class="card"><h3>إضافة مستخدم</h3><form data-form="adduser"><div class="grid g3"><div><label>الاسم الكامل</label><input name="name" required></div>
+   <div><label>الدور</label><select name="role"><option value="gorevli">موظف</option><option value="denetci">مدقق (للقراءة فقط)</option><option value="admin">مدير</option></select></div>
+   <div><label>الرمز السري (6 أرقام على الأقل)</label><input name="pin" type="password" inputmode="numeric" pattern="\\d{6,}" required dir="ltr" class="ltr"></div></div><button class="b" style="margin-top:10px" type="submit">إضافة</button></form></div>`;
+}
+function vAbout(){return `<h1>حول النظام ومبادئه وحدوده</h1>
+ <div class="card"><h3>ماذا يفعل؟</h3><ul><li>يسجّل الطلبات التي يقدّمها البالغون الراغبون في الزواج بإرادتهم، ويتابع فحوصات الهوية والأمان.</li><li>يحسب <b>درجة توافق</b> ثنائية الاتجاه وفق التفضيلات ومستويات الأهمية التي <b>حددها المرشحون أنفسهم</b> وفق معاملات الجهة، ويُنتج قائمة اقتراحات.</li><li>يبدأ الموظف من أحد الاقتراحات <b>إجراء تعارف</b>: قرار كل من الطرفين على حدة ← لقاء مجدول ← النتيجة. وتُسجَّل كل خطوة في سجل التدقيق.</li><li>تُعدَّل القواعد والأوزان والأسئلة ونص الموافقة من صفحة المعاملات؛ ويُحفظ كل تعديل في إصدار ويُختم.</li></ul></div>
+ <div class="card"><h3>الضمانات الثابتة (لا تُعدَّل)</h3><ul><li>لا يجوز قبول من هم دون ${HARD.minAgeFloor} سنة في النظام.</li><li>المشاركة طوعية؛ ويُقدَّم الطلب بالشخص، ولا يُقبل التقديم نيابة عن الأسرة أو عن طرف ثالث.</li><li>لا تُشارَك بيانات الاتصال قبل أن يقول الطرفان كلٌّ على حدة «أرغب في التعارف»؛ ولا يطابق النظام أحداً تلقائياً.</li><li>لا يجوز إجبار المرشح الذي يرفض على المطابقة، ولا يُقترح الثنائي نفسه مرة أخرى. وللمرشح أن ينسحب في أي وقت، وله أن يطلب حذف بياناته الشخصية.</li><li>لا يُدرَج في المجموعة من لديه قرار حماية/إبعاد أو مانع أمني.</li><li>لا تُرتّب المطابقة أي التزام بالزواج.</li></ul></div>
+ <div class="card"><h3>العدالة وحماية البيانات</h3><ul><li>تأتي المعايير من تفضيلات المرشح نفسه؛ وتحدد الجهة الأوزان فقط. ولا ينبغي إجراء المطابقة بحسب حقول مثل الأصل العرقي أو العِرق أو الرأي السياسي.</li><li>البيانات الحساسة كالدين <b>مغلقة</b> افتراضياً، وإذا فُتحت فلا تُستخدم إلا بموافقة صريحة منفصلة من المرشح.</li><li>يتابع تقرير العدالة ما إذا كانت العملية تمنح فرصاً أقل لبعض الفئات.</li><li>كل اقتراح قابل للتفسير: تُظهر شاشة «لماذا؟» أي المعايير تحقق.</li></ul></div>
+ <div class="card"><h3>الحدود (يرجى القراءة)</h3><ul>
+  <li><b>هذه أداة لدعم القرار.</b> لا تتنبأ درجة التوافق بنجاح الزواج؛ وإنما تقيس مدى تطابق التفضيلات التي أعلنها المرشحون فقط. والقرار النهائي يعود دائماً إلى المرشحين أنفسهم.</li>
+  <li><b>لا يوجد استعلام رسمي.</b> لأنه يعمل دون اتصال، لا يستطيع الاستعلام من سجل النفوس أو السجل العدلي أو قرارات الحماية؛ وهذه فحوصات يجريها الموظف يدوياً ويؤشّر عليها.</li>
+  <li><b>أمان المتصفح محدود.</b> يعمل الرمز السري وضبط الأدوار في المتصفح؛ ومن له وصول كامل إلى الجهاز يستطيع تعديل البيانات. والختم والسلسلة يكشفان التعديل ولا يمنعانه. وفي الاستخدام الرسمي يلزم إدارة الأجهزة وتشفير القرص ونسخ احتياطية موقَّعة وموافقة إدارة تقنية المعلومات في الجهة و${KVKK}.</li>
+  <li>إن مسؤولية مطابقة إجراءات الإشعار بمعالجة البيانات الشخصية (${KVKK}) والتفويض والاحتفاظ والإتلاف وسياسة المطابقة للقانون تقع على الجهة والجهة المختصة؛ والقيم الافتراضية مجرد اقتراح أولي.</li></ul></div>`}
+function download(name,text){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type:"application/json"}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+
+/* ---- Introduction card (limited summary shown to the other side) ---- */
+function printCard(id){
+  const a=getA(id),P=DB.params;if(!a)return;
+  const first=a.ad.split(" ")[0];
+  $("#printarea").innerHTML=`<h2>${esc(P.institution)} — بطاقة التعريف</h2>
+   <table style="width:100%;border-collapse:collapse"><tr><th style="text-align:start;width:34%">الاسم</th><td>${esc(first)}</td></tr><tr><th style="text-align:start">العمر</th><td>${a.dogum?ageOn(a.dogum,todayStr()):""}</td></tr>
+   <tr><th style="text-align:start">محافظة الإقامة</th><td>${esc(a.il)}</td></tr><tr><th style="text-align:start">التعليم</th><td>${esc(P.eduLevels[+a.edu]||"")}</td></tr>
+   <tr><th style="text-align:start">المهنة / المجال</th><td>${esc(a.meslek)}</td></tr><tr><th style="text-align:start">الحالة الاجتماعية / الأطفال</th><td>${MEDENI.find(x=>x[0]===a.medeni)[1]} / ${a.cocuk}</td></tr></table>
+   <h3>نبذة تعريفية قصيرة</h3><p>${esc(a.tanitim)}</p>
+   <p style="font-size:11px;margin-top:30px">هذه البطاقة ملخّص يساعد على اتخاذ قرار التعارف فقط؛ ولا تتضمن بيانات هوية أو اتصال أو عنوان. وقبول التعارف أو رفضه قرارك أنت بالكامل، ولا يلزمك إبداء أي سبب.</p>`;
+  window.print();
+}
+
+/* =====================================================================
+   DEMO DATA
+   ===================================================================== */
+function seedDemo(){
+  const P=DB.params;const ils=["أنقرة","إسطنبول","إزمير","بورصة","قونية"],erk=["أحمد","محمد","مصطفى","علي","عمر","بلال","جاسم","كريم"],kad=["عائشة","فاطمة","زينب","إيمان","مريم","أسماء","بشرى","سلمى"],sy=["الحسن","القاسم","الخطيب","النجار","الشامي","العلي","الحداد","الدوسري"];
+  const pick=a=>a[Math.floor(Math.random()*a.length)];
+  const tc=()=>{const d=[1+Math.floor(Math.random()*9)];for(let i=1;i<9;i++)d.push(Math.floor(Math.random()*10));
+    const d10=(((d[0]+d[2]+d[4]+d[6]+d[8])*7)-(d[1]+d[3]+d[5]+d[7]))%10;d.push((d10+10)%10);d.push(d.reduce((x,y)=>x+y,0)%10);return d.join("")};
+  for(let n=0;n<40;n++){
+    const a=newApplicant();a.demo=true;const k=n%2===0;a.cins=k?"K":"E";a.ad=pick(k?kad:erk);a.soyad=pick(sy);a.kimNo=tc();
+    const age=22+Math.floor(Math.random()*14);const dt=new Date();dt.setFullYear(dt.getFullYear()-age);dt.setDate(dt.getDate()-Math.floor(Math.random()*300));a.dogum=dStr(dt);
+    a.telefon="05"+Math.floor(100000000+Math.random()*899999999);a.il=pick(ils);a.edu=String(2+Math.floor(Math.random()*5));a.meslek=pick(["معلم","مهندس","ممرض","تاجر","موظف حكومي","محاسب"]);
+    a.tanitim="سجل تجريبي: نص تعريفي قصير.";a.is="calisiyor";a.medeni=Math.random()<.9?"hic":"bosanmis";a.cocuk=a.medeni==="hic"?0:1;
+    a.prefs.ageMin=Math.max(P.minAge,age-6);a.prefs.ageMax=age+7;a.prefs.ageImp=pick([1,2,2,3]);a.prefs.locMode=pick(["fark_etmez","ayni_il"]);a.prefs.locImp=pick([0,1,2,3]);
+    a.prefs.eduMin=String(Math.max(0,+a.edu-1));a.prefs.eduImp=pick([0,1,2]);a.prefs.maritalOk=Math.random()<.7?["hic"]:["hic","bosanmis","dul"];a.prefs.maritalImp=pick([1,2,3]);a.prefs.kidsOk=Math.random()<.6;a.prefs.kidsImp=pick([1,2]);
+    P.questions.filter(q=>q.enabled).forEach(q=>{const ans=pick(q.opts);const acc=q.opts.filter(o=>o===ans||o===DONTCARE||Math.random()<.35);a.qa[q.id]={ans,accept:acc,imp:String(pick([0,1,1,2,2,3]))}});
+    a.consent={data:true,sensitive:false,contactShare:Math.random()<.7,ts:Date.now(),version:P.consentVersion};
+    a.checks={inPerson:true,idVerified:true,protective:true,protectiveFound:false,voluntary:true,notMarried:true};
+    a.status="aktif";hist(a,"أُنشئت بيانات تجريبية");DB.applicants.push(a)}
+  logEv("DENEME_VERISI","أُضيف 40 مرشحاً تجريبياً");save();
+}
+
+/* =====================================================================
+   EVENTS
+   ===================================================================== */
+document.addEventListener("submit",e=>{
+  const f=e.target.closest("form[data-form]");if(!f)return;e.preventDefault();const t=f.dataset.form,g=n=>f.elements[n]&&f.elements[n].value;
+  if(t==="setup"){
+    if(g("pin")!==g("pin2")){alert("الرمزان السريان غير متطابقين.");return}
+    const salt=rnd();const params=DEFAULT_PARAMS();params.institution=g("inst").trim();
+    DB={v:1,params,paramHistory:[{ver:1,ts:Date.now(),user:"admin",reason:"التثبيت الأولي (المعاملات الافتراضية)",seal:seal(params),params:JSON.parse(JSON.stringify(params))}],
+      users:[{id:"u1",name:g("name").trim(),role:"admin",salt,hash:hashPin(g("pin"),salt),active:true,fails:0,lockUntil:0}],
+      applicants:[],intros:[],runs:[],blocked:[],audit:[],seq:{a:0,i:0},officialSeal:""};
+    SESSION={id:"u1",name:g("name").trim(),role:"admin"};lastAct=Date.now();
+    logEv("KURULUM","تم تثبيت النظام؛ الجهة: "+params.institution);save();render();return}
+  if(t==="login"){
+    const u=DB.users.find(x=>x.id===g("u"));const err=$("#lerr");
+    if(u.lockUntil>Date.now()){err.innerHTML=`<div class="note bad">محاولات خاطئة كثيرة. أعد المحاولة بعد ${Math.ceil((u.lockUntil-Date.now())/60000)} دقيقة.</div>`;return}
+    if(hashPin(g("pin"),u.salt)===u.hash){u.fails=0;u.lockUntil=0;SESSION={id:u.id,name:u.name,role:u.role};lastAct=Date.now();logEv("GIRIS","فُتحت الجلسة");save();render()}
+    else{u.fails++;if(u.fails>=5){u.lockUntil=Date.now()+5*60000;u.fails=0}save();
+      SESSION={id:u.id,name:u.name,role:u.role};logEv("GIRIS_HATASI","رمز سري خاطئ: "+u.name);SESSION=null;err.innerHTML=`<div class="note bad">الرمز السري غير صحيح.</div>`}return}
+  if(t==="params"){if(!can.admin())return;const P=readParamsForm();if(applyParams(P,g("reason"))){ctx.draft=null;render()}return}
+  if(t==="adduser"){if(!can.admin())return;const salt=rnd();const id="u"+(DB.users.length+1)+rnd().slice(0,4);
+    DB.users.push({id,name:g("name").trim(),role:g("role"),salt,hash:hashPin(g("pin"),salt),active:true,fails:0,lockUntil:0});
+    logEv("KULLANICI_EKLENDI",`${g("name")} (${ROLE[g("role")]})`);save();toast("أُضيف المستخدم.");render();return}
+});
+document.addEventListener("change",e=>{
+  if(e.target.id==="flt"){ctx.filter=e.target.value;render()}
+  if(e.target.id==="iflt"){ctx.ifilter=e.target.value;render()}
+  if(e.target.id==="pfile"&&can.admin()){const r=new FileReader();r.onload=()=>{try{const P=JSON.parse(r.result);ctx.draft=P;const E=validateParams(P);render();
+    if(E.length)alert("الملف غير صالح:\n• "+E.join("\n• "));else toast("حُمّل ملف المعاملات في النموذج؛ اكتب السبب ثم طبّقه. الختم: "+seal(P).slice(0,12)+"…")}catch(x){alert("تعذّرت قراءة الملف.")}};r.readAsText(e.target.files[0])}
+  if(e.target.id==="bfile"&&can.admin()){const r=new FileReader();r.onload=()=>{try{const D=JSON.parse(r.result);const c=verifyChain(D.audit||[]);
+    if(!c.ok&&!confirm(`سلسلة التدقيق في النسخة الاحتياطية تالفة عند السجل رقم ${c.at}. هل تريد تحميلها رغم ذلك؟`))return;
+    if(!confirm("ستُستبدل جميع البيانات الحالية بهذه النسخة الاحتياطية. هل تتابع؟"))return;
+    DB=D;save();SESSION=null;toast("حُمّلت النسخة الاحتياطية؛ سجّل الدخول من جديد.");render()}catch(x){alert("تعذّرت قراءة النسخة الاحتياطية.")}};r.readAsText(e.target.files[0])}
+});
+document.addEventListener("input",e=>{
+  const keep=(id,key)=>{ctx[key]=e.target.value;const p=e.target.selectionStart;render();const n=$("#"+id);n.focus();n.setSelectionRange(p,p)};
+  if(e.target.id==="q")keep("q","q");if(e.target.id==="aq")keep("aq","aq");if(e.target.id==="mq")keep("mq","mq");
+});
+function setStatus(a,st,txt){a.status=st;hist(a,txt)}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-act]");if(!t)return;const a=t.dataset.act;
+  const ap=()=>getA(route.id),it=()=>DB.intros.find(x=>x.id===route.id);
+  const reason=(msg)=>{const r=prompt(msg);if(!r||r.trim().length<5){if(r!==null)alert("يجب ألا يقل السبب عن 5 أحرف.");return null}return r.trim()};
+  if(a==="nav"){ctx.draft=null;ctx.why=null;go(t.dataset.k);return}
+  if(a==="lock"){logEv("OTURUM_KAPATILDI","");lockNow();return}
+  if(a==="open"){e.preventDefault();go("app",{id:t.dataset.id});return}
+  if(a==="openintro"){e.preventDefault();go("intro",{id:t.dataset.id});return}
+  if(a==="newapp"){if(!can.edit())return;const n=newApplicant();DB.applicants.push(n);hist(n,"أُنشئ سجل المرشح");logEv("ADAY_OLUSTURULDU",L(n.id));save();go("app",{id:n.id});return}
+  if(a==="saveapp"){const x=ap();readApplicant(x);hist(x,"حُفظ");logEv("ADAY_KAYDEDILDI",L(x.id));save();toast("تم الحفظ.");render();return}
+  if(a==="activate"){const x=ap();readApplicant(x);const c=checkApplicant(x,DB.params);if(c.status!=="UYGUN"){alert("شروط الإدراج في المجموعة غير مكتملة.");save();render();return}
+    setStatus(x,"aktif","أُدرج في المجموعة");logEv("ADAY_AKTIF",L(x.id));save();render();return}
+  if(a==="pause"){const x=ap();setStatus(x,"beklemede","عُلّق");logEv("ADAY_BEKLEMEDE",L(x.id));save();render();return}
+  if(a==="withdraw"){const x=ap();const r=reason("تسجيل طلب الانسحاب (بطلب من المرشح؛ وهو غير ملزم بإبداء سبب، فاكتب ملاحظة للسجل):");if(!r)return;
+    DB.intros.forEach(i=>{if((i.a===x.id||i.b===x.id)&&ACTIVE_INTRO.includes(i.status)){i.status="cekildi";i.history.push({ts:Date.now(),user:SESSION.id,text:"انسحب المرشح: "+L(x.id)})}});
+    x.closedAt=Date.now();setStatus(x,"cekildi","انسحب المرشح: "+r);logEv("ADAY_CEKILDI",L(x.id));save();render();return}
+  if(a==="safety"){const x=ap();const r=reason("سبب المانع الأمني (اكتب المعلومات الضرورية فقط):");if(!r)return;
+    x.safetyBlock=true;x.safetyReason=r;DB.intros.forEach(i=>{if((i.a===x.id||i.b===x.id)&&ACTIVE_INTRO.includes(i.status)){i.status="sikayet";i.history.push({ts:Date.now(),user:SESSION.id,text:"أُخضع للمراجعة بسبب مانع أمني"})}});
+    setStatus(x,"engelli","مانع أمني: "+r);logEv("GUVENLIK_ENGELI",L(x.id)+" — "+r);save();render();return}
+  if(a==="release"){const x=ap();const r=reason("سبب رفع المانع/المراجعة:");if(!r)return;x.safetyBlock=false;x.safetyReason="";setStatus(x,"beklemede","رُفع المانع: "+r);logEv("ENGEL_KALDIRILDI",L(x.id)+" — "+r);save();render();return}
+  if(a==="anonymize"){const x=ap();if(prompt(`ستُحذف البيانات الشخصية للسجل ${L(x.id)} حذفاً دائماً. للتأكيد اكتب «حذف»:`)!=="حذف")return;
+    DB.intros.forEach(i=>{if((i.a===x.id||i.b===x.id)&&ACTIVE_INTRO.includes(i.status)){i.status="cekildi"}});
+    Object.assign(x,{ad:"—",soyad:"—",kimNo:"",telefon:"",eposta:"",ilce:"",meslek:"",tanitim:"",notes:"",safetyReason:""});x.status="silindi";x.closedAt=x.closedAt||Date.now();
+    hist(x,"حُذفت البيانات الشخصية (إخفاء الهوية)");logEv("ADAY_ANONIMLESTIRILDI",L(x.id));save();render();return}
+  if(a==="card"){printCard(t.dataset.id);return}
+  if(a==="runmatch"){if(!can.edit())return;const r=runMatching();save();toast(`أُنتج ${r.suggestions.length} اقتراحاً.`);render();return}
+  if(a==="why"){ctx.why={a:t.dataset.a,b:t.dataset.b};render();return}
+  if(a==="startintro"){const x=getA(t.dataset.a),y=getA(t.dataset.b);const bl=pairOk(x,y,DB.params,todayStr());if(bl){alert("لا يمكن بدء هذا الثنائي الآن: "+bl);return}
+    DB.seq.i=(DB.seq.i||0)+1;const sc=scorePair(x,y,DB.params,todayStr());
+    const i={id:`T-${new Date().getFullYear()}-${String(DB.seq.i).padStart(4,"0")}`,a:x.id,b:y.id,score:Math.round(sc.score),status:"yanit_bekliyor",createdAt:Date.now(),createdBy:SESSION.id,paramSeal:seal(DB.params),
+      resp:{a:{dec:null,ts:null,method:"",note:""},b:{dec:null,ts:null,method:"",note:""}},meeting:null,outcome:null,history:[]};
+    hist(i,"بدأ التعارف؛ ستُعرض بطاقة التعريف الخاصة بكل مرشح على الطرف الآخر");DB.intros.push(i);logEv("TANISTIRMA_BASLATILDI",`${L(i.id)} ${L(x.id+" ↔ "+y.id)} الدرجة ${i.score}`);save();go("intro",{id:i.id});return}
+  if(a==="resp"){const i=it();const side=t.dataset.side,dec=t.dataset.dec;
+    const m=prompt("هل أبلغ المرشح بقراره بنفسه؟ اكتب طريقة التواصل (مثل: شخصياً / هاتفياً):","شخصياً");if(!m)return;
+    if(!confirm(`${nm(getA(i[side]))} أعلن بنفسه قراره: «${DEC[dec]}». هل يُسجَّل؟ (لا يمكن التراجع)`))return;
+    i.resp[side]={dec,ts:Date.now(),method:m,note:""};i.history.push({ts:Date.now(),user:SESSION.id,text:`${nm(getA(i[side]))}: ${DEC[dec]}`});
+    logEv("TANISTIRMA_YANIT",`${L(i.id)} ${L(i[side])} ${DEC[dec]}`);
+    if(dec==="ret"){i.status="reddedildi";DB.blocked.push([i.a,i.b]);i.history.push({ts:Date.now(),user:SESSION.id,text:"لن يُقترح هذا الثنائي مرة أخرى"});logEv("TANISTIRMA_REDDEDILDI",L(i.id))}
+    else if(i.resp.a.dec==="kabul"&&i.resp.b.dec==="kabul"){i.status="kabul";logEv("TANISTIRMA_KARSILIKLI_KABUL",L(i.id))}
+    save();render();return}
+  if(a==="timeout"){const i=it();i.status="zamanasimi";i.history.push({ts:Date.now(),user:SESSION.id,text:"انتهت مهلة الرد؛ أُغلق (لم يُمنع الثنائي)"});logEv("TANISTIRMA_ZAMANASIMI",L(i.id));save();render();return}
+  if(a==="plan"){const i=it();const d=prompt("تاريخ اللقاء (سنة-شهر-يوم، YYYY-MM-DD):",addDays(todayStr(),7));if(!d||!/^\d{4}-\d\d-\d\d$/.test(d))return;const tm=prompt("الساعة (HH:MM):","14:00");if(!tm)return;const pl=prompt("المكان (عام، وبعلم الموظف):","");if(!pl)return;
+    i.meeting={date:d,time:tm,place:pl,mode:DB.params.meetingMode};i.status="bulusma_planli";i.history.push({ts:Date.now(),user:SESSION.id,text:`جُدول اللقاء: ${L(d+" "+tm)} ${pl}`});logEv("GORUSME_PLANLANDI",`${L(i.id)} ${L(d+" "+tm)}`);save();render();return}
+  if(a==="outcome"){const i=it();const get=side=>{const r=prompt(`${nm(getA(i[side]))}: اكتب أحد الخيارين لنتيجة اللقاء: استمرار / انتهاء`,"استمرار");if(!r)return null;const v=r.trim().toLowerCase();return Object.keys(OUT).find(k=>OUT[k]===r.trim()||k===v)||null};
+    const o1=get("a");if(!o1){alert("إدخال غير صالح.");return}const o2=get("b");if(!o2){alert("إدخال غير صالح.");return}
+    i.outcome={a:o1,b:o2};i.history.push({ts:Date.now(),user:SESSION.id,text:`النتيجة: ${OUT[o1]} / ${OUT[o2]}`});
+    if(o1==="devam"&&o2==="devam"){i.status="devam_ediyor"}
+    else{i.status="bitti";[i.a,i.b].forEach(id=>{const x=getA(id);x.cooldownUntil=addDays(todayStr(),DB.params.cooldownDays)})}
+    logEv("GORUSME_SONUCU",`${L(i.id)} ${OUT[o1]}/${OUT[o2]}`);save();render();return}
+  if(a==="endintro"){const i=it();const r=reason("ملاحظة الانتهاء:");if(!r)return;i.status="bitti";[i.a,i.b].forEach(id=>{getA(id).cooldownUntil=addDays(todayStr(),DB.params.cooldownDays)});i.history.push({ts:Date.now(),user:SESSION.id,text:"انتهى: "+r});logEv("TANISTIRMA_BITTI",L(i.id));save();render();return}
+  if(a==="decision"){const i=it();if(!confirm("هل أعلن كل من المرشحين بنفسه قرار الزواج؟ ستُستكمل السجلات ويُخرجان من المجموعة."))return;
+    i.status="kararverdi";[i.a,i.b].forEach(id=>{const x=getA(id);x.closedAt=Date.now();setStatus(x,"tamamlandi","اتُّخذ قرار الزواج ("+L(i.id)+")")});i.history.push({ts:Date.now(),user:SESSION.id,text:"أُعلن قرار الزواج؛ يُحال إلى إجراءات عقد الزواج"});logEv("EVLENME_KARARI",L(i.id));save();render();return}
+  if(a==="complaint"){const i=it();const r=reason("شكوى / بلاغ أمني (اكتب المعلومات الضرورية فقط):");if(!r)return;i.status="sikayet";i.history.push({ts:Date.now(),user:SESSION.id,text:"شكوى: "+r});
+    [i.a,i.b].forEach(id=>{const x=getA(id);if(x.status==="aktif")setStatus(x,"inceleme","قيد المراجعة بسبب شكوى: "+L(i.id))});logEv("SIKAYET",L(i.id)+" — "+r);save();render();return}
+  if(a==="closecomplaint"){const i=it();const r=reason("سبب إغلاق الشكوى ونتيجتها:");if(!r)return;i.status="bitti";i.history.push({ts:Date.now(),user:SESSION.id,text:"أُغلقت الشكوى: "+r});
+    [i.a,i.b].forEach(id=>{const x=getA(id);if(x.status==="inceleme"){setStatus(x,"aktif","انتهت المراجعة: "+r);x.cooldownUntil=addDays(todayStr(),DB.params.cooldownDays)}});logEv("SIKAYET_KAPATILDI",L(i.id)+" — "+r);save();render();return}
+  if(a==="saveseal"){DB.officialSeal=$("#offseal").value.trim().toLowerCase();logEv("RESMI_MUHUR_TANIMLANDI",DB.officialSeal);save();render();return}
+  if(a==="addq"){const P=readParamsForm();P.questions.push({id:"q_"+rnd().slice(0,6),label:"سؤال جديد",opts:["نعم","لا"],weight:2,sensitive:false,enabled:true});ctx.draft=P;render();return}
+  if(a==="delq"){const P=readParamsForm();P.questions.splice(+t.dataset.i,1);ctx.draft=P;render();return}
+  if(a==="exportparams"){download("tanistirma-parametreleri.json",JSON.stringify(readParamsForm(),null,2));return}
+  if(a==="exportall"){logEv("YEDEK_ALINDI","نسخة احتياطية كاملة");download("tanistirma-yedek-"+todayStr()+".json",JSON.stringify(DB));return}
+  if(a==="exportaudit"){download("denetim-gunlugu-"+todayStr()+".json",JSON.stringify({audit:DB.audit,chain:verifyChain(DB.audit),paramSeal:seal(DB.params)},null,2));return}
+  if(a==="exportpkg"){
+    const cnt=o=>Object.entries(o).map(([k,v])=>({k,n:v}));const by=(arr,fn)=>arr.reduce((r,x)=>{const k=fn(x);r[k]=(r[k]||0)+1;return r},{});
+    const pk={tarih:todayStr(),kurum:DB.params.institution,parametreler:DB.params,parametreMuhru:seal(DB.params),parametreGecmisi:DB.paramHistory.map(x=>({ver:x.ver,ts:x.ts,user:x.user,reason:x.reason,seal:x.seal})),
+      adayDurumlari:by(DB.applicants,a=>a.status),tanistirmaDurumlari:by(DB.intros,i=>i.status),eslestirmeKosulari:DB.runs.map(r=>({id:r.id,ts:r.ts,user:r.user,paramSeal:r.paramSeal,havuz:r.pool,oneri:r.suggestions.length,onerisiz:r.noMatch.length})),
+      denetimGunlugu:DB.audit,zincir:verifyChain(DB.audit)};
+    logEv("DENETIM_PAKETI","تم التصدير");download("denetim-paketi-"+todayStr()+".json",JSON.stringify(pk,null,2));return}
+  if(a==="seed"){if(!can.admin())return;seedDemo();toast("أُضيف 40 مرشحاً تجريبياً.");render();return}
+  if(a==="unseed"){if(!can.admin())return;if(!confirm("هل تُحذف جميع المرشحين التجريبيين وعمليات التعارف المرتبطة بهم؟"))return;
+    const ids=new Set(DB.applicants.filter(x=>x.demo).map(x=>x.id));DB.applicants=DB.applicants.filter(x=>!x.demo);DB.intros=DB.intros.filter(i=>!ids.has(i.a)&&!ids.has(i.b));DB.blocked=DB.blocked.filter(p=>!ids.has(p[0])&&!ids.has(p[1]));DB.runs=[];
+    logEv("DENEME_VERISI_SILINDI",ids.size+" مرشحاً");save();render();return}
+  if(a==="toggleuser"){const u=DB.users.find(x=>x.id===t.dataset.id);if(u.active&&u.role==="admin"&&DB.users.filter(x=>x.active&&x.role==="admin").length<2){alert("لا يمكن تعطيل آخر مدير مفعّل.");return}
+    u.active=!u.active;logEv("KULLANICI_DURUMU",`${u.name}: ${u.active?"مفعّل":"معطّل"}`);save();render();return}
+  if(a==="resetpin"){const u=DB.users.find(x=>x.id===t.dataset.id);const p=prompt(`الرمز السري الجديد لـ ${u.name} (6 أرقام على الأقل):`);if(!p||!/^\d{6,}$/.test(p)){if(p!==null)alert("يجب أن يتكوّن الرمز السري من 6 أرقام على الأقل.");return}
+    u.salt=rnd();u.hash=hashPin(p,u.salt);u.fails=0;u.lockUntil=0;logEv("PIN_DEGISTI",u.name);save();toast("حُدّث الرمز السري.");return}
+  if(a==="wipe"){if(!can.admin())return;if(prompt("ستُحذف جميع البيانات. للتأكيد اكتب «حذف»:")==="حذف"){localStorage.removeItem(KEY);DB=null;SESSION=null;toast("حُذفت جميع البيانات.");render()}return}
+});
+
+DB=load();
+if(DB&&!DB.paramHistory)DB=null;
+render();
+</script>
+</body>
+</html>
