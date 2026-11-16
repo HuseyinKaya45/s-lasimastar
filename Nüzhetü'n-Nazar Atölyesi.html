@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nüzhetü'n-Nazar Atölyesi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Amiri:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#F4F6F2;--card:#fff;--ink:#1B2420;--muted:#5E6A63;--line:#D9E0DA;--soft:#EAEFEA;
+  --accent:#1E5B4F;--accent-ink:#fff;--gold:#B98A1B;
+  --ref:#B3402F;--nasb:#A86A0E;--cerr:#2D5FA8;--cezm:#6A4FB0;--none:#6B6152;
+  --good:#1F7A3E;--bad:#B3261E;--good-bg:#E2F2E6;--bad-bg:#FBE7E4;
+  --f-display:"Alegreya",Georgia,serif;--f-body:"Alegreya Sans","Segoe UI",system-ui,sans-serif;
+  --f-ar:"Amiri","Scheherazade New","Traditional Arabic","Noto Naskh Arabic",serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#111614;--card:#19201D;--ink:#E6ECE8;--muted:#9FACA5;--line:#2C3632;--soft:#202925;
+  --accent:#6CC3AE;--accent-ink:#0d1a16;--gold:#E6BE5A;
+  --ref:#F28B78;--nasb:#EDB45C;--cerr:#8DB4F5;--cezm:#ABA3F5;--none:#CDBB95;
+  --good:#6FD08E;--bad:#FF8A80;--good-bg:#17301F;--bad-bg:#3A1D1A;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#111614;--card:#19201D;--ink:#E6ECE8;--muted:#9FACA5;--line:#2C3632;--soft:#202925;
+  --accent:#6CC3AE;--accent-ink:#0d1a16;--gold:#E6BE5A;
+  --ref:#F28B78;--nasb:#EDB45C;--cerr:#8DB4F5;--cezm:#ABA3F5;--none:#CDBB95;
+  --good:#6FD08E;--bad:#FF8A80;--good-bg:#17301F;--bad-bg:#3A1D1A;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.5;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+h1,h2,h3{font-family:var(--f-display);margin:0 0 .4em;line-height:1.2;letter-spacing:.1px}
+h1{font-size:30px;font-weight:800}h2{font-size:23px;font-weight:700}h3{font-size:18px;font-weight:700}
+p{margin:.5em 0}
+button{font:inherit;color:inherit;cursor:pointer}
+.ar{font-family:var(--f-ar);direction:rtl;unicode-bidi:isolate;line-height:1.9}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.top .wrap{display:flex;align-items:center;gap:10px;height:54px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:19px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .ar{font-size:22px;color:var(--accent);margin-left:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:99px;background:var(--soft);font-weight:700;font-size:14px;white-space:nowrap}
+.xpbar{height:4px;background:var(--soft)}.xpbar i{display:block;height:100%;background:var(--accent);transition:width .5s}
+nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--card);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+nav.bottom .wrap{display:grid;grid-template-columns:repeat(5,1fr);padding:0}
+nav.bottom button{background:none;border:0;padding:9px 2px 8px;display:flex;flex-direction:column;align-items:center;gap:1px;color:var(--muted);font-size:12.5px;font-weight:700}
+nav.bottom button .ic{font-size:21px;line-height:1.1}
+nav.bottom button.on{color:var(--accent)}
+main{padding:18px 0 30px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:0 0 14px}
+.card.soft{background:var(--soft);border-color:transparent}
+.hero{background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 55%,#000));color:var(--accent-ink);border:0;position:relative;overflow:hidden}
+.hero .big-ar{position:absolute;right:-6px;top:-18px;font-size:120px;opacity:.13;line-height:1;pointer-events:none}
+.hero h1{margin-bottom:4px}.hero p{opacity:.92;margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:8px 18px;border-radius:12px;border:1.5px solid var(--accent);
+  background:var(--accent);color:var(--accent-ink);font-weight:700}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.light{background:#fff;color:#1E5B4F;border-color:#fff}
+.btn.sm{min-height:36px;padding:4px 12px;font-size:15px}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.muted{color:var(--muted)}.small{font-size:14.5px}
+.babhead{display:flex;align-items:baseline;gap:10px;margin:22px 0 10px}
+.babhead .ar{font-size:26px;color:var(--accent)}
+.lesson{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.lesson:hover{border-color:var(--accent)}
+.lesson .num{width:42px;height:42px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-weight:800;font-family:var(--f-display);font-size:19px;flex:none}
+.lesson.done .num{background:var(--good);color:#fff}
+.lesson .t{flex:1;min-width:0}.lesson .t b{display:block}.lesson .t .ar{font-size:20px;color:var(--muted)}
+.tag{display:inline-block;font-size:12.5px;font-weight:700;padding:1px 8px;border-radius:99px;background:var(--soft);color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.grid2{grid-template-columns:1fr}}
+.game{display:flex;gap:12px;align-items:flex-start;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;width:100%}
+.game:hover{border-color:var(--accent)}
+.game .gi{font-size:30px;line-height:1}
+.game b{font-family:var(--f-display);font-size:18px}
+/* i'rab renkleri */
+.w{display:inline-block;padding:0 8px;margin:2px 3px;border-radius:10px;border:1.5px solid transparent;background:var(--soft);font-family:var(--f-ar);font-size:30px;line-height:1.7;cursor:pointer}
+.w.plain{background:transparent;cursor:default}
+.w.r{color:var(--ref);border-color:color-mix(in srgb,var(--ref) 45%,transparent);background:color-mix(in srgb,var(--ref) 9%,transparent)}
+.w.n{color:var(--nasb);border-color:color-mix(in srgb,var(--nasb) 45%,transparent);background:color-mix(in srgb,var(--nasb) 10%,transparent)}
+.w.c{color:var(--cerr);border-color:color-mix(in srgb,var(--cerr) 45%,transparent);background:color-mix(in srgb,var(--cerr) 9%,transparent)}
+.w.z{color:var(--cezm);border-color:color-mix(in srgb,var(--cezm) 45%,transparent);background:color-mix(in srgb,var(--cezm) 9%,transparent)}
+.w.x{color:var(--none);border-color:color-mix(in srgb,var(--none) 45%,transparent)}
+.w.sel{outline:3px solid var(--accent);outline-offset:1px}
+.sent{direction:rtl;text-align:right;padding:6px 0}
+.legend{display:flex;gap:8px;flex-wrap:wrap;font-size:13.5px;font-weight:700;margin:6px 0 4px}
+.legend span{padding:1px 10px;border-radius:99px;border:1.5px solid}
+.lg-r{color:var(--ref);border-color:var(--ref)}.lg-n{color:var(--nasb);border-color:var(--nasb)}.lg-c{color:var(--cerr);border-color:var(--cerr)}.lg-z{color:var(--cezm);border-color:var(--cezm)}
+.reveal{min-height:56px;border-radius:12px;background:var(--soft);padding:10px 14px;font-size:16.5px;margin-top:6px}
+.reveal b{font-family:var(--f-display)}
+table.t{width:100%;border-collapse:collapse;font-size:15.5px;margin:8px 0}
+table.t th,table.t td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:left;vertical-align:top}
+table.t th{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+table.t .ar{font-size:21px;line-height:1.5}
+.tblwrap{overflow-x:auto}
+.callout{border-left:4px solid var(--gold);background:color-mix(in srgb,var(--gold) 12%,transparent);padding:10px 14px;border-radius:0 12px 12px 0;margin:12px 0}
+.callout b{color:var(--gold)}
+.opt{display:block;width:100%;text-align:left;padding:12px 14px;margin:8px 0;border-radius:12px;border:1.5px solid var(--line);background:var(--card);font-size:17px;min-height:48px}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt.ok{border-color:var(--good);background:var(--good-bg)}
+.opt.no{border-color:var(--bad);background:var(--bad-bg)}
+.opt:disabled{cursor:default}
+.opt .ar{font-size:22px}
+.qprompt{font-size:19px;font-weight:500}
+.feedback{border-radius:12px;padding:10px 14px;margin:10px 0}
+.feedback.ok{background:var(--good-bg);color:var(--good)}.feedback.no{background:var(--bad-bg);color:var(--bad)}
+.feedback span{color:var(--ink)}
+.prog{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;margin:8px 0 14px}.prog i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .3s}
+.timer i{background:var(--gold)}
+.back{background:none;border:0;color:var(--accent);font-weight:700;padding:6px 0;margin-bottom:6px;font-size:16px}
+.flash{perspective:900px;margin:10px 0}
+.flash .face{min-height:200px;border-radius:18px;border:1.5px solid var(--line);background:var(--card);display:grid;place-items:center;padding:20px;text-align:center;cursor:pointer}
+.flash .face .ar{font-size:44px}
+.flash .face.back-face{background:var(--soft)}
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:480px){.mgrid{grid-template-columns:repeat(3,1fr)}}
+.mc{min-height:84px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);display:grid;place-items:center;padding:4px;text-align:center;font-size:14.5px;line-height:1.25;font-weight:500}
+.mc.down{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-size:26px}
+.mc.up{background:var(--soft)}
+.mc.up .ar{font-size:23px}
+.mc.found{background:var(--good-bg);border-color:var(--good);color:var(--good)}
+.mc.found .ar{font-size:22px}
+.bank{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0;direction:rtl;min-height:54px}
+.slot{min-height:78px;border:2px dashed var(--line);border-radius:14px;padding:8px;direction:rtl;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+.tile{font-family:var(--f-ar);font-size:27px;padding:2px 14px;border-radius:10px;border:1.5px solid var(--accent);background:var(--card);line-height:1.7}
+.tile:hover{background:var(--soft)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+.stats b{display:block;font-family:var(--f-display);font-size:28px;line-height:1.1}
+.stats span{font-size:13.5px;color:var(--muted)}
+.badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.badge{border:1.5px solid var(--line);border-radius:14px;padding:10px;text-align:center;opacity:.45;filter:grayscale(1)}
+.badge.on{opacity:1;filter:none;border-color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
+.badge .bi{font-size:30px}.badge b{display:block;font-size:15px}.badge span{font-size:13px;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);
+  padding:10px 18px;border-radius:99px;font-weight:700;opacity:0;transition:.3s;z-index:30;pointer-events:none;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.sp{background:none;border:1.5px solid var(--line);border-radius:50%;width:34px;height:34px;font-size:16px;vertical-align:middle}
+.result{text-align:center;padding:10px 0}.result .big{font-family:var(--f-display);font-size:56px;font-weight:800;color:var(--accent);line-height:1}
+.stars{font-size:34px;letter-spacing:4px}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:40;overflow:hidden}
+.confetti i{position:absolute;top:-10px;width:9px;height:14px;opacity:.9;animation:fall 1.6s ease-in forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg);opacity:.9}}
+@media(prefers-reduced-motion:reduce){.confetti{display:none}*{transition:none!important}}
+.shake{animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.sec-h{display:flex;align-items:center;gap:8px}
+.sec-h .ar{color:var(--accent);font-size:24px}
+.chain{display:flex;gap:4px;align-items:center;flex-wrap:wrap;direction:ltr;margin:6px 0 10px}
+.node{padding:4px 10px;border-radius:10px;border:1.5px solid var(--accent);background:var(--soft);font-size:14px;font-weight:700}
+.node.miss{border:1.5px dashed var(--bad);color:var(--bad);background:var(--bad-bg);text-decoration:line-through}
+.node.top{background:var(--accent);color:var(--accent-ink)}.node.end{border-color:var(--gold);color:var(--gold)}
+.arrow{color:var(--muted)}
+.exar{font-family:var(--f-ar);direction:rtl;font-size:27px;line-height:1.9;text-align:right}
+.exnote{display:none;margin-top:8px}.exnote.on{display:block}
+.tile.tr{font-family:var(--f-body);font-size:17px;padding:8px 14px}
+.slot.ltr,.bank.ltr{direction:ltr}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Nüzhetü'n-Nazar <span class="ar">نُزْهَةُ النَّظَرِ</span></div>
+    <span class="pill" id="pStreak" title="Gün serisi">🔥 0</span>
+    <span class="pill" id="pXp" title="Puan">⭐ 0</span>
+  </div>
+  <div class="xpbar"><i id="xpFill" style="width:0"></i></div>
+</header>
+<div class="wrap"><main id="app"></main></div>
+<nav class="bottom"><div class="wrap" id="nav"></div></nav>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+/* ============================ VERİ ============================ */
+const BABS=[
+ {id:1,tr:"Temel Kavramlar ve Haber",ar:"أَصْلُ الْخَبَرِ"},
+ {id:2,tr:"Makbûl Hadis",ar:"الْمَقْبُولُ"},
+ {id:3,tr:"Merdûd Hadis",ar:"الْمَرْدُودُ"},
+ {id:4,tr:"Rivâyet Usûlü ve Râviler",ar:"الرُّوَاةُ وَالرِّوَايَةُ"}
+];
+const EX=(ar,tr,tag,note)=>({ar,tr,tag,note});
+const CH=(label,nodes)=>({label,nodes}); // nodes: [metin, durum]  durum: "", "miss", "top", "end"
+
+const LESSONS=[
+{id:1,bab:1,icon:"📖",tr:"Hadis İlminin Temel Kavramları",ar:"الْحَدِيثُ وَالْخَبَرُ وَالْأَثَرُ",
+ goal:"Hadis, haber, eser, sened, metin ve râvi kavramlarını ayırıp, hadis usûlünün neyi incelediğini anlayacaksın.",
+ secs:[
+  {h:"Usûlü'l-hadîs nedir?",p:"Hadis usûlü (<span class='ar'>مُصْطَلَحُ أَهْلِ الْأَثَرِ</span>), bir rivayetin <b>kabul edilip edilmeyeceğini</b> belirlemek için râvilerin ve senedin durumunu inceleyen kâideler bütünüdür. İbn Hacer'in <i>Nüzhetü'n-Nazar</i>'ı, kendi <i>Nuhbetü'l-Fiker</i> metnini şerhetmek için yazdığı, konuyu çok sistemli bir tasnifle sunan meşhur bir eserdir."},
+  {h:"Temel terimler",table:[["Terim","Anlamı"],
+   ["Sened (إسناد)","Metne ulaştıran râvi zinciri"],
+   ["Metin (مَتْن)","Senedin sonunda gelen söz"],
+   ["Râvi","Hadisi nakleden kişi"],
+   ["Haber / Hadis","Hz. Peygamber'e (s.a.v.) ve sahâbe-tâbiîne ait söz, fiil ve takrîr; terim olarak çoğunlukla eş anlamlı kullanılır"],
+   ["Eser","Çoğunlukla sahâbe ve tâbiîne nispet edilen rivayet"]]},
+  {h:"Kime nispet edilir?",table:[["Tür","Kime ait?"],["Merfû' (مَرْفُوع)","Hz. Peygamber'e"],["Mevkûf (مَوْقُوف)","Sahâbîye"],["Maktû' (مَقْطُوع)","Tâbiîye"]]},
+  {callout:"Ezber ipucu: <b>merfû'</b> yukarı (Peygamber), <b>mevkûf</b> sahâbede durur, <b>maktû'</b> tâbiîde kesilir."}],
+ ex:[EX("إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ","Ameller niyetlere göredir.","Merfû' hadis","Hz. Peygamber'e (s.a.v.) nispet edilen söz olduğu için merfû'dur. Sened: Buhârî'de Humeydî → Süfyân → Yahyâ b. Saîd → Muhammed b. İbrâhîm → Alkame → Ömer.")],
+ mini:[
+  ["Hadisin sonunda gelen söze ne denir?",["Sened","Metin","Tabaka"],1,"Sened, metne giden râvi zinciri; metin ise söylenen sözün kendisidir."],
+  ["Sahâbîye nispet edilen rivayet için hangisi kullanılır?",["Merfû'","Mevkûf","Maktû'"],1,"Mevkûf sahâbîde durur."],
+  ["Hadis usûlünün asıl amacı nedir?",["Metni tercüme etmek","Rivayetin kabul edilebilirliğini belirlemek","Fıkhî hüküm çıkarmak"],1,"Usûl, râvi ve sened durumuna göre kabul-red ölçülerini koyar."]]},
+
+{id:2,bab:1,icon:"🌊",tr:"Haberin Taksimi: Mütevâtir ve Âhâd",ar:"الْمُتَوَاتِرُ وَالْآحَادُ",
+ goal:"Haberin yol sayısına göre ilk büyük ayrımını (mütevâtir ve âhâd) kavrayacaksın.",
+ secs:[
+  {h:"Mütevâtir",p:"Yalan üzerinde birleşmeleri <b>âdeten imkânsız</b> olan çok sayıda râvinin, benzer sayıdaki râviden, senedin <b>başından sonuna kadar</b> rivayet ettiği ve duyuya dayanan haberdir. Kesin bilgi (<span class='ar'>الْعِلْمُ الضَّرُورِيُّ</span>) ifade eder; râvilerinin hâli araştırılmaz."},
+  {h:"Âhâd",p:"Mütevâtirin şartlarını taşımayan her haberdir. Yol sayısına göre üçe ayrılır: meşhûr, azîz, garîb (sonraki ders)."},
+  {h:"Mütevâtirin şartları",table:[["Şart","Açıklama"],["Çok sayıda râvi","Her tabakada yalan üzerinde anlaşmaları âdeten mümkün olmayacak kadar"],["Her tabakada aynı çokluk","Başından sonuna kadar"],["Duyuya dayanma","“Gördüm, işittim” gibi; akıl yürütmeye değil"]]},
+  {callout:"Mütevâtir hadis sayısı azdır. Örnek olarak “Kim bilerek bana yalan isnat ederse cehennemdeki yerine hazırlansın” hadisi gösterilir."}],
+ ex:[EX("مَنْ كَذَبَ عَلَيَّ مُتَعَمِّدًا فَلْيَتَبَوَّأْ مَقْعَدَهُ مِنَ النَّارِ","Kim bilerek bana yalan isnat ederse yerini ateşte hazırlasın.","Mütevâtir olarak anılır","Çok sayıda sahâbîden gelen, mütevâtir örneği olarak en çok zikredilen hadislerdendir.")],
+ mini:[
+  ["Mütevâtir haber hangi bilgiyi verir?",["Zan","Kesin bilgi","Şüphe"],1,"Mütevâtir ilm-i zarûrî ifade eder."],
+  ["Âhâd nedir?",["Mütevâtirin şartlarını taşımayan haber","Yalnız zayıf haber","Yalnız sahâbe sözü"],0,"Âhâd = mütevâtir olmayan."],
+  ["Mütevâtirde râvi çokluğu hangi bölümde aranır?",["Yalnız son tabakada","Başından sonuna her tabakada","Yalnız sahâbîde"],1,"Her tabakada aranır."]]},
+
+{id:3,bab:1,icon:"🌿",tr:"Âhâdın Kısımları: Meşhûr, Azîz, Garîb",ar:"الْمَشْهُورُ وَالْعَزِيزُ وَالْغَرِيبُ",
+ goal:"Âhâd haberi yol sayısına göre üç gruba ayıracak ve örneklerini tanıyacaksın.",
+ secs:[
+  {h:"Üç kısım",table:[["Terim","Yol sayısı","Not"],
+   ["Meşhûr (مَشْهُور) / Müstefîz","3 veya daha fazla yol","Mütevâtir seviyesine ulaşmaz"],
+   ["Azîz (عَزِيز)","Hiçbir tabakada 2'den az değil","Nâdir bulunduğu için “azîz”"],
+   ["Garîb (غَرِيب)","Bir tabakada tek râvi","“Fert” olarak da anılır"]]},
+  {h:"Garîbin çeşitleri",p:"<b>Garîb mutlak (fert mutlak)</b>: Teferrüd senedin aslında, yani sahâbî tabakasındadır. <b>Garîb nisbî</b>: Teferrüd senedin ortasında, belirli bir râviye nispetle olur."},
+  {callout:"Meşhûr her zaman sahih demek değildir. Meşhûr, azîz ve garîb sadece <b>yol sayısına</b> bakar; kabul-red ayrı bir değerlendirmedir. Garîb de sahih olabilir."}],
+ ex:[EX("إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ","Ameller niyetlere göredir.","Garîb örneği","Meşhur bir hadis olmasına rağmen ilk tabakalarda tek yolludur (Ömer → Alkame → Muhammed b. İbrâhîm → Yahyâ b. Saîd). Sonra yaygınlaşmıştır."),
+     EX("لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى أَكُونَ أَحَبَّ إِلَيْهِ مِنْ وَالِدِهِ وَوَلَدِهِ وَالنَّاسِ أَجْمَعِينَ","Biriniz, ben ona babasından, çocuğundan ve bütün insanlardan daha sevgili olmadıkça iman etmiş olmaz.","Azîz örneği","İki sahâbîden (Enes ve Ebû Hüreyre) gelmesi sebebiyle azîz örneği olarak zikredilir.")],
+ mini:[
+  ["En az 3 yoldan gelen, mütevâtire ulaşmayan hadis?",["Azîz","Meşhûr","Garîb"],1,"Üç ve fazlası: meşhûr (müstefîz)."],
+  ["Hiçbir tabakada 2'den az râvisi olmayan hadis?",["Garîb","Azîz","Mütevâtir"],1,"İki yoldan gelen: azîz."],
+  ["Garîb mutlakta teferrüd nerededir?",["Senedin aslında (sahâbî tabakasında)","Senedin ortasında","Metinde"],0,"Aslında tek kalmak garîb mutlaktır."]]},
+
+{id:4,bab:2,icon:"✅",tr:"Sahih Hadis",ar:"الصَّحِيحُ",
+ goal:"Sahih hadisin beş şartını sayıp sahîh li-zâtihi ile sahîh li-gayrihi arasındaki farkı anlayacaksın.",
+ secs:[
+  {h:"Makbûl ve merdûd",p:"Âhâd haberler kabul edilip edilmemesine göre <b>makbûl</b> (<span class='ar'>الْمَقْبُولُ</span>) ve <b>merdûd</b> (<span class='ar'>الْمَرْدُودُ</span>) olarak ikiye ayrılır. Makbûlün en yüksek derecesi sahih, ardından hasendir."},
+  {h:"Sahîh li-zâtihi: beş şart",table:[["Şart","Arapça","Anlamı"],
+   ["1. Adâlet","الْعَدَالَةُ","Râvi dindar, güvenilir, mürüvvetli"],
+   ["2. Tam zabt","تَمَامُ الضَّبْطِ","Hafızası/yazısı tam"],
+   ["3. Sened muttasıl","اتِّصَالُ السَّنَدِ","Râviler arası kopukluk yok"],
+   ["4. Şâz olmayan","عَدَمُ الشُّذُوذِ","Daha güvenilir râvilere aykırı değil"],
+   ["5. Illetsiz","عَدَمُ الْعِلَّةِ","Gizli kusur yok"]]},
+  {h:"Sahîh li-gayrihi",p:"Kendisi hasen seviyesinde olup <b>birden fazla yoldan</b> gelmesiyle sahih seviyesine yükselen hadistir."},
+  {callout:"Hatırlama formülü: <b>A-Z-M-Ş-İ</b> (Adâlet, Zabt, Muttasıl, Şâz-değil, İllet-yok)."}],
+ ex:[EX("حَدَّثَنَا الْحُمَيْدِيُّ ... قَالَ: سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ: إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ","Buhârî'nin ilk hadisi","Sahih örneği","Râvileri adil ve zâbıt, sened muttasıl; Buhârî'nin Sahîh'inin ilk hadisidir.")],
+ mini:[
+  ["Sahih hadisin şartlarından biri <b>değildir</b>:",["Sened muttasıl","Tam zabt","Râvinin çok yaşlı olması"],2,"Yaş bir şart değildir."],
+  ["Sahîh li-gayrihi nasıl oluşur?",["Hasen hadis çok yoldan gelince","Zayıf hadisin yazılmasıyla","Mevzû hadisin düzeltilmesiyle"],0,"Hasen li-zâtihi'nin yolları çoğalınca sahih seviyesine çıkar."],
+  ["‘Şâz olmamak’ ne demektir?",["Râvinin tek olması","Daha güvenilir râvilere muhalefet etmemek","Metnin kısa olması"],1,"Şâz, makbûl râvinin daha sikaya muhalefetidir."]]},
+
+{id:5,bab:2,icon:"🌓",tr:"Hasen Hadis ve Ziyâdetü's-Sika",ar:"الْحَسَنُ",
+ goal:"Hasen hadisin sahihten farkını ve hasen li-gayrihi'nin nasıl oluştuğunu öğreneceksin.",
+ secs:[
+  {h:"Hasen li-zâtihi",p:"Sahihin beş şartını taşır; <b>tek fark</b> râvinin zabtının tam değil, biraz <b>hafif</b> (<span class='ar'>خَفَّ ضَبْطُهُ</span>) olmasıdır."},
+  {h:"Hasen li-gayrihi",p:"Zaafı <b>hafif</b> (kötü hıfz, ihtilât, meçhûl hâl, hafif irsâl-tedlîs gibi) olan hadisin, <b>çok yoldan</b> gelerek güçlenmesidir. Râvisi yalancı olan hadis bu yolla güçlenmez."},
+  {h:"Dereceler (kuvvet sırası)",table:[["Sıra","Tür"],["1","Sahîh li-zâtihi"],["2","Sahîh li-gayrihi"],["3","Hasen li-zâtihi"],["4","Hasen li-gayrihi"],["5","Zayıf (çeşitleri)"]]},
+  {h:"Ziyâdetü's-sika",p:"Sika bir râvinin, diğer sika râvilerin söylemediği bir ilâvede bulunmasıdır. İlâve, onlara <b>aykırı değilse</b> genellikle kabul edilir; aykırıysa şâz sayılır."},
+  {callout:"“Hasen sahîh” tabirini Tirmizî kullanır: hadis iki ayrı yoldan, biri hasen biri sahih olarak gelmiştir (yaygın açıklama)."}],
+ ex:[],
+ mini:[
+  ["Sahih ile hasen arasındaki temel fark nedir?",["Sened kopuktur","Râvinin zabtı hafiftir","Râvi adil değildir"],1,"Hasen'de zabt tam değil, hafiftir."],
+  ["Hasen li-gayrihi neyle güçlenir?",["Tek yol","Çok yol","Hükümdar emri"],1,"Çok tarik hafif zaafı giderir."],
+  ["Kuvvet sırasında doğru olan?",["Hasen li-zâtihi > Sahîh li-gayrihi","Sahîh li-zâtihi > Sahîh li-gayrihi","Hasen li-gayrihi > Sahîh li-zâtihi"],1,"Sıra: sahîh li-zâtihi, sahîh li-gayrihi, hasen li-zâtihi, hasen li-gayrihi."]]},
+
+{id:6,bab:2,icon:"⚖️",tr:"Hadislerin Çatışması (Muârada)",ar:"الْمُعَارَضَةُ",
+ goal:"Makbûl iki hadis birbirine aykırı göründüğünde izlenen dört adımı öğreneceksin.",
+ secs:[
+  {h:"Makbûl hadis iki grupta incelenir",p:"<b>Muhkem</b> (<span class='ar'>الْمُحْكَمُ</span>): Aynı kuvvette bir muârızı bulunmayan hadis. <b>Muhtelifu'l-hadîs</b>: Muârızı olup <b>cem'</b> (uzlaştırma) mümkün olan hadis."},
+  {h:"Çatışma varsa adımlar",table:[["Adım","Ne yapılır?"],
+   ["1. Cem'","İkisini birlikte anlamlandır (uzlaştır)"],
+   ["2. Nesih","Tarih biliniyorsa sonraki öncekini kaldırır: Nâsih ve Mensûh"],
+   ["3. Tercîh","Cem' ve nesih mümkün değilse üstün olanı seç"],
+   ["4. Tevakkuf","Hiçbiri mümkün değilse hüküm vermeyi bırak"]]},
+  {callout:"Mantık sırası: önce <b>cem'</b>, sonra <b>nesih</b>, sonra <b>tercih</b>, en son <b>tevakkuf</b>. Birini atlayıp doğrudan tercihe gitmek hatalıdır."}],
+ ex:[],
+ mini:[
+  ["İki makbûl hadis çatışınca ilk adım nedir?",["Tevakkuf","Cem'","Tercîh"],1,"Önce uzlaştırma denenir."],
+  ["Tarihi bilinen iki hadiste sonraki öncekini kaldırıyorsa bu nedir?",["Nesih","Tedlis","İdrâc"],0,"Nâsih ve mensûh."],
+  ["Muhkem hadis nedir?",["Çelişkisi olmayan makbûl hadis","Uydurma hadis","Meşhûr hadis"],0,"Aynı kuvvette muârızı yoktur."]]},
+
+{id:7,bab:3,icon:"✂️",tr:"Sened Kopukluğu (Sakt)",ar:"السَّقْطُ مِنَ الْإِسْنَادِ",
+ goal:"Mu'allak, mürsel, mu'dal, munkatı' ve müdelles terimlerini sened şemasında ayırt edeceksin.",
+ secs:[
+  {h:"Neden merdûd?",p:"Senedde düşen râvinin kim olduğu bilinmediği için güvenilirliği denetlenemez. Kopukluk <b>açık</b> (râvi düşmüştür) veya <b>gizli</b> (râvi görünüşte vardır) olabilir."},
+  {h:"Şemalar",chains:[
+   CH("Mu'allak: musannif tarafından senedin başından bir veya daha fazla râvi hazfedilmiş",[["Musannif","top"],["Şeyh","miss"],["Râvi A","miss"],["Râvi B",""],["Tâbiî",""],["Sahâbî",""],["Peygamber ﷺ","end"]]),
+   CH("Mürsel: tâbiîden sonra sahâbî düşmüş (“Rasûlullah buyurdu” der)",[["Musannif","top"],["Şeyh",""],["Râvi A",""],["Râvi B",""],["Tâbiî",""],["Sahâbî","miss"],["Peygamber ﷺ","end"]]),
+   CH("Mu'dal: senedin ortasında art arda iki veya daha fazla râvi düşmüş",[["Musannif","top"],["Şeyh",""],["Râvi A","miss"],["Râvi B","miss"],["Tâbiî",""],["Sahâbî",""],["Peygamber ﷺ","end"]]),
+   CH("Munkatı': ortada ardışık olmayan yer(ler)den râvi düşmüş",[["Musannif","top"],["Şeyh",""],["Râvi A",""],["Râvi B","miss"],["Tâbiî",""],["Sahâbî",""],["Peygamber ﷺ","end"]])]},
+  {h:"Gizli kopukluk",table:[["Terim","Tanım"],
+   ["Müdelles (تَدْلِيس)","Râvi, hocasından işitmediğini işitmiş gibi gösterir veya hocasının adını/lakabını gizler"],
+   ["Mürsel-i hafî","Muâsırı olduğu fakat görüşmediği kişiden rivayet eder"]]},
+  {callout:"Dikkat: <b>Mu'allak</b> başından, <b>mürsel</b> tâbiînin altında sahâbîden, <b>mu'dal</b> art arda iki ve fazla, <b>munkatı'</b> bunlar dışındaki ortadan düşme. Cumhura göre mürsel zayıftır, bazı mezhepler (örn. Hanefîler) belirli şartlarla kabul eder."}],
+ ex:[],
+ mini:[
+  ["Sahâbî düşerse hadis nasıl adlanır?",["Mürsel","Mu'dal","Mu'allak"],0,"Tâbiî doğrudan Hz. Peygamber'den nakleder: mürsel."],
+  ["Senedin ortasında art arda iki râvi düşmesi?",["Munkatı'","Mu'dal","Mu'allak"],1,"Art arda iki ve fazlası: mu'dal."],
+  ["Hocasından duymadığını duymuş gibi göstermek?",["İdrâc","Tedlîs","Kalb"],1,"Tedlîs."]]},
+
+{id:8,bab:3,icon:"🚫",tr:"Râvinin Adâletine Ta'n",ar:"الطَّعْنُ فِي الْعَدَالَةِ",
+ goal:"Yalan, yalanla itham, fısk, bid'at ve cehâlet kaynaklı kusurları ve ortaya çıkan terimleri tanıyacaksın.",
+ secs:[
+  {h:"On sebep",p:"İbn Hacer, râviye yöneltilen ta'nın on sebebini iki gruba ayırır: <b>beşi adâlet</b>, <b>beşi zabt</b> ile ilgilidir. Bu derste adâlet grubu."},
+  {h:"Adâlete ta'n",table:[["Sebep","Sonuç (terim)","Tanım"],
+   ["Kizb (yalan)","Mevzû' (مَوْضُوع)","Hz. Peygamber'e uydurulmuş söz"],
+   ["Tuhme bi'l-kizb","Metrûk (مَتْرُوك)","Râvisi yalanla itham edilen"],
+   ["Fısk","Münker (مُنْكَر)","Fâsık/zayıf râvinin rivayeti (kullanımlar değişir)"],
+   ["Bid'at","—","Bid'atçı râvinin rivayeti: davetçi olup olmadığına göre değerlendirilir"],
+   ["Cehâlet","Mübhem / Meçhûl / Mestûr","Râvinin kim olduğunun bilinmemesi"]]},
+  {h:"Cehâlet derecesi",table:[["Terim","Durum"],["Mübhem","Adı zikredilmemiş (“bir adam” gibi)"],["Meçhûlü'l-ayn","Adı var; tek râvi rivayet etmiş"],["Meçhûlü'l-hâl / Mestûr","İki veya daha fazla râvi rivayet etmiş, ancak tevsik edilmemiş"]]},
+  {callout:"Mevzû' hadis, hadis diye <b>rivayeti haramdır</b>; ancak uydurma olduğunu belirterek uyarmak için nakledilebilir."}],
+ ex:[],
+ mini:[
+  ["Hz. Peygamber'e uydurulan söz?",["Metrûk","Mevzû'","Münker"],1,"Mevzû' = uydurma."],
+  ["Adı belirtilmeyen râvi için hangisi?",["Mübhem","Müdrec","Maklûb"],0,"Mübhem: isimsiz râvi."],
+  ["Yalanla itham edilen râvinin hadisi?",["Metrûk","Mu'dal","Şâz"],0,"Tuhme bi'l-kizb → metrûk."]]},
+
+{id:9,bab:3,icon:"🧠",tr:"Râvinin Zabtına Ta'n",ar:"الطَّعْنُ فِي الضَّبْطِ",
+ goal:"Zabt ile ilgili kusurlardan doğan terimleri (muallel, müdrec, maklûb, muzdarib, şâz, muhtelit…) ayıracaksın.",
+ secs:[
+  {h:"Zabt kusurları",table:[["Terim","Tanım","Örnek durum"],
+   ["Muallel (مُعَلَّل)","Görünüşte sağlam, gizli bir kusurlu","İncelemeyle fark edilen vehm"],
+   ["Müdrec (مُدْرَج)","Râvinin kendi sözünü metne/ isnada katması","Açıklama sözü hadise karışmış"],
+   ["Maklûb (مَقْلُوب)","Sened veya metinde yer değiştirme","Râvi adlarının yerinin değişmesi"],
+   ["Muzdarib (مُضْطَرِب)","Eşit güçte, uzlaştırılamayan farklı rivayetler","Tercih edilemeyen iki anlatım"],
+   ["Musahhaf / Muharref","Nokta (tashîf) veya şekil (tahrîf) hatası","Harfin noktalaması değişir"],
+   ["Şâz (شَاذّ)","Makbûl râvinin daha güvenilirlere muhalefeti","Kalabalık sika bir şey söyler, o aksini"],
+   ["Muhtelit (مُخْتَلِط)","Hıfzı sonradan bozulan râvi","Ömrünün sonunda zabtı bozulan"]]},
+  {callout:"Zayıf râvi sikaya aykırı rivayet ederse <b>münker</b>; makbûl râvi daha güvenilir sikaya aykırı rivayet ederse <b>şâz</b> olur."}],
+ ex:[],
+ mini:[
+  ["Râvinin kendi sözünü hadise katması?",["Müdrec","Şâz","Mübhem"],0,"İdrâc."],
+  ["Eşit güçte, çelişen ve tercih edilemeyen rivayetler?",["Muzdarib","Muhkem","Müsel sel"],0,"Muzdarib."],
+  ["Hafızası ömrünün sonunda bozulan râvi?",["Muhtelit","Mübhem","Mestûr"],0,"Muhtelit."]]},
+
+{id:10,bab:4,icon:"🧲",tr:"Mütâbi', Şâhid ve İ'tibâr",ar:"الْمُتَابِعُ وَالشَّاهِدُ",
+ goal:"Bir hadisi destekleyen rivayetleri bulma yöntemini ve mütâbi' ile şâhid farkını öğreneceksin.",
+ secs:[
+  {h:"Tanımlar",table:[["Terim","Tanım"],
+   ["Mütâbi' (مُتَابِع)","Aynı sahâbîden gelen başka bir yol (aynı râvinin hocasından veya daha üstten)"],
+   ["Şâhid (شَاهِد)","Başka bir sahâbîden gelen, mânâca destekleyen rivayet"],
+   ["İ'tibâr (اعْتِبَار)","Destekleyen yol var mı diye hadis kitaplarında arama işlemi"]]},
+  {h:"Neden önemli?",p:"Mütâbi' ve şâhid, zayıf bir hadisi <b>güçlendirebilir</b>: hasen li-gayrihi ve sahîh li-gayrihi bu desteğin ürünüdür. Garîb görünen bir hadisin başka yolu bulunursa garîblik giderilir."},
+  {callout:"Aynı sahâbî → <b>mütâbi'</b>. Başka sahâbî → <b>şâhid</b>. Aramanın adı <b>i'tibâr</b>."}],
+ ex:[],
+ mini:[
+  ["Başka bir sahâbîden gelen destekleyici rivayet?",["Mütâbi'","Şâhid","Müdrec"],1,"Farklı sahâbî = şâhid."],
+  ["Destekleyici yol arama işlemine ne denir?",["Tedlîs","İ'tibâr","Tahammül"],1,"İ'tibâr."],
+  ["Mütâbi' ile şâhidi ayıran nedir?",["Sahâbînin aynı olup olmaması","Hadisin kısalığı","Râvi sayısı"],0,"Aynı sahâbî: mütâbi'. Başka sahâbî: şâhid."]]},
+
+{id:11,bab:4,icon:"🎙️",tr:"Tahammül ve Edâ",ar:"التَّحَمُّلُ وَالْأَدَاءُ",
+ goal:"Hadisin alınış yollarını (tahammül) ve nakil sîğalarını (edâ) tanıyacaksın.",
+ secs:[
+  {h:"Tahammül yolları",table:[["Yol","Arapça","Anlamı"],
+   ["Semâ'","السَّمَاعُ","Şeyhten dinlemek"],
+   ["Arz (kırâat)","الْعَرْضُ","Talebe şeyhe okur, şeyh dinler"],
+   ["İcâzet","الْإِجَازَةُ","Şeyh rivayet izni verir"],
+   ["Münâvele","الْمُنَاوَلَةُ","Şeyh yazılı nüshayı verir"],
+   ["Mükâtebe","الْمُكَاتَبَةُ","Yazışmayla"],
+   ["İ'lâm","الْإِعْلَامُ","Şeyh “bu benim rivayetim” diye bildirir"],
+   ["Vasiyyet","الْوَصِيَّةُ","Vasiyet yoluyla kitabı bırakmak"],
+   ["Vicâde","الْوِجَادَةُ","Şeyhin yazısını bulmak"]]},
+  {h:"Edâ sîğaları",p:"<b>Haddesenî</b> (<span class='ar'>حَدَّثَنِي</span>) tek kişiye, <b>haddesenâ</b> (<span class='ar'>حَدَّثَنَا</span>) birden fazla kişiye dinletmeyi; <b>ahberanî</b> (<span class='ar'>أَخْبَرَنِي</span>) çoğunlukla arz yoluyla okunmayı; <b>en'ebenî</b> (<span class='ar'>أَنْبَأَنِي</span>) icâzeti anlatır. <b>An</b> (<span class='ar'>عَنْ</span>) muhtemel bir sîğadır; muasır olup görüştüğü bilinen râvide muttasıl sayılır."},
+  {h:"Müsel sel",p:"Râvilerin, sîğa veya hâllerde hepsinin aynı yöntemi izlediği zincirdir: <span class='ar'>أَشْهَدُ بِاللَّهِ لَقَدْ حَدَّثَنِي فُلَانٌ</span> ibaresinin her râviyle tekrarlanması bir musalsel örneğidir."},
+  {callout:"Sıralamada genellikle semâ', arz ve icâzetin kuvvet dereceleri tartışılır; yine de <b>semâ'</b> en yaygın ve en güçlü kabul edilir."}],
+ ex:[EX("أَشْهَدُ بِاللَّهِ لَقَدْ حَدَّثَنِي فُلَانٌ","Allah'a yemin ederim ki bana filan hadis rivayet etti.","Müsel sel örneği","Kitapta, aynı söz biçiminin tüm râvilerde tekrarlanmasına örnek olarak gösterilir.")],
+ mini:[
+  ["Talebenin şeyhe okuyup şeyhin dinlediği yöntem?",["Semâ'","Arz","Vicâde"],1,"Arz: talebe okur."],
+  ["Şeyhin yazısını bulma yolu?",["Vicâde","Münâvele","İ'lâm"],0,"Vicâde."],
+  ["‘Haddesenâ’ neyi bildirir?",["Birden fazla kişiye dinletmeyi","Yazışmayı","İcâzeti"],0,"Çoğul: birden fazla kişiye dinletme."]]},
+
+{id:12,bab:4,icon:"👥",tr:"Cerh-Ta'dîl ve Râvilerin Tabakaları",ar:"الْجَرْحُ وَالتَّعْدِيلُ",
+ goal:"Cerh-ta'dîl kavramını, sahâbî-tâbiî tanımlarını ve ricâl ilminin başlıca terimlerini öğrenip programı tamamlayacaksın.",
+ secs:[
+  {h:"Cerh ve ta'dîl",p:"<b>Cerh</b>, bir râvinin kusurunun belirtilmesi; <b>ta'dîl</b> ise adil ve zâbıt olduğunun bildirilmesidir. Ta'dîl dereceleri “sika sika”dan “sika”, “sadûk”, “lâ be'se bih” ve “leyyin”e kadar iner; cerh dereceleri “zayıf”, “metrûk” ve “kezzâb”a kadar yükselir."},
+  {h:"Tabakalar",table:[["Terim","Tanım"],
+   ["Sahâbî (صَحَابِي)","Hz. Peygamber'i mümin olarak görüp mümin olarak vefat eden kişi"],
+   ["Tâbiî (تَابِعِي)","Bir sahâbîyi mümin olarak gören ve mümin olarak vefat eden kişi"],
+   ["Muttefik / Müfterik","Yazılışı ve okunuşu aynı olup farklı kişilere ait isimler"],
+   ["Mü'telif / Muhtelif","Yazılışı benzer, okunuşu farklı isimler"]]},
+  {h:"Sonuç: kabul testi",p:"Bir hadisi değerlendirirken sorulacak sorular: Râvisi <b>adil</b> mi? <b>Zâbıt</b> mı? Sened <b>muttasıl</b> mı? <b>Şâz</b> mı? <b>Illetli</b> mi? Beşi de olumluysa sahih, zabt hafifse hasen, aksi hâlde yukarıdaki ta'n çeşitlerinden birine girer."},
+  {callout:"Tebrikler! Son derse geldin. Şimdi <b>Sınav</b> sekmesine geç, oyunlarda puan topla ve rozetlerini aç."}],
+ ex:[],
+ mini:[
+  ["Hz. Peygamber'i mümin olarak gören ve mümin olarak ölen?",["Tâbiî","Sahâbî","Tebeu't-tâbiîn"],1,"Sahâbî tanımı."],
+  ["Ta'dîl neyi bildirir?",["Râvinin kusurunu","Râvinin adil ve zâbıt oluşunu","Senedin kopukluğunu"],1,"Ta'dîl = övme/güven."],
+  ["Hangisi cerh derecelerindendir?",["Sika sika","Lâ be'se bih","Kezzâb"],2,"Kezzâb en şiddetli cerhlerdendir."]]}
+];
+
+/* ----- Dedektif: tanım → terim ----- */
+const DET=[
+ ["Yalan üzerinde birleşmeleri âdeten imkânsız çok râvinin, başından sonuna kadar rivayet ettiği haber","Mütevâtir","Her tabakada çok sayıda râvi; kesin bilgi verir."],
+ ["En az üç yoldan gelen, mütevâtir seviyesine ulaşmayan hadis","Meşhûr","Üç ve fazlası yol: meşhûr (müstefîz)."],
+ ["Hiçbir tabakada ikiden az râvisi olmayan hadis","Azîz","İki yoldan gelmesi: azîz."],
+ ["Senedin bir tabakasında tek râvinin rivayet ettiği hadis","Garîb","Teferrüd: garîb (fert)."],
+ ["Adil, tam zâbıt, muttasıl, şâz ve illetsiz hadis","Sahîh li-zâtihi","Beş şartı kendinde toplar."],
+ ["Beş şartı taşıyan; yalnız râvisinin zabtı biraz hafif olan hadis","Hasen li-zâtihi","Zabtın hafif olması hasenin farkıdır."],
+ ["Hasen hadisin çok yoldan gelerek güçlenip sahih seviyesine çıkması","Sahîh li-gayrihi","Yol çokluğu ile yükselir."],
+ ["Hafif zaafı olan hadisin çok yoldan gelerek güçlenmesi","Hasen li-gayrihi","Zaaf hafifse çok tarik giderir."],
+ ["Aynı kuvvette muârızı olmayan makbûl hadis","Muhkem","Çatışması yoktur."],
+ ["Çatışan iki makbûl hadisin uzlaştırılabildiği durum","Muhtelifu'l-hadîs","Cem' mümkündür."],
+ ["Tarihi bilinen iki hadisten sonrakinin öncekini kaldırması","Nâsih-Mensûh","Nesih."],
+ ["Senedin başından musannif tarafından bir veya daha fazla râvinin hazfi","Mu'allak","Baştan hazf."],
+ ["Tâbiînin sahâbîyi atlayıp doğrudan ‘Rasûlullah buyurdu’ demesi","Mürsel","Sahâbî düşmüştür."],
+ ["Senedin ortasında art arda iki veya daha fazla râvinin düşmesi","Mu'dal","Ardışık düşme."],
+ ["Ortadan, ardışık olmayan yerden râvi düşmesi (mu'allak, mürsel, mu'dal dışında)","Munkatı'","Tek/ardışık olmayan kopukluk."],
+ ["Râvinin hocasından işitmediğini işitmiş gibi göstermesi","Müdelles","Tedlîs."],
+ ["Muâsırı olduğu ancak görüşmediği kişiden rivayet etmek","Mürsel-i hafî","Gizli kopukluk."],
+ ["Hz. Peygamber'e uydurma yalan isnat edilen söz","Mevzû'","Kizb sebebiyle."],
+ ["Râvisi yalanla itham edilen hadis","Metrûk","Tuhme bi'l-kizb."],
+ ["Zayıf râvinin sika râvilere muhalefet ederek rivayet ettiği hadis","Münker","Zayıfın muhalefeti."],
+ ["Görünüşte sağlam ama gizli bir kusur taşıyan hadis","Muallel","Gizli illet."],
+ ["Râvinin kendi sözünü hadise/ isnada katması","Müdrec","İdrâc."],
+ ["Sened veya metinde râvi/ lafız yer değiştirmesi","Maklûb","Kalb."],
+ ["Eşit güçte, uzlaştırılamayan farklı rivayetler","Muzdarib","İdtırâb."],
+ ["Makbûl râvinin daha güvenilir râvilere muhalefeti","Şâz","Makbûlün muhalefeti şâz."],
+ ["Adı zikredilmeyen râvi (‘bir adam’)","Mübhem","İsimsizlik."],
+ ["Hıfzı ömrünün sonunda bozulan râvi","Muhtelit","Hafıza değişimi."],
+ ["Aynı sahâbîden gelen, hadisi destekleyen başka yol","Mütâbi'","Aynı sahâbî."],
+ ["Başka bir sahâbîden gelen, mânâca destekleyen rivayet","Şâhid","Farklı sahâbî."],
+ ["Râvilerin hepsinin aynı sîğa/hâli tekrarladığı zincir","Müsel sel","Aynı biçimin tekrarı."]
+];
+const TERMS=[...new Set(DET.map(d=>d[1]))];
+
+/* ----- Kabul / Red ----- */
+const KR=[
+ ["Adil, tam zâbıt râvilerin muttasıl, şâz ve illetsiz hadisi","Makbûl","Sahîh li-zâtihi makbûldür."],
+ ["Zabtı hafif olan fakat diğer şartları taşıyan râvinin hadisi (hasen li-zâtihi)","Makbûl","Hasen de makbûldür."],
+ ["Çok yoldan gelerek güçlenen hasen hadis","Makbûl","Sahîh li-gayrihi makbûldür."],
+ ["Muhkem hadis","Makbûl","Çatışması olmayan makbûl."],
+ ["Tarihle neshi sabit olan, sahih bir nâsih hadis","Makbûl","Nâsih makbûldür."],
+ ["Mevzû' (uydurma) hadis","Merdûd","Yalan sebebiyle reddedilir."],
+ ["Metrûk hadis","Merdûd","Yalanla itham."],
+ ["Mu'dal hadis","Merdûd","Ardışık düşme sebebiyle."],
+ ["Mu'allak hadis","Merdûd","Başından râvi hazfedilmiş."],
+ ["Munkatı' hadis","Merdûd","Kopuk sened."],
+ ["Münker hadis","Merdûd","Zayıfın muhalefeti."],
+ ["Muallel hadis","Merdûd","Gizli kusur."],
+ ["Şâz hadis","Merdûd","Makbûlün daha sikaya muhalefeti."],
+ ["Meçhûl râvili (kimliği bilinmeyen) hadis","Merdûd","Cehâlet."],
+ ["Müdelles hadis (işitmediğini işitmiş gibi)","Merdûd","Tedlîs sebebiyle."],
+ ["Muzdarib hadis","Merdûd","Tercih edilemeyen çelişki."]
+];
+
+/* ----- Hadis Ağacı ----- */
+const GRP=["Âhâd çeşidi","Makbûl","Sened kopukluğu","Râvide kusur"];
+const TREE=[["Meşhûr",0],["Azîz",0],["Garîb",0],["Sahîh",1],["Hasen",1],["Muhkem",1],["Nâsih",1],["Mu'allak",2],["Mürsel",2],["Mu'dal",2],["Munkatı'",2],["Müdelles",2],["Mürsel-i hafî",2],["Mevzû'",3],["Metrûk",3],["Münker",3],["Muallel",3],["Müdrec",3],["Maklûb",3],["Muzdarib",3],["Şâz",3],["Meçhûl",3],["Mübhem",3],["Muhtelit",3]];
+
+/* ----- Eşleştirme ----- */
+const PAIRS=[["Mütevâtir","yalana ittifakı imkânsız çok râvi"],["Meşhûr","en az 3 yol, mütevâtir değil"],["Azîz","hiçbir tabakada 2'den az değil"],["Garîb","bir tabakada tek râvi"],["Sahîh","adil+zâbıt+muttasıl+şâzsız+illetsiz"],["Hasen","zabtı biraz hafif, diğer şartlar tam"],["Mu'allak","senedin başından râvi hazfı"],["Mu'dal","art arda 2+ râvi düşmüş"],["Mevzû'","uydurma hadis"],["Mütâbi'","aynı sahâbîden başka yol"],["Şâhid","başka sahâbîden destekleyen rivayet"],["Müdelles","hocasından duymadığını duymuş gibi göstermek"]];
+
+/* ----- Sıralama ----- */
+const ORDER=[
+ {q:"Hadis türlerini <b>güçlüden zayıfa</b> sırala",tiles:["Sahîh li-zâtihi","Sahîh li-gayrihi","Hasen li-zâtihi","Hasen li-gayrihi"],ar:false},
+ {q:"Haberi yol sayısına göre <b>çoktan aza</b> sırala",tiles:["Mütevâtir","Meşhûr","Azîz","Garîb"],ar:false},
+ {q:"Çatışan hadislerde izlenecek adımları <b>sırayla</b> diz",tiles:["Cem'","Nesih","Tercîh","Tevakkuf"],ar:false},
+ {q:"Buhârî'deki “Ameller niyetlere göredir” hadisinin senedini Buhârî'den Hz. Peygamber'e doğru diz",tiles:["الْحُمَيْدِيُّ","سُفْيَانُ","يَحْيَى بْنُ سَعِيدٍ","مُحَمَّدُ بْنُ إِبْرَاهِيمَ","عَلْقَمَةُ","عُمَرُ","رَسُولُ اللَّهِ ﷺ"],ar:true}
+];
+
+/* ----- Kartlar ----- */
+const CARDS=[
+ ["الْخَبَرُ","Haber: rivayet, hadis; usûlde genellikle hadisle eş anlamlı."],
+ ["الْحَدِيثُ","Hadis: Hz. Peygamber'e nispet edilen söz, fiil, takrîr ve sıfatlar."],
+ ["الْأَثَرُ","Eser: çoğunlukla sahâbî ve tâbiîye nispet edilen rivayet."],
+ ["السَّنَدُ","Sened: metne ulaştıran râvi zinciri."],
+ ["الْمَتْنُ","Metin: senedin sonunda gelen söz."],
+ ["الْمُتَوَاتِرُ","Mütevâtir: yalana ittifakı âdeten imkânsız çok râvinin başından sonuna rivayet ettiği haber."],
+ ["الْآحَادُ","Âhâd: mütevâtirin şartlarını taşımayan haber."],
+ ["الْمَشْهُورُ","Meşhûr (müstefîz): en az 3 yoldan gelen, mütevâtir olmayan hadis."],
+ ["الْعَزِيزُ","Azîz: hiçbir tabakada ikiden az râvisi olmayan hadis."],
+ ["الْغَرِيبُ","Garîb: bir tabakada tek râvinin rivayet ettiği hadis."],
+ ["الْمَقْبُولُ","Makbûl: kabul edilen hadis."],
+ ["الْمَرْدُودُ","Merdûd: reddedilen hadis."],
+ ["الصَّحِيحُ","Sahîh: adil, tam zâbıt râvilerin muttasıl senedle, şâz ve illetsiz rivayeti."],
+ ["الْحَسَنُ","Hasen: sahihin şartlarını taşıyıp râvisinin zabtı biraz hafif olan hadis."],
+ ["الْمُحْكَمُ","Muhkem: muârızı bulunmayan makbûl hadis."],
+ ["مُخْتَلِفُ الْحَدِيثِ","Muhtelifu'l-hadîs: çatışması giderilebilen (cem' mümkün) hadisler."],
+ ["النَّاسِخُ وَالْمَنْسُوخُ","Nâsih-Mensûh: tarihi bilinen çatışmada sonraki hükmün öncekini kaldırması."],
+ ["الْمُعَلَّقُ","Mu'allak: senedin başından bir veya daha fazla râvinin hazfedilmesi."],
+ ["الْمُرْسَلُ","Mürsel: tâbiînin sahâbîyi atlayıp doğrudan Hz. Peygamber'e nispet etmesi."],
+ ["الْمُعْضَلُ","Mu'dal: senedin ortasında art arda iki veya daha fazla râvinin düşmesi."],
+ ["الْمُنْقَطِعُ","Munkatı': diğer kopukluk türlerine girmeyen ortadan râvi düşmesi."],
+ ["الْمُدَلَّسُ","Müdelles: râvinin hocasından işitmediğini işitmiş gibi göstermesi (tedlîs)."],
+ ["الْمَوْضُوعُ","Mevzû': Hz. Peygamber'e uydurulan yalan söz."],
+ ["الْمَتْرُوكُ","Metrûk: râvisi yalanla itham edilen hadis."],
+ ["الْمُنْكَرُ","Münker: zayıf râvinin sika râvilere muhalefet ettiği hadis."],
+ ["الْمُعَلَّلُ","Muallel: görünüşte sağlam, gizli bir kusur içeren hadis."],
+ ["الْمُدْرَجُ","Müdrec: râvinin kendi sözünü hadise/ isnada katması."],
+ ["الْمَقْلُوبُ","Maklûb: sened veya metinde yer değiştirme."],
+ ["الْمُضْطَرِبُ","Muzdarib: eşit güçte, uzlaştırılamayan farklı rivayetler."],
+ ["الشَّاذُّ","Şâz: makbûl râvinin daha güvenilirlere muhalefeti."],
+ ["الْمُبْهَمُ","Mübhem: adı zikredilmemiş râvi."],
+ ["الْمَجْهُولُ","Meçhûl: kimliği bilinmeyen râvi (ayn / hâl)."],
+ ["الْمُخْتَلِطُ","Muhtelit: hıfzı sonradan bozulan râvi."],
+ ["الْمُتَابِعُ","Mütâbi': aynı sahâbîden gelen destekleyici yol."],
+ ["الشَّاهِدُ","Şâhid: başka sahâbîden gelen destekleyici rivayet."],
+ ["الِاعْتِبَارُ","İ'tibâr: destekleyen yolları arama işlemi."],
+ ["الْمُسَلْسَلُ","Müsel sel: râvilerin aynı sîğa/hâli tekrarladığı zincir."],
+ ["السَّمَاعُ","Semâ': hadisi şeyhten dinleyerek almak."],
+ ["الْإِجَازَةُ","İcâzet: şeyhin rivayet izni vermesi."],
+ ["الْجَرْحُ وَالتَّعْدِيلُ","Cerh-Ta'dîl: râvinin kusurunu veya güvenilirliğini bildirme ilmi."],
+ ["الصَّحَابِيُّ","Sahâbî: Hz. Peygamber'i mümin olarak görüp mümin ölen kişi."],
+ ["التَّابِعِيُّ","Tâbiî: bir sahâbîyi mümin olarak gören ve mümin ölen kişi."],
+ ["الْمَرْفُوعُ","Merfû': Hz. Peygamber'e nispet edilen."],
+ ["الْمَوْقُوفُ","Mevkûf: sahâbîye nispet edilen."],
+ ["الْمَقْطُوعُ","Maktû': tâbiîye nispet edilen."]
+];
+
+/* ----- Kavram soruları ----- */
+const QB=[
+ ["Mütevâtir haberin verdiği bilgi hangisidir?",["Zan","Kesin bilgi","Şüphe"],1,"Mütevâtir ilm-i zarûrî ifade eder."],
+ ["En az üç yoldan gelen hadis?",["Azîz","Meşhûr","Garîb"],1,"Meşhûr (müstefîz)."],
+ ["İki yoldan gelen, hiçbir tabakada ikiden aşağı düşmeyen hadis?",["Azîz","Garîb","Mütevâtir"],0,"Azîz."],
+ ["Senedin bir tabakasında tek râvi bulunan hadis?",["Garîb","Meşhûr","Mu'dal"],0,"Garîb (fert)."],
+ ["Sahih hadisin şartlarından hangisi <b>yoktur</b>?",["Adâlet","Tam zabt","Her tabakada en az 3 râvi"],2,"Yol çokluğu şart değildir."],
+ ["Hasen ile sahih arasındaki fark?",["Zabtın hafif olması","Senedin kopuk olması","Metnin uzunluğu"],0,"Hasen'de zabt hafiftir."],
+ ["Sahîh li-gayrihi nasıl oluşur?",["Hasen hadisin çok yoldan gelmesiyle","Sahih hadisin tek yoldan gelmesiyle","Mevzû hadisin güçlenmesiyle"],0,"Çok yol, hafif zaafı giderir."],
+ ["Çatışan makbûl hadislerde ilk adım nedir?",["Cem'","Tercih","Tevakkuf"],0,"Önce cem' denenir."],
+ ["Çatışmada son çare hangisidir?",["Tevakkuf","Nesih","Cem'"],0,"Hiçbiri olmazsa tevakkuf."],
+ ["Mürsel hadiste hangi râvi düşmüştür?",["Sahâbî","Tâbiî","Musannif"],0,"Sahâbî."],
+ ["Art arda iki râvinin düşmesi?",["Mu'dal","Munkatı'","Mu'allak"],0,"Mu'dal."],
+ ["Mu'allak'ta düşme nerededir?",["Senedin başında (musannif tarafında)","Senedin sonunda","Metinde"],0,"Baştan hazf."],
+ ["Tedlîs nedir?",["Duymadığını duymuş gibi göstermek","Hadisi uydurmak","Metni kısaltmak"],0,"Müdelles."],
+ ["Yalanla itham edilen râvinin hadisi?",["Metrûk","Muallel","Şâz"],0,"Metrûk."],
+ ["Mevzû' hadis nedir?",["Uydurma hadis","Hasen hadis","Mu'allak hadis"],0,"Mevzû' = uydurma."],
+ ["Gizli kusurlu hadis?",["Muallel","Muhkem","Müsel sel"],0,"Muallel."],
+ ["Râvinin kendi sözünü hadise katması?",["İdrâc (müdrec)","Kalb","İdtırâb"],0,"İdrâc."],
+ ["Eşit güçte uzlaştırılamayan rivayetler?",["Muzdarib","Maklûb","Müdrec"],0,"İdtırâb."],
+ ["Makbûl râvinin daha sikaya muhalefeti?",["Şâz","Münker","Metrûk"],0,"Şâz."],
+ ["Zayıf râvinin sikaya muhalefeti?",["Münker","Şâz","Mu'dal"],0,"Münker."],
+ ["Aynı sahâbîden gelen destekleyici yol?",["Mütâbi'","Şâhid","Müdrec"],0,"Mütâbi'."],
+ ["Başka sahâbîden gelen destekleyici rivayet?",["Şâhid","Mütâbi'","Garîb"],0,"Şâhid."],
+ ["Şeyhin yazısını bulup rivayet etmek?",["Vicâde","İcâzet","Arz"],0,"Vicâde."],
+ ["Talebenin şeyhe okuması?",["Arz","Semâ'","Münâvele"],0,"Arz (kırâat)."],
+ ["Sahâbîye nispet edilen söz?",["Mevkûf","Merfû'","Maktû'"],0,"Mevkûf."],
+ ["Tâbiîye nispet edilen söz?",["Maktû'","Mevkûf","Merfû'"],0,"Maktû'."],
+ ["Hadis usûlünün amacı nedir?",["Rivayetin kabul edilebilirliğini belirlemek","Metni çevirmek","Fıkhî hüküm çıkarmak"],0,"Usûl, kabul ve red ölçüleridir."],
+ ["‘Muhtelit’ kime denir?",["Hıfzı sonradan bozulan râviye","Hiç hıfzı olmayana","Yalancı râviye"],0,"İhtilât."],
+ ["Hangisi merdûddur?",["Mevzû'","Sahîh","Hasen"],0,"Mevzû' merdûddur."]
+];
+
+/* ============================ DURUM ============================ */
+const KEY="nuzhe-atolye-v1";
+let S={xp:0,streak:0,last:"",done:{},cards:{},best:{},badges:{},theme:"",exam:0};
+try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x)S=Object.assign(S,x)}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const today=()=>new Date().toISOString().slice(0,10);
+function touchStreak(){const t=today();if(S.last===t)return;const y=new Date(Date.now()-864e5).toISOString().slice(0,10);S.streak=(S.last===y)?S.streak+1:1;S.last=t;save()}
+const level=()=>Math.floor(S.xp/100)+1;
+const doneCount=()=>Object.keys(S.done).length;
+const N=LESSONS.length;
+const BADGES=[
+ ["🌱","İlk Adım","İlk dersi bitir",()=>doneCount()>=1],
+ ["📚","Yarı Yol","6 ders bitir",()=>doneCount()>=6],
+ ["🎓","Hatim",`${N} dersin tamamı`,()=>doneCount()>=N],
+ ["🔥","3 Gün Seri","3 gün üst üste çalış",()=>S.streak>=3],
+ ["🌟","7 Gün Seri","7 gün üst üste çalış",()=>S.streak>=7],
+ ["💯","Yüz Puan","500 puana ulaş",()=>S.xp>=500],
+ ["🕵️","Muhaddis Dedektif","Dedektifte 8+ yap",()=>(S.best.det||0)>=8],
+ ["⚡","Hız Ustası","Kabul-Red hızında 12+ yap",()=>(S.best.kr||0)>=12],
+ ["🌳","Ağaç Bilgini","Hadis Ağacında 14+ yap",()=>(S.best.tree||0)>=14],
+ ["🏆","Sınav Şampiyonu","Sınavda 90+ al",()=>(S.exam||0)>=90]
+];
+function checkBadges(){BADGES.forEach(([i,n,d,f])=>{if(!S.badges[n]&&f()){S.badges[n]=1;toast(`${i} Yeni rozet: ${n}!`);confetti()}});save()}
+function addXp(n){S.xp+=n;touchStreak();checkBadges();save();head()}
+function head(){$("#pXp").textContent="⭐ "+S.xp+" · Sv."+level();$("#pStreak").textContent="🔥 "+S.streak;$("#xpFill").style.width=(S.xp%100)+"%"}
+
+/* ============================ YARDIMCILAR ============================ */
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const pick=(a,n)=>shuffle(a).slice(0,n);
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("show"),2400)}
+function confetti(){const c=document.createElement("div");c.className="confetti";const cols=["#1E5B4F","#B98A1B","#B3402F","#2D5FA8","#6A4FB0"];
+  for(let i=0;i<36;i++){const e=document.createElement("i");e.style.left=Math.random()*100+"%";e.style.background=cols[i%5];e.style.animationDelay=Math.random()*.5+"s";c.appendChild(e)}
+  document.body.appendChild(c);setTimeout(()=>c.remove(),2400)}
+const canSpeak="speechSynthesis" in window;
+function speak(t){if(!canSpeak)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="ar-SA";u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
+const spBtn=t=>canSpeak?`<button class="sp" data-act="speak" data-t="${esc(t)}" aria-label="Dinle">🔊</button>`:"";
+
+/* ============================ GÖRÜNÜMLER ============================ */
+let tab="yol",view=null,cur={};
+const TABS=[["yol","🗺️","Yol"],["oyun","🎮","Oyun"],["kart","🃏","Kartlar"],["sinav","📝","Sınav"],["ben","🏅","Ben"]];
+function nav(){$("#nav").innerHTML=TABS.map(([k,i,n])=>`<button class="${tab===k?"on":""}" data-act="tab" data-k="${k}"><span class="ic">${i}</span>${n}</button>`).join("")}
+function render(){nav();head();const a=$("#app");window.scrollTo(0,0);
+  a.innerHTML=view?view():({yol:vYol,oyun:vOyun,kart:vKart,sinav:vSinav,ben:vBen})[tab]();
+  if(cur.after){const f=cur.after;cur.after=null;f()}}
+
+function vYol(){
+  const n=doneCount(),next=LESSONS.find(l=>!S.done[l.id]);
+  let h=`<div class="card hero"><div class="ar big-ar">نُخْبَة</div>
+    <h1>Hadis usûlünü keşfet!</h1>
+    <p>İbn Hacer'in <i>Nüzhetü'n-Nazar</i> adlı Nuhbetü'l-Fiker şerhindeki konuları ${N} kısa derste, oyunlarla ve kartlarla öğren.</p>
+    <div class="prog" style="background:rgba(255,255,255,.25)"><i style="width:${n/N*100}%;background:#fff"></i></div>
+    <div class="row"><span>${n}/${N} ders tamam</span><span style="flex:1"></span>
+    ${next?`<button class="btn light" data-act="lesson" data-id="${next.id}">${n?"Devam et":"Başla"} →</button>`:`<span class="pill" style="color:#1E5B4F;background:#fff">🎓 Hatmettin!</span>`}</div></div>`;
+  BABS.forEach(b=>{h+=`<div class="babhead"><h2>${b.tr}</h2><span class="ar">${b.ar}</span></div>`;
+    LESSONS.filter(l=>l.bab===b.id).forEach(l=>{h+=`<button class="lesson ${S.done[l.id]?"done":""}" data-act="lesson" data-id="${l.id}"><span class="num">${S.done[l.id]?"✓":l.id}</span>
+      <span class="t"><b>${l.icon} ${l.tr}</b><span class="ar">${l.ar}</span></span><span class="tag">${S.done[l.id]?"tamam":"+30 ⭐"}</span></button>`})});
+  h+=`<div class="card soft small muted" style="margin-top:18px">Bu program, <i>Nüzhetü'n-Nazar</i>'ın konu sırasını izleyen bir çalışma yardımcısıdır; kitabın yerini tutmaz. Açıklamalar kısaltılmış ve sadeleştirilmiştir. Ayrıntı ve ihtilaflı konular için eseri ve hocanı esas al.</div>`;
+  return h;
+}
+function chainHtml(c){return `<p class="small" style="margin:10px 0 2px"><b>${c.label}</b></p><div class="chain">${c.nodes.map((n,i)=>`${i?'<span class="arrow">→</span>':""}<span class="node ${n[1]}">${n[0]}</span>`).join("")}</div>`}
+function vLesson(id){
+  const L=LESSONS.find(l=>l.id===id);
+  let h=`<button class="back" data-act="home">← Yol</button>
+  <div class="sec-h"><span style="font-size:32px">${L.icon}</span><h1 style="margin:0">${L.tr}</h1></div>
+  <div class="ar" style="font-size:28px;color:var(--accent)">${L.ar}</div>
+  <div class="callout"><b>Hedef.</b> ${L.goal}</div>`;
+  L.secs.forEach(s=>{
+    if(s.callout){h+=`<div class="callout">${s.callout}</div>`;return}
+    h+=`<div class="card">${s.h?`<h3>${s.h}</h3>`:""}${s.p?`<p>${s.p}</p>`:""}`;
+    if(s.chains)h+=`<p class="muted small">Kesikli kırmızı kutu = düşen râvi. Şema Musannif'ten Hz. Peygamber'e doğrudur.</p>`+s.chains.map(chainHtml).join("");
+    if(s.table){h+=`<div class="tblwrap"><table class="t"><tr>${s.table[0].map(c=>`<th>${c}</th>`).join("")}</tr>${s.table.slice(1).map(r=>`<tr>${r.map((c,i)=>`<td>${i===0?`<b>${c}</b>`:c}</td>`).join("")}</tr>`).join("")}</table></div>`}
+    h+=`</div>`});
+  if(L.ex.length){h+=`<h2>Örnekler</h2>`;
+    L.ex.forEach((e,i)=>{h+=`<div class="card"><span class="tag">${e.tag}</span><div class="exar">${e.ar}</div>
+      <div class="row small muted"><span>🇹🇷 ${e.tr}</span><span style="flex:1"></span>${spBtn(e.ar)}</div>
+      <button class="btn ghost sm" data-act="exnote" data-i="${i}" style="margin-top:8px">Açıklamayı göster</button>
+      <div class="reveal exnote small" id="en-${i}">${e.note}</div></div>`})}
+  h+=`<h2>Mini sınav</h2><div class="card" id="mini"></div>`;
+  cur.after=()=>miniQuiz(L);return h;
+}
+function miniQuiz(L){
+  const box=$("#mini");
+  runQuiz(box,{items:L.mini.map(m=>({q:m[0],opts:m[1],a:m[2],why:m[3]})),done:(ok,tot)=>{
+    const first=!S.done[L.id];
+    if(ok>=2){S.done[L.id]=1;save();addXp(first?30+ok*5:ok*2);confetti();
+      box.innerHTML=`<div class="result"><div class="big">${ok}/${tot}</div><p>${first?"Ders tamamlandı! +"+(30+ok*5)+" ⭐":"Güzel tekrar!"}</p>
+      <div class="row" style="justify-content:center"><button class="btn ghost" data-act="home">Yola dön</button>${L.id<N?`<button class="btn" data-act="lesson" data-id="${L.id+1}">Sonraki ders →</button>`:`<button class="btn" data-act="tab" data-k="sinav">Sınava geç →</button>`}</div></div>`;
+    }else box.innerHTML=`<div class="result"><div class="big">${ok}/${tot}</div><p>Dersi tamamlamak için en az 2 doğru gerekli. Konuyu tekrar oku ve dene!</p><button class="btn" data-act="lesson" data-id="${L.id}">Tekrar dene</button></div>`}});
+}
+
+/* ---- Quiz motoru ---- */
+function runQuiz(box,cfg){
+  let i=0,ok=0,locked=false,end=0,tm=null,wrong=0;const items=cfg.items,timed=cfg.timed;
+  const finish=()=>{clearInterval(tm);cfg.done(ok,items.length,wrong)};
+  function q(){
+    if(i>=items.length||(timed&&Date.now()>=end))return finish();
+    const it=items[i];locked=false;
+    box.innerHTML=`${timed?`<div class="prog timer"><i id="tbar" style="width:100%"></i></div>`:`<div class="prog"><i style="width:${i/items.length*100}%"></i></div>`}
+      <div class="row small muted"><span>Soru ${i+1}/${items.length}</span><span style="flex:1"></span><span>✔ ${ok}</span></div>
+      ${it.big?`<div style="font-size:30px;font-family:var(--f-display);font-weight:800;margin:6px 0">${it.big}</div>`:""}
+      <div class="qprompt">${it.q}</div>
+      ${it.opts.map((o,k)=>`<button class="opt" data-k="${k}">${o}</button>`).join("")}<div id="fb"></div>`;
+    box.querySelectorAll(".opt").forEach(b=>b.onclick=()=>pickAns(+b.dataset.k));
+  }
+  function pickAns(k){
+    if(locked)return;locked=true;const it=items[i];const good=k===it.a;if(good)ok++;else wrong++;
+    box.querySelectorAll(".opt").forEach((b,j)=>{b.disabled=true;if(j===it.a)b.classList.add("ok");else if(j===k)b.classList.add("no")});
+    if(!good)box.querySelector(".opt.no")?.classList.add("shake");
+    box.querySelector("#fb").innerHTML=`<div class="feedback ${good?"ok":"no"}"><b>${good?"Doğru! ":"Yanlış. "}</b><span>${it.why||""}</span></div>${timed?"":`<button class="btn" id="nx">${i+1>=items.length?"Bitir":"Devam"} →</button>`}`;
+    if(timed)setTimeout(()=>{i++;q()},good?450:1300);else box.querySelector("#nx").onclick=()=>{i++;q()};
+  }
+  if(timed){end=Date.now()+timed*1000;tm=setInterval(()=>{const r=end-Date.now();const b=box.querySelector("#tbar");if(b)b.style.width=Math.max(0,r/(timed*10))+"%";if(r<=0&&!locked)finish()},120)}
+  q();
+}
+
+/* ---- Oyunlar ---- */
+function vOyun(){
+  const G=[["det","🕵️","Hadis Dedektifi","Tanımı oku, doğru terimi bul. 10 soru.","detective"],
+   ["kr","⚡","Kabul-Red Hızı","Makbûl mü, merdûd mu? 45 saniye.","kr"],
+   ["tree","🌳","Hadis Ağacı","Terimi doğru dala yerleştir. 45 saniye.","tree"],
+   ["mem","🧠","Terim Eşleştirme","Terimi tanımıyla eşleştir.","memory"],
+   ["sira","🪜","Sıralama","Kuvvet merdiveni ve Buhârî senedi.","order"]];
+  return `<h1>Oyun Salonu</h1><p class="muted">Her oyun puan kazandırır. En iyi skorun saklanır.</p>
+  <div class="grid2">${G.map(g=>`<button class="game" data-act="play" data-g="${g[4]}"><span class="gi">${g[1]}</span><span><b>${g[2]}</b><br><span class="muted small">${g[3]}</span><br><span class="tag">En iyi: ${S.best[g[0]]??"–"}</span></span></button>`).join("")}</div>`;
+}
+function gameShell(title){return `<button class="back" data-act="home">← Geri</button><h2>${title}</h2><div class="card" id="gbox"></div>`}
+function endCard(box,score,label,gain,again){box.innerHTML=`<div class="result"><div class="big">${score}</div><p>${label}</p><p class="muted">+${gain} ⭐ kazandın</p><div class="row" style="justify-content:center"><button class="btn ghost" data-act="home">Geri</button><button class="btn" data-act="play" data-g="${again}">Tekrar oyna</button></div></div>`}
+function play(g){tab="oyun";view=()=>gameShell(({detective:"🕵️ Hadis Dedektifi",kr:"⚡ Kabul-Red Hızı",tree:"🌳 Hadis Ağacı",memory:"🧠 Terim Eşleştirme",order:"🪜 Sıralama"})[g]);render();({detective:gDet,kr:gKr,tree:gTree,memory:gMem,order:gOrder})[g]($("#gbox"))}
+function detItems(n){return pick(DET,n).map(d=>{const opts=shuffle([d[1],...pick(TERMS.filter(t=>t!==d[1]),3)]);return {q:`“${d[0]}” hangi terimle anılır?`,opts,a:opts.indexOf(d[1]),why:`<b>${d[1]}</b>: ${d[2]}`}})}
+function krItems(n){return pick(KR,n).map(d=>{const opts=["Makbûl","Merdûd"];return {q:d[0],opts,a:opts.indexOf(d[1]),why:`<b>${d[1]}</b>. ${d[2]}`}})}
+function gDet(box){runQuiz(box,{items:detItems(10),done:(ok,t)=>{S.best.det=Math.max(S.best.det||0,ok);const g=ok*8;addXp(g);if(ok>=8)confetti();endCard(box,`${ok}/${t}`,ok>=8?"Harika bir muhaddis dedektifsin!":ok>=5?"İyi gidiyorsun!":"Dersleri tekrar edip yeniden dene.",g,"detective")}})}
+function gKr(box){runQuiz(box,{items:krItems(KR.length),timed:45,done:(ok,t,w)=>{S.best.kr=Math.max(S.best.kr||0,ok);const g=ok*5;addXp(g);endCard(box,ok,`45 saniyede ${ok} doğru (${w} yanlış).`,g,"kr")}})}
+function gTree(box){
+  const its=pick(TREE,TREE.length).map(t=>({big:t[0],q:"Bu terim hangi dala girer?",opts:GRP,a:t[1],why:`${t[0]} → <b>${GRP[t[1]]}</b>`}));
+  runQuiz(box,{items:its,timed:45,done:(ok,t,w)=>{S.best.tree=Math.max(S.best.tree||0,ok);const g=ok*4;addXp(g);endCard(box,ok,`45 saniyede ${ok} doğru (${w} yanlış).`,g,"tree")}});
+}
+function gMem(box){
+  const ps=pick(PAIRS,6);let cards=shuffle(ps.flatMap((p,i)=>[{id:i,t:p[0],term:true},{id:i,t:p[1],term:false}]).map((c,k)=>({...c,k})));
+  let open=[],moves=0,found=0,lock=false;
+  function draw(){box.innerHTML=`<p class="muted small">Terimi tanımıyla eşleştir. Hamle: <b>${moves}</b></p><div class="mgrid">${cards.map(c=>`<button class="mc ${c.found?"found":c.up?"up":"down"}" data-k="${c.k}">${c.found||c.up?(c.term?`<b>${c.t}</b>`:c.t):"?"}</button>`).join("")}</div>`;
+    box.querySelectorAll(".mc").forEach(b=>b.onclick=()=>flip(+b.dataset.k))}
+  function flip(k){const c=cards.find(x=>x.k===k);if(lock||c.up||c.found)return;c.up=true;open.push(c);draw();
+    if(open.length===2){moves++;lock=true;
+      if(open[0].id===open[1].id){open.forEach(x=>x.found=true);found++;open=[];lock=false;draw();if(found===ps.length){const g=Math.max(10,40-moves*2);S.best.mem=Math.min(S.best.mem??99,moves);addXp(g);confetti();endCard(box,moves,"hamlede bitirdin",g,"memory")}}
+      else setTimeout(()=>{open.forEach(x=>x.up=false);open=[];lock=false;draw()},900)}}
+  draw();
+}
+function gOrder(box){
+  const its=shuffle(ORDER);let i=0,ok=0;
+  function q(){
+    if(i>=its.length){const g=ok*12;S.best.sira=Math.max(S.best.sira||0,ok);addXp(g);return endCard(box,`${ok}/${its.length}`,"sıralama doğru",g,"order")}
+    const it=its[i];let chosen=[],bank=shuffle(it.tiles.map((w,k)=>({w,k:it.tiles.indexOf(w)})));
+    const cls=it.ar?"tile":"tile tr";
+    const d=()=>{
+      box.innerHTML=`<div class="prog"><i style="width:${i/its.length*100}%"></i></div><p class="qprompt">${it.q}</p>
+      <p class="muted small">Kutuları doğru sıraya dokunarak yerleştir (soldan sağa).</p>
+      <div class="slot ltr" id="slot">${chosen.map(c=>`<button class="${cls}" data-u="${c.k}">${c.w}</button>`).join("")}</div>
+      <div class="bank ltr">${bank.map(c=>`<button class="${cls}" data-p="${c.k}">${c.w}</button>`).join("")}</div>
+      <div id="fb"></div><div class="row"><button class="btn ghost sm" id="rs">↺ Sıfırla</button><button class="btn sm" id="ck" ${bank.length?"disabled":""}>Kontrol et</button></div>`;
+      box.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{const c=bank.find(x=>x.k==b.dataset.p);bank=bank.filter(x=>x!==c);chosen.push(c);d()});
+      box.querySelectorAll("[data-u]").forEach(b=>b.onclick=()=>{const c=chosen.find(x=>x.k==b.dataset.u);chosen=chosen.filter(x=>x!==c);bank.push(c);d()});
+      box.querySelector("#rs").onclick=()=>{bank=shuffle(it.tiles.map((w,k)=>({w,k})));chosen=[];d()};
+      box.querySelector("#ck").onclick=()=>{const good=chosen.every((c,idx)=>c.k===idx);if(good)ok++;
+        box.querySelector("#fb").innerHTML=`<div class="feedback ${good?"ok":"no"}"><b>${good?"Doğru!":"Olmadı."}</b> <span>${it.tiles.join(" → ")}</span></div><button class="btn" id="nx">Devam →</button>`;
+        box.querySelectorAll("button").forEach(b=>{if(b.id!=="nx")b.disabled=true});box.querySelector("#nx").onclick=()=>{i++;q()}};
+    };d();
+  }
+  q();
+}
+
+/* ---- Kartlar (Leitner) ---- */
+const INTERVAL=[0,1,3,7,14];
+function dueCards(){const t=today();return CARDS.map((c,i)=>({i,c,st:S.cards[i]||{b:0,d:t}})).filter(x=>x.st.d<=t)}
+let fc=null;
+function vKart(){const due=dueCards();const mastered=Object.values(S.cards).filter(s=>s.b>=4).length;
+  return `<h1>Terim Kartları</h1><p class="muted">Aralıklı tekrar: bildiğin kart seyrek, bilmediğin sık gelir.</p>
+  <div class="card stats"><div><b>${CARDS.length}</b><span>toplam</span></div><div><b>${due.length}</b><span>bugün sırada</span></div><div><b>${mastered}</b><span>öğrenildi</span></div></div>
+  <div id="fcbox">${fcHtml()}</div>`}
+function fcHtml(){const due=dueCards();
+  if(!due.length)return `<div class="card result"><div class="big">🎉</div><p>Bugünkü kartlar tamam! Yarın yeniden gel.</p></div>`;
+  if(!fc||!due.find(x=>x.i===fc.i))fc={i:due[(Math.random()*due.length)|0].i,flip:false};
+  const c=CARDS[fc.i];
+  return `<div class="flash"><div class="face ${fc.flip?"back-face":""}" data-act="flip" role="button" tabindex="0">${fc.flip?`<div><p>${c[1]}</p><p class="ar" style="font-size:30px;color:var(--accent)">${c[0]}</p></div>`:`<div><div class="ar">${c[0]}</div><p class="muted small">Dokun, anlamını gör</p><div>${spBtn(c[0])}</div></div>`}</div></div>
+  ${fc.flip?`<div class="row" style="justify-content:center"><button class="btn ghost" data-act="card" data-v="0">Tekrar ↻</button><button class="btn" data-act="card" data-v="1">Bildim ✓</button></div>`:""}
+  <p class="muted small" style="text-align:center">Sırada ${due.length} kart</p>`}
+
+/* ---- Sınav ---- */
+function vSinav(){return `<h1>Genel Sınav</h1><p class="muted">20 soruluk karma sınav: kavram soruları + tanım-terim + kabul/red.</p>
+  <div class="card"><div class="stats"><div><b>${S.exam||"–"}</b><span>en yüksek puan</span></div><div><b>${doneCount()}/${N}</b><span>ders</span></div><div><b>${level()}</b><span>seviye</span></div></div>
+  <p class="small muted">Hedef: 90 ve üzeri puan alıp “Sınav Şampiyonu” rozetini aç.</p><button class="btn" data-act="exam">Sınava başla</button></div>`}
+function exam(){
+  tab="sinav";view=()=>gameShell("📝 Genel Sınav");render();const box=$("#gbox");
+  const a=pick(QB,10).map(q=>{const c=q[1][q[2]];const s=shuffle(q[1]);return {q:q[0],opts:s,a:s.indexOf(c),why:q[3]}});
+  runQuiz(box,{items:shuffle([...a,...detItems(6),...krItems(4)]),done:(ok,t)=>{
+    const sc=Math.round(ok/t*100);S.exam=Math.max(S.exam||0,sc);const g=Math.round(sc/2);addXp(g);if(sc>=90)confetti();
+    const st=sc>=90?3:sc>=70?2:sc>=50?1:0;
+    box.innerHTML=`<div class="result"><div class="stars">${"★".repeat(st)}${"☆".repeat(3-st)}</div><div class="big">${sc}</div><p>${ok}/${t} doğru · +${g} ⭐</p>
+    <p class="muted">${sc>=90?"Mâşâallah! Hatimlik performans.":sc>=70?"Çok iyi! Biraz daha tekrarla zirveye çık.":"Dersleri ve kartları tekrar edip yeniden dene."}</p>
+    <div class="row" style="justify-content:center"><button class="btn ghost" data-act="home">Geri</button><button class="btn" data-act="exam">Yeniden</button></div></div>`}});
+}
+
+/* ---- Ben ---- */
+function vBen(){return `<h1>Ben</h1>
+  <div class="card stats"><div><b>${S.xp}</b><span>puan</span></div><div><b>${level()}</b><span>seviye</span></div><div><b>${S.streak}</b><span>gün serisi</span></div></div>
+  <h2>Rozetler</h2><div class="badges">${BADGES.map(b=>`<div class="badge ${S.badges[b[1]]?"on":""}"><div class="bi">${b[0]}</div><b>${b[1]}</b><span>${b[2]}</span></div>`).join("")}</div>
+  <h2 style="margin-top:22px">Müellif ve Eser</h2>
+  <div class="card"><p><b>İbn Hacer el-Askalânî</b> (773–852 h.), hadis ilminin en büyük âlimlerindendir; Şâfiî mezhebinden olup “Emîrü'l-Mü'minîn fi'l-hadîs” diye anılır. <i>Nuhbetü'l-Fiker</i> kısa bir usûl metnidir; <i>Nüzhetü'n-Nazar</i> bu metnin kendi şerhidir. Kitapta hadis bölümleri haberin yol sayısından başlayıp makbûl-merdûd ayrımına, râvi kusurlarına ve rivayet usûlüne uzanan sistemli bir tasnifle işlenir.</p></div>
+  <h2>Ayarlar</h2><div class="card row"><button class="btn ghost sm" data-act="theme">🌓 Tema değiştir</button><button class="btn ghost sm" data-act="reset">Sıfırla</button></div>`}
+
+/* ============================ OLAYLAR ============================ */
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-act]");if(!t)return;const a=t.dataset.act;
+  if(a==="tab"){tab=t.dataset.k;view=null;render()}
+  else if(a==="home"){view=null;render()}
+  else if(a==="lesson"){const id=+t.dataset.id;tab="yol";view=()=>vLesson(id);render()}
+  else if(a==="exnote"){$("#en-"+t.dataset.i).classList.toggle("on")}
+  else if(a==="speak"){speak(t.dataset.t)}
+  else if(a==="play"){play(t.dataset.g)}
+  else if(a==="exam"){exam()}
+  else if(a==="flip"){fc.flip=true;$("#fcbox").innerHTML=fcHtml()}
+  else if(a==="card"){
+    const i=fc.i,st=S.cards[i]||{b:0,d:today()};
+    if(t.dataset.v==="1"){st.b=Math.min(4,st.b+1);addXp(2)}else st.b=0;
+    st.d=new Date(Date.now()+INTERVAL[st.b]*864e5).toISOString().slice(0,10);
+    if(t.dataset.v==="0")st.d=today();
+    S.cards[i]=st;save();
+    const prev=i;fc=null;const due=dueCards().filter(x=>x.i!==prev);
+    if(due.length)fc={i:due[(Math.random()*due.length)|0].i,flip:false};
+    const y=scrollY;render();scrollTo(0,y)}
+  else if(a==="theme"){const d=document.documentElement;const dark=getComputedStyle(d).colorScheme==="dark";S.theme=dark?"light":"dark";d.dataset.theme=S.theme;save()}
+  else if(a==="reset"){if(confirm("Tüm ilerleme silinsin mi?")){localStorage.removeItem(KEY);location.reload()}}
+});
+document.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches('[role="button"]')){e.preventDefault();e.target.click()}});
+if(S.theme)document.documentElement.dataset.theme=S.theme;
+touchStreak();render();
+</script>
+</body>
+</html>
