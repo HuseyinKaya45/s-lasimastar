@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Marriage Matchmaking System</title>
+<style>
+:root{
+  --bg:#F3F5F8;--card:#fff;--ink:#16202C;--muted:#5B6877;--line:#D6DCE4;--soft:#E8ECF1;
+  --accent:#1F4E8C;--accent-ink:#fff;--good:#1E7A46;--bad:#B3261E;--warn:#9A6200;
+  --good-bg:#E2F2E6;--bad-bg:#FBE7E4;--warn-bg:#FFF3D6;--info-bg:#E6EEF9;
+  --f:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10161D;--card:#18212B;--ink:#E7EDF4;--muted:#9AA8B8;--line:#2B3744;--soft:#212C38;
+  --accent:#7FB1F0;--accent-ink:#0B1624;--good:#6FD08E;--bad:#FF8A80;--warn:#F2C25C;
+  --good-bg:#17301F;--bad-bg:#3A1D1A;--warn-bg:#3A2E10;--info-bg:#17283D;color-scheme:dark}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15.5px/1.5 var(--f)}
+h1,h2,h3{margin:0 0 .5em;line-height:1.25}h1{font-size:24px}h2{font-size:19px}h3{font-size:16px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 14px}
+header.top{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+header.top .wrap{display:flex;gap:12px;align-items:center;min-height:54px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.brand{font-weight:700;flex:1;min-width:200px}.brand small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+nav.tabs{background:var(--card);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
+nav.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 12px;font:inherit;color:var(--muted);cursor:pointer;white-space:nowrap}
+nav.tabs button.on{color:var(--accent);border-color:var(--accent);font-weight:600}
+main{padding:18px 0 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 14px}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:720px){.g2,.g3,.g4{grid-template-columns:1fr}}
+label{display:block;font-size:13px;color:var(--muted);margin:8px 0 3px;font-weight:600}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:8px 10px;min-height:38px}
+input[type=checkbox]{width:auto;min-height:0;margin-right:6px;vertical-align:middle}
+.chk{display:flex;align-items:flex-start;gap:6px;margin:6px 0;color:var(--ink);font-weight:400;font-size:14.5px}
+.chk input{margin-top:3px}
+textarea{min-height:70px}
+button.b,label.b{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:inherit;font-weight:600;padding:8px 14px;border-radius:7px;cursor:pointer;min-height:38px;margin:0}
+button.b.ghost,label.b.ghost{background:transparent;color:var(--accent)}
+button.b.red{background:var(--bad);border-color:var(--bad);color:#fff}
+button.b.sm{padding:4px 10px;min-height:30px;font-size:13.5px}
+button.b:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.sp{flex:1}
+.muted{color:var(--muted)}.small{font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+.tw{overflow-x:auto}
+.badge{display:inline-block;padding:1px 9px;border-radius:99px;font-size:12.5px;font-weight:700;background:var(--soft);color:var(--muted)}
+.badge.good{background:var(--good-bg);color:var(--good)}.badge.bad{background:var(--bad-bg);color:var(--bad)}
+.badge.warn{background:var(--warn-bg);color:var(--warn)}.badge.info{background:var(--info-bg);color:var(--accent)}
+.note{border-radius:8px;padding:9px 12px;margin:8px 0;font-size:14px}
+.note.good{background:var(--good-bg);color:var(--good)}.note.bad{background:var(--bad-bg);color:var(--bad)}
+.note.warn{background:var(--warn-bg);color:var(--warn)}.note.info{background:var(--info-bg);color:var(--accent)}
+.find{display:flex;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.find .badge{flex:none;min-width:58px;text-align:center}
+.stat{text-align:center}.stat b{display:block;font-size:28px;line-height:1.1}.stat span{font-size:12.5px;color:var(--muted)}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;word-break:break-all}
+.login{max-width:420px;margin:60px auto}
+.bar{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;min-width:70px}.bar i{display:block;height:100%;background:var(--accent)}
+.hidden{display:none}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:8px;z-index:50;font-weight:600;opacity:0;transition:.25s;pointer-events:none;max-width:92vw;text-align:center}
+.toast.show{opacity:1}
+.opts{display:flex;flex-wrap:wrap;gap:4px 14px}
+#printarea{display:none}
+@media print{body *{visibility:hidden}#printarea,#printarea *{visibility:visible}
+ #printarea{display:block;position:absolute;left:0;top:0;width:100%;color:#000;background:#fff;padding:24px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand" id="brand">Marriage Matchmaking System</div>
+  <div id="who" class="row"></div>
+</div></header>
+<nav class="tabs hidden" id="tabs"><div class="wrap" id="tabsin"></div></nav>
+<div class="wrap"><main id="app"></main></div>
+<div id="printarea"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+/* =====================================================================
+   FIXED SAFEGUARDS — cannot be changed by any parameter
+   ===================================================================== */
+const HARD={
+  minAgeFloor:18,        // persons under 18 cannot be admitted to the system
+  voluntary:true,        // participation is voluntary; no applications on behalf of others or under pressure
+  mutualConsent:true,    // no contact details are shared until both sides separately say "I want to meet"
+  noForce:true           // someone who declines cannot be forced into a match; declines are recorded without asking for a reason
+};
+const KEY="evlilik-tanistirma-v1";
+
+/* ===== SHA-256 / helpers ===== */
+const K256=new Uint32Array([0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2]);
+function sha256(str){
+  const m=new TextEncoder().encode(str),l=m.length,n=((l+9+63)>>6)<<6,b=new Uint8Array(n);
+  b.set(m);b[l]=0x80;const dv=new DataView(b.buffer);
+  dv.setUint32(n-4,(l*8)>>>0);dv.setUint32(n-8,Math.floor(l*8/4294967296));
+  let h=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+  const w=new Uint32Array(64);
+  for(let i=0;i<n;i+=64){
+    for(let t=0;t<16;t++)w[t]=dv.getUint32(i+t*4);
+    for(let t=16;t<64;t++){const a=w[t-15],c=w[t-2];
+      const s0=((a>>>7)|(a<<25))^((a>>>18)|(a<<14))^(a>>>3),s1=((c>>>17)|(c<<15))^((c>>>19)|(c<<13))^(c>>>10);
+      w[t]=(w[t-16]+s0+w[t-7]+s1)>>>0}
+    let [a,b2,c,d,e,f,g,hh]=h;
+    for(let t=0;t<64;t++){
+      const S1=((e>>>6)|(e<<26))^((e>>>11)|(e<<21))^((e>>>25)|(e<<7)),ch=(e&f)^(~e&g),t1=(hh+S1+ch+K256[t]+w[t])>>>0;
+      const S0=((a>>>2)|(a<<30))^((a>>>13)|(a<<19))^((a>>>22)|(a<<10)),mj=(a&b2)^(a&c)^(b2&c),t2=(S0+mj)>>>0;
+      hh=g;g=f;f=e;e=(d+t1)>>>0;d=c;c=b2;b2=a;a=(t1+t2)>>>0}
+    h=[h[0]+a,h[1]+b2,h[2]+c,h[3]+d,h[4]+e,h[5]+f,h[6]+g,h[7]+hh].map(x=>x>>>0)}
+  return h.map(x=>x.toString(16).padStart(8,"0")).join("");
+}
+const canon=o=>JSON.stringify(o,(k,v)=>v&&typeof v==="object"&&!Array.isArray(v)?Object.keys(v).sort().reduce((r,x)=>(r[x]=v[x],r),{}):v);
+const seal=o=>sha256(canon(o));
+const hashPin=(pin,salt)=>{let x=salt+pin;for(let i=0;i<1500;i++)x=sha256(x+salt);return x};
+const rnd=()=>Array.from(crypto.getRandomValues(new Uint8Array(12))).map(x=>x.toString(16).padStart(2,"0")).join("");
+
+/* =====================================================================
+   DEFAULT PARAMETERS
+   ===================================================================== */
+const DEFAULT_PARAMS=()=>({
+  institution:"Marriage Matchmaking Unit",
+  minAge:18, maxAge:60,
+  matchGender:"karsi",
+  minScore:60, topN:5, aggregator:"geom",
+  maxActiveIntros:2, cooldownDays:30, responseDays:7,
+  ageDecayYears:5,
+  impW:{1:1,2:3,3:6},
+  critW:{age:3,loc:2,edu:2,marital:2,kids:2},
+  eduLevels:["Primary school","Middle school","High school","Associate degree","Bachelor's degree","Master's degree","Doctorate"],
+  meetingMode:"Accompanied by a staff member, in a public place",
+  consentVersion:"1",
+  consentText:"I made this application of my own free will and in person, in order to meet someone for the purpose of marriage. I consent to my information being processed solely for matchmaking purposes and within the scope set by the institution, and to its being presented to suitable applicants as a limited introduction summary. My contact details will not be shared unless the other party and I have each separately agreed to meet. I may withdraw my application at any time without giving a reason; I am not obliged to accept a match with anyone.",
+  retentionDays:365,
+  fairGapPct:15,
+  sessionLockMinutes:5,
+  questions:[
+    {id:"q_cocuk",label:"Do you want to have children?",opts:["Yes","No","Undecided"],weight:3,sensitive:false,enabled:true},
+    {id:"q_yer",label:"Where you would like to live",opts:["Big city","City","Town / village","Doesn't matter"],weight:2,sensitive:false,enabled:true},
+    {id:"q_aile",label:"Living with a member of your family after marriage",opts:["I would like to","I would not like to","Doesn't matter"],weight:2,sensitive:false,enabled:true},
+    {id:"q_calisma",label:"Your expectation regarding your spouse working",opts:["Should work","Should not work","Doesn't matter"],weight:2,sensitive:false,enabled:true},
+    {id:"q_sigara",label:"Smoking",opts:["I smoke","I do not smoke"],weight:2,sensitive:false,enabled:true},
+    {id:"q_inanc",label:"Level of religious observance",opts:["High","Medium","Low"],weight:2,sensitive:true,enabled:false}
+  ]
+});
+const IMP=[["0","Unimportant"],["1","Slightly important"],["2","Important"],["3","Mandatory (deal-breaker)"]];
+const MEDENI=[["hic","Never married"],["bosanmis","Divorced"],["dul","Widowed"]];
+const ISDURUM=[["calisiyor","Employed"],["ogrenci","Student"],["calismiyor","Not employed"],["emekli","Retired"]];
+const SCHEMA=[
+ {sec:"General"},
+ {k:"institution",label:"Institution name",type:"text"},
+ {k:"minAge",label:"Minimum application age",type:"int",min:HARD.minAgeFloor,max:40,help:`At least ${HARD.minAgeFloor}; cannot be lowered below this.`},
+ {k:"maxAge",label:"Maximum application age",type:"int",min:25,max:99},
+ {k:"matchGender",label:"Matching gender rule",type:"sel",opts:[["karsi","With the opposite gender"],["serbest","No restriction"]],help:"Determined by the competent authority in line with current legislation and institutional policy."},
+ {sec:"Matching"},
+ {k:"minScore",label:"Minimum compatibility score (0–100)",type:"int",min:0,max:100},
+ {k:"topN",label:"Maximum number of people suggested per applicant",type:"int",min:1,max:20},
+ {k:"aggregator",label:"Two-way score combination",type:"sel",opts:[["geom","Geometric mean"],["min","The lower one"],["avg","Arithmetic mean"]]},
+ {k:"ageDecayYears",label:"Distance from the age preference at which the score drops to zero (years)",type:"int",min:1,max:15},
+ {sec:"Process and safety"},
+ {k:"maxActiveIntros",label:"Maximum simultaneous active introductions per applicant",type:"int",min:1,max:5},
+ {k:"cooldownDays",label:"Waiting period before new suggestions after an introduction ends (days)",type:"int",min:0,max:365},
+ {k:"responseDays",label:"Response waiting period (days)",type:"int",min:1,max:60},
+ {k:"meetingMode",label:"First meeting format (text)",type:"text"},
+ {k:"retentionDays",label:"Retention period for closed records (days)",type:"int",min:30,max:3650},
+ {k:"fairGapPct",label:"Fairness warning threshold (percentage-point gap)",type:"int",min:1,max:60},
+ {k:"sessionLockMinutes",label:"Automatic lock (minutes)",type:"int",min:1,max:60}
+];
+const CRIT_LABEL={age:"Age",loc:"Province of residence",edu:"Education",marital:"Marital status",kids:"Children"};
+
+/* =====================================================================
+   DATA STORE
+   ===================================================================== */
+let DB=null,SESSION=null,route={v:"dash"},ctx={};
+function load(){try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}}
+function save(){localStorage.setItem(KEY,JSON.stringify(DB))}
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad2=n=>String(n).padStart(2,"0");
+const dStr=d=>d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate());
+const todayStr=()=>dStr(new Date());
+const fmtD=s=>s?s.split("-").reverse().join("."):"—";
+const fmtT=ts=>{const d=new Date(ts);return fmtD(dStr(d))+" "+pad2(d.getHours())+":"+pad2(d.getMinutes())};
+const addDays=(s,n)=>{const d=new Date(s+"T00:00:00");d.setDate(d.getDate()+n);return dStr(d)};
+const daysBetween=(a,b)=>Math.round((new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/864e5);
+function ageOn(birth,ref){const b=new Date(birth+"T00:00:00"),r=new Date(ref+"T00:00:00");let a=r.getFullYear()-b.getFullYear();
+  if(r.getMonth()<b.getMonth()||(r.getMonth()===b.getMonth()&&r.getDate()<b.getDate()))a--;return a}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("show"),2800)}
+function validTC(n){if(!/^[1-9]\d{10}$/.test(n))return false;const d=n.split("").map(Number);
+  const d10=(((d[0]+d[2]+d[4]+d[6]+d[8])*7)-(d[1]+d[3]+d[5]+d[7]))%10;
+  return ((d10+10)%10===d[9])&&(d.slice(0,10).reduce((a,b)=>a+b,0)%10===d[10])}
+const maskId=n=>!n?"—":n.length>5?n.slice(0,3)+"•••••"+n.slice(-3):"•••";
+const ROLE={admin:"Administrator",gorevli:"Case officer",denetci:"Auditor"};
+
+/* ---- Audit log ---- */
+function logEv(action,detail){
+  const prev=DB.audit.length?DB.audit[DB.audit.length-1].hash:"GENESIS";
+  const e={i:DB.audit.length+1,ts:Date.now(),user:SESSION?SESSION.id:"sistem",role:SESSION?SESSION.role:"-",action,detail:detail||"",prev};
+  e.hash=sha256(prev+"|"+e.i+"|"+e.ts+"|"+e.user+"|"+e.role+"|"+e.action+"|"+e.detail);
+  DB.audit.push(e);save();return e;
+}
+function verifyChain(audit){
+  let prev="GENESIS";
+  for(const e of audit){
+    const h=sha256(prev+"|"+e.i+"|"+e.ts+"|"+e.user+"|"+e.role+"|"+e.action+"|"+e.detail);
+    if(e.prev!==prev||e.hash!==h)return {ok:false,at:e.i};
+    prev=e.hash}
+  return {ok:true,n:audit.length};
+}
+
+/* ---- Parameter validation ---- */
+function validateParams(p){
+  const E=[];
+  SCHEMA.forEach(s=>{if(s.type==="int"&&(!Number.isInteger(p[s.k])||p[s.k]<s.min||p[s.k]>s.max))E.push(`${s.label}: must be an integer between ${s.min} and ${s.max}.`)});
+  if(p.minAge<HARD.minAgeFloor)E.push(`The minimum age cannot be lowered below ${HARD.minAgeFloor}.`);
+  if(p.maxAge<=p.minAge)E.push("The maximum age must be greater than the minimum age.");
+  [1,2,3].forEach(i=>{if(!Number.isInteger(p.impW[i])||p.impW[i]<0||p.impW[i]>20)E.push("Importance weights must be integers between 0 and 20.")});
+  if(!(p.impW[1]<=p.impW[2]&&p.impW[2]<=p.impW[3]))E.push("Importance weights must be in ascending order (slightly ≤ important ≤ mandatory).");
+  Object.keys(CRIT_LABEL).forEach(k=>{if(!Number.isInteger(p.critW[k])||p.critW[k]<0||p.critW[k]>10)E.push(`The ${CRIT_LABEL[k]} weight must be between 0 and 10.`)});
+  if(!Array.isArray(p.eduLevels)||p.eduLevels.length<2)E.push("At least two education levels must be defined.");
+  const ids=new Set();(p.questions||[]).forEach(q=>{
+    if(!q.id||ids.has(q.id))E.push("Question IDs must be unique.");ids.add(q.id);
+    if(!q.label.trim())E.push("Question text cannot be empty.");
+    if(!Array.isArray(q.opts)||q.opts.length<2)E.push(`The question “${q.label}” must have at least 2 options.`);
+    if(!Number.isInteger(q.weight)||q.weight<0||q.weight>10)E.push(`The weight of “${q.label}” must be between 0 and 10.`)});
+  if(!p.consentText||p.consentText.trim().length<40)E.push("The explicit consent text cannot be empty or too short.");
+  return E;
+}
+
+/* =====================================================================
+   DATA MODEL
+   ===================================================================== */
+const newApplicant=()=>{DB.seq.a=(DB.seq.a||0)+1;const P=DB.params;
+  return {id:`A-${new Date().getFullYear()}-${String(DB.seq.a).padStart(4,"0")}`,status:"taslak",createdAt:Date.now(),createdBy:SESSION.id,
+  ad:"",soyad:"",kimNo:"",dogum:"",cins:"",telefon:"",eposta:"",il:"",ilce:"",medeni:"hic",cocuk:0,edu:"4",is:"calisiyor",meslek:"",tanitim:"",
+  prefs:{ageMin:21,ageMax:35,ageImp:2,locMode:"fark_etmez",locImp:1,eduMin:"2",eduImp:1,maritalOk:["hic"],maritalImp:1,kidsOk:true,kidsImp:1},
+  qa:{},consent:{data:false,sensitive:false,contactShare:false,ts:null,version:P.consentVersion},
+  checks:{inPerson:false,idVerified:false,protective:false,protectiveFound:false,voluntary:false,notMarried:false},
+  safetyBlock:false,safetyReason:"",cooldownUntil:"",notes:"",history:[],demo:false}};
+const hist=(o,text)=>{o.history.push({ts:Date.now(),user:SESSION?SESSION.id:"sistem",text})};
+const ACTIVE_INTRO=["yanit_bekliyor","kabul","bulusma_planli","devam_ediyor"];
+const ST_A={taslak:["Draft",""],dogrulama:["Awaiting verification","warn"],aktif:["Active (in pool)","good"],beklemede:["On hold","info"],inceleme:["Under review","bad"],cekildi:["Withdrawn",""],engelli:["Safety block","bad"],tamamlandi:["Completed","good"],silindi:["Anonymised",""]};
+const ST_I={yanit_bekliyor:["Awaiting response","warn"],reddedildi:["Declined",""],kabul:["Both sides accepted","good"],bulusma_planli:["Meeting scheduled","good"],devam_ediyor:["In progress","good"],bitti:["Ended",""],sikayet:["Complaint / review","bad"],zamanasimi:["Timed out",""],cekildi:["Applicant withdrew",""],kararverdi:["Decision to marry","good"]};
+const nm=a=>a?(a.status==="silindi"?"(deleted record)":`${a.ad} ${a.soyad}`):"—";
+const getA=id=>DB.applicants.find(x=>x.id===id);
+
+/* ---- Applicant eligibility (can they be admitted to the pool?) ---- */
+function checkApplicant(a,P){
+  const F=[];const add=(l,id,t)=>F.push({lvl:l,id,txt:t});
+  if(!a.ad.trim()||!a.soyad.trim())add("eksik","K-AD","First name and surname are missing.");
+  if(!a.kimNo.trim())add("eksik","K-KIMLIK","Turkish national ID number (T.C. no) is missing.");else if(!validTC(a.kimNo.trim()))add("engel","K-TC","Turkish national ID number (T.C. no) is invalid.");
+  if(!a.dogum)add("eksik","K-DOGUM","Date of birth is missing.");
+  else{const y=ageOn(a.dogum,todayStr());
+    if(y<HARD.minAgeFloor)add("engel","K-YAS-SABIT",`Aged ${y}; persons under ${HARD.minAgeFloor} cannot be admitted to the system.`);
+    else if(y<P.minAge)add("engel","K-YAS",`Aged ${y}; the minimum application age is ${P.minAge}.`);
+    else if(y>P.maxAge)add("engel","K-YAS-US",`Aged ${y}; the maximum application age is ${P.maxAge}.`)}
+  if(!a.cins)add("eksik","K-CINS","Gender information is missing.");
+  if(!a.il.trim())add("eksik","K-IL","Province of residence is missing.");
+  if(!a.telefon.trim())add("eksik","K-TEL","Contact phone number is missing (visible to the case officer only).");
+  if(!a.tanitim.trim())add("eksik","K-TANITIM","Short introduction text is missing (the summary shown to the other party).");
+  if(a.checks.notMarried===false)add("eksik","K-MEDENI","No declaration was taken that the applicant has no existing marriage.");
+  if(!a.consent.data)add("eksik","K-RIZA","The explicit consent text has not been approved.");
+  if(!a.checks.voluntary)add("eksik","K-GONULLU","It has not been confirmed that the application was made of the applicant's own free will, without pressure.");
+  if(!a.checks.inPerson)add("eksik","K-SAHSEN","It has not been confirmed that the applicant applied in person (applications on behalf of others are not accepted).");
+  if(!a.checks.idVerified)add("eksik","K-ID","The identity document has not been verified by a case officer.");
+  if(!a.checks.protective)add("eksik","K-KORUMA","It has not been marked that the protection/restraining order and security check was carried out.");
+  if(a.checks.protectiveFound)add("engel","K-KORUMA-VAR","A protection/restraining order or security block was found; the applicant cannot be admitted to the pool.");
+  if(a.safetyBlock)add("engel","K-GUVENLIK","A safety block is on record: "+(a.safetyReason||"—"));
+  const sens=P.questions.some(q=>q.enabled&&q.sensitive);
+  if(sens&&!a.consent.sensitive)add("bilgi","K-HASSAS","Because explicit consent was not given for sensitive (special-category) questions, these questions will not be used in matching.");
+  const lv=F.map(f=>f.lvl);
+  return {findings:F,status:lv.includes("engel")?"ENGEL":lv.includes("eksik")?"EKSIK":"UYGUN"};
+}
+
+/* =====================================================================
+   MATCHING ENGINE
+   ===================================================================== */
+function critList(P,a,b){
+  const L=Object.keys(CRIT_LABEL).map(k=>({k,label:CRIT_LABEL[k],w:P.critW[k]}));
+  const sens=a.consent.sensitive&&b.consent.sensitive;
+  P.questions.filter(q=>q.enabled&&(!q.sensitive||sens)).forEach(q=>L.push({k:"q:"+q.id,label:q.label,w:q.weight,q}));
+  return L;
+}
+function satisfy(a,b,c,P,today){
+  const pr=a.prefs;
+  if(c.k==="age"){const ba=ageOn(b.dogum,today);let s;
+    if(ba>=pr.ageMin&&ba<=pr.ageMax)s=1;else{const d=ba<pr.ageMin?pr.ageMin-ba:ba-pr.ageMax;s=Math.max(0,1-d/P.ageDecayYears)}
+    return {s,imp:+pr.ageImp,note:`age ${ba} (wanted ${pr.ageMin}–${pr.ageMax})`}}
+  if(c.k==="loc"){const s=pr.locMode==="fark_etmez"?1:(b.il.trim().toLowerCase()===a.il.trim().toLowerCase()?1:0);
+    return {s,imp:+pr.locImp,note:pr.locMode==="fark_etmez"?"doesn't matter":`${b.il} (wants the same province)`}}
+  if(c.k==="edu"){const d=(+b.edu)-(+pr.eduMin);const s=d>=0?1:Math.max(0,1+d/3);
+    return {s,imp:+pr.eduImp,note:`${P.eduLevels[+b.edu]||"?"} (at least ${P.eduLevels[+pr.eduMin]||"?"})`}}
+  if(c.k==="marital"){const s=pr.maritalOk.includes(b.medeni)?1:0;return {s,imp:+pr.maritalImp,note:MEDENI.find(x=>x[0]===b.medeni)[1]}}
+  if(c.k==="kids"){const s=(b.cocuk>0&&!pr.kidsOk)?0:1;return {s,imp:+pr.kidsImp,note:b.cocuk>0?`has ${b.cocuk} child(ren)`:"no children"}}
+  const q=c.q,mine=a.qa[q.id],theirs=b.qa[q.id];
+  if(!mine||!mine.accept||mine.accept.length===0)return {s:1,imp:0,note:"no preference stated"};
+  if(!theirs||!theirs.ans)return {s:0.5,imp:+mine.imp,note:"no answer"};
+  return {s:mine.accept.includes(theirs.ans)?1:0,imp:+mine.imp,note:theirs.ans};
+}
+function scoreDir(a,b,P,today){
+  let num=0,den=0;const why=[];
+  for(const c of critList(P,a,b)){
+    const r=satisfy(a,b,c,P,today);
+    if(r.imp===3&&r.s<1)return {hard:true,why:[{label:c.label,s:r.s,imp:r.imp,note:r.note}]};
+    const w=c.w*(r.imp===0?0:P.impW[r.imp]);num+=w*r.s;den+=w;
+    why.push({label:c.label,s:r.s,imp:r.imp,note:r.note})}
+  return {hard:false,score:den?num/den*100:100,why};
+}
+function activeIntroCount(id){return DB.intros.filter(i=>ACTIVE_INTRO.includes(i.status)&&(i.a===id||i.b===id)).length}
+function pairBlocked(a,b){return DB.blocked.some(p=>(p[0]===a&&p[1]===b)||(p[0]===b&&p[1]===a))}
+function poolable(x,P,today){
+  return x.status==="aktif"&&!x.safetyBlock&&x.consent.data&&(!x.cooldownUntil||today>=x.cooldownUntil)&&activeIntroCount(x.id)<P.maxActiveIntros;
+}
+function pairOk(a,b,P,today){
+  if(a.id===b.id)return "same person";
+  if(!poolable(a,P,today)||!poolable(b,P,today))return "not in the pool";
+  if(P.matchGender==="karsi"&&a.cins===b.cins)return "gender rule";
+  if(pairBlocked(a.id,b.id))return "previously declined/blocked";
+  if(DB.intros.some(i=>(i.a===a.id&&i.b===b.id)||(i.a===b.id&&i.b===a.id)))return "previously suggested";
+  return null;
+}
+function scorePair(a,b,P,today){
+  const ab=scoreDir(a,b,P,today),ba=scoreDir(b,a,P,today);
+  if(ab.hard||ba.hard)return {hard:true};
+  const s1=ab.score,s2=ba.score;
+  const s=P.aggregator==="min"?Math.min(s1,s2):P.aggregator==="avg"?(s1+s2)/2:Math.sqrt(s1*s2);
+  return {hard:false,score:s,sa:s1,sb:s2,whyA:ab.why,whyB:ba.why};
+}
+function runMatching(){
+  const P=DB.params,today=todayStr();
+  const pool=DB.applicants.filter(x=>poolable(x,P,today));
+  const all=[];let considered=0;
+  for(let i=0;i<pool.length;i++)for(let j=i+1;j<pool.length;j++){
+    const a=pool[i],b=pool[j];if(pairOk(a,b,P,today))continue;considered++;
+    const r=scorePair(a,b,P,today);if(r.hard||r.score<P.minScore)continue;
+    all.push({a:a.id,b:b.id,score:Math.round(r.score*10)/10,sa:Math.round(r.sa),sb:Math.round(r.sb)})}
+  // best topN for each applicant
+  const per={};all.forEach(p=>{(per[p.a]=per[p.a]||[]).push(p);(per[p.b]=per[p.b]||[]).push(p)});
+  const keep=new Set();Object.values(per).forEach(L=>L.sort((x,y)=>y.score-x.score).slice(0,P.topN).forEach(p=>keep.add(p.a+"|"+p.b)));
+  const sug=all.filter(p=>keep.has(p.a+"|"+p.b)).sort((x,y)=>y.score-x.score);
+  const withAny=new Set();sug.forEach(p=>{withAny.add(p.a);withAny.add(p.b)});
+  const run={id:(DB.runs.length?DB.runs[DB.runs.length-1].id+1:1),ts:Date.now(),user:SESSION.id,paramSeal:seal(P),pool:pool.length,considered,suggestions:sug,
+    noMatch:pool.filter(x=>!withAny.has(x.id)).map(x=>x.id)};
+  DB.runs.push(run);if(DB.runs.length>5)DB.runs.shift();
+  logEv("ESLESTIRME_CALISTIRILDI",`run ${run.id}; pool ${pool.length}; suggestions ${sug.length}; seal ${run.paramSeal.slice(0,12)}`);
+  return run;
+}
+
+/* ---- Session ---- */
+const can={edit:()=>SESSION&&(SESSION.role==="gorevli"||SESSION.role==="admin"),admin:()=>SESSION&&SESSION.role==="admin"};
+function lockNow(msg){SESSION=null;route={v:"dash"};ctx={};render();if(msg)toast(msg)}
+let lastAct=Date.now();
+["click","keydown","input"].forEach(e=>document.addEventListener(e,()=>lastAct=Date.now()));
+setInterval(()=>{if(SESSION&&DB&&Date.now()-lastAct>DB.params.sessionLockMinutes*60000)lockNow("Session locked due to inactivity.")},10000);
+
+/* =====================================================================
+   VIEWS
+   ===================================================================== */
+function render(){
+  $("#brand").innerHTML=`${esc(DB?DB.params.institution:"Marriage Matchmaking System")}<small>Marriage Matchmaking System · offline</small>`;
+  $("#who").innerHTML=SESSION?`<span class="badge info">${esc(SESSION.name)} · ${ROLE[SESSION.role]}</span><button class="b ghost sm" data-act="lock">🔒 Lock</button>`:"";
+  const tabs=$("#tabs");
+  if(!DB||!SESSION){tabs.classList.add("hidden");$("#app").innerHTML=!DB?vSetup():vLogin();return}
+  const T=[["dash","Dashboard"],["apps","Applicants"],["match","Matching"],["intros","Introductions"],["fair","Fairness report"],["params","Parameters"],["audit","Audit"],["data","Data"]];
+  if(can.admin())T.push(["users","Users"]);T.push(["about","About"]);
+  tabs.classList.remove("hidden");
+  $("#tabsin").innerHTML=T.map(([k,n])=>`<button class="${route.v===k||(route.v==="app"&&k==="apps")||(route.v==="intro"&&k==="intros")?"on":""}" data-act="nav" data-k="${k}">${n}</button>`).join("");
+  const V={dash:vDash,apps:vApps,app:vApp,match:vMatch,intros:vIntros,intro:vIntro,fair:vFair,params:vParams,audit:vAudit,data:vData,users:vUsers,about:vAbout};
+  $("#app").innerHTML=(V[route.v]||vDash)();window.scrollTo(0,0);
+}
+function go(v,extra){route=Object.assign({v},extra||{});render()}
+
+function vSetup(){return `<div class="card login"><h1>Initial setup</h1>
+  <p class="muted">Running for the first time on this computer. Create the administrator account. Data is stored in this device's browser storage; no internet connection is required.</p>
+  <form data-form="setup"><label>Institution name</label><input name="inst" required value="Marriage Matchmaking Unit">
+   <label>Administrator full name</label><input name="name" required>
+   <label>Administrator PIN (at least 6 digits)</label><input name="pin" type="password" inputmode="numeric" pattern="\\d{6,}" required>
+   <label>Repeat PIN</label><input name="pin2" type="password" inputmode="numeric" pattern="\\d{6,}" required>
+   <div class="note warn small">A forgotten PIN cannot be reset; take regular backups.</div>
+   <button class="b" type="submit">Complete setup</button></form></div>`}
+function vLogin(){return `<div class="card login"><h1>Sign in</h1><form data-form="login"><label>User</label>
+  <select name="u">${DB.users.filter(u=>u.active).map(u=>`<option value="${u.id}">${esc(u.name)} (${ROLE[u.role]})</option>`).join("")}</select>
+  <label>PIN</label><input name="pin" type="password" inputmode="numeric" required autocomplete="off"><div id="lerr"></div>
+  <button class="b" type="submit">Sign in</button></form></div>`}
+
+/* ---- Dashboard ---- */
+function vDash(){
+  const P=DB.params,A=DB.applicants,I=DB.intros,today=todayStr();
+  const cnt=s=>A.filter(a=>a.status===s).length;
+  const ch=verifyChain(DB.audit),mySeal=seal(P);
+  let al=ch.ok?`<div class="note good">Audit log integrity verified (${ch.n} entries).</div>`:`<div class="note bad"><b>WARNING:</b> The audit log chain is broken at entry ${ch.at}. Data may have been tampered with.</div>`;
+  if(DB.officialSeal)al+=DB.officialSeal===mySeal?`<div class="note good">The parameter seal matches the official seal.</div>`:`<div class="note bad"><b>WARNING:</b> The parameter seal does not match the official seal notified by the authority. Parameters may have been changed without authorisation.</div>`;
+  else al+=`<div class="note warn small">No official parameter seal has been defined (it can be entered on the Parameters page).</div>`;
+  const late=I.filter(i=>i.status==="yanit_bekliyor"&&daysBetween(dStr(new Date(i.createdAt)),today)>P.responseDays);
+  const comp=I.filter(i=>i.status==="sikayet");
+  const old=A.filter(a=>["cekildi","tamamlandi"].includes(a.status)&&a.closedAt&&daysBetween(dStr(new Date(a.closedAt)),today)>P.retentionDays);
+  if(late.length)al+=`<div class="note warn"><b>${late.length}</b> introduction(s) have passed the response period (${P.responseDays} days).</div>`;
+  if(comp.length)al+=`<div class="note bad"><b>${comp.length}</b> complaint/review file(s) pending.</div>`;
+  if(old.length)al+=`<div class="note warn"><b>${old.length}</b> closed record(s) have exceeded the retention period (${P.retentionDays} days); anonymisation/destruction should be considered.</div>`;
+  const last=DB.runs[DB.runs.length-1];
+  return `<h1>Dashboard</h1>${al}
+  <div class="grid g4"><div class="card stat"><b>${A.length}</b><span>Total applicants</span></div>
+   <div class="card stat"><b>${cnt("aktif")}</b><span>Active applicants in pool</span></div>
+   <div class="card stat"><b>${cnt("dogrulama")+cnt("taslak")}</b><span>Draft / awaiting verification</span></div>
+   <div class="card stat"><b>${I.filter(i=>ACTIVE_INTRO.includes(i.status)).length}</b><span>Active introductions</span></div></div>
+  <div class="card"><h3>Latest matching run</h3>${last?`<p>${fmtT(last.ts)} · pool ${last.pool} applicants · ${last.suggestions.length} suggestions · ${last.noMatch.length} applicants without suggestions</p>`:`<p class="muted">Not run yet.</p>`}</div>
+  <div class="card"><h3>Note: who can do what</h3><p class="small muted">The system only produces <b>suggestions</b>. No applicant is shown to anyone else without their own consent, and no contact details are shared.</p></div>`;
+}
+
+/* ---- Applicant list ---- */
+function vApps(){
+  const f=ctx.filter||"",q=(ctx.q||"").toLowerCase();
+  const L=DB.applicants.slice().reverse().filter(a=>(!f||a.status===f)&&(!q||(a.id+" "+a.ad+" "+a.soyad+" "+a.il).toLowerCase().includes(q)));
+  return `<div class="row"><h1 class="sp">Applicants</h1>${can.edit()?`<button class="b" data-act="newapp">+ New applicant</button>`:""}</div>
+  <div class="card"><div class="row"><input id="q" placeholder="Search: first name, surname, province…" value="${esc(ctx.q||"")}" style="max-width:260px">
+   <select id="flt" style="max-width:220px"><option value="">All statuses</option>${Object.entries(ST_A).map(([k,v])=>`<option value="${k}" ${f===k?"selected":""}>${v[0]}</option>`).join("")}</select></div>
+  <div class="tw"><table><tr><th>No</th><th>Applicant</th><th>Age</th><th>Province</th><th>Status</th><th>Active introductions</th></tr>
+  ${L.map(a=>`<tr><td><a href="#" data-act="open" data-id="${a.id}">${a.id}</a>${a.demo?` <span class="badge warn">demo</span>`:""}</td><td>${esc(nm(a))}<div class="small muted">${a.cins==="K"?"Female":a.cins==="E"?"Male":""} · ${maskId(a.kimNo)}</div></td>
+   <td>${a.dogum?ageOn(a.dogum,todayStr()):"—"}</td><td>${esc(a.il)}</td><td><span class="badge ${ST_A[a.status][1]}">${ST_A[a.status][0]}</span></td><td>${activeIntroCount(a.id)}</td></tr>`).join("")||`<tr><td colspan="6" class="muted">No records.</td></tr>`}</table></div></div>`;
+}
+
+/* ---- Applicant form ---- */
+const sel=(name,opts,val,d)=>`<select name="${name}" ${d}>${opts.map(([k,t])=>`<option value="${k}" ${String(val)===String(k)?"selected":""}>${t}</option>`).join("")}</select>`;
+function vApp(){
+  const a=getA(route.id);if(!a)return `<p>Applicant not found.</p>`;
+  const P=DB.params,ro=!can.edit()||["silindi"].includes(a.status),d=ro?"disabled":"";
+  const ck=checkApplicant(a,P);const stBadge={UYGUN:["Can be admitted to the pool","good"],EKSIK:["Items missing","warn"],ENGEL:["Blocked","bad"]}[ck.status];
+  const LV={engel:["BLOCK","bad"],eksik:["MISSING","warn"],bilgi:["INFO",""]};
+  const eduOpts=P.eduLevels.map((x,i)=>[String(i),x]);
+  const pr=a.prefs;
+  const qs=P.questions.filter(q=>q.enabled).map(q=>{
+    const cur=a.qa[q.id]||{ans:"",accept:[],imp:"1"};
+    return `<div class="card" style="background:var(--soft)"><b>${esc(q.label)}</b>${q.sensitive?` <span class="badge bad">sensitive · explicit consent required</span>`:""}
+     <div class="grid g3"><div><label>Your answer</label><select name="q_${q.id}_ans" ${d}><option value="">—</option>${q.opts.map(o=>`<option ${cur.ans===o?"selected":""}>${esc(o)}</option>`).join("")}</select></div>
+     <div><label>Answers acceptable in the other party</label><div class="opts">${q.opts.map((o,i)=>`<label class="chk"><input type="checkbox" name="q_${q.id}_acc_${i}" ${cur.accept.includes(o)?"checked":""} ${d}> ${esc(o)}</label>`).join("")}</div></div>
+     <div><label>Importance</label>${sel("q_"+q.id+"_imp",IMP,cur.imp,d)}</div></div></div>`}).join("");
+  let act="";
+  if(can.edit()&&!ro){
+    act+=`<button class="b" data-act="saveapp">Save</button>`;
+    if(["taslak","dogrulama","beklemede"].includes(a.status))act+=`<button class="b ghost" data-act="activate" ${ck.status==="UYGUN"?"":"disabled"}>Admit to pool (set active)</button>`;
+    if(a.status==="aktif")act+=`<button class="b ghost" data-act="pause">Put on hold</button>`;
+    if(!["cekildi","tamamlandi"].includes(a.status))act+=`<button class="b ghost" data-act="withdraw">Applicant withdrawal request</button>`;
+    act+=`<button class="b red" data-act="safety">Place safety block</button>`;
+    if(a.status==="inceleme"||a.status==="engelli")if(can.admin())act+=`<button class="b ghost" data-act="release">Remove block/review</button>`;
+    if(can.admin())act+=`<button class="b red" data-act="anonymize">Delete personal data (anonymise)</button>`;
+  }
+  act+=`<button class="b ghost" data-act="card" data-id="${a.id}">🖨 Introduction card</button><button class="b ghost" data-act="nav" data-k="apps">← List</button>`;
+  const intros=DB.intros.filter(i=>i.a===a.id||i.b===a.id);
+  return `<div class="row"><h1 class="sp">${esc(nm(a))} <span class="muted">${a.id}</span></h1><span class="badge ${ST_A[a.status][1]}">${ST_A[a.status][0]}</span></div>
+  ${a.cooldownUntil&&todayStr()<a.cooldownUntil?`<div class="note info">Waiting period for new suggestions: until ${fmtD(a.cooldownUntil)}.</div>`:""}
+  <div class="card"><div class="row"><h3 class="sp">Conditions for admission to the pool</h3><span class="badge ${stBadge[1]}">${stBadge[0]}</span></div>
+   ${ck.findings.map(f=>`<div class="find"><span class="badge ${LV[f.lvl][1]}">${LV[f.lvl][0]}</span><div><b class="small muted">${f.id}</b><br>${esc(f.txt)}</div></div>`).join("")||`<p class="muted">No findings.</p>`}
+   <p class="small muted">The identity and protection-order checks are manual confirmations made by the case officer; the offline system cannot run official queries.</p></div>
+  <form data-form="applicant">
+  <div class="card"><h3>Identity and contact <span class="badge bad">sensitive</span></h3><div class="grid g3">
+   <div><label>First name</label><input name="ad" value="${esc(a.ad)}" ${d}></div><div><label>Surname</label><input name="soyad" value="${esc(a.soyad)}" ${d}></div>
+   <div><label>Turkish national ID (T.C. no)</label><input name="kimNo" value="${esc(a.kimNo)}" ${d} autocomplete="off"></div>
+   <div><label>Date of birth</label><input type="date" name="dogum" value="${a.dogum}" ${d}></div>
+   <div><label>Gender</label>${sel("cins",[["","Select"],["K","Female"],["E","Male"]],a.cins,d)}</div>
+   <div><label>Phone (visible to the case officer only)</label><input name="telefon" value="${esc(a.telefon)}" ${d}></div>
+   <div><label>E-mail</label><input name="eposta" value="${esc(a.eposta)}" ${d}></div>
+   <div><label>Province of residence</label><input name="il" value="${esc(a.il)}" ${d}></div><div><label>District</label><input name="ilce" value="${esc(a.ilce)}" ${d}></div></div></div>
+  <div class="card"><h3>Profile (source of the summary shown to the other party)</h3><div class="grid g3">
+   <div><label>Marital status</label>${sel("medeni",MEDENI,a.medeni,d)}</div>
+   <div><label>Number of children</label><input type="number" min="0" max="12" name="cocuk" value="${a.cocuk}" ${d}></div>
+   <div><label>Education level</label>${sel("edu",eduOpts,a.edu,d)}</div>
+   <div><label>Employment status</label>${sel("is",ISDURUM,a.is,d)}</div>
+   <div><label>Occupation / field</label><input name="meslek" value="${esc(a.meslek)}" ${d}></div></div>
+   <label>Short introduction (shown to the other party; max 300 characters; do not include identity/contact details)</label><textarea name="tanitim" maxlength="300" ${d}>${esc(a.tanitim)}</textarea></div>
+  <div class="card"><h3>What they are looking for in the other party (their own preference)</h3>
+   <div class="grid g3"><div><label>Age range (minimum)</label><input type="number" name="p_ageMin" value="${pr.ageMin}" ${d}></div><div><label>Age range (maximum)</label><input type="number" name="p_ageMax" value="${pr.ageMax}" ${d}></div><div><label>Importance of age preference</label>${sel("p_ageImp",IMP,pr.ageImp,d)}</div>
+   <div><label>Place of residence</label>${sel("p_locMode",[["fark_etmez","Doesn't matter"],["ayni_il","Same province"]],pr.locMode,d)}</div><div></div><div><label>Importance of location preference</label>${sel("p_locImp",IMP,pr.locImp,d)}</div>
+   <div><label>Minimum education level</label>${sel("p_eduMin",eduOpts,pr.eduMin,d)}</div><div></div><div><label>Importance of education preference</label>${sel("p_eduImp",IMP,pr.eduImp,d)}</div>
+   <div><label>Acceptable marital statuses</label><div class="opts">${MEDENI.map(([k,t])=>`<label class="chk"><input type="checkbox" name="p_mar_${k}" ${pr.maritalOk.includes(k)?"checked":""} ${d}> ${t}</label>`).join("")}</div></div><div></div><div><label>Importance of marital status preference</label>${sel("p_maritalImp",IMP,pr.maritalImp,d)}</div>
+   <div><label class="chk"><input type="checkbox" name="p_kidsOk" ${pr.kidsOk?"checked":""} ${d}> Applicants with children are acceptable</label></div><div></div><div><label>Importance of children preference</label>${sel("p_kidsImp",IMP,pr.kidsImp,d)}</div></div>
+   <p class="small muted">If a preference marked “Mandatory (deal-breaker)” is not met, the applicant is never suggested. Other importance levels only affect the score.</p></div>
+  <div class="card"><h3>Lifestyle and expectations</h3>${qs||`<p class="muted">No enabled questions.</p>`}</div>
+  <div class="card"><h3>Explicit consent and verification (confirmed by the case officer)</h3>
+   <div class="note info small"><b>Consent text (v${esc(P.consentVersion)}):</b> ${esc(P.consentText)}</div>
+   <label class="chk"><input type="checkbox" name="c_data" ${a.consent.data?"checked":""} ${d}> The applicant has read and accepted the consent text above</label>
+   <label class="chk"><input type="checkbox" name="c_sens" ${a.consent.sensitive?"checked":""} ${d}> The applicant has separately given explicit consent to the use of sensitive (special-category) questions in matching</label>
+   <label class="chk"><input type="checkbox" name="c_contact" ${a.consent.contactShare?"checked":""} ${d}> The applicant has consented to their contact details being shared with the other party after mutual acceptance (otherwise only the case officer mediates)</label>
+   <hr style="border:0;border-top:1px solid var(--line)">
+   <label class="chk"><input type="checkbox" name="k_inPerson" ${a.checks.inPerson?"checked":""} ${d}> The applicant applied <b>in person</b> (applications on behalf of others/family are not accepted)</label>
+   <label class="chk"><input type="checkbox" name="k_idVerified" ${a.checks.idVerified?"checked":""} ${d}> The identity document was verified by a case officer</label>
+   <label class="chk"><input type="checkbox" name="k_voluntary" ${a.checks.voluntary?"checked":""} ${d}> The applicant declared that they applied of their own free will, without pressure from family/third parties; the case officer discussed this with them one-on-one</label>
+   <label class="chk"><input type="checkbox" name="k_notMarried" ${a.checks.notMarried?"checked":""} ${d}> The applicant declared that they have no existing marriage</label>
+   <label class="chk"><input type="checkbox" name="k_protective" ${a.checks.protective?"checked":""} ${d}> A protection / restraining order and security check was carried out</label>
+   <label class="chk"><input type="checkbox" name="k_protectiveFound" ${a.checks.protectiveFound?"checked":""} ${d}> A protection/restraining order or security block was <b>found</b> in the check</label></div>
+  <div class="card"><label>Internal note (not shown to the applicant; record only necessary information)</label><textarea name="notes" ${d}>${esc(a.notes)}</textarea></div></form>
+  <div class="row" style="margin:10px 0">${act}</div>
+  <div class="card"><h3>Introductions</h3>${intros.map(i=>`<div><a href="#" data-act="openintro" data-id="${i.id}">${i.id}</a> — ${esc(nm(getA(i.a===a.id?i.b:i.a)))} <span class="badge ${ST_I[i.status][1]}">${ST_I[i.status][0]}</span></div>`).join("")||`<p class="muted">None.</p>`}</div>
+  <div class="card"><h3>Action history</h3><div class="tw"><table><tr><th>Time</th><th>User</th><th>Action</th></tr>${a.history.slice().reverse().map(h=>`<tr><td class="small">${fmtT(h.ts)}</td><td>${esc(h.user)}</td><td>${esc(h.text)}</td></tr>`).join("")||`<tr><td colspan="3" class="muted">—</td></tr>`}</table></div></div>`;
+}
+function readApplicant(a){
+  const f=$('form[data-form="applicant"]');if(!f)return;const g=n=>f.elements[n];const P=DB.params;
+  ["ad","soyad","kimNo","dogum","cins","telefon","eposta","il","ilce","medeni","edu","is","meslek","tanitim","notes"].forEach(k=>{if(g(k))a[k]=g(k).value.trim()});
+  if(g("cocuk"))a.cocuk=Math.max(0,parseInt(g("cocuk").value,10)||0);
+  const pr=a.prefs;
+  pr.ageMin=parseInt(g("p_ageMin").value,10)||pr.ageMin;pr.ageMax=parseInt(g("p_ageMax").value,10)||pr.ageMax;
+  ["p_ageImp","p_locImp","p_eduImp","p_maritalImp","p_kidsImp"].forEach(k=>pr[k.slice(2)]=+g(k).value);
+  pr.locMode=g("p_locMode").value;pr.eduMin=g("p_eduMin").value;pr.kidsOk=g("p_kidsOk").checked;
+  pr.maritalOk=MEDENI.map(x=>x[0]).filter(k=>g("p_mar_"+k).checked);
+  P.questions.filter(q=>q.enabled).forEach(q=>{
+    a.qa[q.id]={ans:g(`q_${q.id}_ans`).value,accept:q.opts.filter((o,i)=>g(`q_${q.id}_acc_${i}`).checked),imp:g(`q_${q.id}_imp`).value}});
+  if(g("c_data")){const had=a.consent.data;a.consent.data=g("c_data").checked;a.consent.sensitive=g("c_sens").checked;a.consent.contactShare=g("c_contact").checked;
+    if(a.consent.data&&!had){a.consent.ts=Date.now();a.consent.version=P.consentVersion}}
+  ["inPerson","idVerified","voluntary","notMarried","protective","protectiveFound"].forEach(k=>{if(g("k_"+k))a.checks[k]=g("k_"+k).checked});
+}
+
+/* ---- Matching ---- */
+function vMatch(){
+  const run=DB.runs[DB.runs.length-1];const P=DB.params;
+  let h=`<div class="row"><h1 class="sp">Matching</h1>${can.edit()?`<button class="b" data-act="runmatch">Run matching</button>`:""}</div>
+  <div class="note info small">The system only produces <b>suggestions</b>; no applicant is matched or notified automatically. A case officer selects one of the suggestions and starts an <b>introduction process</b>; nothing is shared until both sides have separately stated their own decision. Scores are calculated from the applicants' <b>own stated preferences</b> and the institution's parameters.</div>`;
+  if(!run)return h+`<div class="card muted">Matching has not been run yet.</div>`;
+  const aq=(ctx.mq||"").toLowerCase();
+  const L=run.suggestions.filter(p=>!aq||(nm(getA(p.a))+" "+nm(getA(p.b))+p.a+p.b).toLowerCase().includes(aq));
+  const stale=run.paramSeal!==seal(P);
+  h+="@@WHY@@";
+  h+=`<div class="card"><div class="row"><div class="sp">Run #${run.id} · ${fmtT(run.ts)} · pool ${run.pool} · pairs examined ${run.considered} · suggestions ${run.suggestions.length}</div><span class="badge ${stale?"warn":"good"}">${stale?"parameters changed, run again":"current parameters"}</span></div>
+   <div class="row" style="margin-top:8px"><input id="mq" placeholder="Applicant name or no." value="${esc(ctx.mq||"")}" style="max-width:260px"></div>
+   <div class="tw"><table><tr><th>Score</th><th>Applicant 1</th><th>Applicant 2</th><th>1→2</th><th>2→1</th><th></th></tr>
+   ${L.slice(0,200).map(p=>{const a=getA(p.a),b=getA(p.b);const ok=a&&b&&!pairOk(a,b,P,todayStr());
+    return `<tr><td><b>${p.score}</b><div class="bar"><i style="width:${p.score}%"></i></div></td><td>${esc(nm(a))}<div class="small muted">${p.a} · ${a?ageOn(a.dogum,todayStr()):""} · ${esc(a?a.il:"")}</div></td>
+    <td>${esc(nm(b))}<div class="small muted">${p.b} · ${b?ageOn(b.dogum,todayStr()):""} · ${esc(b?b.il:"")}</div></td><td>${p.sa}</td><td>${p.sb}</td>
+    <td><button class="b ghost sm" data-act="why" data-a="${p.a}" data-b="${p.b}">Why?</button> ${can.edit()?`<button class="b sm" data-act="startintro" data-a="${p.a}" data-b="${p.b}" ${ok?"":"disabled"}>Start introduction</button>`:""}</td></tr>`}).join("")||`<tr><td colspan="6" class="muted">No suggestions.</td></tr>`}</table></div></div>`;
+  let whyHtml="";
+  if(ctx.why){const a=getA(ctx.why.a),b=getA(ctx.why.b);const r=scorePair(a,b,P,todayStr());
+    const rows=(w)=>w.map(x=>`<tr><td>${esc(x.label)}</td><td>${x.s>=1?"✔":x.s>0?"≈":"✘"}</td><td>${["None","Low","Important","Mandatory"][x.imp]}</td><td class="small">${esc(x.note)}</td></tr>`).join("");
+    whyHtml=`<div class="card"><h3>Compatibility details: ${esc(nm(a))} ↔ ${esc(nm(b))}</h3>${r.hard?`<p>A mandatory preference is not met.</p>`:`<div class="grid g2"><div><b>${esc(nm(a))} is looking for (${Math.round(r.sa)})</b><div class="tw"><table><tr><th>Criterion</th><th></th><th>Importance</th><th>Other party</th></tr>${rows(r.whyA)}</table></div></div>
+     <div><b>${esc(nm(b))} is looking for (${Math.round(r.sb)})</b><div class="tw"><table><tr><th>Criterion</th><th></th><th>Importance</th><th>Other party</th></tr>${rows(r.whyB)}</table></div></div></div>`}</div>`}
+  h=h.replace("@@WHY@@",whyHtml);
+  if(run.noMatch.length)h+=`<div class="card"><h3>Applicants without suggestions in this run (${run.noMatch.length})</h3><p class="small muted">Applicants who have narrowed their preferences very much (e.g. many “mandatory” items) or for whom no suitable applicant exists in the pool. It may be advisable to talk with the applicant and ask them to review their preferences.</p><div>${run.noMatch.map(id=>`<a href="#" data-act="open" data-id="${id}">${esc(nm(getA(id)))}</a>`).join(" · ")}</div></div>`;
+  return h;
+}
+
+/* ---- Introductions ---- */
+function vIntros(){
+  const f=ctx.ifilter||"";const L=DB.intros.slice().reverse().filter(i=>!f||i.status===f);
+  return `<h1>Introductions</h1><div class="card"><select id="iflt" style="max-width:240px"><option value="">All statuses</option>${Object.entries(ST_I).map(([k,v])=>`<option value="${k}" ${f===k?"selected":""}>${v[0]}</option>`).join("")}</select>
+  <div class="tw"><table><tr><th>No</th><th>Parties</th><th>Score</th><th>Status</th><th>Date</th></tr>${L.map(i=>`<tr><td><a href="#" data-act="openintro" data-id="${i.id}">${i.id}</a></td><td>${esc(nm(getA(i.a)))} ↔ ${esc(nm(getA(i.b)))}</td><td>${i.score}</td><td><span class="badge ${ST_I[i.status][1]}">${ST_I[i.status][0]}</span></td><td class="small">${fmtT(i.createdAt)}</td></tr>`).join("")||`<tr><td colspan="5" class="muted">No records.</td></tr>`}</table></div></div>`;
+}
+const OUTC_TXT={devam:"wants to continue",bitti:"ended"};
+const DEC_TXT={kabul:"wants to meet",ret:"does not want to meet"};
+function respBox(i,side){
+  const a=getA(i[side]),r=i.resp[side];const ro=!can.edit()||i.status!=="yanit_bekliyor"||r.dec;
+  return `<div class="card" style="margin:0"><b>${esc(nm(a))}</b> <span class="small muted">(${i[side]})</span>
+   <div>Decision: ${r.dec?`<span class="badge ${r.dec==="kabul"?"good":"bad"}">${r.dec==="kabul"?"Wants to meet":"Does not want to meet"}</span> <span class="small muted">${fmtT(r.ts)} · ${esc(r.method)}</span>`:`<span class="badge warn">Pending</span>`}</div>
+   ${ro?"":`<div class="row" style="margin-top:8px"><button class="b sm" data-act="resp" data-side="${side}" data-dec="kabul">Wants to meet</button><button class="b red sm" data-act="resp" data-side="${side}" data-dec="ret">Does not want to meet</button></div>`}
+   <div class="small muted">The decision must be taken from the applicant <b>in their own words</b>; the case officer cannot decide on their behalf.</div></div>`;
+}
+function vIntro(){
+  const i=DB.intros.find(x=>x.id===route.id);if(!i)return "<p>Not found.</p>";const a=getA(i.a),b=getA(i.b),P=DB.params;
+  let act="";
+  if(can.edit()){
+    if(i.status==="kabul")act+=`<button class="b" data-act="plan">Schedule meeting</button>`;
+    if(i.status==="bulusma_planli")act+=`<div class="note info">Meeting: ${fmtD(i.meeting.date)} ${i.meeting.time} · ${esc(i.meeting.place)} · ${esc(i.meeting.mode)}</div><button class="b" data-act="outcome">Record meeting outcome</button>`;
+    if(i.status==="devam_ediyor")act+=`<button class="b" data-act="decision">They decided to marry</button><button class="b ghost" data-act="endintro">Ended</button>`;
+    if(i.status==="yanit_bekliyor")act+=`<button class="b ghost" data-act="timeout">Time expired – close</button>`;
+    if(ACTIVE_INTRO.includes(i.status))act+=`<button class="b red" data-act="complaint">Complaint / safety report</button>`;
+    if(i.status==="sikayet"&&can.admin())act+=`<button class="b" data-act="closecomplaint">Close complaint</button>`;
+  }
+  const showContact=["bulusma_planli","devam_ediyor","kararverdi"].includes(i.status);
+  return `<div class="row"><h1 class="sp">Introduction ${i.id}</h1><span class="badge ${ST_I[i.status][1]}">${ST_I[i.status][0]}</span></div>
+  <div class="card"><b>${esc(nm(a))}</b> ↔ <b>${esc(nm(b))}</b> · compatibility score ${i.score}
+   <div class="small muted">Started by: ${esc(i.createdBy)} · ${fmtT(i.createdAt)} · matching seal ${esc((i.paramSeal||"").slice(0,12))}…</div>
+   <div class="row" style="margin-top:8px"><button class="b ghost sm" data-act="card" data-id="${i.b}">🖨 ${esc(nm(b))} introduction card (presented to ${esc(nm(a))})</button><button class="b ghost sm" data-act="card" data-id="${i.a}">🖨 ${esc(nm(a))} introduction card (presented to ${esc(nm(b))})</button></div></div>
+  <div class="grid g2">${respBox(i,"a")}${respBox(i,"b")}</div>
+  <div class="card" style="margin-top:14px"><h3>Process</h3><div class="row">${act||`<span class="muted">No action to take at this stage.</span>`}</div></div>
+  ${showContact?`<div class="card"><h3>Sharing of contact details</h3>${[a,b].map(x=>`<div>${esc(nm(x))}: ${x.consent.contactShare?`<span class="badge good">Consent to share given</span> ${esc(x.telefon)}`:`<span class="badge warn">No consent — only the case officer mediates</span>`}</div>`).join("")}</div>`:""}
+  ${i.outcome?`<div class="card"><h3>Meeting outcome</h3>${["a","b"].map(s=>`<div>${esc(nm(getA(i[s])))}: ${OUTC_TXT[i.outcome[s]]||i.outcome[s]}</div>`).join("")}</div>`:""}
+  <div class="card"><h3>History</h3><div class="tw"><table>${i.history.slice().reverse().map(h=>`<tr><td class="small">${fmtT(h.ts)}</td><td>${esc(h.user)}</td><td>${esc(h.text)}</td></tr>`).join("")}</table></div></div>`;
+}
+
+/* ---- Fairness report ---- */
+function groupStats(keyFn,label){
+  const P=DB.params,run=DB.runs[DB.runs.length-1];const G={};
+  DB.applicants.filter(a=>a.status==="aktif"||a.status==="beklemede").forEach(a=>{const k=keyFn(a);if(!k)return;const g=G[k]=G[k]||{n:0,none:0,intros:0,acc:0,decided:0};
+    g.n++;if(run&&run.noMatch.includes(a.id))g.none++;
+    DB.intros.filter(i=>i.a===a.id||i.b===a.id).forEach(i=>{g.intros++;const s=i.a===a.id?"a":"b";if(i.resp[s].dec){g.decided++;if(i.resp[s].dec==="kabul")g.acc++}})});
+  const tot=Object.values(G).reduce((x,g)=>({n:x.n+g.n,none:x.none+g.none}),{n:0,none:0});const base=tot.n?tot.none/tot.n*100:0;
+  return `<div class="card"><h3>${label}</h3><div class="tw"><table><tr><th>Group</th><th>Applicants</th><th>Without suggestions</th><th>Introductions</th><th>Acceptance rate</th><th></th></tr>
+   ${Object.entries(G).sort().map(([k,g])=>{const pct=g.n?g.none/g.n*100:0;const gap=pct-base;return `<tr><td>${esc(k)}</td><td>${g.n}</td><td>${g.none} (${Math.round(pct)}%)</td><td>${g.intros}</td><td>${g.decided?Math.round(g.acc/g.decided*100)+"%":"—"}</td><td>${g.n>=5&&gap>P.fairGapPct?`<span class="badge warn">${Math.round(gap)} points above the overall rate</span>`:""}</td></tr>`}).join("")||`<tr><td colspan="6" class="muted">No data.</td></tr>`}</table></div></div>`;
+}
+function vFair(){
+  const P=DB.params;const run=DB.runs[DB.runs.length-1];
+  return `<h1>Fairness report</h1><div class="note info small">Aggregate (non-personal) indicators for monitoring whether the matching process systematically gives some groups fewer opportunities. Based only on the latest matching run${run?` (#${run.id})`:""}. The warning threshold is ${P.fairGapPct} percentage points (a parameter). This report is a <b>warning signal</b>, not evidence of discrimination; case officers and the auditor investigate the cause together.</div>
+  ${groupStats(a=>a.cins==="K"?"Female":a.cins==="E"?"Male":"",'By gender')}
+  ${groupStats(a=>a.il.trim(),'By province')}
+  ${groupStats(a=>(DB.params.eduLevels[+a.edu]||""),'By education level')}
+  ${groupStats(a=>{const y=a.dogum?ageOn(a.dogum,todayStr()):0;return y?(y<25?"18–24":y<30?"25–29":y<35?"30–34":y<40?"35–39":"40+"):""},'By age group')}`;
+}
+
+/* ---- Parameters ---- */
+function vParams(){
+  const P=ctx.draft||DB.params,ed=can.admin(),d=ed?"":"disabled",sealNow=seal(DB.params);
+  let h=`<div class="row"><h1 class="sp">Parameters</h1><span class="badge info">Version ${DB.paramHistory.length}</span></div>
+  <div class="note info small">Every change is versioned, written to the audit log with a reason, and produces a new <b>parameter seal</b>. Safeguards that no parameter can disable: the minimum age of ${HARD.minAgeFloor}, voluntariness and in-person application, no sharing of contact details without mutual consent, and no pressure on someone who declines.</div>
+  <div class="card"><b>Current parameter seal (SHA-256)</b><div class="mono">${sealNow}</div>
+   <label>Official seal notified by the authority</label><div class="row"><input id="offseal" value="${esc(DB.officialSeal||"")}" ${d} class="mono" style="flex:1" placeholder="64-character official seal">${ed?`<button class="b ghost sm" data-act="saveseal">Save</button>`:""}</div>
+   ${DB.officialSeal?(DB.officialSeal===sealNow?`<div class="note good small">Matches.</div>`:`<div class="note bad small">Does not match!</div>`):""}</div>
+  <form data-form="params">`;
+  let open=false;
+  SCHEMA.forEach(s=>{
+    if(s.sec){if(open)h+="</div></div>";h+=`<div class="card"><h3>${s.sec}</h3><div class="grid g2">`;open=true;return}
+    const v=P[s.k];let inp=`<label>${s.label}${s.min!=null?` <span class="muted">(${s.min}–${s.max})</span>`:""}</label>`+
+      (s.type==="sel"?`<select name="${s.k}" ${d}>${s.opts.map(([k,t])=>`<option value="${k}" ${v===k?"selected":""}>${t}</option>`).join("")}</select>`:
+       `<input name="${s.k}" type="${s.type==="int"?"number":"text"}" value="${esc(v)}" ${s.min!=null?`min="${s.min}" max="${s.max}"`:""} ${d}>`)+(s.help?`<div class="small muted">${s.help}</div>`:"");
+    h+=`<div>${inp}</div>`});
+  if(open)h+="</div></div>";
+  h+=`<div class="card"><h3>Weights</h3><div class="grid g4">
+   ${[1,2,3].map(i=>`<div><label>“${IMP[i][1]}” weight</label><input type="number" name="iw${i}" value="${P.impW[i]}" min="0" max="20" ${d}></div>`).join("")}<div></div>
+   ${Object.keys(CRIT_LABEL).map(k=>`<div><label>${CRIT_LABEL[k]} criterion</label><input type="number" name="cw_${k}" value="${P.critW[k]}" min="0" max="10" ${d}></div>`).join("")}</div>
+   <p class="small muted">The importance weight is multiplied by the importance the applicant chose, and the criterion weight by the value the institution gives that criterion. A preference marked “Mandatory” also acts as a deal-breaker.</p></div>
+  <div class="card"><h3>Education levels (lowest to highest, one per line)</h3><textarea name="edu" ${d}>${esc(P.eduLevels.join("\n"))}</textarea></div>
+  <div class="card"><h3>Compatibility questions</h3><div class="tw"><table><tr><th>Question</th><th>Options (comma-separated)</th><th>Weight</th><th>Sensitive</th><th>Enabled</th><th></th></tr>
+   ${P.questions.map((q,i)=>`<tr><td><input name="ql_${i}" value="${esc(q.label)}" ${d}></td><td><input name="qo_${i}" value="${esc(q.opts.join(", "))}" ${d}></td><td style="width:70px"><input type="number" name="qw_${i}" value="${q.weight}" min="0" max="10" ${d}></td>
+    <td><input type="checkbox" name="qs_${i}" ${q.sensitive?"checked":""} ${d}></td><td><input type="checkbox" name="qe_${i}" ${q.enabled?"checked":""} ${d}></td><td>${ed?`<button type="button" class="b red sm" data-act="delq" data-i="${i}">Delete</button>`:""}</td></tr>`).join("")}</table></div>
+   ${ed?`<button type="button" class="b ghost sm" data-act="addq">+ Add question</button>`:""}
+   <div class="note warn small">Questions marked “Sensitive” (special-category personal data such as religion, sect, political opinion, ethnic origin, health) are used only if the applicant has given separate explicit consent. <b>Matching on fields such as ethnic origin, race or political opinion is legally and ethically problematic</b>; do not add such questions.</div></div>
+  <div class="card"><label>Explicit consent text</label><textarea name="consentText" style="min-height:130px" ${d}>${esc(P.consentText)}</textarea>
+   <label>Consent text version</label><input name="consentVersion" value="${esc(P.consentVersion)}" ${d}></div>`;
+  if(ed)h+=`<div class="card"><label>Reason for change (required)</label><input name="reason" placeholder="E.g. minimum compatibility score updated per circular">
+   <div class="row" style="margin-top:10px"><button class="b" type="submit">Apply changes</button><button class="b ghost" type="button" data-act="exportparams">Download parameter file</button><label class="b ghost">Upload parameter file<input type="file" id="pfile" accept=".json" class="hidden"></label></div></div>`;
+  h+=`</form><div class="card"><h3>Version history</h3><div class="tw"><table><tr><th>Version</th><th>Time</th><th>User</th><th>Reason</th><th>Seal</th></tr>${DB.paramHistory.slice().reverse().map(x=>`<tr><td>${x.ver}</td><td class="small">${fmtT(x.ts)}</td><td>${esc(x.user)}</td><td>${esc(x.reason)}</td><td class="mono">${x.seal.slice(0,16)}…</td></tr>`).join("")}</table></div></div>`;
+  return h;
+}
+function readParamsForm(){
+  const f=$('form[data-form="params"]');const P=JSON.parse(JSON.stringify(DB.params));
+  SCHEMA.forEach(s=>{if(!s.k)return;const el=f.elements[s.k];if(!el)return;P[s.k]=s.type==="int"?parseInt(el.value,10):el.value});
+  [1,2,3].forEach(i=>P.impW[i]=parseInt(f.elements["iw"+i].value,10));
+  Object.keys(CRIT_LABEL).forEach(k=>P.critW[k]=parseInt(f.elements["cw_"+k].value,10));
+  P.eduLevels=f.elements.edu.value.split("\n").map(x=>x.trim()).filter(Boolean);
+  P.questions.forEach((q,i)=>{q.label=f.elements["ql_"+i].value.trim();q.opts=f.elements["qo_"+i].value.split(",").map(x=>x.trim()).filter(Boolean);
+    q.weight=parseInt(f.elements["qw_"+i].value,10);q.sensitive=f.elements["qs_"+i].checked;q.enabled=f.elements["qe_"+i].checked});
+  P.consentText=f.elements.consentText.value;P.consentVersion=f.elements.consentVersion.value.trim()||"1";
+  return P;
+}
+function applyParams(P,reason,src){
+  const E=validateParams(P);if(E.length){alert("Parameters are invalid:\n• "+E.join("\n• "));return false}
+  if(!reason||reason.trim().length<5){alert("A reason for the change is required (at least 5 characters).");return false}
+  if(canon(P)===canon(DB.params)){toast("No changes.");return false}
+  DB.params=P;const s=seal(P);
+  DB.paramHistory.push({ver:DB.paramHistory.length+1,ts:Date.now(),user:SESSION.id,reason:reason.trim(),seal:s,params:JSON.parse(JSON.stringify(P))});
+  logEv("PARAMETRE_DEGISTI",`version ${DB.paramHistory.length}; seal ${s}; ${src||"form"}; reason: ${reason.trim()}`);
+  toast("Parameters applied.");return true;
+}
+
+/* ---- Audit / Data / Users / About ---- */
+function vAudit(){
+  const ch=verifyChain(DB.audit);const q=(ctx.aq||"").toLowerCase();
+  const L=DB.audit.slice().reverse().filter(e=>!q||(e.action+e.user+e.detail).toLowerCase().includes(q)).slice(0,300);
+  return `<h1>Audit log</h1>${ch.ok?`<div class="note good">Chain verified: ${ch.n} entries, no corruption. Latest seal: <span class="mono">${DB.audit.length?DB.audit[DB.audit.length-1].hash:"—"}</span></div>`:`<div class="note bad"><b>Chain is broken at entry ${ch.at}.</b></div>`}
+  <div class="card"><div class="row"><input id="aq" placeholder="Filter…" value="${esc(ctx.aq||"")}" style="max-width:320px"><button class="b ghost sm" data-act="exportaudit">Download log</button></div>
+  <div class="tw"><table><tr><th>#</th><th>Time</th><th>User</th><th>Action</th><th>Details</th></tr>${L.map(e=>`<tr><td>${e.i}</td><td class="small">${fmtT(e.ts)}</td><td>${esc(e.user)}<div class="small muted">${e.role}</div></td><td>${esc(e.action)}</td><td class="small">${esc(e.detail)}</td></tr>`).join("")}</table></div>
+  <p class="small muted">Each entry contains the SHA-256 digest of the previous entry. Any later modification breaks the chain and becomes visible here. A browser-based design does not provide full tamper protection; in official use the log must be exported regularly and kept signed by the authority.</p></div>`;
+}
+function vData(){
+  const demo=DB.applicants.some(a=>a.demo);
+  return `<h1>Data</h1><div class="card"><h3>Backup and audit package</h3><div class="row"><button class="b" data-act="exportall">Download full backup</button><button class="b ghost" data-act="exportpkg">Download audit package (non-personal aggregate data)</button>${can.admin()?`<label class="b ghost">Restore from backup<input type="file" id="bfile" accept=".json" class="hidden"></label>`:""}</div>
+  <p class="small muted">The full backup contains identity and contact information; store it securely. The audit package contains no personal data (only aggregate counts and the log).</p></div>
+  ${can.admin()?`<div class="card"><h3>Demo data</h3><p class="small muted">Adds 40 fictitious sample applicants for trying out the system (national ID numbers are randomly generated in a valid format and are labelled “demo”). Delete them before real use.</p>
+   <div class="row"><button class="b ghost" data-act="seed">Add 40 demo applicants</button>${demo?`<button class="b red" data-act="unseed">Delete demo applicants</button>`:""}</div></div>
+   <div class="card"><h3>Dangerous operations</h3><button class="b red" data-act="wipe">Delete all data</button></div>`:""}`;
+}
+function vUsers(){
+  return `<h1>Users</h1><div class="card"><div class="tw"><table><tr><th>Name</th><th>Role</th><th>Status</th><th></th></tr>
+  ${DB.users.map(u=>`<tr><td>${esc(u.name)}</td><td>${ROLE[u.role]}${u.role==="denetci"?" (read-only)":""}</td><td><span class="badge ${u.active?"good":"bad"}">${u.active?"Active":"Inactive"}</span></td>
+   <td>${u.id!==SESSION.id?`<button class="b ghost sm" data-act="toggleuser" data-id="${u.id}">${u.active?"Deactivate":"Activate"}</button> `:""}<button class="b ghost sm" data-act="resetpin" data-id="${u.id}">Change PIN</button></td></tr>`).join("")}</table></div></div>
+  <div class="card"><h3>Add user</h3><form data-form="adduser"><div class="grid g3"><div><label>Full name</label><input name="name" required></div>
+   <div><label>Role</label><select name="role"><option value="gorevli">Case officer</option><option value="denetci">Auditor (read-only)</option><option value="admin">Administrator</option></select></div>
+   <div><label>PIN (at least 6 digits)</label><input name="pin" type="password" inputmode="numeric" pattern="\\d{6,}" required></div></div><button class="b" style="margin-top:10px" type="submit">Add</button></form></div>`;
+}
+function vAbout(){return `<h1>About, principles and limits</h1>
+ <div class="card"><h3>What does it do?</h3><ul><li>Records applications made of their own free will by adults who wish to marry, and tracks identity and safety confirmations.</li><li>Calculates a two-way <b>compatibility score</b> based on the applicants' <b>own stated</b> preferences and importance levels and on the institution's parameters, and produces a list of suggestions.</li><li>A case officer starts an <b>introduction process</b> from a suggestion: separate decision of each side → scheduled meeting → outcome. Every step is written to the audit log.</li><li>Rules, weights, questions and the consent text are changed on the Parameters page; every change is versioned and sealed.</li></ul></div>
+ <div class="card"><h3>Fixed safeguards (cannot be changed)</h3><ul><li>Persons under ${HARD.minAgeFloor} cannot be admitted to the system.</li><li>Participation is voluntary; applications are made in person, and applications on behalf of family or third parties are not accepted.</li><li>No contact details are shared unless both sides have separately said “I want to meet”; the system never matches anyone automatically.</li><li>An applicant who declines cannot be forced into a match, and the same pair is never suggested again. An applicant may withdraw at any time and may request deletion of their personal data.</li><li>A person with a protection/restraining order or a safety block is not admitted to the pool.</li><li>A match creates no obligation to marry.</li></ul></div>
+ <div class="card"><h3>Fairness and data protection</h3><ul><li>The criteria come from the applicant's own preference; the institution only sets the weights. Matching must not be done on fields such as ethnic origin, race or political opinion.</li><li>Sensitive data such as religion is <b>off</b> by default; if enabled, it is used only with the applicant's separate explicit consent.</li><li>The fairness report monitors whether the process gives some groups fewer opportunities.</li><li>Every suggestion is explainable: the “Why?” screen shows which criteria were met.</li></ul></div>
+ <div class="card"><h3>Limits (please read)</h3><ul>
+  <li><b>This is a decision-support tool.</b> The compatibility score does not predict the success of a marriage; it only measures how far the applicants' stated preferences overlap. The final decision always rests with the applicants themselves.</li>
+  <li><b>No official queries.</b> Because it runs offline, it cannot query the population registry, criminal records or protection orders; these are confirmations that the case officer carries out and ticks manually.</li>
+  <li><b>Browser security is limited.</b> PIN and role checks run in the browser; someone with full access to the device can alter the data. The seal and chain reveal changes; they do not prevent them. Official use requires device management, disk encryption, signed backups and the institution's IT/KVKK (Turkish personal data protection law) approval.</li>
+  <li>The legal compliance of personal data (KVKK, the Turkish personal data protection law) notices, authorisations, retention and destruction processes and of the matching policy is the responsibility of the institution and the competent authority; the default values are only a starting suggestion.</li></ul></div>`}
+function download(name,text){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type:"application/json"}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+
+/* ---- Introduction card (limited summary presented to the other party) ---- */
+function printCard(id){
+  const a=getA(id),P=DB.params;if(!a)return;
+  const first=a.ad.split(" ")[0];
+  $("#printarea").innerHTML=`<h2>${esc(P.institution)} — Introduction Card</h2>
+   <table style="width:100%;border-collapse:collapse"><tr><th style="text-align:left;width:34%">First name</th><td>${esc(first)}</td></tr><tr><th style="text-align:left">Age</th><td>${a.dogum?ageOn(a.dogum,todayStr()):""}</td></tr>
+   <tr><th style="text-align:left">Province of residence</th><td>${esc(a.il)}</td></tr><tr><th style="text-align:left">Education</th><td>${esc(P.eduLevels[+a.edu]||"")}</td></tr>
+   <tr><th style="text-align:left">Occupation / field</th><td>${esc(a.meslek)}</td></tr><tr><th style="text-align:left">Marital status / children</th><td>${MEDENI.find(x=>x[0]===a.medeni)[1]} / ${a.cocuk}</td></tr></table>
+   <h3>Short introduction</h3><p>${esc(a.tanitim)}</p>
+   <p style="font-size:11px;margin-top:30px">This card is only a summary to help you decide whether to meet; it contains no identity, contact or address information. Accepting or declining to meet is entirely your decision, and you do not have to give a reason.</p>`;
+  window.print();
+}
+
+/* =====================================================================
+   DEMO DATA
+   ===================================================================== */
+function seedDemo(){
+  const P=DB.params;const ils=["Ankara","Istanbul","Izmir","Bursa","Konya"],erk=["Adam","Daniel","Michael","Ryan","Omar","Karim","Samir","Leo"],kad=["Emma","Sara","Laila","Nora","Maya","Hannah","Amira","Julia"],sy=["Hart","Reed","Cole","Frost","Bell","Shaw","Wood","Ford"];
+  const pick=a=>a[Math.floor(Math.random()*a.length)];
+  const tc=()=>{const d=[1+Math.floor(Math.random()*9)];for(let i=1;i<9;i++)d.push(Math.floor(Math.random()*10));
+    const d10=(((d[0]+d[2]+d[4]+d[6]+d[8])*7)-(d[1]+d[3]+d[5]+d[7]))%10;d.push((d10+10)%10);d.push(d.reduce((x,y)=>x+y,0)%10);return d.join("")};
+  for(let n=0;n<40;n++){
+    const a=newApplicant();a.demo=true;const k=n%2===0;a.cins=k?"K":"E";a.ad=pick(k?kad:erk);a.soyad=pick(sy);a.kimNo=tc();
+    const age=22+Math.floor(Math.random()*14);const dt=new Date();dt.setFullYear(dt.getFullYear()-age);dt.setDate(dt.getDate()-Math.floor(Math.random()*300));a.dogum=dStr(dt);
+    a.telefon="05"+Math.floor(100000000+Math.random()*899999999);a.il=pick(ils);a.edu=String(2+Math.floor(Math.random()*5));a.meslek=pick(["Teacher","Engineer","Nurse","Shopkeeper","Civil servant","Accountant"]);
+    a.tanitim="Demo record: short introduction text.";a.is="calisiyor";a.medeni=Math.random()<.9?"hic":"bosanmis";a.cocuk=a.medeni==="hic"?0:1;
+    a.prefs.ageMin=Math.max(P.minAge,age-6);a.prefs.ageMax=age+7;a.prefs.ageImp=pick([1,2,2,3]);a.prefs.locMode=pick(["fark_etmez","ayni_il"]);a.prefs.locImp=pick([0,1,2,3]);
+    a.prefs.eduMin=String(Math.max(0,+a.edu-1));a.prefs.eduImp=pick([0,1,2]);a.prefs.maritalOk=Math.random()<.7?["hic"]:["hic","bosanmis","dul"];a.prefs.maritalImp=pick([1,2,3]);a.prefs.kidsOk=Math.random()<.6;a.prefs.kidsImp=pick([1,2]);
+    P.questions.filter(q=>q.enabled).forEach(q=>{const ans=pick(q.opts);const acc=q.opts.filter(o=>o===ans||o==="Doesn't matter"||Math.random()<.35);a.qa[q.id]={ans,accept:acc,imp:String(pick([0,1,1,2,2,3]))}});
+    a.consent={data:true,sensitive:false,contactShare:Math.random()<.7,ts:Date.now(),version:P.consentVersion};
+    a.checks={inPerson:true,idVerified:true,protective:true,protectiveFound:false,voluntary:true,notMarried:true};
+    a.status="aktif";hist(a,"Demo data created");DB.applicants.push(a)}
+  logEv("DENEME_VERISI","40 demo applicants added");save();
+}
+
+/* =====================================================================
+   EVENTS
+   ===================================================================== */
+document.addEventListener("submit",e=>{
+  const f=e.target.closest("form[data-form]");if(!f)return;e.preventDefault();const t=f.dataset.form,g=n=>f.elements[n]&&f.elements[n].value;
+  if(t==="setup"){
+    if(g("pin")!==g("pin2")){alert("The PINs do not match.");return}
+    const salt=rnd();const params=DEFAULT_PARAMS();params.institution=g("inst").trim();
+    DB={v:1,params,paramHistory:[{ver:1,ts:Date.now(),user:"admin",reason:"Initial setup (default parameters)",seal:seal(params),params:JSON.parse(JSON.stringify(params))}],
+      users:[{id:"u1",name:g("name").trim(),role:"admin",salt,hash:hashPin(g("pin"),salt),active:true,fails:0,lockUntil:0}],
+      applicants:[],intros:[],runs:[],blocked:[],audit:[],seq:{a:0,i:0},officialSeal:""};
+    SESSION={id:"u1",name:g("name").trim(),role:"admin"};lastAct=Date.now();
+    logEv("KURULUM","System set up; institution: "+params.institution);save();render();return}
+  if(t==="login"){
+    const u=DB.users.find(x=>x.id===g("u"));const err=$("#lerr");
+    if(u.lockUntil>Date.now()){err.innerHTML=`<div class="note bad">Too many failed attempts. Try again in ${Math.ceil((u.lockUntil-Date.now())/60000)} min.</div>`;return}
+    if(hashPin(g("pin"),u.salt)===u.hash){u.fails=0;u.lockUntil=0;SESSION={id:u.id,name:u.name,role:u.role};lastAct=Date.now();logEv("GIRIS","Signed in");save();render()}
+    else{u.fails++;if(u.fails>=5){u.lockUntil=Date.now()+5*60000;u.fails=0}save();
+      SESSION={id:u.id,name:u.name,role:u.role};logEv("GIRIS_HATASI","Incorrect PIN: "+u.name);SESSION=null;err.innerHTML=`<div class="note bad">Incorrect PIN.</div>`}return}
+  if(t==="params"){if(!can.admin())return;const P=readParamsForm();if(applyParams(P,g("reason"))){ctx.draft=null;render()}return}
+  if(t==="adduser"){if(!can.admin())return;const salt=rnd();const id="u"+(DB.users.length+1)+rnd().slice(0,4);
+    DB.users.push({id,name:g("name").trim(),role:g("role"),salt,hash:hashPin(g("pin"),salt),active:true,fails:0,lockUntil:0});
+    logEv("KULLANICI_EKLENDI",`${g("name")} (${g("role")})`);save();toast("User added.");render();return}
+});
+document.addEventListener("change",e=>{
+  if(e.target.id==="flt"){ctx.filter=e.target.value;render()}
+  if(e.target.id==="iflt"){ctx.ifilter=e.target.value;render()}
+  if(e.target.id==="pfile"&&can.admin()){const r=new FileReader();r.onload=()=>{try{const P=JSON.parse(r.result);ctx.draft=P;const E=validateParams(P);render();
+    if(E.length)alert("The file is not valid:\n• "+E.join("\n• "));else toast("Parameter file loaded into the form; enter a reason and apply. Seal: "+seal(P).slice(0,12)+"…")}catch(x){alert("The file could not be read.")}};r.readAsText(e.target.files[0])}
+  if(e.target.id==="bfile"&&can.admin()){const r=new FileReader();r.onload=()=>{try{const D=JSON.parse(r.result);const c=verifyChain(D.audit||[]);
+    if(!c.ok&&!confirm(`The backup's audit chain is BROKEN at entry ${c.at}. Load it anyway?`))return;
+    if(!confirm("All current data will be REPLACED with this backup. Continue?"))return;
+    DB=D;save();SESSION=null;toast("Backup restored; please sign in again.");render()}catch(x){alert("The backup could not be read.")}};r.readAsText(e.target.files[0])}
+});
+document.addEventListener("input",e=>{
+  const keep=(id,key)=>{ctx[key]=e.target.value;const p=e.target.selectionStart;render();const n=$("#"+id);n.focus();n.setSelectionRange(p,p)};
+  if(e.target.id==="q")keep("q","q");if(e.target.id==="aq")keep("aq","aq");if(e.target.id==="mq")keep("mq","mq");
+});
+function setStatus(a,st,txt){a.status=st;hist(a,txt)}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-act]");if(!t)return;const a=t.dataset.act;
+  const ap=()=>getA(route.id),it=()=>DB.intros.find(x=>x.id===route.id);
+  const reason=(msg)=>{const r=prompt(msg);if(!r||r.trim().length<5){if(r!==null)alert("The reason must be at least 5 characters.");return null}return r.trim()};
+  if(a==="nav"){ctx.draft=null;ctx.why=null;go(t.dataset.k);return}
+  if(a==="lock"){logEv("OTURUM_KAPATILDI","");lockNow();return}
+  if(a==="open"){e.preventDefault();go("app",{id:t.dataset.id});return}
+  if(a==="openintro"){e.preventDefault();go("intro",{id:t.dataset.id});return}
+  if(a==="newapp"){if(!can.edit())return;const n=newApplicant();DB.applicants.push(n);hist(n,"Applicant record created");logEv("ADAY_OLUSTURULDU",n.id);save();go("app",{id:n.id});return}
+  if(a==="saveapp"){const x=ap();readApplicant(x);hist(x,"Saved");logEv("ADAY_KAYDEDILDI",x.id);save();toast("Saved.");render();return}
+  if(a==="activate"){const x=ap();readApplicant(x);const c=checkApplicant(x,DB.params);if(c.status!=="UYGUN"){alert("The conditions for admission to the pool are not met.");save();render();return}
+    setStatus(x,"aktif","Admitted to the pool");logEv("ADAY_AKTIF",x.id);save();render();return}
+  if(a==="pause"){const x=ap();setStatus(x,"beklemede","Put on hold");logEv("ADAY_BEKLEMEDE",x.id);save();render();return}
+  if(a==="withdraw"){const x=ap();const r=reason("Withdrawal request record (the applicant's request; they need not give a reason, enter a record note):");if(!r)return;
+    DB.intros.forEach(i=>{if((i.a===x.id||i.b===x.id)&&ACTIVE_INTRO.includes(i.status)){i.status="cekildi";i.history.push({ts:Date.now(),user:SESSION.id,text:"Applicant withdrew: "+x.id})}});
+    x.closedAt=Date.now();setStatus(x,"cekildi","Applicant withdrew: "+r);logEv("ADAY_CEKILDI",x.id);save();render();return}
+  if(a==="safety"){const x=ap();const r=reason("Reason for safety block (record only necessary information):");if(!r)return;
+    x.safetyBlock=true;x.safetyReason=r;DB.intros.forEach(i=>{if((i.a===x.id||i.b===x.id)&&ACTIVE_INTRO.includes(i.status)){i.status="sikayet";i.history.push({ts:Date.now(),user:SESSION.id,text:"Placed under review due to safety block"})}});
+    setStatus(x,"engelli","Safety block: "+r);logEv("GUVENLIK_ENGELI",x.id+" — "+r);save();render();return}
+  if(a==="release"){const x=ap();const r=reason("Reason for removing the block/review:");if(!r)return;x.safetyBlock=false;x.safetyReason="";setStatus(x,"beklemede","Block removed: "+r);logEv("ENGEL_KALDIRILDI",x.id+" — "+r);save();render();return}
+  if(a==="anonymize"){const x=ap();if(prompt(`The personal data of record ${x.id} will be PERMANENTLY deleted. Type DELETE to confirm:`)!=="DELETE")return;
+    DB.intros.forEach(i=>{if((i.a===x.id||i.b===x.id)&&ACTIVE_INTRO.includes(i.status)){i.status="cekildi"}});
+    Object.assign(x,{ad:"—",soyad:"—",kimNo:"",telefon:"",eposta:"",ilce:"",meslek:"",tanitim:"",notes:"",safetyReason:""});x.status="silindi";x.closedAt=x.closedAt||Date.now();
+    hist(x,"Personal data deleted (anonymised)");logEv("ADAY_ANONIMLESTIRILDI",x.id);save();render();return}
+  if(a==="card"){printCard(t.dataset.id);return}
+  if(a==="runmatch"){if(!can.edit())return;const r=runMatching();save();toast(`${r.suggestions.length} suggestions produced.`);render();return}
+  if(a==="why"){ctx.why={a:t.dataset.a,b:t.dataset.b};render();return}
+  if(a==="startintro"){const x=getA(t.dataset.a),y=getA(t.dataset.b);const bl=pairOk(x,y,DB.params,todayStr());if(bl){alert("This pair cannot be started right now: "+bl);return}
+    DB.seq.i=(DB.seq.i||0)+1;const sc=scorePair(x,y,DB.params,todayStr());
+    const i={id:`T-${new Date().getFullYear()}-${String(DB.seq.i).padStart(4,"0")}`,a:x.id,b:y.id,score:Math.round(sc.score),status:"yanit_bekliyor",createdAt:Date.now(),createdBy:SESSION.id,paramSeal:seal(DB.params),
+      resp:{a:{dec:null,ts:null,method:"",note:""},b:{dec:null,ts:null,method:"",note:""}},meeting:null,outcome:null,history:[]};
+    hist(i,"Introduction started; each applicant will be shown the other's introduction card");DB.intros.push(i);logEv("TANISTIRMA_BASLATILDI",`${i.id} ${x.id}↔${y.id} puan ${i.score}`);save();go("intro",{id:i.id});return}
+  if(a==="resp"){const i=it();const side=t.dataset.side,dec=t.dataset.dec;
+    const m=prompt("Did the applicant state the decision themselves? Enter how it was obtained (e.g. in person / by phone):","in person");if(!m)return;
+    if(!confirm(`${nm(getA(i[side]))} stated, as their own decision, that they “${dec==="kabul"?"want to meet":"do not want to meet"}”. Record it? (cannot be undone)`))return;
+    i.resp[side]={dec,ts:Date.now(),method:m,note:""};i.history.push({ts:Date.now(),user:SESSION.id,text:`${nm(getA(i[side]))}: ${DEC_TXT[dec]}`});
+    logEv("TANISTIRMA_YANIT",`${i.id} ${i[side]} ${DEC_TXT[dec]}`);
+    if(dec==="ret"){i.status="reddedildi";DB.blocked.push([i.a,i.b]);i.history.push({ts:Date.now(),user:SESSION.id,text:"The pair will not be suggested again"});logEv("TANISTIRMA_REDDEDILDI",i.id)}
+    else if(i.resp.a.dec==="kabul"&&i.resp.b.dec==="kabul"){i.status="kabul";logEv("TANISTIRMA_KARSILIKLI_KABUL",i.id)}
+    save();render();return}
+  if(a==="timeout"){const i=it();i.status="zamanasimi";i.history.push({ts:Date.now(),user:SESSION.id,text:"Response period expired; closed (pair not blocked)"});logEv("TANISTIRMA_ZAMANASIMI",i.id);save();render();return}
+  if(a==="plan"){const i=it();const d=prompt("Meeting date (YYYY-MM-DD):",addDays(todayStr(),7));if(!d||!/^\d{4}-\d\d-\d\d$/.test(d))return;const tm=prompt("Time (HH:MM):","14:00");if(!tm)return;const pl=prompt("Place (public, known to the case officer):","");if(!pl)return;
+    i.meeting={date:d,time:tm,place:pl,mode:DB.params.meetingMode};i.status="bulusma_planli";i.history.push({ts:Date.now(),user:SESSION.id,text:`Meeting scheduled: ${d} ${tm} ${pl}`});logEv("GORUSME_PLANLANDI",`${i.id} ${d} ${tm}`);save();render();return}
+  if(a==="outcome"){const i=it();const get=side=>{const r=prompt(`Enter the meeting outcome for ${nm(getA(i[side]))}: continue / ended`,"continue");const m={"continue":"devam","ended":"bitti"};return r&&m[r.trim().toLowerCase()]?m[r.trim().toLowerCase()]:null};
+    const o1=get("a");if(!o1){alert("Invalid input.");return}const o2=get("b");if(!o2){alert("Invalid input.");return}
+    i.outcome={a:o1,b:o2};i.history.push({ts:Date.now(),user:SESSION.id,text:`Outcome: ${OUTC_TXT[o1]} / ${OUTC_TXT[o2]}`});
+    if(o1==="devam"&&o2==="devam"){i.status="devam_ediyor"}
+    else{i.status="bitti";[i.a,i.b].forEach(id=>{const x=getA(id);x.cooldownUntil=addDays(todayStr(),DB.params.cooldownDays)})}
+    logEv("GORUSME_SONUCU",`${i.id} ${o1}/${o2}`);save();render();return}
+  if(a==="endintro"){const i=it();const r=reason("Note on ending:");if(!r)return;i.status="bitti";[i.a,i.b].forEach(id=>{getA(id).cooldownUntil=addDays(todayStr(),DB.params.cooldownDays)});i.history.push({ts:Date.now(),user:SESSION.id,text:"Ended: "+r});logEv("TANISTIRMA_BITTI",i.id);save();render();return}
+  if(a==="decision"){const i=it();if(!confirm("Did both applicants themselves state that they have decided to marry? The records will be completed and removed from the pool."))return;
+    i.status="kararverdi";[i.a,i.b].forEach(id=>{const x=getA(id);x.closedAt=Date.now();setStatus(x,"tamamlandi","Decision to marry made ("+i.id+")")});i.history.push({ts:Date.now(),user:SESSION.id,text:"Decision to marry reported; referred to the marriage-registration process"});logEv("EVLENME_KARARI",i.id);save();render();return}
+  if(a==="complaint"){const i=it();const r=reason("Complaint / safety report (record only necessary information):");if(!r)return;i.status="sikayet";i.history.push({ts:Date.now(),user:SESSION.id,text:"Complaint: "+r});
+    [i.a,i.b].forEach(id=>{const x=getA(id);if(x.status==="aktif")setStatus(x,"inceleme","Under review due to complaint: "+i.id)});logEv("SIKAYET",i.id+" — "+r);save();render();return}
+  if(a==="closecomplaint"){const i=it();const r=reason("Reason for closing the complaint and its outcome:");if(!r)return;i.status="bitti";i.history.push({ts:Date.now(),user:SESSION.id,text:"Complaint closed: "+r});
+    [i.a,i.b].forEach(id=>{const x=getA(id);if(x.status==="inceleme"){setStatus(x,"aktif","Review concluded: "+r);x.cooldownUntil=addDays(todayStr(),DB.params.cooldownDays)}});logEv("SIKAYET_KAPATILDI",i.id+" — "+r);save();render();return}
+  if(a==="saveseal"){DB.officialSeal=$("#offseal").value.trim().toLowerCase();logEv("RESMI_MUHUR_TANIMLANDI",DB.officialSeal);save();render();return}
+  if(a==="addq"){const P=readParamsForm();P.questions.push({id:"q_"+rnd().slice(0,6),label:"New question",opts:["Yes","No"],weight:2,sensitive:false,enabled:true});ctx.draft=P;render();return}
+  if(a==="delq"){const P=readParamsForm();P.questions.splice(+t.dataset.i,1);ctx.draft=P;render();return}
+  if(a==="exportparams"){download("matchmaking-parameters.json",JSON.stringify(readParamsForm(),null,2));return}
+  if(a==="exportall"){logEv("YEDEK_ALINDI","full backup");download("matchmaking-backup-"+todayStr()+".json",JSON.stringify(DB));return}
+  if(a==="exportaudit"){download("audit-log-"+todayStr()+".json",JSON.stringify({audit:DB.audit,chain:verifyChain(DB.audit),paramSeal:seal(DB.params)},null,2));return}
+  if(a==="exportpkg"){
+    const cnt=o=>Object.entries(o).map(([k,v])=>({k,n:v}));const by=(arr,fn)=>arr.reduce((r,x)=>{const k=fn(x);r[k]=(r[k]||0)+1;return r},{});
+    const pk={tarih:todayStr(),kurum:DB.params.institution,parametreler:DB.params,parametreMuhru:seal(DB.params),parametreGecmisi:DB.paramHistory.map(x=>({ver:x.ver,ts:x.ts,user:x.user,reason:x.reason,seal:x.seal})),
+      adayDurumlari:by(DB.applicants,a=>a.status),tanistirmaDurumlari:by(DB.intros,i=>i.status),eslestirmeKosulari:DB.runs.map(r=>({id:r.id,ts:r.ts,user:r.user,paramSeal:r.paramSeal,havuz:r.pool,oneri:r.suggestions.length,onerisiz:r.noMatch.length})),
+      denetimGunlugu:DB.audit,zincir:verifyChain(DB.audit)};
+    logEv("DENETIM_PAKETI","exported");download("audit-package-"+todayStr()+".json",JSON.stringify(pk,null,2));return}
+  if(a==="seed"){if(!can.admin())return;seedDemo();toast("40 demo applicants added.");render();return}
+  if(a==="unseed"){if(!can.admin())return;if(!confirm("Delete all demo applicants and the introductions linked to them?"))return;
+    const ids=new Set(DB.applicants.filter(x=>x.demo).map(x=>x.id));DB.applicants=DB.applicants.filter(x=>!x.demo);DB.intros=DB.intros.filter(i=>!ids.has(i.a)&&!ids.has(i.b));DB.blocked=DB.blocked.filter(p=>!ids.has(p[0])&&!ids.has(p[1]));DB.runs=[];
+    logEv("DENEME_VERISI_SILINDI",ids.size+" applicants");save();render();return}
+  if(a==="toggleuser"){const u=DB.users.find(x=>x.id===t.dataset.id);if(u.active&&u.role==="admin"&&DB.users.filter(x=>x.active&&x.role==="admin").length<2){alert("The last active administrator cannot be deactivated.");return}
+    u.active=!u.active;logEv("KULLANICI_DURUMU",`${u.name}: ${u.active?"active":"inactive"}`);save();render();return}
+  if(a==="resetpin"){const u=DB.users.find(x=>x.id===t.dataset.id);const p=prompt(`New PIN for ${u.name} (at least 6 digits):`);if(!p||!/^\d{6,}$/.test(p)){if(p!==null)alert("The PIN must be at least 6 digits.");return}
+    u.salt=rnd();u.hash=hashPin(p,u.salt);u.fails=0;u.lockUntil=0;logEv("PIN_DEGISTI",u.name);save();toast("PIN updated.");return}
+  if(a==="wipe"){if(!can.admin())return;if(prompt("All data will be deleted. Type DELETE to confirm:")==="DELETE"){localStorage.removeItem(KEY);DB=null;SESSION=null;toast("All data deleted.");render()}return}
+});
+
+DB=load();
+if(DB&&!DB.paramHistory)DB=null;
+render();
+</script>
+</body>
+</html>
