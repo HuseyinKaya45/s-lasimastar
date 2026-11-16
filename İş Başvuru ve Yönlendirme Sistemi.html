@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>İş Başvuru ve Yönlendirme Sistemi</title>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--ink:#1c2733;--mut:#667585;--line:#d9e0e7;--pri:#0f5c8c;--pri2:#0b4469;--good:#1b7a43;--warn:#a86400;--bad:#b3261e;--info:#285a9e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header.top{background:var(--pri2);color:#fff;padding:10px 0}header.top .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{font-weight:700;font-size:18px}.brand small{display:block;font-weight:400;font-size:12px;opacity:.8}
+nav.tabs{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
+nav.tabs button{border:0;background:none;padding:11px 12px;cursor:pointer;font:inherit;color:var(--mut);border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs button.on{color:var(--pri);border-color:var(--pri);font-weight:600}
+main{padding:18px 0 60px}h1{font-size:22px;margin:6px 0 14px}h3{margin:0 0 8px;font-size:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 14px}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.g4{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.stat b{display:block;font-size:26px;color:var(--pri)}.stat span{color:var(--mut);font-size:13px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.sp{flex:1}.muted{color:var(--mut)}.small{font-size:12.5px}.mt8{margin-top:8px}.mono{font-family:ui-monospace,Menlo,Consolas,monospace;word-break:break-all;font-size:12px}
+button.b{background:var(--pri);color:#fff;border:0;border-radius:7px;padding:8px 14px;cursor:pointer;font:inherit}button.b:hover{background:var(--pri2)}button.b.ghost{background:#fff;color:var(--pri);border:1px solid var(--pri)}button.b.red{background:var(--bad)}button.b.sm{padding:4px 9px;font-size:13px}button.b:disabled{opacity:.45;cursor:not-allowed}
+input,select,textarea{width:100%;font:inherit;border:1px solid var(--line);border-radius:7px;padding:7px 9px;background:#fff;color:var(--ink);min-height:36px}textarea{min-height:70px}input[type=checkbox]{width:auto;min-height:0}
+label{display:block;font-size:13px;color:var(--mut);margin:8px 0 2px}label.chk{display:flex;gap:7px;align-items:flex-start;color:var(--ink);font-size:14px;margin:4px 0}
+.note{border-radius:8px;padding:9px 12px;margin:0 0 10px;border:1px solid;font-size:14px}.note.good{background:#e8f5ec;border-color:#b6dfc4}.note.warn{background:#fff4e0;border-color:#f0d29b}.note.bad{background:#fdeceb;border-color:#f1b8b4}.note.info{background:#e9f0fb;border-color:#bcd0ee}
+.badge{display:inline-block;border-radius:99px;padding:1px 9px;font-size:12px;background:#e8edf2;color:#344}.badge.good{background:#dff1e5;color:var(--good)}.badge.warn{background:#fdebc8;color:var(--warn)}.badge.bad{background:#fadbd8;color:var(--bad)}.badge.info{background:#dce8fa;color:var(--info)}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mut);font-weight:600;font-size:12.5px}
+progress{width:70px;height:8px}.pager{display:flex;gap:10px;align-items:center;margin-top:8px}
+dialog{border:0;border-radius:12px;padding:0;max-width:min(860px,96vw);width:100%;box-shadow:0 10px 40px #0006}dialog::backdrop{background:#0008}
+dialog form{padding:16px 18px;max-height:88vh;overflow:auto}dialog h2{margin:0 0 6px;font-size:18px}
+.checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:0 10px;border:1px solid var(--line);border-radius:8px;padding:6px 9px;max-height:210px;overflow:auto}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:9px 16px;border-radius:8px;opacity:0;transition:.25s;pointer-events:none;z-index:50}.toast.show{opacity:1}
+.hidden{display:none!important}#printarea{display:none}
+.lock{max-width:360px;margin:12vh auto}
+@media print{body>*:not(#printarea){display:none!important}#printarea{display:block;padding:20px;color:#000;background:#fff}#printarea h2{margin:0 0 10px}#printarea table td{border:1px solid #888;padding:6px 8px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><div class="brand" id="brand">İş Başvuru ve Yönlendirme Sistemi<small>Çevrimdışı · sunucusuz · tek dosya</small></div><div class="row" id="who"></div></div></header>
+<nav class="tabs hidden" id="tabs"><div class="wrap" id="tabsin"></div></nav>
+<div class="wrap"><main id="app"></main></div>
+<div id="printarea"></div><div class="toast" id="toast"></div>
+<script>
+(() => {
+'use strict';
+/* =====================================================================  yardımcılar */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const pad = (n, w = 2) => String(n).padStart(w, '0');
+const dStr = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const today = () => dStr(new Date());
+const fmtD = (s) => (s ? s.split('-').reverse().join('.') : '—');
+const fmtT = (ts) => { if (!ts) return '—'; const d = new Date(ts); return `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`; };
+const isDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s) && !isNaN(Date.parse(s)) && dStr(new Date(s + 'T12:00:00')) === s;
+const daysBetween = (a, b) => Math.round((Date.parse(b + 'T12:00:00') - Date.parse(a + 'T12:00:00')) / 864e5);
+const ageOn = (dogum, t) => { const [y, m, d] = dogum.split('-').map(Number), [Y, M, D] = t.split('-').map(Number); return Y - y - ((M < m || (M === m && D < d)) ? 1 : 0); };
+const canon = (o) => (o && typeof o === 'object' ? (Array.isArray(o) ? '[' + o.map(canon).join(',') + ']' : '{' + Object.keys(o).sort().map((k) => JSON.stringify(k) + ':' + canon(o[k])).join(',') + '}') : JSON.stringify(o));
+const trLower = (s) => String(s || '').toLocaleLowerCase('tr');
+/* SHA-256 (eşzamanlı; sabitler asal sayılardan türetilir) */
+const sha256 = (() => {
+  const pr = []; for (let n = 2; pr.length < 64; n++) if (pr.every((p) => n % p)) pr.push(n);
+  const fr = (x) => Math.floor((x - Math.floor(x)) * 4294967296);
+  const K = pr.map((p) => fr(Math.cbrt(p))), H0 = pr.slice(0, 8).map((p) => fr(Math.sqrt(p)));
+  const rr = (x, n) => (x >>> n) | (x << (32 - n));
+  return (str) => {
+    const m = new TextEncoder().encode(str), l = m.length, n = (((l + 9 + 63) >> 6) << 6), b = new Uint8Array(n); b.set(m); b[l] = 128;
+    const dv = new DataView(b.buffer); dv.setUint32(n - 4, (l * 8) >>> 0); dv.setUint32(n - 8, Math.floor(l * 8 / 4294967296));
+    const h = H0.slice(), w = new Array(64);
+    for (let i = 0; i < n; i += 64) {
+      for (let t = 0; t < 16; t++) w[t] = dv.getUint32(i + t * 4);
+      for (let t = 16; t < 64; t++) { const s0 = rr(w[t - 15], 7) ^ rr(w[t - 15], 18) ^ (w[t - 15] >>> 3), s1 = rr(w[t - 2], 17) ^ rr(w[t - 2], 19) ^ (w[t - 2] >>> 10); w[t] = (w[t - 16] + s0 + w[t - 7] + s1) | 0; }
+      let [a, bb, c, d, e, f, g, hh] = h;
+      for (let t = 0; t < 64; t++) { const S1 = rr(e, 6) ^ rr(e, 11) ^ rr(e, 25), ch = (e & f) ^ (~e & g), t1 = (hh + S1 + ch + K[t] + w[t]) | 0, S0 = rr(a, 2) ^ rr(a, 13) ^ rr(a, 22), mj = (a & bb) ^ (a & c) ^ (bb & c), t2 = (S0 + mj) | 0; hh = g; g = f; f = e; e = (d + t1) | 0; d = c; c = bb; bb = a; a = (t1 + t2) | 0; }
+      h[0] = (h[0] + a) | 0; h[1] = (h[1] + bb) | 0; h[2] = (h[2] + c) | 0; h[3] = (h[3] + d) | 0; h[4] = (h[4] + e) | 0; h[5] = (h[5] + f) | 0; h[6] = (h[6] + g) | 0; h[7] = (h[7] + hh) | 0;
+    }
+    return h.map((x) => (x >>> 0).toString(16).padStart(8, '0')).join('');
+  };
+})();
+function tcValid(t) {
+  if (!/^[1-9]\d{10}$/.test(t)) return false; const d = t.split('').map(Number);
+  const d10 = (((d[0] + d[2] + d[4] + d[6] + d[8]) * 7) - (d[1] + d[3] + d[5] + d[7])) % 10; if (((d10 + 10) % 10) !== d[9]) return false;
+  return d.slice(0, 10).reduce((a, b) => a + b, 0) % 10 === d[10];
+}
+const toast = (m) => { const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('show'), 3000); };
+
+/* =====================================================================  sabit güvenceler ve parametreler */
+const HARD = { minAgeFloor: 18 }; // parametreyle düşürülemez
+// Ayrımcılık yasağı: eşleştirme puanı yalnız iş gereklerine bakar. İlan metninde şu ifadeler engellenir (İş Kanunu m.5).
+const DISCRIM = /\b(bayan|bay|erkek|kad[ıi]n|k[ıi]z|gen[cç]|ya[sş][ıi]nda|ya[sş]\s*s[ıi]n[ıi]r[ıi]|evli|bek[aâ]r|t[üu]rk\s*ol|m[üu]sl[üu]man|[çc]ocuks[uü]z|hamile|askerli[ğg]ini)\b/i;
+const DEFAULT_PARAMS = () => ({
+  institution: 'İş Başvuru ve Yönlendirme Birimi',
+  minAge: 18, maxAge: 65,
+  eduLevels: ['İlköğretim', 'Lise', 'Ön lisans', 'Lisans', 'Yüksek lisans', 'Doktora'],
+  fields: ['Üretim / Sanayi', 'İnşaat', 'Ticaret / Satış', 'Bilişim', 'Sağlık', 'Eğitim', 'Turizm / Konaklama', 'Ulaşım / Lojistik', 'Tarım', 'Büro / Yönetim', 'Hizmet', 'Diğer'],
+  skills: ['Excel', 'Ofis yazılımları', 'Muhasebe', 'Müşteri ilişkileri', 'Satış', 'Kasa işlemleri', 'Depo / stok', 'Forklift', 'Kaynak', 'CNC / torna', 'Elektrik tesisatı', 'Su tesisatı', 'Boya / badana', 'Duvar / kalıp', 'Şoförlük', 'Yazılım geliştirme', 'Veri tabanı', 'Ağ / sistem', 'Grafik tasarım', 'Hemşirelik', 'Hasta bakımı', 'İlk yardım', 'Öğretmenlik', 'Çocuk gelişimi', 'Aşçılık', 'Garsonluk', 'Temizlik', 'Güvenlik', 'Tarımsal üretim', 'Hayvancılık', 'İngilizce', 'Almanca', 'Arapça', 'Rusça', 'Takım çalışması', 'Proje yönetimi'],
+  weights: { skills: 35, pref: 10, edu: 15, exp: 15, loc: 15, salary: 7, work: 3 },
+  minScore: 50,
+  reqRule: 'hepsi', reqPct: 80,       // zorunlu beceriler: hepsi | yüzde
+  eduGap: 0,                          // gereken eğitimin en çok kaç seviye altı kabul edilir
+  expGapYears: 0,                     // gereken deneyimden en çok kaç yıl eksik kabul edilir
+  locHard: true,                      // çalışılabilecek iller dışındaki ilanlar elenir
+  salaryHard: false, salaryTolerancePct: 15,
+  maxActiveRefs: 3, refsPerSlot: 3, responseDays: 7, interviewDays: 14, retentionDays: 730,
+  fairGapPct: 15,
+  consentText: 'Kişisel verilerimin iş ve işçi bulma amacıyla işlenmesine, uygun görülen işverenlere ancak benim onayımdan sonra aktarılmasına rıza veriyorum. Rızamı dilediğim an geri alabileceğimi, verilerimin silinmesini isteyebileceğimi biliyorum.'
+});
+function validateParams(P) {
+  const e = [], num = (v, lo, hi) => Number.isFinite(+v) && +v >= lo && +v <= hi;
+  if (!num(P.minAge, HARD.minAgeFloor, 100)) e.push(`En düşük yaş ${HARD.minAgeFloor} veya üzeri olmalı (sabit güvence).`);
+  if (!num(P.maxAge, P.minAge, 100)) e.push('En yüksek yaş, en düşük yaştan küçük olamaz.');
+  for (const k of ['eduLevels', 'fields', 'skills']) if (!Array.isArray(P[k]) || !P[k].length || P[k].some((x) => !String(x).trim())) e.push(`"${k}" listesi boş olamaz.`);
+  if ((new Set(P.skills.map(trLower))).size !== P.skills.length) e.push('Beceri listesinde yinelenen kayıt var.');
+  let sum = 0; for (const [k, v] of Object.entries(P.weights)) { if (!num(v, 0, 100)) e.push(`Ağırlık "${k}" 0–100 arasında olmalı.`); sum += +v; }
+  if (sum <= 0) e.push('Ağırlıkların toplamı sıfırdan büyük olmalı.');
+  if (!num(P.minScore, 0, 100)) e.push('Asgari puan 0–100 olmalı.');
+  if (!['hepsi', 'yuzde'].includes(P.reqRule)) e.push('Zorunlu beceri kuralı geçersiz.');
+  if (!num(P.reqPct, 1, 100)) e.push('Zorunlu beceri yüzdesi 1–100 olmalı.');
+  if (!num(P.eduGap, 0, 5)) e.push('Eğitim farkı 0–5 olmalı.'); if (!num(P.expGapYears, 0, 20)) e.push('Deneyim farkı 0–20 olmalı.');
+  if (!num(P.salaryTolerancePct, 0, 200)) e.push('Ücret toleransı 0–200 olmalı.');
+  if (!num(P.maxActiveRefs, 1, 20)) e.push('Aday başına aktif yönlendirme 1–20 olmalı.'); if (!num(P.refsPerSlot, 1, 20)) e.push('Kadro başına yönlendirme 1–20 olmalı.');
+  if (!num(P.responseDays, 1, 60) || !num(P.interviewDays, 1, 120)) e.push('Süre alanları geçersiz.'); if (!num(P.retentionDays, 30, 3650)) e.push('Saklama süresi 30–3650 gün olmalı.');
+  if (!num(P.fairGapPct, 1, 100)) e.push('Adalet eşiği 1–100 olmalı.'); if (!String(P.institution).trim()) e.push('Kurum adı gerekli.'); if (!String(P.consentText).trim()) e.push('Rıza metni gerekli.');
+  return e;
+}
+const sealOf = (P) => sha256(canon({ ...P, institution: '' }));
+
+/* =====================================================================  durum, depolama, denetim zinciri */
+const KEY = 'isb_v1';
+let memOnly = false;
+const fresh = () => ({ v: 1, meta: { officer: '', created: Date.now(), lastBackup: 0, lock: null }, params: DEFAULT_PARAMS(), paramHistory: [], seekers: {}, employers: {}, vacancies: {}, referrals: {}, blocked: [], counters: {}, audit: [], run: null });
+let S;
+function load() { try { const r = localStorage.getItem(KEY); if (r) { const j = JSON.parse(r); if (j && j.v === 1) return j; } } catch { memOnly = true; } return fresh(); }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch { memOnly = true; } }
+const user = () => S.meta.officer || 'görevli';
+function A(action, detail = '') { // detail yalnız kayıt numaraları/işlem türü içermeli; kişisel veri YAZMAYIN
+  const last = S.audit[S.audit.length - 1], i = last ? last.i + 1 : 1, prev = last ? last.hash : 'GENESIS', ts = Date.now(), u = user();
+  S.audit.push({ i, ts, user: u, action, detail: String(detail), prev, hash: sha256([prev, i, ts, u, action, detail].join('\u001f')) });
+}
+function verifyChain(list = S.audit) { let prev = 'GENESIS', n = 0; for (const e of list) { if (e.prev !== prev || e.i !== n + 1 || e.hash !== sha256([prev, e.i, e.ts, e.user, e.action, e.detail].join('\u001f'))) return { ok: false, at: e.i, checked: n }; prev = e.hash; n++; } return { ok: true, n, head: prev }; }
+const nextId = (pfx) => { const y = new Date().getFullYear(), k = pfx + y; S.counters[k] = (S.counters[k] || 0) + 1; return `${pfx}-${y}-${pad(S.counters[k], 4)}`; };
+const P = () => S.params;
+const ACTIVE_REF = ['yanit_bekliyor', 'kabul', 'gorusme'];
+const REF_ST = { yanit_bekliyor: ['Aday yanıtı bekleniyor', 'warn'], kabul: ['Aday kabul etti', 'good'], gorusme: ['Görüşme planlı', 'good'], ise_alindi: ['İşe alındı', 'good'], alinmadi: ['İşveren almadı', ''], vazgecti: ['Aday vazgeçti', ''], ret: ['Aday reddetti', ''], zamanasimi: ['Zaman aşımı', ''], iptal: ['İptal', ''] };
+const SK_ST = { taslak: ['Taslak', ''], aktif: ['Aktif (havuzda)', 'good'], pasif: ['Pasif', 'info'], yerlesti: ['İşe yerleşti', 'good'], silindi: ['Anonimleştirildi', ''] };
+const VC_ST = { acik: ['Açık', 'good'], doldu: ['Doldu', 'info'], kapali: ['Kapalı', ''] };
+const WT = [['tam', 'Tam zamanlı'], ['yari', 'Yarı zamanlı'], ['vardiya', 'Vardiyalı'], ['uzaktan', 'Uzaktan'], ['mevsimlik', 'Mevsimlik']];
+const WTN = Object.fromEntries(WT);
+const EHL = ['Yok', 'B', 'C', 'D', 'E'];
+
+/* =====================================================================  eşleştirme motoru */
+const poolable = (s) => s.status === 'aktif' && s.consent && s.consent.data && s.consent.referral;
+const vacOpen = (v) => v.status === 'acik' && (!v.closes || v.closes >= today()) && S.employers[v.employer] && S.employers[v.employer].verified && S.employers[v.employer].status !== 'pasif';
+const pkey = (a, b) => a + '|' + b;
+function ctx() {
+  const act = {}, vact = {}, pairs = new Set(), blocked = new Set(S.blocked);
+  for (const r of Object.values(S.referrals)) { pairs.add(pkey(r.seeker, r.vacancy)); if (ACTIVE_REF.includes(r.status)) { act[r.seeker] = (act[r.seeker] || 0) + 1; vact[r.vacancy] = (vact[r.vacancy] || 0) + 1; } }
+  return { act, vact, pairs, blocked };
+}
+const eduIdx = (x) => +x || 0;
+/** Bir iş arayan ile bir pozisyon arasında puan. Cinsiyet, yaş, medeni hâl, sağlık/engel, din vb. HİÇ kullanılmaz. */
+function scorePair(s, v, Pm = P()) {
+  const parts = [], w = Pm.weights; let hard = null;
+  const has = new Set(s.skills.map(trLower));
+  // beceriler
+  const req = v.req || [], pref = v.pref || [], gotReq = req.filter((x) => has.has(trLower(x))), missing = req.filter((x) => !has.has(trLower(x)));
+  const reqCov = req.length ? gotReq.length / req.length : 1;
+  if (req.length && (Pm.reqRule === 'hepsi' ? missing.length : reqCov * 100 < Pm.reqPct)) hard = 'skills';
+  parts.push({ k: 'skills', label: 'Zorunlu beceriler', v: reqCov, w: w.skills, note: req.length ? `${gotReq.length}/${req.length} karşılandı${missing.length ? ' · eksik: ' + missing.join(', ') : ''}` : 'Zorunlu beceri istenmiyor', miss: missing });
+  const gotPref = pref.filter((x) => has.has(trLower(x)));
+  parts.push({ k: 'pref', label: 'Tercih edilen beceriler', v: pref.length ? gotPref.length / pref.length : 1, w: w.pref, note: pref.length ? `${gotPref.length}/${pref.length}` : 'Tercih belirtilmemiş' });
+  // eğitim
+  const need = eduIdx(v.minEdu), have = eduIdx(s.edu), gap = need - have;
+  if (gap > Pm.eduGap && !hard) hard = 'edu';
+  parts.push({ k: 'edu', label: 'Eğitim', v: gap <= 0 ? 1 : Math.max(0, 1 - gap / 3), w: w.edu, note: `${Pm.eduLevels[have] || '?'} ↔ aranan en az ${Pm.eduLevels[need] || '?'}` });
+  // deneyim
+  const expGap = (v.minExp || 0) - (s.exp || 0);
+  if (expGap > Pm.expGapYears && !hard) hard = 'exp';
+  parts.push({ k: 'exp', label: 'Deneyim', v: (v.minExp || 0) === 0 ? 1 : Math.min(1, (s.exp || 0) / v.minExp), w: w.exp, note: `${s.exp || 0} yıl ↔ aranan ${v.minExp || 0} yıl` });
+  // konum
+  const remote = v.workType === 'uzaktan', same = trLower(s.il) === trLower(v.il), okCity = (s.cities || []).map(trLower).includes(trLower(v.il));
+  const loc = remote ? 1 : same ? 1 : okCity ? 0.85 : 0;
+  if (loc === 0 && Pm.locHard && !hard) hard = 'loc';
+  parts.push({ k: 'loc', label: 'Konum', v: loc, w: w.loc, note: remote ? 'Uzaktan çalışma' : same ? 'Aynı il' : okCity ? 'Çalışmak istediği illerden' : `${s.il} ↔ ${v.il}: aday bu ilde çalışmak istemiyor` });
+  // ücret
+  let sal = 1, snote = 'Ücret beklentisi belirtilmemiş';
+  if (s.salaryMin && v.salaryMax) { if (s.salaryMin <= v.salaryMax) { sal = 1; snote = 'Beklenti ücret aralığında'; } else { const over = (s.salaryMin - v.salaryMax) / v.salaryMax * 100; sal = Math.max(0, 1 - over / 50); snote = `Beklenti, üst sınırdan %${Math.round(over)} yüksek`; if (Pm.salaryHard && over > Pm.salaryTolerancePct && !hard) hard = 'salary'; } }
+  parts.push({ k: 'salary', label: 'Ücret', v: sal, w: w.salary, note: snote });
+  // çalışma şekli
+  const wt = (s.workTypes || []).length === 0 || s.workTypes.includes(v.workType);
+  parts.push({ k: 'work', label: 'Çalışma şekli', v: wt ? 1 : 0, w: w.work, note: wt ? WTN[v.workType] : `Aday ${WTN[v.workType]} istemiyor` });
+  // ehliyet (zorunluysa elenir)
+  if (v.ehliyet && v.ehliyet !== 'Yok' && !hard) { const ok = s.ehliyet && s.ehliyet !== 'Yok' && s.ehliyet >= v.ehliyet; if (!ok) hard = 'ehliyet'; parts.push({ k: 'ehliyet', label: 'Ehliyet', v: ok ? 1 : 0, w: 0, note: `Aranan ${v.ehliyet} sınıfı ↔ ${s.ehliyet || 'yok'}` }); }
+  const tw = parts.reduce((a, p) => a + p.w, 0) || 1, score = parts.reduce((a, p) => a + p.v * p.w, 0) / tw * 100 + (s.startNow ? 1 : 0);
+  return { hard, score: Math.min(100, Math.round(score * 10) / 10), parts };
+}
+const HARD_TXT = { skills: 'zorunlu beceriler eksik', edu: 'eğitim düzeyi yetersiz', exp: 'deneyim yetersiz', loc: 'aday bu ilde çalışmak istemiyor', salary: 'ücret beklentisi çok yüksek', ehliyet: 'ehliyet şartı karşılanmıyor' };
+function pairBlock(s, v, c, Pm = P(), t = today()) {
+  if (!poolable(s)) return 'iş arayan havuzda değil';
+  if (!vacOpen(v)) return 'pozisyon açık değil (veya işveren onaylı değil)';
+  const age = ageOn(s.dogum, t); if (age < HARD.minAgeFloor || age < Pm.minAge || age > Pm.maxAge) return 'yaş aralığı dışında';
+  if (c.pairs.has(pkey(s.id, v.id))) return 'bu çift için daha önce yönlendirme yapılmış';
+  if (c.blocked.has(pkey(s.id, v.id))) return 'çift engelli (ret / işe alınmadı)';
+  if ((c.act[s.id] || 0) >= Pm.maxActiveRefs) return `adayın ${Pm.maxActiveRefs} aktif yönlendirmesi var`;
+  if ((c.vact[v.id] || 0) >= Math.max(1, (v.adet - (v.filled || 0))) * Pm.refsPerSlot) return 'pozisyon için yönlendirme kotası dolu';
+  return null;
+}
+function runMatching() {
+  const c = ctx(), seekers = Object.values(S.seekers).filter(poolable), vacs = Object.values(S.vacancies).filter(vacOpen), items = [], got = new Set(), gaps = {}, near = {};
+  for (const v of vacs) {
+    const cands = [];
+    for (const s of seekers) {
+      const b = pairBlock(s, v, c); const r = scorePair(s, v);
+      if (r.hard === 'skills' && !b) { const p = r.parts[0]; (near[s.id] = near[s.id] || []).push(...p.miss); }
+      if (b || r.hard || r.score < P().minScore) continue;
+      cands.push({ s: s.id, score: r.score }); got.add(s.id);
+    }
+    cands.sort((a, b) => b.score - a.score); items.push({ v: v.id, cands: cands.slice(0, 50), total: cands.length });
+  }
+  const none = seekers.filter((s) => !got.has(s.id)).map((s) => s.id);
+  for (const id of none) for (const m of new Set(near[id] || [])) gaps[m] = (gaps[m] || 0) + 1;
+  S.run = { ts: Date.now(), user: user(), seal: sealOf(P()), pool: seekers.length, vacancies: vacs.length, items, none, gaps };
+  A('ESLESTIRME_CALISTIRILDI', `havuz ${seekers.length}; açık pozisyon ${vacs.length}; mühür ${S.run.seal.slice(0, 12)}`);
+  save();
+}
+
+/* =====================================================================  modal form yardımcısı */
+function openForm({ title, intro, fields, data = {}, submit = 'Kaydet', validate }) {
+  return new Promise((resolve) => {
+    const dlg = document.createElement('dialog'); const val = (n) => data[n] ?? '';
+    const fld = (f) => {
+      const id = 'f_' + f.n, v = data[f.n];
+      if (f.type === 'checks') return `<div class="${f.full ? '' : ''}"><label>${esc(f.label)}</label><div class="checks">${f.opts.map((o) => `<label class="chk"><input type="checkbox" name="${f.n}" value="${esc(o)}" ${(v || []).includes(o) ? 'checked' : ''}> ${esc(o)}</label>`).join('')}</div>${f.help ? `<div class="small muted">${esc(f.help)}</div>` : ''}</div>`;
+      if (f.type === 'check') return `<label class="chk"><input type="checkbox" name="${f.n}" ${v ? 'checked' : ''}> <span>${f.html || esc(f.label)}</span></label>`;
+      const lab = `<label for="${id}">${esc(f.label)}${f.req ? ' *' : ''}</label>`, help = f.help ? `<div class="small muted">${esc(f.help)}</div>` : '';
+      if (f.type === 'select') return `<div>${lab}<select id="${id}" name="${f.n}">${f.opts.map(([k, t]) => `<option value="${esc(k)}" ${String(v) === String(k) ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>${help}</div>`;
+      if (f.type === 'textarea') return `<div>${lab}<textarea id="${id}" name="${f.n}" ${f.max ? `maxlength="${f.max}"` : ''}>${esc(v ?? '')}</textarea>${help}</div>`;
+      if (f.type === 'tags') return `<div>${lab}<input id="${id}" name="${f.n}" value="${esc((v || []).join(', '))}">${help}</div>`;
+      return `<div>${lab}<input id="${id}" name="${f.n}" type="${f.type || 'text'}" value="${esc(v ?? '')}" ${f.max ? `maxlength="${f.max}"` : ''} ${f.min !== undefined ? `min="${f.min}"` : ''} ${f.step ? `step="${f.step}"` : ''}>${help}</div>`;
+    };
+    dlg.innerHTML = `<form method="dialog"><h2>${esc(title)}</h2>${intro ? `<p class="small muted">${intro}</p>` : ''}<div class="grid g2">${fields.filter((f) => !f.full).map(fld).join('')}</div>${fields.filter((f) => f.full).map(fld).join('')}<div id="ferr"></div><div class="row mt8"><button class="b" type="submit">${esc(submit)}</button><button class="b ghost" type="button" data-x>Vazgeç</button></div></form>`;
+    document.body.appendChild(dlg); dlg.showModal();
+    const done = (r) => { dlg.close(); dlg.remove(); resolve(r); };
+    dlg.addEventListener('cancel', (e) => { e.preventDefault(); done(null); });
+    dlg.querySelector('[data-x]').onclick = () => done(null);
+    dlg.querySelector('form').onsubmit = (e) => {
+      e.preventDefault(); const out = {}, f = e.target;
+      for (const fl of fields) {
+        if (fl.type === 'checks') out[fl.n] = [...f.querySelectorAll(`input[name="${fl.n}"]:checked`)].map((x) => x.value);
+        else if (fl.type === 'check') out[fl.n] = f.elements[fl.n].checked;
+        else if (fl.type === 'tags') out[fl.n] = f.elements[fl.n].value.split(/[,;\n]/).map((x) => x.trim()).filter(Boolean);
+        else if (fl.type === 'number') { const x = f.elements[fl.n].value; out[fl.n] = x === '' ? null : +x; }
+        else out[fl.n] = String(f.elements[fl.n].value).trim();
+      }
+      const errs = validate ? validate(out) : []; if (errs.length) { $('#ferr', dlg).innerHTML = `<div class="note bad">${errs.map((x) => '• ' + esc(x)).join('<br>')}</div>`; return; }
+      done(out);
+    };
+  });
+}
+const ask = (title, fields, opts = {}) => openForm({ title, fields, ...opts });
+
+/* =====================================================================  varlıklar: doğrulama ve formlar */
+const cityList = () => ['Adana', 'Ankara', 'Antalya', 'Bursa', 'Diyarbakır', 'Erzurum', 'Eskişehir', 'Gaziantep', 'İstanbul', 'İzmir', 'Kayseri', 'Konya', 'Mersin', 'Samsun', 'Trabzon', 'Van'];
+function seekerFields(existing) {
+  const Pm = P(), eduOpts = Pm.eduLevels.map((x, i) => [i, x]);
+  return [
+    { n: 'ad', label: 'Ad', req: 1, max: 60 }, { n: 'soyad', label: 'Soyad', req: 1, max: 60 }, { n: 'tc', label: 'T.C. kimlik no', req: 1, max: 11, help: 'Algoritma ile doğrulanır; resmî sorgu yapılmaz — kimlik belgesi görevlice teyit edilmelidir.' },
+    { n: 'dogum', label: 'Doğum tarihi', type: 'date', req: 1 }, { n: 'cinsiyet', label: 'Cinsiyet (yalnız istatistik/adalet raporu için; eşleştirmede KULLANILMAZ)', type: 'select', opts: [['', 'Belirtmek istemiyor'], ['K', 'Kadın'], ['E', 'Erkek']] },
+    { n: 'il', label: 'İkamet ili', req: 1, max: 40 }, { n: 'tel', label: 'Telefon', max: 20 },
+    { n: 'edu', label: 'Eğitim düzeyi', type: 'select', opts: eduOpts }, { n: 'alan', label: 'Meslek alanı', type: 'select', opts: Pm.fields.map((x) => [x, x]) },
+    { n: 'meslek', label: 'Meslek / unvan', max: 80 }, { n: 'exp', label: 'Toplam deneyim (yıl)', type: 'number', min: 0, step: '0.5' },
+    { n: 'ehliyet', label: 'Ehliyet sınıfı', type: 'select', opts: EHL.map((x) => [x, x]) }, { n: 'salaryMin', label: 'Asgari net ücret beklentisi (₺, boş = belirtmemiş)', type: 'number', min: 0, step: '500' },
+    { n: 'cities', label: 'Çalışmak istediği iller (virgülle)', type: 'tags', help: 'İkamet ili otomatik dâhildir.' },
+    { n: 'skills', label: 'Beceriler', type: 'checks', opts: Pm.skills, full: 1 }, { n: 'extraSkills', label: 'Listede olmayan beceriler (virgülle; eşleştirmede aynen karşılaştırılır)', type: 'tags', full: 1 },
+    { n: 'workTypes', label: 'Kabul ettiği çalışma şekilleri (hiçbiri seçilmezse hepsi)', type: 'checks', opts: WT.map((x) => x[1]), full: 1 },
+    { n: 'startNow', label: 'Hemen işe başlayabilir', type: 'check', full: 1 },
+    { n: 'notes', label: 'Görevli notu (kişisel/hassas bilgi yazmayın)', type: 'textarea', max: 400, full: 1 },
+    { n: 'c_data', type: 'check', full: 1, html: '<b>Veri işleme rızası:</b> ' + esc(Pm.consentText) },
+    { n: 'c_ref', type: 'check', full: 1, html: '<b>İşverene yönlendirme rızası (ayrı):</b> Uygun pozisyonlar için bilgilerimin, benim onayımdan sonra ilgili işverene bildirilmesini kabul ediyorum.' },
+    { n: 'c_id', type: 'check', full: 1, html: '<b>Görevli teyidi:</b> Kimlik belgesi şahsen görüldü ve beyanla uyumlu.' }
+  ];
+}
+function seekerToForm(s) { const o = { ...s, c_data: s.consent.data, c_ref: s.consent.referral, c_id: s.idVerified }; const wtn = (s.workTypes || []).map((k) => WTN[k]); o.workTypes = wtn; const known = new Set(P().skills); o.skills = s.skills.filter((x) => known.has(x)); o.extraSkills = s.skills.filter((x) => !known.has(x)); return o; }
+function seekerFromForm(f, base) {
+  const wtRev = Object.fromEntries(WT.map(([k, t]) => [t, k])), skills = [...new Set([...f.skills, ...f.extraSkills])];
+  return { ...base, ad: f.ad, soyad: f.soyad, tc: f.tc.replace(/\D/g, ''), dogum: f.dogum, cinsiyet: f.cinsiyet, il: f.il, tel: f.tel, edu: +f.edu, alan: f.alan, meslek: f.meslek, exp: f.exp || 0, ehliyet: f.ehliyet, salaryMin: f.salaryMin || 0, cities: f.cities, skills, workTypes: f.workTypes.map((t) => wtRev[t]), startNow: f.startNow, notes: f.notes, consent: { data: f.c_data, referral: f.c_ref, ts: Date.now() }, idVerified: f.c_id };
+}
+function validateSeeker(f, id) {
+  const e = [], Pm = P(), tc = f.tc.replace(/\D/g, '');
+  if (!f.ad || !f.soyad) e.push('Ad ve soyad gerekli.');
+  if (!tcValid(tc)) e.push('T.C. kimlik numarası geçersiz.');
+  else if (Object.values(S.seekers).some((x) => x.id !== id && x.tc === tc && x.status !== 'silindi')) e.push('Bu T.C. kimlik numarasıyla kayıtlı başka bir iş arayan var (mükerrer başvuru).');
+  if (!isDate(f.dogum)) e.push('Doğum tarihi geçersiz.'); else { const a = ageOn(f.dogum, today()); if (a < HARD.minAgeFloor) e.push(`${HARD.minAgeFloor} yaşından küçükler sisteme alınamaz.`); else if (a < Pm.minAge || a > Pm.maxAge) e.push(`Yaş (${a}) kabul aralığı (${Pm.minAge}–${Pm.maxAge}) dışında.`); }
+  if (!f.il) e.push('İkamet ili gerekli.');
+  if (f.exp !== null && (f.exp < 0 || f.exp > 60)) e.push('Deneyim 0–60 yıl olmalı.');
+  if (f.salaryMin !== null && f.salaryMin < 0) e.push('Ücret beklentisi negatif olamaz.');
+  if (!f.c_data) e.push('Veri işleme rızası olmadan kayıt oluşturulamaz.');
+  return e;
+}
+const employerFields = () => [
+  { n: 'ad', label: 'İşyeri / firma adı', req: 1, max: 100 }, { n: 'vergiNo', label: 'Vergi no (10 hane) veya T.C. no', req: 1, max: 11 }, { n: 'il', label: 'İl', req: 1, max: 40 },
+  { n: 'sektor', label: 'Sektör', type: 'select', opts: P().fields.map((x) => [x, x]) }, { n: 'yetkili', label: 'Yetkili kişi', max: 80 }, { n: 'tel', label: 'Telefon', max: 20 },
+  { n: 'notes', label: 'Not', type: 'textarea', max: 300, full: 1 }
+];
+function validateEmployer(f, id) {
+  const e = []; if (!f.ad) e.push('Firma adı gerekli.'); if (!/^\d{10,11}$/.test(f.vergiNo.replace(/\D/g, ''))) e.push('Vergi/T.C. no 10 veya 11 haneli olmalı.');
+  else if (Object.values(S.employers).some((x) => x.id !== id && x.vergiNo === f.vergiNo.replace(/\D/g, ''))) e.push('Bu vergi numarasıyla kayıtlı işveren var.');
+  if (!f.il) e.push('İl gerekli.'); return e;
+}
+function vacancyFields() {
+  const Pm = P(), emps = Object.values(S.employers).filter((e) => e.verified && e.status !== 'pasif');
+  return [
+    { n: 'employer', label: 'İşveren (yalnız onaylı işverenler)', type: 'select', opts: emps.map((e) => [e.id, `${e.ad} (${e.il})`]) },
+    { n: 'baslik', label: 'Pozisyon başlığı', req: 1, max: 100, help: 'Cinsiyet, yaş, medeni hâl vb. ayrımcı ifade içeremez.' }, { n: 'alan', label: 'Alan', type: 'select', opts: Pm.fields.map((x) => [x, x]) },
+    { n: 'adet', label: 'Kadro (kişi)', type: 'number', min: 1, req: 1 }, { n: 'il', label: 'İş yeri ili', req: 1, max: 40 }, { n: 'workType', label: 'Çalışma şekli', type: 'select', opts: WT },
+    { n: 'minEdu', label: 'En az eğitim', type: 'select', opts: Pm.eduLevels.map((x, i) => [i, x]) }, { n: 'minExp', label: 'En az deneyim (yıl)', type: 'number', min: 0, step: '0.5' },
+    { n: 'ehliyet', label: 'Gerekli ehliyet', type: 'select', opts: EHL.map((x) => [x, x]) }, { n: 'salaryMin', label: 'Net ücret alt sınır (₺)', type: 'number', min: 0, step: '500' }, { n: 'salaryMax', label: 'Net ücret üst sınır (₺)', type: 'number', min: 0, step: '500' },
+    { n: 'closes', label: 'Son başvuru tarihi (boş = süresiz)', type: 'date' },
+    { n: 'req', label: 'ZORUNLU beceriler', type: 'checks', opts: Pm.skills, full: 1, help: 'Yalnız işin gerçekten gerektirdiği becerileri seçin. Parametrelere göre bunlardan eksik olan aday elenir.' }, { n: 'reqX', label: 'Listede olmayan zorunlu beceriler (virgülle)', type: 'tags', full: 1 },
+    { n: 'pref', label: 'Tercih edilen beceriler', type: 'checks', opts: Pm.skills, full: 1 },
+    { n: 'desc', label: 'Açıklama', type: 'textarea', max: 500, full: 1 }
+  ];
+}
+function validateVacancy(f) {
+  const e = [], Pm = P(); if (!f.employer) e.push('Onaylı işveren seçin.'); if (!f.baslik) e.push('Başlık gerekli.'); if (!f.adet || f.adet < 1) e.push('Kadro en az 1 olmalı.'); if (!f.il) e.push('İl gerekli.');
+  if (f.salaryMin && f.salaryMax && f.salaryMin > f.salaryMax) e.push('Ücret alt sınırı üst sınırdan büyük olamaz.'); if (f.closes && !isDate(f.closes)) e.push('Son başvuru tarihi geçersiz.');
+  const m = (f.baslik + ' ' + f.desc + ' ' + f.reqX.join(' ')).match(DISCRIM); if (m) e.push(`İlan metni ayrımcı ifade içeriyor (“${m[0]}”). Eşit davranma ilkesi gereği cinsiyet, yaş, medeni hâl, din, ırk vb. kriterler ilanda yer alamaz.`);
+  void Pm; return e;
+}
+
+/* =====================================================================  görünümler */
+const R = { v: 'dash', id: null }, ctxUI = {};
+const badge = (map, k) => `<span class="badge ${(map[k] || ['', ''])[1]}">${esc((map[k] || [k])[0])}</span>`;
+const pager = (page, total, size, act) => { const pages = Math.max(1, Math.ceil(total / size)); return `<div class="pager"><button class="b ghost sm" data-act="${act}" data-p="${page - 1}" ${page <= 1 ? 'disabled' : ''}>‹</button><span class="small muted">Sayfa ${page}/${pages} · ${total} kayıt</span><button class="b ghost sm" data-act="${act}" data-p="${page + 1}" ${page >= pages ? 'disabled' : ''}>›</button></div>`; };
+const sName = (s) => (s ? (s.status === 'silindi' ? '[silindi]' : `${s.ad} ${s.soyad}`) : '?');
+const refsOf = (f) => Object.values(S.referrals).filter(f);
+const commit = (action, detail, msg) => { if (action) A(action, detail); save(); if (msg) toast(msg); render(); };
+const TABS = [['dash', 'Panel'], ['seekers', 'İş arayanlar'], ['employers', 'İşverenler'], ['vacancies', 'Pozisyonlar'], ['match', 'Eşleştirme'], ['refs', 'Yönlendirmeler'], ['reports', 'Raporlar'], ['params', 'Parametreler'], ['audit', 'Denetim'], ['data', 'Veri'], ['about', 'Hakkında']];
+function chrome() {
+  $('#brand').innerHTML = `${esc(P().institution)}<small>İş Başvuru ve Yönlendirme Sistemi · çevrimdışı</small>`;
+  $('#who').innerHTML = S.meta.lock ? '<button class="b ghost sm" data-act="lock" style="background:#fff">Kilitle</button>' : '';
+  const cur = R.v === 'seeker' ? 'seekers' : R.v === 'ref' ? 'refs' : R.v;
+  $('#tabs').classList.remove('hidden');
+  $('#tabsin').innerHTML = TABS.map(([k, n]) => `<button class="${cur === k ? 'on' : ''}" data-act="nav" data-k="${k}">${n}</button>`).join('');
+}
+function go(v, id) { R.v = v; R.id = id || null; render(); }
+function render() {
+  chrome(); const V = { dash: vDash, seekers: vSeekers, seeker: vSeeker, employers: vEmployers, vacancies: vVacancies, match: vMatch, refs: vRefs, ref: vRef, reports: vReports, params: vParams, audit: vAudit, data: vData, about: vAbout };
+  try { $('#app').innerHTML = (V[R.v] || vDash)(); window.scrollTo(0, 0); } catch (e) { console.error(e); $('#app').innerHTML = `<div class="note bad">Görünüm hatası: ${esc(e.message)}</div>`; }
+}
+
+function vDash() {
+  const Pm = P(), t = today(), seekers = Object.values(S.seekers), vacs = Object.values(S.vacancies), refs = Object.values(S.referrals);
+  const n = (a, f) => a.filter(f).length, ch = verifyChain();
+  let al = ch.ok ? `<div class="note good">Denetim günlüğü bütünlüğü doğrulandı (${ch.n} kayıt).</div>` : `<div class="note bad"><b>UYARI:</b> Denetim zinciri ${ch.at}. kayıtta bozuk; veri değiştirilmiş olabilir.</div>`;
+  if (memOnly) al += '<div class="note bad"><b>Tarayıcı depolaması kullanılamıyor.</b> Veriler yalnız bu sekme açıkken tutulur; çıkmadan önce Veri › Yedek indirin.</div>';
+  const days = S.meta.lastBackup ? Math.floor((Date.now() - S.meta.lastBackup) / 864e5) : null;
+  if (days === null || days > 7) al += `<div class="note warn">${days === null ? 'Hiç yedek alınmadı.' : `Son yedek ${days} gün önce.`} Veriler yalnızca bu tarayıcıdadır; <b>Veri › Yedek indir</b> ile düzenli yedekleyin.</div>`;
+  const late = n(refs, (r) => r.status === 'yanit_bekliyor' && daysBetween(dStr(new Date(r.createdAt)), t) > Pm.responseDays);
+  if (late) al += `<div class="note warn"><b>${late}</b> yönlendirmede aday yanıt süresi (${Pm.responseDays} gün) doldu.</div>`;
+  const noInt = n(refs, (r) => r.status === 'kabul' && daysBetween(dStr(new Date(r.updatedAt)), t) > Pm.interviewDays);
+  if (noInt) al += `<div class="note warn"><b>${noInt}</b> kabul edilmiş yönlendirme ${Pm.interviewDays} günü aşkın süredir sonuçlanmadı.</div>`;
+  const closing = n(vacs, (v) => v.status === 'acik' && v.closes && daysBetween(t, v.closes) >= 0 && daysBetween(t, v.closes) <= 3); if (closing) al += `<div class="note info"><b>${closing}</b> pozisyonun son başvuru tarihi 3 gün içinde.</div>`;
+  const ret = n(seekers, (s) => ['yerlesti', 'pasif'].includes(s.status) && s.closedAt && daysBetween(dStr(new Date(s.closedAt)), t) > Pm.retentionDays); if (ret) al += `<div class="note warn"><b>${ret}</b> kaydın saklama süresi (${Pm.retentionDays} gün) doldu; Veri sayfasından anonimleştirilebilir.</div>`;
+  const placed = n(refs, (r) => r.status === 'ise_alindi'), openSlots = vacs.filter((v) => v.status === 'acik').reduce((a, v) => a + v.adet - (v.filled || 0), 0);
+  return `<h1>Panel</h1>${al}<div class="grid g4"><div class="card stat"><b>${n(seekers, (s) => s.status === 'aktif')}</b><span>Havuzdaki iş arayan</span></div><div class="card stat"><b>${openSlots}</b><span>Açık kadro (${n(vacs, (v) => v.status === 'acik')} pozisyon)</span></div><div class="card stat"><b>${n(refs, (r) => ACTIVE_REF.includes(r.status))}</b><span>Süren yönlendirme</span></div><div class="card stat"><b>${placed}</b><span>İşe yerleştirme</span></div></div>
+  <div class="card"><h3>Son eşleştirme koşusu</h3>${S.run ? `<p>${fmtT(S.run.ts)} · ${esc(S.run.user)} · havuz ${S.run.pool} · açık pozisyon ${S.run.vacancies} · adayı çıkmayan ${S.run.none.length}${S.run.seal !== sealOf(Pm) ? ' <span class="badge warn">parametreler değişti, yeniden çalıştırın</span>' : ''}</p>` : '<p class="muted">Henüz çalıştırılmadı.</p>'}</div>
+  <div class="card"><p class="small muted">Sistem yalnızca <b>öneri</b> üretir. Hiçbir iş arayan, kendi onayı olmadan bir işverene bildirilmez; eşleştirme cinsiyet, yaş, medeni hâl, engel durumu gibi iş gerekleri dışındaki özellikleri hiçbir koşulda kullanmaz. Tüm işlemler zincirli denetim günlüğüne yazılır.</p></div>`;
+}
+
+/* ----- iş arayanlar */
+function vSeekers() {
+  const c = ctxUI.sk = ctxUI.sk || { q: '', st: '', page: 1 }, size = 40, q = trLower(c.q);
+  const all = Object.values(S.seekers).filter((s) => (!c.st || s.status === c.st) && (!q || trLower([s.id, s.ad, s.soyad, s.tc, s.il, s.meslek].join(' ')).includes(q))).sort((a, b) => b.createdAt - a.createdAt), rows = all.slice((c.page - 1) * size, c.page * size), cx = ctx();
+  return `<div class="row"><h1 class="sp">İş arayanlar</h1><button class="b" data-act="newseeker">+ Yeni başvuru</button></div><div class="card"><div class="row"><input id="skq" style="max-width:260px" placeholder="Ara: ad, no, il, meslek, T.C." value="${esc(c.q)}"><select id="skst" style="max-width:220px"><option value="">Tüm durumlar</option>${Object.entries(SK_ST).map(([k, v]) => `<option value="${k}" ${c.st === k ? 'selected' : ''}>${v[0]}</option>`).join('')}</select></div>
+  <div class="tw"><table><tr><th>No</th><th>Ad soyad</th><th>Yaş</th><th>İl</th><th>Eğitim / meslek</th><th>Durum</th><th>Yönl.</th></tr>${rows.map((s) => `<tr><td><a href="#" data-act="openseeker" data-id="${s.id}">${s.id}</a></td><td>${esc(sName(s))}</td><td>${s.dogum && s.status !== 'silindi' ? ageOn(s.dogum, today()) : '—'}</td><td>${esc(s.il)}</td><td>${esc(P().eduLevels[s.edu] || '')} · ${esc(s.meslek)}</td><td>${badge(SK_ST, s.status)}</td><td>${cx.act[s.id] || 0}</td></tr>`).join('') || '<tr><td colspan="7" class="muted">Kayıt yok.</td></tr>'}</table></div>${pager(c.page, all.length, size, 'skpage')}</div>`;
+}
+function vSeeker() {
+  const s = S.seekers[R.id]; if (!s) return '<div class="note bad">Kayıt bulunamadı.</div>';
+  const del = s.status === 'silindi', Pm = P(), refs = refsOf((r) => r.seeker === s.id).sort((a, b) => b.createdAt - a.createdAt);
+  A('KAYIT_GORULDU', s.id); save();
+  const btn = (a, t, cls = 'ghost') => `<button class="b ${cls} sm" data-act="${a}" data-id="${s.id}">${t}</button>`;
+  return `<div class="row"><h1 class="sp">${esc(sName(s))} <span class="muted">${s.id}</span></h1>${badge(SK_ST, s.status)}<button class="b ghost" data-act="nav" data-k="seekers">‹ Liste</button></div>
+  ${del ? '<div class="note info">Bu kayıt anonimleştirildi; yalnız istatistik amaçlı alanlar tutuluyor.</div>' : `<div class="card"><div class="grid g3"><div><b>T.C. no</b><br>${esc(s.tc)} ${s.idVerified ? '<span class="badge good">teyitli</span>' : '<span class="badge warn">teyit bekliyor</span>'}</div><div><b>Yaş / doğum</b><br>${ageOn(s.dogum, today())} · ${fmtD(s.dogum)}</div><div><b>Telefon</b><br>${esc(s.tel) || '—'}</div><div><b>İl</b><br>${esc(s.il)}</div><div><b>Eğitim</b><br>${esc(Pm.eduLevels[s.edu] || '')}</div><div><b>Meslek</b><br>${esc(s.meslek)} (${esc(s.alan)})</div><div><b>Deneyim</b><br>${s.exp} yıl</div><div><b>Ehliyet</b><br>${esc(s.ehliyet)}</div><div><b>Ücret beklentisi</b><br>${s.salaryMin ? s.salaryMin + ' ₺' : '—'}</div></div>
+  <p class="mt8"><b>Beceriler:</b> ${s.skills.map((x) => `<span class="badge info">${esc(x)}</span>`).join(' ') || '—'}</p><p class="small"><b>Çalışmak istediği iller:</b> ${esc(s.cities.join(', ')) || '—'} · <b>Çalışma şekilleri:</b> ${esc(s.workTypes.map((k) => WTN[k]).join(', ')) || 'hepsi'} · ${s.startNow ? 'hemen başlayabilir' : ''}</p>
+  <p class="small muted">Rıza: veri ${s.consent.data ? '✔' : '✘'} · yönlendirme ${s.consent.referral ? '✔' : '✘'} · ${fmtT(s.consent.ts)}${s.notes ? ' · Not: ' + esc(s.notes) : ''}</p>
+  <div class="row">${s.status !== 'yerlesti' ? btn('editseeker', 'Düzenle', 'ghost') : ''}${['taslak', 'pasif'].includes(s.status) ? btn('sk-activate', 'Havuza al', '') : ''}${s.status === 'aktif' ? btn('sk-pause', 'Pasife al') : ''}${s.status === 'yerlesti' ? btn('sk-reopen', 'Yeniden iş arıyor') : ''}${btn('sk-anon', 'Verileri sil (anonimleştir)', 'red')}</div></div>`}
+  <div class="card"><h3>Yönlendirmeler</h3>${refs.map((r) => `<div><a href="#" data-act="openref" data-id="${r.id}">${r.id}</a> · ${esc(S.vacancies[r.vacancy] ? S.vacancies[r.vacancy].baslik : '?')} ${badge(REF_ST, r.status)} <span class="muted small">puan ${r.score}</span></div>`).join('') || '<p class="muted">Yok.</p>'}</div>`;
+}
+
+/* ----- işverenler ve pozisyonlar */
+function vEmployers() {
+  const L = Object.values(S.employers).sort((a, b) => b.createdAt - a.createdAt);
+  return `<div class="row"><h1 class="sp">İşverenler</h1><button class="b" data-act="newemployer">+ Yeni işveren</button></div><div class="note info small">İşveren, <b>görevlice (vergi levhası / ticaret sicil teyidiyle) onaylanmadan</b> pozisyon açamaz ve aday yönlendirilemez.</div>
+  <div class="card"><div class="tw"><table><tr><th>No</th><th>Firma</th><th>İl / sektör</th><th>Yetkili</th><th>Durum</th><th>Pozisyon</th><th></th></tr>${L.map((e) => `<tr><td>${e.id}</td><td>${esc(e.ad)}<div class="small muted">${esc(e.vergiNo)}</div></td><td>${esc(e.il)} · ${esc(e.sektor)}</td><td>${esc(e.yetkili)}<div class="small muted">${esc(e.tel)}</div></td><td>${e.verified ? '<span class="badge good">Onaylı</span>' : '<span class="badge warn">Onay bekliyor</span>'}${e.status === 'pasif' ? ' <span class="badge bad">pasif</span>' : ''}</td><td>${Object.values(S.vacancies).filter((v) => v.employer === e.id && v.status === 'acik').length} açık</td>
+  <td><button class="b ghost sm" data-act="editemployer" data-id="${e.id}">Düzenle</button> ${!e.verified ? `<button class="b sm" data-act="verifyemployer" data-id="${e.id}">Onayla</button>` : ''} <button class="b ghost sm" data-act="toggleemployer" data-id="${e.id}">${e.status === 'pasif' ? 'Etkinleştir' : 'Pasifleştir'}</button></td></tr>`).join('') || '<tr><td colspan="7" class="muted">Kayıt yok.</td></tr>'}</table></div></div>`;
+}
+function vVacancies() {
+  const c = ctxUI.vc = ctxUI.vc || { st: '' }, L = Object.values(S.vacancies).filter((v) => !c.st || v.status === c.st).sort((a, b) => b.createdAt - a.createdAt), cx = ctx();
+  return `<div class="row"><h1 class="sp">Pozisyonlar</h1><button class="b" data-act="newvacancy">+ Yeni pozisyon</button></div><div class="card"><div class="row"><select id="vcst" style="max-width:220px"><option value="">Tüm durumlar</option>${Object.entries(VC_ST).map(([k, v]) => `<option value="${k}" ${c.st === k ? 'selected' : ''}>${v[0]}</option>`).join('')}</select></div>
+  <div class="tw"><table><tr><th>No</th><th>Pozisyon</th><th>İşveren</th><th>İl</th><th>Aranan</th><th>Kadro</th><th>Durum</th><th></th></tr>${L.map((v) => { const e = S.employers[v.employer]; return `<tr><td>${v.id}</td><td>${esc(v.baslik)}<div class="small muted">${esc(v.alan)} · ${esc(WTN[v.workType])}${v.closes ? ' · son ' + fmtD(v.closes) : ''}</div></td><td>${esc(e ? e.ad : '?')}</td><td>${esc(v.il)}</td><td class="small">${esc(P().eduLevels[v.minEdu])}+ · ${v.minExp || 0} yıl<br>${v.req.map(esc).join(', ') || 'zorunlu beceri yok'}</td><td>${v.filled || 0}/${v.adet}<div class="small muted">${cx.vact[v.id] || 0} süren yönl.</div></td><td>${badge(VC_ST, v.status)}</td>
+  <td><button class="b ghost sm" data-act="editvacancy" data-id="${v.id}">Düzenle</button> ${v.status === 'acik' ? `<button class="b ghost sm" data-act="closevacancy" data-id="${v.id}">Kapat</button>` : v.status === 'kapali' ? `<button class="b ghost sm" data-act="reopenvacancy" data-id="${v.id}">Yeniden aç</button>` : ''}</td></tr>`; }).join('') || '<tr><td colspan="8" class="muted">Kayıt yok.</td></tr>'}</table></div></div>`;
+}
+
+/* ----- eşleştirme */
+function whyHtml(s, v) {
+  const r = scorePair(s, v); return `<div class="card"><h3>Uyum ayrıntısı: ${esc(sName(s))} ↔ ${esc(v.baslik)}</h3>${r.hard ? `<div class="note bad">Eleme nedeni: ${HARD_TXT[r.hard]}</div>` : ''}<p>Toplam puan: <b>${r.score}</b> (asgari ${P().minScore})</p><div class="tw"><table><tr><th>Ölçüt</th><th>Karşılama</th><th>Ağırlık</th><th>Açıklama</th></tr>${r.parts.map((p) => `<tr><td>${p.label}</td><td>${p.v >= 1 ? '✔' : p.v > 0 ? '≈ ' + Math.round(p.v * 100) + '%' : '✘'}</td><td>${p.w || 'zorunlu'}</td><td class="small">${esc(p.note)}</td></tr>`).join('')}</table></div></div>`;
+}
+function vMatch() {
+  const run = S.run; let h = `<div class="row"><h1 class="sp">Eşleştirme</h1><button class="b" data-act="runmatch">Eşleştirmeyi çalıştır</button></div><div class="note info small">Her açık pozisyon için, <b>yalnız iş gereklerine</b> (beceri, eğitim, deneyim, konum, ücret, çalışma şekli, ehliyet) göre uygun adaylar sıralanır. Cinsiyet, yaş, medeni hâl, engel durumu gibi özellikler puana <b>hiç</b> girmez. Yönlendirme için adayın ayrıca onayı alınır.</div>`;
+  if (!run) return h + '<div class="card muted">Henüz çalıştırılmadı.</div>';
+  if (ctxUI.why) { const s = S.seekers[ctxUI.why.s], v = S.vacancies[ctxUI.why.v]; if (s && v) h += whyHtml(s, v); }
+  h += `<div class="card"><div class="row"><div class="sp">${fmtT(run.ts)} · ${esc(run.user)} · havuz ${run.pool} · açık pozisyon ${run.vacancies}</div>${run.seal !== sealOf(P()) ? '<span class="badge warn">parametreler değişti — yeniden çalıştırın</span>' : '<span class="badge good">güncel parametreler</span>'}</div></div>`;
+  const cx = ctx();
+  for (const it of run.items) {
+    const v = S.vacancies[it.v]; if (!v) continue; const e = S.employers[v.employer];
+    h += `<div class="card"><h3>${esc(v.baslik)} <span class="muted small">${v.id} · ${esc(e ? e.ad : '')} · ${esc(v.il)} · kadro ${v.filled || 0}/${v.adet}</span></h3><div class="tw"><table><tr><th>Puan</th><th>Aday</th><th>Yaş/İl</th><th>Eğitim · deneyim</th><th></th></tr>${it.cands.slice(0, ctxUI.more === v.id ? 50 : 8).map((c) => { const s = S.seekers[c.s]; if (!s) return ''; const b = pairBlock(s, v, cx); return `<tr><td><b>${c.score}</b><br><progress max="100" value="${c.score}"></progress></td><td>${esc(sName(s))}<div class="small muted">${s.id}</div></td><td>${ageOn(s.dogum, today())} · ${esc(s.il)}</td><td class="small">${esc(P().eduLevels[s.edu])} · ${s.exp} yıl · ${esc(s.meslek)}</td><td><button class="b ghost sm" data-act="why" data-s="${s.id}" data-v="${v.id}">Neden?</button> <button class="b sm" data-act="startref" data-s="${s.id}" data-v="${v.id}" ${b ? 'disabled title="' + esc(b) + '"' : ''}>Yönlendir</button></td></tr>`; }).join('') || '<tr><td colspan="5" class="muted">Uygun aday bulunamadı.</td></tr>'}</table></div>${it.total > 8 && ctxUI.more !== v.id ? `<button class="b ghost sm" data-act="more" data-id="${v.id}">Tümünü göster (${it.total})</button>` : ''}</div>`;
+  }
+  if (run.none.length) h += `<div class="card"><h3>Hiçbir pozisyona uygun çıkmayan iş arayanlar (${run.none.length})</h3><div class="small">${run.none.map((id) => `<a href="#" data-act="openseeker" data-id="${id}">${esc(sName(S.seekers[id]))}</a>`).join(' · ')}</div></div>`;
+  return h;
+}
+
+/* ----- yönlendirmeler */
+function vRefs() {
+  const f = ctxUI.rf || '', L = Object.values(S.referrals).filter((r) => !f || r.status === f).sort((a, b) => b.createdAt - a.createdAt);
+  return `<h1>Yönlendirmeler</h1><div class="card"><div class="row"><select id="rfst" style="max-width:240px"><option value="">Tüm durumlar</option>${Object.entries(REF_ST).map(([k, v]) => `<option value="${k}" ${f === k ? 'selected' : ''}>${v[0]}</option>`).join('')}</select></div><div class="tw"><table><tr><th>No</th><th>Aday</th><th>Pozisyon</th><th>Puan</th><th>Durum</th><th>Tarih</th></tr>${L.map((r) => { const v = S.vacancies[r.vacancy], e = v && S.employers[v.employer]; return `<tr><td><a href="#" data-act="openref" data-id="${r.id}">${r.id}</a></td><td>${esc(sName(S.seekers[r.seeker]))}</td><td>${esc(v ? v.baslik : '?')}<div class="small muted">${esc(e ? e.ad : '')}</div></td><td>${r.score}</td><td>${badge(REF_ST, r.status)}</td><td class="small">${fmtT(r.createdAt)}</td></tr>`; }).join('') || '<tr><td colspan="6" class="muted">Kayıt yok.</td></tr>'}</table></div></div>`;
+}
+function vRef() {
+  const r = S.referrals[R.id]; if (!r) return '<div class="note bad">Kayıt yok.</div>'; const s = S.seekers[r.seeker], v = S.vacancies[r.vacancy], e = v && S.employers[v.employer], st = r.status, a = [];
+  const b = (k, t, cls = 'ghost') => a.push(`<button class="b ${cls} sm" data-act="ra" data-do="${k}" data-id="${r.id}">${t}</button>`);
+  if (st === 'yanit_bekliyor') { b('kabul', 'Aday: başvurmak istiyor', ''); b('ret', 'Aday: istemiyor'); if (daysBetween(dStr(new Date(r.createdAt)), today()) > P().responseDays) b('timeout', 'Zaman aşımı'); }
+  if (st === 'kabul') b('plan', 'Görüşme planla', ''); if (st === 'gorusme') b('plan', 'Görüşmeyi güncelle');
+  if (['kabul', 'gorusme'].includes(st)) { b('hired', 'İşe alındı', ''); b('rejected', 'İşveren almadı'); b('quit', 'Aday vazgeçti'); b('print', 'Yönlendirme belgesi'); }
+  if (ACTIVE_REF.includes(st)) b('cancel', 'İptal et');
+  return `<div class="row"><h1 class="sp">${r.id}</h1>${badge(REF_ST, st)}<button class="b ghost" data-act="nav" data-k="refs">‹ Liste</button></div><div class="card"><div class="grid g2"><div><b>İş arayan</b><br><a href="#" data-act="openseeker" data-id="${r.seeker}">${esc(sName(s))}</a><div class="small muted">${r.seeker}</div></div><div><b>Pozisyon</b><br>${esc(v ? v.baslik : '?')} <span class="muted small">${r.vacancy}</span><div class="small muted">${esc(e ? e.ad : '')} · ${esc(v ? v.il : '')}</div></div></div>
+  <p class="mt8">Uyum puanı: <b>${r.score}</b>${r.resp ? ` · Aday kararı: <b>${r.resp.dec === 'kabul' ? 'başvurmak istiyor' : 'istemiyor'}</b> (${fmtT(r.resp.ts)} · ${esc(r.resp.method)})` : ''}${r.interview ? ` · Görüşme: ${fmtD(r.interview.date)} ${esc(r.interview.time)} — ${esc(r.interview.place)}` : ''}</p><p class="small muted">Aday kararı, adayın kendisinden alınır; işveren, aday kabul etmeden bilgilendirilmez.</p><div class="row">${a.join('')}</div></div>
+  <div class="card"><h3>Geçmiş</h3>${r.history.map((h) => `<div class="small"><span class="muted">${fmtT(h.ts)}</span> · ${esc(h.user)} — ${esc(h.text)}</div>`).join('')}</div>`;
+}
+
+/* ----- raporlar */
+function vReports() {
+  const seekers = Object.values(S.seekers).filter((s) => s.status !== 'silindi' || s.cinsiyet !== undefined), refs = Object.values(S.referrals), Pm = P(), run = S.run, sugg = new Set(); if (run) for (const it of run.items) for (const c of it.cands) sugg.add(c.s);
+  const grp = (fn, label) => {
+    const G = {}; for (const s of seekers) { const k = fn(s); if (!k) continue; const g = (G[k] = G[k] || { n: 0, sug: 0, ref: 0, acc: 0, dec: 0, hired: 0 }); g.n++; if (sugg.has(s.id)) g.sug++; for (const r of refs) { if (r.seeker !== s.id) continue; g.ref++; if (r.resp) { g.dec++; if (r.resp.dec === 'kabul') g.acc++; } if (r.status === 'ise_alindi') g.hired++; } }
+    const tot = Object.values(G).reduce((a, g) => ({ n: a.n + g.n, sug: a.sug + g.sug }), { n: 0, sug: 0 }), base = tot.n ? tot.sug / tot.n * 100 : 0;
+    return `<div class="card"><h3>${label}</h3><div class="tw"><table><tr><th>Grup</th><th>Kişi</th><th>Öneri alan</th><th>Oran</th><th>Yönlendirme</th><th>İşe yerleşen</th></tr>${Object.entries(G).sort().map(([k, g]) => { const pct = g.n ? g.sug / g.n * 100 : 0, warn = run && g.n >= 5 && base - pct > Pm.fairGapPct; return `<tr><td>${esc(k)}</td><td>${g.n}</td><td>${g.sug}</td><td>%${Math.round(pct)}${warn ? ` <span class="badge warn">−${Math.round(base - pct)} puan</span>` : ''}</td><td>${g.ref}</td><td>${g.hired}</td></tr>`; }).join('') || '<tr><td colspan="6" class="muted">Veri yok.</td></tr>'}</table></div></div>`;
+  };
+  const ag = (s) => { if (!s.dogum || s.status === 'silindi') return ''; const y = ageOn(s.dogum, today()); return y < 25 ? '18–24' : y < 35 ? '25–34' : y < 45 ? '35–44' : y < 55 ? '45–54' : '55+'; };
+  let h = `<h1>Raporlar</h1><div class="note info small">Adalet raporu, son eşleştirme koşusunda gruplar arasında “öneri alma” oranı farkını gösterir (eşik ${Pm.fairGapPct} puan). Bu alanlar <b>puana girmez</b>; yalnız sistemin farkında olmadan bir gruba haksızlık yapıp yapmadığını izlemek içindir. Sapma varsa parametreleri (zorunlu beceri, konum, ücret kuralları) gözden geçirin.</div>`;
+  h += run ? '' : '<div class="note warn">Adalet raporu için önce eşleştirme çalıştırın.</div>';
+  h += grp((s) => (s.cinsiyet === 'K' ? 'Kadın' : s.cinsiyet === 'E' ? 'Erkek' : ''), 'Cinsiyete göre') + grp(ag, 'Yaş grubuna göre') + grp((s) => s.il, 'İle göre') + grp((s) => Pm.eduLevels[s.edu], 'Eğitim düzeyine göre');
+  const gaps = run ? Object.entries(run.gaps).sort((a, b) => b[1] - a[1]) : [];
+  h += `<div class="card"><h3>Beceri açığı (kurs / eğitim yönlendirme önerisi)</h3><p class="small muted">Hiçbir pozisyona uygun çıkmayan iş arayanların, yalnızca <b>zorunlu beceri eksikliği</b> yüzünden elendiği pozisyonlarda en sık eksik kalan beceriler.</p>${gaps.length ? `<div class="tw"><table><tr><th>Beceri</th><th>Eksik olan aday sayısı</th></tr>${gaps.slice(0, 15).map(([k, n]) => `<tr><td>${esc(k)}</td><td>${n}</td></tr>`).join('')}</table></div>` : '<p class="muted">Veri yok.</p>'}</div>`;
+  const hired = refs.filter((r) => r.status === 'ise_alindi'), decided = refs.filter((r) => r.resp);
+  const vs = Object.values(S.vacancies), unf = vs.filter((v) => v.status === 'acik' && daysBetween(dStr(new Date(v.createdAt)), today()) > 30);
+  h += `<div class="card"><h3>Özet</h3><ul><li>Yönlendirme: ${refs.length} · adayın kabul oranı: ${decided.length ? '%' + Math.round(decided.filter((r) => r.resp.dec === 'kabul').length / decided.length * 100) : '—'} · işe yerleşme: ${hired.length}</li><li>30 günden uzun süredir açık pozisyon: ${unf.length}${unf.length ? ' — ' + unf.map((v) => esc(v.baslik)).join(', ') : ''}</li></ul></div>`;
+  return h;
+}
+
+/* ----- parametreler */
+function vParams() {
+  const Pm = P(), h = S.paramHistory.slice().reverse().slice(0, 30);
+  return `<h1>Parametreler</h1><div class="note info small">Sürüm ${S.paramHistory.length + 1} · mühür <span class="mono">${sealOf(Pm)}</span>. Her değişiklik gerekçeyle kaydedilir. Sabit güvence: ${HARD.minAgeFloor} yaş altı alınamaz; cinsiyet, yaş vb. ölçütler puana eklenemez.</div>
+  <div class="card"><h3>Eşleştirme kuralları</h3><form id="pform" class="grid g3">
+  <div><label>Asgari uyum puanı</label><input name="minScore" type="number" min="0" max="100" value="${Pm.minScore}"></div>
+  <div><label>Zorunlu beceri kuralı</label><select name="reqRule"><option value="hepsi" ${Pm.reqRule === 'hepsi' ? 'selected' : ''}>Hepsi karşılanmalı</option><option value="yuzde" ${Pm.reqRule === 'yuzde' ? 'selected' : ''}>En az yüzde…</option></select></div>
+  <div><label>… yüzde (kural “yüzde” ise)</label><input name="reqPct" type="number" min="1" max="100" value="${Pm.reqPct}"></div>
+  <div><label>Eğitimde kabul edilen eksik seviye</label><input name="eduGap" type="number" min="0" max="5" value="${Pm.eduGap}"></div>
+  <div><label>Deneyimde kabul edilen eksik yıl</label><input name="expGapYears" type="number" min="0" max="20" value="${Pm.expGapYears}"></div>
+  <div><label class="chk"><input type="checkbox" name="locHard" ${Pm.locHard ? 'checked' : ''}> Aday çalışmak istemediği ildeki ilana önerilmesin</label><label class="chk"><input type="checkbox" name="salaryHard" ${Pm.salaryHard ? 'checked' : ''}> Ücret beklentisi çok yüksekse ele</label></div>
+  <div><label>Ücret toleransı (%)</label><input name="salaryTolerancePct" type="number" min="0" max="200" value="${Pm.salaryTolerancePct}"></div>
+  <div><label>En düşük / en yüksek yaş</label><div class="row"><input name="minAge" type="number" min="${HARD.minAgeFloor}" max="100" value="${Pm.minAge}"><input name="maxAge" type="number" min="18" max="100" value="${Pm.maxAge}"></div></div>
+  <div><label>Aday başına en çok aktif yönlendirme</label><input name="maxActiveRefs" type="number" min="1" max="20" value="${Pm.maxActiveRefs}"></div>
+  <div><label>Boş kadro başına yönlendirme</label><input name="refsPerSlot" type="number" min="1" max="20" value="${Pm.refsPerSlot}"></div>
+  <div><label>Aday yanıt süresi (gün)</label><input name="responseDays" type="number" min="1" max="60" value="${Pm.responseDays}"></div>
+  <div><label>Görüşme sonuç süresi (gün)</label><input name="interviewDays" type="number" min="1" max="120" value="${Pm.interviewDays}"></div>
+  <div><label>Saklama süresi (gün)</label><input name="retentionDays" type="number" min="30" max="3650" value="${Pm.retentionDays}"></div>
+  <div><label>Adalet raporu eşiği (puan)</label><input name="fairGapPct" type="number" min="1" max="100" value="${Pm.fairGapPct}"></div>
+  <div><label>Kurum adı</label><input name="institution" value="${esc(Pm.institution)}"></div>
+  <div style="grid-column:1/-1"><label>Ölçüt ağırlıkları (0–100)</label><div class="grid g4">${Object.entries(Pm.weights).map(([k, v]) => `<div><label>${{ skills: 'Zorunlu beceri', pref: 'Tercih beceri', edu: 'Eğitim', exp: 'Deneyim', loc: 'Konum', salary: 'Ücret', work: 'Çalışma şekli' }[k]}</label><input name="w_${k}" type="number" min="0" max="100" value="${v}"></div>`).join('')}</div></div>
+  <div style="grid-column:1/-1"><label>Listeler (her satıra bir öğe)</label><div class="grid g3"><div><label>Eğitim düzeyleri (sıralı, düşükten yükseğe)</label><textarea name="eduLevels" rows="6">${esc(Pm.eduLevels.join('\n'))}</textarea></div><div><label>Meslek alanları</label><textarea name="fields" rows="6">${esc(Pm.fields.join('\n'))}</textarea></div><div><label>Beceri kataloğu</label><textarea name="skills" rows="6">${esc(Pm.skills.join('\n'))}</textarea></div></div></div>
+  <div style="grid-column:1/-1"><label>Rıza metni</label><textarea name="consentText">${esc(Pm.consentText)}</textarea></div>
+  <div style="grid-column:1/-1"><label>Değişiklik gerekçesi *</label><input name="reason" required minlength="5" maxlength="300"><div class="row mt8"><button class="b" type="submit">Kaydet</button><button class="b ghost" type="button" data-act="resetparams">Varsayılanlara dön</button></div></div></form></div>
+  <div class="card"><h3>Sürüm geçmişi</h3><div class="tw"><table><tr><th>Sürüm</th><th>Tarih</th><th>Kullanıcı</th><th>Gerekçe</th><th>Önceki mühür</th></tr>${h.map((x) => `<tr><td>${x.ver}</td><td class="small">${fmtT(x.ts)}</td><td>${esc(x.user)}</td><td class="small">${esc(x.reason)}</td><td class="mono">${esc(x.seal.slice(0, 16))}</td></tr>`).join('') || '<tr><td colspan="5" class="muted">Değişiklik yok.</td></tr>'}</table></div></div>`;
+}
+function readParams(form) {
+  const f = form.elements, g = (n) => f[n].value, lines = (n) => g(n).split(/\n/).map((x) => x.trim()).filter(Boolean), np = JSON.parse(JSON.stringify(P()));
+  for (const k of ['minScore', 'reqPct', 'eduGap', 'expGapYears', 'salaryTolerancePct', 'minAge', 'maxAge', 'maxActiveRefs', 'refsPerSlot', 'responseDays', 'interviewDays', 'retentionDays', 'fairGapPct']) np[k] = +g(k);
+  np.reqRule = g('reqRule'); np.locHard = f.locHard.checked; np.salaryHard = f.salaryHard.checked; np.institution = g('institution').trim(); np.consentText = g('consentText').trim();
+  for (const k of Object.keys(np.weights)) np.weights[k] = +g('w_' + k); np.eduLevels = lines('eduLevels'); np.fields = lines('fields'); np.skills = lines('skills'); return np;
+}
+
+/* ----- denetim, veri, hakkında */
+function vAudit() {
+  const c = ctxUI.au = ctxUI.au || { q: '', page: 1 }, size = 100, q = trLower(c.q), all = S.audit.slice().reverse().filter((e) => !q || trLower([e.action, e.user, e.detail].join(' ')).includes(q)), v = verifyChain();
+  return `<h1>Denetim günlüğü</h1>${v.ok ? `<div class="note good">Zincir doğrulandı: ${v.n} kayıt.<div class="mono">Baş özeti: ${v.head || ''}</div></div>` : `<div class="note bad"><b>Zincir ${v.at}. kayıtta bozuk.</b> Günlük değiştirilmiş veya silinmiş olabilir.</div>`}
+  <div class="card"><div class="row"><input id="auq" style="max-width:300px" placeholder="Filtre" value="${esc(c.q)}"><button class="b ghost sm" data-act="exportaudit">Günlüğü indir (kişisiz)</button></div><div class="tw"><table><tr><th>#</th><th>Zaman</th><th>Kullanıcı</th><th>İşlem</th><th>Ayrıntı</th></tr>${all.slice((c.page - 1) * size, c.page * size).map((e) => `<tr><td>${e.i}</td><td class="small">${fmtT(e.ts)}</td><td>${esc(e.user)}</td><td>${esc(e.action)}</td><td class="small">${esc(e.detail)}</td></tr>`).join('')}</table></div>${pager(c.page, all.length, size, 'aupage')}<p class="small muted">Her kayıt öncekinin SHA-256 özetini içerir; geriye dönük değişiklik zinciri bozar. Günlükte kişisel veri tutulmaz, yalnız kayıt numaraları yer alır. Not: tarayıcıdaki veriyi değiştirebilen biri zinciri baştan hesaplayabilir; bu nedenle baş özetini düzenli olarak dışarıda (yazılı/imzalı) saklayın.</p></div>`;
+}
+function vData() {
+  return `<h1>Veri ve ayarlar</h1>
+  <div class="card"><h3>Görevli</h3><div class="row"><div class="sp">Denetim günlüğüne yazılan ad: <b>${esc(user())}</b></div><button class="b ghost sm" data-act="setofficer">Değiştir</button></div></div>
+  <div class="card"><h3>Yedekleme</h3><p class="small muted">Veriler yalnızca bu tarayıcıda (localStorage) tutulur; tarayıcı verisi silinirse kaybolur. Yedek dosyası kişisel veri içerir — güvenli saklayın. Son yedek: ${S.meta.lastBackup ? fmtT(S.meta.lastBackup) : '—'}</p><div class="row"><button class="b" data-act="backup">Yedek indir (.json)</button><label class="b ghost" style="display:inline-block;cursor:pointer;margin:0;padding:8px 14px;border:1px solid var(--pri);border-radius:7px;color:var(--pri)">Yedekten geri yükle<input id="restore" type="file" accept=".json" class="hidden"></label><button class="b ghost" data-act="csvrefs">Yönlendirme listesi (CSV, kişisiz)</button></div></div>
+  <div class="card"><h3>Uygulama parolası (isteğe bağlı)</h3><p class="small muted">Başkasının ekrandan açmasını engelleyen bir kilit ekranıdır. <b>Veriyi şifrelemez</b>; tarayıcı verisine erişen biri yine okuyabilir. Paylaşılan bilgisayarlarda tarayıcı profili/disk şifrelemesi kullanın.</p><div class="row"><button class="b ghost" data-act="setlock">${S.meta.lock ? 'Parolayı değiştir' : 'Parola belirle'}</button>${S.meta.lock ? '<button class="b ghost" data-act="clearlock">Parolayı kaldır</button>' : ''}</div></div>
+  <div class="card"><h3>Saklama süresi dolmuş kayıtlar</h3><p class="small muted">İşe yerleşen veya pasif olup ${P().retentionDays} günü aşan iş arayan kayıtlarını (KVKK saklama-imha) toplu anonimleştirir.</p><button class="b ghost" data-act="retention">Süresi dolanları anonimleştir</button></div>
+  <div class="card"><h3>Deneme verisi</h3><p class="small muted">Sistemi denemek için gerçek olmayan örnek kayıtlar ekler. Gerçek kullanıma geçmeden silin.</p><div class="row"><button class="b ghost" data-act="seed">Örnek veri ekle</button><button class="b red" data-act="unseed">Örnek verileri sil</button><button class="b red" data-act="wipe">TÜM VERİYİ SİL</button></div></div>`;
+}
+const vAbout = () => `<h1>Hakkında, ilkeler ve sınırlar</h1>
+<div class="card"><h3>Ne yapar?</h3><ul><li>İş arayanların başvurusunu, işverenlerin ve açık pozisyonların kaydını tutar.</li><li>Her pozisyon için adayları <b>yalnızca iş gereklerine</b> göre puanlayıp sıralar ve nedenini açıklar.</li><li>Görevli bir yönlendirme başlatır → aday <b>kendi kararını</b> bildirir → görüşme → sonuç. Her adım denetim günlüğüne yazılır.</li><li>Raporlar: adalet (gruplar arası fark), beceri açığı, doluluk.</li></ul></div>
+<div class="card"><h3>Sabit güvenceler</h3><ul><li>${HARD.minAgeFloor} yaşından küçükler alınamaz.</li><li>Cinsiyet, yaş, medeni hâl, engel/sağlık, din, ırk, siyasî görüş puana girmez; ilan metninde ayrımcı ifade engellenir (İş Kanunu m.5 – eşit davranma ilkesi).</li><li>Aday kabul etmeden işverene hiçbir bilgi bildirilmez; reddedilen veya işveren tarafından alınmayan çift yeniden önerilmez.</li><li>Yalnız görevlice onaylı işverenler pozisyon açabilir.</li><li>İş arayan istediği an verilerinin silinmesini (anonimleştirme) isteyebilir.</li></ul></div>
+<div class="card"><h3>Sınırlar (dürüst not)</h3><ul><li><b>Bağımsız, tek bilgisayarlı programdır.</b> Veriler bu tarayıcının localStorage’ındadır; farklı bilgisayar/tarayıcıyla paylaşılmaz. Düzenli yedek almak sizin sorumluluğunuzdadır.</li><li>İŞKUR, e-Devlet, SGK, MERNİS, adli sicil veya vergi dairesi ile <b>bağlantısı yoktur</b>; kimlik/işveren teyidi görevlice elle yapılır. T.C. no yalnız algoritma ile doğrulanır.</li><li>Veri şifrelenmez; kilit ekranı yalnızca gözden korur. Denetim zinciri değişikliği <b>tespit</b> eder, <b>engellemez</b>.</li><li>Puan, işe uygunluğu garanti etmez; karar görevli, aday ve işverendedir. Kişisel veri (KVKK) aydınlatma, saklama ve hukuki yükümlülükler kurumunuza aittir. Bu yazılım bağımsız bir güvenlik/hukuk denetiminden geçmemiştir.</li></ul></div>`;
+
+/* =====================================================================  olaylar ve işlemler */
+async function seekerForm(id) {
+  const base = id ? S.seekers[id] : null;
+  const f = await ask(id ? 'İş arayanı düzenle' : 'Yeni iş arayan başvurusu', seekerFields(base), { data: base ? seekerToForm(base) : { edu: 1, alan: P().fields[0], ehliyet: 'Yok', c_data: false, skills: [], extraSkills: [], cities: [], workTypes: [] }, validate: (v) => validateSeeker(v, id) });
+  if (!f) return;
+  const now = Date.now();
+  if (id) { Object.assign(S.seekers[id], seekerFromForm(f, base)); S.seekers[id].history.push({ ts: now, user: user(), text: 'Güncellendi' }); commit('KAYIT_GUNCELLENDI', id, 'Kaydedildi.'); }
+  else { const nid = nextId('K'); S.seekers[nid] = seekerFromForm(f, { id: nid, status: 'taslak', createdAt: now, history: [{ ts: now, user: user(), text: 'Başvuru alındı' }] }); A('BASVURU_ALINDI', nid); save(); go('seeker', nid); toast('Başvuru kaydedildi (taslak).'); }
+}
+function activateCheck(s) { const e = []; if (!s.idVerified) e.push('Kimlik belgesi teyidi yapılmamış.'); if (!s.consent.data || !s.consent.referral) e.push('Veri ve yönlendirme rızaları ikisi de gerekli.'); if (!s.skills.length) e.push('En az bir beceri seçilmeli.'); if (!s.il) e.push('İl gerekli.'); return e; }
+function referral(sId, vId) {
+  const s = S.seekers[sId], v = S.vacancies[vId], c = ctx(), b = pairBlock(s, v, c); if (b) return alert('Bu çift başlatılamaz: ' + b);
+  const r = scorePair(s, v); if (r.hard) return alert('Eleme: ' + HARD_TXT[r.hard]);
+  const id = nextId('Y'), now = Date.now();
+  S.referrals[id] = { id, seeker: sId, vacancy: vId, score: r.score, status: 'yanit_bekliyor', resp: null, interview: null, outcome: null, createdAt: now, updatedAt: now, paramSeal: sealOf(P()), history: [{ ts: now, user: user(), text: 'Yönlendirme başlatıldı; aday kararı bekleniyor' }] };
+  A('YONLENDIRME_BASLATILDI', `${id} ${sId}→${vId} puan ${r.score}`); save(); go('ref', id);
+}
+const hist = (r, t) => { r.history.push({ ts: Date.now(), user: user(), text: t }); r.updatedAt = Date.now(); };
+function cancelOthers(sId, keep, why) { for (const x of Object.values(S.referrals)) if (x.seeker === sId && x.id !== keep && ACTIVE_REF.includes(x.status)) { x.status = 'iptal'; hist(x, why); A('YONLENDIRME_IPTAL', `${x.id}; ${why}`); } }
+async function refAction(id, k) {
+  const r = S.referrals[id], s = S.seekers[r.seeker], v = S.vacancies[r.vacancy]; if (!r) return;
+  if (k === 'kabul' || k === 'ret') {
+    const f = await ask(k === 'kabul' ? 'Adayın kararı: başvurmak istiyor' : 'Adayın kararı: istemiyor', [{ n: 'method', label: 'Kararın alındığı biçim', req: 1, max: 60 }, { n: 'ok', type: 'check', label: 'Kararı adayın kendisi bildirdi (geri alınamaz).' }], { data: { method: 'şahsen' }, validate: (x) => (x.method && x.ok ? [] : ['Biçim yazılmalı ve adayın kendisinin bildirdiği onaylanmalı.']) }); if (!f) return;
+    r.resp = { dec: k, ts: Date.now(), method: f.method }; hist(r, `Aday kararı: ${k}`);
+    if (k === 'ret') { r.status = 'ret'; S.blocked.push(pkey(r.seeker, r.vacancy)); A('YONLENDIRME_RET', `${id}; çift bir daha önerilmeyecek`); } else { r.status = 'kabul'; A('YONLENDIRME_KABUL', id); }
+    return commit(null, '', 'Kaydedildi.');
+  }
+  if (k === 'plan') {
+    const f = await ask('Görüşme planla', [{ n: 'date', label: 'Tarih', type: 'date', req: 1 }, { n: 'time', label: 'Saat', type: 'time', req: 1 }, { n: 'place', label: 'Yer / yöntem', req: 1, max: 200 }], { data: r.interview || {}, validate: (x) => (isDate(x.date) && x.date >= today() && x.time && x.place ? [] : ['Tarih bugünden önce olamaz; saat ve yer gerekli.']) }); if (!f) return;
+    r.interview = f; r.status = 'gorusme'; hist(r, `Görüşme planlandı: ${f.date} ${f.time}`); return commit('GORUSME_PLANLANDI', `${id} ${f.date}`, 'Planlandı.');
+  }
+  if (k === 'hired') {
+    const f = await ask('İşe alındı', [{ n: 'start', label: 'İşe başlama tarihi', type: 'date', req: 1 }, { n: 'ok', type: 'check', label: 'İşverenden yazılı/sözlü teyit alındı.' }], { data: { start: today() }, validate: (x) => (isDate(x.start) && x.ok ? [] : ['Tarih ve teyit gerekli.']) }); if (!f) return;
+    r.status = 'ise_alindi'; r.outcome = { start: f.start }; hist(r, `İşe alındı (başlama ${f.start})`); s.status = 'yerlesti'; s.closedAt = Date.now(); v.filled = (v.filled || 0) + 1;
+    cancelOthers(s.id, r.id, 'Aday işe yerleşti');
+    if (v.filled >= v.adet) { v.status = 'doldu'; for (const x of Object.values(S.referrals)) if (x.vacancy === v.id && ACTIVE_REF.includes(x.status)) { x.status = 'iptal'; hist(x, 'Kadro doldu'); A('YONLENDIRME_IPTAL', `${x.id}; kadro doldu`); } A('POZISYON_DOLDU', v.id); }
+    return commit('ISE_ALINDI', `${id} ${s.id} ${v.id}`, 'İşe yerleştirme kaydedildi.');
+  }
+  if (k === 'rejected' || k === 'quit') {
+    const f = await ask(k === 'rejected' ? 'İşveren almadı' : 'Aday vazgeçti', [{ n: 'reason', label: 'Gerekçe (kişisel bilgi yazmayın)', req: 1, max: 200 }], { validate: (x) => (x.reason.length >= 3 ? [] : ['Gerekçe yazın.']) }); if (!f) return;
+    r.status = k === 'rejected' ? 'alinmadi' : 'vazgecti'; S.blocked.push(pkey(r.seeker, r.vacancy)); hist(r, `${r.status}: ${f.reason}`); return commit('YONLENDIRME_SONUC', `${id} ${r.status}`, 'Kaydedildi.');
+  }
+  if (k === 'timeout') { r.status = 'zamanasimi'; hist(r, 'Yanıt süresi doldu'); return commit('YONLENDIRME_ZAMANASIMI', id, 'Kapatıldı.'); }
+  if (k === 'cancel') { const f = await ask('İptal', [{ n: 'reason', label: 'Gerekçe', req: 1, max: 200 }], { validate: (x) => (x.reason.length >= 3 ? [] : ['Gerekçe yazın.']) }); if (!f) return; r.status = 'iptal'; hist(r, 'İptal: ' + f.reason); return commit('YONLENDIRME_IPTAL', `${id}; ${f.reason}`, 'İptal edildi.'); }
+  if (k === 'print') {
+    const e = S.employers[v.employer]; $('#printarea').innerHTML = `<h2>${esc(P().institution)}</h2><h2>İş Yönlendirme Belgesi</h2><p>Belge no: <b>${r.id}</b> · Tarih: ${fmtD(today())}</p><table style="width:100%;border-collapse:collapse"><tr><td>İş arayan</td><td>${esc(sName(s))}</td></tr><tr><td>Başvuru no</td><td>${s.id}</td></tr><tr><td>İşveren</td><td>${esc(e.ad)} — ${esc(e.il)}</td></tr><tr><td>Pozisyon</td><td>${esc(v.baslik)} (${esc(WTN[v.workType])})</td></tr><tr><td>Görüşme</td><td>${r.interview ? fmtD(r.interview.date) + ' ' + esc(r.interview.time) + ' — ' + esc(r.interview.place) : 'İşverenle iletişime geçiniz'}</td></tr></table><p style="margin-top:14px;font-size:13px">Bu belge, adayın kendi onayıyla düzenlenmiştir ve iş bulmayı <b>garanti etmez</b>. Yönlendirme cinsiyet, yaş, medeni hâl vb. kriterlere göre yapılmamıştır.</p><p style="margin-top:40px">Görevli: ${esc(user())} ........................</p>`; window.print(); A('BELGE_YAZDIRILDI', id); save();
+  }
+}
+function downloadText(name, text, type = 'application/json') { const b = new Blob([text], { type }), a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); }
+function anonymize(s, why) { const keep = { id: s.id, status: 'silindi', il: s.il, edu: s.edu, alan: s.alan, cinsiyet: s.cinsiyet, createdAt: s.createdAt, closedAt: Date.now(), dogum: s.dogum ? s.dogum.slice(0, 4) + '-07-01' : '', skills: [], cities: [], workTypes: [], exp: s.exp, consent: { data: false, referral: false }, history: [{ ts: Date.now(), user: user(), text: 'Anonimleştirildi: ' + why }], ad: '', soyad: '', tc: '', tel: '', meslek: '', notes: '', ehliyet: 'Yok', salaryMin: 0 }; for (const r of Object.values(S.referrals)) if (r.seeker === s.id && ACTIVE_REF.includes(r.status)) { r.status = 'iptal'; hist(r, 'Aday kaydı silindi'); } S.seekers[s.id] = keep; A('KAYIT_ANONIMLESTIRILDI', `${s.id}; ${why}`); }
+function seedDemo() {
+  const Pm = P(), ils = ['Ankara', 'İstanbul', 'İzmir', 'Bursa', 'Konya'], erk = ['Ahmet', 'Mehmet', 'Mustafa', 'Ali', 'Emre', 'Burak'], kad = ['Ayşe', 'Fatma', 'Zeynep', 'Elif', 'Merve', 'Esra'], sy = ['Yılmaz', 'Kaya', 'Demir', 'Çelik', 'Şahin', 'Aydın', 'Arslan'], pick = (a) => a[Math.floor(Math.random() * a.length)];
+  const tc = () => { for (;;) { const d = [1 + Math.floor(Math.random() * 9)]; for (let i = 1; i < 9; i++) d.push(Math.floor(Math.random() * 10)); const d10 = (((d[0] + d[2] + d[4] + d[6] + d[8]) * 7) - (d[1] + d[3] + d[5] + d[7])) % 10; d.push((d10 + 10) % 10); d.push(d.reduce((x, y) => x + y, 0) % 10); const t = d.join(''); if (tcValid(t)) return t; } };
+  const emps = []; for (let i = 0; i < 6; i++) { const id = nextId('I'), il = pick(ils); S.employers[id] = { id, ad: `Örnek Firma ${i + 1}`, vergiNo: String(1000000000 + Math.floor(Math.random() * 8e9)), il, sektor: pick(Pm.fields), yetkili: 'Örnek Yetkili', tel: '', notes: '', verified: true, status: 'aktif', demo: true, createdAt: Date.now() }; emps.push(id); }
+  const jobs = [['Muhasebe elemanı', ['Muhasebe', 'Excel'], 3], ['Satış danışmanı', ['Satış', 'Müşteri ilişkileri'], 1], ['Forklift operatörü', ['Forklift', 'Depo / stok'], 1], ['Yazılım geliştirici', ['Yazılım geliştirme', 'Veri tabanı'], 3], ['Aşçı yardımcısı', ['Aşçılık'], 1], ['Hemşire', ['Hemşirelik', 'Hasta bakımı'], 3], ['Güvenlik görevlisi', ['Güvenlik'], 1], ['Büro elemanı', ['Ofis yazılımları'], 1]];
+  jobs.forEach(([b, req, edu], i) => { const id = nextId('P'); S.vacancies[id] = { id, employer: emps[i % emps.length], baslik: b, alan: pick(Pm.fields), adet: 1 + Math.floor(Math.random() * 3), filled: 0, il: S.employers[emps[i % emps.length]].il, workType: pick(['tam', 'tam', 'vardiya']), minEdu: edu === 3 ? 3 : 1, minExp: pick([0, 1, 2]), ehliyet: b.includes('Forklift') ? 'Yok' : 'Yok', salaryMin: 20000, salaryMax: 20000 + Math.floor(Math.random() * 20000), closes: '', req, pref: ['Takım çalışması'], desc: 'Örnek ilan', status: 'acik', demo: true, createdAt: Date.now() }; });
+  for (let k = 0; k < 40; k++) {
+    const id = nextId('K'), fem = k % 2 === 0, age = 20 + Math.floor(Math.random() * 35), dt = new Date(); dt.setFullYear(dt.getFullYear() - age); const j = pick(jobs), il = pick(ils);
+    const sk = new Set(Math.random() < 0.7 ? j[1] : j[1].slice(0, 1)); for (let i = 0; i < 3; i++) sk.add(pick(Pm.skills));
+    S.seekers[id] = { id, ad: pick(fem ? kad : erk), soyad: pick(sy), tc: tc(), dogum: dStr(dt), cinsiyet: fem ? 'K' : 'E', il, tel: '', edu: 1 + Math.floor(Math.random() * 3), alan: pick(Pm.fields), meslek: j[0], exp: Math.floor(Math.random() * 8), ehliyet: pick(['Yok', 'B']), salaryMin: pick([0, 18000, 22000, 30000]), cities: Math.random() < 0.6 ? ils.slice() : [], skills: [...sk], workTypes: [], startNow: Math.random() < 0.5, notes: '', consent: { data: true, referral: true, ts: Date.now() }, idVerified: true, status: 'aktif', demo: true, createdAt: Date.now(), history: [{ ts: Date.now(), user: user(), text: 'Deneme verisi' }] };
+  }
+  A('DENEME_VERISI', '40 aday, 6 işveren, 8 pozisyon eklendi');
+}
+
+/* ---- olay bağlama */
+document.addEventListener('submit', async (e) => {
+  if (e.target.id === 'pform') {
+    e.preventDefault(); const np = readParams(e.target), reason = e.target.elements.reason.value.trim(), errs = validateParams(np); if (errs.length) return alert('Parametreler geçersiz:\n• ' + errs.join('\n• '));
+    if (canon(np) === canon(P())) return alert('Parametrelerde değişiklik yok.');
+    S.paramHistory.push({ ver: S.paramHistory.length + 1, ts: Date.now(), user: user(), reason, seal: sealOf(P()), params: JSON.parse(JSON.stringify(P())) }); S.params = np; commit('PARAMETRE_DEGISTI', `sürüm ${S.paramHistory.length + 1}; mühür ${sealOf(np).slice(0, 12)}; ${reason}`, 'Parametreler kaydedildi.');
+  }
+});
+document.addEventListener('change', async (e) => {
+  const id = e.target.id;
+  if (id === 'skst') { ctxUI.sk = { ...ctxUI.sk, st: e.target.value, page: 1 }; render(); }
+  if (id === 'vcst') { ctxUI.vc = { st: e.target.value }; render(); }
+  if (id === 'rfst') { ctxUI.rf = e.target.value; render(); }
+  if (id === 'restore' && e.target.files[0]) {
+    let j; try { j = JSON.parse(await e.target.files[0].text()); } catch { return alert('Dosya okunamadı.'); }
+    if (!j || j.v !== 1 || !j.params || !j.seekers || !Array.isArray(j.audit)) return alert('Bu bir yedek dosyası değil.');
+    const ch = verifyChain(j.audit); if (!ch.ok && !confirm(`UYARI: Yedekteki denetim zinciri ${ch.at}. kayıtta bozuk. Yine de yüklensin mi?`)) return;
+    if (!confirm('Mevcut tüm veri silinip yedekle değiştirilecek. Devam?')) return; const errs = validateParams(j.params); if (errs.length) return alert('Yedekteki parametreler geçersiz:\n' + errs.join('\n'));
+    S = { ...fresh(), ...j }; A('YEDEK_YUKLENDI', `${Object.keys(S.seekers).length} iş arayan`); save(); toast('Yedek yüklendi.'); go('dash');
+  }
+});
+let deb = null;
+document.addEventListener('input', (e) => { const m = { skq: ['sk', 'q'], auq: ['au', 'q'] }[e.target.id]; if (!m) return; clearTimeout(deb); const val = e.target.value, id = e.target.id; deb = setTimeout(() => { ctxUI[m[0]] = { ...(ctxUI[m[0]] || {}), q: val, page: 1 }; render(); const n = $('#' + id); if (n) { n.focus(); n.setSelectionRange(val.length, val.length); } }, 300); });
+document.addEventListener('click', async (e) => {
+  const t = e.target.closest('[data-act]'); if (!t) return; const a = t.dataset.act, id = t.dataset.id; if (['openseeker', 'openref'].includes(a)) e.preventDefault();
+  try {
+    switch (a) {
+      case 'nav': ctxUI.why = null; return go(t.dataset.k);
+      case 'openseeker': return go('seeker', id); case 'openref': return go('ref', id);
+      case 'skpage': ctxUI.sk.page = +t.dataset.p; return render(); case 'aupage': ctxUI.au.page = +t.dataset.p; return render();
+      case 'newseeker': return seekerForm(null); case 'editseeker': return seekerForm(id);
+      case 'sk-activate': { const s = S.seekers[id], er = activateCheck(s); if (er.length) return alert('Havuza alınamaz:\n• ' + er.join('\n• ')); s.status = 'aktif'; s.history.push({ ts: Date.now(), user: user(), text: 'Havuza alındı' }); return commit('ADAY_AKTIF', id, 'Havuza alındı.'); }
+      case 'sk-pause': { const s = S.seekers[id]; s.status = 'pasif'; s.closedAt = Date.now(); for (const r of Object.values(S.referrals)) if (r.seeker === id && ACTIVE_REF.includes(r.status)) { r.status = 'iptal'; hist(r, 'Aday pasife alındı'); } return commit('ADAY_PASIF', id, 'Pasife alındı.'); }
+      case 'sk-reopen': { const s = S.seekers[id]; s.status = 'pasif'; s.closedAt = null; return commit('ADAY_YENIDEN_ACILDI', id, 'Kayıt pasife alındı; kontrol edip havuza alın.'); }
+      case 'sk-anon': { if (!confirm('Kişisel veriler kalıcı olarak silinecek (anonimleştirme). Geri alınamaz. Devam?')) return; anonymize(S.seekers[id], 'aday/görevli talebi'); return commit(null, '', 'Anonimleştirildi.'); }
+      case 'newemployer': case 'editemployer': {
+        const ex = a === 'editemployer' ? S.employers[id] : null; const f = await ask(ex ? 'İşvereni düzenle' : 'Yeni işveren', employerFields(), { data: ex || { sektor: P().fields[0] }, validate: (x) => validateEmployer(x, id) }); if (!f) return;
+        if (ex) { Object.assign(ex, { ...f, vergiNo: f.vergiNo.replace(/\D/g, '') }); return commit('ISVEREN_GUNCELLENDI', id, 'Kaydedildi.'); }
+        const nid = nextId('I'); S.employers[nid] = { id: nid, ...f, vergiNo: f.vergiNo.replace(/\D/g, ''), verified: false, status: 'aktif', createdAt: Date.now() }; return commit('ISVEREN_EKLENDI', nid, 'İşveren eklendi; onay bekliyor.');
+      }
+      case 'verifyemployer': if (!confirm('İşverenin varlığı ve yetkilisi (vergi levhası / ticaret sicil) teyit edildi mi?')) return; S.employers[id].verified = true; return commit('ISVEREN_ONAYLANDI', id, 'Onaylandı.');
+      case 'toggleemployer': { const e2 = S.employers[id]; e2.status = e2.status === 'pasif' ? 'aktif' : 'pasif'; return commit('ISVEREN_DURUMU', `${id} ${e2.status}`, 'Güncellendi.'); }
+      case 'newvacancy': case 'editvacancy': {
+        const ex = a === 'editvacancy' ? S.vacancies[id] : null; if (!Object.values(S.employers).some((x) => x.verified && x.status !== 'pasif')) return alert('Önce onaylı bir işveren ekleyin.');
+        const d = ex ? { ...ex, reqX: ex.req.filter((x) => !P().skills.includes(x)), req: ex.req.filter((x) => P().skills.includes(x)) } : { workType: 'tam', minEdu: 1, alan: P().fields[0], ehliyet: 'Yok', req: [], pref: [], reqX: [], adet: 1 };
+        const f = await ask(ex ? 'Pozisyonu düzenle' : 'Yeni pozisyon', vacancyFields(), { data: d, validate: validateVacancy }); if (!f) return;
+        const val = { employer: f.employer, baslik: f.baslik, alan: f.alan, adet: f.adet, il: f.il, workType: f.workType, minEdu: +f.minEdu, minExp: f.minExp || 0, ehliyet: f.ehliyet, salaryMin: f.salaryMin || 0, salaryMax: f.salaryMax || 0, closes: f.closes, req: [...new Set([...f.req, ...f.reqX])], pref: f.pref, desc: f.desc };
+        if (ex) { Object.assign(ex, val); if (ex.status === 'doldu' && ex.filled < ex.adet) ex.status = 'acik'; return commit('POZISYON_GUNCELLENDI', id, 'Kaydedildi.'); }
+        const nid = nextId('P'); S.vacancies[nid] = { id: nid, ...val, filled: 0, status: 'acik', createdAt: Date.now() }; return commit('POZISYON_ACILDI', nid, 'Pozisyon açıldı.');
+      }
+      case 'closevacancy': { if (!confirm('Pozisyon kapatılacak; süren yönlendirmeler iptal edilir. Devam?')) return; S.vacancies[id].status = 'kapali'; for (const r of Object.values(S.referrals)) if (r.vacancy === id && ACTIVE_REF.includes(r.status)) { r.status = 'iptal'; hist(r, 'Pozisyon kapatıldı'); } return commit('POZISYON_KAPATILDI', id, 'Kapatıldı.'); }
+      case 'reopenvacancy': S.vacancies[id].status = 'acik'; return commit('POZISYON_YENIDEN_ACILDI', id, 'Açıldı.');
+      case 'runmatch': runMatching(); ctxUI.why = null; ctxUI.more = null; return commit(null, '', 'Eşleştirme tamamlandı.');
+      case 'why': ctxUI.why = { s: t.dataset.s, v: t.dataset.v }; return render(); case 'more': ctxUI.more = id; return render();
+      case 'startref': return referral(t.dataset.s, t.dataset.v);
+      case 'ra': return refAction(id, t.dataset.do);
+      case 'resetparams': { const r = prompt('Parametreler varsayılana dönecek. Gerekçe:'); if (!r || r.length < 5) return; S.paramHistory.push({ ver: S.paramHistory.length + 1, ts: Date.now(), user: user(), reason: 'Varsayılana dönüş: ' + r, seal: sealOf(P()), params: JSON.parse(JSON.stringify(P())) }); S.params = DEFAULT_PARAMS(); return commit('PARAMETRE_SIFIRLANDI', 'varsayılan', 'Varsayılanlar yüklendi.'); }
+      case 'exportaudit': return downloadText('denetim-gunlugu.json', JSON.stringify({ olusturma: Date.now(), baslOzeti: verifyChain().head, gunluk: S.audit }, null, 2));
+      case 'setofficer': { const f = await ask('Görevli adı', [{ n: 'name', label: 'Ad soyad', req: 1, max: 60 }], { data: { name: S.meta.officer }, validate: (x) => (x.name.length >= 2 ? [] : ['Ad girin.']) }); if (!f) return; S.meta.officer = f.name; return commit('GOREVLI_DEGISTI', 'görevli adı güncellendi', 'Kaydedildi.'); }
+      case 'backup': { S.meta.lastBackup = Date.now(); A('YEDEK_ALINDI', 'tam yedek'); save(); downloadText(`is-basvuru-yedek-${today()}.json`, JSON.stringify(S)); return render(); }
+      case 'csvrefs': { const rows = [['no', 'aday_no', 'pozisyon_no', 'pozisyon', 'puan', 'durum', 'tarih']]; for (const r of Object.values(S.referrals)) rows.push([r.id, r.seeker, r.vacancy, (S.vacancies[r.vacancy] || {}).baslik || '', r.score, r.status, new Date(r.createdAt).toISOString().slice(0, 10)]); return downloadText('yonlendirmeler.csv', '﻿' + rows.map((x) => x.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(';')).join('\n'), 'text/csv'); }
+      case 'setlock': { const f = await ask('Uygulama parolası', [{ n: 'p1', label: 'Parola (en az 6 karakter)', type: 'password', req: 1 }, { n: 'p2', label: 'Tekrar', type: 'password', req: 1 }], { validate: (x) => (x.p1.length >= 6 && x.p1 === x.p2 ? [] : ['Parolalar eşleşmeli ve en az 6 karakter olmalı.']) }); if (!f) return; const salt = Math.random().toString(36).slice(2); S.meta.lock = { salt, hash: sha256(salt + f.p1) }; return commit('KILIT_AYARLANDI', 'uygulama parolası', 'Parola belirlendi.'); }
+      case 'clearlock': S.meta.lock = null; return commit('KILIT_KALDIRILDI', '', 'Kaldırıldı.');
+      case 'lock': return showLock();
+      case 'retention': { const L = Object.values(S.seekers).filter((s) => ['yerlesti', 'pasif'].includes(s.status) && s.closedAt && daysBetween(dStr(new Date(s.closedAt)), today()) > P().retentionDays); if (!L.length) return toast('Süresi dolan kayıt yok.'); if (!confirm(`${L.length} kayıt anonimleştirilecek. Devam?`)) return; L.forEach((s) => anonymize(s, 'saklama süresi doldu')); return commit(null, '', 'Tamamlandı.'); }
+      case 'seed': seedDemo(); return commit(null, '', 'Örnek veri eklendi.');
+      case 'unseed': { for (const k of ['seekers', 'employers', 'vacancies']) for (const [i, x] of Object.entries(S[k])) if (x.demo) delete S[k][i]; for (const [i, r] of Object.entries(S.referrals)) if (!S.seekers[r.seeker] || !S.vacancies[r.vacancy]) delete S.referrals[i]; S.run = null; return commit('DENEME_VERISI_SILINDI', '', 'Silindi.'); }
+      case 'wipe': { if (prompt('TÜM veri (kayıtlar, parametreler, denetim günlüğü) silinecek. Onaylamak için SİL yazın:') !== 'SİL') return; const off = S.meta.officer; S = fresh(); S.meta.officer = off; A('TUM_VERI_SILINDI', ''); save(); return go('dash'); }
+    }
+  } catch (er) { console.error(er); alert('Hata: ' + er.message); }
+});
+function showLock() {
+  $('#tabs').classList.add('hidden'); $('#who').innerHTML = '';
+  $('#app').innerHTML = `<div class="card lock"><h1>Kilitli</h1><form id="lockform"><label>Uygulama parolası</label><input type="password" id="lockpw" autofocus><div id="lockerr"></div><button class="b mt8" type="submit">Aç</button></form></div>`;
+  $('#lockform').onsubmit = (e) => { e.preventDefault(); const L = S.meta.lock; if (L && sha256(L.salt + $('#lockpw').value) === L.hash) { go('dash'); } else { $('#lockerr').innerHTML = '<div class="note bad">Parola hatalı.</div>'; } };
+}
+/* =====================================================================  başlangıç */
+S = load();
+if (!S.meta.officer) { S.meta.officer = ''; }
+if (S.meta.lock) showLock();
+else {
+  if (!S.meta.officer) { render(); ask('Hoş geldiniz', [{ n: 'name', label: 'Görevli adı soyadı (denetim günlüğüne yazılır)', req: 1, max: 60 }], { intro: 'Veriler yalnızca bu tarayıcıda tutulur. Düzenli yedek almayı unutmayın (Veri › Yedek indir).', validate: (x) => (x.name.length >= 2 ? [] : ['Ad girin.']) , submit: 'Başla' }).then((f) => { S.meta.officer = (f && f.name) || 'görevli'; A('KURULUM', 'ilk kullanım'); save(); render(); }); }
+  else render();
+}
+window.__ISB = { get S() { return S; }, sha256, scorePair, verifyChain, tcValid, runMatching, seedDemo }; // test amaçlı
+})();
+</script>
+</body>
+</html>
