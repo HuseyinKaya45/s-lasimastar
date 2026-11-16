@@ -69,6 +69,33 @@ node authority.js verify-package gelen-paketler/ANK-01.json --pub=ankara/unit-pu
 - **Özel anahtarların korunması** güvenin temelidir: otorite özel anahtarı sızarsa sahte parametre paketi üretilebilir; birim imza anahtarı sızarsa o birim adına sahte denetim paketi üretilebilir. Anahtarları çevrimdışı/HSM'de saklayın, sızıntıda anahtar değiştirip `register-unit` ile yenileyin.
 - Birim yöneticisi kendi bilgisayarında yazılımı veya veritabanını değiştirebilir; bu **önlenmez, tespit edilir** (mühür uyuşmazlığı, imza/zincir bozulması, geçmişin yeniden yazılması). Tespit, düzenli paket gönderimine bağlıdır.
 
+### 0.b Merkezî eşleştirme (isteğe bağlı): otorite web arayüzü
+
+Birimler arası eşleştirme istenirse otorite **kendi sunucusunda** `authority-server.js` çalıştırır (web arayüzü). Bu, yukarıdaki "veri hiç merkezde toplanmaz" modelinden **bilinçli bir sapmadır**; yalnız aşağıdaki kısıtlarla açılır:
+
+- **Yalnız ayrı, açık rıza veren adaylar** (aday formunda "Merkezî havuz rızası") aktarılır; rıza geri çekilince / aday havuzdan çıkınca sonraki pakette merkezden silinir.
+- Otoriteye **takma adlı eşleştirme profili** gider: cinsiyet, yaş (doğum günü ay ortasına yuvarlanır), il, eğitim, medeni hâl, çocuk, meslek, tanıtım ve tercihleri. **Ad, soyad, T.C. no, telefon, e-posta, ilçe, iç notlar gönderilmez** (testle doğrulanır: otorite veritabanı dosyasında bu değerler aranır ve bulunmaz). Profiller otorite DB'sinde ayrıca alan düzeyinde AES-256-GCM ile şifrelidir.
+- Birim↔otorite dosyaları **X25519 + AES-256-GCM ile şifrelenir, Ed25519 ile imzalanır**, sıra numarasıyla yineleme/geri alma engellenir. Kayıtsız birim, yanlış anahtar, değiştirilmiş veya başka birime ait paket reddedilir.
+- Otorite **yalnız öneri üretir**; yalnız **farklı birimlerden** çiftler önerilir. Adaylarla görüşmeyi ve kararı alma işini birimler yürütür. İki taraf ayrı ayrı kabul etmeden koordinasyon bilgisi (karşı birimin adı/iletişimi) paylaşılmaz; adayın kendi telefonu/e-postası hiçbir zaman merkezden geçmez.
+- Tüm güvenceler korunur: 18 yaş tabanı, karşılıklı rıza, kalıcı ret, otomatik eşleştirme yok, koruma kararı engeli (birimde), iki kişi kuralları, SHA-256 zincirli denetim günlüğü.
+
+```bash
+# --- OTORİTE bilgisayarı ---
+npm run authority -- keygen --out=keys          # imza (Ed25519) + şifreleme (X25519) anahtarları
+# .env: AUTHORITY_SIGNING_KEY_FILE, AUTHORITY_ENC_KEY_FILE, AUTHORITY_KEY_PASSPHRASE, DATA_KEYS/DATA_KEY_ID, AUTHORITY_DATA_DIR, PORT=8090
+npm run authority-admin -- --username=yonetici --name="Ad Soyad"
+npm run authority-server                        # http://127.0.0.1:8090  (HTTPS ters vekil arkasında)
+
+# --- her BİRİM bilgisayarı ---
+UNIT_CODE=ANK-01 npm run sign-keygen            # imza + şifreleme anahtarı ve birim-kimligi-ANK-01.json üretir
+# .env: UNIT_ENC_KEY_FILE, AUTHORITY_PUBKEY_FILE (authority-public.pem), AUTHORITY_ENC_PUBKEY_FILE (authority-enc-public.pem)
+# birim-kimligi-*.json dosyasını otoriteye verin → Otorite arayüzü › Birimler › Birim ekle
+```
+
+**Akış:** birim "Merkezî eşleştirme" sayfasında paket üretir → otorite "Paket alışverişi"nde yükler → "Merkezî eşleştirme › Birleştir ve eşleştir" → öneriden tanıştırma başlatır → "Birime öneri paketi" üretir → birim yükler, adaydan kararı alıp kaydeder → birim yeni paket üretir (karar bildirimi) → otorite yükler; iki taraf kabul ederse bir sonraki öneri paketiyle koordinasyon bilgisi gelir.
+
+**Merkezîleştirmenin riskleri (dürüst not):** otorite sunucusu, rızalı da olsa **hassas tercih verisinin tek noktada toplandığı** bir hedeftir; sızıntı etkisi tek tek birimlere göre çok daha büyüktür. Bu yazılım bağımsız bir güvenlik denetiminden geçmemiştir. KVKK kapsamında aydınlatma metni, **açık rıza**, saklama/imha süresi, veri sorumlusu tanımı ve yurt içi/dışı aktarım koşulları kurumunuzun hukuk birimince belirlenmelidir (rıza metni `centralConsentText` parametresiyle değiştirilir). Veri taşıma dosyalarını (USB/e-posta) kullandıktan sonra siliniz; şifreli olsalar da gereksiz kopya bırakmayın.
+
 ---
 
 ## 1. Hızlı başlangıç (tek sunucu, otoritesiz)
@@ -196,7 +223,7 @@ npm run verify-audit      # zinciri doğrular, baş özetini yazar (dış mühü
 ## 7. Test
 
 ```bash
-npm test      # 34 test: kriptografi, motor, HTTP uçları, yetki, şifreleme, denetim zinciri, iki kişi kuralı, TOTP, imzalı paketler, parametre kilidi, toplu denetim
+npm test      # 42 test: kriptografi, motor, HTTP uçları, yetki, şifreleme, denetim zinciri, iki kişi kuralı, TOTP, imzalı paketler, parametre kilidi, toplu denetim, merkezî eşleştirme uçtan uca (şifreli zarf, KVKK sızıntı taraması, yineleme/sahtecilik, roller)
 ```
 Testler gerçek HTTP sunucusu ve geçici bir veritabanı kullanır; veri dosyasında düz metin kişisel veri bulunmadığını, rol ihlallerinin reddedildiğini ve denetim günlüğü kurcalamasının yakalandığını doğrular.
 

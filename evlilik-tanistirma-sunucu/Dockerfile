@@ -3,9 +3,10 @@
 FROM node:22-alpine
 ENV NODE_ENV=production DATA_DIR=/data HOST=0.0.0.0 PORT=8080 TRUST_PROXY=1
 WORKDIR /app
-COPY package.json server.js cli.js ./
+COPY package.json server.js cli.js authority.js authority-server.js ./
 COPY lib ./lib
 COPY public ./public
+COPY public-authority ./public-authority
 # Root olmayan kullanıcı; veri birimi yalnız bu kullanıcıya açık
 RUN addgroup -S ets && adduser -S ets -G ets && mkdir /data && chown ets:ets /data && chmod 700 /data
 USER ets

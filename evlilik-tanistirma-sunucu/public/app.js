@@ -45,7 +45,9 @@ function chrome() {
   $('#who').innerHTML = S.user ? `<span class="badge info">${esc(S.user.name)} · ${ROLE[S.user.role]}</span><button class="b ghost sm" data-act="nav" data-k="account">Hesabım</button><button class="b ghost sm" data-act="logout">Çıkış</button>` : '';
   const tabs = $('#tabs');
   if (!S.user || S.restricted) { tabs.classList.add('hidden'); return; }
-  const T = [['dash', 'Panel'], ['apps', 'Adaylar'], ['match', 'Eşleştirme'], ['intros', 'Tanıştırmalar'], ['fair', 'Adalet raporu'], ['params', 'Parametreler']];
+  const T = [['dash', 'Panel'], ['apps', 'Adaylar'], ['match', 'Eşleştirme'], ['intros', 'Tanıştırmalar']];
+  if (S.meta && S.meta.centralConfigured) T.push(['central', 'Merkezî eşleştirme']);
+  T.push(['fair', 'Adalet raporu'], ['params', 'Parametreler']);
   if (['admin', 'denetci'].includes(S.user.role)) T.push(['audit', 'Denetim']);
   if (can.admin()) { T.push(['users', 'Kullanıcılar']); T.push(['data', 'Veri']); }
   T.push(['about', 'Hakkında']);
@@ -86,7 +88,7 @@ function vForcePassword() {
 function go(v, extra) { S.route = { v, ...(extra || {}) }; render(); }
 async function render() {
   chrome();
-  const V = { dash: vDash, apps: vApps, app: vApp, match: vMatch, intros: vIntros, intro: vIntro, fair: vFair, params: vParams, audit: vAudit, users: vUsers, data: vData, account: () => vAccount(false), about: vAbout };
+  const V = { dash: vDash, apps: vApps, app: vApp, match: vMatch, intros: vIntros, intro: vIntro, central: vCentral, fair: vFair, params: vParams, audit: vAudit, users: vUsers, data: vData, account: () => vAccount(false), about: vAbout };
   $('#app').innerHTML = '<p class="muted">Yükleniyor…</p>';
   try { const h = await (V[S.route.v] || vDash)(); if (typeof h === 'string') { $('#app').innerHTML = h; window.scrollTo(0, 0); } } catch (e) { if (e instanceof ApiError && e.status === 401) return; $('#app').innerHTML = `<div class="note bad">${esc(e.message)}</div>`; }
 }
@@ -242,6 +244,21 @@ async function vMatch() {
     <td><button class="b ghost sm" data-act="why" data-a="${esc(p.a)}" data-b="${esc(p.b)}">Neden?</button> ${can.edit() ? `<button class="b sm" data-act="startintro" data-a="${esc(p.a)}" data-b="${esc(p.b)}" ${p.canStart ? '' : 'disabled'}>Tanıştırma başlat</button>` : ''}</td></tr>`).join('') || '<tr><td colspan="6" class="muted">Öneri yok.</td></tr>'}</table></div>${pager(r.page, r.run.total, r.pageSize, 'matchpage')}</div>`;
   if (r.noMatch.length) h += `<div class="card"><h3>Bu koşuda öneri çıkmayan adaylar (${r.noMatch.length})</h3><p class="small muted">Tercihleri çok daraltmış (çok sayıda “zorunlu”) veya havuzda uygun aday bulunmayan adaylar. Adayla görüşüp tercihlerini yeniden gözden geçirmesi önerilebilir.</p><div>${r.noMatch.map((x) => `<a href="#" data-act="open" data-id="${esc(x.id)}">${esc(x.name)}</a>`).join(' · ')}</div></div>`;
   return h;
+}
+
+/* ------------------------------------------------------------------ merkezî (otorite) eşleştirme */
+const CST = { yanit_bekliyor: 'Yanıt bekleniyor', reddedildi: 'Reddedildi', kabul: 'İki taraf kabul etti', bulusma_planli: 'Görüşme planlı', devam_ediyor: 'Devam ediyor', bitti: 'Sona erdi', sikayet: 'Şikâyet / inceleme', zamanasimi: 'Zaman aşımı', iptal: 'İptal', kararverdi: 'Evlenme kararı' };
+async function vCentral() {
+  const st = await api('GET', '/api/central/status'), L = await api('GET', '/api/central/intros');
+  const missing = st.missing.length ? `<div class="note bad">Yapılandırma eksik: ${st.missing.map(esc).join(', ')}</div>` : '';
+  return `<h1>Merkezî eşleştirme</h1>${missing}<div class="note info small">Bu sayfa, adayın <b>ayrı rızasıyla</b> merkezî otoriteye bildirilen profillerin dosya alışverişini yönetir. Otoriteye ad, soyad, T.C. no, telefon, e-posta, ilçe ve notlar <b>gönderilmez</b>; doğum günü ay düzeyine yuvarlanır. Otorite yalnızca öneri yapar; adayla siz görüşür, kararı adaydan siz alırsınız.</div>
+  <div class="card"><h3>1) Otoriteye paket gönder</h3><p>Merkezî rızası olan aday: <b>${st.eligible}</b> · son paket: ${st.lastExport ? fmtT(st.lastExport) : '—'} (sıra ${st.seqOut})</p>
+  ${can.edit() ? '<button class="b" data-act="cexport"' + (st.configured ? '' : ' disabled') + '>Paket üret ve indir</button>' : ''}<p class="small muted">Paket şifreli ve imzalıdır; yalnız otorite açabilir. Aday havuzdan çekilir veya rızasını geri alırsa bir sonraki pakette merkezî havuzdan çıkar. Karar/sonuç bildirimleriniz de pakete eklenir.</p></div>
+  <div class="card"><h3>2) Otoriteden gelen öneri paketini yükle</h3>${can.edit() ? '<input type="file" id="cimport" accept=".json">' : '<p class="muted">Yetkiniz yok.</p>'}<p class="small muted">Son alınan: ${st.lastImport ? fmtT(st.lastImport) : '—'} (sıra ${st.seqIn}). Eski veya başka birime ait paketler reddedilir.</p></div>
+  <div class="card"><h3>Merkezî öneriler (${L.length})</h3><div class="tw"><table><tr><th>No</th><th>Aday</th><th>Önerilen kişi (takma adlı kart)</th><th>Puan</th><th>Durum</th><th>İşlem</th></tr>
+  ${L.map((x) => { const o = x.other || {}; return `<tr><td>${esc(x.id)}</td><td>${esc(x.name || x.ref)}<div class="small muted">${esc(x.ref)}</div></td><td>${o.age ?? ''} yaş · ${esc(o.il)} · ${esc(o.edu)} · ${esc(o.meslek)}<div class="small muted">${esc(o.medeni)}${o.cocuk ? ' · çocuk ' + o.cocuk : ''} · ${esc(o.unitName)}</div><div class="small">${esc(o.tanitim)}</div></td><td>${x.score}</td>
+   <td>${esc(CST[x.status] || x.status)}${x.myDec ? `<div class="small muted">Adayın kararı: ${x.myDec === 'kabul' ? 'kabul' : 'ret'}</div>` : ''}${x.coord ? `<div class="small">Karşı birim: ${esc(x.coord.unitName)} · ${esc(x.coord.contact)}</div>` : ''}${x.meeting ? `<div class="small">Görüşme: ${esc(x.meeting.date)} ${esc(x.meeting.time)} — ${esc(x.meeting.place)}</div>` : ''}</td>
+   <td>${can.edit() && x.status === 'yanit_bekliyor' && !x.myDec ? `<button class="b sm" data-act="crespond" data-id="${esc(x.id)}" data-dec="kabul">Aday: tanışmak istiyor</button> <button class="b ghost sm" data-act="crespond" data-id="${esc(x.id)}" data-dec="ret">Aday: istemiyor</button>` : ''}${can.edit() && ['kabul', 'bulusma_planli', 'devam_ediyor'].includes(x.status) ? ` <button class="b ghost sm" data-act="coutcome" data-id="${esc(x.id)}">Sonuç bildir</button>` : ''}</td></tr>`; }).join('') || '<tr><td colspan="6" class="muted">Henüz merkezî öneri yok.</td></tr>'}</table></div></div>`;
 }
 
 /* ------------------------------------------------------------------ tanıştırmalar */
@@ -401,6 +418,10 @@ document.addEventListener('change', guard(async (e) => {
   const id = e.target.id;
   if (id === 'flt') { S.ctx.apps = { ...S.ctx.apps, status: e.target.value, page: 1 }; render(); }
   if (id === 'iflt') { S.ctx.ifilter = e.target.value; render(); }
+  if (id === 'cimport' && e.target.files[0]) {
+    let env; try { env = JSON.parse(await e.target.files[0].text()); } catch { return alert('Dosya okunamadı (geçerli JSON değil).'); }
+    const r = await api('POST', '/api/central/import', { envelope: env }); toast(`Paket sırası ${r.seq}: ${r.added} yeni, ${r.updated} güncellenen, ${r.skipped} atlanan öneri.`); return render();
+  }
   if (id === 'req2fa') { await api('POST', '/api/params/require2fa', { on: e.target.checked }); toast('Ayar kaydedildi.'); }
   if (id === 'bundlefile') {
     const f = e.target.files[0]; if (!f) return; const txt = await f.text(); let bundle; try { bundle = JSON.parse(txt); } catch { return alert('Dosya okunamadı (geçerli JSON değil).'); }
@@ -473,6 +494,17 @@ document.addEventListener('click', guard(async (e) => {
     }
     case 'seed': await api('POST', '/api/admin/demo'); return toast('40 deneme adayı eklendi.');
     case 'unseed': { if (!confirm('Tüm deneme adayları silinsin mi?')) return; const r = await api('DELETE', '/api/admin/demo'); return toast(`${r.removed} deneme adayı silindi.`); }
+    case 'cexport': { const env = await api('POST', '/api/central/export'); const b = new Blob([JSON.stringify(env, null, 2)], { type: 'application/json' }); const l = document.createElement('a'); l.href = URL.createObjectURL(b); l.download = `birim-paketi-${S.meta.unitCode}.json`; document.body.appendChild(l); l.click(); setTimeout(() => { URL.revokeObjectURL(l.href); l.remove(); }, 500); return done('Paket indirildi; otoriteye iletin.'); }
+    case 'crespond': {
+      const dec = t.dataset.dec, m = ask('Kararı adayın kendisi bildirdi mi? Biçimini yazın (örn. şahsen / telefonla):', 'şahsen'); if (!m) return;
+      if (!confirm(`Aday kendi kararı olarak “${dec === 'kabul' ? 'tanışmak istiyor' : 'tanışmak istemiyor'}” dedi. Kaydedilsin mi? (geri alınamaz)`)) return;
+      await api('POST', `/api/central/intros/${encodeURIComponent(t.dataset.id)}/respond`, { dec, method: m, confirmed: true }); return done('Karar kaydedildi; bir sonraki paketle otoriteye bildirilecek.');
+    }
+    case 'coutcome': {
+      const o = ask('Görüşme sonucu (devam / bitti / karar / sikayet):', 'devam'); if (!o) return; const body = { out: o.toLowerCase() };
+      if (body.out === 'sikayet') { const r = ask('Şikâyet gerekçesi (yalnız gerekli bilgi):'); if (!r) return; body.reason = r; }
+      await api('POST', `/api/central/intros/${encodeURIComponent(t.dataset.id)}/outcome`, body); return done('Sonuç kaydedildi.');
+    }
     case 'totpsetup': S.ctx.totp = await api('POST', '/api/me/totp/setup'); return render();
   }
 }));
