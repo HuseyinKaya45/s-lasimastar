@@ -33,9 +33,24 @@ function loadConfig(overrides = {}) {
     unitCode: (env.UNIT_CODE || 'BIRIM-1').slice(0, 40),
     lockParams: env.LOCK_PARAMS === '1',
     authorityPubFile: env.AUTHORITY_PUBKEY_FILE, signingKeyFile: env.SIGNING_KEY_FILE,
-    authorityPub: null, signingKey: null,
+    authorityEncPubFile: env.AUTHORITY_ENC_PUBKEY_FILE, encKeyFile: env.UNIT_ENC_KEY_FILE,
+    authorityPub: null, signingKey: null, authorityEncPub: null, encKey: null,
     maxBody: 256 * 1024,
     rateLimitPerMin: +env.RATE_LIMIT_PER_MIN || 600
   };
 }
-module.exports = { loadConfig };
+
+/** Otorite sunucusu yapılandırması (AUTHORITY_* değişkenleri). */
+function loadAuthorityConfig(overrides = {}) {
+  const base = loadConfig(overrides), env = base.env;
+  return {
+    ...base,
+    dataDir: path.resolve(env.AUTHORITY_DATA_DIR || env.DATA_DIR || path.join(process.cwd(), 'data-otorite')),
+    publicDir: path.resolve(__dirname, '..', 'public-authority'),
+    port: env.PORT !== undefined ? +env.PORT : 8090,
+    signingKeyFile: env.AUTHORITY_SIGNING_KEY_FILE, encKeyFile: env.AUTHORITY_ENC_KEY_FILE,
+    signingKey: null, encKey: null,
+    maxBody: 256 * 1024
+  };
+}
+module.exports = { loadConfig, loadAuthorityConfig };

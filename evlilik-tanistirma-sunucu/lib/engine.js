@@ -26,6 +26,8 @@ const DEFAULT_PARAMS = () => ({
   eduLevels: ['İlkokul', 'Ortaokul', 'Lise', 'Ön lisans', 'Lisans', 'Yüksek lisans', 'Doktora'],
   meetingMode: 'Görevli eşliğinde, kamuya açık bir yerde',
   consentVersion: '1',
+  centralScope: 'evet',
+  centralConsentText: 'Eşleştirme olasılığımı artırmak için, kimlik ve iletişim bilgilerim (ad, soyad, T.C. no, telefon, e-posta, ilçe) HARİÇ olmak üzere profil bilgilerimin ve tercihlerimin merkezî otoriteye takma adla (referans numarasıyla) aktarılmasına ve başka birimlerdeki adaylarla eşleştirilmesine açık rıza veriyorum. Merkezî öneriler yalnızca benim kararıma sunulur; kimliğim ve iletişim bilgilerim ben ve karşı taraf ayrı ayrı kabul etmeden paylaşılmaz. Bu rızayı istediğim zaman geri çekebilirim; geri çektiğimde profilim merkezî havuzdan çıkarılır.',
   consentText: 'Evlenme amacıyla tanışmak için bu başvuruyu kendi isteğimle ve şahsen yaptım. Bilgilerimin yalnızca tanıştırma amacıyla ve kurumun belirlediği kapsamda işlenmesine, uygun görülen adaylara sınırlı bir tanıtım özeti olarak sunulmasına rıza veriyorum. İletişim bilgilerim, ben ve karşı taraf birbirimizle tanışmayı ayrı ayrı kabul etmeden paylaşılmaz. Başvurumdan istediğim zaman, gerekçe göstermeden çekilebilirim; kimseyle eşleşmeyi kabul etmek zorunda değilim.',
   retentionDays: 365,
   fairGapPct: 15,
@@ -51,6 +53,7 @@ const PARAM_SCHEMA = [
   { k: 'minScore', label: 'Asgari uyum puanı (0–100)', type: 'int', min: 0, max: 100 },
   { k: 'topN', label: 'Aday başına önerilecek en fazla kişi', type: 'int', min: 1, max: 20 },
   { k: 'aggregator', label: 'İki yönlü puan birleştirme', type: 'sel', opts: [['geom', 'Geometrik ortalama'], ['min', 'Düşük olan'], ['avg', 'Aritmetik ortalama']] },
+  { k: 'centralScope', label: 'Merkezî eşleştirme kapsamı', type: 'sel', opts: [['evet', 'Yalnız birimler arası'], ['hayir', 'Aynı birimdekiler dahil']], help: 'Merkezî otorite sunucusunda kullanılır.' },
   { k: 'ageDecayYears', label: 'Yaş tercihine ne kadar uzaklıkta puan sıfırlanır (yıl)', type: 'int', min: 1, max: 15 },
   { sec: 'Süreç ve güvenlik' },
   { k: 'maxActiveIntros', label: 'Bir adayın aynı anda en fazla aktif tanıştırması', type: 'int', min: 1, max: 5 },
@@ -113,6 +116,7 @@ function validateParams(p) {
     }
   }
   if (typeof p.consentText !== 'string' || p.consentText.trim().length < 40 || p.consentText.length > 3000) E.push('Açık rıza metni 40–3000 karakter olmalı.');
+  if (typeof p.centralConsentText !== 'string' || p.centralConsentText.trim().length < 40 || p.centralConsentText.length > 3000) E.push('Merkezî rıza metni 40–3000 karakter olmalı.');
   if (typeof p.consentVersion !== 'string' || !p.consentVersion.trim() || p.consentVersion.length > 20) E.push('Rıza metni sürümü geçersiz.');
   return E;
 }
@@ -154,9 +158,9 @@ function sanitizeApplicant(inp, P, base) {
   }
   const c = inp.consent && typeof inp.consent === 'object' ? inp.consent : {};
   const had = base.consent && base.consent.data;
-  o.consent = { data: !!c.data, sensitive: !!c.sensitive, contactShare: !!c.contactShare, ts: base.consent.ts, version: base.consent.version };
+  o.consent = { data: !!c.data, sensitive: !!c.sensitive, contactShare: !!c.contactShare, centralShare: !!c.centralShare, ts: base.consent.ts, version: base.consent.version };
   if (o.consent.data && !had) { o.consent.ts = Date.now(); o.consent.version = P.consentVersion; }
-  if (!o.consent.data) { o.consent.sensitive = false; o.consent.contactShare = false; }
+  if (!o.consent.data) { o.consent.sensitive = false; o.consent.contactShare = false; o.consent.centralShare = false; }
   const k = inp.checks && typeof inp.checks === 'object' ? inp.checks : {};
   o.checks = {};
   for (const f of ['inPerson', 'idVerified', 'protective', 'protectiveFound', 'voluntary', 'notMarried']) o.checks[f] = !!k[f];
@@ -166,7 +170,7 @@ function sanitizeApplicant(inp, P, base) {
 const newApplicantData = (P) => ({
   ad: '', soyad: '', kimNo: '', dogum: '', cins: '', telefon: '', eposta: '', il: '', ilce: '', medeni: 'hic', cocuk: 0, edu: '4', is: 'calisiyor', meslek: '', tanitim: '',
   prefs: { ageMin: 21, ageMax: 35, ageImp: 2, locMode: 'fark_etmez', locImp: 1, eduMin: '2', eduImp: 1, maritalOk: ['hic'], maritalImp: 1, kidsOk: true, kidsImp: 1 },
-  qa: {}, consent: { data: false, sensitive: false, contactShare: false, ts: null, version: P.consentVersion },
+  qa: {}, consent: { data: false, sensitive: false, contactShare: false, centralShare: false, ts: null, version: P.consentVersion },
   checks: { inPerson: false, idVerified: false, protective: false, protectiveFound: false, voluntary: false, notMarried: false },
   safetyBlock: false, safetyReason: '', cooldownUntil: '', notes: '', history: [], demo: false
 });
@@ -250,6 +254,7 @@ function poolable(x, P, today, ictx) {
 }
 function pairOk(a, b, P, today, ictx) {
   if (a.id === b.id) return 'aynı kişi';
+  if (P.centralScope === 'evet' && a.unit && b.unit && a.unit === b.unit) return 'aynı birim (merkezî kapsam dışı)';
   if (!poolable(a, P, today, ictx) || !poolable(b, P, today, ictx)) return 'havuzda değil';
   if (P.matchGender === 'karsi' && a.cins === b.cins) return 'cinsiyet kuralı';
   const k = pkey(a.id, b.id);

@@ -77,6 +77,14 @@ CREATE TABLE IF NOT EXISTS runs (
   ts INTEGER NOT NULL, username TEXT NOT NULL, param_seal TEXT NOT NULL,
   pool INTEGER NOT NULL, considered INTEGER NOT NULL, json TEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS ext_intros (
+  id TEXT PRIMARY KEY,
+  ref TEXT NOT NULL, side TEXT NOT NULL, score INTEGER NOT NULL,
+  status TEXT NOT NULL, other BLOB NOT NULL, coord TEXT, meeting TEXT,
+  my_dec TEXT, my_dec_ts INTEGER, my_method TEXT, my_out TEXT, my_out_ts INTEGER,
+  created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS ix_ext_ref ON ext_intros(ref);
 CREATE TABLE IF NOT EXISTS counters (name TEXT PRIMARY KEY, val INTEGER NOT NULL);
 CREATE TABLE IF NOT EXISTS audit (
   i INTEGER PRIMARY KEY,

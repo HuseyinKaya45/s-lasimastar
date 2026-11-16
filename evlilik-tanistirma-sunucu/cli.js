@@ -61,8 +61,12 @@ async function main() {
     const pass = process.env.SIGNING_KEY_PASSPHRASE;
     const { publicKey, privateKey } = AU.genKeyPair(pass);
     fs.writeFileSync(priv, privateKey, { mode: 0o600 }); fs.writeFileSync(pub, publicKey);
-    console.log(`İmza özel anahtarı: ${priv}\nAçık anahtar (OTORİTEYE VERİN): ${pub}  (kimlik ${AU.keyIdOf(publicKey)})`);
-    console.log(`\n.env dosyanıza ekleyin:\n  SIGNING_KEY_FILE=${priv}${pass ? '\n  SIGNING_KEY_PASSPHRASE=<parola>' : ''}\nOtorite açık anahtarınız varsa:\n  AUTHORITY_PUBKEY_FILE=<authority-public.pem yolu>\n  LOCK_PARAMS=1   (parametreler yalnız otoritenin imzalı paketiyle değişsin)`);
+    const H = require('./lib/hybrid'), enc = H.genEncKeyPair(), encPriv = path.join(out, 'unit-enc.pem'), encPub = path.join(out, 'unit-enc-public.pem');
+    fs.writeFileSync(encPriv, enc.privateKey, { mode: 0o600 }); fs.writeFileSync(encPub, enc.publicKey);
+    const code = (process.env.UNIT_CODE || 'BIRIM-1'), idf = path.join(out, `birim-kimligi-${code}.json`);
+    fs.writeFileSync(idf, JSON.stringify({ format: 'ets-unit-identity/1', code, signingKey: publicKey, encryptionKey: enc.publicKey }, null, 2));
+    console.log(`İmza özel anahtarı: ${priv}\nŞifreleme özel anahtarı: ${encPriv}\nBirim kimlik dosyası (OTORİTEYE VERİN — yalnız açık anahtarlar içerir): ${idf}\n  imza kimliği ${AU.keyIdOf(publicKey)} · şifreleme kimliği ${H.encKeyId(enc.publicKey)}`);
+    console.log(`\n.env dosyanıza ekleyin:\n  SIGNING_KEY_FILE=${priv}${pass ? '\n  SIGNING_KEY_PASSPHRASE=<parola>' : ''}\n  UNIT_ENC_KEY_FILE=${encPriv}\nOtoriteden gelen dosyalar:\n  AUTHORITY_PUBKEY_FILE=<authority-public.pem>\n  AUTHORITY_ENC_PUBKEY_FILE=<authority-enc-public.pem>   (merkezî eşleştirme için)\n  LOCK_PARAMS=1   (parametreler yalnız otoritenin imzalı paketiyle değişsin)`);
     return;
   }
   if (!cmd || !['init-admin', 'backup', 'verify-audit', 'rekey'].includes(cmd)) {

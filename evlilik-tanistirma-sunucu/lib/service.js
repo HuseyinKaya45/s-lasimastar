@@ -9,15 +9,11 @@ const E = require('./engine');
 const C = require('./crypto');
 const D = require('./db');
 const AU = require('./authority');
+const H = require('./hybrid');
+const CE = require('./central');
 
-class HttpError extends Error {
-  constructor(status, message, extra) { super(message); this.status = status; this.extra = extra; }
-}
-const bad = (m, x) => new HttpError(400, m, x);
-const forbid = (m = 'Bu işlem için yetkiniz yok.') => new HttpError(403, m);
-const notFound = (m = 'Kayıt bulunamadı.') => new HttpError(404, m);
-const conflict = (m) => new HttpError(409, m);
-const unprocessable = (m, x) => new HttpError(422, m, x);
+const { HttpError, bad, forbid, notFound, conflict, unprocessable } = require('./errors');
+const { createAccounts } = require('./accounts');
 
 const canon = C.canon;
 const sealOf = (p) => E.sealParams(p); // kurum adı hariç: otoritenin yönettiği parametrelerin mührü
@@ -137,148 +133,9 @@ function createService({ db, kr, config }) {
   }
   function setRequire2fa(u, on) { tx(() => { D.metaSet(db, 'require2fa', on ? '1' : '0'); D.audit(db, u, 'IKI_ASAMALI_ZORUNLULUK', on ? 'açık' : 'kapalı'); }); return { require2fa: !!on }; }
 
-  /* ------------------------------------------------------------------ kullanıcı / oturum */
-  const pubUser = (r) => ({ id: r.id, username: r.username, name: r.name, role: r.role, active: !!r.active, mustChange: !!r.must_change, totpEnabled: !!r.totp_enabled, locked: r.lock_until > Date.now(), createdAt: r.created_at });
-  function checkPasswordPolicy(pw, username) {
-    const min = getParams().params.passwordMinLength;
-    pw = String(pw || '');
-    if (pw.length < min) throw bad(`Parola en az ${min} karakter olmalı.`);
-    if (pw.length > 200) throw bad('Parola çok uzun.');
-    if (pw.toLowerCase().includes(String(username).toLowerCase())) throw bad('Parola kullanıcı adını içeremez.');
-    if (/^(.)\1+$/.test(pw)) throw bad('Parola tek karakterden oluşamaz.');
-    if (!(/[a-zçğıöşü]/.test(pw) && /[A-ZÇĞİÖŞÜ0-9]/.test(pw))) throw bad('Parola küçük harf ile büyük harf veya rakam içermeli.');
-  }
-  function tempPassword() { return C.randToken(9) + 'aA1'; }
-  function createUser(actor, { username, name, role }, plain) {
-    username = String(username || '').trim(); name = String(name || '').trim();
-    if (!/^[a-z0-9._-]{3,32}$/i.test(username)) throw bad('Kullanıcı adı 3–32 karakter (harf, rakam, . _ -) olmalı.');
-    if (!name || name.length > 80) throw bad('Ad soyad gerekli (en çok 80 karakter).');
-    if (!['admin', 'gorevli', 'denetci'].includes(role)) throw bad('Geçersiz rol.');
-    const pw = plain || tempPassword();
-    if (plain) checkPasswordPolicy(plain, username);
-    return tx(() => {
-      if (db.prepare('SELECT 1 FROM users WHERE username=?').get(username)) throw conflict('Bu kullanıcı adı kullanılıyor.');
-      const id = db.prepare('INSERT INTO users (username, name, role, pw_hash, must_change, created_at, created_by) VALUES (?,?,?,?,?,?,?)').run(username, name, role, C.hashPassword(pw), plain ? 0 : 1, Date.now(), actor ? actor.username : 'cli').lastInsertRowid;
-      D.audit(db, actor, 'KULLANICI_EKLENDI', `${username} (${role})`);
-      return { id: Number(id), username, tempPassword: plain ? undefined : pw };
-    });
-  }
-  function listUsers() { return db.prepare('SELECT * FROM users ORDER BY id').all().map(pubUser); }
-  function updateUser(actor, id, patch) {
-    return tx(() => {
-      const t = db.prepare('SELECT * FROM users WHERE id=?').get(id);
-      if (!t) throw notFound('Kullanıcı bulunamadı.');
-      const out = {};
-      if (t.id === actor.id && (patch.active === false || (patch.role && patch.role !== t.role))) throw forbid('Kendi hesabınızın rolünü/durumunu değiştiremezsiniz.');
-      if (typeof patch.active === 'boolean' && patch.active !== !!t.active) {
-        if (!patch.active && t.role === 'admin' && activeAdmins() < 2) throw conflict('Son etkin yönetici pasifleştirilemez.');
-        db.prepare('UPDATE users SET active=? WHERE id=?').run(patch.active ? 1 : 0, id);
-        if (!patch.active) db.prepare('DELETE FROM sessions WHERE user_id=?').run(id);
-        D.audit(db, actor, 'KULLANICI_DURUMU', `${t.username}: ${patch.active ? 'etkin' : 'pasif'}`);
-      }
-      if (patch.role && patch.role !== t.role) {
-        if (!['admin', 'gorevli', 'denetci'].includes(patch.role)) throw bad('Geçersiz rol.');
-        if (t.role === 'admin' && activeAdmins() < 2) throw conflict('Son etkin yöneticinin rolü değiştirilemez.');
-        db.prepare('UPDATE users SET role=? WHERE id=?').run(patch.role, id);
-        db.prepare('DELETE FROM sessions WHERE user_id=?').run(id);
-        D.audit(db, actor, 'KULLANICI_ROLU', `${t.username}: ${t.role} → ${patch.role}`);
-      }
-      if (patch.resetPassword) {
-        const pw = tempPassword();
-        db.prepare('UPDATE users SET pw_hash=?, must_change=1, fails=0, lock_until=0 WHERE id=?').run(C.hashPassword(pw), id);
-        db.prepare('DELETE FROM sessions WHERE user_id=?').run(id);
-        D.audit(db, actor, 'PAROLA_SIFIRLANDI', t.username);
-        out.tempPassword = pw;
-      }
-      if (patch.resetTotp) {
-        db.prepare('UPDATE users SET totp_secret=NULL, totp_enabled=0, totp_last=0 WHERE id=?').run(id);
-        D.audit(db, actor, 'IKI_ASAMALI_SIFIRLANDI', t.username);
-      }
-      if (patch.unlock) { db.prepare('UPDATE users SET fails=0, lock_until=0 WHERE id=?').run(id); D.audit(db, actor, 'HESAP_ACILDI', t.username); }
-      return out;
-    });
-  }
-  const loginFails = new Map(); // ip → [zaman damgaları]
-  function ipLimited(ip) {
-    const now = Date.now(), L = (loginFails.get(ip) || []).filter((t) => now - t < 10 * 60000);
-    loginFails.set(ip, L); return L.length >= 20;
-  }
-  function login({ username, password, code }, ip, ua) {
-    username = String(username || '').trim(); password = String(password || '');
-    if (ipLimited(ip)) throw new HttpError(429, 'Çok fazla başarısız deneme. Daha sonra tekrar deneyin.');
-    const u = db.prepare('SELECT * FROM users WHERE username=?').get(username);
-    const fail = (why, actor) => {
-      (loginFails.get(ip) || loginFails.set(ip, []).get(ip)).push(Date.now());
-      tx(() => D.audit(db, actor || null, 'GIRIS_HATASI', `${actor ? actor.username : 'bilinmeyen kullanıcı'} — ${why}; ip ${ip}`));
-      return new HttpError(401, 'Kullanıcı adı veya parola hatalı.');
-    };
-    if (!u) { C.verifyPassword(password, C.DUMMY_HASH); throw fail('kullanıcı yok'); }
-    const actor = { username: u.username, role: u.role };
-    if (u.lock_until > Date.now()) throw new HttpError(423, `Hesap geçici olarak kilitli (${Math.ceil((u.lock_until - Date.now()) / 60000)} dk).`);
-    const pwOk = C.verifyPassword(password, u.pw_hash);
-    if (!pwOk || !u.active) {
-      const fails = u.fails + 1;
-      db.prepare('UPDATE users SET fails=?, lock_until=? WHERE id=?').run(fails >= 5 ? 0 : fails, fails >= 5 ? Date.now() + 15 * 60000 : 0, u.id);
-      throw fail(!u.active ? 'pasif hesap' : fails >= 5 ? 'hatalı parola; hesap 15 dk kilitlendi' : 'hatalı parola', actor);
-    }
-    if (u.totp_enabled) {
-      const step = code ? C.totpVerify(u.totp_secret, code) : null;
-      if (step === null || step <= u.totp_last) {
-        if (!code) throw new HttpError(401, 'İki aşamalı doğrulama kodu gerekli.', { need2fa: true });
-        throw fail('hatalı doğrulama kodu', actor);
-      }
-      db.prepare('UPDATE users SET totp_last=? WHERE id=?').run(step, u.id);
-    }
-    const token = C.randToken(32), csrf = C.randToken(24), now = Date.now();
-    tx(() => {
-      db.prepare('UPDATE users SET fails=0, lock_until=0 WHERE id=?').run(u.id);
-      db.prepare('DELETE FROM sessions WHERE expires_at < ?').run(now);
-      db.prepare('INSERT INTO sessions (token_hash, user_id, csrf, created_at, last_seen, expires_at, ip, ua) VALUES (?,?,?,?,?,?,?,?)')
-        .run(C.sha256(token), u.id, csrf, now, now, now + config.sessionMaxHours * 3600000, ip, String(ua || '').slice(0, 200));
-      D.audit(db, actor, 'GIRIS', `oturum açıldı; ip ${ip}`);
-    });
-    return { token, csrf, user: pubUser(u) };
-  }
-  function authenticate(token) {
-    if (!token) return null;
-    const s = db.prepare('SELECT * FROM sessions WHERE token_hash=?').get(C.sha256(token));
-    if (!s) return null;
-    const now = Date.now(), idle = getParams().params.sessionIdleMinutes * 60000;
-    if (s.expires_at < now || s.last_seen + idle < now) { db.prepare('DELETE FROM sessions WHERE token_hash=?').run(s.token_hash); return null; }
-    const u = db.prepare('SELECT * FROM users WHERE id=?').get(s.user_id);
-    if (!u || !u.active) return null;
-    if (now - s.last_seen > 30000) db.prepare('UPDATE sessions SET last_seen=? WHERE token_hash=?').run(now, s.token_hash);
-    return { user: { id: u.id, username: u.username, name: u.name, role: u.role, mustChange: !!u.must_change, totpEnabled: !!u.totp_enabled }, csrf: s.csrf, tokenHash: s.token_hash };
-  }
-  function logout(actor, tokenHash) { tx(() => { db.prepare('DELETE FROM sessions WHERE token_hash=?').run(tokenHash); D.audit(db, actor, 'OTURUM_KAPATILDI', ''); }); }
-  function changePassword(actor, tokenHash, { oldPassword, newPassword }) {
-    const u = db.prepare('SELECT * FROM users WHERE id=?').get(actor.id);
-    if (!C.verifyPassword(String(oldPassword || ''), u.pw_hash)) throw new HttpError(401, 'Mevcut parola hatalı.');
-    checkPasswordPolicy(newPassword, u.username);
-    if (C.verifyPassword(String(newPassword), u.pw_hash)) throw bad('Yeni parola eskisiyle aynı olamaz.');
-    tx(() => {
-      db.prepare('UPDATE users SET pw_hash=?, must_change=0 WHERE id=?').run(C.hashPassword(newPassword), u.id);
-      db.prepare('DELETE FROM sessions WHERE user_id=? AND token_hash<>?').run(u.id, tokenHash);
-      D.audit(db, actor, 'PAROLA_DEGISTI', '');
-    });
-    return { ok: true };
-  }
-  function totpSetup(actor) {
-    const u = db.prepare('SELECT * FROM users WHERE id=?').get(actor.id);
-    if (u.totp_enabled) throw conflict('İki aşamalı doğrulama zaten etkin.');
-    const secret = C.totpNewSecret();
-    db.prepare('UPDATE users SET totp_secret=? WHERE id=?').run(secret, u.id);
-    const inst = encodeURIComponent(getParams().params.institution);
-    return { secret, otpauth: `otpauth://totp/${inst}:${encodeURIComponent(u.username)}?secret=${secret}&issuer=${inst}&digits=6&period=30` };
-  }
-  function totpEnable(actor, code) {
-    const u = db.prepare('SELECT * FROM users WHERE id=?').get(actor.id);
-    if (!u.totp_secret || u.totp_enabled) throw conflict('Önce kurulumu başlatın.');
-    const step = C.totpVerify(u.totp_secret, code);
-    if (step === null) throw bad('Kod hatalı.');
-    tx(() => { db.prepare('UPDATE users SET totp_enabled=1, totp_last=? WHERE id=?').run(step, u.id); D.audit(db, actor, 'IKI_ASAMALI_ACILDI', ''); });
-    return { ok: true };
-  }
+  /* ------------------------------------------------------------------ kullanıcı / oturum (lib/accounts.js) */
+  const ACC = createAccounts({ db, tx, config, roles: ['admin', 'gorevli', 'denetci'], policy: { passwordMinLength: () => getParams().params.passwordMinLength, sessionIdleMinutes: () => getParams().params.sessionIdleMinutes, institution: () => getParams().params.institution } });
+  const { createUser, listUsers, updateUser, login, authenticate, logout, changePassword, totpSetup, totpEnable } = ACC;
 
   /* ------------------------------------------------------------------ adaylar */
   const readData = (row) => JSON.parse(C.decrypt(kr, row.data, aad(row.id)));
@@ -302,7 +159,8 @@ function createService({ db, kr, config }) {
     }
   }
   const histPush = (data, actor, text) => { data.history.push({ ts: Date.now(), user: actor.username, text }); if (data.history.length > 200) data.history.splice(0, data.history.length - 200); };
-  const activeIntroCount = (id) => db.prepare(`SELECT COUNT(*) c FROM intros WHERE (a=? OR b=?) AND status IN (${E.ACTIVE_INTRO.map(() => '?').join(',')})`).get(id, id, ...E.ACTIVE_INTRO).c;
+  const activeIntroCount = (id) => db.prepare(`SELECT COUNT(*) c FROM intros WHERE (a=? OR b=?) AND status IN (${E.ACTIVE_INTRO.map(() => '?').join(',')})`).get(id, id, ...E.ACTIVE_INTRO).c
+    + db.prepare(`SELECT COUNT(*) c FROM ext_intros WHERE ref=? AND status IN (${E.ACTIVE_INTRO.map(() => '?').join(',')})`).get(id, ...E.ACTIVE_INTRO).c;
 
   function viewApplicant(a, role, today) {
     const age = a.dogum ? E.ageOn(a.dogum, today) : null;
@@ -441,6 +299,7 @@ function createService({ db, kr, config }) {
       pairs.add(E.pkey(i.a, i.b));
       if (E.ACTIVE_INTRO.includes(i.status)) { active.set(i.a, (active.get(i.a) || 0) + 1); active.set(i.b, (active.get(i.b) || 0) + 1); }
     }
+    for (const x of db.prepare('SELECT ref, status FROM ext_intros').all()) if (E.ACTIVE_INTRO.includes(x.status)) active.set(x.ref, (active.get(x.ref) || 0) + 1);
     for (const b of db.prepare('SELECT a, b FROM blocked').all()) blocked.add(E.pkey(b.a, b.b));
     return { active, pairs, blocked };
   }
@@ -692,6 +551,111 @@ function createService({ db, kr, config }) {
     return config.signingKey ? AU.signPackage(pkg, config.signingKey) : pkg;
   }
 
+  /* ------------------------------------------------------------------ merkezî (otorite) eşleştirme — birim tarafı */
+  const centralMissing = () => {
+    const m = [];
+    if (!config.signingKey) m.push('SIGNING_KEY_FILE'); if (!config.encKey) m.push('UNIT_ENC_KEY_FILE');
+    if (!config.authorityPub) m.push('AUTHORITY_PUBKEY_FILE'); if (!config.authorityEncPub) m.push('AUTHORITY_ENC_PUBKEY_FILE');
+    return m;
+  };
+  const centralConfigured = () => centralMissing().length === 0;
+  function centralStatus() {
+    const eligible = db.prepare("SELECT * FROM applicants WHERE status IN ('aktif','beklemede')").all().filter((r) => { try { const c = readData(r).consent; return c && c.centralShare && c.data; } catch { return false; } }).length;
+    const ex = db.prepare('SELECT status, COUNT(*) c FROM ext_intros GROUP BY status').all();
+    return {
+      configured: centralConfigured(), missing: centralMissing(), unitCode: config.unitCode, eligible,
+      lastExport: +D.metaGet(db, 'central_last_export', '0') || null, lastImport: +D.metaGet(db, 'central_last_import', '0') || null,
+      seqOut: +D.metaGet(db, 'central_seq_out', '0'), seqIn: +D.metaGet(db, 'central_seq_in', '0'),
+      intros: Object.fromEntries(ex.map((r) => [r.status, r.c]))
+    };
+  }
+  function centralExport(u) {
+    const miss = centralMissing(); if (miss.length) throw bad('Merkezî aktarım için yapılandırma eksik: ' + miss.join(', '));
+    assertAuthorityReady();
+    return tx(() => {
+      const P = getParams(), today = E.todayStr(), ictx = buildIctx();
+      const profiles = []; let avail = 0;
+      for (const r of db.prepare("SELECT * FROM applicants WHERE status IN ('aktif','beklemede')").all()) {
+        const a = flat(r);
+        if (!(a.consent && a.consent.centralShare && a.consent.data) || a.safetyBlock) continue;
+        const available = E.poolable(a, P.params, today, ictx); if (available) avail++;
+        profiles.push(CE.toProfile(a, available));
+      }
+      const responses = [];
+      for (const r of db.prepare('SELECT * FROM ext_intros').all()) {
+        if (r.my_dec) responses.push({ intro: r.id, ref: r.ref, kind: 'decision', dec: r.my_dec, ts: r.my_dec_ts, method: r.my_method || '' });
+        if (r.my_out) responses.push({ intro: r.id, ref: r.ref, kind: 'outcome', out: r.my_out, ts: r.my_out_ts });
+      }
+      const seq = D.counterNext(db, 'central_export'); D.metaSet(db, 'central_seq_out', seq); D.metaSet(db, 'central_last_export', Date.now());
+      const env = H.seal({ kind: 'pool', from: config.unitCode, to: 'OTORITE', seq, payload: { unitCode: config.unitCode, generatedAt: Date.now(), paramSeal: P.seal, profiles, responses }, signKey: config.signingKey, recipientEncPub: config.authorityEncPub });
+      D.audit(db, u, 'MERKEZI_PAKET_URETILDI', `seq ${seq}; profil ${profiles.length} (müsait ${avail}); yanıt ${responses.length}`);
+      return env;
+    });
+  }
+  function centralImport(u, env) {
+    if (!config.encKey || !config.authorityPub) throw bad('Bu kurulumda merkezî aktarım yapılandırılmamış (UNIT_ENC_KEY_FILE, AUTHORITY_PUBKEY_FILE).');
+    let opened;
+    try { opened = H.open(env, { recipientEncPriv: config.encKey, senderSignPub: config.authorityPub, expectKind: 'proposals', expectTo: config.unitCode }); }
+    catch (e) { throw unprocessable('Paket doğrulanamadı: ' + e.message); }
+    const last = +D.metaGet(db, 'central_seq_in', '0');
+    if (!(opened.header.seq > last)) throw conflict(`Paket sırası (${opened.header.seq}) son alınandan (${last}) yeni değil; eski paket yeniden uygulanamaz.`);
+    const { intros, rejected } = CE.validateIntroPackage(opened.payload);
+    return tx(() => {
+      let added = 0, updated = 0, skipped = 0; const now = Date.now();
+      for (const i of intros) {
+        const row = db.prepare('SELECT * FROM applicants WHERE id=?').get(i.ref);
+        if (!row || row.status === 'silindi') { skipped++; continue; }
+        const a = readData(row);
+        if (!(a.consent && a.consent.centralShare)) { skipped++; continue; } // merkezî rızası olmayan aday için öneri kabul edilmez
+        const blob = C.encrypt(kr, JSON.stringify(i.other), 'ext:' + i.id);
+        const ex = db.prepare('SELECT 1 FROM ext_intros WHERE id=?').get(i.id);
+        if (!ex) {
+          db.prepare('INSERT INTO ext_intros (id, ref, side, score, status, other, coord, meeting, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?,?)').run(i.id, i.ref, i.side, i.score, i.status, blob, JSON.stringify(i.coord), JSON.stringify(i.meeting), now, now);
+          histPush(a, u, `Merkezî öneri alındı (${i.id})`); writeRow(i.ref, row.status, a, { version: row.version }); added++;
+        } else {
+          db.prepare('UPDATE ext_intros SET score=?, status=?, other=?, coord=?, meeting=?, updated_at=? WHERE id=?').run(i.score, i.status, blob, JSON.stringify(i.coord), JSON.stringify(i.meeting), now, i.id); updated++;
+        }
+      }
+      D.metaSet(db, 'central_seq_in', opened.header.seq); D.metaSet(db, 'central_last_import', now);
+      D.audit(db, u, 'MERKEZI_ONERI_ALINDI', `seq ${opened.header.seq}; yeni ${added}; güncellenen ${updated}; atlanan ${skipped}; reddedilen ${rejected.length}`);
+      return { seq: opened.header.seq, added, updated, skipped, rejected: rejected.length };
+    });
+  }
+  function centralIntros(u) {
+    return db.prepare('SELECT * FROM ext_intros ORDER BY created_at DESC LIMIT 500').all().map((r) => {
+      const ar = db.prepare('SELECT * FROM applicants WHERE id=?').get(r.ref), a = ar ? flat(ar) : null;
+      let other = {}; try { other = JSON.parse(C.decrypt(kr, r.other, 'ext:' + r.id)); } catch { /* bozuk */ }
+      return {
+        id: r.id, ref: r.ref, name: nameOf(a, u.role), score: r.score, status: r.status, other, coord: r.coord ? JSON.parse(r.coord) : null, meeting: r.meeting ? JSON.parse(r.meeting) : null,
+        myDec: r.my_dec, myDecTs: r.my_dec_ts, myOut: r.my_out, updatedAt: r.updated_at
+      };
+    });
+  }
+  function centralRespond(u, id, body) {
+    return tx(() => {
+      const r = db.prepare('SELECT * FROM ext_intros WHERE id=?').get(id); if (!r) throw notFound('Merkezî öneri bulunamadı.');
+      if (r.status !== 'yanit_bekliyor') throw conflict(`Bu öneri “${r.status}” durumunda; karar alınamaz.`);
+      if (r.my_dec) throw conflict('Bu adayın kararı zaten kaydedildi (değiştirilemez).');
+      if (!['kabul', 'ret'].includes(body.dec)) throw bad('Karar “kabul” veya “ret” olmalı.');
+      if (body.confirmed !== true) throw bad('Kararın adayın kendisi tarafından bildirildiği onaylanmalı.');
+      const method = String(body.method || '').trim().slice(0, 60); if (!method) throw bad('Kararın alındığı biçim yazılmalı.');
+      db.prepare('UPDATE ext_intros SET my_dec=?, my_dec_ts=?, my_method=?, status=?, updated_at=? WHERE id=?').run(body.dec, Date.now(), method, body.dec === 'ret' ? 'reddedildi' : r.status, Date.now(), id);
+      D.audit(db, u, 'MERKEZI_TANISTIRMA_YANIT', `${id} ${r.ref} ${body.dec}`);
+      return { ok: true };
+    });
+  }
+  function centralOutcome(u, id, body) {
+    return tx(() => {
+      const r = db.prepare('SELECT * FROM ext_intros WHERE id=?').get(id); if (!r) throw notFound('Merkezî öneri bulunamadı.');
+      if (!['kabul', 'bulusma_planli', 'devam_ediyor'].includes(r.status)) throw conflict('Sonuç yalnız iki taraf kabul ettikten sonra bildirilebilir.');
+      if (!['devam', 'bitti', 'karar', 'sikayet'].includes(body.out)) throw bad('Sonuç devam / bitti / karar / sikayet olmalı.');
+      if (body.out === 'sikayet') reasonOk(body.reason);
+      db.prepare('UPDATE ext_intros SET my_out=?, my_out_ts=?, updated_at=? WHERE id=?').run(body.out, Date.now(), Date.now(), id);
+      D.audit(db, u, 'MERKEZI_TANISTIRMA_SONUC', `${id} ${r.ref} ${body.out}`);
+      return { ok: true };
+    });
+  }
+
   /* ------------------------------------------------------------------ deneme verisi (yalnız ALLOW_DEMO=1) */
   function seedDemo(u, n = 40) {
     if (!config.allowDemo) throw forbid('Deneme verisi bu kurulumda kapalı (ALLOW_DEMO=1 gerekir).');
@@ -729,6 +693,7 @@ function createService({ db, kr, config }) {
   }
 
   return {
+    centralConfigured, centralStatus, centralExport, centralImport, centralIntros, centralRespond, centralOutcome,
     HttpError, ensureInit, getParams, paramsInfo, proposeParams, decideProposal, setOfficialSeal, setRequire2fa, importBundle, authorityVersion,
     createUser, listUsers, updateUser, login, authenticate, logout, changePassword, totpSetup, totpEnable,
     listApplicants, getApplicant, createApplicant, updateApplicant, applicantAction, applicantCard,

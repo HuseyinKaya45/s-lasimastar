@@ -11,6 +11,8 @@
  *       Birimin imza açık anahtarını kayıt listesine ekler.
  *   node authority.js aggregate --units=units.json --packages=klasör [--bundle=parametre-paketi.json] [--max-age-days=7] [--json=rapor.json]
  *       Birimlerden gelen imzalı denetim paketlerini doğrular ve KİŞİSEL VERİ GÖRMEDEN toplu rapor üretir.
+ *   node authority.js init-admin --username=.. [--name=..]
+ *       Otorite web sunucusunun (authority-server.js) ilk yöneticisini oluşturur.
  *   node authority.js verify-package <paket.json> --pub=birim-acik-anahtar.pem
  */
 const fs = require('node:fs');
@@ -41,6 +43,9 @@ async function main() {
     const priv = path.join(out, 'authority-private.pem'), pub = path.join(out, 'authority-public.pem');
     if (fs.existsSync(priv)) { console.error('authority-private.pem zaten var; üzerine yazılmadı.'); process.exit(1); }
     fs.writeFileSync(priv, privateKey, { mode: 0o600 }); fs.writeFileSync(pub, publicKey);
+    const H = require('./lib/hybrid'), enc = H.genEncKeyPair();
+    fs.writeFileSync(path.join(out, 'authority-enc-private.pem'), enc.privateKey, { mode: 0o600 }); fs.writeFileSync(path.join(out, 'authority-enc-public.pem'), enc.publicKey);
+    console.log(`Şifreleme anahtarı (merkezî eşleştirme): authority-enc-private.pem (sunucuda AUTHORITY_ENC_KEY_FILE) / authority-enc-public.pem (birimlere: AUTHORITY_ENC_PUBKEY_FILE)`);
     console.log(`Özel anahtar (şifreli): ${priv}\nAçık anahtar: ${pub}  (anahtar kimliği ${AU.keyIdOf(publicKey)})`);
     console.log('Açık anahtarı (authority-public.pem) tüm birimlere dağıtın (AUTHORITY_PUBKEY_FILE). ÖZEL ANAHTARI ÇEVRİMDIŞI VE YEDEKLİ SAKLAYIN; kaybolursa yeni paket imzalanamaz, sızarsa sahte paket üretilebilir.');
   } else if (cmd === 'sign-params') {
@@ -56,7 +61,8 @@ async function main() {
     const [code, pubFile] = pos; const unitsFile = path.resolve(arg(rest, 'units') || 'units.json');
     if (!code || !pubFile) { console.error('Kullanım: register-unit <kod> <birim-acik-anahtar.pem> [--name=..] [--units=units.json]'); process.exit(1); }
     const reg = fs.existsSync(unitsFile) ? readJson(unitsFile) : { units: [] };
-    const publicKey = fs.readFileSync(pubFile, 'utf8');
+    let publicKey = fs.readFileSync(pubFile, 'utf8');
+    if (pubFile.endsWith('.json')) publicKey = JSON.parse(publicKey).signingKey; // birim kimlik dosyası
     const i = reg.units.findIndex((u) => u.code === code);
     const entry = { code, name: arg(rest, 'name') || (i >= 0 ? reg.units[i].name : ''), publicKey, keyId: AU.keyIdOf(publicKey) };
     if (i >= 0) reg.units[i] = entry; else reg.units.push(entry);
@@ -80,6 +86,14 @@ async function main() {
     const jf = arg(rest, 'json'); if (jf) { fs.writeFileSync(jf, JSON.stringify(rep, null, 2)); console.log(`\nJSON rapor: ${jf}`); }
     console.log(`\n${rep.rows.length} birim · ${bad} sorunlu`);
     process.exit(bad ? 2 : 0);
+  } else if (cmd === 'init-admin') {
+    const { loadAuthorityConfig } = require('./lib/config'), C = require('./lib/crypto'), { openAuthorityDb } = require('./lib/authority-db'), { createAuthorityService } = require('./lib/authority-service');
+    const cfg = loadAuthorityConfig(), db = openAuthorityDb(cfg.dataDir), svc = createAuthorityService({ db, kr: C.loadKeyring(cfg.env), config: cfg }); svc.ensureInit();
+    if (db.prepare('SELECT COUNT(*) c FROM users').get().c && !rest.includes('--force')) { console.error('Kullanıcılar zaten var.'); process.exit(1); }
+    const username = arg(rest, 'username'), name = arg(rest, 'name') || username; let pw = process.env.INIT_ADMIN_PASSWORD;
+    if (!username) { console.error('Kullanım: init-admin --username=.. [--name=..]  (parola: INIT_ADMIN_PASSWORD veya istem)'); process.exit(1); }
+    if (!pw) { pw = await promptHidden('Parola: '); const p2 = await promptHidden('Parola (tekrar): '); if (pw !== p2) { console.error('Parolalar eşleşmiyor.'); process.exit(1); } }
+    console.log('Otorite yöneticisi oluşturuldu:', svc.createUser(null, { username, name, role: 'admin' }, pw).username); db.close();
   } else if (cmd === 'verify-package') {
     const [file] = pos, pub = arg(rest, 'pub'); if (!file || !pub) { console.error('Kullanım: verify-package <paket.json> --pub=birim-acik-anahtar.pem'); process.exit(1); }
     const pkg = readJson(file), v = AU.verifyPackage(pkg, fs.readFileSync(pub, 'utf8')), c = AU.recomputeChain(pkg.denetimGunlugu);

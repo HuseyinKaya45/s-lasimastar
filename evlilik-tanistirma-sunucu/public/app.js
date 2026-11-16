@@ -188,6 +188,7 @@ async function vApp() {
    <div class="note info small"><b>Rıza metni (v${esc(P.consentVersion)}):</b> ${esc(P.consentText)}</div>
    <label class="chk"><input type="checkbox" name="c_data" ${a.consent.data ? 'checked' : ''} ${d}> Aday, yukarıdaki rıza metnini okuyup kabul etti</label>
    <label class="chk"><input type="checkbox" name="c_sens" ${a.consent.sensitive ? 'checked' : ''} ${d}> Aday, hassas (özel nitelikli) soruların eşleştirmede kullanılmasına ayrıca açık rıza verdi</label>
+   <label class="chk"><input type="checkbox" name="c_central" ${a.consent.centralShare ? 'checked' : ''} ${d}> <span><b>Merkezî havuz rızası (ayrı):</b> ${esc(P.centralConsentText)}</span></label>
    <label class="chk"><input type="checkbox" name="c_contact" ${a.consent.contactShare ? 'checked' : ''} ${d}> Aday, karşılıklı kabul sonrası iletişim bilgilerinin karşı tarafla paylaşılmasına rıza verdi (aksi halde yalnız görevli aracılık eder)</label>
    <hr>
    <label class="chk"><input type="checkbox" name="k_inPerson" ${a.checks.inPerson ? 'checked' : ''} ${d}> Aday <b>şahsen</b> başvurdu (başkası/aile adına başvuru kabul edilmez)</label>
@@ -208,7 +209,7 @@ function readAppForm() {
   const v = (n) => (g(n) ? g(n).value.trim() : ''), ck = (n) => !!(g(n) && g(n).checked);
   const data = { ad: v('ad'), soyad: v('soyad'), kimNo: v('kimNo'), dogum: v('dogum'), cins: v('cins'), telefon: v('telefon'), eposta: v('eposta'), il: v('il'), ilce: v('ilce'), medeni: v('medeni'), cocuk: v('cocuk'), edu: v('edu'), is: v('is'), meslek: v('meslek'), tanitim: v('tanitim'), notes: v('notes'),
     prefs: { ageMin: v('p_ageMin'), ageMax: v('p_ageMax'), ageImp: v('p_ageImp'), locMode: v('p_locMode'), locImp: v('p_locImp'), eduMin: v('p_eduMin'), eduImp: v('p_eduImp'), maritalImp: v('p_maritalImp'), kidsImp: v('p_kidsImp'), kidsOk: ck('p_kidsOk'), maritalOk: S.meta.MEDENI.map((m) => m[0]).filter((k) => ck('p_mar_' + k)) },
-    qa: {}, consent: { data: ck('c_data'), sensitive: ck('c_sens'), contactShare: ck('c_contact') },
+    qa: {}, consent: { data: ck('c_data'), sensitive: ck('c_sens'), contactShare: ck('c_contact'), centralShare: ck('c_central') },
     checks: { inPerson: ck('k_inPerson'), idVerified: ck('k_idVerified'), voluntary: ck('k_voluntary'), notMarried: ck('k_notMarried'), protective: ck('k_protective'), protectiveFound: ck('k_protectiveFound') } };
   P.questions.filter((q) => q.enabled).forEach((q) => { data.qa[q.id] = { ans: v(`q_${q.id}_ans`), accept: q.opts.filter((o, i) => ck(`q_${q.id}_acc_${i}`)), imp: v(`q_${q.id}_imp`) }; });
   return data;
