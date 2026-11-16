@@ -1,0 +1,17 @@
+{
+  "name": "evlilik-tanistirma-sunucu",
+  "version": "1.0.0",
+  "description": "Evlilik Tanıştırma Sistemi — çok kullanıcılı, merkezi veritabanlı sunucu sürümü (bağımlılıksız)",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "test": "node --disable-warning=ExperimentalWarning --test",
+    "keygen": "node --disable-warning=ExperimentalWarning cli.js keygen",
+    "init-admin": "node --disable-warning=ExperimentalWarning cli.js init-admin",
+    "backup": "node --disable-warning=ExperimentalWarning cli.js backup",
+    "verify-audit": "node --disable-warning=ExperimentalWarning cli.js verify-audit",
+    "rekey": "node --disable-warning=ExperimentalWarning cli.js rekey"
+  }
+}

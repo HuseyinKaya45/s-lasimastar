@@ -1,0 +1,30 @@
+# systemd birimi — /etc/systemd/system/ets.service
+# Not: bu dosya burada denenmemiştir; kendi ortamınızda doğrulayın.
+[Unit]
+Description=Evlilik Tanistirma Sistemi
+After=network.target
+
+[Service]
+User=ets
+Group=ets
+WorkingDirectory=/opt/ets
+EnvironmentFile=/etc/ets/ets.env
+ExecStart=/usr/bin/node --disable-warning=ExperimentalWarning server.js
+Restart=on-failure
+RestartSec=3
+
+# Sertleştirme
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ReadWritePaths=/var/lib/ets
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=true
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
