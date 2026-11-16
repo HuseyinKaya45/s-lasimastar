@@ -105,7 +105,9 @@ async function vDash() {
   if (d.alerts.lateResponses) al += `<div class="note warn"><b>${d.alerts.lateResponses}</b> tanıştırmada yanıt süresi (${d.responseDays} gün) doldu.</div>`;
   if (d.alerts.complaints) al += `<div class="note bad"><b>${d.alerts.complaints}</b> şikâyet/inceleme dosyası bekliyor.</div>`;
   if (d.alerts.retentionOverdue) al += `<div class="note warn"><b>${d.alerts.retentionOverdue}</b> kapanmış kaydın saklama süresi (${d.retentionDays} gün) dolmuş; anonimleştirme değerlendirilmeli.</div>`;
+  if (d.authority && d.authority.locked && !d.authority.ready) al += '<div class="note bad"><b>Merkezî parametre paketi henüz yüklenmedi.</b> Yüklenene kadar eşleştirme ve tanıştırma kapalıdır (Parametreler sayfasından yükleyin).</div>';
   if (d.alerts.pendingProposals) al += `<div class="note info"><b>${d.alerts.pendingProposals}</b> parametre önerisi ikinci yönetici onayı bekliyor.</div>`;
+  const au = d.authority || {}; al += `<div class="note info small">Birim: <b>${esc(au.unitCode || '')}</b> · merkezî paket sürümü: ${au.version || 0} · parametreler ${au.locked ? 'yalnız otoritenin imzalı paketiyle değişir' : 'yerelde yönetilir'} · denetim paketi imzası: ${au.signing ? 'açık' : '<b>kapalı</b> (SIGNING_KEY_FILE tanımlı değil)'}</div>`;
   const total = Object.values(A).reduce((x, y) => x + y, 0), activeI = ['yanit_bekliyor', 'kabul', 'bulusma_planli', 'devam_ediyor'].reduce((x, k) => x + n(I, k), 0);
   return `<h1>Panel</h1>${al}<div class="grid g4"><div class="card stat"><b>${total}</b><span>Toplam aday</span></div><div class="card stat"><b>${n(A, 'aktif')}</b><span>Havuzdaki aktif aday</span></div>
    <div class="card stat"><b>${n(A, 'taslak') + n(A, 'dogrulama')}</b><span>Taslak / doğrulama bekleyen</span></div><div class="card stat"><b>${activeI}</b><span>Aktif tanıştırma</span></div></div>
@@ -284,9 +286,11 @@ async function vFair() {
 
 /* ------------------------------------------------------------------ parametreler */
 async function vParams() {
-  const info = S.params = await api('GET', '/api/params'); const P = S.ctx.draft || info.params, ed = can.admin(), d = ed ? '' : 'disabled';
+  const info = S.params = await api('GET', '/api/params'); const P = S.ctx.draft || info.params, ed = can.admin(), lock = info.lockParams, d = ed && !lock ? '' : 'disabled';
   let h = `<div class="row"><h1 class="sp">Parametreler</h1><span class="badge info">Sürüm ${info.version}</span></div>
   <div class="note info small">Her değişiklik sürümlenir, gerekçeyle denetim günlüğüne yazılır ve yeni bir <b>parametre mührü</b> üretir. ${info.adminCount > 1 ? '<b>İki kişi kuralı:</b> değişiklik önerisini başka bir yönetici onaylayınca yürürlüğe girer.' : 'Yalnız bir etkin yönetici var; değişiklikler doğrudan uygulanır (iki kişi kuralı için ikinci bir yönetici ekleyin).'} Hiçbir parametreyle devre dışı bırakılamayan güvenceler: ${S.meta.HARD.minAgeFloor} yaş alt sınırı, gönüllülük ve şahsen başvuru, karşılıklı rıza olmadan iletişim paylaşılmaması.</div>
+  ${lock ? `<div class="note warn"><b>Parametreler merkezî otoriteye bağlı.</b> Yalnızca kurum adı yerelde değiştirilebilir; diğer değerler otoritenin imzalı paketiyle güncellenir.</div>` : ''}
+  ${ed && info.authorityConfigured ? `<div class="card"><h3>Merkezî parametre paketi</h3><p class="small muted">Yüklü paket sürümü: <b>${info.authorityVersion || 0}</b>. Otoritenin imzaladığı <span class="mono">parametre-paketi-vN.json</span> dosyasını yükleyin; imza doğrulanmazsa veya sürüm eskiyse reddedilir.</p><label class="b ghost">Paket dosyası seç<input type="file" id="bundlefile" accept=".json" class="hidden"></label></div>` : ''}
   <div class="card"><b>Geçerli parametre mührü (SHA-256)</b><div class="mono">${esc(info.seal)}</div><label>Makamın bildirdiği resmî mühür</label>
    <div class="row"><input id="offseal" class="mono sp" value="${esc(info.officialSeal)}" ${d} placeholder="64 haneli resmî mühür">${ed ? '<button class="b ghost sm" data-act="saveseal">Kaydet</button>' : ''}</div>
    ${info.officialSeal ? (info.officialSeal === info.seal ? '<div class="note good small">Eşleşiyor.</div>' : '<div class="note bad small">Eşleşmiyor!</div>') : ''}
@@ -296,7 +300,8 @@ async function vParams() {
   S.meta.PARAM_SCHEMA.forEach((s) => {
     if (s.sec) { if (open) h += '</div></div>'; h += `<div class="card"><h3>${esc(s.sec)}</h3><div class="grid g2">`; open = true; return; }
     const v = P[s.k];
-    h += `<div><label>${esc(s.label)}${s.min != null ? ` <span class="muted">(${s.min}–${s.max})</span>` : ''}</label>${s.type === 'sel' ? sel(s.k, s.opts, v, !ed) : `<input name="${s.k}" type="${s.type === 'int' ? 'number' : 'text'}" value="${esc(v)}" ${s.min != null ? `min="${s.min}" max="${s.max}"` : ''} ${d}>`}${s.help ? `<div class="small muted">${esc(s.help)}</div>` : ''}</div>`;
+    const dd = s.k === 'institution' ? (ed ? '' : 'disabled') : d;
+    h += `<div><label>${esc(s.label)}${s.min != null ? ` <span class="muted">(${s.min}–${s.max})</span>` : ''}</label>${s.type === 'sel' ? sel(s.k, s.opts, v, !!dd) : `<input name="${s.k}" type="${s.type === 'int' ? 'number' : 'text'}" value="${esc(v)}" ${s.min != null ? `min="${s.min}" max="${s.max}"` : ''} ${dd}>`}${s.help ? `<div class="small muted">${esc(s.help)}</div>` : ''}</div>`;
   });
   if (open) h += '</div></div>';
   h += `<div class="card"><h3>Ağırlıklar</h3><div class="grid g4">${[1, 2, 3].map((i) => `<div><label>“${esc(S.meta.IMP[i][1])}” ağırlığı</label><input type="number" name="iw${i}" value="${P.impW[i]}" min="0" max="20" ${d}></div>`).join('')}<div></div>
@@ -304,8 +309,8 @@ async function vParams() {
    <p class="small muted">Önem ağırlığı adayın seçtiği önemle, ölçüt ağırlığı kurumun o ölçüte verdiği değerle çarpılır. “Zorunlu” seçilen tercih ayrıca eleyicidir.</p></div>
   <div class="card"><h3>Eğitim düzeyleri (düşükten yükseğe, satır başına bir)</h3><textarea name="edu" ${d}>${esc(P.eduLevels.join('\n'))}</textarea></div>
   <div class="card"><h3>Uyum soruları</h3><div class="tw"><table><tr><th>Soru</th><th>Seçenekler (virgülle)</th><th>Ağırlık</th><th>Hassas</th><th>Etkin</th><th></th></tr>
-   ${P.questions.map((q, i) => `<tr><td><input name="ql_${i}" value="${esc(q.label)}" ${d}></td><td><input name="qo_${i}" value="${esc(q.opts.join(', '))}" ${d}></td><td><input type="number" name="qw_${i}" value="${q.weight}" min="0" max="10" ${d}></td><td><input type="checkbox" name="qs_${i}" ${q.sensitive ? 'checked' : ''} ${d}></td><td><input type="checkbox" name="qe_${i}" ${q.enabled ? 'checked' : ''} ${d}></td><td>${ed ? `<button type="button" class="b red sm" data-act="delq" data-i="${i}">Sil</button>` : ''}</td></tr>`).join('')}</table></div>
-   ${ed ? '<button type="button" class="b ghost sm" data-act="addq">+ Soru ekle</button>' : ''}
+   ${P.questions.map((q, i) => `<tr><td><input name="ql_${i}" value="${esc(q.label)}" ${d}></td><td><input name="qo_${i}" value="${esc(q.opts.join(', '))}" ${d}></td><td><input type="number" name="qw_${i}" value="${q.weight}" min="0" max="10" ${d}></td><td><input type="checkbox" name="qs_${i}" ${q.sensitive ? 'checked' : ''} ${d}></td><td><input type="checkbox" name="qe_${i}" ${q.enabled ? 'checked' : ''} ${d}></td><td>${ed && !lock ? `<button type="button" class="b red sm" data-act="delq" data-i="${i}">Sil</button>` : ''}</td></tr>`).join('')}</table></div>
+   ${ed && !lock ? '<button type="button" class="b ghost sm" data-act="addq">+ Soru ekle</button>' : ''}
    <div class="note warn small">“Hassas” işaretli sorular (din, mezhep, siyasi görüş, sağlık gibi özel nitelikli kişisel veriler) yalnız adayın ayrıca açık rızası varsa kullanılır. <b>Etnik köken, ırk, siyasi görüş gibi alanlarla eşleştirme yapılması hukuken ve etik olarak sakıncalıdır</b>; bu tür soru eklemeyin.</div></div>
   <div class="card"><label>Açık rıza metni</label><textarea name="consentText" ${d}>${esc(P.consentText)}</textarea><label>Rıza metni sürümü</label><input name="consentVersion" value="${esc(P.consentVersion)}" ${d}></div>`;
   if (ed) h += `<div class="card"><label>Değişiklik gerekçesi (zorunlu)</label><input name="reason" id="preason" placeholder="Örn. genelge gereği asgari uyum puanı güncellendi"><div class="row mt8"><button class="b" type="submit">${info.adminCount > 1 ? 'Değişiklik öner' : 'Değişiklikleri uygula'}</button><button class="b ghost" type="button" data-act="exportparams">Parametre dosyasını indir</button><label class="b ghost">Parametre dosyası yükle<input type="file" id="pfile" accept=".json" class="hidden"></label></div></div>`;
@@ -396,6 +401,11 @@ document.addEventListener('change', guard(async (e) => {
   if (id === 'flt') { S.ctx.apps = { ...S.ctx.apps, status: e.target.value, page: 1 }; render(); }
   if (id === 'iflt') { S.ctx.ifilter = e.target.value; render(); }
   if (id === 'req2fa') { await api('POST', '/api/params/require2fa', { on: e.target.checked }); toast('Ayar kaydedildi.'); }
+  if (id === 'bundlefile') {
+    const f = e.target.files[0]; if (!f) return; const txt = await f.text(); let bundle; try { bundle = JSON.parse(txt); } catch { return alert('Dosya okunamadı (geçerli JSON değil).'); }
+    const r = await api('POST', '/api/params/import-bundle', { bundle }); S.params = await api('GET', '/api/params');
+    toast(r.unchanged ? `Paket v${r.version} kaydedildi (parametreler zaten güncel).` : r.applied ? `Paket v${r.version} doğrulandı ve uygulandı.` : `Paket v${r.version} doğrulandı; ikinci yöneticinin onayı bekleniyor.`); return render();
+  }
   if (id === 'pfile') { const r = new FileReader(); r.onload = () => { try { S.ctx.draft = JSON.parse(r.result); render(); toast('Dosya forma yüklendi; gerekçe yazıp gönderin.'); } catch { alert('Dosya okunamadı.'); } }; r.readAsText(e.target.files[0]); }
 }));
 let debounce = null;

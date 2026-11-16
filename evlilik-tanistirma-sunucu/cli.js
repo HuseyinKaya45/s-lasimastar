@@ -7,6 +7,8 @@
  *   node cli.js backup [dosya]               Tutarlı veritabanı yedeği (VACUUM INTO)
  *   node cli.js verify-audit                 Denetim günlüğü zincirini doğrular; başın özetini yazar
  *   node cli.js rekey                        Tüm aday kayıtlarını geçerli (DATA_KEY_ID) anahtarla yeniden şifreler
+ *   node cli.js setup [--keys-file=yol]      İlk kurulum: .env üretir (anahtarlar isteğe bağlı ayrı dosyada/USB'de)
+ *   node cli.js sign-keygen [--out=klasör]   Birimin denetim paketi imza anahtarını üretir (açık anahtar otoriteye verilir)
  */
 const fs = require('node:fs');
 const path = require('node:path');
@@ -16,6 +18,8 @@ const { loadConfig } = require('./lib/config');
 const C = require('./lib/crypto');
 const DBL = require('./lib/db');
 const { createService } = require('./lib/service');
+const AU = require('./lib/authority');
+const argOf = (args, name) => { const a = args.find((x) => x.startsWith('--' + name + '=')); return a ? a.slice(name.length + 3) : undefined; };
 
 function promptHidden(q) {
   return new Promise((resolve) => {
@@ -36,8 +40,33 @@ async function main() {
     console.log('DATA_KEY_ID=1');
     return;
   }
+  if (cmd === 'setup') {
+    const envPath = path.resolve('.env');
+    if (fs.existsSync(envPath) && !args.includes('--force')) { console.error('.env zaten var; üzerine yazmak için --force kullanın (mevcut anahtarları kaybetmeyin!).'); process.exit(1); }
+    const unit = ((await prompt('Birim kodu (otoritenin verdiği, ör. ANK-01): ')).trim() || 'BIRIM-1').replace(/[^A-Za-z0-9_.-]/g, '-');
+    const keyLines = `DATA_KEYS=1:${crypto.randomBytes(32).toString('base64')}\nDATA_KEY_ID=1\n`;
+    const kf = argOf(args, 'keys-file');
+    let env = `# Evlilik Tanıştırma Sistemi — birim yapılandırması (otomatik üretildi)\nUNIT_CODE=${unit}\nHOST=127.0.0.1\nPORT=8080\nDATA_DIR=./data\nSESSION_MAX_HOURS=12\nALLOW_DEMO=0\n`;
+    if (kf) { fs.writeFileSync(path.resolve(kf), '# Veri şifreleme anahtarı — YEDEKTEN AYRI, güvenli saklayın\n' + keyLines, { mode: 0o600 }); env += `KEYS_FILE=${path.resolve(kf)}\n`; }
+    else env += keyLines;
+    fs.writeFileSync(envPath, env, { mode: 0o600 });
+    console.log(`.env oluşturuldu (birim: ${unit}).${kf ? `\nŞifreleme anahtarı ayrı dosyada: ${path.resolve(kf)}  — bu dosyanın bir kopyasını çevrimdışı ve güvenli bir yerde saklayın.` : '\nŞifreleme anahtarı .env içinde. .env dosyasının güvenli bir kopyasını (yedekten AYRI) saklayın; kaybolursa veriler kurtarılamaz.'}`);
+    console.log('\nSıradaki adımlar:\n  1) npm run init-admin     (ilk yönetici)\n  2) npm run sign-keygen    (denetim paketi imza anahtarı; açık anahtarı otoriteye verin)\n  3) npm start');
+    return;
+  }
+  if (cmd === 'sign-keygen') {
+    const out = path.resolve(argOf(args, 'out') || 'keys'); fs.mkdirSync(out, { recursive: true, mode: 0o700 });
+    const priv = path.join(out, 'unit-signing.pem'), pub = path.join(out, 'unit-public.pem');
+    if (fs.existsSync(priv)) { console.error('unit-signing.pem zaten var; üzerine yazılmadı.'); process.exit(1); }
+    const pass = process.env.SIGNING_KEY_PASSPHRASE;
+    const { publicKey, privateKey } = AU.genKeyPair(pass);
+    fs.writeFileSync(priv, privateKey, { mode: 0o600 }); fs.writeFileSync(pub, publicKey);
+    console.log(`İmza özel anahtarı: ${priv}\nAçık anahtar (OTORİTEYE VERİN): ${pub}  (kimlik ${AU.keyIdOf(publicKey)})`);
+    console.log(`\n.env dosyanıza ekleyin:\n  SIGNING_KEY_FILE=${priv}${pass ? '\n  SIGNING_KEY_PASSPHRASE=<parola>' : ''}\nOtorite açık anahtarınız varsa:\n  AUTHORITY_PUBKEY_FILE=<authority-public.pem yolu>\n  LOCK_PARAMS=1   (parametreler yalnız otoritenin imzalı paketiyle değişsin)`);
+    return;
+  }
   if (!cmd || !['init-admin', 'backup', 'verify-audit', 'rekey'].includes(cmd)) {
-    console.log('Kullanım: node cli.js <keygen|init-admin|backup|verify-audit|rekey>'); process.exit(cmd ? 1 : 0);
+    console.log('Kullanım: node cli.js <keygen|setup|init-admin|sign-keygen|backup|verify-audit|rekey>'); process.exit(cmd ? 1 : 0);
   }
   const cfg = loadConfig();
   const kr = C.loadKeyring(cfg.env);

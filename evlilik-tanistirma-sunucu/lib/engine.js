@@ -279,7 +279,11 @@ function runMatching(all, P, today, ictx) {
   return { pool: pool.length, considered, suggestions, noMatch: pool.filter((x) => !withAny.has(x.id)).map((x) => x.id) };
 }
 
+/** Parametre mührü: birime özgü alan (kurum adı) hariç, otoritenin yönettiği parametrelerin özeti. */
+const sealParams = (p) => { const { institution, ...rest } = p; return require('./crypto').sha256(require('./crypto').canon(rest)); };
+
 module.exports = {
+  sealParams,
   HARD, IMP, MEDENI, ISDURUM, CRIT_LABEL, ST_A, ACTIVE_INTRO, PARAM_SCHEMA, DEFAULT_PARAMS,
   todayStr, dStr, addDays, daysBetween, ageOn, isDate, validTC,
   validateParams, sanitizeApplicant, newApplicantData, checkApplicant,

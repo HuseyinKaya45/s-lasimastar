@@ -3,14 +3,75 @@
 Evlenmek isteyen yetişkinlerin **kendi isteğiyle** kurumlara başvurduğu, adayların **kendi belirttiği tercihlere** göre uyumlu adayların önerildiği ve tanıştırma sürecinin **karşılıklı rızayla** yürütüldüğü, **çok kullanıcılı ve merkezi veritabanlı** web uygulaması.
 
 - **Bağımlılık yok:** yalnızca Node.js ≥ 22.13 (yerleşik `node:http`, `node:sqlite`, `node:crypto`). `npm install` gerekmez; tedarik zinciri saldırı yüzeyi minimumdur ve kapalı ağda kurulabilir.
-- **Merkezî veritabanı:** SQLite (WAL). Çok kullanıcılı erişim tek sunucu süreci üzerinden yapılır; yazmalar tek işlemde (iş verisi + denetim kaydı) gerçekleşir.
+- **Önerilen dağıtım — bağımsız birimler (§0):** her birim kendi bilgisayarında, kendi veritabanıyla çalışır; aday verisi merkezde toplanmaz. Devlet denetimi imzalı, kişisiz paketlerle yapılır. İsterseniz tek merkezî sunucu olarak da kurulabilir (§1).
+- **Veritabanı:** SQLite (WAL). Çok kullanıcılı erişim tek sunucu süreci üzerinden yapılır; yazmalar tek işlemde (iş verisi + denetim kaydı) gerçekleşir.
 - **Aynı kuralların sunucuda uygulanması:** çevrimdışı tarayıcı sürümünden farklı olarak tüm yetki ve iş kuralları sunucudadır; istemci yalnızca görünümdür.
 
 > **Önemli:** Bu yazılım bir karar destek ve kayıt aracıdır; hukuki danışmanlık değildir. Üretime almadan önce [Üretim öncesi kontrol listesi](#üretim-öncesi-kontrol-listesi)ni tamamlayın.
 
 ---
 
-## 1. Hızlı başlangıç
+## 0. Dağıtım modeli: bağımsız birimler + merkezî otorite (önerilen)
+
+**Her birim (şube/il) kendi bilgisayarında, kendi veritabanıyla tamamen bağımsız çalışır.** Aday verileri hiçbir zaman merkezde toplanmaz, birimler arasında da paylaşılmaz. Devlet denetimi, **kişisel veri taşımadan**, imzalı paketlerle sağlanır:
+
+```
+        ┌─────────────────────────── MERKEZÎ OTORİTE (kendi bilgisayarı, çevrimdışı olabilir) ───────────────────────────┐
+        │  authority.js:  anahtar üret · parametreleri İMZALA · birimleri kaydet · gelen denetim paketlerini DOĞRULA     │
+        └───────────▲──────────────────────────────────────────────────────────────────────────────────▲─────────────────┘
+                    │ imzalı parametre paketi (USB/e-posta/kurum ağı)                      imzalı denetim paketi │ (kişisiz)
+        ┌───────────┴──────────┐        ┌──────────────────────┐        ┌──────────────────────┐
+        │ BİRİM A (bilgisayar) │        │ BİRİM B (bilgisayar) │        │ BİRİM C (bilgisayar) │   … her biri ayrı DATA_DIR,
+        │ kendi DB + kendi anahtar│     │ kendi DB + kendi anahtar│     │ kendi DB + kendi anahtar│     ayrı şifreleme anahtarı
+        └──────────────────────┘        └──────────────────────┘        └──────────────────────┘
+```
+
+| Ne taşınır? | Yön | İçerik |
+|---|---|---|
+| **Parametre paketi** | Otorite → birim | Otoritenin **Ed25519 ile imzaladığı** kurallar (yaş sınırları, ağırlıklar, sorular, rıza metni…). Birim imzayı doğrular; sahte, değiştirilmiş veya eski sürüm paket **reddedilir**. |
+| **Denetim paketi** | Birim → otorite | **Kişisel veri içermez:** toplu sayılar, parametre mührü, denetim günlüğü (yalnız kimlik/işlem türleri). Birimin **imzasıyla** mühürlüdür. |
+| Aday verisi | **hiçbir yöne taşınmaz** | Her birimde kalır, alan düzeyinde şifrelidir. |
+
+**Otoritenin denetim gücü (veri görmeden):** imza doğrulama · denetim günlüğü zincirini **paketin kendi iddiasına güvenmeden yeniden hesaplama** · birimin parametre mührünün otoritenin yayımladığıyla eşleşmesi · eski/eksik paket tespiti · aynı birimden gelen paketler arasında **günlüğün geçmişinin yeniden yazılması** tespiti · kayıtsız birim kodu tespiti.
+
+**Birimde zorlama (`LOCK_PARAMS=1`):** parametreler yalnız otoritenin imzalı paketiyle değişir (kurum adı hariç); **paket yüklenmeden eşleştirme ve tanıştırma kapalıdır**. Kurulumda otoritenin açık anahtarı (`AUTHORITY_PUBKEY_FILE`) tanımlanır; özel anahtar birimde bulunmaz.
+
+### Birim kurulumu (tek bilgisayar)
+```bash
+# Linux/macOS:  ./baslat.sh      Windows: baslat.bat      (ilk çalıştırmada sihirbaz açılır)
+npm run setup -- --keys-file=/media/usb/ets-anahtar.env   # birim kodu sorulur; şifreleme anahtarı USB'de ayrı dosyaya yazılır
+npm run init-admin                                        # birim yöneticisi
+npm run sign-keygen                                       # keys/unit-public.pem  → OTORİTEYE gönderin
+# .env'e ekleyin:
+#   SIGNING_KEY_FILE=…/keys/unit-signing.pem
+#   AUTHORITY_PUBKEY_FILE=…/authority-public.pem
+#   LOCK_PARAMS=1
+npm start      # http://127.0.0.1:8080  (aynı bilgisayardaki tarayıcıdan)
+```
+Birim bilgisayarı **internete bağlı olmak zorunda değildir**; sistem dışarıya hiçbir bağlantı kurmaz. Birkaç görevli aynı birimde çalışacaksa `HOST` ve TLS ayarlarıyla (§6) birim içi ağdan erişim verilebilir; yoksa yalnız o bilgisayardan (`127.0.0.1`) kullanılır.
+
+### Otorite iş akışı (otoritenin kendi bilgisayarında)
+```bash
+node authority.js keygen --out=otorite/                         # parolalı özel anahtar + açık anahtar (açık anahtarı birimlere dağıtın)
+node authority.js sign-params parametreler.json --key=otorite/authority-private.pem --version=1 --note="Genelge 2026/4"
+node authority.js register-unit ANK-01 ankara/unit-public.pem --name="Ankara Birimi"
+# Birimler paketi Parametreler sayfasından yükler. Düzenli olarak birimlerden Denetim sayfasındaki
+# "Denetim paketini indir" dosyalarını toplayın, sonra:
+node authority.js aggregate --units=units.json --packages=gelen-paketler/ --bundle=parametre-paketi-v1.json
+node authority.js verify-package gelen-paketler/ANK-01.json --pub=ankara/unit-public.pem
+```
+`aggregate`, sorun varsa **çıkış kodu 2** döndürür (betiklere/izlemeye bağlanabilir).
+
+### Bu modelin sınırları (bilerek)
+- **Birimler arası eşleştirme yoktur:** her birim yalnız kendi adaylarını eşleştirir. Havuzlar küçük kalabilir; bu, gizlilik için bilinçli bir tercihtir.
+- **Aynı kişinin iki ayrı birime başvurması sistem tarafından tespit edilemez** (veri paylaşılmadığı için). Bu, idari kural/prosedürle (örn. başvuruda beyan, birimler arası resmî bildirim) yönetilmelidir.
+- Aday bir birimden diğerine **taşınamaz**; yeni birimde yeniden başvurur.
+- **Özel anahtarların korunması** güvenin temelidir: otorite özel anahtarı sızarsa sahte parametre paketi üretilebilir; birim imza anahtarı sızarsa o birim adına sahte denetim paketi üretilebilir. Anahtarları çevrimdışı/HSM'de saklayın, sızıntıda anahtar değiştirip `register-unit` ile yenileyin.
+- Birim yöneticisi kendi bilgisayarında yazılımı veya veritabanını değiştirebilir; bu **önlenmez, tespit edilir** (mühür uyuşmazlığı, imza/zincir bozulması, geçmişin yeniden yazılması). Tespit, düzenli paket gönderimine bağlıdır.
+
+---
+
+## 1. Hızlı başlangıç (tek sunucu, otoritesiz)
 
 ```bash
 cd evlilik-tanistirma-sunucu
@@ -89,6 +150,12 @@ Denemek için `ALLOW_DEMO=1` ile başlatın; **Veri** sekmesinden 40 deneme aday
 | `COOKIE_SECURE` | TLS/vekil varsa `1` | Çerez `Secure` bayrağı. |
 | `SESSION_MAX_HOURS` | `12` | Mutlak oturum süresi (boşta kalma süresi parametrelerden). |
 | `ALLOW_DEMO` | `0` | Deneme verisi uçları. **Üretimde kapalı.** |
+| `UNIT_CODE` | `BIRIM-1` | Otoritenin verdiği birim kodu; denetim paketlerinde yer alır. |
+| `KEYS_FILE` | — | Şifreleme anahtarlarının tutulduğu ayrı dosya (örn. USB). `npm run setup -- --keys-file=…` üretir. |
+| `AUTHORITY_PUBKEY_FILE` | — | Otoritenin açık anahtarı (PEM). Tanımlıysa imzalı parametre paketi yüklenebilir. |
+| `LOCK_PARAMS` | `0` | `1`: parametreler yalnız otoritenin imzalı paketiyle değişir; paket yüklenmeden eşleştirme kapalıdır. `AUTHORITY_PUBKEY_FILE` gerektirir. |
+| `SIGNING_KEY_FILE` | — | Birimin denetim paketi imza özel anahtarı (`npm run sign-keygen`). Yoksa paketler imzasız olur ve otorite bunu sorun olarak işaretler. |
+| `SIGNING_KEY_PASSPHRASE` | — | İmza anahtarı parolalıysa. |
 | `RATE_LIMIT_PER_MIN` | `600` | IP başına dakika başı istek sınırı. |
 
 ---
@@ -129,7 +196,7 @@ npm run verify-audit      # zinciri doğrular, baş özetini yazar (dış mühü
 ## 7. Test
 
 ```bash
-npm test      # 26 test: kriptografi, motor, HTTP uçları, yetki, şifreleme, denetim zinciri, iki kişi kuralı, TOTP
+npm test      # 34 test: kriptografi, motor, HTTP uçları, yetki, şifreleme, denetim zinciri, iki kişi kuralı, TOTP, imzalı paketler, parametre kilidi, toplu denetim
 ```
 Testler gerçek HTTP sunucusu ve geçici bir veritabanı kullanır; veri dosyasında düz metin kişisel veri bulunmadığını, rol ihlallerinin reddedildiğini ve denetim günlüğü kurcalamasının yakalandığını doğrular.
 
@@ -144,7 +211,8 @@ Tüm uçlar `/api` altındadır; JSON; oturum çerezi + `X-CSRF-Token` başlığ
 `GET|POST /applicants` · `GET|PUT /applicants/:id` · `POST /applicants/:id/action` · `GET /applicants/:id/card`
 `POST /match/run` · `GET /match/latest` · `GET /match/why`
 `GET|POST /intros` · `GET /intros/:id` · `POST /intros/:id/{respond|plan|outcome|end|decision|timeout|complaint|close-complaint}`
-`GET /audit` · `GET /audit/verify` · `GET /export/package` · `GET|POST|PATCH /users`
+`POST /params/import-bundle` (imzalı otorite paketi)
+`GET /audit` · `GET /audit/verify` · `GET /export/package` (imzalı, kişisiz) · `GET|POST|PATCH /users`
 
 ---
 
@@ -152,6 +220,7 @@ Tüm uçlar `/api` altındadır; JSON; oturum çerezi + `X-CSRF-Token` başlığ
 
 - **Tek sunucu süreci + SQLite.** Binlerce aday ve onlarca eşzamanlı görevli için uygundur. Yüksek erişilebilirlik (HA), çok düğümlü çalışma veya on binlerce aday için PostgreSQL ve ayrı iş kuyruğu gerekir.
 - **Eşleştirme O(n²):** ölçüm — 1.000 aday ≈ 1 sn, 2.000 ≈ 4 sn, 4.000 ≈ 16 sn. 300'den büyük havuzlarda hesap ayrı iş parçacığında yapılır (sunucu yanıt vermeye devam eder); çok büyük havuzlarda gece çalıştırma veya ön eleme (il/yaş dilimi) önerilir.
+- **Merkezî otoriteye bağımlılık yoktur ama zorunlu da değildir:** `AUTHORITY_PUBKEY_FILE`/`LOCK_PARAMS` verilmezse birim tamamen yerel çalışır (denetim paketleri yine üretilebilir).
 - **Kimlik doğrulama yerel hesaplarladır.** e-Devlet/LDAP/SAML tümleşmesi yoktur; kurumsal kimlik sağlayıcı gerekiyorsa `lib/service.js` içindeki `login` bölümü uyarlanmalıdır.
 - **Resmî sorgu yok.** Nüfus (MERNİS), adli sicil, koruma kararı sorguları yapılmaz; görevlinin elle teyit ettiği işaretlerdir.
 - **TOTP için QR kodu üretilmez** (bağımlılık yok); gizli anahtar/URI elle girilir.
@@ -167,6 +236,7 @@ Tüm uçlar `/api` altındadır; JSON; oturum çerezi + `X-CSRF-Token` başlığ
 - [ ] **Bağımsız güvenlik testi** (sızma testi, kod incelemesi) yapıldı. Bu proje otomatik testlerle doğrulanmıştır; bağımsız bir güvenlik değerlendirmesinden geçmemiştir.
 - [ ] HTTPS/TLS, ters vekil, güvenlik duvarı, yalnız kurum ağı/VPN erişimi.
 - [ ] Anahtar yönetimi (HSM/kasa), yedek ve geri yükleme **tatbikatı**, baş özeti dışarıda mühürleme.
+- [ ] Otorite özel anahtarı çevrimdışı/HSM'de, **yedekli**; birim imza anahtarları üretilip açık anahtarlar `register-unit` ile kaydedildi; birimler **düzenli aralıkla** (örn. haftalık) denetim paketi gönderiyor.
 - [ ] En az **iki yönetici** hesabı (iki kişi kuralı) ve **iki aşamalı doğrulama zorunluluğu**.
 - [ ] `ALLOW_DEMO` kapalı, deneme verisi yok, varsayılan/geçici parolalar değiştirilmiş.
 - [ ] Personel eğitimi: rıza alma, gönüllülük görüşmesi, güvenlik/şikâyet prosedürü, adayın çekilme ve silme talebi.

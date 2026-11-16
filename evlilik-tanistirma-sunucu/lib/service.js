@@ -8,6 +8,7 @@ const { Worker } = require('node:worker_threads');
 const E = require('./engine');
 const C = require('./crypto');
 const D = require('./db');
+const AU = require('./authority');
 
 class HttpError extends Error {
   constructor(status, message, extra) { super(message); this.status = status; this.extra = extra; }
@@ -18,8 +19,8 @@ const notFound = (m = 'Kayıt bulunamadı.') => new HttpError(404, m);
 const conflict = (m) => new HttpError(409, m);
 const unprocessable = (m, x) => new HttpError(422, m, x);
 
-const canon = (o) => JSON.stringify(o, (k, v) => (v && typeof v === 'object' && !Array.isArray(v) ? Object.keys(v).sort().reduce((r, x) => ((r[x] = v[x]), r), {}) : v));
-const sealOf = (o) => C.sha256(canon(o));
+const canon = C.canon;
+const sealOf = (p) => E.sealParams(p); // kurum adı hariç: otoritenin yönettiği parametrelerin mührü
 const pad4 = (n) => String(n).padStart(4, '0');
 const OPEN_ST = ['taslak', 'dogrulama', 'aktif', 'beklemede', 'inceleme', 'engelli'];
 const EDITABLE = ['taslak', 'dogrulama', 'aktif', 'beklemede', 'inceleme', 'engelli'];
@@ -38,7 +39,7 @@ function createService({ db, kr, config }) {
     return paramsCache;
   }
   function getParams() { return paramsCache || loadParams(); }
-  function applyParams(actor, params, reason, how) {
+  function applyParams(actor, params, reason, how, bundleVer) {
     const errs = E.validateParams(params);
     if (errs.length) throw unprocessable('Parametreler geçersiz.', { errors: errs });
     const cur = getParams();
@@ -46,6 +47,7 @@ function createService({ db, kr, config }) {
     const ver = cur.ver + 1, seal = sealOf(params);
     db.prepare('INSERT INTO params_versions (ver, ts, username, reason, seal, json) VALUES (?,?,?,?,?,?)').run(ver, Date.now(), actor.username, reason, seal, JSON.stringify(params));
     D.audit(db, actor, 'PARAMETRE_DEGISTI', `sürüm ${ver}; mühür ${seal}; ${how}; gerekçe: ${reason}`);
+    if (bundleVer) { D.metaSet(db, 'authority_version', bundleVer); D.metaSet(db, 'official_seal', seal); D.audit(db, actor, 'MERKEZI_PAKET_UYGULANDI', `paket sürümü ${bundleVer}; mühür ${seal}`); }
     loadParams();
     return { ver, seal };
   }
@@ -64,23 +66,26 @@ function createService({ db, kr, config }) {
     return {
       version: cur.ver, seal: cur.seal, params: cur.params, officialSeal: D.metaGet(db, 'official_seal', ''),
       require2fa: D.metaGet(db, 'require2fa', '0') === '1',
+      authorityVersion: authorityVersion(), lockParams: !!config.lockParams, authorityConfigured: !!config.authorityPub, unitCode: config.unitCode,
       history: db.prepare('SELECT ver, ts, username, reason, seal FROM params_versions ORDER BY ver DESC LIMIT 50').all(),
-      proposals: db.prepare("SELECT id, ts, proposer, reason, seal, status, decided_by, decided_ts, decision_note FROM param_proposals ORDER BY id DESC LIMIT 20").all(),
+      proposals: db.prepare("SELECT id, ts, proposer, reason, seal, status, decided_by, decided_ts, decision_note, bundle_ver FROM param_proposals ORDER BY id DESC LIMIT 20").all(),
       adminCount: activeAdmins()
     };
   }
-  function proposeParams(u, params, reason) {
+  const stripInst = (p) => { const { institution, ...r } = p || {}; return r; };
+  function proposeParams(u, params, reason, opts = {}) {
     reason = reasonOk(reason);
+    if (config.lockParams && !opts.bundleVer && canon(stripInst(params)) !== canon(stripInst(getParams().params))) throw forbid('Bu kurulumda parametreler yalnızca merkezî otoritenin imzalı paketiyle değiştirilir (yalnız kurum adı yerelde değişebilir).');
     const errs = E.validateParams(params);
     if (errs.length) throw unprocessable('Parametreler geçersiz.', { errors: errs });
     if (canon(params) === canon(getParams().params)) throw bad('Parametrelerde değişiklik yok.');
     return tx(() => {
       if (activeAdmins() < 2) { // tek yönetici: doğrudan uygulanır, ancak ayrı bir işlem türüyle denetlenir
-        const r = applyParams(u, params, reason, 'tek yönetici — doğrudan');
+        const r = applyParams(u, params, reason, 'tek yönetici — doğrudan', opts.bundleVer);
         return { applied: true, ...r };
       }
       const seal = sealOf(params);
-      const id = db.prepare('INSERT INTO param_proposals (ts, proposer, reason, json, seal) VALUES (?,?,?,?,?)').run(Date.now(), u.username, reason, JSON.stringify(params), seal).lastInsertRowid;
+      const id = db.prepare('INSERT INTO param_proposals (ts, proposer, reason, json, seal, bundle_ver) VALUES (?,?,?,?,?,?)').run(Date.now(), u.username, reason, JSON.stringify(params), seal, opts.bundleVer || null).lastInsertRowid;
       D.audit(db, u, 'PARAMETRE_ONERISI', `öneri ${id}; mühür ${seal}; gerekçe: ${reason}`);
       return { applied: false, proposalId: Number(id), seal };
     });
@@ -91,7 +96,7 @@ function createService({ db, kr, config }) {
       if (!p) throw notFound('Bekleyen öneri bulunamadı.');
       if (p.proposer === u.username) throw forbid('Öneriyi yapan kişi onaylayamaz (iki kişi kuralı).');
       if (approve) {
-        const r = applyParams(u, JSON.parse(p.json), p.reason, `öneri ${id} — ${p.proposer} önerdi, ${u.username} onayladı`);
+        const r = applyParams(u, JSON.parse(p.json), p.reason, `öneri ${id} — ${p.proposer} önerdi, ${u.username} onayladı`, p.bundle_ver);
         db.prepare("UPDATE param_proposals SET status='onaylandi', decided_by=?, decided_ts=?, decision_note=? WHERE id=?").run(u.username, Date.now(), String(note || ''), id);
         db.prepare("UPDATE param_proposals SET status='reddedildi', decided_by='sistem', decided_ts=?, decision_note='Yeni parametre sürümü yayımlandı' WHERE status='bekliyor'").run(Date.now());
         return { applied: true, ...r };
@@ -107,6 +112,28 @@ function createService({ db, kr, config }) {
     if (seal && !/^[0-9a-f]{64}$/.test(seal)) throw bad('Mühür 64 haneli onaltılık (hex) olmalı.');
     tx(() => { D.metaSet(db, 'official_seal', seal); D.audit(db, u, 'RESMI_MUHUR_TANIMLANDI', seal || '(temizlendi)'); });
     return { officialSeal: seal };
+  }
+  const authorityVersion = () => +D.metaGet(db, 'authority_version', '0');
+  function assertAuthorityReady() {
+    if (config.lockParams && authorityVersion() === 0) throw unprocessable('Merkezî parametre paketi henüz yüklenmedi; yüklenene kadar eşleştirme ve tanıştırma yapılamaz.');
+  }
+  function importBundle(u, bundle) {
+    if (!config.authorityPub) throw bad('Bu kurulumda merkezî otorite açık anahtarı tanımlı değil (AUTHORITY_PUBKEY_FILE).');
+    const v = AU.verifyBundle(bundle, config.authorityPub);
+    if (!v.ok) throw unprocessable('Paket doğrulanamadı.', { errors: v.errors });
+    const last = authorityVersion();
+    if (v.body.version <= last) throw conflict(`Paket sürümü (${v.body.version}) mevcut sürümden (${last}) yeni değil; eski paket yeniden uygulanamaz.`);
+    const merged = { ...v.body.params, institution: getParams().params.institution };
+    const errs = E.validateParams(merged); if (errs.length) throw unprocessable('Parametreler geçersiz.', { errors: errs });
+    const reason = `Merkezî parametre paketi v${v.body.version}${v.body.note ? ': ' + v.body.note : ''}`;
+    return tx(() => {
+      if (canon(merged) === canon(getParams().params)) { // içerik aynı: yalnız sürümü kaydet
+        D.metaSet(db, 'authority_version', v.body.version); D.metaSet(db, 'official_seal', v.body.seal);
+        D.audit(db, u, 'MERKEZI_PAKET_ALINDI', `paket sürümü ${v.body.version}; içerik zaten güncel; mühür ${v.body.seal}`);
+        return { applied: true, unchanged: true, version: v.body.version };
+      }
+      return { ...proposeParams(u, merged, reason, { bundleVer: v.body.version }), version: v.body.version };
+    });
   }
   function setRequire2fa(u, on) { tx(() => { D.metaSet(db, 'require2fa', on ? '1' : '0'); D.audit(db, u, 'IKI_ASAMALI_ZORUNLULUK', on ? 'açık' : 'kapalı'); }); return { require2fa: !!on }; }
 
@@ -421,6 +448,7 @@ function createService({ db, kr, config }) {
   let matchBusy = false;
   const WORKER_THRESHOLD = 300; // bu kadar adaydan büyük havuzlarda hesap ayrı iş parçacığında yapılır
   async function runMatch(u) {
+    assertAuthorityReady();
     if (matchBusy) throw conflict('Bir eşleştirme koşusu zaten sürüyor.');
     matchBusy = true;
     try {
@@ -471,6 +499,7 @@ function createService({ db, kr, config }) {
   const introHist = (d, actor, text) => d.history.push({ ts: Date.now(), user: actor.username, text });
   function saveIntro(i, status, d) { db.prepare('UPDATE intros SET status=?, data=?, version=version+1 WHERE id=?').run(status, JSON.stringify(d), i.id); }
   function startIntro(u, aId, bId) {
+    assertAuthorityReady();
     return tx(() => {
       const ra = db.prepare("SELECT * FROM applicants WHERE id=?").get(aId), rb = db.prepare("SELECT * FROM applicants WHERE id=?").get(bId);
       if (!ra || !rb) throw notFound('Aday bulunamadı.');
@@ -613,7 +642,8 @@ function createService({ db, kr, config }) {
       applicants: by('applicants'), intros: by('intros'), chain: chainStatus(), paramSeal: P.seal, officialSeal: official, sealMatches: official ? official === P.seal : null,
       alerts: { lateResponses: late, complaints: db.prepare("SELECT COUNT(*) c FROM intros WHERE status='sikayet'").get().c, retentionOverdue: old, pendingProposals: db.prepare("SELECT COUNT(*) c FROM param_proposals WHERE status='bekliyor'").get().c },
       lastRun: run ? { id: run.id, ts: run.ts, pool: run.pool, suggestions: JSON.parse(run.json).suggestions.length, noMatch: JSON.parse(run.json).noMatch.length } : null,
-      responseDays: P.params.responseDays, retentionDays: P.params.retentionDays
+      responseDays: P.params.responseDays, retentionDays: P.params.retentionDays,
+      authority: { unitCode: config.unitCode, configured: !!config.authorityPub, locked: !!config.lockParams, version: authorityVersion(), ready: !config.lockParams || authorityVersion() > 0, signing: !!config.signingKey }
     };
   }
   function fairness() {
@@ -651,13 +681,15 @@ function createService({ db, kr, config }) {
     const by = (t) => Object.fromEntries(db.prepare(`SELECT status, COUNT(*) c FROM ${t} GROUP BY status`).all().map((r) => [r.status, r.c]));
     tx(() => D.audit(db, actor, 'DENETIM_PAKETI', 'dışa aktarıldı'));
     const P = getParams();
-    return {
+    const pkg = {
+      format: AU.PACKAGE_FORMAT, birim: { kod: config.unitCode, ad: P.params.institution }, olusturma: Date.now(), merkeziPaketSurumu: authorityVersion(),
       tarih: E.todayStr(), kurum: P.params.institution, parametreSurumu: P.ver, parametreMuhru: P.seal, parametreler: P.params,
       parametreGecmisi: db.prepare('SELECT ver, ts, username, reason, seal FROM params_versions ORDER BY ver').all(),
       adayDurumlari: by('applicants'), tanistirmaDurumlari: by('intros'),
       eslestirmeKosulari: db.prepare('SELECT id, ts, username, param_seal, pool, considered FROM runs ORDER BY id').all(),
       zincir: D.verifyAuditChain(db), denetimGunlugu: db.prepare('SELECT * FROM audit ORDER BY i').all()
     };
+    return config.signingKey ? AU.signPackage(pkg, config.signingKey) : pkg;
   }
 
   /* ------------------------------------------------------------------ deneme verisi (yalnız ALLOW_DEMO=1) */
@@ -697,7 +729,7 @@ function createService({ db, kr, config }) {
   }
 
   return {
-    HttpError, ensureInit, getParams, paramsInfo, proposeParams, decideProposal, setOfficialSeal, setRequire2fa,
+    HttpError, ensureInit, getParams, paramsInfo, proposeParams, decideProposal, setOfficialSeal, setRequire2fa, importBundle, authorityVersion,
     createUser, listUsers, updateUser, login, authenticate, logout, changePassword, totpSetup, totpEnable,
     listApplicants, getApplicant, createApplicant, updateApplicant, applicantAction, applicantCard,
     runMatch, latestRun, why, startIntro, listIntros, getIntro, introAction,

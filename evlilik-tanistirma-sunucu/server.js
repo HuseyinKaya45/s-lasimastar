@@ -19,6 +19,11 @@ const CSP = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 's
 
 function createApp(cfg) {
   const kr = C.loadKeyring(cfg.env);
+  // Otorite açık anahtarı ve birim imza anahtarı (varsa)
+  const AU = require('./lib/authority');
+  if (cfg.authorityPubFile) cfg.authorityPub = fs.readFileSync(cfg.authorityPubFile, 'utf8');
+  if (cfg.signingKeyFile) cfg.signingKey = AU.loadPrivate(fs.readFileSync(cfg.signingKeyFile, 'utf8'), cfg.env.SIGNING_KEY_PASSPHRASE);
+  if (cfg.lockParams && !cfg.authorityPub) throw new Error('LOCK_PARAMS=1 için AUTHORITY_PUBKEY_FILE tanımlı olmalı.');
   const db = DBL.open(cfg.dataDir);
   const svc = createService({ db, kr, config: cfg });
   svc.ensureInit();
@@ -33,7 +38,7 @@ function createApp(cfg) {
   const ALL = ['admin', 'gorevli', 'denetci'], EDIT = ['admin', 'gorevli'], ADM = ['admin'], AUD = ['admin', 'denetci'];
   const A = { auth: true, roles: ALL }, Ed = { auth: true, roles: EDIT }, Ad = { auth: true, roles: ADM }, Au = { auth: true, roles: AUD };
 
-  route('GET', '/api/public', { auth: false }, () => ({ institution: svc.getParams().params.institution }));
+  route('GET', '/api/public', { auth: false }, () => ({ institution: svc.getParams().params.institution, unitCode: cfg.unitCode }));
   route('POST', '/api/login', { auth: false, noCsrf: true }, (c) => {
     const r = svc.login(c.body, c.ip, c.req.headers['user-agent']);
     c.setCookie = r.token; return { csrf: r.csrf, user: r.user, require2fa: svc.requires2fa() };
@@ -44,7 +49,7 @@ function createApp(cfg) {
   route('POST', '/api/me/totp/setup', { auth: true, roles: ALL, allowRestricted: true }, (c) => svc.totpSetup(c.user));
   route('POST', '/api/me/totp/enable', { auth: true, roles: ALL, allowRestricted: true }, (c) => svc.totpEnable(c.user, c.body.code));
 
-  route('GET', '/api/meta', A, () => ({ IMP: E.IMP, MEDENI: E.MEDENI, ISDURUM: E.ISDURUM, CRIT_LABEL: E.CRIT_LABEL, PARAM_SCHEMA: E.PARAM_SCHEMA, HARD: E.HARD, allowDemo: cfg.allowDemo }));
+  route('GET', '/api/meta', A, () => ({ IMP: E.IMP, MEDENI: E.MEDENI, ISDURUM: E.ISDURUM, CRIT_LABEL: E.CRIT_LABEL, PARAM_SCHEMA: E.PARAM_SCHEMA, HARD: E.HARD, allowDemo: cfg.allowDemo, unitCode: cfg.unitCode, lockParams: cfg.lockParams, authorityConfigured: !!cfg.authorityPub }));
   route('GET', '/api/dashboard', A, () => svc.dashboard());
   route('GET', '/api/fairness', A, () => svc.fairness());
 
@@ -52,6 +57,7 @@ function createApp(cfg) {
   route('POST', '/api/params/propose', Ad, (c) => svc.proposeParams(c.user, c.body.params, c.body.reason));
   route('POST', '/api/params/proposals/:id/approve', Ad, (c) => svc.decideProposal(c.user, +c.p.id, true, c.body.note));
   route('POST', '/api/params/proposals/:id/reject', Ad, (c) => svc.decideProposal(c.user, +c.p.id, false, c.body.note));
+  route('POST', '/api/params/import-bundle', Ad, (c) => svc.importBundle(c.user, c.body.bundle));
   route('POST', '/api/params/official-seal', Ad, (c) => svc.setOfficialSeal(c.user, c.body.seal));
   route('POST', '/api/params/require2fa', Ad, (c) => svc.setRequire2fa(c.user, !!c.body.on));
 

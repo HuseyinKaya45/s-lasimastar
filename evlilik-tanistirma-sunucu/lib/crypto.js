@@ -101,7 +101,12 @@ function totpVerify(secretB32, code, now = Date.now()) {
   return null;
 }
 
+/* ---------- Kanonik JSON ve denetim özeti (birim, otorite ve testler ortak kullanır) ---------- */
+const canon = (o) => JSON.stringify(o, (k, v) => (v && typeof v === 'object' && !Array.isArray(v) ? Object.keys(v).sort().reduce((r, x) => ((r[x] = v[x]), r), {}) : v));
+const auditHash = (prev, i, ts, user, role, action, detail) => sha256([prev, i, ts, user, role, action, detail].join('|'));
+
 module.exports = {
+  canon, auditHash,
   sha256, randToken, safeEq, hashPassword, verifyPassword, DUMMY_HASH,
   loadKeyring, encrypt, decrypt, keyIdOf, hmacIndex, totpNewSecret, totpVerify, hotp, b32decode
 };

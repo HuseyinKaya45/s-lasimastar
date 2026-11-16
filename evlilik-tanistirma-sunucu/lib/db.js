@@ -8,7 +8,7 @@
 const { DatabaseSync } = require('node:sqlite');
 const fs = require('node:fs');
 const path = require('node:path');
-const { sha256 } = require('./crypto');
+const { auditHash } = require('./crypto');
 
 const SCHEMA = `
 CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
@@ -48,7 +48,8 @@ CREATE TABLE IF NOT EXISTS param_proposals (
   ts INTEGER NOT NULL, proposer TEXT NOT NULL, reason TEXT NOT NULL,
   json TEXT NOT NULL, seal TEXT NOT NULL,
   status TEXT NOT NULL DEFAULT 'bekliyor' CHECK (status IN ('bekliyor','onaylandi','reddedildi')),
-  decided_by TEXT, decided_ts INTEGER, decision_note TEXT
+  decided_by TEXT, decided_ts INTEGER, decision_note TEXT,
+  bundle_ver INTEGER
 );
 CREATE TABLE IF NOT EXISTS applicants (
   id TEXT PRIMARY KEY,
@@ -93,6 +94,8 @@ function open(dataDir) {
   const db = new DatabaseSync(file);
   db.exec('PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000; PRAGMA synchronous=FULL; PRAGMA secure_delete=ON;');
   db.exec(SCHEMA);
+  // Eski kurulumlar için hafif şema geçişi
+  try { db.exec('ALTER TABLE param_proposals ADD COLUMN bundle_ver INTEGER'); } catch { /* sütun zaten var */ }
   try { fs.chmodSync(file, 0o600); } catch { /* bazı dosya sistemlerinde desteklenmez */ }
   return db;
 }
@@ -109,8 +112,6 @@ function makeTx(db) {
     finally { depth--; }
   };
 }
-
-const auditHash = (prev, i, ts, user, role, action, detail) => sha256([prev, i, ts, user, role, action, detail].join('|'));
 
 /** Denetim kaydı ekler. Çağıran işlem içinde olmalı (tx). detail yalnızca kimlik/numara içermeli, kişisel veri içermemeli. */
 function audit(db, actor, action, detail = '') {

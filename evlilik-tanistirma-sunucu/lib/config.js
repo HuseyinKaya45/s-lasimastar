@@ -14,6 +14,8 @@ function loadDotEnv(file) {
 
 function loadConfig(overrides = {}) {
   loadDotEnv(process.env.ENV_FILE || path.join(process.cwd(), '.env'));
+  // Anahtarlar ayrı bir dosyada (ör. çıkarılabilir USB) tutuluyorsa onu da oku
+  if (process.env.KEYS_FILE) loadDotEnv(process.env.KEYS_FILE);
   const env = { ...process.env, ...overrides };
   const tls = !!(env.TLS_CERT && env.TLS_KEY);
   const trustProxy = env.TRUST_PROXY === '1';
@@ -28,6 +30,10 @@ function loadConfig(overrides = {}) {
     cookieSecure: env.COOKIE_SECURE !== undefined ? env.COOKIE_SECURE === '1' : (tls || trustProxy),
     sessionMaxHours: +env.SESSION_MAX_HOURS || 12,
     allowDemo: env.ALLOW_DEMO === '1',
+    unitCode: (env.UNIT_CODE || 'BIRIM-1').slice(0, 40),
+    lockParams: env.LOCK_PARAMS === '1',
+    authorityPubFile: env.AUTHORITY_PUBKEY_FILE, signingKeyFile: env.SIGNING_KEY_FILE,
+    authorityPub: null, signingKey: null,
     maxBody: 256 * 1024,
     rateLimitPerMin: +env.RATE_LIMIT_PER_MIN || 600
   };
