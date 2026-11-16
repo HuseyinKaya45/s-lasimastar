@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>نظام طلبات العمل والتوجيه</title>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--ink:#1c2733;--mut:#667585;--line:#d9e0e7;--pri:#0f5c8c;--pri2:#0b4469;--good:#1b7a43;--warn:#a86400;--bad:#b3261e;--info:#285a9e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 system-ui,-apple-system,"Segoe UI",Tahoma,"Noto Naskh Arabic","Noto Sans Arabic",Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header.top{background:var(--pri2);color:#fff;padding:10px 0}header.top .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{font-weight:700;font-size:18px}.brand small{display:block;font-weight:400;font-size:12px;opacity:.8}
+nav.tabs{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto}
+nav.tabs button{border:0;background:none;padding:11px 12px;cursor:pointer;font:inherit;color:var(--mut);border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs button.on{color:var(--pri);border-color:var(--pri);font-weight:600}
+main{padding:18px 0 60px}h1{font-size:22px;margin:6px 0 14px}h3{margin:0 0 8px;font-size:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 14px}
+.grid{display:grid;gap:12px}.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.g4{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.stat b{display:block;font-size:26px;color:var(--pri)}.stat span{color:var(--mut);font-size:13px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.sp{flex:1}.muted{color:var(--mut)}.small{font-size:12.5px}.mt8{margin-top:8px}.mono{font-family:ui-monospace,Menlo,Consolas,monospace;word-break:break-all;font-size:12px;direction:ltr;unicode-bidi:isolate;text-align:right}bdi{unicode-bidi:isolate}input[type=number],input[type=date],input[type=time],input[dir=ltr]{direction:ltr;text-align:right}
+button.b{background:var(--pri);color:#fff;border:0;border-radius:7px;padding:8px 14px;cursor:pointer;font:inherit}button.b:hover{background:var(--pri2)}button.b.ghost{background:#fff;color:var(--pri);border:1px solid var(--pri)}button.b.red{background:var(--bad)}button.b.sm{padding:4px 9px;font-size:13px}button.b:disabled{opacity:.45;cursor:not-allowed}
+input,select,textarea{width:100%;font:inherit;border:1px solid var(--line);border-radius:7px;padding:7px 9px;background:#fff;color:var(--ink);min-height:36px}textarea{min-height:70px}input[type=checkbox]{width:auto;min-height:0}
+label{display:block;font-size:13px;color:var(--mut);margin:8px 0 2px}label.chk{display:flex;gap:7px;align-items:flex-start;color:var(--ink);font-size:14px;margin:4px 0}
+.note{border-radius:8px;padding:9px 12px;margin:0 0 10px;border:1px solid;font-size:14px}.note.good{background:#e8f5ec;border-color:#b6dfc4}.note.warn{background:#fff4e0;border-color:#f0d29b}.note.bad{background:#fdeceb;border-color:#f1b8b4}.note.info{background:#e9f0fb;border-color:#bcd0ee}
+.badge{display:inline-block;border-radius:99px;padding:1px 9px;font-size:12px;background:#e8edf2;color:#344}.badge.good{background:#dff1e5;color:var(--good)}.badge.warn{background:#fdebc8;color:var(--warn)}.badge.bad{background:#fadbd8;color:var(--bad)}.badge.info{background:#dce8fa;color:var(--info)}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:start;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mut);font-weight:600;font-size:12.5px}
+progress{width:70px;height:8px}.pager{display:flex;gap:10px;align-items:center;margin-top:8px}
+dialog{border:0;border-radius:12px;padding:0;max-width:min(860px,96vw);width:100%;box-shadow:0 10px 40px #0006}dialog::backdrop{background:#0008}
+dialog form{padding:16px 18px;max-height:88vh;overflow:auto}dialog h2{margin:0 0 6px;font-size:18px}
+.checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:0 10px;border:1px solid var(--line);border-radius:8px;padding:6px 9px;max-height:210px;overflow:auto}
+.toast{text-align:center;max-width:92vw;position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:9px 16px;border-radius:8px;opacity:0;transition:.25s;pointer-events:none;z-index:50}.toast.show{opacity:1}
+.hidden{display:none!important}#printarea{display:none}
+.lock{max-width:360px;margin:12vh auto}.pager button{min-width:34px}
+@media print{body>*:not(#printarea){display:none!important}#printarea{display:block;padding:20px;color:#000;background:#fff}#printarea h2{margin:0 0 10px}#printarea table td{border:1px solid #888;padding:6px 8px;text-align:start}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><div class="brand" id="brand">نظام طلبات العمل والتوجيه<small>يعمل دون اتصال · دون خادم · ملف واحد</small></div><div class="row" id="who"></div></div></header>
+<nav class="tabs hidden" id="tabs"><div class="wrap" id="tabsin"></div></nav>
+<div class="wrap"><main id="app"></main></div>
+<div id="printarea"></div><div class="toast" id="toast"></div>
+<script>
+(() => {
+'use strict';
+/* =====================================================================  yardımcılar */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const pad = (n, w = 2) => String(n).padStart(w, '0');
+const dStr = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const today = () => dStr(new Date());
+const LRI = '\u2066', PDI = '\u2069';
+const fmtD = (s) => (s ? LRI + s.split('-').reverse().join('.') + PDI : '—');
+const fmtT = (ts) => { if (!ts) return '—'; const d = new Date(ts); return `${LRI}${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}${PDI}`; };
+const isDate = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s) && !isNaN(Date.parse(s)) && dStr(new Date(s + 'T12:00:00')) === s;
+const daysBetween = (a, b) => Math.round((Date.parse(b + 'T12:00:00') - Date.parse(a + 'T12:00:00')) / 864e5);
+const ageOn = (dogum, t) => { const [y, m, d] = dogum.split('-').map(Number), [Y, M, D] = t.split('-').map(Number); return Y - y - ((M < m || (M === m && D < d)) ? 1 : 0); };
+const canon = (o) => (o && typeof o === 'object' ? (Array.isArray(o) ? '[' + o.map(canon).join(',') + ']' : '{' + Object.keys(o).sort().map((k) => JSON.stringify(k) + ':' + canon(o[k])).join(',') + '}') : JSON.stringify(o));
+const trLower = (s) => String(s || '').toLowerCase().replace(/[\u0640\u064B-\u065F]/g, ''); // مقارنة محايدة للغة (دون تخصيص تركي)
+const bd = (x) => `<bdi>${esc(x)}</bdi>`;
+/* SHA-256 (eşzamanlı; sabitler asal sayılardan türetilir) */
+const sha256 = (() => {
+  const pr = []; for (let n = 2; pr.length < 64; n++) if (pr.every((p) => n % p)) pr.push(n);
+  const fr = (x) => Math.floor((x - Math.floor(x)) * 4294967296);
+  const K = pr.map((p) => fr(Math.cbrt(p))), H0 = pr.slice(0, 8).map((p) => fr(Math.sqrt(p)));
+  const rr = (x, n) => (x >>> n) | (x << (32 - n));
+  return (str) => {
+    const m = new TextEncoder().encode(str), l = m.length, n = (((l + 9 + 63) >> 6) << 6), b = new Uint8Array(n); b.set(m); b[l] = 128;
+    const dv = new DataView(b.buffer); dv.setUint32(n - 4, (l * 8) >>> 0); dv.setUint32(n - 8, Math.floor(l * 8 / 4294967296));
+    const h = H0.slice(), w = new Array(64);
+    for (let i = 0; i < n; i += 64) {
+      for (let t = 0; t < 16; t++) w[t] = dv.getUint32(i + t * 4);
+      for (let t = 16; t < 64; t++) { const s0 = rr(w[t - 15], 7) ^ rr(w[t - 15], 18) ^ (w[t - 15] >>> 3), s1 = rr(w[t - 2], 17) ^ rr(w[t - 2], 19) ^ (w[t - 2] >>> 10); w[t] = (w[t - 16] + s0 + w[t - 7] + s1) | 0; }
+      let [a, bb, c, d, e, f, g, hh] = h;
+      for (let t = 0; t < 64; t++) { const S1 = rr(e, 6) ^ rr(e, 11) ^ rr(e, 25), ch = (e & f) ^ (~e & g), t1 = (hh + S1 + ch + K[t] + w[t]) | 0, S0 = rr(a, 2) ^ rr(a, 13) ^ rr(a, 22), mj = (a & bb) ^ (a & c) ^ (bb & c), t2 = (S0 + mj) | 0; hh = g; g = f; f = e; e = (d + t1) | 0; d = c; c = bb; bb = a; a = (t1 + t2) | 0; }
+      h[0] = (h[0] + a) | 0; h[1] = (h[1] + bb) | 0; h[2] = (h[2] + c) | 0; h[3] = (h[3] + d) | 0; h[4] = (h[4] + e) | 0; h[5] = (h[5] + f) | 0; h[6] = (h[6] + g) | 0; h[7] = (h[7] + hh) | 0;
+    }
+    return h.map((x) => (x >>> 0).toString(16).padStart(8, '0')).join('');
+  };
+})();
+function tcValid(t) {
+  if (!/^[1-9]\d{10}$/.test(t)) return false; const d = t.split('').map(Number);
+  const d10 = (((d[0] + d[2] + d[4] + d[6] + d[8]) * 7) - (d[1] + d[3] + d[5] + d[7])) % 10; if (((d10 + 10) % 10) !== d[9]) return false;
+  return d.slice(0, 10).reduce((a, b) => a + b, 0) % 10 === d[10];
+}
+const toast = (m) => { const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('show'), 3000); };
+
+/* =====================================================================  sabit güvenceler ve parametreler */
+const HARD = { minAgeFloor: 18 }; // parametreyle düşürülemez
+// Ayrımcılık yasağı: eşleştirme puanı yalnız iş gereklerine bakar. İlan metninde şu ifadeler engellenir (İş Kanunu m.5).
+const DISCRIM_TR = /\b(bayan|bay|erkek|kad[ıi]n|k[ıi]z|gen[cç]|ya[sş][ıi]nda|ya[sş]\s*s[ıi]n[ıi]r[ıi]|evli|bek[aâ]r|t[üu]rk\s*ol|m[üu]sl[üu]man|[çc]ocuks[uü]z|hamile|askerli[ğg]ini)\b/i;
+// العربية لا تعرف حدود الكلمات \b: نستخدم نظرات خلفية/أمامية على الحروف العربية، مع السماح بسوابق مثل ال/لل/و/ب/ل
+const AR_PRE = '(?:وبال|وال|بال|لل|ال|و|ب|ل|ف)?';
+const AR_WORDS = ['[أإآا]ناث', 'ذكور', 'ذكر', '[أإآا]نثى', 'رجال', 'نساء', 'امرأة|امراة', 'سيدات?', 'فتاة|فتيات|فتى', 'شابات?', 'شباب', 'عمر(?:ه|ها|ك)?', 'سن',
+  'متزوج(?:ة|ين|ات)?', '[أإآا]عزب', 'عزباء', 'عازب(?:ة)?', 'مطلق(?:ة)?', '[أإآا]رمل(?:ة)?', 'مسلم(?:ة|ين|ات)?', 'مسيحي(?:ة)?', 'ديانة', 'جنسية',
+  'تركي(?:ة)?\\s*الجنسية', '[أإآا]ن\\s*يكون\\s*تركي(?:ا|ة)?', '(?:بدون|دون)\\s*[أإآا]طفال', 'ليس\\s*لديه\\s*[أإآا]طفال', 'حوامل|حامل', 'خدمة\\s*ال?عسكرية', 'خدمة\\s*العلم', '[أإآا]نهى\\s*الخدمة'];
+const DISCRIM_AR = new RegExp('(?<![\\u0621-\\u064A])' + AR_PRE + '(?:' + AR_WORDS.join('|') + ')(?![\\u0621-\\u064A])', 'i');
+const DISCRIM = new RegExp('(?:' + DISCRIM_TR.source + ')|(?:' + DISCRIM_AR.source + ')', 'i');
+const DEFAULT_PARAMS = () => ({
+  institution: 'وحدة طلبات العمل والتوجيه',
+  minAge: 18, maxAge: 65,
+  eduLevels: ['التعليم الأساسي', 'الثانوية', 'الدبلوم (ما بعد الثانوية)', 'البكالوريوس', 'الماجستير', 'الدكتوراه'],
+  fields: ['الإنتاج / الصناعة', 'الإنشاءات', 'التجارة / المبيعات', 'تقنية المعلومات', 'الصحة', 'التعليم', 'السياحة / الضيافة', 'النقل / الخدمات اللوجستية', 'الزراعة', 'المكاتب / الإدارة', 'الخدمات', 'أخرى'],
+  skills: ['Excel', 'برامج المكتب', 'المحاسبة', 'علاقات العملاء', 'المبيعات', 'أعمال الصندوق', 'المستودعات / المخزون', 'الرافعة الشوكية', 'اللحام', 'CNC / الخراطة', 'التمديدات الكهربائية', 'السباكة', 'الدهان / الطلاء', 'البناء / الشدّات', 'القيادة (سائق)', 'تطوير البرمجيات', 'قواعد البيانات', 'الشبكات / الأنظمة', 'التصميم الغرافيكي', 'التمريض', 'رعاية المرضى', 'الإسعافات الأولية', 'التدريس', 'تنمية الطفل', 'الطبخ', 'خدمة المطاعم', 'التنظيف', 'الحراسة والأمن', 'الإنتاج الزراعي', 'تربية الحيوانات', 'الإنجليزية', 'الألمانية', 'العربية', 'الروسية', 'العمل الجماعي', 'إدارة المشاريع'],
+  weights: { skills: 35, pref: 10, edu: 15, exp: 15, loc: 15, salary: 7, work: 3 },
+  minScore: 50,
+  reqRule: 'hepsi', reqPct: 80,       // zorunlu beceriler: hepsi | yüzde
+  eduGap: 0,                          // gereken eğitimin en çok kaç seviye altı kabul edilir
+  expGapYears: 0,                     // gereken deneyimden en çok kaç yıl eksik kabul edilir
+  locHard: true,                      // çalışılabilecek iller dışındaki ilanlar elenir
+  salaryHard: false, salaryTolerancePct: 15,
+  maxActiveRefs: 3, refsPerSlot: 3, responseDays: 7, interviewDays: 14, retentionDays: 730,
+  fairGapPct: 15,
+  consentText: 'أوافق على معالجة بياناتي الشخصية لأغراض البحث عن عمل والتوظيف، وعلى نقلها إلى أصحاب العمل المناسبين فقط بعد موافقتي. وأعلم أنه يحق لي سحب موافقتي في أي وقت وطلب حذف بياناتي.'
+});
+function validateParams(P) {
+  const e = [], num = (v, lo, hi) => Number.isFinite(+v) && +v >= lo && +v <= hi, LN = { eduLevels: 'مستويات التعليم', fields: 'مجالات العمل', skills: 'كتالوج المهارات' };
+  if (!num(P.minAge, HARD.minAgeFloor, 100)) e.push(`يجب ألا يقل الحد الأدنى للعمر عن ${HARD.minAgeFloor} (ضمانة ثابتة).`);
+  if (!num(P.maxAge, P.minAge, 100)) e.push('لا يجوز أن يكون الحد الأقصى للعمر أقل من الحد الأدنى.');
+  for (const k of ['eduLevels', 'fields', 'skills']) if (!Array.isArray(P[k]) || !P[k].length || P[k].some((x) => !String(x).trim())) e.push(`قائمة «${LN[k]}» لا يجوز أن تكون فارغة.`);
+  if ((new Set(P.skills.map(trLower))).size !== P.skills.length) e.push('توجد عناصر مكررة في قائمة المهارات.');
+  let sum = 0; for (const [k, v] of Object.entries(P.weights)) { if (!num(v, 0, 100)) e.push(`الوزن «${WLAB[k] || k}» يجب أن يكون بين 0 و100.`); sum += +v; }
+  if (sum <= 0) e.push('يجب أن يكون مجموع الأوزان أكبر من الصفر.');
+  if (!num(P.minScore, 0, 100)) e.push('الحد الأدنى للدرجة يجب أن يكون بين 0 و100.');
+  if (!['hepsi', 'yuzde'].includes(P.reqRule)) e.push('قاعدة المهارات الإلزامية غير صالحة.');
+  if (!num(P.reqPct, 1, 100)) e.push('نسبة المهارات الإلزامية يجب أن تكون بين 1 و100.');
+  if (!num(P.eduGap, 0, 5)) e.push('فارق التعليم يجب أن يكون بين 0 و5.'); if (!num(P.expGapYears, 0, 20)) e.push('فارق الخبرة يجب أن يكون بين 0 و20.');
+  if (!num(P.salaryTolerancePct, 0, 200)) e.push('هامش تسامح الأجر يجب أن يكون بين 0 و200.');
+  if (!num(P.maxActiveRefs, 1, 20)) e.push('عدد التوجيهات النشطة لكل مرشح يجب أن يكون بين 1 و20.'); if (!num(P.refsPerSlot, 1, 20)) e.push('عدد التوجيهات لكل شاغر يجب أن يكون بين 1 و20.');
+  if (!num(P.responseDays, 1, 60) || !num(P.interviewDays, 1, 120)) e.push('حقول المدد غير صالحة.'); if (!num(P.retentionDays, 30, 3650)) e.push('مدة الاحتفاظ يجب أن تكون بين 30 و3650 يومًا.');
+  if (!num(P.fairGapPct, 1, 100)) e.push('عتبة العدالة يجب أن تكون بين 1 و100.'); if (!String(P.institution).trim()) e.push('اسم الجهة مطلوب.'); if (!String(P.consentText).trim()) e.push('نص الموافقة مطلوب.');
+  return e;
+}
+const sealOf = (P) => sha256(canon({ ...P, institution: '' }));
+
+/* =====================================================================  durum, depolama, denetim zinciri */
+const KEY = 'isb_v1';
+let memOnly = false;
+const fresh = () => ({ v: 1, meta: { officer: '', created: Date.now(), lastBackup: 0, lock: null }, params: DEFAULT_PARAMS(), paramHistory: [], seekers: {}, employers: {}, vacancies: {}, referrals: {}, blocked: [], counters: {}, audit: [], run: null });
+let S;
+function load() { try { const r = localStorage.getItem(KEY); if (r) { const j = JSON.parse(r); if (j && j.v === 1) return j; } } catch { memOnly = true; } return fresh(); }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch { memOnly = true; } }
+const user = () => S.meta.officer || 'موظف';
+function A(action, detail = '') { // detail yalnız kayıt numaraları/işlem türü içermeli; kişisel veri YAZMAYIN
+  const last = S.audit[S.audit.length - 1], i = last ? last.i + 1 : 1, prev = last ? last.hash : 'GENESIS', ts = Date.now(), u = user();
+  S.audit.push({ i, ts, user: u, action, detail: String(detail), prev, hash: sha256([prev, i, ts, u, action, detail].join('\u001f')) });
+}
+function verifyChain(list = S.audit) { let prev = 'GENESIS', n = 0; for (const e of list) { if (e.prev !== prev || e.i !== n + 1 || e.hash !== sha256([prev, e.i, e.ts, e.user, e.action, e.detail].join('\u001f'))) return { ok: false, at: e.i, checked: n }; prev = e.hash; n++; } return { ok: true, n, head: prev }; }
+const nextId = (pfx) => { const y = new Date().getFullYear(), k = pfx + y; S.counters[k] = (S.counters[k] || 0) + 1; return `${pfx}-${y}-${pad(S.counters[k], 4)}`; };
+const P = () => S.params;
+const ACTIVE_REF = ['yanit_bekliyor', 'kabul', 'gorusme'];
+const REF_ST = { yanit_bekliyor: ['بانتظار رد المرشح', 'warn'], kabul: ['قبل المرشح', 'good'], gorusme: ['مقابلة مجدولة', 'good'], ise_alindi: ['تم التعيين', 'good'], alinmadi: ['لم يقبله صاحب العمل', ''], vazgecti: ['انسحب المرشح', ''], ret: ['رفض المرشح', ''], zamanasimi: ['انتهت المهلة', ''], iptal: ['ملغى', ''] };
+const SK_ST = { taslak: ['مسودة', ''], aktif: ['نشط (في المجمّع)', 'good'], pasif: ['غير نشط', 'info'], yerlesti: ['تم توظيفه', 'good'], silindi: ['أُزيلت هويته', ''] };
+const VC_ST = { acik: ['مفتوحة', 'good'], doldu: ['مكتملة', 'info'], kapali: ['مغلقة', ''] };
+const WT = [['tam', 'دوام كامل'], ['yari', 'دوام جزئي'], ['vardiya', 'نوبات'], ['uzaktan', 'عن بُعد'], ['mevsimlik', 'موسمي']];
+const WTN = Object.fromEntries(WT);
+const EHL = ['Yok', 'B', 'C', 'D', 'E'];
+const ehT = (x) => (!x || x === 'Yok' ? 'لا يوجد' : x);
+const WLAB = { skills: 'المهارات الإلزامية', pref: 'المهارات المفضلة', edu: 'التعليم', exp: 'الخبرة', loc: 'الموقع', salary: 'الأجر', work: 'نمط العمل' };
+const ACT_AR = { KURULUM: 'الإعداد الأولي', ESLESTIRME_CALISTIRILDI: 'تشغيل المطابقة', KAYIT_GORULDU: 'الاطلاع على سجل', KAYIT_GUNCELLENDI: 'تحديث سجل', BASVURU_ALINDI: 'استلام طلب', YONLENDIRME_BASLATILDI: 'بدء توجيه', YONLENDIRME_IPTAL: 'إلغاء توجيه', YONLENDIRME_RET: 'رفض المرشح للتوجيه', YONLENDIRME_KABUL: 'قبول المرشح للتوجيه', YONLENDIRME_SONUC: 'نتيجة توجيه', YONLENDIRME_ZAMANASIMI: 'انتهاء مهلة توجيه', GORUSME_PLANLANDI: 'جدولة مقابلة', ISE_ALINDI: 'تعيين', POZISYON_DOLDU: 'اكتمال الشاغر', BELGE_YAZDIRILDI: 'طباعة وثيقة التوجيه', KAYIT_ANONIMLESTIRILDI: 'إزالة هوية سجل', DENEME_VERISI: 'إضافة بيانات تجريبية', DENEME_VERISI_SILINDI: 'حذف البيانات التجريبية', PARAMETRE_DEGISTI: 'تغيير المعايير', PARAMETRE_SIFIRLANDI: 'إعادة المعايير الافتراضية', YEDEK_YUKLENDI: 'استعادة نسخة احتياطية', YEDEK_ALINDI: 'أخذ نسخة احتياطية', ADAY_AKTIF: 'إدراج مرشح في المجمّع', ADAY_PASIF: 'إيقاف مرشح', ADAY_YENIDEN_ACILDI: 'إعادة فتح سجل مرشح', ISVEREN_EKLENDI: 'إضافة صاحب عمل', ISVEREN_GUNCELLENDI: 'تحديث صاحب عمل', ISVEREN_ONAYLANDI: 'اعتماد صاحب عمل', ISVEREN_DURUMU: 'تغيير حالة صاحب عمل', POZISYON_ACILDI: 'فتح وظيفة', POZISYON_GUNCELLENDI: 'تحديث وظيفة', POZISYON_KAPATILDI: 'إغلاق وظيفة', POZISYON_YENIDEN_ACILDI: 'إعادة فتح وظيفة', GOREVLI_DEGISTI: 'تغيير اسم الموظف', KILIT_AYARLANDI: 'تعيين كلمة مرور', KILIT_KALDIRILDI: 'إزالة كلمة المرور', TUM_VERI_SILINDI: 'حذف جميع البيانات' };
+
+/* =====================================================================  eşleştirme motoru */
+const poolable = (s) => s.status === 'aktif' && s.consent && s.consent.data && s.consent.referral;
+const vacOpen = (v) => v.status === 'acik' && (!v.closes || v.closes >= today()) && S.employers[v.employer] && S.employers[v.employer].verified && S.employers[v.employer].status !== 'pasif';
+const pkey = (a, b) => a + '|' + b;
+function ctx() {
+  const act = {}, vact = {}, pairs = new Set(), blocked = new Set(S.blocked);
+  for (const r of Object.values(S.referrals)) { pairs.add(pkey(r.seeker, r.vacancy)); if (ACTIVE_REF.includes(r.status)) { act[r.seeker] = (act[r.seeker] || 0) + 1; vact[r.vacancy] = (vact[r.vacancy] || 0) + 1; } }
+  return { act, vact, pairs, blocked };
+}
+const eduIdx = (x) => +x || 0;
+/** Bir iş arayan ile bir pozisyon arasında puan. Cinsiyet, yaş, medeni hâl, sağlık/engel, din vb. HİÇ kullanılmaz. */
+function scorePair(s, v, Pm = P()) {
+  const parts = [], w = Pm.weights; let hard = null;
+  const has = new Set(s.skills.map(trLower));
+  // beceriler
+  const req = v.req || [], pref = v.pref || [], gotReq = req.filter((x) => has.has(trLower(x))), missing = req.filter((x) => !has.has(trLower(x)));
+  const reqCov = req.length ? gotReq.length / req.length : 1;
+  if (req.length && (Pm.reqRule === 'hepsi' ? missing.length : reqCov * 100 < Pm.reqPct)) hard = 'skills';
+  parts.push({ k: 'skills', label: 'المهارات الإلزامية', v: reqCov, w: w.skills, note: req.length ? `${gotReq.length}/${req.length} مستوفاة${missing.length ? ' · الناقص: ' + missing.join('، ') : ''}` : 'لا تُطلب مهارات إلزامية', miss: missing });
+  const gotPref = pref.filter((x) => has.has(trLower(x)));
+  parts.push({ k: 'pref', label: 'المهارات المفضلة', v: pref.length ? gotPref.length / pref.length : 1, w: w.pref, note: pref.length ? `${gotPref.length}/${pref.length}` : 'لم تُحدَّد مهارات مفضلة' });
+  // eğitim
+  const need = eduIdx(v.minEdu), have = eduIdx(s.edu), gap = need - have;
+  if (gap > Pm.eduGap && !hard) hard = 'edu';
+  parts.push({ k: 'edu', label: 'التعليم', v: gap <= 0 ? 1 : Math.max(0, 1 - gap / 3), w: w.edu, note: `${Pm.eduLevels[have] || '?'} ↔ المطلوب على الأقل: ${Pm.eduLevels[need] || '?'}` });
+  // deneyim
+  const expGap = (v.minExp || 0) - (s.exp || 0);
+  if (expGap > Pm.expGapYears && !hard) hard = 'exp';
+  parts.push({ k: 'exp', label: 'الخبرة', v: (v.minExp || 0) === 0 ? 1 : Math.min(1, (s.exp || 0) / v.minExp), w: w.exp, note: `${s.exp || 0} سنة ↔ المطلوب ${v.minExp || 0} سنة` });
+  // konum
+  const remote = v.workType === 'uzaktan', same = trLower(s.il) === trLower(v.il), okCity = (s.cities || []).map(trLower).includes(trLower(v.il));
+  const loc = remote ? 1 : same ? 1 : okCity ? 0.85 : 0;
+  if (loc === 0 && Pm.locHard && !hard) hard = 'loc';
+  parts.push({ k: 'loc', label: 'الموقع', v: loc, w: w.loc, note: remote ? 'عمل عن بُعد' : same ? 'المدينة نفسها' : okCity ? 'من المدن التي يرغب بالعمل فيها' : `${s.il} ↔ ${v.il}: المرشح لا يرغب بالعمل في هذه المدينة` });
+  // ücret
+  let sal = 1, snote = 'لم تُحدَّد توقعات الأجر';
+  if (s.salaryMin && v.salaryMax) { if (s.salaryMin <= v.salaryMax) { sal = 1; snote = 'التوقع ضمن نطاق الأجر'; } else { const over = (s.salaryMin - v.salaryMax) / v.salaryMax * 100; sal = Math.max(0, 1 - over / 50); snote = `التوقع يتجاوز الحد الأعلى بنسبة ${Math.round(over)}%`; if (Pm.salaryHard && over > Pm.salaryTolerancePct && !hard) hard = 'salary'; } }
+  parts.push({ k: 'salary', label: 'الأجر', v: sal, w: w.salary, note: snote });
+  // çalışma şekli
+  const wt = (s.workTypes || []).length === 0 || s.workTypes.includes(v.workType);
+  parts.push({ k: 'work', label: 'نمط العمل', v: wt ? 1 : 0, w: w.work, note: wt ? WTN[v.workType] : `المرشح لا يقبل نمط «${WTN[v.workType]}»` });
+  // ehliyet (zorunluysa elenir)
+  if (v.ehliyet && v.ehliyet !== 'Yok' && !hard) { const ok = s.ehliyet && s.ehliyet !== 'Yok' && s.ehliyet >= v.ehliyet; if (!ok) hard = 'ehliyet'; parts.push({ k: 'ehliyet', label: 'رخصة القيادة', v: ok ? 1 : 0, w: 0, note: `المطلوب الفئة ${v.ehliyet} ↔ ${ehT(s.ehliyet)}` }); }
+  const tw = parts.reduce((a, p) => a + p.w, 0) || 1, score = parts.reduce((a, p) => a + p.v * p.w, 0) / tw * 100 + (s.startNow ? 1 : 0);
+  return { hard, score: Math.min(100, Math.round(score * 10) / 10), parts };
+}
+const HARD_TXT = { skills: 'نقص في المهارات الإلزامية', edu: 'المستوى التعليمي غير كافٍ', exp: 'الخبرة غير كافية', loc: 'المرشح لا يرغب بالعمل في هذه المدينة', salary: 'توقعات الأجر مرتفعة جدًا', ehliyet: 'شرط رخصة القيادة غير مستوفى' };
+function pairBlock(s, v, c, Pm = P(), t = today()) {
+  if (!poolable(s)) return 'الباحث عن عمل ليس في المجمّع';
+  if (!vacOpen(v)) return 'الوظيفة غير مفتوحة (أو صاحب العمل غير معتمد)';
+  const age = ageOn(s.dogum, t); if (age < HARD.minAgeFloor || age < Pm.minAge || age > Pm.maxAge) return 'خارج النطاق العمري';
+  if (c.pairs.has(pkey(s.id, v.id))) return 'سبق إجراء توجيه لهذا الثنائي';
+  if (c.blocked.has(pkey(s.id, v.id))) return 'الثنائي محظور (رفض / لم يتم التعيين)';
+  if ((c.act[s.id] || 0) >= Pm.maxActiveRefs) return `لدى المرشح ${Pm.maxActiveRefs} توجيهات نشطة`;
+  if ((c.vact[v.id] || 0) >= Math.max(1, (v.adet - (v.filled || 0))) * Pm.refsPerSlot) return 'استُنفدت حصة التوجيهات لهذه الوظيفة';
+  return null;
+}
+function runMatching() {
+  const c = ctx(), seekers = Object.values(S.seekers).filter(poolable), vacs = Object.values(S.vacancies).filter(vacOpen), items = [], got = new Set(), gaps = {}, near = {};
+  for (const v of vacs) {
+    const cands = [];
+    for (const s of seekers) {
+      const b = pairBlock(s, v, c); const r = scorePair(s, v);
+      if (r.hard === 'skills' && !b) { const p = r.parts[0]; (near[s.id] = near[s.id] || []).push(...p.miss); }
+      if (b || r.hard || r.score < P().minScore) continue;
+      cands.push({ s: s.id, score: r.score }); got.add(s.id);
+    }
+    cands.sort((a, b) => b.score - a.score); items.push({ v: v.id, cands: cands.slice(0, 50), total: cands.length });
+  }
+  const none = seekers.filter((s) => !got.has(s.id)).map((s) => s.id);
+  for (const id of none) for (const m of new Set(near[id] || [])) gaps[m] = (gaps[m] || 0) + 1;
+  S.run = { ts: Date.now(), user: user(), seal: sealOf(P()), pool: seekers.length, vacancies: vacs.length, items, none, gaps };
+  A('ESLESTIRME_CALISTIRILDI', `المجمّع ${seekers.length}؛ وظائف مفتوحة ${vacs.length}؛ الختم ${S.run.seal.slice(0, 12)}`);
+  save();
+}
+
+/* =====================================================================  modal form yardımcısı */
+function openForm({ title, intro, fields, data = {}, submit = 'حفظ', validate }) {
+  return new Promise((resolve) => {
+    const dlg = document.createElement('dialog'); const val = (n) => data[n] ?? '';
+    const fld = (f) => {
+      const id = 'f_' + f.n, v = data[f.n];
+      if (f.type === 'checks') return `<div class="${f.full ? '' : ''}"><label>${esc(f.label)}</label><div class="checks">${f.opts.map((o) => `<label class="chk"><input type="checkbox" name="${f.n}" value="${esc(o)}" ${(v || []).includes(o) ? 'checked' : ''}> ${esc(o)}</label>`).join('')}</div>${f.help ? `<div class="small muted">${esc(f.help)}</div>` : ''}</div>`;
+      if (f.type === 'check') return `<label class="chk"><input type="checkbox" name="${f.n}" ${v ? 'checked' : ''}> <span>${f.html || esc(f.label)}</span></label>`;
+      const lab = `<label for="${id}">${esc(f.label)}${f.req ? ' *' : ''}</label>`, help = f.help ? `<div class="small muted">${esc(f.help)}</div>` : '';
+      if (f.type === 'select') return `<div>${lab}<select id="${id}" name="${f.n}">${f.opts.map(([k, t]) => `<option value="${esc(k)}" ${String(v) === String(k) ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>${help}</div>`;
+      if (f.type === 'textarea') return `<div>${lab}<textarea id="${id}" name="${f.n}" ${f.max ? `maxlength="${f.max}"` : ''}>${esc(v ?? '')}</textarea>${help}</div>`;
+      if (f.type === 'tags') return `<div>${lab}<input id="${id}" name="${f.n}" value="${esc((v || []).join('، '))}">${help}</div>`;
+      return `<div>${lab}<input id="${id}" name="${f.n}" type="${f.type || 'text'}" ${f.ltr ? 'dir="ltr"' : ''} value="${esc(v ?? '')}" ${f.max ? `maxlength="${f.max}"` : ''} ${f.min !== undefined ? `min="${f.min}"` : ''} ${f.step ? `step="${f.step}"` : ''}>${help}</div>`;
+    };
+    dlg.innerHTML = `<form method="dialog"><h2>${esc(title)}</h2>${intro ? `<p class="small muted">${intro}</p>` : ''}<div class="grid g2">${fields.filter((f) => !f.full).map(fld).join('')}</div>${fields.filter((f) => f.full).map(fld).join('')}<div id="ferr"></div><div class="row mt8"><button class="b" type="submit">${esc(submit)}</button><button class="b ghost" type="button" data-x>إلغاء</button></div></form>`;
+    document.body.appendChild(dlg); dlg.showModal();
+    const done = (r) => { dlg.close(); dlg.remove(); resolve(r); };
+    dlg.addEventListener('cancel', (e) => { e.preventDefault(); done(null); });
+    dlg.querySelector('[data-x]').onclick = () => done(null);
+    dlg.querySelector('form').onsubmit = (e) => {
+      e.preventDefault(); const out = {}, f = e.target;
+      for (const fl of fields) {
+        if (fl.type === 'checks') out[fl.n] = [...f.querySelectorAll(`input[name="${fl.n}"]:checked`)].map((x) => x.value);
+        else if (fl.type === 'check') out[fl.n] = f.elements[fl.n].checked;
+        else if (fl.type === 'tags') out[fl.n] = f.elements[fl.n].value.split(/[,;،؛\n]/).map((x) => x.trim()).filter(Boolean);
+        else if (fl.type === 'number') { const x = f.elements[fl.n].value; out[fl.n] = x === '' ? null : +x; }
+        else out[fl.n] = String(f.elements[fl.n].value).trim();
+      }
+      const errs = validate ? validate(out) : []; if (errs.length) { $('#ferr', dlg).innerHTML = `<div class="note bad">${errs.map((x) => '• ' + esc(x)).join('<br>')}</div>`; return; }
+      done(out);
+    };
+  });
+}
+const ask = (title, fields, opts = {}) => openForm({ title, fields, ...opts });
+
+/* =====================================================================  varlıklar: doğrulama ve formlar */
+const cityList = () => ['أضنة', 'أنقرة', 'أنطاليا', 'بورصة', 'ديار بكر', 'أرضروم', 'إسكيشهير', 'غازي عنتاب', 'إسطنبول', 'إزمير', 'قيصري', 'قونية', 'مرسين', 'سامسون', 'طرابزون', 'وان'];
+function seekerFields(existing) {
+  const Pm = P(), eduOpts = Pm.eduLevels.map((x, i) => [i, x]);
+  return [
+    { n: 'ad', label: 'الاسم', req: 1, max: 60 }, { n: 'soyad', label: 'اللقب', req: 1, max: 60 }, { n: 'tc', label: 'رقم الهوية الوطنية التركية (T.C.)', req: 1, max: 11, ltr: 1, help: 'يُتحقق منه بالخوارزمية فقط؛ لا يُجرى استعلام رسمي — يجب أن يتحقق الموظف من وثيقة الهوية.' },
+    { n: 'dogum', label: 'تاريخ الميلاد', type: 'date', req: 1 }, { n: 'cinsiyet', label: 'الجنس (لأغراض الإحصاء وتقرير العدالة فقط؛ لا يُستخدم في المطابقة)', type: 'select', opts: [['', 'لا يرغب بالإفصاح'], ['K', 'أنثى'], ['E', 'ذكر']] },
+    { n: 'il', label: 'مدينة الإقامة', req: 1, max: 40 }, { n: 'tel', label: 'الهاتف', max: 20, ltr: 1 },
+    { n: 'edu', label: 'المستوى التعليمي', type: 'select', opts: eduOpts }, { n: 'alan', label: 'مجال المهنة', type: 'select', opts: Pm.fields.map((x) => [x, x]) },
+    { n: 'meslek', label: 'المهنة / المسمى', max: 80 }, { n: 'exp', label: 'إجمالي الخبرة (سنوات)', type: 'number', min: 0, step: '0.5' },
+    { n: 'ehliyet', label: 'فئة رخصة القيادة', type: 'select', opts: EHL.map((x) => [x, ehT(x)]) }, { n: 'salaryMin', label: 'الحد الأدنى المتوقع للأجر الصافي (₺، فارغ = غير محدد)', type: 'number', min: 0, step: '500' },
+    { n: 'cities', label: 'المدن التي يرغب بالعمل فيها (مفصولة بفواصل «،»)', type: 'tags', help: 'مدينة الإقامة مشمولة تلقائيًا.' },
+    { n: 'skills', label: 'المهارات', type: 'checks', opts: Pm.skills, full: 1 }, { n: 'extraSkills', label: 'مهارات غير واردة في القائمة (مفصولة بفواصل؛ تُقارن في المطابقة كما هي)', type: 'tags', full: 1 },
+    { n: 'workTypes', label: 'أنماط العمل المقبولة (إن لم يُحدَّد أي نمط فجميعها مقبولة)', type: 'checks', opts: WT.map((x) => x[1]), full: 1 },
+    { n: 'startNow', label: 'يمكنه المباشرة فورًا', type: 'check', full: 1 },
+    { n: 'notes', label: 'ملاحظة الموظف (لا تكتب معلومات شخصية/حساسة)', type: 'textarea', max: 400, full: 1 },
+    { n: 'c_data', type: 'check', full: 1, html: '<b>الموافقة على معالجة البيانات:</b> ' + esc(Pm.consentText) },
+    { n: 'c_ref', type: 'check', full: 1, html: '<b>الموافقة على التوجيه إلى صاحب العمل (منفصلة):</b> أوافق على إبلاغ صاحب العمل المعني ببياناتي للوظائف المناسبة، وذلك بعد موافقتي.' },
+    { n: 'c_id', type: 'check', full: 1, html: '<b>تحقق الموظف:</b> تم الاطلاع على وثيقة الهوية شخصيًا وهي متوافقة مع البيانات المصرَّح بها.' }
+  ];
+}
+function seekerToForm(s) { const o = { ...s, c_data: s.consent.data, c_ref: s.consent.referral, c_id: s.idVerified }; const wtn = (s.workTypes || []).map((k) => WTN[k]); o.workTypes = wtn; const known = new Set(P().skills); o.skills = s.skills.filter((x) => known.has(x)); o.extraSkills = s.skills.filter((x) => !known.has(x)); return o; }
+function seekerFromForm(f, base) {
+  const wtRev = Object.fromEntries(WT.map(([k, t]) => [t, k])), skills = [...new Set([...f.skills, ...f.extraSkills])];
+  return { ...base, ad: f.ad, soyad: f.soyad, tc: f.tc.replace(/\D/g, ''), dogum: f.dogum, cinsiyet: f.cinsiyet, il: f.il, tel: f.tel, edu: +f.edu, alan: f.alan, meslek: f.meslek, exp: f.exp || 0, ehliyet: f.ehliyet, salaryMin: f.salaryMin || 0, cities: f.cities, skills, workTypes: f.workTypes.map((t) => wtRev[t]), startNow: f.startNow, notes: f.notes, consent: { data: f.c_data, referral: f.c_ref, ts: Date.now() }, idVerified: f.c_id };
+}
+function validateSeeker(f, id) {
+  const e = [], Pm = P(), tc = f.tc.replace(/\D/g, '');
+  if (!f.ad || !f.soyad) e.push('الاسم واللقب مطلوبان.');
+  if (!tcValid(tc)) e.push('رقم الهوية الوطنية التركية (T.C.) غير صالح.');
+  else if (Object.values(S.seekers).some((x) => x.id !== id && x.tc === tc && x.status !== 'silindi')) e.push('يوجد باحث عن عمل آخر مسجَّل بهذا الرقم (طلب مكرر).');
+  if (!isDate(f.dogum)) e.push('تاريخ الميلاد غير صالح.'); else { const a = ageOn(f.dogum, today()); if (a < HARD.minAgeFloor) e.push(`لا يمكن قبول من هم دون سن ${HARD.minAgeFloor} في النظام.`); else if (a < Pm.minAge || a > Pm.maxAge) e.push(`العمر (${a}) خارج النطاق المقبول (${Pm.minAge}–${Pm.maxAge}).`); }
+  if (!f.il) e.push('مدينة الإقامة مطلوبة.');
+  if (f.exp !== null && (f.exp < 0 || f.exp > 60)) e.push('يجب أن تكون الخبرة بين 0 و60 سنة.');
+  if (f.salaryMin !== null && f.salaryMin < 0) e.push('لا يجوز أن يكون توقع الأجر سالبًا.');
+  if (!f.c_data) e.push('لا يمكن إنشاء السجل دون الموافقة على معالجة البيانات.');
+  return e;
+}
+const employerFields = () => [
+  { n: 'ad', label: 'اسم المنشأة / الشركة', req: 1, max: 100 }, { n: 'vergiNo', label: 'الرقم الضريبي (10 خانات) أو رقم الهوية الوطنية التركية (T.C.)', req: 1, max: 11, ltr: 1 }, { n: 'il', label: 'المدينة', req: 1, max: 40 },
+  { n: 'sektor', label: 'القطاع', type: 'select', opts: P().fields.map((x) => [x, x]) }, { n: 'yetkili', label: 'الشخص المسؤول', max: 80 }, { n: 'tel', label: 'الهاتف', max: 20, ltr: 1 },
+  { n: 'notes', label: 'ملاحظة', type: 'textarea', max: 300, full: 1 }
+];
+function validateEmployer(f, id) {
+  const e = []; if (!f.ad) e.push('اسم الشركة مطلوب.'); if (!/^\d{10,11}$/.test(f.vergiNo.replace(/\D/g, ''))) e.push('يجب أن يتكون الرقم الضريبي / رقم الهوية من 10 أو 11 خانة.');
+  else if (Object.values(S.employers).some((x) => x.id !== id && x.vergiNo === f.vergiNo.replace(/\D/g, ''))) e.push('يوجد صاحب عمل مسجَّل بهذا الرقم الضريبي.');
+  if (!f.il) e.push('المدينة مطلوبة.'); return e;
+}
+function vacancyFields() {
+  const Pm = P(), emps = Object.values(S.employers).filter((e) => e.verified && e.status !== 'pasif');
+  return [
+    { n: 'employer', label: 'صاحب العمل (المعتمدون فقط)', type: 'select', opts: emps.map((e) => [e.id, `${e.ad} (${e.il})`]) },
+    { n: 'baslik', label: 'مسمى الوظيفة', req: 1, max: 100, help: 'لا يجوز أن يتضمن عبارات تمييزية (الجنس، العمر، الحالة الاجتماعية، إلخ).' }, { n: 'alan', label: 'المجال', type: 'select', opts: Pm.fields.map((x) => [x, x]) },
+    { n: 'adet', label: 'عدد الشواغر (أشخاص)', type: 'number', min: 1, req: 1 }, { n: 'il', label: 'مدينة مكان العمل', req: 1, max: 40 }, { n: 'workType', label: 'نمط العمل', type: 'select', opts: WT },
+    { n: 'minEdu', label: 'الحد الأدنى للتعليم', type: 'select', opts: Pm.eduLevels.map((x, i) => [i, x]) }, { n: 'minExp', label: 'الحد الأدنى للخبرة (سنوات)', type: 'number', min: 0, step: '0.5' },
+    { n: 'ehliyet', label: 'رخصة القيادة المطلوبة', type: 'select', opts: EHL.map((x) => [x, ehT(x)]) }, { n: 'salaryMin', label: 'الحد الأدنى للأجر الصافي (₺)', type: 'number', min: 0, step: '500' }, { n: 'salaryMax', label: 'الحد الأعلى للأجر الصافي (₺)', type: 'number', min: 0, step: '500' },
+    { n: 'closes', label: 'آخر موعد للتقديم (فارغ = بلا موعد)', type: 'date' },
+    { n: 'req', label: 'المهارات الإلزامية', type: 'checks', opts: Pm.skills, full: 1, help: 'اختر فقط المهارات التي يتطلبها العمل فعلًا. وفق المعايير، يُستبعد المرشح الذي ينقصه شيء منها.' }, { n: 'reqX', label: 'مهارات إلزامية غير واردة في القائمة (مفصولة بفواصل)', type: 'tags', full: 1 },
+    { n: 'pref', label: 'المهارات المفضلة', type: 'checks', opts: Pm.skills, full: 1 },
+    { n: 'desc', label: 'الوصف', type: 'textarea', max: 500, full: 1 }
+  ];
+}
+function validateVacancy(f) {
+  const e = [], Pm = P(); if (!f.employer) e.push('اختر صاحب عمل معتمدًا.'); if (!f.baslik) e.push('العنوان مطلوب.'); if (!f.adet || f.adet < 1) e.push('يجب أن يكون عدد الشواغر 1 على الأقل.'); if (!f.il) e.push('المدينة مطلوبة.');
+  if (f.salaryMin && f.salaryMax && f.salaryMin > f.salaryMax) e.push('لا يجوز أن يكون الحد الأدنى للأجر أكبر من الحد الأعلى.'); if (f.closes && !isDate(f.closes)) e.push('آخر موعد للتقديم غير صالح.');
+  const m = (f.baslik + ' ' + f.desc + ' ' + f.reqX.join(' ')).replace(/[\u0640\u064B-\u065F]/g, '').match(DISCRIM); if (m) e.push(`يتضمن نص الإعلان عبارة تمييزية («${m[0]}»). عملًا بمبدأ المساواة في المعاملة (المادة 5 من قانون العمل التركي) لا يجوز أن ترد في الإعلان معايير كالجنس أو العمر أو الحالة الاجتماعية أو الدين أو العِرق وما شابهها.`);
+  void Pm; return e;
+}
+
+/* =====================================================================  görünümler */
+const R = { v: 'dash', id: null }, ctxUI = {};
+const badge = (map, k) => `<span class="badge ${(map[k] || ['', ''])[1]}">${esc((map[k] || [k])[0])}</span>`;
+const pager = (page, total, size, act) => { const pages = Math.max(1, Math.ceil(total / size)); return `<div class="pager"><button class="b ghost sm" data-act="${act}" data-p="${page - 1}" ${page <= 1 ? 'disabled' : ''} aria-label="السابق">›</button><span class="small muted">صفحة ${page}/${pages} · ${total} سجل</span><button class="b ghost sm" data-act="${act}" data-p="${page + 1}" ${page >= pages ? 'disabled' : ''} aria-label="التالي">‹</button></div>`; };
+const sName = (s) => (s ? (s.status === 'silindi' ? '[محذوف]' : `${s.ad} ${s.soyad}`) : '?');
+const refsOf = (f) => Object.values(S.referrals).filter(f);
+const commit = (action, detail, msg) => { if (action) A(action, detail); save(); if (msg) toast(msg); render(); };
+const TABS = [['dash', 'اللوحة'], ['seekers', 'الباحثون عن عمل'], ['employers', 'أصحاب العمل'], ['vacancies', 'الوظائف الشاغرة'], ['match', 'المطابقة'], ['refs', 'التوجيهات'], ['reports', 'التقارير'], ['params', 'المعايير'], ['audit', 'التدقيق'], ['data', 'البيانات'], ['about', 'حول النظام']];
+function chrome() {
+  $('#brand').innerHTML = `${esc(P().institution)}<small>نظام طلبات العمل والتوجيه · يعمل دون اتصال</small>`;
+  $('#who').innerHTML = S.meta.lock ? '<button class="b ghost sm" data-act="lock" style="background:#fff">قفل</button>' : '';
+  const cur = R.v === 'seeker' ? 'seekers' : R.v === 'ref' ? 'refs' : R.v;
+  $('#tabs').classList.remove('hidden');
+  $('#tabsin').innerHTML = TABS.map(([k, n]) => `<button class="${cur === k ? 'on' : ''}" data-act="nav" data-k="${k}">${n}</button>`).join('');
+}
+function go(v, id) { R.v = v; R.id = id || null; render(); }
+function render() {
+  chrome(); const V = { dash: vDash, seekers: vSeekers, seeker: vSeeker, employers: vEmployers, vacancies: vVacancies, match: vMatch, refs: vRefs, ref: vRef, reports: vReports, params: vParams, audit: vAudit, data: vData, about: vAbout };
+  try { $('#app').innerHTML = (V[R.v] || vDash)(); window.scrollTo(0, 0); } catch (e) { console.error(e); $('#app').innerHTML = `<div class="note bad">خطأ في العرض: ${esc(e.message)}</div>`; }
+}
+
+function vDash() {
+  const Pm = P(), t = today(), seekers = Object.values(S.seekers), vacs = Object.values(S.vacancies), refs = Object.values(S.referrals);
+  const n = (a, f) => a.filter(f).length, ch = verifyChain();
+  let al = ch.ok ? `<div class="note good">تم التحقق من سلامة سجل التدقيق (${ch.n} سجل).</div>` : `<div class="note bad"><b>تحذير:</b> سلسلة التدقيق تالفة عند السجل رقم ${ch.at}؛ قد تكون البيانات قد عُدِّلت.</div>`;
+  if (memOnly) al += '<div class="note bad"><b>تخزين المتصفح غير متاح.</b> تُحفظ البيانات ما دامت هذه التبويبة مفتوحة فقط؛ نزِّل نسخة احتياطية (البيانات ← تنزيل نسخة احتياطية) قبل الخروج.</div>';
+  const days = S.meta.lastBackup ? Math.floor((Date.now() - S.meta.lastBackup) / 864e5) : null;
+  if (days === null || days > 7) al += `<div class="note warn">${days === null ? 'لم تُؤخذ أي نسخة احتياطية.' : `آخر نسخة احتياطية قبل ${days} يومًا.`} البيانات موجودة في هذا المتصفح فقط؛ خذ نسخًا احتياطية دورية عبر <b>البيانات ← تنزيل نسخة احتياطية</b>.</div>`;
+  const late = n(refs, (r) => r.status === 'yanit_bekliyor' && daysBetween(dStr(new Date(r.createdAt)), t) > Pm.responseDays);
+  if (late) al += `<div class="note warn">في <b>${late}</b> توجيه انتهت مهلة رد المرشح (${Pm.responseDays} أيام).</div>`;
+  const noInt = n(refs, (r) => r.status === 'kabul' && daysBetween(dStr(new Date(r.updatedAt)), t) > Pm.interviewDays);
+  if (noInt) al += `<div class="note warn"><b>${noInt}</b> توجيه مقبول لم تُحسم نتيجته منذ أكثر من ${Pm.interviewDays} يومًا.</div>`;
+  const closing = n(vacs, (v) => v.status === 'acik' && v.closes && daysBetween(t, v.closes) >= 0 && daysBetween(t, v.closes) <= 3); if (closing) al += `<div class="note info">آخر موعد للتقديم على <b>${closing}</b> وظيفة خلال 3 أيام.</div>`;
+  const ret = n(seekers, (s) => ['yerlesti', 'pasif'].includes(s.status) && s.closedAt && daysBetween(dStr(new Date(s.closedAt)), t) > Pm.retentionDays); if (ret) al += `<div class="note warn">انتهت مدة الاحتفاظ (${Pm.retentionDays} يومًا) لـ <b>${ret}</b> سجل؛ يمكن إزالة هويتها من صفحة البيانات.</div>`;
+  const placed = n(refs, (r) => r.status === 'ise_alindi'), openSlots = vacs.filter((v) => v.status === 'acik').reduce((a, v) => a + v.adet - (v.filled || 0), 0);
+  return `<h1>اللوحة</h1>${al}<div class="grid g4"><div class="card stat"><b>${n(seekers, (s) => s.status === 'aktif')}</b><span>الباحثون عن عمل في المجمّع</span></div><div class="card stat"><b>${openSlots}</b><span>شواغر مفتوحة (${n(vacs, (v) => v.status === 'acik')} وظيفة)</span></div><div class="card stat"><b>${n(refs, (r) => ACTIVE_REF.includes(r.status))}</b><span>توجيهات جارية</span></div><div class="card stat"><b>${placed}</b><span>حالات التعيين</span></div></div>
+  <div class="card"><h3>آخر تشغيل للمطابقة</h3>${S.run ? `<p>${fmtT(S.run.ts)} · ${esc(S.run.user)} · المجمّع ${S.run.pool} · وظائف مفتوحة ${S.run.vacancies} · مرشحون بلا ترشيح ${S.run.none.length}${S.run.seal !== sealOf(Pm) ? ' <span class="badge warn">تغيّرت المعايير، أعد التشغيل</span>' : ''}</p>` : '<p class="muted">لم تُشغَّل بعد.</p>'}</div>
+  <div class="card"><p class="small muted">يقتصر النظام على إنتاج <b>اقتراحات</b>. لا يُبلَّغ أي صاحب عمل بأي باحث عن عمل دون موافقته، ولا تستخدم المطابقة بأي حال خصائص خارج متطلبات العمل كالجنس والعمر والحالة الاجتماعية وحالة الإعاقة. تُسجَّل جميع العمليات في سجل تدقيق متسلسل.</p></div>`;
+}
+
+/* ----- iş arayanlar */
+function vSeekers() {
+  const c = ctxUI.sk = ctxUI.sk || { q: '', st: '', page: 1 }, size = 40, q = trLower(c.q);
+  const all = Object.values(S.seekers).filter((s) => (!c.st || s.status === c.st) && (!q || trLower([s.id, s.ad, s.soyad, s.tc, s.il, s.meslek].join(' ')).includes(q))).sort((a, b) => b.createdAt - a.createdAt), rows = all.slice((c.page - 1) * size, c.page * size), cx = ctx();
+  return `<div class="row"><h1 class="sp">الباحثون عن عمل</h1><button class="b" data-act="newseeker">+ طلب جديد</button></div><div class="card"><div class="row"><input id="skq" style="max-width:260px" placeholder="بحث: الاسم، الرقم، المدينة، المهنة، رقم الهوية (T.C.)" value="${esc(c.q)}"><select id="skst" style="max-width:220px"><option value="">جميع الحالات</option>${Object.entries(SK_ST).map(([k, v]) => `<option value="${k}" ${c.st === k ? 'selected' : ''}>${v[0]}</option>`).join('')}</select></div>
+  <div class="tw"><table><tr><th>الرقم</th><th>الاسم الكامل</th><th>العمر</th><th>المدينة</th><th>التعليم / المهنة</th><th>الحالة</th><th>التوجيهات</th></tr>${rows.map((s) => `<tr><td><a href="#" data-act="openseeker" data-id="${s.id}">${bd(s.id)}</a></td><td>${esc(sName(s))}</td><td>${s.dogum && s.status !== 'silindi' ? ageOn(s.dogum, today()) : '—'}</td><td>${esc(s.il)}</td><td>${esc(P().eduLevels[s.edu] || '')} · ${esc(s.meslek)}</td><td>${badge(SK_ST, s.status)}</td><td>${cx.act[s.id] || 0}</td></tr>`).join('') || '<tr><td colspan="7" class="muted">لا توجد سجلات.</td></tr>'}</table></div>${pager(c.page, all.length, size, 'skpage')}</div>`;
+}
+function vSeeker() {
+  const s = S.seekers[R.id]; if (!s) return '<div class="note bad">السجل غير موجود.</div>';
+  const del = s.status === 'silindi', Pm = P(), refs = refsOf((r) => r.seeker === s.id).sort((a, b) => b.createdAt - a.createdAt);
+  A('KAYIT_GORULDU', s.id); save();
+  const btn = (a, t, cls = 'ghost') => `<button class="b ${cls} sm" data-act="${a}" data-id="${s.id}">${t}</button>`;
+  return `<div class="row"><h1 class="sp">${esc(sName(s))} <span class="muted">${bd(s.id)}</span></h1>${badge(SK_ST, s.status)}<button class="b ghost" data-act="nav" data-k="seekers">→ القائمة</button></div>
+  ${del ? '<div class="note info">أُزيلت هوية هذا السجل؛ لم يبقَ سوى الحقول ذات الأغراض الإحصائية.</div>' : `<div class="card"><div class="grid g3"><div><b>رقم الهوية (T.C.)</b><br>${bd(s.tc)} ${s.idVerified ? '<span class="badge good">تم التحقق</span>' : '<span class="badge warn">بانتظار التحقق</span>'}</div><div><b>العمر / الميلاد</b><br>${ageOn(s.dogum, today())} · ${fmtD(s.dogum)}</div><div><b>الهاتف</b><br>${s.tel ? bd(s.tel) : '—'}</div><div><b>المدينة</b><br>${esc(s.il)}</div><div><b>التعليم</b><br>${esc(Pm.eduLevels[s.edu] || '')}</div><div><b>المهنة</b><br>${esc(s.meslek)} (${esc(s.alan)})</div><div><b>الخبرة</b><br>${s.exp} سنة</div><div><b>رخصة القيادة</b><br>${esc(ehT(s.ehliyet))}</div><div><b>توقع الأجر</b><br>${s.salaryMin ? bd(s.salaryMin + ' ₺') : '—'}</div></div>
+  <p class="mt8"><b>المهارات:</b> ${s.skills.map((x) => `<span class="badge info">${esc(x)}</span>`).join(' ') || '—'}</p><p class="small"><b>المدن التي يرغب بالعمل فيها:</b> ${esc(s.cities.join('، ')) || '—'} · <b>أنماط العمل:</b> ${esc(s.workTypes.map((k) => WTN[k]).join('، ')) || 'جميعها'} · ${s.startNow ? 'يمكنه المباشرة فورًا' : ''}</p>
+  <p class="small muted">الموافقة: البيانات ${s.consent.data ? '✔' : '✘'} · التوجيه ${s.consent.referral ? '✔' : '✘'} · ${fmtT(s.consent.ts)}${s.notes ? ' · ملاحظة: ' + esc(s.notes) : ''}</p>
+  <div class="row">${s.status !== 'yerlesti' ? btn('editseeker', 'تعديل', 'ghost') : ''}${['taslak', 'pasif'].includes(s.status) ? btn('sk-activate', 'إدراج في المجمّع', '') : ''}${s.status === 'aktif' ? btn('sk-pause', 'إيقاف (غير نشط)') : ''}${s.status === 'yerlesti' ? btn('sk-reopen', 'يبحث عن عمل من جديد') : ''}${btn('sk-anon', 'حذف البيانات (إزالة الهوية)', 'red')}</div></div>`}
+  <div class="card"><h3>التوجيهات</h3>${refs.map((r) => `<div><a href="#" data-act="openref" data-id="${r.id}">${bd(r.id)}</a> · ${esc(S.vacancies[r.vacancy] ? S.vacancies[r.vacancy].baslik : '?')} ${badge(REF_ST, r.status)} <span class="muted small">الدرجة ${r.score}</span></div>`).join('') || '<p class="muted">لا يوجد.</p>'}</div>`;
+}
+
+/* ----- işverenler ve pozisyonlar */
+function vEmployers() {
+  const L = Object.values(S.employers).sort((a, b) => b.createdAt - a.createdAt);
+  return `<div class="row"><h1 class="sp">أصحاب العمل</h1><button class="b" data-act="newemployer">+ صاحب عمل جديد</button></div><div class="note info small">لا يمكن لصاحب العمل فتح وظائف ولا يمكن توجيه مرشحين إليه <b>قبل أن يعتمده الموظف (بالتحقق من البطاقة الضريبية / السجل التجاري)</b>.</div>
+  <div class="card"><div class="tw"><table><tr><th>الرقم</th><th>الشركة</th><th>المدينة / القطاع</th><th>المسؤول</th><th>الحالة</th><th>الوظائف</th><th></th></tr>${L.map((e) => `<tr><td>${bd(e.id)}</td><td>${esc(e.ad)}<div class="small muted">${bd(e.vergiNo)}</div></td><td>${esc(e.il)} · ${esc(e.sektor)}</td><td>${esc(e.yetkili)}<div class="small muted">${e.tel ? bd(e.tel) : ''}</div></td><td>${e.verified ? '<span class="badge good">معتمد</span>' : '<span class="badge warn">بانتظار الاعتماد</span>'}${e.status === 'pasif' ? ' <span class="badge bad">غير نشط</span>' : ''}</td><td>${Object.values(S.vacancies).filter((v) => v.employer === e.id && v.status === 'acik').length} مفتوحة</td>
+  <td><button class="b ghost sm" data-act="editemployer" data-id="${e.id}">تعديل</button> ${!e.verified ? `<button class="b sm" data-act="verifyemployer" data-id="${e.id}">اعتماد</button>` : ''} <button class="b ghost sm" data-act="toggleemployer" data-id="${e.id}">${e.status === 'pasif' ? 'تفعيل' : 'إيقاف'}</button></td></tr>`).join('') || '<tr><td colspan="7" class="muted">لا توجد سجلات.</td></tr>'}</table></div></div>`;
+}
+function vVacancies() {
+  const c = ctxUI.vc = ctxUI.vc || { st: '' }, L = Object.values(S.vacancies).filter((v) => !c.st || v.status === c.st).sort((a, b) => b.createdAt - a.createdAt), cx = ctx();
+  return `<div class="row"><h1 class="sp">الوظائف الشاغرة</h1><button class="b" data-act="newvacancy">+ وظيفة جديدة</button></div><div class="card"><div class="row"><select id="vcst" style="max-width:220px"><option value="">جميع الحالات</option>${Object.entries(VC_ST).map(([k, v]) => `<option value="${k}" ${c.st === k ? 'selected' : ''}>${v[0]}</option>`).join('')}</select></div>
+  <div class="tw"><table><tr><th>الرقم</th><th>الوظيفة</th><th>صاحب العمل</th><th>المدينة</th><th>المطلوب</th><th>الشواغر</th><th>الحالة</th><th></th></tr>${L.map((v) => { const e = S.employers[v.employer]; return `<tr><td>${bd(v.id)}</td><td>${esc(v.baslik)}<div class="small muted">${esc(v.alan)} · ${esc(WTN[v.workType])}${v.closes ? ' · آخر موعد ' + fmtD(v.closes) : ''}</div></td><td>${esc(e ? e.ad : '?')}</td><td>${esc(v.il)}</td><td class="small">${esc(P().eduLevels[v.minEdu])} فأعلى · ${v.minExp || 0} سنة<br>${v.req.map(esc).join('، ') || 'لا مهارات إلزامية'}</td><td>${v.filled || 0}/${v.adet}<div class="small muted">${cx.vact[v.id] || 0} توجيه جارٍ</div></td><td>${badge(VC_ST, v.status)}</td>
+  <td><button class="b ghost sm" data-act="editvacancy" data-id="${v.id}">تعديل</button> ${v.status === 'acik' ? `<button class="b ghost sm" data-act="closevacancy" data-id="${v.id}">إغلاق</button>` : v.status === 'kapali' ? `<button class="b ghost sm" data-act="reopenvacancy" data-id="${v.id}">إعادة فتح</button>` : ''}</td></tr>`; }).join('') || '<tr><td colspan="8" class="muted">لا توجد سجلات.</td></tr>'}</table></div></div>`;
+}
+
+/* ----- eşleştirme */
+function whyHtml(s, v) {
+  const r = scorePair(s, v); return `<div class="card"><h3>تفصيل الملاءمة: ${esc(sName(s))} ↔ ${esc(v.baslik)}</h3>${r.hard ? `<div class="note bad">سبب الاستبعاد: ${HARD_TXT[r.hard]}</div>` : ''}<p>مجموع الدرجة: <b>${r.score}</b> (الحد الأدنى ${P().minScore})</p><div class="tw"><table><tr><th>المعيار</th><th>درجة الاستيفاء</th><th>الوزن</th><th>التوضيح</th></tr>${r.parts.map((p) => `<tr><td>${p.label}</td><td>${p.v >= 1 ? '✔' : p.v > 0 ? '≈ ' + Math.round(p.v * 100) + '%' : '✘'}</td><td>${p.w || 'إلزامي'}</td><td class="small">${esc(p.note)}</td></tr>`).join('')}</table></div></div>`;
+}
+function vMatch() {
+  const run = S.run; let h = `<div class="row"><h1 class="sp">المطابقة</h1><button class="b" data-act="runmatch">تشغيل المطابقة</button></div><div class="note info small">يُرتَّب المرشحون المناسبون لكل وظيفة مفتوحة <b>بحسب متطلبات العمل فقط</b> (المهارات، التعليم، الخبرة، الموقع، الأجر، نمط العمل، رخصة القيادة). أما الجنس والعمر والحالة الاجتماعية وحالة الإعاقة وأمثالها فلا تدخل في الدرجة <b>إطلاقًا</b>. وتُؤخذ موافقة المرشح بشكل منفصل قبل التوجيه.</div>`;
+  if (!run) return h + '<div class="card muted">لم تُشغَّل بعد.</div>';
+  if (ctxUI.why) { const s = S.seekers[ctxUI.why.s], v = S.vacancies[ctxUI.why.v]; if (s && v) h += whyHtml(s, v); }
+  h += `<div class="card"><div class="row"><div class="sp">${fmtT(run.ts)} · ${esc(run.user)} · المجمّع ${run.pool} · وظائف مفتوحة ${run.vacancies}</div>${run.seal !== sealOf(P()) ? '<span class="badge warn">تغيّرت المعايير — أعد التشغيل</span>' : '<span class="badge good">المعايير الحالية</span>'}</div></div>`;
+  const cx = ctx();
+  for (const it of run.items) {
+    const v = S.vacancies[it.v]; if (!v) continue; const e = S.employers[v.employer];
+    h += `<div class="card"><h3>${esc(v.baslik)} <span class="muted small">${bd(v.id)} · ${esc(e ? e.ad : '')} · ${esc(v.il)} · الشواغر ${v.filled || 0}/${v.adet}</span></h3><div class="tw"><table><tr><th>الدرجة</th><th>المرشح</th><th>العمر / المدينة</th><th>التعليم · الخبرة</th><th></th></tr>${it.cands.slice(0, ctxUI.more === v.id ? 50 : 8).map((c) => { const s = S.seekers[c.s]; if (!s) return ''; const b = pairBlock(s, v, cx); return `<tr><td><b>${c.score}</b><br><progress max="100" value="${c.score}"></progress></td><td>${esc(sName(s))}<div class="small muted">${bd(s.id)}</div></td><td>${ageOn(s.dogum, today())} · ${esc(s.il)}</td><td class="small">${esc(P().eduLevels[s.edu])} · ${s.exp} سنة · ${esc(s.meslek)}</td><td><button class="b ghost sm" data-act="why" data-s="${s.id}" data-v="${v.id}">لماذا؟</button> <button class="b sm" data-act="startref" data-s="${s.id}" data-v="${v.id}" ${b ? 'disabled title="' + esc(b) + '"' : ''}>توجيه</button></td></tr>`; }).join('') || '<tr><td colspan="5" class="muted">لم يُعثر على مرشح مناسب.</td></tr>'}</table></div>${it.total > 8 && ctxUI.more !== v.id ? `<button class="b ghost sm" data-act="more" data-id="${v.id}">عرض الجميع (${it.total})</button>` : ''}</div>`;
+  }
+  if (run.none.length) h += `<div class="card"><h3>الباحثون عن عمل الذين لم يناسبوا أي وظيفة (${run.none.length})</h3><div class="small">${run.none.map((id) => `<a href="#" data-act="openseeker" data-id="${id}">${esc(sName(S.seekers[id]))}</a>`).join(' · ')}</div></div>`;
+  return h;
+}
+
+/* ----- yönlendirmeler */
+function vRefs() {
+  const f = ctxUI.rf || '', L = Object.values(S.referrals).filter((r) => !f || r.status === f).sort((a, b) => b.createdAt - a.createdAt);
+  return `<h1>التوجيهات</h1><div class="card"><div class="row"><select id="rfst" style="max-width:240px"><option value="">جميع الحالات</option>${Object.entries(REF_ST).map(([k, v]) => `<option value="${k}" ${f === k ? 'selected' : ''}>${v[0]}</option>`).join('')}</select></div><div class="tw"><table><tr><th>الرقم</th><th>المرشح</th><th>الوظيفة</th><th>الدرجة</th><th>الحالة</th><th>التاريخ</th></tr>${L.map((r) => { const v = S.vacancies[r.vacancy], e = v && S.employers[v.employer]; return `<tr><td><a href="#" data-act="openref" data-id="${r.id}">${bd(r.id)}</a></td><td>${esc(sName(S.seekers[r.seeker]))}</td><td>${esc(v ? v.baslik : '?')}<div class="small muted">${esc(e ? e.ad : '')}</div></td><td>${r.score}</td><td>${badge(REF_ST, r.status)}</td><td class="small">${fmtT(r.createdAt)}</td></tr>`; }).join('') || '<tr><td colspan="6" class="muted">لا توجد سجلات.</td></tr>'}</table></div></div>`;
+}
+function vRef() {
+  const r = S.referrals[R.id]; if (!r) return '<div class="note bad">السجل غير موجود.</div>'; const s = S.seekers[r.seeker], v = S.vacancies[r.vacancy], e = v && S.employers[v.employer], st = r.status, a = [];
+  const b = (k, t, cls = 'ghost') => a.push(`<button class="b ${cls} sm" data-act="ra" data-do="${k}" data-id="${r.id}">${t}</button>`);
+  if (st === 'yanit_bekliyor') { b('kabul', 'المرشح: يرغب بالتقديم', ''); b('ret', 'المرشح: لا يرغب'); if (daysBetween(dStr(new Date(r.createdAt)), today()) > P().responseDays) b('timeout', 'انتهاء المهلة'); }
+  if (st === 'kabul') b('plan', 'جدولة مقابلة', ''); if (st === 'gorusme') b('plan', 'تحديث المقابلة');
+  if (['kabul', 'gorusme'].includes(st)) { b('hired', 'تم التعيين', ''); b('rejected', 'لم يقبله صاحب العمل'); b('quit', 'انسحب المرشح'); b('print', 'وثيقة التوجيه'); }
+  if (ACTIVE_REF.includes(st)) b('cancel', 'إلغاء');
+  return `<div class="row"><h1 class="sp">${bd(r.id)}</h1>${badge(REF_ST, st)}<button class="b ghost" data-act="nav" data-k="refs">→ القائمة</button></div><div class="card"><div class="grid g2"><div><b>الباحث عن عمل</b><br><a href="#" data-act="openseeker" data-id="${r.seeker}">${esc(sName(s))}</a><div class="small muted">${bd(r.seeker)}</div></div><div><b>الوظيفة</b><br>${esc(v ? v.baslik : '?')} <span class="muted small">${bd(r.vacancy)}</span><div class="small muted">${esc(e ? e.ad : '')} · ${esc(v ? v.il : '')}</div></div></div>
+  <p class="mt8">درجة الملاءمة: <b>${r.score}</b>${r.resp ? ` · قرار المرشح: <b>${r.resp.dec === 'kabul' ? 'يرغب بالتقديم' : 'لا يرغب'}</b> (${fmtT(r.resp.ts)} · ${esc(r.resp.method)})` : ''}${r.interview ? ` · المقابلة: ${fmtD(r.interview.date)} ${bd(r.interview.time)} — ${esc(r.interview.place)}` : ''}</p><p class="small muted">يُؤخذ قرار المرشح منه شخصيًا؛ ولا يُبلَّغ صاحب العمل قبل أن يوافق المرشح.</p><div class="row">${a.join('')}</div></div>
+  <div class="card"><h3>السجل التاريخي</h3>${r.history.map((h) => `<div class="small"><span class="muted">${fmtT(h.ts)}</span> · ${esc(h.user)} — ${esc(h.text)}</div>`).join('')}</div>`;
+}
+
+/* ----- raporlar */
+function vReports() {
+  const seekers = Object.values(S.seekers).filter((s) => s.status !== 'silindi' || s.cinsiyet !== undefined), refs = Object.values(S.referrals), Pm = P(), run = S.run, sugg = new Set(); if (run) for (const it of run.items) for (const c of it.cands) sugg.add(c.s);
+  const grp = (fn, label) => {
+    const G = {}; for (const s of seekers) { const k = fn(s); if (!k) continue; const g = (G[k] = G[k] || { n: 0, sug: 0, ref: 0, acc: 0, dec: 0, hired: 0 }); g.n++; if (sugg.has(s.id)) g.sug++; for (const r of refs) { if (r.seeker !== s.id) continue; g.ref++; if (r.resp) { g.dec++; if (r.resp.dec === 'kabul') g.acc++; } if (r.status === 'ise_alindi') g.hired++; } }
+    const tot = Object.values(G).reduce((a, g) => ({ n: a.n + g.n, sug: a.sug + g.sug }), { n: 0, sug: 0 }), base = tot.n ? tot.sug / tot.n * 100 : 0;
+    return `<div class="card"><h3>${label}</h3><div class="tw"><table><tr><th>المجموعة</th><th>الأشخاص</th><th>تلقّوا ترشيحات</th><th>النسبة</th><th>التوجيهات</th><th>تم توظيفهم</th></tr>${Object.entries(G).sort().map(([k, g]) => { const pct = g.n ? g.sug / g.n * 100 : 0, warn = run && g.n >= 5 && base - pct > Pm.fairGapPct; return `<tr><td>${esc(k)}</td><td>${g.n}</td><td>${g.sug}</td><td>${Math.round(pct)}%${warn ? ` <span class="badge warn">−${Math.round(base - pct)} نقطة</span>` : ''}</td><td>${g.ref}</td><td>${g.hired}</td></tr>`; }).join('') || '<tr><td colspan="6" class="muted">لا توجد بيانات.</td></tr>'}</table></div></div>`;
+  };
+  const ag = (s) => { if (!s.dogum || s.status === 'silindi') return ''; const y = ageOn(s.dogum, today()); return y < 25 ? '18–24' : y < 35 ? '25–34' : y < 45 ? '35–44' : y < 55 ? '45–54' : '55+'; };
+  let h = `<h1>التقارير</h1><div class="note info small">يعرض تقرير العدالة الفارق في نسبة «تلقّي الترشيحات» بين المجموعات في آخر تشغيل للمطابقة (العتبة ${Pm.fairGapPct} نقطة). هذه الحقول <b>لا تدخل في الدرجة</b>؛ وهي مخصصة فقط لرصد ما إذا كان النظام يظلم مجموعة ما دون أن ينتبه. عند وجود انحراف راجع المعايير (قواعد المهارات الإلزامية والموقع والأجر).</div>`;
+  h += run ? '' : '<div class="note warn">شغِّل المطابقة أولًا للحصول على تقرير العدالة.</div>';
+  h += grp((s) => (s.cinsiyet === 'K' ? 'إناث' : s.cinsiyet === 'E' ? 'ذكور' : ''), 'بحسب الجنس') + grp(ag, 'بحسب الفئة العمرية') + grp((s) => s.il, 'بحسب المدينة') + grp((s) => Pm.eduLevels[s.edu], 'بحسب المستوى التعليمي');
+  const gaps = run ? Object.entries(run.gaps).sort((a, b) => b[1] - a[1]) : [];
+  h += `<div class="card"><h3>فجوة المهارات (اقتراح للتوجيه نحو الدورات / التدريب)</h3><p class="small muted">المهارات الأكثر نقصًا في الوظائف التي استُبعد منها الباحثون عن عمل — الذين لم يناسبوا أي وظيفة — بسبب <b>نقص المهارات الإلزامية</b> فقط.</p>${gaps.length ? `<div class="tw"><table><tr><th>المهارة</th><th>عدد المرشحين الذين تنقصهم</th></tr>${gaps.slice(0, 15).map(([k, n]) => `<tr><td>${esc(k)}</td><td>${n}</td></tr>`).join('')}</table></div>` : '<p class="muted">لا توجد بيانات.</p>'}</div>`;
+  const hired = refs.filter((r) => r.status === 'ise_alindi'), decided = refs.filter((r) => r.resp);
+  const vs = Object.values(S.vacancies), unf = vs.filter((v) => v.status === 'acik' && daysBetween(dStr(new Date(v.createdAt)), today()) > 30);
+  h += `<div class="card"><h3>ملخص</h3><ul><li>التوجيهات: ${refs.length} · نسبة قبول المرشحين: ${decided.length ? Math.round(decided.filter((r) => r.resp.dec === 'kabul').length / decided.length * 100) + '%' : '—'} · حالات التعيين: ${hired.length}</li><li>وظائف مفتوحة منذ أكثر من 30 يومًا: ${unf.length}${unf.length ? ' — ' + unf.map((v) => esc(v.baslik)).join('، ') : ''}</li></ul></div>`;
+  return h;
+}
+
+/* ----- parametreler */
+function vParams() {
+  const Pm = P(), h = S.paramHistory.slice().reverse().slice(0, 30);
+  return `<h1>المعايير</h1><div class="note info small">الإصدار ${S.paramHistory.length + 1} · الختم <span class="mono">${sealOf(Pm)}</span>. يُسجَّل كل تغيير مع مبرره. ضمانة ثابتة: لا يُقبل من هم دون ${HARD.minAgeFloor} عامًا؛ ولا يمكن إضافة معايير كالجنس والعمر إلى الدرجة.</div>
+  <div class="card"><h3>قواعد المطابقة</h3><form id="pform" class="grid g3">
+  <div><label>الحد الأدنى لدرجة الملاءمة</label><input name="minScore" type="number" min="0" max="100" value="${Pm.minScore}"></div>
+  <div><label>قاعدة المهارات الإلزامية</label><select name="reqRule"><option value="hepsi" ${Pm.reqRule === 'hepsi' ? 'selected' : ''}>يجب استيفاؤها كلها</option><option value="yuzde" ${Pm.reqRule === 'yuzde' ? 'selected' : ''}>نسبة مئوية لا تقل عن…</option></select></div>
+  <div><label>… النسبة المئوية (إذا كانت القاعدة «نسبة مئوية»)</label><input name="reqPct" type="number" min="1" max="100" value="${Pm.reqPct}"></div>
+  <div><label>عدد المستويات الناقصة المقبولة في التعليم</label><input name="eduGap" type="number" min="0" max="5" value="${Pm.eduGap}"></div>
+  <div><label>عدد السنوات الناقصة المقبولة في الخبرة</label><input name="expGapYears" type="number" min="0" max="20" value="${Pm.expGapYears}"></div>
+  <div><label class="chk"><input type="checkbox" name="locHard" ${Pm.locHard ? 'checked' : ''}> لا يُقترح المرشح لإعلان في مدينة لا يرغب بالعمل فيها</label><label class="chk"><input type="checkbox" name="salaryHard" ${Pm.salaryHard ? 'checked' : ''}> استبعاد المرشح إذا كان توقع أجره مرتفعًا جدًا</label></div>
+  <div><label>هامش تسامح الأجر (%)</label><input name="salaryTolerancePct" type="number" min="0" max="200" value="${Pm.salaryTolerancePct}"></div>
+  <div><label>الحد الأدنى / الأقصى للعمر</label><div class="row"><input name="minAge" type="number" min="${HARD.minAgeFloor}" max="100" value="${Pm.minAge}"><input name="maxAge" type="number" min="18" max="100" value="${Pm.maxAge}"></div></div>
+  <div><label>أقصى عدد للتوجيهات النشطة لكل مرشح</label><input name="maxActiveRefs" type="number" min="1" max="20" value="${Pm.maxActiveRefs}"></div>
+  <div><label>عدد التوجيهات لكل شاغر</label><input name="refsPerSlot" type="number" min="1" max="20" value="${Pm.refsPerSlot}"></div>
+  <div><label>مهلة رد المرشح (أيام)</label><input name="responseDays" type="number" min="1" max="60" value="${Pm.responseDays}"></div>
+  <div><label>مهلة حسم نتيجة المقابلة (أيام)</label><input name="interviewDays" type="number" min="1" max="120" value="${Pm.interviewDays}"></div>
+  <div><label>مدة الاحتفاظ (أيام)</label><input name="retentionDays" type="number" min="30" max="3650" value="${Pm.retentionDays}"></div>
+  <div><label>عتبة تقرير العدالة (نقاط)</label><input name="fairGapPct" type="number" min="1" max="100" value="${Pm.fairGapPct}"></div>
+  <div><label>اسم الجهة</label><input name="institution" value="${esc(Pm.institution)}"></div>
+  <div style="grid-column:1/-1"><label>أوزان المعايير (0–100)</label><div class="grid g4">${Object.entries(Pm.weights).map(([k, v]) => `<div><label>${WLAB[k]}</label><input name="w_${k}" type="number" min="0" max="100" value="${v}"></div>`).join('')}</div></div>
+  <div style="grid-column:1/-1"><label>القوائم (عنصر واحد في كل سطر)</label><div class="grid g3"><div><label>المستويات التعليمية (مرتبة من الأدنى إلى الأعلى)</label><textarea name="eduLevels" rows="6">${esc(Pm.eduLevels.join('\n'))}</textarea></div><div><label>مجالات المهن</label><textarea name="fields" rows="6">${esc(Pm.fields.join('\n'))}</textarea></div><div><label>كتالوج المهارات</label><textarea name="skills" rows="6">${esc(Pm.skills.join('\n'))}</textarea></div></div></div>
+  <div style="grid-column:1/-1"><label>نص الموافقة</label><textarea name="consentText">${esc(Pm.consentText)}</textarea></div>
+  <div style="grid-column:1/-1"><label>مبرر التغيير *</label><input name="reason" required minlength="5" maxlength="300"><div class="row mt8"><button class="b" type="submit">حفظ</button><button class="b ghost" type="button" data-act="resetparams">العودة إلى الافتراضيات</button></div></div></form></div>
+  <div class="card"><h3>سجل الإصدارات</h3><div class="tw"><table><tr><th>الإصدار</th><th>التاريخ</th><th>المستخدم</th><th>المبرر</th><th>الختم السابق</th></tr>${h.map((x) => `<tr><td>${x.ver}</td><td class="small">${fmtT(x.ts)}</td><td>${esc(x.user)}</td><td class="small">${esc(x.reason)}</td><td class="mono">${esc(x.seal.slice(0, 16))}</td></tr>`).join('') || '<tr><td colspan="5" class="muted">لا توجد تغييرات.</td></tr>'}</table></div></div>`;
+}
+function readParams(form) {
+  const f = form.elements, g = (n) => f[n].value, lines = (n) => g(n).split(/\n/).map((x) => x.trim()).filter(Boolean), np = JSON.parse(JSON.stringify(P()));
+  for (const k of ['minScore', 'reqPct', 'eduGap', 'expGapYears', 'salaryTolerancePct', 'minAge', 'maxAge', 'maxActiveRefs', 'refsPerSlot', 'responseDays', 'interviewDays', 'retentionDays', 'fairGapPct']) np[k] = +g(k);
+  np.reqRule = g('reqRule'); np.locHard = f.locHard.checked; np.salaryHard = f.salaryHard.checked; np.institution = g('institution').trim(); np.consentText = g('consentText').trim();
+  for (const k of Object.keys(np.weights)) np.weights[k] = +g('w_' + k); np.eduLevels = lines('eduLevels'); np.fields = lines('fields'); np.skills = lines('skills'); return np;
+}
+
+/* ----- denetim, veri, hakkında */
+function vAudit() {
+  const c = ctxUI.au = ctxUI.au || { q: '', page: 1 }, size = 100, q = trLower(c.q), all = S.audit.slice().reverse().filter((e) => !q || trLower([e.action, ACT_AR[e.action] || '', e.user, e.detail].join(' ')).includes(q)), v = verifyChain();
+  return `<h1>سجل التدقيق</h1>${v.ok ? `<div class="note good">تم التحقق من السلسلة: ${v.n} سجل.<div>البصمة الرأسية: <span class="mono">${v.head || ''}</span></div></div>` : `<div class="note bad"><b>السلسلة تالفة عند السجل رقم ${v.at}.</b> قد يكون السجل قد عُدِّل أو حُذف منه.</div>`}
+  <div class="card"><div class="row"><input id="auq" style="max-width:300px" placeholder="تصفية" value="${esc(c.q)}"><button class="b ghost sm" data-act="exportaudit">تنزيل السجل (دون بيانات شخصية)</button></div><div class="tw"><table><tr><th>#</th><th>الوقت</th><th>المستخدم</th><th>العملية</th><th>التفاصيل</th></tr>${all.slice((c.page - 1) * size, c.page * size).map((e) => `<tr><td>${e.i}</td><td class="small">${fmtT(e.ts)}</td><td>${esc(e.user)}</td><td>${ACT_AR[e.action] ? esc(ACT_AR[e.action]) + ' ' : ''}<span class="mono small muted">${esc(e.action)}</span></td><td class="small">${esc(e.detail)}</td></tr>`).join('')}</table></div>${pager(c.page, all.length, size, 'aupage')}<p class="small muted">يتضمن كل سجل بصمة SHA-256 للسجل السابق؛ وأي تعديل بأثر رجعي يكسر السلسلة. لا تُحفظ في السجل بيانات شخصية، وإنما أرقام السجلات فقط. ملاحظة: من يستطيع تعديل البيانات في المتصفح يمكنه إعادة حساب السلسلة من البداية؛ لذا احتفظ بالبصمة الرأسية بانتظام خارج النظام (مكتوبة/موقَّعة).</p></div>`;
+}
+function vData() {
+  return `<h1>البيانات والإعدادات</h1>
+  <div class="card"><h3>الموظف</h3><div class="row"><div class="sp">الاسم المسجَّل في سجل التدقيق: <b>${esc(user())}</b></div><button class="b ghost sm" data-act="setofficer">تغيير</button></div></div>
+  <div class="card"><h3>النسخ الاحتياطي</h3><p class="small muted">تُحفظ البيانات في هذا المتصفح فقط (localStorage)، وتضيع إذا مُسحت بيانات المتصفح. ملف النسخة الاحتياطية يحتوي بيانات شخصية — احفظه بأمان. آخر نسخة احتياطية: ${S.meta.lastBackup ? fmtT(S.meta.lastBackup) : '—'}</p><div class="row"><button class="b" data-act="backup">تنزيل نسخة احتياطية (.json)</button><label class="b ghost" style="display:inline-block;cursor:pointer;margin:0;padding:8px 14px;border:1px solid var(--pri);border-radius:7px;color:var(--pri)">الاستعادة من نسخة احتياطية<input id="restore" type="file" accept=".json" class="hidden"></label><button class="b ghost" data-act="csvrefs">قائمة التوجيهات (CSV، دون بيانات شخصية)</button></div></div>
+  <div class="card"><h3>كلمة مرور التطبيق (اختيارية)</h3><p class="small muted">هي شاشة قفل تمنع الآخرين من فتح الشاشة فقط. <b>لا تُشفِّر البيانات</b>؛ فمن يصل إلى بيانات المتصفح يستطيع قراءتها. في الحواسيب المشتركة استخدم ملف تعريف متصفح مستقلًا أو تشفير القرص.</p><div class="row"><button class="b ghost" data-act="setlock">${S.meta.lock ? 'تغيير كلمة المرور' : 'تعيين كلمة مرور'}</button>${S.meta.lock ? '<button class="b ghost" data-act="clearlock">إزالة كلمة المرور</button>' : ''}</div></div>
+  <div class="card"><h3>السجلات المنتهية مدة الاحتفاظ بها</h3><p class="small muted">يزيل دفعةً واحدة هوية سجلات الباحثين عن عمل الذين تم توظيفهم أو أصبحوا غير نشطين وتجاوزت مدتهم ${P().retentionDays} يومًا (الاحتفاظ والإتلاف وفق قانون حماية البيانات الشخصية التركي (KVKK)).</p><button class="b ghost" data-act="retention">إزالة هوية السجلات المنتهية مدتها</button></div>
+  <div class="card"><h3>بيانات تجريبية</h3><p class="small muted">تضيف سجلات نموذجية غير حقيقية لتجربة النظام. احذفها قبل الانتقال إلى الاستخدام الفعلي.</p><div class="row"><button class="b ghost" data-act="seed">إضافة بيانات تجريبية</button><button class="b red" data-act="unseed">حذف البيانات التجريبية</button><button class="b red" data-act="wipe">حذف جميع البيانات</button></div></div>`;
+}
+const vAbout = () => `<h1>حول النظام ومبادئه وحدوده</h1>
+<div class="card"><h3>ماذا يفعل؟</h3><ul><li>يحتفظ بطلبات الباحثين عن عمل وبسجلات أصحاب العمل والوظائف الشاغرة.</li><li>يُقيِّم المرشحين لكل وظيفة ويرتّبهم <b>بحسب متطلبات العمل فقط</b>، ويشرح السبب.</li><li>يبدأ الموظف توجيهًا ← يُبدي المرشح <b>قراره بنفسه</b> ← مقابلة ← نتيجة. وتُسجَّل كل خطوة في سجل التدقيق.</li><li>التقارير: العدالة (الفارق بين المجموعات)، فجوة المهارات، نسب الإشغال.</li></ul></div>
+<div class="card"><h3>الضمانات الثابتة</h3><ul><li>لا يُقبل من هم دون ${HARD.minAgeFloor} عامًا.</li><li>لا يدخل الجنس ولا العمر ولا الحالة الاجتماعية ولا الإعاقة/الصحة ولا الدين ولا العِرق ولا الرأي السياسي في الدرجة؛ وتُمنع في نص الإعلان العبارات التمييزية (المادة 5 من قانون العمل التركي – مبدأ المساواة في المعاملة).</li><li>لا تُبلَّغ أي معلومات إلى صاحب العمل قبل موافقة المرشح؛ ولا يُقترح مجددًا الثنائي الذي رُفض أو لم يقبله صاحب العمل.</li><li>لا يستطيع فتح الوظائف إلا أصحاب العمل المعتمدون من الموظف.</li><li>يحق للباحث عن عمل في أي وقت طلب حذف بياناته (إزالة الهوية).</li></ul></div>
+<div class="card"><h3>الحدود (ملاحظة صريحة)</h3><ul><li><b>برنامج مستقل يعمل على حاسوب واحد.</b> البيانات في localStorage الخاص بهذا المتصفح، ولا تُشارَك مع حاسوب/متصفح آخر. أخذ نسخ احتياطية دورية مسؤوليتك.</li><li><b>لا صلة له</b> بـ İŞKUR (هيئة العمل التركية) ولا بـ e-Devlet (بوابة الحكومة الإلكترونية التركية) ولا بالضمان الاجتماعي (SGK) ولا بـ MERNİS (نظام سجل السكان) ولا بالسجل العدلي ولا بمصلحة الضرائب؛ ويتم التحقق من الهوية/صاحب العمل يدويًا من قبل الموظف. ويُتحقق من رقم الهوية الوطنية التركية (T.C.) بالخوارزمية فقط.</li><li>البيانات غير مشفَّرة؛ وشاشة القفل تحجب العرض فقط. وسلسلة التدقيق <b>تكشف</b> التعديل ولا <b>تمنعه</b>.</li><li>الدرجة لا تضمن ملاءمة المرشح للعمل؛ فالقرار للموظف وللمرشح ولصاحب العمل. وواجبات الإفصاح والاحتفاظ والالتزامات القانونية المتعلقة بقانون حماية البيانات الشخصية التركي (KVKK) تقع على عاتق جهتك. ولم يخضع هذا البرنامج لتدقيق أمني/قانوني مستقل.</li></ul></div>`;
+
+/* =====================================================================  olaylar ve işlemler */
+async function seekerForm(id) {
+  const base = id ? S.seekers[id] : null;
+  const f = await ask(id ? 'تعديل بيانات الباحث عن عمل' : 'طلب باحث عن عمل جديد', seekerFields(base), { data: base ? seekerToForm(base) : { edu: 1, alan: P().fields[0], ehliyet: 'Yok', c_data: false, skills: [], extraSkills: [], cities: [], workTypes: [] }, validate: (v) => validateSeeker(v, id) });
+  if (!f) return;
+  const now = Date.now();
+  if (id) { Object.assign(S.seekers[id], seekerFromForm(f, base)); S.seekers[id].history.push({ ts: now, user: user(), text: 'تم التحديث' }); commit('KAYIT_GUNCELLENDI', id, 'تم الحفظ.'); }
+  else { const nid = nextId('K'); S.seekers[nid] = seekerFromForm(f, { id: nid, status: 'taslak', createdAt: now, history: [{ ts: now, user: user(), text: 'تم استلام الطلب' }] }); A('BASVURU_ALINDI', nid); save(); go('seeker', nid); toast('تم حفظ الطلب (مسودة).'); }
+}
+function activateCheck(s) { const e = []; if (!s.idVerified) e.push('لم يتم التحقق من وثيقة الهوية.'); if (!s.consent.data || !s.consent.referral) e.push('الموافقتان (على معالجة البيانات وعلى التوجيه) مطلوبتان معًا.'); if (!s.skills.length) e.push('يجب اختيار مهارة واحدة على الأقل.'); if (!s.il) e.push('المدينة مطلوبة.'); return e; }
+function referral(sId, vId) {
+  const s = S.seekers[sId], v = S.vacancies[vId], c = ctx(), b = pairBlock(s, v, c); if (b) return alert('لا يمكن بدء هذا الثنائي: ' + b);
+  const r = scorePair(s, v); if (r.hard) return alert('استبعاد: ' + HARD_TXT[r.hard]);
+  const id = nextId('Y'), now = Date.now();
+  S.referrals[id] = { id, seeker: sId, vacancy: vId, score: r.score, status: 'yanit_bekliyor', resp: null, interview: null, outcome: null, createdAt: now, updatedAt: now, paramSeal: sealOf(P()), history: [{ ts: now, user: user(), text: 'بدأ التوجيه؛ بانتظار قرار المرشح' }] };
+  A('YONLENDIRME_BASLATILDI', `${id} ${sId}→${vId} الدرجة ${r.score}`); save(); go('ref', id);
+}
+const hist = (r, t) => { r.history.push({ ts: Date.now(), user: user(), text: t }); r.updatedAt = Date.now(); };
+function cancelOthers(sId, keep, why) { for (const x of Object.values(S.referrals)) if (x.seeker === sId && x.id !== keep && ACTIVE_REF.includes(x.status)) { x.status = 'iptal'; hist(x, why); A('YONLENDIRME_IPTAL', `${x.id}; ${why}`); } }
+async function refAction(id, k) {
+  const r = S.referrals[id], s = S.seekers[r.seeker], v = S.vacancies[r.vacancy]; if (!r) return;
+  if (k === 'kabul' || k === 'ret') {
+    const f = await ask(k === 'kabul' ? 'قرار المرشح: يرغب بالتقديم' : 'قرار المرشح: لا يرغب', [{ n: 'method', label: 'صيغة أخذ القرار', req: 1, max: 60 }, { n: 'ok', type: 'check', label: 'أبلغ المرشح بالقرار بنفسه (لا يمكن التراجع).' }], { data: { method: 'شخصيًا' }, validate: (x) => (x.method && x.ok ? [] : ['يجب كتابة الصيغة وتأكيد أن المرشح أبلغ بالقرار بنفسه.']) }); if (!f) return;
+    r.resp = { dec: k, ts: Date.now(), method: f.method }; hist(r, `قرار المرشح: ${k === 'kabul' ? 'يرغب بالتقديم' : 'لا يرغب'}`);
+    if (k === 'ret') { r.status = 'ret'; S.blocked.push(pkey(r.seeker, r.vacancy)); A('YONLENDIRME_RET', `${id}؛ لن يُقترح هذا الثنائي مجددًا`); } else { r.status = 'kabul'; A('YONLENDIRME_KABUL', id); }
+    return commit(null, '', 'تم الحفظ.');
+  }
+  if (k === 'plan') {
+    const f = await ask('جدولة مقابلة', [{ n: 'date', label: 'التاريخ', type: 'date', req: 1 }, { n: 'time', label: 'الساعة', type: 'time', req: 1 }, { n: 'place', label: 'المكان / الأسلوب', req: 1, max: 200 }], { data: r.interview || {}, validate: (x) => (isDate(x.date) && x.date >= today() && x.time && x.place ? [] : ['لا يجوز أن يسبق التاريخ اليوم؛ والساعة والمكان مطلوبان.']) }); if (!f) return;
+    r.interview = f; r.status = 'gorusme'; hist(r, `جُدولت مقابلة: ${fmtD(f.date)} ${f.time}`); return commit('GORUSME_PLANLANDI', `${id} ${f.date}`, 'تمت الجدولة.');
+  }
+  if (k === 'hired') {
+    const f = await ask('تم التعيين', [{ n: 'start', label: 'تاريخ مباشرة العمل', type: 'date', req: 1 }, { n: 'ok', type: 'check', label: 'تم الحصول على تأكيد من صاحب العمل (كتابيًا/شفهيًا).' }], { data: { start: today() }, validate: (x) => (isDate(x.start) && x.ok ? [] : ['التاريخ والتأكيد مطلوبان.']) }); if (!f) return;
+    r.status = 'ise_alindi'; r.outcome = { start: f.start }; hist(r, `تم التعيين (المباشرة ${fmtD(f.start)})`); s.status = 'yerlesti'; s.closedAt = Date.now(); v.filled = (v.filled || 0) + 1;
+    cancelOthers(s.id, r.id, 'تم توظيف المرشح');
+    if (v.filled >= v.adet) { v.status = 'doldu'; for (const x of Object.values(S.referrals)) if (x.vacancy === v.id && ACTIVE_REF.includes(x.status)) { x.status = 'iptal'; hist(x, 'اكتملت الشواغر'); A('YONLENDIRME_IPTAL', `${x.id}؛ اكتملت الشواغر`); } A('POZISYON_DOLDU', v.id); }
+    return commit('ISE_ALINDI', `${id} ${s.id} ${v.id}`, 'تم تسجيل التعيين.');
+  }
+  if (k === 'rejected' || k === 'quit') {
+    const f = await ask(k === 'rejected' ? 'لم يقبله صاحب العمل' : 'انسحب المرشح', [{ n: 'reason', label: 'المبرر (لا تكتب معلومات شخصية)', req: 1, max: 200 }], { validate: (x) => (x.reason.length >= 3 ? [] : ['اكتب المبرر.']) }); if (!f) return;
+    r.status = k === 'rejected' ? 'alinmadi' : 'vazgecti'; S.blocked.push(pkey(r.seeker, r.vacancy)); hist(r, `${REF_ST[r.status][0]}: ${f.reason}`); return commit('YONLENDIRME_SONUC', `${id} ${REF_ST[r.status][0]}`, 'تم الحفظ.');
+  }
+  if (k === 'timeout') { r.status = 'zamanasimi'; hist(r, 'انتهت مهلة الرد'); return commit('YONLENDIRME_ZAMANASIMI', id, 'تم الإغلاق.'); }
+  if (k === 'cancel') { const f = await ask('إلغاء', [{ n: 'reason', label: 'المبرر', req: 1, max: 200 }], { validate: (x) => (x.reason.length >= 3 ? [] : ['اكتب المبرر.']) }); if (!f) return; r.status = 'iptal'; hist(r, 'إلغاء: ' + f.reason); return commit('YONLENDIRME_IPTAL', `${id}؛ ${f.reason}`, 'تم الإلغاء.'); }
+  if (k === 'print') {
+    const e = S.employers[v.employer]; $('#printarea').innerHTML = `<h2>${esc(P().institution)}</h2><h2>وثيقة التوجيه إلى العمل</h2><p>رقم الوثيقة: <b>${bd(r.id)}</b> · التاريخ: ${fmtD(today())}</p><table style="width:100%;border-collapse:collapse"><tr><td>الباحث عن عمل</td><td>${esc(sName(s))}</td></tr><tr><td>رقم الطلب</td><td>${bd(s.id)}</td></tr><tr><td>صاحب العمل</td><td>${esc(e.ad)} — ${esc(e.il)}</td></tr><tr><td>الوظيفة</td><td>${esc(v.baslik)} (${esc(WTN[v.workType])})</td></tr><tr><td>المقابلة</td><td>${r.interview ? fmtD(r.interview.date) + ' ' + bd(r.interview.time) + ' — ' + esc(r.interview.place) : 'يرجى التواصل مع صاحب العمل'}</td></tr></table><p style="margin-top:14px;font-size:13px">أُعدَّت هذه الوثيقة بموافقة المرشح نفسه، وهي <b>لا تضمن</b> الحصول على عمل. ولم يُجرَ التوجيه بحسب معايير كالجنس أو العمر أو الحالة الاجتماعية وما شابهها.</p><p style="margin-top:40px">الموظف: ${esc(user())} ........................</p>`; window.print(); A('BELGE_YAZDIRILDI', id); save();
+  }
+}
+function downloadText(name, text, type = 'application/json') { const b = new Blob([text], { type }), a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); }
+function anonymize(s, why) { const keep = { id: s.id, status: 'silindi', il: s.il, edu: s.edu, alan: s.alan, cinsiyet: s.cinsiyet, createdAt: s.createdAt, closedAt: Date.now(), dogum: s.dogum ? s.dogum.slice(0, 4) + '-07-01' : '', skills: [], cities: [], workTypes: [], exp: s.exp, consent: { data: false, referral: false }, history: [{ ts: Date.now(), user: user(), text: 'أُزيلت الهوية: ' + why }], ad: '', soyad: '', tc: '', tel: '', meslek: '', notes: '', ehliyet: 'Yok', salaryMin: 0 }; for (const r of Object.values(S.referrals)) if (r.seeker === s.id && ACTIVE_REF.includes(r.status)) { r.status = 'iptal'; hist(r, 'حُذف سجل المرشح'); } S.seekers[s.id] = keep; A('KAYIT_ANONIMLESTIRILDI', `${s.id}؛ ${why}`); }
+function seedDemo() {
+  const Pm = P(), ils = ['أنقرة', 'إسطنبول', 'إزمير', 'بورصة', 'قونية'], erk = ['أحمد', 'محمد', 'مصطفى', 'علي', 'عمر', 'خالد'], kad = ['عائشة', 'فاطمة', 'زينب', 'ليلى', 'مريم', 'سارة'], sy = ['العلي', 'الحسن', 'الخطيب', 'النجار', 'الشامي', 'الحداد', 'القاسم'], pick = (a) => a[Math.floor(Math.random() * a.length)];
+  const tc = () => { for (;;) { const d = [1 + Math.floor(Math.random() * 9)]; for (let i = 1; i < 9; i++) d.push(Math.floor(Math.random() * 10)); const d10 = (((d[0] + d[2] + d[4] + d[6] + d[8]) * 7) - (d[1] + d[3] + d[5] + d[7])) % 10; d.push((d10 + 10) % 10); d.push(d.reduce((x, y) => x + y, 0) % 10); const t = d.join(''); if (tcValid(t)) return t; } };
+  const emps = []; for (let i = 0; i < 6; i++) { const id = nextId('I'), il = pick(ils); S.employers[id] = { id, ad: `شركة نموذجية ${i + 1}`, vergiNo: String(1000000000 + Math.floor(Math.random() * 8e9)), il, sektor: pick(Pm.fields), yetkili: 'مسؤول نموذجي', tel: '', notes: '', verified: true, status: 'aktif', demo: true, createdAt: Date.now() }; emps.push(id); }
+  const jobs = [['محاسب', ['المحاسبة', 'Excel'], 3], ['مستشار مبيعات', ['المبيعات', 'علاقات العملاء'], 1], ['مشغّل رافعة شوكية', ['الرافعة الشوكية', 'المستودعات / المخزون'], 1], ['مطوّر برمجيات', ['تطوير البرمجيات', 'قواعد البيانات'], 3], ['مساعد طباخ', ['الطبخ'], 1], ['ممرض / ممرضة', ['التمريض', 'رعاية المرضى'], 3], ['موظف أمن', ['الحراسة والأمن'], 1], ['موظف مكتب', ['برامج المكتب'], 1]];
+  jobs.forEach(([b, req, edu], i) => { const id = nextId('P'); S.vacancies[id] = { id, employer: emps[i % emps.length], baslik: b, alan: pick(Pm.fields), adet: 1 + Math.floor(Math.random() * 3), filled: 0, il: S.employers[emps[i % emps.length]].il, workType: pick(['tam', 'tam', 'vardiya']), minEdu: edu === 3 ? 3 : 1, minExp: pick([0, 1, 2]), ehliyet: b.includes('رافعة') ? 'Yok' : 'Yok', salaryMin: 20000, salaryMax: 20000 + Math.floor(Math.random() * 20000), closes: '', req, pref: ['العمل الجماعي'], desc: 'إعلان تجريبي', status: 'acik', demo: true, createdAt: Date.now() }; });
+  for (let k = 0; k < 40; k++) {
+    const id = nextId('K'), fem = k % 2 === 0, age = 20 + Math.floor(Math.random() * 35), dt = new Date(); dt.setFullYear(dt.getFullYear() - age); const j = pick(jobs), il = pick(ils);
+    const sk = new Set(Math.random() < 0.7 ? j[1] : j[1].slice(0, 1)); for (let i = 0; i < 3; i++) sk.add(pick(Pm.skills));
+    S.seekers[id] = { id, ad: pick(fem ? kad : erk), soyad: pick(sy), tc: tc(), dogum: dStr(dt), cinsiyet: fem ? 'K' : 'E', il, tel: '', edu: 1 + Math.floor(Math.random() * 3), alan: pick(Pm.fields), meslek: j[0], exp: Math.floor(Math.random() * 8), ehliyet: pick(['Yok', 'B']), salaryMin: pick([0, 18000, 22000, 30000]), cities: Math.random() < 0.6 ? ils.slice() : [], skills: [...sk], workTypes: [], startNow: Math.random() < 0.5, notes: '', consent: { data: true, referral: true, ts: Date.now() }, idVerified: true, status: 'aktif', demo: true, createdAt: Date.now(), history: [{ ts: Date.now(), user: user(), text: 'بيانات تجريبية' }] };
+  }
+  A('DENEME_VERISI', 'أُضيف 40 مرشحًا و6 أصحاب عمل و8 وظائف');
+}
+
+/* ---- olay bağlama */
+document.addEventListener('submit', async (e) => {
+  if (e.target.id === 'pform') {
+    e.preventDefault(); const np = readParams(e.target), reason = e.target.elements.reason.value.trim(), errs = validateParams(np); if (errs.length) return alert('المعايير غير صالحة:\n• ' + errs.join('\n• '));
+    if (canon(np) === canon(P())) return alert('لا يوجد تغيير في المعايير.');
+    S.paramHistory.push({ ver: S.paramHistory.length + 1, ts: Date.now(), user: user(), reason, seal: sealOf(P()), params: JSON.parse(JSON.stringify(P())) }); S.params = np; commit('PARAMETRE_DEGISTI', `الإصدار ${S.paramHistory.length + 1}؛ الختم ${sealOf(np).slice(0, 12)}؛ ${reason}`, 'تم حفظ المعايير.');
+  }
+});
+document.addEventListener('change', async (e) => {
+  const id = e.target.id;
+  if (id === 'skst') { ctxUI.sk = { ...ctxUI.sk, st: e.target.value, page: 1 }; render(); }
+  if (id === 'vcst') { ctxUI.vc = { st: e.target.value }; render(); }
+  if (id === 'rfst') { ctxUI.rf = e.target.value; render(); }
+  if (id === 'restore' && e.target.files[0]) {
+    let j; try { j = JSON.parse(await e.target.files[0].text()); } catch { return alert('تعذّرت قراءة الملف.'); }
+    if (!j || j.v !== 1 || !j.params || !j.seekers || !Array.isArray(j.audit)) return alert('هذا ليس ملف نسخة احتياطية.');
+    const ch = verifyChain(j.audit); if (!ch.ok && !confirm(`تحذير: سلسلة التدقيق في النسخة الاحتياطية تالفة عند السجل رقم ${ch.at}. هل تريد التحميل رغم ذلك؟`)) return;
+    if (!confirm('ستُحذف جميع البيانات الحالية وتُستبدل بالنسخة الاحتياطية. هل تريد المتابعة؟')) return; const errs = validateParams(j.params); if (errs.length) return alert('المعايير في النسخة الاحتياطية غير صالحة:\n' + errs.join('\n'));
+    S = { ...fresh(), ...j }; A('YEDEK_YUKLENDI', `${Object.keys(S.seekers).length} باحثًا عن عمل`); save(); toast('تمت استعادة النسخة الاحتياطية.'); go('dash');
+  }
+});
+let deb = null;
+document.addEventListener('input', (e) => { const m = { skq: ['sk', 'q'], auq: ['au', 'q'] }[e.target.id]; if (!m) return; clearTimeout(deb); const val = e.target.value, id = e.target.id; deb = setTimeout(() => { ctxUI[m[0]] = { ...(ctxUI[m[0]] || {}), q: val, page: 1 }; render(); const n = $('#' + id); if (n) { n.focus(); n.setSelectionRange(val.length, val.length); } }, 300); });
+document.addEventListener('click', async (e) => {
+  const t = e.target.closest('[data-act]'); if (!t) return; const a = t.dataset.act, id = t.dataset.id; if (['openseeker', 'openref'].includes(a)) e.preventDefault();
+  try {
+    switch (a) {
+      case 'nav': ctxUI.why = null; return go(t.dataset.k);
+      case 'openseeker': return go('seeker', id); case 'openref': return go('ref', id);
+      case 'skpage': ctxUI.sk.page = +t.dataset.p; return render(); case 'aupage': ctxUI.au.page = +t.dataset.p; return render();
+      case 'newseeker': return seekerForm(null); case 'editseeker': return seekerForm(id);
+      case 'sk-activate': { const s = S.seekers[id], er = activateCheck(s); if (er.length) return alert('لا يمكن الإدراج في المجمّع:\n• ' + er.join('\n• ')); s.status = 'aktif'; s.history.push({ ts: Date.now(), user: user(), text: 'أُدرج في المجمّع' }); return commit('ADAY_AKTIF', id, 'أُدرج في المجمّع.'); }
+      case 'sk-pause': { const s = S.seekers[id]; s.status = 'pasif'; s.closedAt = Date.now(); for (const r of Object.values(S.referrals)) if (r.seeker === id && ACTIVE_REF.includes(r.status)) { r.status = 'iptal'; hist(r, 'أُوقف المرشح (غير نشط)'); } return commit('ADAY_PASIF', id, 'تم الإيقاف.'); }
+      case 'sk-reopen': { const s = S.seekers[id]; s.status = 'pasif'; s.closedAt = null; return commit('ADAY_YENIDEN_ACILDI', id, 'صار السجل غير نشط؛ راجعه ثم أدرجه في المجمّع.'); }
+      case 'sk-anon': { if (!confirm('ستُحذف البيانات الشخصية نهائيًا (إزالة الهوية). لا يمكن التراجع. هل تريد المتابعة؟')) return; anonymize(S.seekers[id], 'بطلب المرشح/الموظف'); return commit(null, '', 'تمت إزالة الهوية.'); }
+      case 'newemployer': case 'editemployer': {
+        const ex = a === 'editemployer' ? S.employers[id] : null; const f = await ask(ex ? 'تعديل صاحب العمل' : 'صاحب عمل جديد', employerFields(), { data: ex || { sektor: P().fields[0] }, validate: (x) => validateEmployer(x, id) }); if (!f) return;
+        if (ex) { Object.assign(ex, { ...f, vergiNo: f.vergiNo.replace(/\D/g, '') }); return commit('ISVEREN_GUNCELLENDI', id, 'تم الحفظ.'); }
+        const nid = nextId('I'); S.employers[nid] = { id: nid, ...f, vergiNo: f.vergiNo.replace(/\D/g, ''), verified: false, status: 'aktif', createdAt: Date.now() }; return commit('ISVEREN_EKLENDI', nid, 'أُضيف صاحب العمل؛ بانتظار الاعتماد.');
+      }
+      case 'verifyemployer': if (!confirm('هل تم التحقق من وجود صاحب العمل وصفة مسؤوله (البطاقة الضريبية / السجل التجاري)؟')) return; S.employers[id].verified = true; return commit('ISVEREN_ONAYLANDI', id, 'تم الاعتماد.');
+      case 'toggleemployer': { const e2 = S.employers[id]; e2.status = e2.status === 'pasif' ? 'aktif' : 'pasif'; return commit('ISVEREN_DURUMU', `${id} ${e2.status}`, 'تم التحديث.'); }
+      case 'newvacancy': case 'editvacancy': {
+        const ex = a === 'editvacancy' ? S.vacancies[id] : null; if (!Object.values(S.employers).some((x) => x.verified && x.status !== 'pasif')) return alert('أضف أولًا صاحب عمل معتمدًا.');
+        const d = ex ? { ...ex, reqX: ex.req.filter((x) => !P().skills.includes(x)), req: ex.req.filter((x) => P().skills.includes(x)) } : { workType: 'tam', minEdu: 1, alan: P().fields[0], ehliyet: 'Yok', req: [], pref: [], reqX: [], adet: 1 };
+        const f = await ask(ex ? 'تعديل الوظيفة' : 'وظيفة جديدة', vacancyFields(), { data: d, validate: validateVacancy }); if (!f) return;
+        const val = { employer: f.employer, baslik: f.baslik, alan: f.alan, adet: f.adet, il: f.il, workType: f.workType, minEdu: +f.minEdu, minExp: f.minExp || 0, ehliyet: f.ehliyet, salaryMin: f.salaryMin || 0, salaryMax: f.salaryMax || 0, closes: f.closes, req: [...new Set([...f.req, ...f.reqX])], pref: f.pref, desc: f.desc };
+        if (ex) { Object.assign(ex, val); if (ex.status === 'doldu' && ex.filled < ex.adet) ex.status = 'acik'; return commit('POZISYON_GUNCELLENDI', id, 'تم الحفظ.'); }
+        const nid = nextId('P'); S.vacancies[nid] = { id: nid, ...val, filled: 0, status: 'acik', createdAt: Date.now() }; return commit('POZISYON_ACILDI', nid, 'تم فتح الوظيفة.');
+      }
+      case 'closevacancy': { if (!confirm('ستُغلق الوظيفة وتُلغى التوجيهات الجارية. هل تريد المتابعة؟')) return; S.vacancies[id].status = 'kapali'; for (const r of Object.values(S.referrals)) if (r.vacancy === id && ACTIVE_REF.includes(r.status)) { r.status = 'iptal'; hist(r, 'أُغلقت الوظيفة'); } return commit('POZISYON_KAPATILDI', id, 'تم الإغلاق.'); }
+      case 'reopenvacancy': S.vacancies[id].status = 'acik'; return commit('POZISYON_YENIDEN_ACILDI', id, 'تم الفتح.');
+      case 'runmatch': runMatching(); ctxUI.why = null; ctxUI.more = null; return commit(null, '', 'اكتملت المطابقة.');
+      case 'why': ctxUI.why = { s: t.dataset.s, v: t.dataset.v }; return render(); case 'more': ctxUI.more = id; return render();
+      case 'startref': return referral(t.dataset.s, t.dataset.v);
+      case 'ra': return refAction(id, t.dataset.do);
+      case 'resetparams': { const r = prompt('ستعود المعايير إلى الافتراضيات. المبرر:'); if (!r || r.length < 5) return; S.paramHistory.push({ ver: S.paramHistory.length + 1, ts: Date.now(), user: user(), reason: 'العودة إلى الافتراضيات: ' + r, seal: sealOf(P()), params: JSON.parse(JSON.stringify(P())) }); S.params = DEFAULT_PARAMS(); return commit('PARAMETRE_SIFIRLANDI', 'الافتراضيات', 'تم تحميل الافتراضيات.'); }
+      case 'exportaudit': return downloadText('audit-log.json', JSON.stringify({ olusturma: Date.now(), baslOzeti: verifyChain().head, gunluk: S.audit }, null, 2));
+      case 'setofficer': { const f = await ask('اسم الموظف', [{ n: 'name', label: 'الاسم الكامل', req: 1, max: 60 }], { data: { name: S.meta.officer }, validate: (x) => (x.name.length >= 2 ? [] : ['أدخل الاسم.']) }); if (!f) return; S.meta.officer = f.name; return commit('GOREVLI_DEGISTI', 'تحديث اسم الموظف', 'تم الحفظ.'); }
+      case 'backup': { S.meta.lastBackup = Date.now(); A('YEDEK_ALINDI', 'نسخة كاملة'); save(); downloadText(`job-backup-${today()}.json`, JSON.stringify(S)); return render(); }
+      case 'csvrefs': { const rows = [['الرقم', 'رقم المرشح', 'رقم الوظيفة', 'الوظيفة', 'الدرجة', 'الحالة', 'التاريخ']]; for (const r of Object.values(S.referrals)) rows.push([r.id, r.seeker, r.vacancy, (S.vacancies[r.vacancy] || {}).baslik || '', r.score, r.status, new Date(r.createdAt).toISOString().slice(0, 10)]); return downloadText('referrals.csv', '﻿' + rows.map((x) => x.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(';')).join('\n'), 'text/csv'); }
+      case 'setlock': { const f = await ask('كلمة مرور التطبيق', [{ n: 'p1', label: 'كلمة المرور (6 أحرف على الأقل)', type: 'password', req: 1 }, { n: 'p2', label: 'إعادة الإدخال', type: 'password', req: 1 }], { validate: (x) => (x.p1.length >= 6 && x.p1 === x.p2 ? [] : ['يجب أن تتطابق كلمتا المرور وألا تقل عن 6 أحرف.']) }); if (!f) return; const salt = Math.random().toString(36).slice(2); S.meta.lock = { salt, hash: sha256(salt + f.p1) }; return commit('KILIT_AYARLANDI', 'كلمة مرور التطبيق', 'تم تعيين كلمة المرور.'); }
+      case 'clearlock': S.meta.lock = null; return commit('KILIT_KALDIRILDI', '', 'تمت الإزالة.');
+      case 'lock': return showLock();
+      case 'retention': { const L = Object.values(S.seekers).filter((s) => ['yerlesti', 'pasif'].includes(s.status) && s.closedAt && daysBetween(dStr(new Date(s.closedAt)), today()) > P().retentionDays); if (!L.length) return toast('لا توجد سجلات منتهية المدة.'); if (!confirm(`ستُزال هوية ${L.length} سجل. هل تريد المتابعة؟`)) return; L.forEach((s) => anonymize(s, 'انتهت مدة الاحتفاظ')); return commit(null, '', 'اكتمل.'); }
+      case 'seed': seedDemo(); return commit(null, '', 'أُضيفت بيانات تجريبية.');
+      case 'unseed': { for (const k of ['seekers', 'employers', 'vacancies']) for (const [i, x] of Object.entries(S[k])) if (x.demo) delete S[k][i]; for (const [i, r] of Object.entries(S.referrals)) if (!S.seekers[r.seeker] || !S.vacancies[r.vacancy]) delete S.referrals[i]; S.run = null; return commit('DENEME_VERISI_SILINDI', '', 'تم الحذف.'); }
+      case 'wipe': { if (prompt('ستُحذف جميع البيانات (السجلات والمعايير وسجل التدقيق). للتأكيد اكتب: حذف') !== 'حذف') return; const off = S.meta.officer; S = fresh(); S.meta.officer = off; A('TUM_VERI_SILINDI', ''); save(); return go('dash'); }
+    }
+  } catch (er) { console.error(er); alert('خطأ: ' + er.message); }
+});
+function showLock() {
+  $('#tabs').classList.add('hidden'); $('#who').innerHTML = '';
+  $('#app').innerHTML = `<div class="card lock"><h1>مقفل</h1><form id="lockform"><label>كلمة مرور التطبيق</label><input type="password" id="lockpw" autofocus><div id="lockerr"></div><button class="b mt8" type="submit">فتح</button></form></div>`;
+  $('#lockform').onsubmit = (e) => { e.preventDefault(); const L = S.meta.lock; if (L && sha256(L.salt + $('#lockpw').value) === L.hash) { go('dash'); } else { $('#lockerr').innerHTML = '<div class="note bad">كلمة المرور غير صحيحة.</div>'; } };
+}
+/* =====================================================================  başlangıç */
+S = load();
+if (!S.meta.officer) { S.meta.officer = ''; }
+if (S.meta.lock) showLock();
+else {
+  if (!S.meta.officer) { render(); ask('مرحبًا بكم', [{ n: 'name', label: 'اسم الموظف الكامل (يُسجَّل في سجل التدقيق)', req: 1, max: 60 }], { intro: 'تُحفظ البيانات في هذا المتصفح فقط. لا تنسَ أخذ نسخ احتياطية دورية (البيانات ← تنزيل نسخة احتياطية).', validate: (x) => (x.name.length >= 2 ? [] : ['أدخل الاسم.']) , submit: 'ابدأ' }).then((f) => { S.meta.officer = (f && f.name) || 'موظف'; A('KURULUM', 'أول استخدام'); save(); render(); }); }
+  else render();
+}
+window.__ISB = { get S() { return S; }, sha256, scorePair, verifyChain, tcValid, runMatching, seedDemo }; // test amaçlı
+})();
+</script>
+</body>
+</html>
