@@ -20,7 +20,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 .badge{display:inline-block;border-radius:99px;padding:1px 9px;font-size:12px;background:#e8e4d8}.badge.good{background:#dff1e5;color:var(--good)}.badge.warn{background:#fdebc8;color:var(--warn)}
 progress{width:100%;height:10px}.tw{overflow:auto;max-height:430px}
 #viewer canvas{max-width:100%;border:1px solid var(--line);background:#fff;display:block;margin:8px auto}
-.hidden{display:none!important}.ar{font:17px "Segoe UI",Tahoma,"Noto Naskh Arabic",Arial,sans-serif;direction:rtl;unicode-bidi:isolate}
+.hidden{display:none!important}.vb{min-width:44px;padding:6px 8px;background:#fff;color:var(--pri);border:1px solid var(--pri)}.vb.on{background:var(--good);color:#fff;border-color:var(--good)}.ar{font:17px "Segoe UI",Tahoma,"Noto Naskh Arabic",Arial,sans-serif;direction:rtl;unicode-bidi:isolate}
 tr.res:hover{background:#f1ede0}a.lnk{color:var(--pri);cursor:pointer;text-decoration:underline}
 </style>
 </head>
@@ -43,6 +43,9 @@ tr.res:hover{background:#f1ede0}a.lnk{color:var(--pri);cursor:pointer;text-decor
   <h2>Cilt PDF’leri</h2>
   <p class="small muted">Elinizdeki cilt PDF’lerini seçin (birden çok dosya seçebilirsiniz). Dosyalar bilgisayarınızdan çıkmaz. Dosya adındaki cilt numarası otomatik tanınır; yanlışsa listeden düzeltin.</p>
   <div class="row"><input type="file" id="files" accept=".pdf,application/pdf" multiple></div>
+  <input type="file" id="one" accept=".pdf,application/pdf" class="hidden">
+  <div class="small muted mt8">Tek tek seçmek için (tablet/telefon): cilt numarasına dokunup o cildin PDF’sini seçin. Yeşil olanlar yüklü.</div>
+  <div id="grid" class="row mt8"></div>
   <div id="filelist" class="mt8"></div>
   <div id="prog" class="hidden mt8"><div class="small" id="progt"></div><progress id="progb" value="0" max="100"></progress></div>
 </div>
@@ -126,7 +129,13 @@ let CAL = {}; try { CAL = JSON.parse(localStorage.getItem('ia2_cal') || '{}'); }
 const saveCal = () => { try { localStorage.setItem('ia2_cal', JSON.stringify(CAL)); } catch { /* yoksay */ } };
 const guessVol = (name) => { const n = name.normalize('NFC'), pats = [/(?:cilt|c|vol|v)[\s._\-]*0*(\d{1,2})(?!\d)/i, /0*(\d{1,2})[\s._\-]*\.?[\s._\-]*(?:cilt|c\b)/i, /(?:^|[^\d])0*(\d{1,2})(?:[^\d]|$)/]; for (const p of pats) { const m = p.exec(n); if (m && +m[1] >= 1 && +m[1] <= 44) return +m[1]; } return null; };
 const fileOf = (v) => FILES.find((f) => f.vol === v);
+function drawGrid() { $('#grid').innerHTML = Array.from({ length: 44 }, (_, k) => `<button class="vb ${fileOf(k + 1) ? 'on' : ''}" data-v="${k + 1}">${k + 1}</button>`).join(''); }
+let PICK = null;
+function pickFor(vol, entry) { PICK = { vol, entry }; const inp = $('#one'); inp.value = ''; inp.click(); }
+$('#one').addEventListener('change', (e) => { const file = e.target.files[0]; if (!file || !PICK) return; const { vol, entry } = PICK; PICK = null; const old = FILES.find((f) => f.vol === vol); if (old) { old.file = file; old.name = file.name; old.doc = null; } else FILES.push({ file, name: file.name, vol }); SAVED[file.name] = vol; try { localStorage.setItem('ia2_map', JSON.stringify(SAVED)); } catch { /* yoksay */ } drawFiles(); if (entry !== undefined && entry !== null) openEntry(entry); });
+$('#grid').addEventListener('click', (e) => { const b = e.target.closest('[data-v]'); if (b) pickFor(+b.dataset.v, null); });
 function drawFiles() {
+  drawGrid();
   $('#filelist').innerHTML = FILES.length ? `<table><tr><th>Dosya</th><th>Cilt</th><th>Boyut</th></tr>${FILES.map((f, i) => `<tr><td>${esc(f.name)}</td><td><select data-i="${i}"><option value="">— seçin —</option>${Array.from({ length: 44 }, (_, k) => `<option value="${k + 1}" ${f.vol === k + 1 ? 'selected' : ''}>Cilt ${k + 1}</option>`).join('')}</select></td><td class="small">${(f.file.size / 1048576).toFixed(1)} MB</td></tr>`).join('')}</table>` : '<p class="small muted">Henüz dosya seçilmedi.</p>';
 }
 $('#files').addEventListener('change', (e) => { for (const file of e.target.files) { const old = FILES.find((f) => f.name === file.name && f.file.size === file.size); if (old) { old.file = file; continue; } FILES.push({ file, name: file.name, vol: SAVED[file.name] ?? guessVol(file.name) }); } drawFiles(); });
@@ -188,10 +197,10 @@ function showResults(q) {
   if (!q.trim()) { out.innerHTML = ''; return; }
   if (!r.length) { out.innerHTML = '<div class="note warn">Eşleşen madde bulunamadı. Farklı yazımı deneyin (şapkalı/şapkasız, “el-” gibi edatsız) ya da Arapça yazılışını arayın.</div>'; return; }
   const shown = r.slice(0, 300);
-  out.innerHTML = `<div class="small muted">${r.length} kayıt${r.length > 300 ? ' (ilk 300 gösteriliyor)' : ''}</div><div class="tw"><table><tr><th>Madde</th><th>Arapça</th><th>Yazar</th><th>Cilt / sayfa</th><th></th></tr>${shown.map(({ i }) => { const e = E[i], has = !!fileOf(e[5]); return `<tr class="res"><td><b>${esc(e[0])}</b>${e[2] ? ' <span class="muted">' + esc(e[2]) + '</span>' : ''}${e[4] ? `<div class="small">→ <a class="lnk" data-bk="${esc(e[4].split(';')[0].trim())}">${esc(e[4])}</a> maddesine bakınız</div>` : ''}</td><td class="ar">${esc(e[1])}</td><td class="small">${esc(e[3])}</td><td>c. ${e[5]}, s. ${e[6]}${e[7] !== e[6] ? '–' + e[7] : ''}</td><td><button class="sm ${has ? '' : 'ghost'}" data-open="${i}">${has ? 'PDF’te aç' : 'PDF seçilmemiş'}</button></td></tr>`; }).join('')}</table></div>`;
+  out.innerHTML = `<div class="small muted">${r.length} kayıt${r.length > 300 ? ' (ilk 300 gösteriliyor)' : ''}</div><div class="tw"><table><tr><th>Madde</th><th>Arapça</th><th>Yazar</th><th>Cilt / sayfa</th><th></th></tr>${shown.map(({ i }) => { const e = E[i], has = !!fileOf(e[5]); return `<tr class="res"><td><b>${esc(e[0])}</b>${e[2] ? ' <span class="muted">' + esc(e[2]) + '</span>' : ''}${e[4] ? `<div class="small">→ <a class="lnk" data-bk="${esc(e[4].split(';')[0].trim())}">${esc(e[4])}</a> maddesine bakınız</div>` : ''}</td><td class="ar">${esc(e[1])}</td><td class="small">${esc(e[3])}</td><td>c. ${e[5]}, s. ${e[6]}${e[7] !== e[6] ? '–' + e[7] : ''}</td><td><button class="sm ${has ? '' : 'ghost'}" data-open="${i}">${has ? 'PDF’te aç' : 'Cilt ' + e[5] + ' PDF’sini seç ve aç'}</button></td></tr>`; }).join('')}</table></div>`;
 }
 $('#sf').addEventListener('submit', (e) => { e.preventDefault(); showResults($('#q').value); const f = LAST[0]; if (f && LAST.length && LAST[0].sc >= 98 && fileOf(E[f.i][5]) && !E[f.i][4]) openEntry(f.i); });
-$('#res').addEventListener('click', (e) => { const b = e.target.closest('[data-open]'); if (b) openEntry(+b.dataset.open); const a = e.target.closest('[data-bk]'); if (a) { $('#q').value = a.dataset.bk; showResults(a.dataset.bk); window.scrollTo(0, 0); } });
+$('#res').addEventListener('click', (e) => { const b = e.target.closest('[data-open]'); if (b) { const i = +b.dataset.open; if (!fileOf(E[i][5])) return pickFor(E[i][5], i); openEntry(i); } const a = e.target.closest('[data-bk]'); if (a) { $('#q').value = a.dataset.bk; showResults(a.dataset.bk); window.scrollTo(0, 0); } });
 let deb = null; $('#q').addEventListener('input', () => { clearTimeout(deb); deb = setTimeout(() => showResults($('#q').value), 200); }); $('#auth').addEventListener('change', () => showResults($('#q').value));
 drawFiles();
 window.__IA2 = { E, search, fold, arFold, offsetFor };
