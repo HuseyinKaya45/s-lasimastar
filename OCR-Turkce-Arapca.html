@@ -27,17 +27,26 @@ progress{width:100%;height:12px}textarea#out{min-height:380px;font:15px/1.7 "Seg
  <div class="row"><input type="file" id="file" accept=".pdf,image/*,application/pdf" multiple><span class="small muted" id="finfo"></span></div>
  <p class="small muted">Taranmış PDF ya da resim dosyaları (JPG, PNG, WebP). Birden çok resim seçerseniz sayfa sırası dosya adına göredir.</p>
 </div>
-<div class="card"><h2>2) Ayarlar</h2>
+<div class="card"><h2>2) OCR motoru</h2>
+ <div class="grid"><div><label>Motor</label><select id="engine"><option value="tess">Tesseract (hızlı; Türkçede iyi, eski baskı Arapçada zayıf)</option><option value="ollama">Ollama görüntü modeli (yavaş; Arapçada genelde çok daha iyi)</option></select></div></div>
+ <div id="ollbox" class="hidden mt8">
+  <div class="row"><div style="min-width:260px"><label>Ollama adresi</label><input id="ourl" value="http://127.0.0.1:11434"></div><div style="align-self:flex-end"><button id="oconn" class="ghost">Modelleri listele</button></div><div style="min-width:260px"><label>Görüntü (vision) modeli</label><select id="omodel"><option value="">— önce listeleyin —</option></select></div></div>
+  <div id="oerr"></div>
+  <div class="note info small">Görüntü okuyabilen bir model seçin (örn. <b>qwen2.5vl</b>, <b>qwen3-vl</b>, <b>gemma3/4</b> çok kipli sürümleri). Kurulu değilse: <span style="font-family:monospace">ollama pull qwen2.5vl:32b</span> (tam ad için ollama.com/library’ye bakın). Model, sayfayı okuyup metni yazar; Tesseract’tan yavaştır ve ara sıra kelime uydurabilir veya atlayabilir — önemli yerleri kaynakla karşılaştırın. Tarayıcı erişimi için Ollama’yı <b>Ozetleyici-Baslat.bat</b> ile başlatmış olmalısınız.</div>
+  <div class="grid"><div><label>Görüntü uzun kenarı (px)</label><select id="oside"><option value="1280">1280 (hızlı)</option><option value="1792" selected>1792</option><option value="2400">2400 (ayrıntılı, yavaş)</option></select></div><div><label>Ek yönerge</label><input id="oextra" placeholder="örn. Sayfada iki sütun var"></div></div>
+ </div>
+</div>
+<div class="card"><h2>3) Ayarlar</h2>
  <div class="grid">
   <div><label>Dil</label><select id="lang"><option value="tur">Türkçe</option><option value="ara">Arapça</option><option value="tur+ara">Türkçe + Arapça (karışık)</option></select></div>
   <div><label>Çözünürlük (PDF sayfaları için)</label><select id="dpi"><option value="150">Hızlı (150 dpi)</option><option value="200" selected>Normal (200 dpi)</option><option value="300">Yüksek (300 dpi, yavaş)</option></select></div>
   <div><label>Sayfa aralığı (boş = hepsi)</label><input id="range" placeholder="örn. 1-20 veya 5,8,12-15"></div>
-  <div><label>Eşzamanlı işçi sayısı</label><select id="workers"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></div>
+  <div id="wbox"><label>Eşzamanlı işçi sayısı (Tesseract)</label><select id="workers"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></div>
  </div>
  <label class="chk mt8"><input type="checkbox" id="bw"> Görüntüyü siyah-beyaza çevir (soluk veya lekeli sayfalarda yardımcı olabilir)</label>
  <label class="chk"><input type="checkbox" id="mark" checked> Çıktıya sayfa işaretleri ekle (<span class="small">[s.N]</span> — Kitap Özetleyici bu işaretleri kullanır)</label>
 </div>
-<div class="card"><h2>3) Çalıştır</h2>
+<div class="card"><h2>4) Çalıştır</h2>
  <div class="row"><button id="go" disabled>OCR’ı başlat</button><button id="stop" class="red hidden">Durdur</button><span class="small muted" id="info"></span></div>
  <div id="prog" class="hidden mt8"><div class="small" id="pt"></div><progress id="pb" max="100" value="0"></progress></div>
  <div id="err"></div>
@@ -423,15 +432,38 @@ function urls() { // dosyadan açılan sayfada (file://) iç içe importScripts 
   return URLS;
 }
 async function makeWorker(lang, log) { const u = urls(); return Tesseract.createWorker(lang.split('+'), 1, { workerPath: u.worker, workerBlobURL: false, corePath: u.core, langPath: 'https://offline.invalid/lang', gzip: true, cacheMethod: 'none', logger: log }); }
+/* -------------------------------------------------- Ollama görüntü modeli ile OCR */
+const oBase = () => $('#ourl').value.replace(/\/+$/, '');
+$('#engine').onchange = () => { const o = $('#engine').value === 'ollama'; $('#ollbox').classList.toggle('hidden', !o); $('#wbox').classList.toggle('hidden', o); };
+$('#oconn').onclick = async () => {
+  $('#oerr').innerHTML = '<span class="small muted">Bağlanılıyor…</span>';
+  try { const r = await fetch(oBase() + '/api/tags'); if (!r.ok) throw new Error('HTTP ' + r.status); const j = await r.json(), ms = (j.models || []).filter((m) => !/embed|bge-|nomic/i.test(m.name)); $('#omodel').innerHTML = ms.map((m) => `<option>${esc(m.name)}</option>`).join('') || '<option value="">Model yok</option>'; $('#oerr').innerHTML = `<div class="note good">Bağlandı: ${ms.length} model.</div>`; }
+  catch (e) { $('#oerr').innerHTML = '<div class="note bad">Ollama’ya erişilemedi. Ollama’yı <b>Ozetleyici-Baslat.bat</b> ile başlatın (tarayıcı erişimi için gerekli) ve tekrar deneyin.</div>'; }
+};
+const OCR_SYS = 'Sen bir OCR motorusun. Görüntüdeki metni AYNEN, yazıldığı gibi yaz. Çeviri, özet, yorum, açıklama, başlık ya da düzeltme ekleme. Harekeleri ve noktalama işaretlerini koru. Satır sırasını koru. Okuyamadığın kelime için [?] yaz; asla tahmin yürütüp kelime uydurma. Sadece sayfadaki metni çıktı olarak ver.';
+async function ollamaOcr(cv, signal) {
+  const side = +$('#oside').value, sc = Math.min(1, side / Math.max(cv.width, cv.height)), c2 = document.createElement('canvas'); c2.width = Math.round(cv.width * sc); c2.height = Math.round(cv.height * sc); c2.getContext('2d').drawImage(cv, 0, 0, c2.width, c2.height);
+  const b64 = c2.toDataURL('image/jpeg', 0.92).split(',')[1]; c2.width = c2.height = 0;
+  const lang = $('#lang').value, hint = lang === 'ara' ? 'Sayfa Arapça.' : lang === 'tur' ? 'Sayfa Türkçe.' : 'Sayfada Türkçe ve Arapça olabilir.';
+  const body = { model: $('#omodel').value, stream: false, think: false, messages: [{ role: 'system', content: OCR_SYS }, { role: 'user', content: `${hint} ${$('#oextra').value.trim()} Bu sayfadaki metni aynen yaz.`.trim(), images: [b64] }], options: { temperature: 0, num_ctx: 8192, num_predict: 4096, repeat_penalty: 1.1 } };
+  const r = await fetch(oBase() + '/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal });
+  if (!r.ok) { let m = 'HTTP ' + r.status; try { m = (await r.json()).error || m; } catch { /* yoksay */ } throw new Error(m); }
+  const j = await r.json(); return ((j.message && j.message.content) || '').replace(/<think>[\s\S]*?(<\/think>|$)/g, '').trim();
+}
 /* -------------------------------------------------- çalıştırma */
-$('#stop').onclick = () => { S.abort = true; };
+$('#stop').onclick = () => { S.abort = true; if (S.ctl) S.ctl.abort(); };
 $('#go').onclick = async () => {
   if (S.running) return; S.running = true; S.abort = false; $('#err').innerHTML = ''; $('#go').classList.add('hidden'); $('#stop').classList.remove('hidden'); $('#prog').classList.remove('hidden'); $('#rc').classList.remove('hidden'); $('#out').value = '';
   const lang = $('#lang').value, dpi = +$('#dpi').value, nw = +$('#workers').value, bw = $('#bw').checked, mark = $('#mark').checked; let idxs;
   try { idxs = parseRange($('#range').value, S.items.length); if (!idxs.length) throw new Error('Seçilen aralıkta sayfa yok.'); } catch (e) { $('#err').innerHTML = `<div class="note bad">${esc(e.message)}</div>`; return finish(); }
   S.texts = []; const t0 = performance.now(); let done = 0; const workers = [];
   const show = () => { $('#out').value = idxs.map((i) => (S.texts[i] !== undefined ? (mark ? `[s.${i + 1}]\n` : '') + S.texts[i] : null)).filter((x) => x !== null).join('\n\n'); };
+  const ollama = $('#engine').value === 'ollama', ctl = new AbortController(); S.ctl = ctl;
+  if (ollama && !$('#omodel').value) { $('#err').innerHTML = '<div class="note bad">Önce Ollama modellerini listeleyip bir görüntü modeli seçin.</div>'; return finish(); }
   try {
+    if (ollama) {
+      for (let j = 0; j < idxs.length && !S.abort; j++) { const i = idxs[j], cv = await toCanvas(S.items[i], dpi); if (bw) binarize(cv); $('#pt').textContent = `Sayfa ${i + 1} okunuyor (${j + 1}/${idxs.length})…`; try { S.texts[i] = (await ollamaOcr(cv, ctl.signal)).replace(/\n{3,}/g, '\n\n'); } catch (e) { if (e.name === 'AbortError') break; S.texts[i] = `[HATA: ${e instanceof TypeError ? 'Ollama’ya erişilemedi' : e.message}]`; } cv.width = cv.height = 0; done++; const el = (performance.now() - t0) / 1000; $('#pt').textContent = `Sayfa ${i + 1} tamam (${done}/${idxs.length}) · geçen ${Math.round(el)} sn · kalan ≈ ${Math.round(el / done * (idxs.length - done))} sn`; $('#pb').value = Math.round(done / idxs.length * 100); show(); }
+    } else {
     $('#pt').textContent = 'OCR motoru ve dil verileri yükleniyor…';
     for (let k = 0; k < nw; k++) workers.push(await makeWorker(lang, () => {}));
     let next = 0;
@@ -445,6 +477,7 @@ $('#go').onclick = async () => {
       }
     };
     await Promise.all(workers.map(run));
+    }
   } catch (e) { $('#err').innerHTML = `<div class="note bad">Hata: ${esc(e.message || e)}</div>`; }
   for (const w of workers) { try { await w.terminate(); } catch { /* yoksay */ } }
   show(); $('#info').textContent = S.abort ? 'Durduruldu.' : `Bitti · ${Math.round((performance.now() - t0) / 1000)} sn`; finish();
