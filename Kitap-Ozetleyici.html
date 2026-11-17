@@ -120,7 +120,7 @@ const tick = () => new Promise((r) => setTimeout(r, 0));
 const fmtS = (ms) => (ms / 1000).toFixed(1) + ' sn';
 /* ---------------------------------------------------------------- kitap yükleme */
 $('#file').addEventListener('change', async (e) => {
-  const f = e.target.files[0]; if (!f) return; $('#ferr').innerHTML = ''; S.pages = []; S.chunks = []; S.title = f.name.replace(/\.[^.]+$/, ''); renderChunks(); $('#split').disabled = true; $('#run').disabled = true; $('#cmp').disabled = true;
+  const f = e.target.files[0]; if (!f) return; $('#ferr').innerHTML = ''; S.pages = []; S.pageNos = null; S.chunks = []; S.title = f.name.replace(/\.[^.]+$/, ''); renderChunks(); $('#split').disabled = true; $('#run').disabled = true; $('#cmp').disabled = true;
   try {
     if (/\.pdf$/i.test(f.name) || f.type === 'application/pdf') {
       if (!pdfjs) throw new Error('PDF okuyucu yüklenemedi.');
@@ -133,7 +133,18 @@ $('#file').addEventListener('change', async (e) => {
       }
       $('#eprog').classList.add('hidden');
       if (withText < doc.numPages * 0.3) { $('#ferr').innerHTML = '<div class="note bad"><b>Bu PDF’de metin katmanı yok</b> (taranmış görüntü olabilir). Önce OCR ile metne çevirmeniz gerekir; aksi halde özetlenecek metin yoktur.</div>'; }
-    } else { S.pages = [await f.text()]; }
+    } else {
+      const txt = await f.text(), marks = [...txt.matchAll(/^\s*\[s\.(\d+)\]\s*$/gm)];
+      if (marks.length >= 2) { // OCR çıktısındaki [s.N] işaretlerini sayfa say; sayfa numaraları korunur
+        S.pageNos = []; S.pages = marks.map((m, k) => { S.pageNos.push(+m[1]); return txt.slice(m.index + m[0].length, k + 1 < marks.length ? marks[k + 1].index : txt.length).trim(); });
+        const keyOf = (l) => l.replace(/[0-9٠-٩]/g, '').replace(/[\u064B-\u065F\u0670\u0640]/g, '').replace(/[^\p{L}]/gu, '').toLowerCase().replace(/ى/g, 'ي');
+        const cnt = new Map(), cand = (ls) => ls.map((l, i) => [l, i]).filter(([l]) => l.trim()).slice(0, 2);
+        S.pages.forEach((t) => { const seen = new Set(); for (const [l] of cand(t.split('\n'))) { const k = keyOf(l); if (k.length >= 6) seen.add(k); } seen.forEach((k) => cnt.set(k, (cnt.get(k) || 0) + 1)); });
+        const thr = Math.max(3, Math.ceil(S.pages.length * 0.3)), hdr = new Set([...cnt].filter(([, c]) => c >= thr).map(([k]) => k)); let removed = 0;
+        S.pages = S.pages.map((t) => { const ls = t.split('\n'), kill = new Set(cand(ls).filter(([l]) => hdr.has(keyOf(l))).map(([, i]) => i)); removed += kill.size; return ls.filter((_, i) => !kill.has(i)).join('\n').trim(); });
+        $('#ferr').innerHTML = `<div class="note info small">Metindeki ${marks.length} sayfa işareti tanındı (s.${S.pageNos[0]}–s.${S.pageNos[S.pageNos.length - 1]})${removed ? `; ${removed} tekrar eden üst bilgi satırı silindi` : ''}.</div>`;
+      } else { S.pages = [txt]; S.pageNos = null; }
+    }
   } catch (er) { $('#ferr').innerHTML = `<div class="note bad">${esc(er.message)}</div>`; $('#eprog').classList.add('hidden'); return; }
   const chars = S.pages.reduce((a, t) => a + t.length, 0), ar = arabicShare(S.pages.slice(0, 5).join(' '));
   $('#finfo').textContent = `${S.pages.length} sayfa · ${chars.toLocaleString('tr')} karakter · ${ar > 0.4 ? 'Arapça ağırlıklı' : 'Latin ağırlıklı'}`;
@@ -146,10 +157,10 @@ function buildUnits() { // [{ text, page, head }]
   const units = [];
   S.pages.forEach((t, i) => {
     const lines = t.split(/\r?\n/); let para = [];
-    const flush = () => { if (para.length) { units.push({ text: para.join(' ').replace(/\s+/g, ' ').trim(), page: i + 1 }); para = []; } };
+    const flush = () => { if (para.length) { units.push({ text: para.join(' ').replace(/\s+/g, ' ').trim(), page: S.pageNos ? S.pageNos[i] : i + 1 }); para = []; } };
     for (const l of lines) {
       const s = l.trim(); if (!s) { flush(); continue; }
-      if ($('#chap').checked && s.length < 80 && HEAD.test(s)) { flush(); units.push({ text: s, page: i + 1, head: true }); continue; }
+      if ($('#chap').checked && s.length < 60 && !/[(),،;]/.test(s) && HEAD.test(s)) { flush(); units.push({ text: s, page: S.pageNos ? S.pageNos[i] : i + 1, head: true }); continue; }
       para.push(s); if (/[.!?؟۔:]$/.test(s) && s.length < 45) flush();
     } flush();
   });
@@ -200,7 +211,7 @@ const cmpModels = () => [...document.querySelectorAll('.cm:checked')].map((x) =>
 $('#models').addEventListener('change', updButtons);
 function updButtons() { $('#run').disabled = !(S.chunks.length && mainModel()); $('#cmp').disabled = !(S.chunks.length && cmpModels().length >= 1); }
 const LEN = { short: 'Metni 5–7 cümleyle özetle.', mid: 'Önce ana fikirleri 4–7 maddeyle yaz, ardından kısa bir paragrafla toparla.', long: 'Ayrıntılı bir özet yaz: başlıklarla ve maddelerle, önemli kavram, isim ve gerekçeleri koruyarak.' };
-const SYS = () => `Sen dikkatli bir kitap özetleyicisisin. YALNIZCA verilen metne dayan; metinde olmayan bilgi, âyet, hadis, tarih, sayı veya alıntı ekleme, tahmin yürütme. Emin olmadığın yerde bunu belirt. Metin Arapça ise anlamı ${$('#olang').value} özetle; özel isimleri ve terimleri yazılışlarıyla koru, gerekirse parantezle orijinalini ver. Özeti ${$('#olang').value} yaz. Metindeki [s.N] işaretleri sayfa numarasıdır; önemli noktalar için sayfa numarasını (s.N) biçiminde belirt.`;
+const SYS = () => `Sen dikkatli bir kitap özetleyicisisin. YALNIZCA verilen metne dayan; metinde olmayan bilgi, âyet, hadis, tarih, sayı veya alıntı ekleme, tahmin yürütme. Emin olmadığın yerde bunu belirt. Metin Arapça ise anlamı ${$('#olang').value} özetle; özel isimleri ve terimleri yazılışlarıyla koru, gerekirse parantezle orijinalini ver. Özeti ${$('#olang').value} yaz. Verilen metin bir kitabın yalnızca bir bölümüdür: kitabın tamamı hakkında genelleme yapma, metinde olmayan bir sonuç çıkarma. Sayıları, yılları ve yaşları metindeki gibi aynen aktar. Giriş cümlesi (“Özet şu şekildedir” gibi) yazma, doğrudan özete başla. Metindeki [s.N] işaretleri sayfa numarasıdır; önemli noktalar için sayfa numarasını (s.N) biçiminde belirt.`;
 async function chat(model, system, user, onTok, signal) {
   const body = { model, stream: true, think: false, messages: [{ role: 'system', content: system }, { role: 'user', content: user }], options: { num_ctx: +$('#nctx').value, temperature: +$('#temp').value } };
   const t0 = performance.now(), r = await fetch(base() + '/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal });
