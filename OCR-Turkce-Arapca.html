@@ -31,6 +31,7 @@ progress{width:100%;height:12px}textarea#out{min-height:380px;font:15px/1.7 "Seg
  <div class="grid"><div><label>Motor</label><select id="engine"><option value="tess">Tesseract (hızlı; Türkçede iyi, eski baskı Arapçada zayıf)</option><option value="ollama">Ollama görüntü modeli (yavaş; Arapçada genelde çok daha iyi)</option></select></div></div>
  <div id="ollbox" class="hidden mt8">
   <div class="row"><div style="min-width:260px"><label>Ollama adresi</label><input id="ourl" value="http://127.0.0.1:11434"></div><div style="align-self:flex-end"><button id="oconn" class="ghost">Modelleri listele</button></div><div style="min-width:260px"><label>Görüntü (vision) modeli</label><select id="omodel"><option value="">— önce listeleyin —</option></select></div></div>
+  <div class="row mt8"><div style="min-width:260px"><label>İkinci model (çapraz kontrol, isteğe bağlı)</label><select id="omodel2"><option value="">— yok —</option></select></div><span class="small muted">Sayfalar iki modelle ayrı ayrı okunur; farklı okunan kelimeler işaretlenir (iki kat süre sürer).</span></div>
   <div id="oerr"></div>
   <div class="note info small">Görüntü okuyabilen bir model seçin (örn. <b>qwen2.5vl</b>, <b>qwen3-vl</b>, <b>gemma3/4</b> çok kipli sürümleri). Kurulu değilse: <span style="font-family:monospace">ollama pull qwen2.5vl:32b</span> (tam ad için ollama.com/library’ye bakın). Model, sayfayı okuyup metni yazar; Tesseract’tan yavaştır ve ara sıra kelime uydurabilir veya atlayabilir — önemli yerleri kaynakla karşılaştırın. Tarayıcı erişimi için Ollama’yı <b>Ozetleyici-Baslat.bat</b> ile başlatmış olmalısınız.</div>
   <div class="grid"><div><label>Görüntü uzun kenarı (px)</label><select id="oside"><option value="1280">1280 (hızlı)</option><option value="1792" selected>1792</option><option value="2400">2400 (ayrıntılı, yavaş)</option></select></div><div><label>Ek yönerge</label><input id="oextra" placeholder="örn. Sayfada iki sütun var"></div></div>
@@ -52,7 +53,9 @@ progress{width:100%;height:12px}textarea#out{min-height:380px;font:15px/1.7 "Seg
  <div id="err"></div>
 </div>
 <div class="card hidden" id="rc"><div class="row"><h2 class="sp">Metin</h2><button class="ghost sm" id="dl">İndir (.txt)</button><button class="ghost sm" id="cp">Kopyala</button></div>
- <p class="small muted">Metin düzenlenebilir. OCR hatasız değildir; özellikle eski baskı, harekeli veya soluk Arapça sayfalarda hata olur. Önemli alıntıları kaynakla karşılaştırın.</p>
+ <div class="row small"><label class="chk"><input type="checkbox" id="cl_head" checked> Üst bilgileri (her sayfada tekrar eden başlıkları) sil</label><label class="chk"><input type="checkbox" id="cl_num" checked> Sayfa numarası satırlarını sil</label><label class="chk"><input type="checkbox" id="cl_foot" checked> Dipnotları ayır (metnin sonuna taşı)</label><label class="chk hidden" id="cl_markw"><input type="checkbox" id="cl_mark"> Farklı okunan kelimeleri metinde işaretle (⟦A|B⟧)</label><button class="ghost sm" id="applycl">Uygula</button></div>
+ <div id="diffs"></div>
+ <p class="small muted">Metin düzenlenebilir. (“Uygula”ya basarsanız elle yaptığınız düzenlemeler sıfırlanır.) OCR hatasız değildir; özellikle eski baskı, harekeli veya soluk Arapça sayfalarda hata olur. Önemli alıntıları kaynakla karşılaştırın.</p>
  <textarea id="out" dir="auto"></textarea></div>
 <div class="card small muted"><b>Notlar.</b> OCR motoru Tesseract’tır (tarayıcıda çalışır; internet gerekmez). Türkçe için “best” modeli, Arapça için standart modeli kullanılır. Temiz, düz yazı basılı sayfalarda iyi sonuç verir; el yazması, ağır harekeli, çok sütunlu veya bozuk taramalarda kalite düşer. İlk sayfa, motorun yüklenmesi nedeniyle daha yavaş başlar. Bu program Windows/Mac/Linux’ta güncel Chrome veya Edge ile test edilmek üzere hazırlanmıştır.</div>
 </main></div>
@@ -437,32 +440,87 @@ const oBase = () => $('#ourl').value.replace(/\/+$/, '');
 $('#engine').onchange = () => { const o = $('#engine').value === 'ollama'; $('#ollbox').classList.toggle('hidden', !o); $('#wbox').classList.toggle('hidden', o); };
 $('#oconn').onclick = async () => {
   $('#oerr').innerHTML = '<span class="small muted">Bağlanılıyor…</span>';
-  try { const r = await fetch(oBase() + '/api/tags'); if (!r.ok) throw new Error('HTTP ' + r.status); const j = await r.json(), ms = (j.models || []).filter((m) => !/embed|bge-|nomic/i.test(m.name)); $('#omodel').innerHTML = ms.map((m) => `<option>${esc(m.name)}</option>`).join('') || '<option value="">Model yok</option>'; $('#oerr').innerHTML = `<div class="note good">Bağlandı: ${ms.length} model.</div>`; }
+  try { const r = await fetch(oBase() + '/api/tags'); if (!r.ok) throw new Error('HTTP ' + r.status); const j = await r.json(), ms = (j.models || []).filter((m) => !/embed|bge-|nomic/i.test(m.name)); $('#omodel').innerHTML = ms.map((m) => `<option>${esc(m.name)}</option>`).join('') || '<option value="">Model yok</option>'; $('#omodel2').innerHTML = '<option value="">— yok —</option>' + ms.map((m) => `<option>${esc(m.name)}</option>`).join(''); $('#oerr').innerHTML = `<div class="note good">Bağlandı: ${ms.length} model.</div>`; }
   catch (e) { $('#oerr').innerHTML = '<div class="note bad">Ollama’ya erişilemedi. Ollama’yı <b>Ozetleyici-Baslat.bat</b> ile başlatın (tarayıcı erişimi için gerekli) ve tekrar deneyin.</div>'; }
 };
 const OCR_SYS = 'Sen bir OCR motorusun. Görüntüdeki metni AYNEN, yazıldığı gibi yaz. Çeviri, özet, yorum, açıklama, başlık ya da düzeltme ekleme. Harekeleri ve noktalama işaretlerini koru. Satır sırasını koru. Okuyamadığın kelime için [?] yaz; asla tahmin yürütüp kelime uydurma. Sadece sayfadaki metni çıktı olarak ver.';
-async function ollamaOcr(cv, signal) {
+async function ollamaOcr(cv, signal, model) {
   const side = +$('#oside').value, sc = Math.min(1, side / Math.max(cv.width, cv.height)), c2 = document.createElement('canvas'); c2.width = Math.round(cv.width * sc); c2.height = Math.round(cv.height * sc); c2.getContext('2d').drawImage(cv, 0, 0, c2.width, c2.height);
   const b64 = c2.toDataURL('image/jpeg', 0.92).split(',')[1]; c2.width = c2.height = 0;
   const lang = $('#lang').value, hint = lang === 'ara' ? 'Sayfa Arapça.' : lang === 'tur' ? 'Sayfa Türkçe.' : 'Sayfada Türkçe ve Arapça olabilir.';
-  const body = { model: $('#omodel').value, stream: false, think: false, messages: [{ role: 'system', content: OCR_SYS }, { role: 'user', content: `${hint} ${$('#oextra').value.trim()} Bu sayfadaki metni aynen yaz.`.trim(), images: [b64] }], options: { temperature: 0, num_ctx: 8192, num_predict: 4096, repeat_penalty: 1.1 } };
+  const body = { model, stream: false, think: false, messages: [{ role: 'system', content: OCR_SYS }, { role: 'user', content: `${hint} ${$('#oextra').value.trim()} Bu sayfadaki metni aynen yaz.`.trim(), images: [b64] }], options: { temperature: 0, num_ctx: 8192, num_predict: 4096, repeat_penalty: 1.1 } };
   const r = await fetch(oBase() + '/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal });
   if (!r.ok) { let m = 'HTTP ' + r.status; try { m = (await r.json()).error || m; } catch { /* yoksay */ } throw new Error(m); }
   const j = await r.json(); return ((j.message && j.message.content) || '').replace(/<think>[\s\S]*?(<\/think>|$)/g, '').trim();
 }
+
+/* -------------------------------------------------- temizleme ve çapraz kontrol */
+const NUMCH = '0-9٠-٩۰-۹';
+const keyOf = (l) => l.replace(new RegExp('[' + NUMCH + ']', 'g'), '').replace(/[ً-ٰٟـ]/g, '').replace(/[^\p{L}]/gu, '').toLowerCase();
+function cleanPages(pages, o) {
+  const cnt = new Map(); const cand = (lines) => { const idx = []; lines.forEach((l, k) => { if (l.trim()) idx.push(k); }); return [...idx.slice(0, 2), ...idx.slice(-2)]; };
+  const split = pages.map((p) => p.t.split('\n'));
+  if (o.head) split.forEach((lines) => { const seen = new Set(); for (const k of cand(lines)) { const key = keyOf(lines[k]); if (key.length >= 6) seen.add(key); } seen.forEach((key) => cnt.set(key, (cnt.get(key) || 0) + 1)); });
+  const thr = Math.max(3, Math.ceil(pages.length * 0.3)), hdr = new Set([...cnt].filter(([, c]) => c >= thr).map(([k]) => k));
+  return pages.map((p, n) => {
+    let lines = split[n].slice(); const kill = new Set();
+    for (const k of cand(lines)) { const l = lines[k].trim(); if (o.head && hdr.has(keyOf(l))) kill.add(k); if (o.num && new RegExp('^[\\[(]?\\s*[' + NUMCH + ']{1,4}\\s*[\\])]?$').test(l)) kill.add(k); }
+    lines = lines.filter((_, k) => !kill.has(k));
+    let body = lines.join('\n').replace(/\n{3,}/g, '\n\n').trim(), notes = '';
+    if (o.foot) { const blocks = body.split(/\n\s*\n/), fn = []; while (blocks.length > 1 && new RegExp('^\\s*\\(\\s*[' + NUMCH + ']+\\s*\\)').test(blocks[blocks.length - 1])) fn.unshift(blocks.pop()); body = blocks.join('\n\n'); notes = fn.join('\n'); }
+    return { i: p.i, body, notes };
+  });
+}
+const nz = (w) => w.replace(/[ً-ٰٟـ]/g, '').replace(/[أإآٱ]/g, 'ا').replace(/ى/g, 'ي').replace(/[.,;:!?«»"'()\[\]{}،؛؟…\-–—]/g, '').toLowerCase();
+function tok(text) { const out = []; text.split('\n').forEach((ln, li) => { ln.split(/\s+/).filter(Boolean).forEach((w) => out.push({ w, n: nz(w), li })); }); return out; }
+function diffTokens(A, B) { // sözcük düzeyinde LCS; [{ai,al,bi,bl}] fark dilimleri
+  const n = A.length, m = B.length; if (n * m > 6e6) return null;
+  const L = Array.from({ length: n + 1 }, () => new Uint16Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--) L[i][j] = A[i].n === B[j].n ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+  const segs = []; let i = 0, j = 0, cur = null;
+  while (i < n || j < m) {
+    if (i < n && j < m && A[i].n === B[j].n) { if (cur) { segs.push(cur); cur = null; } i++; j++; }
+    else { if (!cur) cur = { ai: i, al: 0, bi: j, bl: 0 }; if (j >= m || (i < n && L[i + 1][j] >= L[i][j + 1])) { cur.al++; i++; } else { cur.bl++; j++; } }
+  }
+  if (cur) segs.push(cur); return segs;
+}
+function compose() {
+  if (!S.idxs) return; const mark = $('#mark').checked, o = { head: $('#cl_head').checked, num: $('#cl_num').checked, foot: $('#cl_foot').checked }, showMark = $('#cl_mark').checked && S.B;
+  let pages = S.idxs.filter((i) => S.A[i] !== undefined).map((i) => ({ i, t: S.A[i] })); const diffs = []; let nA = 0;
+  if (S.B) pages = pages.map((p) => { const B = S.B[p.i]; if (B === undefined) return p; const ta = tok(p.t), tb = tok(B), segs = diffTokens(ta, tb); nA += ta.length; if (!segs) return p;
+    const rows = []; for (const g of segs) { const a = ta.slice(g.ai, g.ai + g.al).map((x) => x.w).join(' '), b = tb.slice(g.bi, g.bi + g.bl).map((x) => x.w).join(' '); rows.push({ page: p.i + 1, a, b, ctx: ta.slice(Math.max(0, g.ai - 4), g.ai + g.al + 4).map((x) => x.w).join(' ') }); }
+    diffs.push(...rows); if (!showMark) return p;
+    const out = {}; for (const g of segs) { const a = ta.slice(g.ai, g.ai + g.al).map((x) => x.w).join(' ') || '∅', b = tb.slice(g.bi, g.bi + g.bl).map((x) => x.w).join(' ') || '∅'; out[g.ai] = { skip: g.al, txt: `⟦${a}|${b}⟧` }; }
+    const lines = []; let k = 0; while (k < ta.length) { const t = ta[k]; if (!lines[t.li]) lines[t.li] = []; if (out[k]) { lines[t.li].push(out[k].txt); k += Math.max(1, out[k].skip); } else { lines[t.li].push(t.w); k++; } }
+    return { i: p.i, t: Array.from(lines, (l) => (l || []).join(' ')).join('\n') }; });
+  const cl = cleanPages(pages, o);
+  $('#out').value = cl.map((p) => (mark ? `[s.${p.i + 1}]\n` : '') + p.body).join('\n\n') + (o.foot && cl.some((p) => p.notes) ? '\n\n=== DİPNOTLAR ===\n\n' + cl.filter((p) => p.notes).map((p) => `[s.${p.i + 1}]\n${p.notes}`).join('\n\n') : '');
+  $('#cl_markw').classList.toggle('hidden', !S.B);
+  $('#diffs').innerHTML = S.B ? `<div class="note ${diffs.length ? 'warn' : 'good'}"><b>Çapraz kontrol:</b> ${diffs.length} farklı okuma / ${nA} kelime (≈ %${nA ? (diffs.length / nA * 100).toFixed(1) : 0}). Aşağıdaki kelimeleri kaynaktan kontrol edin; iki modelin aynı okuduğu yerler de yanlış olabilir.</div>${diffs.length ? `<div class="tw"><table><tr><th>Sayfa</th><th>${esc(S.nameA || 'Model A')}</th><th>${esc(S.nameB || 'Model B')}</th><th>Bağlam</th></tr>${diffs.slice(0, 400).map((d) => `<tr><td>${d.page}</td><td dir="auto">${esc(d.a) || '∅'}</td><td dir="auto">${esc(d.b) || '∅'}</td><td dir="auto" class="small">${esc(d.ctx)}</td></tr>`).join('')}</table></div>` : ''}` : '';
+}
+$('#applycl').onclick = compose; ['cl_head', 'cl_num', 'cl_foot', 'cl_mark'].forEach((id) => { $('#' + id).onchange = compose; });
 /* -------------------------------------------------- çalıştırma */
 $('#stop').onclick = () => { S.abort = true; if (S.ctl) S.ctl.abort(); };
 $('#go').onclick = async () => {
   if (S.running) return; S.running = true; S.abort = false; $('#err').innerHTML = ''; $('#go').classList.add('hidden'); $('#stop').classList.remove('hidden'); $('#prog').classList.remove('hidden'); $('#rc').classList.remove('hidden'); $('#out').value = '';
   const lang = $('#lang').value, dpi = +$('#dpi').value, nw = +$('#workers').value, bw = $('#bw').checked, mark = $('#mark').checked; let idxs;
   try { idxs = parseRange($('#range').value, S.items.length); if (!idxs.length) throw new Error('Seçilen aralıkta sayfa yok.'); } catch (e) { $('#err').innerHTML = `<div class="note bad">${esc(e.message)}</div>`; return finish(); }
-  S.texts = []; const t0 = performance.now(); let done = 0; const workers = [];
-  const show = () => { $('#out').value = idxs.map((i) => (S.texts[i] !== undefined ? (mark ? `[s.${i + 1}]\n` : '') + S.texts[i] : null)).filter((x) => x !== null).join('\n\n'); };
+  S.A = []; S.B = null; S.texts = S.A; S.idxs = idxs; S.nameA = ''; S.nameB = ''; const t0 = performance.now(); let done = 0; const workers = [];
+  const show = () => compose();
   const ollama = $('#engine').value === 'ollama', ctl = new AbortController(); S.ctl = ctl;
   if (ollama && !$('#omodel').value) { $('#err').innerHTML = '<div class="note bad">Önce Ollama modellerini listeleyip bir görüntü modeli seçin.</div>'; return finish(); }
   try {
     if (ollama) {
-      for (let j = 0; j < idxs.length && !S.abort; j++) { const i = idxs[j], cv = await toCanvas(S.items[i], dpi); if (bw) binarize(cv); $('#pt').textContent = `Sayfa ${i + 1} okunuyor (${j + 1}/${idxs.length})…`; try { S.texts[i] = (await ollamaOcr(cv, ctl.signal)).replace(/\n{3,}/g, '\n\n'); } catch (e) { if (e.name === 'AbortError') break; S.texts[i] = `[HATA: ${e instanceof TypeError ? 'Ollama’ya erişilemedi' : e.message}]`; } cv.width = cv.height = 0; done++; const el = (performance.now() - t0) / 1000; $('#pt').textContent = `Sayfa ${i + 1} tamam (${done}/${idxs.length}) · geçen ${Math.round(el)} sn · kalan ≈ ${Math.round(el / done * (idxs.length - done))} sn`; $('#pb').value = Math.round(done / idxs.length * 100); show(); }
+      const mA = $('#omodel').value, mB = $('#omodel2').value && $('#omodel2').value !== mA ? $('#omodel2').value : '', passes = mB ? [[mA, 'A'], [mB, 'B']] : [[mA, 'A']]; S.nameA = mA; S.nameB = mB; if (mB) S.B = [];
+      for (let pi = 0; pi < passes.length && !S.abort; pi++) {
+        const [model, slot] = passes[pi], dst = slot === 'A' ? S.A : S.B;
+        for (let j = 0; j < idxs.length && !S.abort; j++) {
+          const i = idxs[j], cv = await toCanvas(S.items[i], dpi); if (bw) binarize(cv); $('#pt').textContent = `${model}: sayfa ${i + 1} okunuyor (${j + 1}/${idxs.length}${passes.length > 1 ? ', geçiş ' + (pi + 1) + '/' + passes.length : ''})…`;
+          try { dst[i] = (await ollamaOcr(cv, ctl.signal, model)).replace(/\n{3,}/g, '\n\n'); } catch (e) { if (e.name === 'AbortError') break; dst[i] = `[HATA: ${e instanceof TypeError ? 'Ollama’ya erişilemedi' : e.message}]`; }
+          cv.width = cv.height = 0; done++; const tot = idxs.length * passes.length, el = (performance.now() - t0) / 1000;
+          $('#pt').textContent = `${model}: sayfa ${i + 1} tamam (${done}/${tot}) · geçen ${Math.round(el)} sn · kalan ≈ ${Math.round(el / done * (tot - done))} sn`; $('#pb').value = Math.round(done / tot * 100); if (slot === 'A') show();
+        }
+      }
     } else {
     $('#pt').textContent = 'OCR motoru ve dil verileri yükleniyor…';
     for (let k = 0; k < nw; k++) workers.push(await makeWorker(lang, () => {}));
