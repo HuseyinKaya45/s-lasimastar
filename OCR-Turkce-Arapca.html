@@ -53,7 +53,7 @@ progress{width:100%;height:12px}textarea#out{min-height:380px;font:15px/1.7 "Seg
  <div id="err"></div>
 </div>
 <div class="card hidden" id="rc"><div class="row"><h2 class="sp">Metin</h2><button class="ghost sm" id="dl">İndir (.txt)</button><button class="ghost sm" id="cp">Kopyala</button></div>
- <div class="row small"><label class="chk"><input type="checkbox" id="cl_head" checked> Üst bilgileri (her sayfada tekrar eden başlıkları) sil</label><label class="chk"><input type="checkbox" id="cl_num" checked> Sayfa numarası satırlarını sil</label><label class="chk"><input type="checkbox" id="cl_foot" checked> Dipnotları ayır (metnin sonuna taşı)</label><label class="chk hidden" id="cl_markw"><input type="checkbox" id="cl_mark"> Farklı okunan kelimeleri metinde işaretle (⟦A|B⟧)</label><button class="ghost sm" id="applycl">Uygula</button></div>
+ <div class="row small"><label class="chk"><input type="checkbox" id="cl_head" checked> Üst bilgileri (her sayfada tekrar eden başlıkları) sil</label><label class="chk"><input type="checkbox" id="cl_md" checked> Markdown artıklarını (**, ---, #) temizle</label><label class="chk"><input type="checkbox" id="cl_num" checked> Sayfa numarası satırlarını sil</label><label class="chk"><input type="checkbox" id="cl_foot" checked> Dipnotları ayır (metnin sonuna taşı)</label><label class="chk hidden" id="cl_markw"><input type="checkbox" id="cl_mark"> Farklı okunan kelimeleri metinde işaretle (⟦A|B⟧)</label><button class="ghost sm" id="applycl">Uygula</button></div>
  <div id="diffs"></div>
  <p class="small muted">Metin düzenlenebilir. (“Uygula”ya basarsanız elle yaptığınız düzenlemeler sıfırlanır.) OCR hatasız değildir; özellikle eski baskı, harekeli veya soluk Arapça sayfalarda hata olur. Önemli alıntıları kaynakla karşılaştırın.</p>
  <textarea id="out" dir="auto"></textarea></div>
@@ -443,7 +443,7 @@ $('#oconn').onclick = async () => {
   try { const r = await fetch(oBase() + '/api/tags'); if (!r.ok) throw new Error('HTTP ' + r.status); const j = await r.json(), ms = (j.models || []).filter((m) => !/embed|bge-|nomic/i.test(m.name)); $('#omodel').innerHTML = ms.map((m) => `<option>${esc(m.name)}</option>`).join('') || '<option value="">Model yok</option>'; $('#omodel2').innerHTML = '<option value="">— yok —</option>' + ms.map((m) => `<option>${esc(m.name)}</option>`).join(''); $('#oerr').innerHTML = `<div class="note good">Bağlandı: ${ms.length} model.</div>`; }
   catch (e) { $('#oerr').innerHTML = '<div class="note bad">Ollama’ya erişilemedi. Ollama’yı <b>Ozetleyici-Baslat.bat</b> ile başlatın (tarayıcı erişimi için gerekli) ve tekrar deneyin.</div>'; }
 };
-const OCR_SYS = 'Sen bir OCR motorusun. Görüntüdeki metni AYNEN, yazıldığı gibi yaz. Çeviri, özet, yorum, açıklama, başlık ya da düzeltme ekleme. Harekeleri ve noktalama işaretlerini koru. Satır sırasını koru. Okuyamadığın kelime için [?] yaz; asla tahmin yürütüp kelime uydurma. Sadece sayfadaki metni çıktı olarak ver.';
+const OCR_SYS = 'Sen bir OCR motorusun. Görüntüdeki metni AYNEN, yazıldığı gibi yaz. Çeviri, özet, yorum, açıklama, başlık ya da düzeltme ekleme. Harekeleri ve noktalama işaretlerini koru. Satır sırasını koru. Okuyamadığın kelime için [?] yaz; asla tahmin yürütüp kelime uydurma. Markdown ya da başka bir biçimlendirme (**, #, ---, madde işareti) KULLANMA; düz metin yaz. Sadece sayfadaki metni çıktı olarak ver.';
 async function ollamaOcr(cv, signal, model) {
   const side = +$('#oside').value, sc = Math.min(1, side / Math.max(cv.width, cv.height)), c2 = document.createElement('canvas'); c2.width = Math.round(cv.width * sc); c2.height = Math.round(cv.height * sc); c2.getContext('2d').drawImage(cv, 0, 0, c2.width, c2.height);
   const b64 = c2.toDataURL('image/jpeg', 0.92).split(',')[1]; c2.width = c2.height = 0;
@@ -493,12 +493,13 @@ function compose() {
     const out = {}; for (const g of segs) { const a = ta.slice(g.ai, g.ai + g.al).map((x) => x.w).join(' ') || '∅', b = tb.slice(g.bi, g.bi + g.bl).map((x) => x.w).join(' ') || '∅'; out[g.ai] = { skip: g.al, txt: `⟦${a}|${b}⟧` }; }
     const lines = []; let k = 0; while (k < ta.length) { const t = ta[k]; if (!lines[t.li]) lines[t.li] = []; if (out[k]) { lines[t.li].push(out[k].txt); k += Math.max(1, out[k].skip); } else { lines[t.li].push(t.w); k++; } }
     return { i: p.i, t: Array.from(lines, (l) => (l || []).join(' ')).join('\n') }; });
+  if ($('#cl_md').checked) pages = pages.map((p) => ({ ...p, t: p.t.replace(/^\s*-{3,}\s*$/gm, '').replace(/\*\*/g, '').replace(/\s*---\s*(?=\S)/g, ' ').replace(/^#{1,6}\s+/gm, '').replace(/\n{3,}/g, '\n\n') }));
   const cl = cleanPages(pages, o);
   $('#out').value = cl.map((p) => (mark ? `[s.${p.i + 1}]\n` : '') + p.body).join('\n\n') + (o.foot && cl.some((p) => p.notes) ? '\n\n=== DİPNOTLAR ===\n\n' + cl.filter((p) => p.notes).map((p) => `[s.${p.i + 1}]\n${p.notes}`).join('\n\n') : '');
   $('#cl_markw').classList.toggle('hidden', !S.B);
   $('#diffs').innerHTML = S.B ? `<div class="note ${diffs.length ? 'warn' : 'good'}"><b>Çapraz kontrol:</b> ${diffs.length} farklı okuma / ${nA} kelime (≈ %${nA ? (diffs.length / nA * 100).toFixed(1) : 0}). Aşağıdaki kelimeleri kaynaktan kontrol edin; iki modelin aynı okuduğu yerler de yanlış olabilir.</div>${diffs.length ? `<div class="tw"><table><tr><th>Sayfa</th><th>${esc(S.nameA || 'Model A')}</th><th>${esc(S.nameB || 'Model B')}</th><th>Bağlam</th></tr>${diffs.slice(0, 400).map((d) => `<tr><td>${d.page}</td><td dir="auto">${esc(d.a) || '∅'}</td><td dir="auto">${esc(d.b) || '∅'}</td><td dir="auto" class="small">${esc(d.ctx)}</td></tr>`).join('')}</table></div>` : ''}` : '';
 }
-$('#applycl').onclick = compose; ['cl_head', 'cl_num', 'cl_foot', 'cl_mark'].forEach((id) => { $('#' + id).onchange = compose; });
+$('#applycl').onclick = compose; ['cl_head', 'cl_num', 'cl_foot', 'cl_mark', 'cl_md'].forEach((id) => { $('#' + id).onchange = compose; });
 /* -------------------------------------------------- çalıştırma */
 $('#stop').onclick = () => { S.abort = true; if (S.ctl) S.ctl.abort(); };
 $('#go').onclick = async () => {
