@@ -262,7 +262,7 @@ function imgBlock(p,b){
   var s=p.s[b.s],r=b.r;
   var w=100/r[2],left=-r[0]/r[2]*100,top=-r[1]/r[3]*100;
   var segAspect=s.w/s.h, aspect=(r[2]*s.w)/(r[3]*s.h);
-  return '<div class="crop" style="aspect-ratio:'+aspect.toFixed(4)+'"><img loading="lazy" alt="" src="'+s.u+'" style="width:'+w.toFixed(3)+'%;left:'+left.toFixed(3)+'%;top:'+top.toFixed(3)+'%"></div>';
+  return '<div class="crop" style="aspect-ratio:'+aspect.toFixed(4)+'"><img loading="lazy" alt="" onerror="noImg(this)" src="'+s.u+'" style="width:'+w.toFixed(3)+'%;left:'+left.toFixed(3)+'%;top:'+top.toFixed(3)+'%"></div>';
 }
 function body(p){
   var h='';
@@ -287,7 +287,7 @@ function body(p){
 }
 function arabic(p){
   return '<div class="cap">Arapça aslı · '+D.files[p.f]+', s. '+p.pg+'</div>'+p.s.map(function(s){
-    return '<img loading="lazy" alt="Arapça aslı" width="'+s.w+'" height="'+s.h+'" src="'+s.u+'">'}).join('');
+    return '<img loading="lazy" alt="Arapça aslı" width="'+s.w+'" height="'+s.h+'" onerror="noAr(this)" src="'+s.u+'">'}).join('');
 }
 function card(p){
   var el=document.createElement('article');
@@ -326,6 +326,8 @@ function jump(id){
   var el=document.getElementById('g-'+id);if(el)el.scrollIntoView({block:'start'});
 }
 
+window.noImg=function(im){var f=im.closest('figure');if(!f)return;var c=f.querySelector('.crop');if(c)c.remove();if(!f.textContent.trim())f.remove();else f.classList.remove('join','cut')};
+window.noAr=function(im){var a=im.closest('.ar');if(!a||a.dataset.miss)return;a.dataset.miss=1;a.innerHTML='<div class="cap">Arapça asıl görüntüleri bu kopyada yok. Görmek için <b>img</b> klasörünü bu dosyanın yanına koyun.</div>'};
 /* ---------- interactions ---------- */
 function toast(el,msg){var o=el.textContent;el.textContent=msg;setTimeout(function(){el.textContent=o},1100)}
 function plain(p){return p.b.map(function(b){return b.x||b.c||''}).filter(Boolean).join('\n\n')}
