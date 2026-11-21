@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Fiil Çekimi Uygulaması — أفضلُ النّاسِ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Amiri:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#F4F6F2;--card:#FFFFFF;--ink:#1B2420;--muted:#5E6A63;--line:#D9E0DA;--soft:#EAEFEA;--accent:#1E5B4F;
+  --mz:#1E7A46;--muz:#2F67B0;--em:#B0532A;--x:#7E8A84;
+  --good:#1F7A3E;--bad:#B3261E;--good-bg:#E2F2E6;--bad-bg:#FBE7E4;--warn-bg:#FFF4D6;
+  --f-display:"Alegreya",Georgia,"Times New Roman",serif;
+  --f-body:"Alegreya Sans","Segoe UI",system-ui,sans-serif;
+  --f-ar:"Amiri","Scheherazade New","Traditional Arabic","Noto Naskh Arabic",serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614;--card:#19201D;--ink:#E6ECE8;--muted:#9FACA5;--line:#2C3632;--soft:#202925;--accent:#6CC3AE;
+    --mz:#6FD69A;--muz:#93B8F2;--em:#F2A07A;--x:#98A39D;
+    --good:#6FD08E;--bad:#FF8A80;--good-bg:#17301F;--bad-bg:#3A1D1A;--warn-bg:#3A3215;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614;--card:#19201D;--ink:#E6ECE8;--muted:#9FACA5;--line:#2C3632;--soft:#202925;--accent:#6CC3AE;
+  --mz:#6FD69A;--muz:#93B8F2;--em:#F2A07A;--x:#98A39D;
+  --good:#6FD08E;--bad:#FF8A80;--good-bg:#17301F;--bad-bg:#3A1D1A;--warn-bg:#3A3215;color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 var(--f-body)}
+.wrap{max-width:920px;margin:0 auto;padding:18px 16px 70px}
+header h1{font-family:var(--f-display);font-weight:800;font-size:30px;line-height:1.15;margin:6px 0 2px;color:var(--accent)}
+header .ar-title{font-family:var(--f-ar);font-size:34px;direction:rtl;margin:0;color:var(--ink)}
+header p{color:var(--muted);margin:6px 0 0}
+.tabs{display:flex;gap:6px;margin:18px 0 14px;overflow-x:auto;padding-bottom:4px}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:500;cursor:pointer;white-space:nowrap}
+.tab.on{background:var(--accent);border-color:var(--accent);color:var(--card)}
+section{display:none}
+section.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 14px}
+h2{font-family:var(--f-display);font-size:22px;margin:0 0 8px}
+h3{font-family:var(--f-display);font-size:18px;margin:14px 0 6px}
+.muted{color:var(--muted)}
+.ar{font-family:var(--f-ar);direction:rtl;unicode-bidi:isolate}
+.text{font-family:var(--f-ar);direction:rtl;font-size:27px;line-height:2.1;text-align:justify}
+.text p{margin:0 0 10px}
+.w{border-radius:6px;padding:0 3px;cursor:pointer;transition:background .15s}
+.hunt .w:hover{background:var(--soft)}
+.w.sel{outline:2px solid var(--accent)}
+.w.mz{background:color-mix(in srgb,var(--mz) 20%,transparent);box-shadow:inset 0 -3px 0 var(--mz)}
+.w.muz{background:color-mix(in srgb,var(--muz) 20%,transparent);box-shadow:inset 0 -3px 0 var(--muz)}
+.w.em{background:color-mix(in srgb,var(--em) 22%,transparent);box-shadow:inset 0 -3px 0 var(--em)}
+.w.no{background:var(--soft);color:var(--x);text-decoration:underline dotted}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:15px;margin:8px 0 0}
+.dot{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.tr-box{border-top:1px dashed var(--line);margin-top:12px;padding-top:10px}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 14px;font:inherit;font-weight:500;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--card)}
+.btn.mz{border-color:var(--mz);color:var(--mz)}
+.btn.muz{border-color:var(--muz);color:var(--muz)}
+.btn.em{border-color:var(--em);color:var(--em)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.panel{position:sticky;bottom:10px;z-index:5;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.12);margin-top:12px}
+.panel .word{font-family:var(--f-ar);font-size:30px;direction:rtl;margin-inline-end:6px}
+.msg{border-radius:10px;padding:8px 12px;margin-top:8px;font-size:16px}
+.msg.good{background:var(--good-bg);color:var(--good)}
+.msg.bad{background:var(--bad-bg);color:var(--bad)}
+.msg.info{background:var(--warn-bg)}
+.lists{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.list{border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-height:92px}
+.list h4{margin:0 0 6px;font-family:var(--f-display);font-size:16px}
+.list.mz h4{color:var(--mz)}.list.muz h4{color:var(--muz)}.list.em h4{color:var(--em)}
+.list .items{font-family:var(--f-ar);direction:rtl;font-size:23px;line-height:1.8}
+.list .items span{display:inline-block;margin-inline-start:10px}
+.prog{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;margin-top:10px}
+.prog i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.pick{display:flex;gap:8px;flex-wrap:wrap}
+.vbtn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:6px 12px;cursor:pointer;text-align:center;font:inherit}
+.vbtn b{display:block;font-family:var(--f-ar);font-size:24px;font-weight:700;direction:rtl;line-height:1.5}
+.vbtn small{color:var(--muted);font-size:13px}
+.vbtn.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+table{border-collapse:collapse;width:100%;margin-top:10px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:center}
+th{font-family:var(--f-display);font-size:15px;color:var(--muted);font-weight:700}
+td.pr{font-family:var(--f-ar);direction:rtl;font-size:22px;color:var(--muted);white-space:nowrap}
+td.trp{font-size:14px;color:var(--muted);text-align:left}
+td.f{font-family:var(--f-ar);direction:rtl;font-size:26px;cursor:pointer}
+td.f.mz{color:var(--mz)}td.f.muz{color:var(--muz)}td.f.em{color:var(--em)}
+td.f.hid{color:transparent;background:var(--soft);border-radius:6px;user-select:none}
+td.f.none{color:var(--x);cursor:default;font-size:16px}
+.q{font-size:19px;margin:4px 0 12px}
+.q .big{font-family:var(--f-ar);font-size:34px;direction:rtl;margin:0 6px}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.opt{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:10px;font-family:var(--f-ar);font-size:28px;direction:rtl;cursor:pointer}
+.opt:hover{border-color:var(--accent)}
+.opt.good{background:var(--good-bg);border-color:var(--good);color:var(--good)}
+.opt.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+.opt[disabled]{cursor:default}
+.score{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:15px;margin-top:12px}
+.score b{color:var(--ink)}
+.rule{background:var(--soft);border-radius:12px;padding:10px 14px;margin-top:10px}
+.rule .ar{font-size:22px}
+@media (max-width:640px){
+  .text{font-size:23px;line-height:2}
+  .lists{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  td.trp{display:none}
+  header h1{font-size:25px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="ar-title">أَفْضَلُ النَّاسِ</p>
+  <h1>Fiil Çekimi Uygulaması</h1>
+  <p>Metindeki sülâsî sâlim fiilleri bul, zamanını belirle; sonra aynı fiillerin çekimini çalış ve kendini sına.</p>
+</header>
+
+<div class="tabs" id="tabs">
+  <button class="tab on" data-s="metin">1 · Metin</button>
+  <button class="tab" data-s="bul">2 · Fiilleri bul</button>
+  <button class="tab" data-s="tablo">3 · Çekim tablosu</button>
+  <button class="tab" data-s="test">4 · Çekim testi</button>
+</div>
+
+<!-- 1 ───────── Metin -->
+<section id="metin" class="on">
+  <div class="card">
+    <div class="text" id="oku"></div>
+    <div class="row" style="margin-top:6px">
+      <button class="btn" id="bCeviri">Türkçesini göster</button>
+    </div>
+    <div class="tr-box" id="ceviri" hidden>
+      <p><b>İnsanların En Hayırlısı</b></p>
+      <p>İnsanlar farklı farklıdır: Kimi kendini yetiştirir, kimi çocuklarını yetiştirir, kimi toplumu inşa eder; bir de tarihi yapan insan vardır ki o, büyüklerin en büyüğüdür. Bunlar arasındaki yerini bilmek istersen kendine hep şunu sor: İnsanların en hayırlılarından olmak için ne yaptım?</p>
+      <p>Şu soruyu kendine sormayı değişmez şiarın yap: Boş vaktinde ne yaptın? Sağlık mı kazandın, mal mı edindin, ilim mi elde ettin, yoksa toplumun için hayırlı bir iş mi yaptın? Boş vaktin için belirli bir plan koydun mu, bu plana açık bir hedef belirledin mi? Bunu yaptıysan doğru bir yol tutmuşsun demektir; yapmadıysan o yolu tutmaya çalış. Her gün belirli bir işe ayrılan az bir zaman, hayatın akışını değiştirebilir; onu daha bereketli ve daha verimli kılabilir.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Hatırlatma: Sülâsî sâlim fiil</h2>
+    <p>Kök harfleri <b>üç</b> olan (sülâsî mücerred) ve kök harflerinde <b>hemze, şedde (aynı harfin tekrarı) ve illet harfi (و، ي، ا)</b> bulunmayan fiildir.</p>
+    <div class="rule">
+      <div><span class="ar">كَتَبَ · عَمِلَ · سَلَكَ</span> — sâlim</div>
+      <div><span class="ar">سَأَلَ</span> mehmûz · <span class="ar">مَدَّ</span> muzaaf · <span class="ar">وَضَعَ · قَامَ · دَعَا</span> mu’tel — sâlim değil</div>
+      <div><span class="ar">أَصْبَحَ · حَصَّلَ · حَاوَلَ</span> mezîd (harf eklenmiş) — sülâsî mücerred değil</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 ───────── Fiilleri bul -->
+<section id="bul">
+  <div class="card">
+    <h2>اِسْتَخْرِجْ مِنَ النَّصِّ الْفِعْلَ الثُّلَاثِيَّ السَّالِمَ</h2>
+    <p class="muted">Metinde bir kelimeye dokun, sonra zamanını seç. Doğru bulduğun fiiller aşağıdaki listelere yerleşir.</p>
+    <div class="text hunt" id="av"></div>
+    <div class="legend">
+      <span><i class="dot" style="background:var(--mz)"></i>Mâzî (الماضي)</span>
+      <span><i class="dot" style="background:var(--muz)"></i>Muzâri (المضارع)</span>
+      <span><i class="dot" style="background:var(--em)"></i>Emir (الأمر)</span>
+      <span><i class="dot" style="background:var(--x)"></i>Fiil ama sâlim değil</span>
+    </div>
+    <div class="prog"><i id="pbar"></i></div>
+    <div class="row" style="margin-top:8px"><span class="muted" id="ptxt"></span>
+      <span style="margin-left:auto"></span>
+      <button class="btn" id="bGoster">Cevapları göster</button>
+      <button class="btn" id="bSifir">Baştan başla</button></div>
+
+    <div class="lists">
+      <div class="list mz"><h4>الفعل الماضي · Mâzî</h4><div class="items" id="lmz"></div></div>
+      <div class="list muz"><h4>الفعل المضارع · Muzâri</h4><div class="items" id="lmuz"></div></div>
+      <div class="list em"><h4>فعل الأمر · Emir</h4><div class="items" id="lem"></div></div>
+    </div>
+
+    <div class="panel" id="panel" hidden>
+      <div class="row">
+        <span class="word" id="pw"></span>
+        <button class="btn mz" data-a="mz">Mâzî</button>
+        <button class="btn muz" data-a="muz">Muzâri</button>
+        <button class="btn em" data-a="em">Emir</button>
+        <button class="btn" data-a="x">Sâlim fiil değil</button>
+      </div>
+      <div id="pm"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 ───────── Çekim tablosu -->
+<section id="tablo">
+  <div class="card">
+    <h2>Çekim tablosu</h2>
+    <p class="muted">Metindeki sâlim fiillerden birini seç. “Kapat ve çalış” ile hücreleri gizleyip önce kendin söyle, sonra hücreye dokunarak kontrol et.</p>
+    <div class="pick" id="vpick"></div>
+    <div class="row" style="margin-top:12px">
+      <button class="btn" id="bGizle">Kapat ve çalış</button>
+      <button class="btn" id="bAc">Hepsini aç</button>
+    </div>
+    <div style="overflow-x:auto">
+      <table id="ctab"></table>
+    </div>
+  </div>
+</section>
+
+<!-- 4 ───────── Test -->
+<section id="test">
+  <div class="card">
+    <h2>Çekim testi</h2>
+    <div class="row" style="margin-bottom:10px">
+      <label><input type="checkbox" class="tz" value="mz" checked> Mâzî</label>
+      <label><input type="checkbox" class="tz" value="muz" checked> Muzâri</label>
+      <label><input type="checkbox" class="tz" value="em" checked> Emir</label>
+    </div>
+    <div class="q" id="soru"></div>
+    <div class="opts" id="opts"></div>
+    <div id="tmsg"></div>
+    <div class="row" style="margin-top:12px"><button class="btn pri" id="bSonraki">Sonraki soru</button></div>
+    <div class="score"><span>Doğru: <b id="sD">0</b></span><span>Yanlış: <b id="sY">0</b></span><span>Seri: <b id="sS">0</b></span><span>En iyi seri: <b id="sE">0</b></span></div>
+  </div>
+</section>
+</div>
+
+<script>
+(function(){
+"use strict";
+var $=function(s,r){return (r||document).querySelector(s)};
+var FA="َ",DA="ُ",KA="ِ",SU="ْ";
+
+/* ───── metin ───── */
+var PARAS=[
+"الناس مختلفون؛ إنسان يصنع نفسه، وإنسان يصنع أولاده، وإنسان يصنع المجتمع، وهناك إنسان يصنع التاريخ، وهو أعظم العظماء جميعاً. وإذا أردت أن تعرف قَدْرَك بين هؤلاء فاسأل نفسك دَوْماً: ماذا صنعتُ لِأُصْبِحَ مِنْ أفضلِ الناس؟",
+"اِجْعَلْ شعارَك الدائمَ أنْ تَسْأَلَ نفسَك: ماذا عَمِلْتَ في وقتِ فراغِك؟ هل كسبتَ صحة، أو أفَدْتَ مالا، أو حَصَّلْتَ علمًا أو قُمْتَ بعملِ خيرٍ تُجَاهَ مُجْتَمَعِك، وهل وضعتَ لِوَقْتِ فراغِك خُطَّة مُعَيَّنَةً، هل جعلتَ لهذه الخُطَّةِ هَدَفاً واضِحًا؟ إنْ كنتَ فعلتَ ذلك، فقد سلكتَ مَسْلَكًا قَوِيمًا، وإلاّ فَحَاوِلْ أنْ تَسْلُكَه، إنّ قليلًا مِنْ الزمن الذي يُخَصَّصُ كلَّ يومٍ لِشَيْءٍ مُعَيَّنٍ، قد يُغَيِّرُ مَجْرَى الحياةِ، ويَجْعَلُها أكثرَ خِصْبًا وأَغْزَرَ إنتاجًا."
+];
+/* sâlim fiiller: kelime -> [zaman, kök fiil, açıklama] */
+var SALIM={
+ "يصنع":["muz","صَنَعَ","Kökü ص ن ع. Başındaki ي muzâri harfidir: يَصْنَعُ (o yapar)."],
+ "تعرف":["muz","عَرَفَ","Kökü ع ر ف. Başındaki ت muzâri harfidir: تَعْرِفُ (bilirsin). «أنْ» ile mansûb."],
+ "صنعتُ":["mz","صَنَعَ","Kökü ص ن ع. Sondaki تُ fâil zamiridir: صَنَعْتُ (yaptım)."],
+ "اِجْعَلْ":["em","جَعَلَ","Kökü ج ع ل. Başında emir hemzesi, sonu sükûnlu: اِجْعَلْ (yap, kıl)."],
+ "عَمِلْتَ":["mz","عَمِلَ","Kökü ع م ل. Sondaki تَ muhatap zamiridir: عَمِلْتَ (yaptın)."],
+ "كسبتَ":["mz","كَسَبَ","Kökü ك س ب: كَسَبْتَ (kazandın)."],
+ "جعلتَ":["mz","جَعَلَ","Kökü ج ع ل: جَعَلْتَ (kıldın, belirledin)."],
+ "فعلتَ":["mz","فَعَلَ","Kökü ف ع ل: فَعَلْتَ (yaptın)."],
+ "سلكتَ":["mz","سَلَكَ","Kökü س ل ك: سَلَكْتَ (yol tuttun)."],
+ "تَسْلُكَه":["muz","سَلَكَ","Kökü س ل ك. Başındaki ت muzâri harfi, sondaki ه mef‘ûl zamiridir: تَسْلُكَهُ (onu tutman)."],
+ "ويَجْعَلُها":["muz","جَعَلَ","Kökü ج ع ل. و atıf harfi, ها mef‘ûl zamiridir: يَجْعَلُهَا (onu kılar)."]
+};
+/* fiil ama sâlim değil: kelime -> açıklama */
+var DEGIL={
+ "أردت":"أَرَادَ fiilidir: hem mezîd (if‘âl bâbı) hem de ecvef (kökü ر و د). Sülâsî sâlim değil.",
+ "فاسأل":"سَأَلَ fiilinin emridir. Kökünde hemze var (س أ ل): mehmûz, sâlim değil.",
+ "لِأُصْبِحَ":"أَصْبَحَ fiilinin muzârisidir. Başına hemze eklenmiş mezîd fiildir (if‘âl bâbı); sülâsî mücerred değil.",
+ "تَسْأَلَ":"سَأَلَ fiilinin muzârisidir. Kökünde hemze var: mehmûz, sâlim değil.",
+ "أفَدْتَ":"أَفَادَ fiilidir: mezîd (if‘âl bâbı) ve ecvef (kökü ف ي د). Sülâsî sâlim değil.",
+ "حَصَّلْتَ":"حَصَّلَ fiilidir: orta harfi şeddeli mezîd fiil (tef‘îl bâbı). Sülâsî mücerred değil.",
+ "قُمْتَ":"قَامَ fiilidir. Orta harfi illet harfi (kökü ق و م): ecvef, sâlim değil.",
+ "وضعتَ":"وَضَعَ fiilidir. İlk harfi illet harfi (و): misâl, sâlim değil.",
+ "كنتَ":"كَانَ fiilidir. Orta harfi illet harfi (kökü ك و ن): ecvef, sâlim değil.",
+ "فَحَاوِلْ":"حَاوَلَ fiilinin emridir: elif eklenmiş mezîd fiil (müfâale bâbı). Sülâsî mücerred değil.",
+ "يُخَصَّصُ":"خَصَّصَ fiilinin meçhul muzârisidir: mezîd (tef‘îl bâbı). Sülâsî mücerred değil.",
+ "يُغَيِّرُ":"غَيَّرَ fiilinin muzârisidir: mezîd (tef‘îl bâbı), kökünde illet harfi de var. Sülâsî sâlim değil."
+};
+var NAMES={mz:"Mâzî",muz:"Muzâri",em:"Emir"};
+function clean(t){return t.replace(/[؛،.؟:!]/g,"")}
+function render(el,hunt){
+  el.innerHTML=PARAS.map(function(p){
+    return "<p>"+p.split(" ").map(function(t){
+      var k=clean(t),tail=t.slice(k.length);
+      return '<span class="w" data-k="'+k+'">'+k+"</span>"+tail;
+    }).join(" ")+"</p>";
+  }).join("");
+}
+render($("#oku"),false);render($("#av"),true);
+$("#bCeviri").onclick=function(){var c=$("#ceviri");c.hidden=!c.hidden;this.textContent=c.hidden?"Türkçesini göster":"Türkçesini gizle"};
+
+/* ───── sekmeler ───── */
+$("#tabs").addEventListener("click",function(e){
+  var b=e.target.closest(".tab");if(!b)return;
+  [].forEach.call(document.querySelectorAll(".tab"),function(t){t.classList.toggle("on",t===b)});
+  [].forEach.call(document.querySelectorAll("section"),function(s){s.classList.toggle("on",s.id===b.dataset.s)});
+  window.scrollTo(0,0);
+});
+
+/* ───── 2: fiilleri bul ───── */
+var found={},sel=null,TOTAL=Object.keys(SALIM).length;
+function mark(k,cls){[].forEach.call(document.querySelectorAll('#av .w'),function(w){if(w.dataset.k===k){w.classList.remove("sel");w.classList.add(cls)}})}
+function lists(){
+  ["mz","muz","em"].forEach(function(z){
+    $("#l"+z).innerHTML=Object.keys(SALIM).filter(function(k){return found[k]&&SALIM[k][0]===z}).map(function(k){return "<span>"+k.replace(/^و(?=يَ)/,"")+"</span>"}).join("")||'<span class="muted" style="font:14px var(--f-body)">—</span>';
+  });
+  var n=Object.keys(found).length;
+  $("#pbar").style.width=(n/TOTAL*100)+"%";
+  $("#ptxt").textContent=n+" / "+TOTAL+" sâlim fiil bulundu"+(n===TOTAL?" — tebrikler!":"");
+}
+function msg(cls,html){$("#pm").innerHTML='<div class="msg '+cls+'">'+html+"</div>"}
+$("#av").addEventListener("click",function(e){
+  var w=e.target.closest(".w");if(!w)return;
+  [].forEach.call(document.querySelectorAll("#av .w.sel"),function(x){x.classList.remove("sel")});
+  sel=w.dataset.k;w.classList.add("sel");
+  $("#panel").hidden=false;$("#pw").textContent=sel;$("#pm").innerHTML="";
+  if(found[sel])msg("good","Bunu zaten buldun: "+NAMES[SALIM[sel][0]]+". "+SALIM[sel][2]);
+});
+$("#panel").addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||!sel)return;
+  var a=b.dataset.a,s=SALIM[sel],d=DEGIL[sel];
+  if(s){
+    if(a===s[0]){found[sel]=1;mark(sel,s[0]);lists();msg("good","✓ Doğru: "+NAMES[s[0]]+". "+s[2])}
+    else if(a==="x")msg("bad","Bu bir sülâsî sâlim fiil. Zamanını seç.");
+    else msg("bad","Sâlim fiil, ama zamanı "+NAMES[a]+" değil. Tekrar dene.");
+  }else if(d){
+    if(a==="x"){mark(sel,"no");msg("good","✓ Doğru, fiil ama sâlim değil. "+d)}
+    else msg("info","Bu bir fiil, fakat aranan türden değil. "+d);
+  }else{
+    if(a==="x")msg("good","✓ Doğru, bu kelime fiil değil.");
+    else msg("bad","Bu kelime fiil değil (isim veya harf).");
+  }
+});
+$("#bGoster").onclick=function(){Object.keys(SALIM).forEach(function(k){found[k]=1;mark(k,SALIM[k][0])});Object.keys(DEGIL).forEach(function(k){mark(k,"no")});lists()};
+$("#bSifir").onclick=function(){found={};sel=null;render($("#av"),true);$("#panel").hidden=true;lists()};
+lists();
+
+/* ───── çekim üretici ───── */
+var VERBS=[
+ {r:["ص","ن","ع"],v:FA,p:FA,tr:"yapmak, üretmek"},
+ {r:["ع","م","ل"],v:KA,p:FA,tr:"yapmak, çalışmak"},
+ {r:["ك","س","ب"],v:FA,p:KA,tr:"kazanmak"},
+ {r:["ج","ع","ل"],v:FA,p:FA,tr:"kılmak, yapmak"},
+ {r:["ف","ع","ل"],v:FA,p:FA,tr:"yapmak"},
+ {r:["س","ل","ك"],v:FA,p:DA,tr:"yol tutmak"},
+ {r:["ع","ر","ف"],v:FA,p:KA,tr:"bilmek, tanımak"}
+];
+var PRON=[
+ ["هُوَ","o (erkek)"],["هُمَا","o ikisi (erkek)"],["هُمْ","onlar (erkek)"],
+ ["هِيَ","o (kadın)"],["هُمَا","o ikisi (kadın)"],["هُنَّ","onlar (kadın)"],
+ ["أَنْتَ","sen (erkek)"],["أَنْتُمَا","siz ikiniz (erkek)"],["أَنْتُمْ","siz (erkek)"],
+ ["أَنْتِ","sen (kadın)"],["أَنْتُمَا","siz ikiniz (kadın)"],["أَنْتُنَّ","siz (kadın)"],
+ ["أَنَا","ben"],["نَحْنُ","biz"]
+];
+function mazi(V){
+  var b=V.r[0]+FA+V.r[1]+V.v,c=V.r[2];
+  return [b+c+FA, b+c+FA+"ا", b+c+DA+"وا", b+c+FA+"تْ", b+c+FA+"تَا", b+c+SU+"نَ",
+          b+c+SU+"تَ", b+c+SU+"تُمَا", b+c+SU+"تُمْ", b+c+SU+"تِ", b+c+SU+"تُمَا", b+c+SU+"تُنَّ",
+          b+c+SU+"تُ", b+c+SU+"نَا"];
+}
+function muzari(V){
+  var s=V.r[0]+SU+V.r[1]+V.p+V.r[2];
+  return ["يَ"+s+DA, "يَ"+s+FA+"انِ", "يَ"+s+DA+"ونَ", "تَ"+s+DA, "تَ"+s+FA+"انِ", "يَ"+s+SU+"نَ",
+          "تَ"+s+DA, "تَ"+s+FA+"انِ", "تَ"+s+DA+"ونَ", "تَ"+s+KA+"ينَ", "تَ"+s+FA+"انِ", "تَ"+s+SU+"نَ",
+          "أَ"+s+DA, "نَ"+s+DA];
+}
+function emir(V){
+  var h=(V.p===DA?"اُ":"اِ"),s=h+V.r[0]+SU+V.r[1]+V.p+V.r[2];
+  var o=[];for(var i=0;i<14;i++)o.push(null);
+  o[6]=s+SU;o[7]=s+FA+"ا";o[8]=s+DA+"وا";o[9]=s+KA+"ي";o[10]=s+FA+"ا";o[11]=s+SU+"نَ";
+  return o;
+}
+function base(V){return V.r[0]+FA+V.r[1]+V.v+V.r[2]+FA}
+function tables(V){return {mz:mazi(V),muz:muzari(V),em:emir(V)}}
+
+/* ───── 3: tablo ───── */
+var cur=0,hidden=false;
+$("#vpick").innerHTML=VERBS.map(function(V,i){return '<button class="vbtn'+(i===0?" on":"")+'" data-i="'+i+'"><b>'+base(V)+"</b><small>"+V.tr+"</small></button>"}).join("");
+function drawTable(){
+  var V=VERBS[cur],T=tables(V);
+  var h="<tr><th>Zamir</th><th></th><th>Mâzî</th><th>Muzâri</th><th>Emir</th></tr>";
+  PRON.forEach(function(p,i){
+    function cell(z){var f=T[z][i];return f?'<td class="f '+z+(hidden?" hid":"")+'">'+f+"</td>":'<td class="f none">—</td>'}
+    h+='<tr><td class="pr">'+p[0]+'</td><td class="trp">'+p[1]+"</td>"+cell("mz")+cell("muz")+cell("em")+"</tr>";
+  });
+  $("#ctab").innerHTML=h;
+}
+$("#vpick").addEventListener("click",function(e){var b=e.target.closest(".vbtn");if(!b)return;cur=+b.dataset.i;[].forEach.call(this.children,function(c){c.classList.toggle("on",c===b)});drawTable()});
+$("#ctab").addEventListener("click",function(e){var c=e.target.closest("td.f");if(c&&!c.classList.contains("none"))c.classList.toggle("hid")});
+$("#bGizle").onclick=function(){hidden=true;drawTable()};
+$("#bAc").onclick=function(){hidden=false;drawTable()};
+drawTable();
+
+/* ───── 4: test ───── */
+var sc={d:0,y:0,s:0,e:0},ans=null,locked=false;
+function rnd(n){return Math.floor(Math.random()*n)}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=rnd(i+1),t=a[i];a[i]=a[j];a[j]=t}return a}
+function ask(){
+  var zs=[].filter.call(document.querySelectorAll(".tz"),function(c){return c.checked}).map(function(c){return c.value});
+  if(!zs.length){zs=["mz"];document.querySelector('.tz[value="mz"]').checked=true}
+  var V=VERBS[rnd(VERBS.length)],z=zs[rnd(zs.length)],T=tables(V)[z];
+  var idx=[];T.forEach(function(f,i){if(f)idx.push(i)});
+  var i=idx[rnd(idx.length)];ans=T[i];
+  var pool=[];T.forEach(function(f){if(f&&f!==ans&&pool.indexOf(f)<0)pool.push(f)});
+  var opts=shuffle(shuffle(pool).slice(0,3).concat([ans]));
+  $("#soru").innerHTML='<span class="big">'+base(V)+'</span> <span class="muted">('+V.tr+")</span> fiilinin <b style=\"color:var(--"+z+')">'+NAMES[z]+"</b> çekimi — zamir: <span class=\"big\">"+PRON[i][0]+'</span> <span class="muted">'+PRON[i][1]+"</span>";
+  $("#opts").innerHTML=opts.map(function(o){return '<button class="opt">'+o+"</button>"}).join("");
+  $("#tmsg").innerHTML="";locked=false;
+}
+function upd(){$("#sD").textContent=sc.d;$("#sY").textContent=sc.y;$("#sS").textContent=sc.s;$("#sE").textContent=sc.e}
+$("#opts").addEventListener("click",function(e){
+  var b=e.target.closest(".opt");if(!b||locked)return;locked=true;
+  var ok=b.textContent===ans;
+  [].forEach.call(this.children,function(o){o.disabled=true;if(o.textContent===ans)o.classList.add("good")});
+  if(ok){sc.d++;sc.s++;if(sc.s>sc.e)sc.e=sc.s;$("#tmsg").innerHTML='<div class="msg good">✓ Doğru</div>'}
+  else{b.classList.add("bad");sc.y++;sc.s=0;$("#tmsg").innerHTML='<div class="msg bad">Doğrusu: <span class="ar" style="font-size:24px">'+ans+"</span></div>"}
+  upd();
+});
+$("#bSonraki").onclick=ask;
+[].forEach.call(document.querySelectorAll(".tz"),function(c){c.onchange=ask});
+ask();upd();
+})();
+</script>
+</body>
+</html>
