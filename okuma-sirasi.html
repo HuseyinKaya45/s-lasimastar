@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitabın Nuru — Okuma Sırası</title>
+<style>
+:root{--bg:#f6f1e7;--paper:#fffdf8;--ink:#1f1b16;--muted:#6f665a;--line:#e3dac8;--accent:#8a5a1c;--ok:#1f6b52}
+@media (prefers-color-scheme:dark){:root{--bg:#15130f;--paper:#1e1b16;--ink:#ece5d8;--muted:#a3998a;--line:#332e25;--accent:#e0b062;--ok:#7fd0b0}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.5}
+main{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+h1{font-family:Georgia,serif;font-size:26px;color:var(--accent);margin:0 0 6px}
+p.lead{color:var(--muted);margin:0 0 6px}
+.how{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:14px 0 18px;font-size:15px}
+.how b{color:var(--accent)}
+.devam{display:none;background:var(--ok);color:#fff;border-radius:12px;padding:10px 16px;margin:0 0 16px;text-decoration:none;font-weight:600}
+ol{list-style:none;margin:0;padding:0}
+li{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:0 0 8px;display:grid;grid-template-columns:34px 1fr auto;gap:6px 10px;align-items:center}
+li.done{opacity:.6}
+.no{font-weight:700;color:var(--accent);text-align:right}
+.ad{font-weight:600}.ad small{font-weight:400;color:var(--muted);margin-left:6px}
+.btns{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+a.b{border:1px solid var(--line);border-radius:999px;padding:5px 12px;text-decoration:none;color:var(--ink);background:var(--bg);font-size:14px;white-space:nowrap}
+a.b.main{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.alt{grid-column:2 / -1;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.alt input[type=number]{width:74px;padding:3px 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+.alt label{display:flex;gap:6px;align-items:center;cursor:pointer}
+@media (max-width:560px){li{grid-template-columns:28px 1fr}.btns{grid-column:2;justify-content:flex-start}}
+</style></head><body><main>
+<h1>Kitabın Nuru — Okuma Sırası</h1>
+<p class="lead">Arapça–Türkçe PDF'ler, kanalda yayımlandığı sırayla: en eskiden en yeniye.</p>
+<div class="how">
+<b>Nasıl okunur?</b> Bu dosyayı PDF'lerin bulunduğu klasöre koyun. Her PDF'te gönderiler yeniden eskiye doğru dizilidir; yani en eski gönderi <b>son sayfadadır</b>.
+Yayın sırasıyla okumak için <b>“Sondan başla”</b> ile açın ve sayfaları <b>geriye doğru</b> çevirin; bir dosya bitince listedeki sonraki dosyaya geçin.
+Kaldığınız sayfayı kutuya yazarsanız “Kaldığım yerden aç” oradan açar.
+</div>
+<a class="devam" id="devam"></a>
+<ol id="liste"></ol>
+</main>
+<script>
+var D=[{"f": "Rakam (1)_compressed.pdf", "t": "Rakam 1", "n": 74}, {"f": "Rakam (2)_compressed.pdf", "t": "Rakam 2", "n": 63}, {"f": "Rakam (3)_compressed.pdf", "t": "Rakam 3", "n": 75}, {"f": "Rakam (4)_compressed.pdf", "t": "Rakam 4", "n": 73}, {"f": "Rakam (5)_compressed B.pdf", "t": "Rakam 5 B", "n": 40}, {"f": "Rakam (5)_compressed A.pdf", "t": "Rakam 5 A", "n": 47}, {"f": "Rakam (6)_compressed B.pdf", "t": "Rakam 6 B", "n": 44}, {"f": "Rakam (6)_compressed A.pdf", "t": "Rakam 6 A", "n": 50}, {"f": "Rakam (7)_compressed.pdf", "t": "Rakam 7", "n": 55}, {"f": "Rakam (8)_compressed B.pdf", "t": "Rakam 8 B", "n": 31}, {"f": "Rakam (8)_compressed A.pdf", "t": "Rakam 8 A", "n": 37}, {"f": "Rakam (9)-compressed.pdf", "t": "Rakam 9", "n": 78}, {"f": "Rakam (10)_compressed B.pdf", "t": "Rakam 10 B", "n": 44}, {"f": "Rakam (10)_compressed A.pdf", "t": "Rakam 10 A", "n": 50}, {"f": "Rakam (11)_compressed.pdf", "t": "Rakam 11", "n": 79}, {"f": "Rakam (12)_compressed.pdf", "t": "Rakam 12", "n": 64}, {"f": "Rakam (13)_compressed.pdf", "t": "Rakam 13", "n": 53}, {"f": "Rakam (14)_compressed.pdf", "t": "Rakam 14", "n": 51}, {"f": "Rakam (15)_compressed.pdf", "t": "Rakam 15", "n": 31}, {"f": "Rakam (16)_compressed.pdf", "t": "Rakam 16", "n": 55}, {"f": "Rakam (17)_compressed.pdf", "t": "Rakam 17", "n": 50}, {"f": "Rakam (18)_compressed.pdf", "t": "Rakam 18", "n": 47}, {"f": "Rakam (19)_compressed.pdf", "t": "Rakam 19", "n": 45}, {"f": "Rakam (20)_compressed.pdf", "t": "Rakam 20", "n": 18}, {"f": "Rakam (21)_compressed.pdf", "t": "Rakam 21", "n": 38}, {"f": "Rakam (22)_compressed.pdf", "t": "Rakam 22", "n": 45}, {"f": "Rakam (23)_compressed.pdf", "t": "Rakam 23", "n": 31}, {"f": "Rakam (24)_compressed.pdf", "t": "Rakam 24", "n": 28}, {"f": "20 Kasım 2026 AR 51-96.pdf", "t": "20 Kasım 51-96", "n": 46}, {"f": "20 Kasım 2026 AR 1-50.pdf", "t": "20 Kasım 1-50", "n": 50}];
+var S={};try{S=JSON.parse(localStorage.getItem('kn_sira')||'{}')}catch(e){}
+function save(){try{localStorage.setItem('kn_sira',JSON.stringify(S))}catch(e){}}
+function url(f,p){return encodeURI(f).replace(/#/g,'%23')+'#page='+p}
+var ol=document.getElementById('liste');
+D.forEach(function(d,i){
+  var st=S[d.f]||{};
+  var li=document.createElement('li');if(st.done)li.className='done';
+  li.innerHTML='<span class="no">'+(i+1)+'.</span><span class="ad">'+d.t+'<small>'+d.n+' sayfa</small></span>'+
+   '<span class="btns"><a class="b main" target="_blank" href="'+url(d.f,d.n)+'">Sondan başla (en eski)</a><a class="b" target="_blank" href="'+url(d.f,1)+'">Baştan aç</a></span>'+
+   '<span class="alt"><label><input type="checkbox" '+(st.done?'checked':'')+'> Okudum</label>'+
+   '<span>Kaldığım sayfa: <input type="number" min="1" max="'+d.n+'" value="'+(st.p||'')+'"></span>'+
+   '<a class="b kal" target="_blank" style="'+(st.p?'':'display:none')+'" href="'+url(d.f,st.p||d.n)+'">Kaldığım yerden aç</a></span>';
+  var cb=li.querySelector('input[type=checkbox]'),num=li.querySelector('input[type=number]'),kal=li.querySelector('.kal');
+  cb.onchange=function(){S[d.f]=S[d.f]||{};S[d.f].done=cb.checked;save();li.className=cb.checked?'done':'';devam()};
+  num.oninput=function(){var v=parseInt(num.value,10);S[d.f]=S[d.f]||{};if(v>=1&&v<=d.n){S[d.f].p=v;kal.href=url(d.f,v);kal.style.display=''}else{delete S[d.f].p;kal.style.display='none'}save();devam()};
+  ol.appendChild(li);
+});
+function devam(){
+  var a=document.getElementById('devam');
+  for(var i=0;i<D.length;i++){var st=S[D[i].f]||{};if(!st.done){
+    var p=st.p||D[i].n;a.textContent='▶ Sıradaki: '+D[i].t+' — '+p+'. sayfadan devam et';a.href=url(D[i].f,p);a.target='_blank';a.style.display='block';return}}
+  a.style.display='none';
+}
+devam();
+</script></body></html>
