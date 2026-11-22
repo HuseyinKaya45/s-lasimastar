@@ -36,7 +36,9 @@ button { cursor: pointer; }
 .brand-ad { min-width: 0; display: grid; gap: 2px; }
 .brand h1 { font-family: var(--f-ar); font-weight: 600; font-size: 1.28rem; line-height: 1.45; margin: 0; text-align: right; }
 .brand span { font-family: var(--f-read); color: var(--muted); font-size: .95rem; text-align: right; }
-.gorsel { margin: 18px 0 0; text-align: center; }
+.gorsel { margin: 18px 0 0; text-align: center; display: grid; gap: 8px; justify-items: center; }
+.gsil { font-size: .8rem; padding: 4px 10px; }
+.gekle { margin: 22px 0 0; padding: 12px 14px; border: 1px dashed var(--line); border-radius: 10px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; color: var(--muted); font-size: .9rem; }
 .gorsel img { max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
 .btn.tehlike { color: #B3261E; border-color: #B3261E55; }
 .btn.tehlike:hover { background: #B3261E; color: #fff; border-color: #B3261E; }
@@ -307,7 +309,7 @@ function baslik() {
 function tagHtml(k, old) { var K = KONU[k]; return K ? '<span class="tag' + (old === "alt" ? " alt" : old ? " old" : "") + '" style="--gc:var(' + K.r + ')">' + esc(K.ad) + '</span>' : ''; }
 function rowHtml(y) {
   var e = etkin(y);
-  return '<button type="button" class="row" data-ac="' + y.id + '"><h3>' + esc(y.baslik) + '</h3><span class="side-meta"><span class="tnum">No ' + y.id + '</span><span class="tnum">' + sayi(y.kel) + ' kelime</span>' + ((window.__GORSEL || {})[y.id] ? '<span class="badge">görselli</span>' : '') + (ST.ozel === "tursup" ? '<span class="badge warn">' + (etkin(y).t === "v" ? "vecize" : "makale") + ' / ' + (y.altT === "v" ? "vecize" : "makale") + '?</span>' : '') + (y.dup ? '<span class="badge warn">mükerrer</span>' : '') + (!y.arVar ? '<span class="badge warn">Arapçasız</span>' : '') + (ED[y.id] ? '<span class="badge ok">düzeltildi</span>' : '') + '</span><p>' + esc(y.ozet) + '</p><span class="tags">' + e.k.map(function (k) { return tagHtml(k); }).join("") + (ST.ozel === "supheli" ? y.alt.filter(function (k) { return e.k.indexOf(k) < 0; }).map(function (k) { return tagHtml(k, "alt"); }).join("") : '') + (ST.ozel === "degisen" ? y.ek.filter(function (k) { return e.k.indexOf(k) < 0; }).map(function (k) { return tagHtml(k, true); }).join("") : '') + '</span></button>';
+  return '<button type="button" class="row" data-ac="' + y.id + '"><h3>' + esc(y.baslik) + '</h3><span class="side-meta"><span class="tnum">No ' + y.id + '</span><span class="tnum">' + sayi(y.kel) + ' kelime</span>' + (gorseller(y.id).length ? '<span class="badge">görselli</span>' : '') + (ST.ozel === "tursup" ? '<span class="badge warn">' + (etkin(y).t === "v" ? "vecize" : "makale") + ' / ' + (y.altT === "v" ? "vecize" : "makale") + '?</span>' : '') + (y.dup ? '<span class="badge warn">mükerrer</span>' : '') + (!y.arVar ? '<span class="badge warn">Arapçasız</span>' : '') + (ED[y.id] ? '<span class="badge ok">düzeltildi</span>' : '') + '</span><p>' + esc(y.ozet) + '</p><span class="tags">' + e.k.map(function (k) { return tagHtml(k); }).join("") + (ST.ozel === "supheli" ? y.alt.filter(function (k) { return e.k.indexOf(k) < 0; }).map(function (k) { return tagHtml(k, "alt"); }).join("") : '') + (ST.ozel === "degisen" ? y.ek.filter(function (k) { return e.k.indexOf(k) < 0; }).map(function (k) { return tagHtml(k, true); }).join("") : '') + '</span></button>';
 }
 function vHtml(y) {
   var e = etkin(y);
@@ -356,7 +358,8 @@ function renderReader() {
     (vec ? '' : '<h1>' + esc(y.baslik) + '</h1>') + '<div class="tags" style="display:flex">' + e.k.map(function (k) { return tagHtml(k); }).join("") + '</div></div>' +
     (ST.duzenle && !KILIT ? editHtml(y, e) : '') +
     '<div class="cols' + (dil === "ikisi" ? " two" : "") + '">' + (dil !== "ar" ? trHtml : '') + (dil !== "tr" ? arHtml : '') + '</div>' +
-    ((window.__GORSEL || {})[y.id] || []).map(function (g, n) { return '<figure class="gorsel"><img src="' + g + '" alt="Yazının görseli' + (n ? " " + (n + 1) : "") + '" loading="lazy"></figure>'; }).join("") +
+    gorseller(y.id).map(function (g, n) { return '<figure class="gorsel"><img src="' + g + '" alt="Yazının görseli' + (n ? " " + (n + 1) : "") + '" loading="lazy">' + (KILIT ? '' : '<button type="button" class="btn tehlike gsil" data-gorselsil="' + n + '">Görseli sil</button>') + '</figure>'; }).join("") +
+    (KILIT ? '' : '<div class="gekle"><button type="button" class="btn" data-gorselsec="1">Görsel ekle</button><span>ya da kopyaladığın resmi bu yazı açıkken <b>Ctrl+V</b> ile yapıştır</span></div>') +
     (!ar ? '<p class="muted">Bu yazının Arapça metni yedekte boş.</p>' : '') + '</div></article></div>';
   host.querySelector(".sheet").scrollTop = 0;
 }
@@ -394,10 +397,78 @@ function yedekJson() {
   return JSON.stringify({ app: "Makalât", exportedAt: new Date().toISOString(), duzeltmeler: ED, categories: cats, articles: arts }, null, 1);
 }
 
+
+// ---------- yazılara görsel ekleme (yapıştır / dosya seç) ----------
+var UG = {}, GDB = null;
+function gorseller(id) { return UG[id] !== undefined ? UG[id] : ((window.__GORSEL || {})[id] || []); }
+function gdbAc() {
+  if (GDB) return GDB;
+  GDB = new Promise(function (res, rej) { try { var r = indexedDB.open("makalat-gorsel", 1); r.onupgradeneeded = function () { r.result.createObjectStore("g"); }; r.onsuccess = function () { res(r.result); }; r.onerror = function () { rej(r.error); }; } catch (x) { rej(x); } });
+  return GDB;
+}
+function gdbYaz(id) { return gdbAc().then(function (db) { return new Promise(function (res) { var t = db.transaction("g", "readwrite"); t.objectStore("g").put(UG[id], String(id)); t.oncomplete = function () { res(true); }; t.onerror = t.onabort = function () { res(false); }; }); }).catch(function () { return false; }); }
+function gdbOku() {
+  return gdbAc().then(function (db) { return new Promise(function (res) { var o = {}, c = db.transaction("g").objectStore("g").openCursor(); c.onsuccess = function () { var k = c.result; if (k) { o[k.key] = k.value; k.continue(); } else res(o); }; c.onerror = function () { res(o); }; }); }).catch(function () { return {}; });
+}
+function gorselKucult(dosya) {
+  return new Promise(function (res, rej) {
+    var u = URL.createObjectURL(dosya), im = new Image();
+    im.onload = function () {
+      var en = im.naturalWidth, boy = im.naturalHeight, o = Math.min(1, 1400 / Math.max(en, 1));
+      var c = document.createElement("canvas"); c.width = Math.max(1, Math.round(en * o)); c.height = Math.max(1, Math.round(boy * o));
+      var x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, c.width, c.height); x.drawImage(im, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(u); res(c.toDataURL("image/jpeg", 0.86));
+    };
+    im.onerror = function () { URL.revokeObjectURL(u); rej(new Error("resim okunamadı")); };
+    im.src = u;
+  });
+}
+function gorselEkle(dosyalar) {
+  var id = ST.acik; if (!id || KILIT) return;
+  var liste = [].slice.call(dosyalar || []).filter(function (f) { return f && /^image\//.test(f.type); });
+  if (!liste.length) return;
+  toast("Görsel ekleniyor…");
+  Promise.all(liste.map(gorselKucult)).then(function (urls) {
+    UG[id] = gorseller(id).concat(urls);
+    return gdbYaz(id).then(function (ok) {
+      if (ST.acik === id) { renderReader(); var s = document.querySelector(".sheet"); if (s) s.scrollTop = s.scrollHeight; }
+      renderMain();
+      toast(ok ? (urls.length > 1 ? urls.length + " görsel eklendi" : "Görsel eklendi") : "Görsel eklendi ama tarayıcıya kaydedilemedi; “Düzeltmeleri dosyaya kaydet” ile sakla");
+    });
+  }, function () { toast("Görsel okunamadı."); });
+}
+document.addEventListener("paste", function (ev) {
+  if (!ST.acik || KILIT) return;
+  var t = ev.target; if (t && /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName || "")) return;
+  var cd = ev.clipboardData; if (!cd) return;
+  var fs = []; [].forEach.call(cd.items || [], function (it) { if (it.kind === "file" && /^image\//.test(it.type)) { var f = it.getAsFile(); if (f) fs.push(f); } });
+  if (!fs.length) { if (!(cd.getData("text/plain") || "").trim()) toast("Panoda resim yok. Önce resmi kopyala."); return; }
+  ev.preventDefault(); gorselEkle(fs);
+});
+function gorselSec() {
+  var i = document.createElement("input"); i.type = "file"; i.accept = "image/*"; i.multiple = true; i.style.display = "none";
+  i.onchange = function () { gorselEkle(i.files); i.remove(); }; document.body.appendChild(i); i.click();
+}
+function gorselSil(n) {
+  var id = ST.acik; if (!id || KILIT) return;
+  if (!window.confirm("Bu görsel yazıdan silinsin mi?")) return;
+  var l = gorseller(id).slice(); l.splice(n, 1); UG[id] = l;
+  gdbYaz(id).then(function () { renderReader(); renderMain(); toast("Görsel silindi"); });
+}
+gdbOku().then(function (o) { var var_mi = false; Object.keys(o).forEach(function (k) { if (Array.isArray(o[k])) { UG[k] = o[k]; var_mi = true; } }); if (var_mi && Y.length) { renderMain(); if (ST.acik) renderReader(); } });
+function gorselGom(m) {
+  var bas = "window.__GORSEL=", i = m.indexOf(bas); if (i < 0) return m;
+  var j = m.indexOf(";</" + "script>", i); if (j < 0) return m;
+  var hep = {}, g = window.__GORSEL || {};
+  Object.keys(g).forEach(function (k) { hep[k] = g[k]; });
+  Object.keys(UG).forEach(function (k) { if (UG[k] && UG[k].length) hep[k] = UG[k]; else delete hep[k]; });
+  return m.slice(0, i + bas.length) + JSON.stringify(hep).replace(/</g, "\\u003c") + m.slice(j);
+}
 // ---------- dosyaya kaydet / salt okunur kopya / yedekten al ----------
 function dosyaMetni(kilitli) {
   var bas = '<script id="__ed__" type="application/json">', i = KAYNAK.indexOf(bas), j = KAYNAK.indexOf("</" + "script>", i);
   var m = KAYNAK.slice(0, i + bas.length) + JSON.stringify(ED).replace(/</g, "\\u003c") + KAYNAK.slice(j);
+  m = gorselGom(m);
   return m.replace(/<html[^>]*>/, '<html lang="tr"' + (kilitli ? ' data-kilit="1"' : "") + ">");
 }
 function dosyaAdi() { var a = decodeURIComponent(location.pathname.split("/").pop() || ""); return /\.html?$/i.test(a) ? a : "Makalat.html"; }
@@ -480,6 +551,8 @@ document.addEventListener("click", function (ev) {
     }, function () { toast("Metinler yüklenemedi."); });
     return;
   }
+  if (d.gorselsec) return gorselSec();
+  if (d.gorselsil !== undefined) return gorselSil(+d.gorselsil);
   if (d.duzenle) { ST.duzenle = !ST.duzenle; return renderReader(); }
   if (d.tur) return kaydet(ST.acik, { t: d.tur });
   if (d.kcikar) { var e1 = etkin(BYID[ST.acik]); return kaydet(ST.acik, { k: e1.k.filter(function (k) { return k !== d.kcikar; }) }); }
