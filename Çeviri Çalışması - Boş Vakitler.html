@@ -49,6 +49,14 @@ section{display:none}section.on{display:block}
 .pt b{display:block;font-family:var(--f-display);color:var(--accent);font-size:14.5px}
 body.nk .w:not(.ac) .k,body.ng .w:not(.ac) .g{display:none}
 body.nc .ct:not(.ac) span,body.np .pt:not(.ac) span{visibility:hidden}
+.w,.ct,.pt{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.w:not(.ac) .g{visibility:hidden}
+.w.ac{border-color:var(--gloss)}
+.ct:not(.ac),.pt:not(.ac){background:transparent;border:1px dashed var(--line);border-inline-start:3px solid var(--line)}
+.ct:not(.ac) span,.pt:not(.ac) span{display:none}
+.ct:not(.ac)::before{content:"Cümle çevirisi — görmek için dokun";color:var(--muted);font-size:14.5px}
+.pt:not(.ac) b{color:var(--muted);font-family:var(--f-body);font-weight:400}
+.pt:not(.ac) b::after{content:" — görmek için dokun"}
 </style>
 </head>
 <body>
@@ -56,7 +64,7 @@ body.nc .ct:not(.ac) span,body.np .pt:not(.ac) span{visibility:hidden}
 <header>
   <p class="ar-title" id="arb"></p>
   <h1 id="trb"></h1>
-  <p>Her kelimenin altında anlamı, her cümlenin altında çevirisi, paragrafın sonunda paragraf çevirisi var.</p>
+  <p>Anlamlar ve çeviriler kapalıdır. Bir kelimeye dokununca anlamı, cümlenin ya da paragrafın altındaki kutuya dokununca çevirisi açılır; tekrar dokununca kapanır.</p>
 </header>
 <div id="liste"></div>
 </div>
@@ -81,6 +89,7 @@ D.p.forEach(function(p,i){
   h+='<div class="pt"><b>Paragraf çevirisi</b><span>'+esc(p.tr)+'</span></div></div>';
 });
 document.getElementById('liste').innerHTML=h;
+document.addEventListener('click',function(e){var x=e.target.closest('.w,.ct,.pt');if(x)x.classList.toggle('ac');});
 </script>
 </body>
 </html>
