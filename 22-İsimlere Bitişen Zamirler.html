@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>İsimlere Bitişen Zamirler — الضمائر المتصلة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Amiri:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#F5F4EF;--card:#FFFFFF;--ink:#20221E;--muted:#626459;--line:#DEDCD2;--soft:#EEECE4;--accent:#7A4B16;
+  --p1:#2F6B4F;--p2:#2F5E9E;--p3:#A0482C;--suf:#B3261E;
+  --good:#1F7A3E;--bad:#B3261E;--good-bg:#E2F2E6;--bad-bg:#FBE7E4;--warn-bg:#FFF4D6;
+  --f-display:"Alegreya",Georgia,"Times New Roman",serif;
+  --f-body:"Alegreya Sans","Segoe UI",system-ui,sans-serif;
+  --f-ar:"Amiri","Scheherazade New","Traditional Arabic","Noto Naskh Arabic",serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141412;--card:#1D1D1A;--ink:#ECEAE2;--muted:#A6A497;--line:#33322C;--soft:#26251F;--accent:#E3B36E;
+    --p1:#7FD1A8;--p2:#95B9F0;--p3:#F2A585;--suf:#FF8A80;
+    --good:#6FD08E;--bad:#FF8A80;--good-bg:#17301F;--bad-bg:#3A1D1A;--warn-bg:#3A3215;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141412;--card:#1D1D1A;--ink:#ECEAE2;--muted:#A6A497;--line:#33322C;--soft:#26251F;--accent:#E3B36E;
+  --p1:#7FD1A8;--p2:#95B9F0;--p3:#F2A585;--suf:#FF8A80;
+  --good:#6FD08E;--bad:#FF8A80;--good-bg:#17301F;--bad-bg:#3A1D1A;--warn-bg:#3A3215;color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 var(--f-body)}
+.wrap{max-width:920px;margin:0 auto;padding:18px 16px 70px}
+header h1{font-family:var(--f-display);font-weight:800;font-size:30px;line-height:1.15;margin:6px 0 2px;color:var(--accent)}
+header .ar-title{font-family:var(--f-ar);font-size:34px;direction:rtl;margin:0}
+header p{color:var(--muted);margin:6px 0 0}
+.tabs{display:flex;gap:6px;margin:18px 0 14px;overflow-x:auto;padding-bottom:4px}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-weight:500;cursor:pointer;white-space:nowrap}
+.tab.on{background:var(--accent);border-color:var(--accent);color:var(--card)}
+section{display:none}
+section.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 14px}
+h2{font-family:var(--f-display);font-size:22px;margin:0 0 8px}
+h3{font-family:var(--f-display);font-size:18px;margin:14px 0 6px}
+.muted{color:var(--muted)}
+.ar{font-family:var(--f-ar);direction:rtl;unicode-bidi:isolate}
+.suf{color:var(--suf);font-weight:700}
+button{font:inherit}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 14px;cursor:pointer}
+.btn.solid{background:var(--accent);border-color:var(--accent);color:var(--card)}
+.btn:focus-visible,.tab:focus-visible,.chip:focus-visible,.opt:focus-visible,.w:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.chip .ar{font-size:22px}
+.chip.on{background:var(--accent);border-color:var(--accent);color:var(--card)}
+/* tablo */
+table{width:100%;border-collapse:collapse}
+th,td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:start;vertical-align:middle}
+th{font-size:14px;color:var(--muted);font-weight:500}
+td.f{font-family:var(--f-ar);font-size:28px;direction:rtl;text-align:right;white-space:nowrap;cursor:pointer}
+td.z{font-family:var(--f-ar);font-size:22px;direction:rtl;text-align:right;color:var(--muted)}
+td.f.hid{color:transparent;background:var(--soft);border-radius:8px}
+td.f.hid::after{content:"göster";font:14px var(--f-body);color:var(--muted)}
+tr.g1 td:first-child{border-inline-start:4px solid var(--p1)}
+tr.g2 td:first-child{border-inline-start:4px solid var(--p2)}
+tr.g3 td:first-child{border-inline-start:4px solid var(--p3)}
+.speak{border:0;background:none;cursor:pointer;font-size:18px;padding:2px 6px;color:var(--muted)}
+/* kurucu */
+.build{display:grid;gap:12px}
+.result{font-family:var(--f-ar);direction:rtl;font-size:52px;text-align:center;line-height:1.4;min-height:80px}
+.result-tr{text-align:center;font-size:20px;font-weight:500}
+.plus{display:flex;justify-content:center;gap:14px;align-items:center;font-size:20px;color:var(--muted)}
+.plus .ar{font-size:32px;color:var(--ink)}
+/* metin */
+.text{font-family:var(--f-ar);direction:rtl;font-size:28px;line-height:2.15;text-align:justify}
+.w{border-radius:6px;padding:0 3px;cursor:pointer}
+.w:hover{background:var(--soft)}
+.w.sel{outline:2px solid var(--accent)}
+.w.ok{background:var(--good-bg);box-shadow:inset 0 -3px 0 var(--good)}
+.w.no{background:var(--bad-bg)}
+.panel{margin-top:10px;padding:12px;border-radius:12px;background:var(--soft);display:none}
+.panel.on{display:block}
+/* test */
+.q{font-size:20px;margin:6px 0 12px}
+.q .ar{font-size:34px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.opt{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:10px 12px;cursor:pointer;text-align:center;min-height:52px}
+.opt .ar{font-size:28px}
+.opt.right{background:var(--good-bg);border-color:var(--good)}
+.opt.wrong{background:var(--bad-bg);border-color:var(--bad)}
+.fb{margin-top:10px;min-height:24px;font-weight:500}
+.fb.good{color:var(--good)}.fb.bad{color:var(--bad)}
+.score{display:flex;gap:16px;font-weight:700}
+.bar{height:8px;background:var(--soft);border-radius:8px;overflow:hidden;margin:8px 0}
+.bar div{height:100%;background:var(--accent);width:0;transition:width .3s}
+.sent{font-family:var(--f-ar);direction:rtl;font-size:34px;line-height:1.9;text-align:center}
+.blank{display:inline-block;min-width:60px;border-bottom:3px dashed var(--accent);color:var(--suf)}
+.rule{border-inline-start:4px solid var(--accent);padding:4px 12px;margin:10px 0}
+.ex{font-family:var(--f-ar);direction:rtl;unicode-bidi:isolate;font-size:26px;display:inline-block}
+@media (max-width:560px){td.f{font-size:23px}.result{font-size:40px}th.hide-m,td.hide-m{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="ar-title">الضَّمَائِرُ المُتَّصِلَةُ بِالأَسْمَاءِ</p>
+  <h1>İsimlere Bitişen (Muttasıl) Zamirler</h1>
+  <p>Hazırlık sınıfı · İyelik zamirleri: <span class="ar">كِتَابِي</span> kitabım, <span class="ar">كِتَابُكَ</span> kitabın, <span class="ar">كِتَابُهُ</span> onun kitabı…</p>
+</header>
+
+<nav class="tabs" id="tabs" role="tablist">
+  <button class="tab on" data-s="kural">1 · Kural</button>
+  <button class="tab" data-s="tablo">2 · Tablo</button>
+  <button class="tab" data-s="kur">3 · Kelime kur</button>
+  <button class="tab" data-s="metin">4 · Metinde bul</button>
+  <button class="tab" data-s="cumle">5 · Cümle tamamla</button>
+  <button class="tab" data-s="test">6 · Test</button>
+</nav>
+
+<!-- 1 KURAL -->
+<section id="s-kural" class="on">
+  <div class="card">
+    <h2>Bitişen zamir nedir?</h2>
+    <p>Arapçada “benim, senin, onun…” anlamı, ismin sonuna eklenen küçük zamirlerle verilir. Bunlara <b>muttasıl (bitişen) zamir</b> denir. İsim bu zamiri alınca <b>tenvini düşer</b> ve başına <b>ال</b> gelmez.</p>
+    <div class="rule"><span class="ex">كِتَابٌ</span> (bir kitap) → <span class="ex">كِتَابُ<span class="suf">كَ</span></span> (senin kitabın)</div>
+    <div class="rule"><span class="ex">الكِتَابُكَ</span> ✗ yanlış — <b class="ar">ال</b> ile zamir birlikte kullanılmaz.</div>
+  </div>
+  <div class="card">
+    <h2>On iki zamir</h2>
+    <table>
+      <thead><tr><th>Zamir</th><th>Anlam</th><th>Örnek</th><th class="hide-m">Ayrı zamiri</th></tr></thead>
+      <tbody id="kuralT"></tbody>
+    </table>
+    <p class="muted" style="margin-top:8px">Renkler: yeşil 1. şahıs (ben/biz), mavi 2. şahıs (sen/siz), kızıl 3. şahıs (o/onlar).</p>
+  </div>
+  <div class="card">
+    <h2>Dikkat edilecek üç nokta</h2>
+    <div class="rule"><b>1. Yuvarlak tâ (<span class="ar">ة</span>) açık tâ (<span class="ar">ت</span>) olur.</b><br><span class="ex">مَدْرَسَةٌ</span> → <span class="ex">مَدْرَسَتِ<span class="suf">ي</span></span> , <span class="ex">مَدْرَسَتُ<span class="suf">هُ</span></span></div>
+    <div class="rule"><b>2. <span class="ar">ـي</span> (benim) zamirinden önceki harf hep esreli okunur.</b><br><span class="ex">كِتَابٌ</span> + <span class="ex">ي</span> → <span class="ex">كِتَابِ<span class="suf">ي</span></span></div>
+    <div class="rule"><b>3. <span class="ar">ـهُ</span>, <span class="ar">ـهُمَا</span>, <span class="ar">ـهُمْ</span>, <span class="ar">ـهُنَّ</span> zamirleri esreden veya <span class="ar">ي</span>'den sonra esreli okunur.</b><br><span class="ex">فِي بَيْتِ<span class="suf">هِ</span></span> (onun evinde), <span class="ex">فِي بَيْتِ<span class="suf">هِمْ</span></span> (onların evinde) — ama <span class="ex">بَيْتُ<span class="suf">هُ</span> كَبِيرٌ</span> (onun evi büyük)</div>
+  </div>
+</section>
+
+<!-- 2 TABLO -->
+<section id="s-tablo">
+  <div class="card">
+    <h2>Çekim tablosu</h2>
+    <p class="muted">Bir isim seç; on iki zamirle hâli görünür. “Gizle” ile kendini dene, hücreye dokununca açılır.</p>
+    <div class="row" id="isimler" style="margin:10px 0"></div>
+    <div class="row" style="margin-bottom:10px">
+      <button class="btn" id="bGizle">Arapçayı gizle</button>
+      <button class="btn" id="bAc">Hepsini aç</button>
+    </div>
+    <table>
+      <thead><tr><th>Arapça</th><th>Türkçe</th><th class="hide-m">Zamir</th><th></th></tr></thead>
+      <tbody id="tablo"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 3 KUR -->
+<section id="s-kur">
+  <div class="card build">
+    <h2>Kelime kur</h2>
+    <p class="muted" style="margin:0">Bir isim ve bir zamir seç; birleşmiş hâlini ve anlamını gör.</p>
+    <div><b>İsim</b><div class="row" id="kIsim" style="margin-top:6px"></div></div>
+    <div><b>Zamir</b><div class="row" id="kZamir" style="margin-top:6px"></div></div>
+    <div class="plus"><span class="ar" id="kA"></span>+<span class="ar suf" id="kB"></span></div>
+    <div class="result" id="kSonuc"></div>
+    <div class="result-tr" id="kTr"></div>
+    <div class="muted" id="kNot" style="text-align:center"></div>
+  </div>
+</section>
+
+<!-- 4 METIN -->
+<section id="s-metin">
+  <div class="card">
+    <h2>Metinde bul: <span class="ar">أُسْرَتِي</span></h2>
+    <p class="muted">Metinde zamir almış isimleri bul. Bir kelimeye dokun, sonra hangi zamiri aldığını seç. <span id="mSay"></span></p>
+    <div class="text" id="metin"></div>
+    <div class="panel" id="mPanel">
+      <div id="mSoru" style="margin-bottom:8px"></div>
+      <div class="row" id="mSec"></div>
+      <div class="fb" id="mFb"></div>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button class="btn" id="mGoster">Hepsini göster</button>
+      <button class="btn" id="mSifir">Baştan</button>
+      <button class="btn" id="mCeviri">Türkçesini göster</button>
+    </div>
+    <p id="mTr" class="muted" style="display:none;margin-top:10px"></p>
+  </div>
+</section>
+
+<!-- 5 CUMLE -->
+<section id="s-cumle">
+  <div class="card">
+    <h2>Cümle tamamla</h2>
+    <p class="muted">Cümledeki kişiye bak ve boşluğa uygun zamiri seç.</p>
+    <div class="score"><span>Doğru: <span id="cD">0</span></span><span>Yanlış: <span id="cY">0</span></span><span class="muted" id="cNo"></span></div>
+    <div class="bar"><div id="cBar"></div></div>
+    <div class="sent" id="cSent"></div>
+    <p class="muted" id="cIpucu" style="text-align:center;margin:4px 0 12px"></p>
+    <div class="opts" id="cOpts"></div>
+    <div class="fb" id="cFb"></div>
+    <div class="row" style="margin-top:10px"><button class="btn solid" id="cNext">Sonraki</button></div>
+  </div>
+</section>
+
+<!-- 6 TEST -->
+<section id="s-test">
+  <div class="card">
+    <h2>Test</h2>
+    <p class="muted">Karışık sorular: anlamı bul, Arapçasını bul, zamiri tanı.</p>
+    <div class="score"><span>Doğru: <span id="tD">0</span></span><span>Yanlış: <span id="tY">0</span></span><span class="muted" id="tNo"></span></div>
+    <div class="bar"><div id="tBar"></div></div>
+    <div class="q" id="tQ"></div>
+    <div class="opts" id="tOpts"></div>
+    <div class="fb" id="tFb"></div>
+    <div class="row" style="margin-top:10px"><button class="btn solid" id="tNext">Sonraki</button><button class="btn" id="tYeni">Yeni test</button></div>
+  </div>
+</section>
+</div>
+
+<script>
+(function(){
+"use strict";
+// ---------- veri ----------
+// zamir: anahtar, ek (harekeli), ayrı zamir, şahıs grubu, Türkçe etiket, Türkçe iyelik biçimi indeksi (0:1t 1:1ç 2:2t 3:2ç 4:3)
+var Z=[
+ {k:"i",  e:"ي",   ayri:"أَنَا",    g:1, tr:"benim",                    f:0, ad:"1. tekil (ben)"},
+ {k:"na", e:"نَا",  ayri:"نَحْنُ",   g:1, tr:"bizim",                    f:1, ad:"1. çoğul (biz)"},
+ {k:"ka", e:"كَ",   ayri:"أَنْتَ",   g:2, tr:"senin (erkek)",            f:2, ad:"2. tekil eril (sen)"},
+ {k:"ki", e:"كِ",   ayri:"أَنْتِ",   g:2, tr:"senin (kadın)",            f:2, ad:"2. tekil dişil (sen)"},
+ {k:"kuma",e:"كُمَا",ayri:"أَنْتُمَا", g:2, tr:"ikinizin",                f:4, ad:"2. ikil (siz ikiniz)"},
+ {k:"kum",e:"كُمْ",  ayri:"أَنْتُمْ",  g:2, tr:"sizin (erkekler)",         f:3, ad:"2. çoğul eril (siz)"},
+ {k:"kunna",e:"كُنَّ",ayri:"أَنْتُنَّ", g:2, tr:"sizin (kadınlar)",        f:3, ad:"2. çoğul dişil (siz)"},
+ {k:"hu", e:"هُ",   ayri:"هُوَ",    g:3, tr:"onun (erkek)",             f:4, ad:"3. tekil eril (o)"},
+ {k:"ha", e:"هَا",  ayri:"هِيَ",    g:3, tr:"onun (kadın)",             f:4, ad:"3. tekil dişil (o)"},
+ {k:"huma",e:"هُمَا",ayri:"هُمَا",   g:3, tr:"ikisinin",                 f:4, ad:"3. ikil (o ikisi)"},
+ {k:"hum",e:"هُمْ",  ayri:"هُمْ",    g:3, tr:"onların (erkekler)",        f:4, ad:"3. çoğul eril (onlar)"},
+ {k:"hunna",e:"هُنَّ",ayri:"هُنَّ",   g:3, tr:"onların (kadınlar)",        f:4, ad:"3. çoğul dişil (onlar)"}
+];
+// isim: tenvinli hâl, kök (zamir öncesi, harekesiz son), Türkçe biçimler [1t,1ç,2t,2ç,3]
+var I=[
+ {a:"كِتَابٌ", s:"كِتَاب", t:["kitabım","kitabımız","kitabın","kitabınız","kitabı"], m:"kitap"},
+ {a:"قَلَمٌ",  s:"قَلَم",  t:["kalemim","kalemimiz","kalemin","kaleminiz","kalemi"], m:"kalem"},
+ {a:"بَيْتٌ",  s:"بَيْت",  t:["evim","evimiz","evin","eviniz","evi"], m:"ev"},
+ {a:"مَدْرَسَةٌ",s:"مَدْرَسَت",t:["okulum","okulumuz","okulun","okulunuz","okulu"], m:"okul", ta:1},
+ {a:"سَيَّارَةٌ",s:"سَيَّارَت",t:["arabam","arabamız","araban","arabanız","arabası"], m:"araba", ta:1},
+ {a:"صَدِيقٌ", s:"صَدِيق", t:["arkadaşım","arkadaşımız","arkadaşın","arkadaşınız","arkadaşı"], m:"arkadaş"},
+ {a:"وَلَدٌ",  s:"وَلَد",  t:["çocuğum","çocuğumuz","çocuğun","çocuğunuz","çocuğu"], m:"çocuk"},
+ {a:"غُرْفَةٌ", s:"غُرْفَت", t:["odam","odamız","odan","odanız","odası"], m:"oda", ta:1},
+ {a:"مُعَلِّمٌ", s:"مُعَلِّم", t:["öğretmenim","öğretmenimiz","öğretmenin","öğretmeniniz","öğretmeni"], m:"öğretmen"},
+ {a:"حَقِيبَةٌ",s:"حَقِيبَت",t:["çantam","çantamız","çantan","çantanız","çantası"], m:"çanta", ta:1},
+ {a:"دَفْتَرٌ", s:"دَفْتَر", t:["defterim","defterimiz","defterin","defteriniz","defteri"], m:"defter"},
+ {a:"اِسْمٌ",  s:"اِسْم",  t:["ismim","ismimiz","ismin","isminiz","ismi"], m:"isim"}
+];
+var AYRI_TR={i:"benim",na:"bizim",ka:"senin",ki:"senin",kuma:"sizin ikinizin",kum:"sizin",kunna:"sizin",hu:"onun",ha:"onun",huma:"o ikisinin",hum:"onların",hunna:"onların"};
+function form(n,z){ return z.k==="i" ? n.s+"ِ"+"ي" : n.s+"ُ"+z.e; }
+function formHtml(n,z){ return z.k==="i" ? esc(n.s+"ِ")+'<span class="suf">ي</span>' : esc(n.s+"ُ")+'<span class="suf">'+esc(z.e)+'</span>'; }
+function anlam(n,z){ var p=z.tr, w=n.t[z.f]; return p+" "+w; }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;} return a; }
+function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
+var sesVar=("speechSynthesis" in window);
+function oku(t){ if(!sesVar) return; try{ var u=new SpeechSynthesisUtterance(t); u.lang="ar-SA"; u.rate=.8; speechSynthesis.cancel(); speechSynthesis.speak(u);}catch(e){} }
+function sesBtn(t){ return sesVar? '<button class="speak" data-oku="'+esc(t)+'" aria-label="Sesli oku">🔊</button>' : ''; }
+document.addEventListener("click",function(e){ var b=e.target.closest("[data-oku]"); if(b) oku(b.getAttribute("data-oku")); });
+
+// ---------- sekmeler ----------
+var tabs=document.querySelectorAll(".tab");
+tabs.forEach(function(t){ t.addEventListener("click",function(){
+  tabs.forEach(function(x){x.classList.toggle("on",x===t);});
+  document.querySelectorAll("section").forEach(function(s){ s.classList.toggle("on", s.id==="s-"+t.dataset.s); });
+}); });
+
+// ---------- 1 kural ----------
+var kitap=I[0];
+document.getElementById("kuralT").innerHTML=Z.map(function(z){
+  return '<tr class="g'+z.g+'"><td class="z" style="color:var(--suf);font-weight:700">ـ'+esc(z.e)+'</td><td>'+esc(z.tr)+'<br><span class="muted" style="font-size:14px">'+esc(z.ad)+'</span></td><td class="f" style="cursor:default">'+formHtml(kitap,z)+'<div style="font:15px var(--f-body);direction:ltr;text-align:right;color:var(--muted)">'+esc(anlam(kitap,z))+'</div></td><td class="z hide-m">'+esc(z.ayri)+'</td></tr>';
+}).join("");
+
+// ---------- 2 tablo ----------
+var cur=0, gizli=false, acik={};
+function tabloCiz(){
+  var n=I[cur];
+  document.getElementById("isimler").innerHTML=I.map(function(x,i){ return '<button class="chip'+(i===cur?" on":"")+'" data-i="'+i+'"><span class="ar">'+esc(x.a)+'</span> <span style="font-size:14px">'+esc(x.m)+'</span></button>'; }).join("");
+  document.getElementById("tablo").innerHTML=Z.map(function(z,j){
+    var h=gizli && !acik[j];
+    return '<tr class="g'+z.g+'"><td class="f'+(h?" hid":"")+'" data-j="'+j+'">'+(h?"":formHtml(n,z))+'</td><td>'+esc(anlam(n,z))+'</td><td class="z hide-m">ـ'+esc(z.e)+'</td><td>'+sesBtn(form(n,z))+'</td></tr>';
+  }).join("")+(n.ta?'<tr><td colspan="4" class="muted" style="font-size:15px">Not: <span class="ar" style="font-size:20px">ة</span> zamir alınca <span class="ar" style="font-size:20px">ت</span> olur: <span class="ar" style="font-size:20px">'+esc(n.a)+' → '+esc(form(n,Z[0]))+'</span></td></tr>':'');
+}
+document.getElementById("isimler").addEventListener("click",function(e){ var b=e.target.closest("[data-i]"); if(!b) return; cur=+b.dataset.i; acik={}; tabloCiz(); });
+document.getElementById("tablo").addEventListener("click",function(e){ var c=e.target.closest("td.hid"); if(!c) return; acik[c.dataset.j]=1; tabloCiz(); });
+document.getElementById("bGizle").onclick=function(){ gizli=true; acik={}; tabloCiz(); };
+document.getElementById("bAc").onclick=function(){ gizli=false; acik={}; tabloCiz(); };
+tabloCiz();
+
+// ---------- 3 kur ----------
+var ki=0, kz=0;
+function kurCiz(){
+  document.getElementById("kIsim").innerHTML=I.map(function(x,i){ return '<button class="chip'+(i===ki?" on":"")+'" data-i="'+i+'"><span class="ar">'+esc(x.a)+'</span></button>'; }).join("");
+  document.getElementById("kZamir").innerHTML=Z.map(function(z,j){ return '<button class="chip'+(j===kz?" on":"")+'" data-j="'+j+'"><span class="ar">ـ'+esc(z.e)+'</span> <span style="font-size:13px">'+esc(z.tr)+'</span></button>'; }).join("");
+  var n=I[ki], z=Z[kz];
+  document.getElementById("kA").textContent=n.a;
+  document.getElementById("kB").textContent="ـ"+z.e;
+  document.getElementById("kSonuc").innerHTML=formHtml(n,z)+' '+sesBtn(form(n,z));
+  document.getElementById("kTr").textContent=anlam(n,z);
+  var notlar=["Tenvin düştü."];
+  if(n.ta) notlar.push("ة → ت oldu.");
+  if(z.k==="i") notlar.push("ـي'den önceki harf esreli okunur.");
+  document.getElementById("kNot").textContent=notlar.join(" ");
+}
+document.getElementById("kIsim").addEventListener("click",function(e){ var b=e.target.closest("[data-i]"); if(b){ki=+b.dataset.i;kurCiz();} });
+document.getElementById("kZamir").addEventListener("click",function(e){ var b=e.target.closest("[data-j]"); if(b){kz=+b.dataset.j;kurCiz();} });
+kurCiz();
+
+// ---------- 4 metin ----------
+// kelime: [metin, zamir anahtarı ya da null]
+var M=[
+ [["أَنَا"],["اسْمِي","i"],["أَحْمَدُ."]],
+ [["هٰذَا"],["بَيْتِي","i"],["الصَّغِيرُ،"],["وَهٰذِهِ"],["أُسْرَتِي.","i"]],
+ [["أَبِي","i"],["مُعَلِّمٌ،"],["وَمَدْرَسَتُهُ","hu"],["قَرِيبَةٌ"],["مِنَ"],["البَيْتِ."]],
+ [["أُمِّي","i"],["طَبِيبَةٌ،"],["وَسَيَّارَتُهَا","ha"],["بَيْضَاءُ."]],
+ [["أَخِي","i"],["طَالِبٌ"],["مُجْتَهِدٌ،"],["وَكُتُبُهُ","hu"],["كَثِيرَةٌ."]],
+ [["أُخْتِي","i"],["صَغِيرَةٌ،"],["وَغُرْفَتُهَا","ha"],["جَمِيلَةٌ."]],
+ [["جَدِّي","i"],["وَجَدَّتِي","i"],["يَسْكُنَانِ"],["فِي"],["القَرْيَةِ،"],["وَبَيْتُهُمَا","huma"],["كَبِيرٌ."]],
+ [["نَحْنُ"],["نُحِبُّ"],["بَيْتَنَا","na"],["وَحَدِيقَتَنَا.","na"]],
+ [["يَا"],["صَدِيقِي،","i"],["أَيْنَ"],["بَيْتُكَ؟","ka"]],
+ [["وَأَنْتِ"],["يَا"],["زَيْنَبُ،"],["مَا"],["اسْمُ"],["مَدْرَسَتِكِ؟","ki"]],
+ [["يَا"],["طُلَّابُ،"],["هٰذَا"],["مُعَلِّمُكُمْ","kum"],["الجَدِيدُ."]],
+ [["الطَّالِبَاتُ"],["فِي"],["الفَصْلِ،"],["وَدَفَاتِرُهُنَّ","hunna"],["عَلَى"],["المَكْتَبِ."]],
+ [["الأَوْلَادُ"],["فِي"],["المَلْعَبِ،"],["وَكُرَتُهُمْ","hum"],["جَدِيدَةٌ."]]
+];
+var MTR="Benim adım Ahmed. Bu benim küçük evim, bu da ailem. Babam öğretmendir, okulu eve yakındır. Annem doktordur, arabası beyazdır. Kardeşim çalışkan bir öğrencidir, kitapları çoktur. Kız kardeşim küçüktür, odası güzeldir. Dedem ve ninem köyde oturur, ikisinin evi büyüktür. Biz evimizi ve bahçemizi severiz. Ey arkadaşım, senin evin nerede? Ya sen, ey Zeyneb, okulunun adı ne? Ey öğrenciler, bu sizin yeni öğretmeniniz. Kız öğrenciler sınıftadır, defterleri masanın üzerindedir. Çocuklar oyun alanındadır, topları yenidir.";
+var mDurum={}, mSecili=null, hedefSay=0;
+function metinCiz(){
+  hedefSay=0; var bulunan=0;
+  document.getElementById("metin").innerHTML=M.map(function(c,ci){
+    return c.map(function(w,wi){
+      var id=ci+"_"+wi; if(w[1]) hedefSay++;
+      var st=mDurum[id]||""; if(st==="ok") bulunan++;
+      return '<span class="w'+(st?" "+st:"")+(mSecili===id?" sel":"")+'" tabindex="0" data-id="'+id+'">'+esc(w[0])+'</span>';
+    }).join(" ");
+  }).join(" ");
+  document.getElementById("mSay").textContent="Bulunan: "+bulunan+" / "+hedefSay;
+}
+function kelime(id){ var p=id.split("_"); return M[+p[0]][+p[1]]; }
+document.getElementById("metin").addEventListener("click",function(e){
+  var w=e.target.closest(".w"); if(!w) return;
+  mSecili=w.dataset.id; var k=kelime(mSecili);
+  var pnl=document.getElementById("mPanel"); pnl.classList.add("on");
+  document.getElementById("mFb").textContent=""; document.getElementById("mFb").className="fb";
+  document.getElementById("mSoru").innerHTML='<span class="ar" style="font-size:30px">'+esc(k[0])+'</span> — Bu kelimede bitişen zamir var mı? Varsa hangisi?';
+  document.getElementById("mSec").innerHTML='<button class="chip" data-z="yok">Zamir yok</button>'+Z.map(function(z){ return '<button class="chip" data-z="'+z.k+'"><span class="ar">ـ'+esc(z.e)+'</span></button>'; }).join("");
+  metinCiz();
+});
+document.getElementById("mSec").addEventListener("click",function(e){
+  var b=e.target.closest("[data-z]"); if(!b||!mSecili) return;
+  var k=kelime(mSecili), dogru=k[1]||"yok", fb=document.getElementById("mFb");
+  if(b.dataset.z===dogru){
+    if(k[1]){ var z=Z.filter(function(x){return x.k===k[1];})[0]; mDurum[mSecili]="ok"; fb.textContent="Doğru! ـ"+z.e+" = "+z.tr+" ("+z.ad+")"; }
+    else { mDurum[mSecili]=""; fb.textContent="Doğru, bu kelimede bitişen isim zamiri yok."; }
+    fb.className="fb good";
+  } else {
+    if(!k[1] || mDurum[mSecili]!=="ok") mDurum[mSecili]= k[1] ? "no" : "";
+    fb.textContent="Tekrar dene."; fb.className="fb bad";
+  }
+  metinCiz();
+});
+document.getElementById("mGoster").onclick=function(){ M.forEach(function(c,ci){ c.forEach(function(w,wi){ if(w[1]) mDurum[ci+"_"+wi]="ok"; }); }); metinCiz(); };
+document.getElementById("mSifir").onclick=function(){ mDurum={}; mSecili=null; document.getElementById("mPanel").classList.remove("on"); metinCiz(); };
+document.getElementById("mCeviri").onclick=function(){ var p=document.getElementById("mTr"); p.textContent=MTR; p.style.display=p.style.display==="none"?"block":"none"; };
+metinCiz();
+
+// ---------- 5 cümle ----------
+// [önce, isim kökü (harekeli, sonda hareke ile), sonra, doğru zamir, ipucu]
+var C=[
+ ["أَنَا طَالِبٌ، وَهٰذَا ", "دَفْتَرِ", ".", "i", "Ben bir öğrenciyim, bu benim defterim."],
+ ["يَا مُحَمَّدُ، أَيْنَ ", "قَلَمُ", "؟", "ka", "Ey Muhammed, kalemin nerede?"],
+ ["يَا فَاطِمَةُ، هَلْ هٰذِهِ ", "حَقِيبَتُ", "؟", "ki", "Ey Fâtıma, bu senin çantan mı?"],
+ ["هٰذَا خَالِدٌ، وَهٰذِهِ ", "سَيَّارَتُ", ".", "hu", "Bu Hâlid, bu da onun arabası."],
+ ["هٰذِهِ مَرْيَمُ، وَهٰذَا ", "بَيْتُ", ".", "ha", "Bu Meryem, bu da onun evi."],
+ ["نَحْنُ طُلَّابٌ، وَهٰذِهِ ", "مَدْرَسَتُ", ".", "na", "Biz öğrencileriz, bu da bizim okulumuz."],
+ ["أَنْتُمْ طُلَّابٌ، وَهٰذَا ", "مُعَلِّمُ", ".", "kum", "Siz öğrencilersiniz, bu da sizin öğretmeniniz."],
+ ["أَنْتُنَّ طَالِبَاتٌ، وَهٰذِهِ ", "غُرْفَتُ", ".", "kunna", "Siz kız öğrencilersiniz, bu da sizin odanız."],
+ ["أَنْتُمَا أَخَوَانِ، وَهٰذَا ", "بَيْتُ", ".", "kuma", "Siz iki kardeşsiniz, bu da ikinizin evi."],
+ ["هُمَا صَدِيقَانِ، وَهٰذَا ", "فَصْلُ", ".", "huma", "Onlar iki arkadaştır, bu da ikisinin sınıfı."],
+ ["هُمْ مُهَنْدِسُونَ، وَهٰذِهِ ", "شَرِكَتُ", ".", "hum", "Onlar mühendistir, bu da onların şirketi."],
+ ["هُنَّ مُعَلِّمَاتٌ، وَهٰذِهِ ", "مَدْرَسَتُ", ".", "hunna", "Onlar kadın öğretmenlerdir, bu da onların okulu."],
+ ["أَنَا أُحِبُّ ", "أُمِّ", " كَثِيرًا.", "i", "Ben annemi çok severim."],
+ ["يَا أُسْتَاذُ، مَا ", "اسْمُ", "؟", "ka", "Ey hocam, adınız (adın) ne?"],
+ ["زَيْنَبُ طَالِبَةٌ، ", "كِتَابُ", " جَدِيدٌ.", "ha", "Zeyneb öğrencidir, onun kitabı yenidir."],
+ ["نَحْنُ نَسْكُنُ فِي القَرْيَةِ، وَ", "بَيْتُ", " كَبِيرٌ.", "na", "Biz köyde otururuz, evimiz büyüktür."]
+];
+var cSira=[], cI=0, cD=0, cY=0, cCevap=false;
+function cBasla(){ cSira=shuffle(C); cI=0; cD=0; cY=0; cGoster(); }
+function zBul(k){ return Z.filter(function(x){return x.k===k;})[0]; }
+function cGoster(){
+  var s=cSira[cI]; cCevap=false;
+  document.getElementById("cSent").innerHTML=esc(s[0])+esc(s[1])+'<span class="blank" id="cBlank">&nbsp;؟&nbsp;</span>'+esc(s[2]);
+  document.getElementById("cIpucu").textContent=s[4];
+  var dogru=zBul(s[3]), digerleri=shuffle(Z.filter(function(z){return z.k!==s[3];})).slice(0,3);
+  document.getElementById("cOpts").innerHTML=shuffle([dogru].concat(digerleri)).map(function(z){ return '<button class="opt" data-z="'+z.k+'"><span class="ar">ـ'+esc(z.e)+'</span><br><span style="font-size:14px">'+esc(z.tr)+'</span></button>'; }).join("");
+  document.getElementById("cFb").textContent=""; document.getElementById("cFb").className="fb";
+  document.getElementById("cD").textContent=cD; document.getElementById("cY").textContent=cY;
+  document.getElementById("cNo").textContent=(cI+1)+" / "+cSira.length;
+  document.getElementById("cBar").style.width=(cI/cSira.length*100)+"%";
+}
+document.getElementById("cOpts").addEventListener("click",function(e){
+  var b=e.target.closest(".opt"); if(!b||cCevap) return; cCevap=true;
+  var s=cSira[cI], z=zBul(s[3]), ok=b.dataset.z===s[3];
+  if(ok) cD++; else cY++;
+  document.querySelectorAll("#cOpts .opt").forEach(function(o){ if(o.dataset.z===s[3]) o.classList.add("right"); else if(o===b) o.classList.add("wrong"); });
+  document.getElementById("cBlank").textContent=z.e;
+  var fb=document.getElementById("cFb");
+  fb.textContent=(ok?"Doğru! ":"Doğrusu: ـ"+z.e+" ")+"("+z.tr+")"; fb.className="fb "+(ok?"good":"bad");
+  document.getElementById("cD").textContent=cD; document.getElementById("cY").textContent=cY;
+});
+document.getElementById("cNext").onclick=function(){
+  if(cI<cSira.length-1){ cI++; cGoster(); }
+  else { document.getElementById("cBar").style.width="100%"; document.getElementById("cFb").textContent="Bitti! "+cD+" doğru, "+cY+" yanlış. Yeniden başlamak için tekrar bas."; document.getElementById("cFb").className="fb good"; cSira=[]; cI=-1; document.getElementById("cNext").onclick=function(){ cBasla(); document.getElementById("cNext").onclick=sonraki; }; }
+};
+var sonraki=document.getElementById("cNext").onclick;
+cBasla();
+
+// ---------- 6 test ----------
+var T=[], tI=0, tD=0, tY=0, tCevap=false, TSAY=15;
+function soruUret(){
+  var tip=pick([0,1,2,3]), n=pick(I), z=pick(Z);
+  var digerZ=shuffle(Z.filter(function(x){return x.k!==z.k;})).slice(0,3);
+  if(tip===0){ // Arapça -> anlam
+    return {q:'<span class="ar">'+formHtml(n,z)+'</span><br>Bu kelimenin anlamı nedir?', ok:anlam(n,z), opts:[anlam(n,z)].concat(digerZ.map(function(x){return anlam(n,x);})), ar:false, ses:form(n,z)};
+  }
+  if(tip===1){ // anlam -> Arapça
+    return {q:'“'+esc(anlam(n,z))+'” Arapçası hangisi?', ok:form(n,z), opts:[form(n,z)].concat(digerZ.map(function(x){return form(n,x);})), ar:true};
+  }
+  if(tip===2){ // zamiri tanı
+    return {q:'<span class="ar">'+esc(form(n,z))+'</span><br>Bu kelimedeki zamir hangisidir?', ok:z.ad, opts:[z.ad].concat(digerZ.map(function(x){return x.ad;})), ar:false, ses:form(n,z)};
+  }
+  // ayrı zamir -> bitişen
+  var ayri=z.ayri+" + "+n.a;
+  var yanlislar=[];
+  if(n.ta) yanlislar.push(n.a.replace(/ٌ$/,"")+"ُ"+z.e); // ة koruma hatası
+  yanlislar.push("ال"+n.s.replace(/^اِ/,"ا")+"ُ"+z.e);
+  digerZ.forEach(function(x){ if(yanlislar.length<3) yanlislar.push(form(n,x)); });
+  return {q:'<span class="ar">'+esc(z.ayri)+'</span> ('+esc(AYRI_TR[z.k])+') + <span class="ar">'+esc(n.a)+'</span><br>Doğru birleşim hangisi?', ok:form(n,z), opts:[form(n,z)].concat(yanlislar.slice(0,3)), ar:true};
+}
+function tBasla(){ T=[]; var seen={}; while(T.length<TSAY){ var s=soruUret(); var key=s.q; if(seen[key]) continue; seen[key]=1; s.opts=shuffle(s.opts.filter(function(o,i,a){return a.indexOf(o)===i;})); T.push(s);} tI=0; tD=0; tY=0; tGoster(); }
+function tGoster(){
+  var s=T[tI]; tCevap=false;
+  document.getElementById("tQ").innerHTML=s.q+(s.ses?" "+sesBtn(s.ses):"");
+  document.getElementById("tOpts").innerHTML=s.opts.map(function(o,i){ return '<button class="opt" data-i="'+i+'">'+(s.ar?'<span class="ar">'+esc(o)+'</span>':esc(o))+'</button>'; }).join("");
+  document.getElementById("tFb").textContent=""; document.getElementById("tFb").className="fb";
+  document.getElementById("tD").textContent=tD; document.getElementById("tY").textContent=tY;
+  document.getElementById("tNo").textContent=(tI+1)+" / "+T.length;
+  document.getElementById("tBar").style.width=(tI/T.length*100)+"%";
+}
+document.getElementById("tOpts").addEventListener("click",function(e){
+  var b=e.target.closest(".opt"); if(!b||tCevap) return; tCevap=true;
+  var s=T[tI], sec=s.opts[+b.dataset.i], ok=sec===s.ok;
+  if(ok) tD++; else tY++;
+  document.querySelectorAll("#tOpts .opt").forEach(function(o){ var v=s.opts[+o.dataset.i]; if(v===s.ok) o.classList.add("right"); else if(o===b) o.classList.add("wrong"); });
+  var fb=document.getElementById("tFb"); fb.textContent=ok?"Doğru!":"Doğru cevap işaretlendi."; fb.className="fb "+(ok?"good":"bad");
+  document.getElementById("tD").textContent=tD; document.getElementById("tY").textContent=tY;
+});
+document.getElementById("tNext").onclick=function(){
+  if(tI<T.length-1){ tI++; tGoster(); }
+  else { document.getElementById("tBar").style.width="100%"; var p=Math.round(tD/T.length*100); var fb=document.getElementById("tFb"); fb.textContent="Test bitti: "+tD+" / "+T.length+" (%"+p+"). "+(p>=80?"Tebrikler!":"Tabloyu tekrar edip yeniden dene."); fb.className="fb "+(p>=80?"good":"bad"); }
+};
+document.getElementById("tYeni").onclick=tBasla;
+tBasla();
+})();
+</script>
+</body>
+</html>
