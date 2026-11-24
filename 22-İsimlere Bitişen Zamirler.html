@@ -126,12 +126,13 @@ tr.g3 td:first-child{border-inline-start:4px solid var(--p3)}
     <div class="rule"><span class="ex">الكِتَابُكَ</span> ✗ yanlış — <b class="ar">ال</b> ile zamir birlikte kullanılmaz.</div>
   </div>
   <div class="card">
-    <h2>On iki zamir</h2>
+    <h2>On dört siga (klasik sıra)</h2>
+    <p class="muted" style="margin:0 0 8px">Gâib (3. şahıs) → muhatab (2. şahıs) → mütekellim (1. şahıs). İkil (tesniye) zamirleri eril ve dişilde aynıdır: <span class="ar">ـهُمَا</span>, <span class="ar">ـكُمَا</span>.</p>
     <table>
       <thead><tr><th>Zamir</th><th>Anlam</th><th>Örnek</th><th class="hide-m">Ayrı zamiri</th></tr></thead>
       <tbody id="kuralT"></tbody>
     </table>
-    <p class="muted" style="margin-top:8px">Renkler: yeşil 1. şahıs (ben/biz), mavi 2. şahıs (sen/siz), kızıl 3. şahıs (o/onlar).</p>
+    <p class="muted" style="margin-top:8px">Renkler: kızıl gâib (o/onlar), mavi muhatab (sen/siz), yeşil mütekellim (ben/biz).</p>
   </div>
   <div class="card">
     <h2>Dikkat edilecek üç nokta</h2>
@@ -145,7 +146,7 @@ tr.g3 td:first-child{border-inline-start:4px solid var(--p3)}
 <section id="s-tablo">
   <div class="card">
     <h2>Çekim tablosu</h2>
-    <p class="muted">Bir isim seç; on iki zamirle hâli görünür. “Gizle” ile kendini dene, hücreye dokununca açılır.</p>
+    <p class="muted">Bir isim seç; on dört sigada hâli görünür. “Gizle” ile kendini dene, hücreye dokununca açılır.</p>
     <div class="row" id="isimler" style="margin:10px 0"></div>
     <div class="row" style="margin-bottom:10px">
       <button class="btn" id="bGizle">Arapçayı gizle</button>
@@ -228,18 +229,20 @@ tr.g3 td:first-child{border-inline-start:4px solid var(--p3)}
 // ---------- veri ----------
 // zamir: anahtar, ek (harekeli), ayrı zamir, şahıs grubu, Türkçe etiket, Türkçe iyelik biçimi indeksi (0:1t 1:1ç 2:2t 3:2ç 4:3)
 var Z=[
- {k:"i",  e:"ي",   ayri:"أَنَا",    g:1, tr:"benim",                    f:0, ad:"1. tekil (ben)"},
- {k:"na", e:"نَا",  ayri:"نَحْنُ",   g:1, tr:"bizim",                    f:1, ad:"1. çoğul (biz)"},
- {k:"ka", e:"كَ",   ayri:"أَنْتَ",   g:2, tr:"senin (erkek)",            f:2, ad:"2. tekil eril (sen)"},
- {k:"ki", e:"كِ",   ayri:"أَنْتِ",   g:2, tr:"senin (kadın)",            f:2, ad:"2. tekil dişil (sen)"},
- {k:"kuma",e:"كُمَا",ayri:"أَنْتُمَا", g:2, tr:"ikinizin",                f:4, ad:"2. ikil (siz ikiniz)"},
- {k:"kum",e:"كُمْ",  ayri:"أَنْتُمْ",  g:2, tr:"sizin (erkekler)",         f:3, ad:"2. çoğul eril (siz)"},
- {k:"kunna",e:"كُنَّ",ayri:"أَنْتُنَّ", g:2, tr:"sizin (kadınlar)",        f:3, ad:"2. çoğul dişil (siz)"},
- {k:"hu", e:"هُ",   ayri:"هُوَ",    g:3, tr:"onun (erkek)",             f:4, ad:"3. tekil eril (o)"},
- {k:"ha", e:"هَا",  ayri:"هِيَ",    g:3, tr:"onun (kadın)",             f:4, ad:"3. tekil dişil (o)"},
- {k:"huma",e:"هُمَا",ayri:"هُمَا",   g:3, tr:"ikisinin",                 f:4, ad:"3. ikil (o ikisi)"},
- {k:"hum",e:"هُمْ",  ayri:"هُمْ",    g:3, tr:"onların (erkekler)",        f:4, ad:"3. çoğul eril (onlar)"},
- {k:"hunna",e:"هُنَّ",ayri:"هُنَّ",   g:3, tr:"onların (kadınlar)",        f:4, ad:"3. çoğul dişil (onlar)"}
+ {k:"hu",   e:"هُ",   ayri:"هُوَ",     g:3, tr:"onun (erkek)",          f:4, ad:"3. tekil eril (o)"},
+ {k:"huma", e:"هُمَا", ayri:"هُمَا",    g:3, tr:"ikisinin (erkek)",      f:4, ad:"3. ikil eril (o ikisi)"},
+ {k:"hum",  e:"هُمْ",  ayri:"هُمْ",     g:3, tr:"onların (erkekler)",    f:4, ad:"3. çoğul eril (onlar)"},
+ {k:"ha",   e:"هَا",  ayri:"هِيَ",     g:3, tr:"onun (kadın)",          f:4, ad:"3. tekil dişil (o)"},
+ {k:"humaf",e:"هُمَا", ayri:"هُمَا",    g:3, tr:"ikisinin (kadın)",      f:4, ad:"3. ikil dişil (o ikisi)"},
+ {k:"hunna",e:"هُنَّ", ayri:"هُنَّ",    g:3, tr:"onların (kadınlar)",    f:4, ad:"3. çoğul dişil (onlar)"},
+ {k:"ka",   e:"كَ",   ayri:"أَنْتَ",    g:2, tr:"senin (erkek)",         f:2, ad:"2. tekil eril (sen)"},
+ {k:"kuma", e:"كُمَا", ayri:"أَنْتُمَا",  g:2, tr:"ikinizin (erkek)",      f:4, ad:"2. ikil eril (siz ikiniz)"},
+ {k:"kum",  e:"كُمْ",  ayri:"أَنْتُمْ",   g:2, tr:"sizin (erkekler)",      f:3, ad:"2. çoğul eril (siz)"},
+ {k:"ki",   e:"كِ",   ayri:"أَنْتِ",    g:2, tr:"senin (kadın)",         f:2, ad:"2. tekil dişil (sen)"},
+ {k:"kumaf",e:"كُمَا", ayri:"أَنْتُمَا",  g:2, tr:"ikinizin (kadın)",      f:4, ad:"2. ikil dişil (siz ikiniz)"},
+ {k:"kunna",e:"كُنَّ", ayri:"أَنْتُنَّ",  g:2, tr:"sizin (kadınlar)",      f:3, ad:"2. çoğul dişil (siz)"},
+ {k:"i",    e:"ي",    ayri:"أَنَا",     g:1, tr:"benim",                 f:0, ad:"1. tekil (ben)"},
+ {k:"na",   e:"نَا",  ayri:"نَحْنُ",    g:1, tr:"bizim",                 f:1, ad:"1. çoğul (biz)"}
 ];
 // isim: tenvinli hâl, kök (zamir öncesi, harekesiz son), Türkçe biçimler [1t,1ç,2t,2ç,3]
 var I=[
@@ -256,10 +259,12 @@ var I=[
  {a:"دَفْتَرٌ", s:"دَفْتَر", t:["defterim","defterimiz","defterin","defteriniz","defteri"], m:"defter"},
  {a:"اِسْمٌ",  s:"اِسْم",  t:["ismim","ismimiz","ismin","isminiz","ismi"], m:"isim"}
 ];
-var AYRI_TR={i:"benim",na:"bizim",ka:"senin",ki:"senin",kuma:"sizin ikinizin",kum:"sizin",kunna:"sizin",hu:"onun",ha:"onun",huma:"o ikisinin",hum:"onların",hunna:"onların"};
+var AYRI_TR={i:"benim",na:"bizim",ka:"senin",ki:"senin",kuma:"sizin ikinizin",kumaf:"sizin ikinizin",kum:"sizin",kunna:"sizin",hu:"onun",ha:"onun",huma:"o ikisinin",humaf:"o ikisinin",hum:"onların",hunna:"onların"};
 function form(n,z){ return z.k==="i" ? n.s+"ِ"+"ي" : n.s+"ُ"+z.e; }
 function formHtml(n,z){ return z.k==="i" ? esc(n.s+"ِ")+'<span class="suf">ي</span>' : esc(n.s+"ُ")+'<span class="suf">'+esc(z.e)+'</span>'; }
 function anlam(n,z){ var p=z.tr, w=n.t[z.f]; return p+" "+w; }
+function zBul(k){ return Z.filter(function(x){return x.k===k;})[0]; }
+function tekEk(a){ var g={}; return a.filter(function(z){ if(g[z.e]) return false; g[z.e]=1; return true; }); }
 function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
 function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;} return a; }
 function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
@@ -353,14 +358,14 @@ document.getElementById("metin").addEventListener("click",function(e){
   var pnl=document.getElementById("mPanel"); pnl.classList.add("on");
   document.getElementById("mFb").textContent=""; document.getElementById("mFb").className="fb";
   document.getElementById("mSoru").innerHTML='<span class="ar" style="font-size:30px">'+esc(k[0])+'</span> — Bu kelimede bitişen zamir var mı? Varsa hangisi?';
-  document.getElementById("mSec").innerHTML='<button class="chip" data-z="yok">Zamir yok</button>'+Z.map(function(z){ return '<button class="chip" data-z="'+z.k+'"><span class="ar">ـ'+esc(z.e)+'</span></button>'; }).join("");
+  document.getElementById("mSec").innerHTML='<button class="chip" data-z="yok">Zamir yok</button>'+Z.filter(function(z,i){ return Z.findIndex(function(y){return y.e===z.e;})===i; }).map(function(z){ return '<button class="chip" data-z="'+z.k+'"><span class="ar">ـ'+esc(z.e)+'</span></button>'; }).join("");
   metinCiz();
 });
 document.getElementById("mSec").addEventListener("click",function(e){
   var b=e.target.closest("[data-z]"); if(!b||!mSecili) return;
   var k=kelime(mSecili), dogru=k[1]||"yok", fb=document.getElementById("mFb");
-  if(b.dataset.z===dogru){
-    if(k[1]){ var z=Z.filter(function(x){return x.k===k[1];})[0]; mDurum[mSecili]="ok"; fb.textContent="Doğru! ـ"+z.e+" = "+z.tr+" ("+z.ad+")"; }
+  if(b.dataset.z===dogru || (k[1] && b.dataset.z!=="yok" && zBul(b.dataset.z).e===zBul(k[1]).e)){
+    if(k[1]){ var z=zBul(k[1]); mDurum[mSecili]="ok"; fb.textContent="Doğru! ـ"+z.e+" = "+z.tr+" ("+z.ad+")"; }
     else { mDurum[mSecili]=""; fb.textContent="Doğru, bu kelimede bitişen isim zamiri yok."; }
     fb.className="fb good";
   } else {
@@ -396,12 +401,11 @@ var C=[
 ];
 var cSira=[], cI=0, cD=0, cY=0, cCevap=false;
 function cBasla(){ cSira=shuffle(C); cI=0; cD=0; cY=0; cGoster(); }
-function zBul(k){ return Z.filter(function(x){return x.k===k;})[0]; }
 function cGoster(){
   var s=cSira[cI]; cCevap=false;
   document.getElementById("cSent").innerHTML=esc(s[0])+esc(s[1])+'<span class="blank" id="cBlank">&nbsp;؟&nbsp;</span>'+esc(s[2]);
   document.getElementById("cIpucu").textContent=s[4];
-  var dogru=zBul(s[3]), digerleri=shuffle(Z.filter(function(z){return z.k!==s[3];})).slice(0,3);
+  var dogru=zBul(s[3]), digerleri=tekEk(shuffle(Z.filter(function(z){return z.e!==dogru.e;}))).slice(0,3);
   document.getElementById("cOpts").innerHTML=shuffle([dogru].concat(digerleri)).map(function(z){ return '<button class="opt" data-z="'+z.k+'"><span class="ar">ـ'+esc(z.e)+'</span><br><span style="font-size:14px">'+esc(z.tr)+'</span></button>'; }).join("");
   document.getElementById("cFb").textContent=""; document.getElementById("cFb").className="fb";
   document.getElementById("cD").textContent=cD; document.getElementById("cY").textContent=cY;
@@ -429,7 +433,7 @@ cBasla();
 var T=[], tI=0, tD=0, tY=0, tCevap=false, TSAY=15;
 function soruUret(){
   var tip=pick([0,1,2,3]), n=pick(I), z=pick(Z);
-  var digerZ=shuffle(Z.filter(function(x){return x.k!==z.k;})).slice(0,3);
+  var digerZ=tekEk(shuffle(Z.filter(function(x){return x.e!==z.e;}))).slice(0,3);
   if(tip===0){ // Arapça -> anlam
     return {q:'<span class="ar">'+formHtml(n,z)+'</span><br>Bu kelimenin anlamı nedir?', ok:anlam(n,z), opts:[anlam(n,z)].concat(digerZ.map(function(x){return anlam(n,x);})), ar:false, ses:form(n,z)};
   }
@@ -437,7 +441,8 @@ function soruUret(){
     return {q:'“'+esc(anlam(n,z))+'” Arapçası hangisi?', ok:form(n,z), opts:[form(n,z)].concat(digerZ.map(function(x){return form(n,x);})), ar:true};
   }
   if(tip===2){ // zamiri tanı
-    return {q:'<span class="ar">'+esc(form(n,z))+'</span><br>Bu kelimedeki zamir hangisidir?', ok:z.ad, opts:[z.ad].concat(digerZ.map(function(x){return x.ad;})), ar:false, ses:form(n,z)};
+    function adQ(x){ return Z.filter(function(y){return y.e===x.e;}).length>1 ? x.ad.replace(/ (eril|dişil) \(/," (") : x.ad; }
+    return {q:'<span class="ar">'+esc(form(n,z))+'</span><br>Bu kelimedeki zamir hangisidir?', ok:adQ(z), opts:[adQ(z)].concat(digerZ.map(adQ)), ar:false, ses:form(n,z)};
   }
   // ayrı zamir -> bitişen
   var ayri=z.ayri+" + "+n.a;
