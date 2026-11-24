@@ -111,6 +111,32 @@ tr.g3 td:first-child{border-inline-start:4px solid var(--p3)}
 .rule{border-inline-start:4px solid var(--accent);padding:4px 12px;margin:10px 0}
 .ex{font-family:var(--f-ar);direction:rtl;unicode-bidi:isolate;font-size:26px;display:inline-block}
 @media (max-width:560px){td.f{font-size:23px}table.cekim td.f{font-size:19px;padding:6px 2px}table.cekim td.trc{font-size:13px}table.cekim .speak{display:none}.result{font-size:40px}th.hide-m,td.hide-m{display:none}}
+
+/* sayaç */
+.sayac{display:grid;gap:10px}
+.sy-ust{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.seg{display:flex;gap:4px;flex-wrap:wrap}
+.sy-kel .chip .ar{font-size:22px}
+.sy-ekran{border:1px solid var(--line);border-radius:16px;background:var(--soft);padding:14px 10px;text-align:center;min-height:210px;display:grid;align-content:center;gap:2px}
+.sy-no{font-size:14px;color:var(--muted);font-weight:500}
+.sy-siga{font-size:17px}
+.sy-siga .ar{font-size:30px;color:var(--accent);line-height:1.9;display:inline-block}
+.sy-form{margin-top:4px}
+.sy-form{font-family:var(--f-ar);direction:rtl;font-size:64px;line-height:1.35;min-height:86px}
+.sy-form .bekle{font:500 18px var(--f-body);color:var(--muted)}
+.sy-tr{font-size:19px;font-weight:500;min-height:28px}
+.sy-btn{display:flex;gap:10px;justify-content:center}
+.sy-cek{font-size:20px;padding:10px 34px}
+.sy-ipucu{margin:0;text-align:center;font-size:14px}
+.sy-liste{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;direction:rtl}
+.sy-k{border:1px solid var(--line);border-radius:10px;padding:4px 6px;text-align:center;cursor:pointer;background:var(--card);min-height:62px}
+.sy-k .f{font-family:var(--f-ar);font-size:24px;line-height:1.5;display:block}
+.sy-k .s{font-family:var(--f-ar);font-size:15px;color:var(--muted);display:block}
+.sy-k.bos .f{color:transparent}
+.sy-k.simdi{outline:3px solid var(--accent)}
+.sy-k.g3{border-top:3px solid var(--p3)}.sy-k.g2{border-top:3px solid var(--p2)}.sy-k.g1{border-top:3px solid var(--p1)}
+.sy-k.son{grid-column:span 1}
+@media (max-width:560px){.sy-form{font-size:48px}.sy-k .f{font-size:19px}.sy-cek{padding:10px 24px}}
 </style>
 </head>
 <body>
@@ -128,6 +154,7 @@ tr.g3 td:first-child{border-inline-start:4px solid var(--p3)}
   <button class="tab" data-s="metin">4 · Metinde bul</button>
   <button class="tab" data-s="cumle">5 · Cümle tamamla</button>
   <button class="tab" data-s="test">6 · Test</button>
+  <button class="tab" data-s="sayac">7 · Sayaç</button>
 </nav>
 
 <!-- 1 KURAL -->
@@ -222,6 +249,31 @@ tr.g3 td:first-child{border-inline-start:4px solid var(--p3)}
     <div class="opts" id="cOpts"></div>
     <div class="fb" id="cFb"></div>
     <div class="row" style="margin-top:10px"><button class="btn solid" id="cNext">Sonraki</button></div>
+  </div>
+</section>
+
+<!-- 7 SAYAC -->
+<section id="s-sayac">
+  <div class="card sayac">
+    <div class="sy-ust">
+      <div class="seg" role="group" aria-label="Tür"><button class="chip on" data-tur="isim">İsim</button><button class="chip" data-tur="edat">Edat (harf-i cer)</button></div>
+      <div class="seg" role="group" aria-label="Mod"><button class="chip on" data-mod="1">Hemen göster</button><button class="chip" data-mod="2">Önce siga, sonra çekim</button></div>
+    </div>
+    <div class="row sy-kel" id="syKel"></div>
+    <div class="row" id="syHal"></div>
+    <div class="sy-ekran" aria-live="polite">
+      <div class="sy-no" id="syNo"></div>
+      <div class="sy-siga" id="sySiga"></div>
+      <div class="sy-form" id="syForm"></div>
+      <div class="sy-tr" id="syTr"></div>
+    </div>
+    <div class="sy-btn">
+      <button class="btn" id="syGeri" aria-label="Geri">◀ Geri</button>
+      <button class="btn solid sy-cek" id="syCek">Çek ▶</button>
+      <button class="btn" id="syBas">Baştan</button>
+    </div>
+    <p class="muted sy-ipucu">Boşluk, Enter veya → tuşuyla da çekebilirsin. Aşağıdaki kutulara dokununca o sigaya gidilir.</p>
+    <div class="sy-liste" id="syListe"></div>
   </div>
 </section>
 
@@ -525,6 +577,92 @@ document.getElementById("tNext").onclick=function(){
 };
 document.getElementById("tYeni").onclick=tBasla;
 tBasla();
+
+// ---------- 7 sayaç ----------
+var SIGA=["Gâib müfred müzekker","Gâib tesniye müzekker","Gâib cemi müzekker","Gâibe müfrede müennes","Gâibe tesniye müennes","Gâibe cemi müennes","Muhatab müfred müzekker","Muhatab tesniye müzekker","Muhatab cemi müzekker","Muhataba müfrede müennes","Muhataba tesniye müennes","Muhataba cemi müennes","Mütekellim vahde","Mütekellim maa’l-gayr"];
+var GEN=["onun","o ikisinin","onların","onun","o ikisinin","onların","senin","ikinizin","sizin","senin","ikinizin","sizin","benim","bizim"];
+var DAT=["ona","o ikisine","onlara","ona","o ikisine","onlara","sana","ikinize","size","sana","ikinize","size","bana","bize"];
+var ABL=["ondan","o ikisinden","onlardan","ondan","o ikisinden","onlardan","senden","ikinizden","sizden","senden","ikinizden","sizden","benden","bizden"];
+var LOC=["onda","o ikisinde","onlarda","onda","o ikisinde","onlarda","sende","ikinizde","sizde","sende","ikinizde","sizde","bende","bizde"];
+var COM=["onunla","o ikisiyle","onlarla","onunla","o ikisiyle","onlarla","seninle","ikinizle","sizinle","seninle","ikinizle","sizinle","benimle","bizimle"];
+var EDAT=[
+ {a:"لِ",   p:"لَ",    hk:0, i:"لِي",   na:"لَنَا",   tr:function(j){return GEN[j]+" için";}, m:"için, -e ait"},
+ {a:"بِ",   p:"بِ",    hk:1, i:"بِي",   na:"بِنَا",   tr:function(j){return COM[j];}, m:"ile"},
+ {a:"فِي",  p:"فِي",   hk:1, i:"فِيَّ",  na:"فِينَا",  tr:function(j){return LOC[j];}, m:"içinde, -de"},
+ {a:"مِنْ", p:"مِنْ",  hk:0, i:"مِنِّي", na:"مِنَّا",  tr:function(j){return ABL[j];}, m:"-den"},
+ {a:"عَنْ", p:"عَنْ",  hk:0, i:"عَنِّي", na:"عَنَّا",  tr:function(j){return GEN[j]+" hakkında";}, m:"hakkında, -den"},
+ {a:"عَلَى",p:"عَلَيْ", hk:1, i:"عَلَيَّ", na:"عَلَيْنَا",tr:function(j){return GEN[j]+" üzerinde";}, m:"üzerinde"},
+ {a:"إِلَى",p:"إِلَيْ", hk:1, i:"إِلَيَّ", na:"إِلَيْنَا",tr:function(j){return DAT[j];}, m:"-e (doğru)"},
+ {a:"مَعَ", p:"مَعَ",  hk:0, i:"مَعِي",  na:"مَعَنَا",  tr:function(j){return COM[j];}, m:"ile, beraber"},
+ {a:"عِنْدَ",p:"عِنْدَ", hk:0, i:"عِنْدِي", na:"عِنْدَنَا", tr:function(j){return GEN[j]+" yanında";}, m:"yanında, -de"}
+];
+function edatForm(d,z){ if(z.k==="i") return d.i; if(z.k==="na") return d.na; var e=z.e; if(d.hk && /^هُ/.test(e)) e=e.replace(/^هُ/,"هِ"); return d.p+e; }
+function edatHtml(d,z){ var f=edatForm(d,z); if(z.k==="i"||z.k==="na"){ var k=z.k==="i"?d.i:d.na; return esc(f); } return esc(d.p)+'<span class="suf">'+esc(f.slice(d.p.length))+'</span>'; }
+var SY={tur:"isim", ki:0, ei:0, c:0, mod:1, j:-1, adim:0};
+function syKelime(){ return SY.tur==="isim" ? I[SY.ki] : EDAT[SY.ei]; }
+function syForm(j){ var z=Z[j]; return SY.tur==="isim" ? form(I[SY.ki],z,SY.c) : edatForm(EDAT[SY.ei],z); }
+function syHtml(j){ var z=Z[j]; return SY.tur==="isim" ? formHtml(I[SY.ki],z,SY.c) : edatHtml(EDAT[SY.ei],z); }
+function syTr(j){ var z=Z[j]; if(SY.tur==="isim"){ var n=I[SY.ki], t=anlam(n,z); return SY.c===1 ? sonKelime(t,belirtme) : SY.c===2 ? sonKelime(t,bulunma) : t; } return EDAT[SY.ei].tr(j); }
+function syCiz(){
+  document.querySelectorAll("[data-tur]").forEach(function(b){ b.classList.toggle("on", b.dataset.tur===SY.tur); });
+  document.querySelectorAll("[data-mod]").forEach(function(b){ b.classList.toggle("on", +b.dataset.mod===SY.mod); });
+  document.getElementById("syKel").innerHTML = SY.tur==="isim"
+    ? I.map(function(x,i){ return '<button class="chip'+(i===SY.ki?" on":"")+'" data-syk="'+i+'"><span class="ar">'+esc(tenvinli(x,SY.c))+'</span></button>'; }).join("")
+    : EDAT.map(function(x,i){ return '<button class="chip'+(i===SY.ei?" on":"")+'" data-syk="'+i+'"><span class="ar">'+esc(x.a)+'</span> <span style="font-size:13px">'+esc(x.m)+'</span></button>'; }).join("");
+  var h=document.getElementById("syHal"); h.style.display=SY.tur==="isim"?"flex":"none";
+  h.innerHTML=HAL.map(function(x,c){ return '<button class="chip'+(c===SY.c?" on":"")+'" data-syc="'+c+'">'+x.ad+' <span class="ar">'+x.ar+'</span></button>'; }).join("");
+  var j=SY.j, kel=syKelime();
+  if(j<0){
+    document.getElementById("syNo").textContent="0 / 14";
+    document.getElementById("sySiga").innerHTML='<span class="ar">'+esc(SY.tur==="isim"?tenvinli(kel,SY.c):kel.a)+'</span>';
+    document.getElementById("syForm").innerHTML='<span class="bekle">Başlamak için “Çek” düğmesine bas.</span>';
+    document.getElementById("syTr").textContent=SY.tur==="isim" ? kel.m+" · "+HAL[SY.c].ad : kel.m;
+  } else {
+    var z=Z[j];
+    document.getElementById("syNo").textContent=(j+1)+" / 14 · "+SIGA[j];
+    document.getElementById("sySiga").innerHTML='<span class="ar">'+esc(z.ayri)+'</span>';
+    if(SY.mod===2 && SY.adim===0){
+      document.getElementById("syForm").innerHTML='<span class="bekle">Söyle, sonra “Çek” ile kontrol et.</span>';
+      document.getElementById("syTr").textContent="";
+    } else {
+      document.getElementById("syForm").innerHTML=syHtml(j)+' '+sesBtn(syForm(j));
+      document.getElementById("syTr").textContent=syTr(j);
+    }
+  }
+  var bitti=j===13 && !(SY.mod===2 && SY.adim===0);
+  document.getElementById("syCek").textContent = bitti ? "Tekrar ↻" : (j<0 ? "Başla ▶" : "Çek ▶");
+  document.getElementById("syListe").innerHTML=Z.map(function(z,k){
+    var gor = k<j || (k===j && !(SY.mod===2 && SY.adim===0));
+    return '<div class="sy-k g'+z.g+(gor?"":" bos")+(k===j?" simdi":"")+'" data-syj="'+k+'"><span class="f">'+(gor?syHtml(k):"·")+'</span><span class="s">'+esc(z.ayri)+'</span></div>';
+  }).join("");
+}
+function syIleri(){
+  if(SY.j===13 && !(SY.mod===2 && SY.adim===0)){ SY.j=-1; SY.adim=0; syCiz(); return; }
+  if(SY.mod===2 && SY.j>=0 && SY.adim===0){ SY.adim=1; syCiz(); return; }
+  SY.j++; SY.adim=0; syCiz();
+  if(SY.mod===1 && SY.j>=0) oku(syForm(SY.j));
+}
+function syGeri(){ if(SY.j<0) return; SY.j--; SY.adim=1; syCiz(); }
+function sySifir(){ SY.j=-1; SY.adim=0; syCiz(); }
+document.getElementById("syCek").onclick=syIleri;
+document.getElementById("syGeri").onclick=syGeri;
+document.getElementById("syBas").onclick=sySifir;
+document.getElementById("s-sayac").addEventListener("click",function(e){
+  var b;
+  if((b=e.target.closest("[data-tur]"))){ SY.tur=b.dataset.tur; sySifir(); }
+  else if((b=e.target.closest("[data-mod]"))){ SY.mod=+b.dataset.mod; sySifir(); }
+  else if((b=e.target.closest("[data-syk]"))){ if(SY.tur==="isim") SY.ki=+b.dataset.syk; else SY.ei=+b.dataset.syk; sySifir(); }
+  else if((b=e.target.closest("[data-syc]"))){ SY.c=+b.dataset.syc; sySifir(); }
+  else if((b=e.target.closest("[data-syj]"))){ SY.j=+b.dataset.syj; SY.adim=1; syCiz(); }
+});
+document.addEventListener("keydown",function(e){
+  if(!document.getElementById("s-sayac").classList.contains("on")) return;
+  if(e.target.closest("input,select,textarea")) return;
+  if(e.key===" "||e.key==="Enter"||e.key==="ArrowRight"){ if(e.target.closest("button") && e.key!=="ArrowRight" && e.target.id!=="syCek") return; e.preventDefault(); syIleri(); }
+  if(e.key==="ArrowLeft"){ e.preventDefault(); syGeri(); }
+});
+syCiz();
+if(location.hash==="#sayac"){ document.querySelector('.tab[data-s="sayac"]').click(); }
 })();
 </script>
 </body>
