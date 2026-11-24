@@ -56,7 +56,7 @@ body.nc .ct:not(.ac) span,body.np .pt:not(.ac) span{visibility:hidden}
 <header>
   <p class="ar-title" id="arb"></p>
   <h1 id="trb"></h1>
-  <p>Her kelimenin altında kökü ve anlamı, her cümlenin altında çevirisi, paragrafın sonunda paragraf çevirisi var.</p>
+  <p>Her kelimenin altında anlamı, her cümlenin altında çevirisi, paragrafın sonunda paragraf çevirisi var.</p>
 </header>
 <div id="liste"></div>
 </div>
@@ -70,7 +70,7 @@ function temiz(w){return w.replace(/[،.:؟!«»,]/g,'');}
 
 function kelime(t){
   var ozel=t[2].charAt(0)==='*';
-  return '<span class="w"><span class="a">'+esc(temiz(t[0]))+'</span><span class="k'+(ozel?' n':'')+'">'+esc(ozel?t[2].slice(1):t[2])+'</span><span class="g">'+esc(t[1])+'</span></span>';
+  return '<span class="w"><span class="a">'+esc(temiz(t[0]))+'</span><span class="g">'+esc(t[1])+'</span></span>';
 }
 var h='<div class="card"><div class="lbl">Başlık</div><div class="s"><div class="words">'+D.b[2].map(kelime).join('')+'</div><div class="ct"><span>'+esc(D.b[1])+'</span></div></div></div>';
 D.p.forEach(function(p,i){
