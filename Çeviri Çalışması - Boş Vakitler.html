@@ -39,13 +39,13 @@ section{display:none}section.on{display:block}
 .s{padding:8px 0 10px;border-top:1px dashed var(--line)}
 .s:first-of-type{border-top:0;padding-top:2px}
 .words{display:flex;flex-wrap:wrap;direction:rtl;gap:6px 5px}
-.w{display:inline-flex;flex-direction:column;align-items:center;min-width:46px;max-width:150px;padding:2px 6px 5px;border:1px solid var(--line);border-radius:9px;background:var(--soft);cursor:pointer;text-align:center}
+.w{display:inline-flex;flex-direction:column;align-items:center;min-width:46px;max-width:150px;padding:2px 6px 5px;border:1px solid var(--line);border-radius:9px;background:var(--soft);text-align:center}
 .w .a{font-family:var(--f-ar);font-size:26px;line-height:1.65}
 .w .k{font-family:var(--f-ar);font-size:16px;line-height:1.3;color:var(--accent);direction:rtl}
 .w .k.n{font-family:var(--f-body);font-size:12.5px;font-style:italic;color:var(--muted);direction:ltr}
 .w .g{direction:ltr;font-size:14px;line-height:1.2;color:var(--gloss);margin-top:1px}
-.ct{margin:6px 0 0;padding:6px 10px;border-inline-start:3px solid var(--ok);background:var(--ok-bg);border-radius:6px;font-size:16.5px;line-height:1.4;cursor:pointer}
-.pt{margin:6px 0 0;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);line-height:1.5;cursor:pointer}
+.ct{margin:6px 0 0;padding:6px 10px;border-inline-start:3px solid var(--ok);background:var(--ok-bg);border-radius:6px;font-size:16.5px;line-height:1.4}
+.pt{margin:6px 0 0;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);line-height:1.5}
 .pt b{display:block;font-family:var(--f-display);color:var(--accent);font-size:14.5px}
 body.nk .w:not(.ac) .k,body.ng .w:not(.ac) .g{display:none}
 body.nc .ct:not(.ac) span,body.np .pt:not(.ac) span{visibility:hidden}
@@ -56,14 +56,8 @@ body.nc .ct:not(.ac) span,body.np .pt:not(.ac) span{visibility:hidden}
 <header>
   <p class="ar-title" id="arb"></p>
   <h1 id="trb"></h1>
-  <p>Her kelimenin altında kökü ve anlamı, her cümlenin altında çevirisi, paragrafın sonunda paragraf çevirisi var. Üstteki düğmelerle istediğini gizle; gizliyken dokununca açılır.</p>
+  <p>Her kelimenin altında kökü ve anlamı, her cümlenin altında çevirisi, paragrafın sonunda paragraf çevirisi var.</p>
 </header>
-<div class="bar">
-  <button class="sw on" data-c="ng">Kelime anlamı</button>
-  <button class="sw on" data-c="nk">Kök</button>
-  <button class="sw on" data-c="nc">Cümle çevirisi</button>
-  <button class="sw on" data-c="np">Paragraf çevirisi</button>
-</div>
 <div id="liste"></div>
 </div>
 <script>
@@ -87,12 +81,6 @@ D.p.forEach(function(p,i){
   h+='<div class="pt"><b>Paragraf çevirisi</b><span>'+esc(p.tr)+'</span></div></div>';
 });
 document.getElementById('liste').innerHTML=h;
-document.addEventListener('click',function(e){
-  var sw=e.target.closest('.sw');
-  if(sw){var on=sw.classList.toggle('on');document.body.classList.toggle(sw.dataset.c,!on);
-    if(on)document.querySelectorAll('.ac').forEach(function(x){x.classList.remove('ac');});return;}
-  var x=e.target.closest('.w,.ct,.pt');if(x)x.classList.toggle('ac');
-});
 </script>
 </body>
 </html>
